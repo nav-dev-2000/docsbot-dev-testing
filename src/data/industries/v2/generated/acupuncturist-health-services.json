@@ -1,0 +1,740 @@
+{
+  "slug": "acupuncturist-health-services",
+  "business": "Acupuncturist",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Acupuncture Practice Support",
+    "description": "DocsBot helps acupuncture clinics answer patient questions, qualify appointment requests, and surface care resources from approved clinic content.",
+    "canonicalPath": "/industry/acupuncturist-health-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for acupuncture clinics",
+    "headline": "Help patients understand acupuncture before and after every visit",
+    "subheadline": "DocsBot lets acupuncture practices create AI agents trained on their own FAQs, intake guidance, treatment descriptions, policies, aftercare instructions, and internal SOPs. Patients get clear answers, staff get fewer repetitive questions, and sensitive requests can be routed to a human.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions about first visits, needle safety, treatment preparation, cancellation policies, pricing pages, and clinic-specific services.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect appointment intent, preferred times, symptoms in the patient’s own words, and contact details before routing the request to staff.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give front desk and practitioner teams instant access to SOPs, consent language, aftercare scripts, and source-grounded clinic references.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate urgent, complex, diagnosis-related, or personal health questions to the right human with conversation context and a summary.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build an acupuncture AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps acupuncturists launch source-grounded AI agents that use the clinic’s own website, PDFs, intake documents, policies, care guides, and internal procedures. Agents can answer patient questions, support appointment intake, summarize conversations, identify content gaps, and trigger bounded follow-up workflows through customer-configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Solo acupuncturists and small clinic owners",
+        "roleContext": "Independent practices often need to educate prospective patients, manage scheduling questions, and keep communications consistent without adding administrative overhead.",
+        "bullets": [
+          {
+            "text": "Offer always-available answers about what to expect, how to prepare, visit length, fees, insurance notes, and aftercare from approved clinic content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Use AI Actions to capture lead details and appointment intent, then forward a structured summary to email, a form, CRM, or scheduling workflow configured by the clinic.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Review analytics to see which questions patients ask repeatedly and which website or FAQ pages need improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      },
+      {
+        "role": "Front desk and patient care coordinators",
+        "roleContext": "Reception teams handle recurring calls about preparation, cancellations, forms, parking, contraindications, payment, and follow-up instructions while also protecting patient privacy.",
+        "bullets": [
+          {
+            "text": "Draft consistent responses from clinic policies and route sensitive health questions to a practitioner rather than letting the agent improvise.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Summarize patient inquiries before handoff so staff can respond faster with context, requested service, urgency, and missing information.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support multilingual patient questions in more than 100 languages while staying grounded in the practice’s approved materials.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Integrated wellness and multidisciplinary practices",
+        "roleContext": "Clinics that combine acupuncture with chiropractic, massage, physical therapy, naturopathic, or wellness services need clear routing and consistent patient education across modalities.",
+        "bullets": [
+          {
+            "text": "Help patients understand which services are offered by the clinic and when a request should be reviewed by a licensed provider.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Route appointment requests, referral questions, or post-visit concerns to the right service line using customer-defined workflow rules.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Make shared SOPs, referral instructions, intake criteria, and care-team scripts searchable for staff through a private internal knowledge agent.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-acupuncture-use-growth",
+      "metric": "U.S. adult acupuncture use more than doubled from 2002 to 2022",
+      "claim": "NCCIH reports that U.S. adult use of acupuncture rose from 1.0% in 2002 to 2.2% in 2022, and that acupuncture is most commonly used for pain such as back, joint, or neck pain.",
+      "sourceTitle": "Acupuncture: Effectiveness and Safety | NCCIH",
+      "sourceUrl": "https://www.nccih.nih.gov/health/acupuncture-in-depth",
+      "sourceDate": "Crawled 2025",
+      "bestUsedFor": [
+        "patient demand",
+        "education needs",
+        "pain-related questions"
+      ]
+    },
+    {
+      "id": "src-acupuncture-evidence-safety",
+      "metric": "NCCIH summarizes evidence and safety considerations for acupuncture",
+      "claim": "NCCIH states that research shows acupuncture may help several pain conditions, including back or neck pain, knee pain associated with osteoarthritis, and postoperative pain.",
+      "sourceTitle": "Acupuncture: Effectiveness and Safety | NCCIH",
+      "sourceUrl": "https://www.nccih.nih.gov/health/acupuncture-in-depth",
+      "sourceDate": "Crawled 2025",
+      "bestUsedFor": [
+        "evidence-based education",
+        "care expectation questions",
+        "medical boundaries"
+      ]
+    },
+    {
+      "id": "src-hipaa-privacy-rule",
+      "metric": "HIPAA protects identifiable health information and gives patients access rights",
+      "claim": "HHS explains that the HIPAA Privacy Rule sets national standards for protected health information and gives individuals rights over their health information, including access and correction rights.",
+      "sourceTitle": "The HIPAA Privacy Rule | HHS.gov",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "privacy pressure",
+        "patient records",
+        "regulated health workflows"
+      ]
+    },
+    {
+      "id": "src-ftc-health-claims",
+      "metric": "Health-related advertising claims require reliable scientific evidence",
+      "claim": "The FTC’s Health Products Compliance Guidance says health-related claims must be substantiated with competent and reliable scientific evidence, including claims based on traditional use.",
+      "sourceTitle": "Health Products Compliance Guidance | Federal Trade Commission",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "marketing compliance",
+        "health claims",
+        "patient education boundaries"
+      ]
+    },
+    {
+      "id": "src-bls-acupuncturists",
+      "metric": "BLS defines acupuncturists as diagnosing, treating, and preventing disorders by stimulating specific acupuncture points",
+      "claim": "The Bureau of Labor Statistics occupational profile describes acupuncturists as practitioners who diagnose, treat, and prevent disorders by stimulating acupuncture points with needles.",
+      "sourceTitle": "Occupational Employment and Wages, May 2023: Acupuncturists | U.S. Bureau of Labor Statistics",
+      "sourceUrl": "https://www.bls.gov/oes/2023/may/oes291291.htm",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "profession definition",
+        "clinical workflow context",
+        "licensed service clarity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "First-visit education and expectation setting",
+      "problem": "Prospective patients often ask whether acupuncture hurts, what to wear, how long a visit takes, whether they should eat beforehand, and what results to expect.",
+      "agentWorkflow": "A DocsBot AI support agent answers from the clinic’s approved FAQ, preparation guide, consent overview, service pages, and aftercare content. It can explain clinic-specific visit flow, direct patients to forms, and escalate questions about diagnosis, risk, medication, pregnancy, or acute symptoms to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up current clinic policies, link the right intake packet, create a follow-up task, or send a handoff summary to the front desk.",
+      "exampleQuestionsOrRequests": [
+        "Is acupuncture painful, and what should I wear to my first appointment?",
+        "Can I come in if I’m taking blood thinners?",
+        "What should I do after my treatment today?"
+      ],
+      "businessOutcome": "Patients arrive better prepared while staff spend less time repeating basic education and more time handling care-specific conversations.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-acupuncture-use-growth"
+      ]
+    },
+    {
+      "name": "Appointment intake and request routing",
+      "problem": "Acupuncture clinics receive inquiries with incomplete details: preferred time, condition focus, new versus returning patient status, insurance questions, and urgency.",
+      "agentWorkflow": "The agent gathers structured intake details, asks clinic-approved qualifying questions, summarizes the request, and routes it to the right staff workflow. It can keep the interaction administrative and hand off medical judgments to a licensed practitioner.",
+      "liveContextOrTools": "Customer-configured AI Actions can submit a lead form, create a task, trigger a scheduling request, or forward the summary to CRM, email, helpdesk software, or a scheduling tool such as Calendly, Cal.com, or TidyCal when authorized.",
+      "exampleQuestionsOrRequests": [
+        "I’m a new patient with neck pain and want the earliest appointment this week.",
+        "Do you treat migraines, and can I book a consultation?",
+        "Can you send my intake request to the right person?"
+      ],
+      "businessOutcome": "Front desk teams receive cleaner appointment requests with less back-and-forth, while the clinic keeps humans responsible for final booking and clinical review.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Evidence-aware service explanations",
+      "problem": "Patients may arrive with broad wellness claims, internet myths, or condition-specific questions that need careful, evidence-aware language and clinic boundaries.",
+      "agentWorkflow": "DocsBot answers from approved clinic explanations, NCCIH-style educational resources the clinic chooses to provide, practitioner-reviewed FAQs, and disclaimers. It can explain what the clinic offers without diagnosing, promising outcomes, or making unsupported claims.",
+      "liveContextOrTools": "The agent can route high-risk or claim-sensitive questions for review, log repeated topics, and help the clinic identify pages that need clearer substantiation or disclaimers.",
+      "exampleQuestionsOrRequests": [
+        "What evidence is there for acupuncture for back pain?",
+        "Can acupuncture cure my condition?",
+        "How do you explain acupuncture to someone who is skeptical?"
+      ],
+      "businessOutcome": "The clinic communicates more consistently and reduces risk from overbroad health claims, especially where advertising or patient education language must be carefully substantiated.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-acupuncture-evidence-safety",
+        "src-ftc-health-claims"
+      ]
+    },
+    {
+      "name": "Post-visit aftercare and follow-up guidance",
+      "problem": "After treatment, patients may forget instructions about hydration, soreness, exercise, heat, rest, follow-up timing, or when to contact the clinic.",
+      "agentWorkflow": "A patient-facing agent answers from practitioner-approved aftercare guides and visit-type instructions. It can distinguish routine guidance from symptoms that should be escalated to the clinic or urgent care based on clinic-defined instructions.",
+      "liveContextOrTools": "When configured, the agent can trigger a follow-up reminder, create a staff review task, or send a conversation summary to the care team without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Is it normal to feel sore after acupuncture?",
+        "When should I schedule my next visit?",
+        "I felt dizzy after my appointment. Should someone call me?"
+      ],
+      "businessOutcome": "Patients get timely, consistent aftercare information, and staff receive clearer escalation summaries for issues that need human attention.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Internal SOP and compliance assistant",
+      "problem": "Staff need fast answers about intake steps, cleaning routines, consent forms, referral workflows, privacy handling, and approved language while moving between front desk and treatment-room tasks.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent trains on SOPs, PDFs, policies, consent templates, staff manuals, and practitioner notes approved for internal use. Team members can ask natural-language questions and get source-grounded answers with citations to the clinic’s documents.",
+      "liveContextOrTools": "Skills, APIs, connectors, and MCP Connectors can support approved lookups or workflow triggers across systems the clinic already uses, while permissions and logs keep access bounded.",
+      "exampleQuestionsOrRequests": [
+        "Where is the policy for late cancellations?",
+        "What script should I use when a patient asks for medical records?",
+        "Which aftercare PDF goes with cupping and electroacupuncture?"
+      ],
+      "businessOutcome": "Staff find the right procedure faster, onboarding becomes more consistent, and policy gaps become visible through DocsBot analytics.",
+      "icon": "FolderIcon",
+      "sourceIds": [
+        "src-hipaa-privacy-rule"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for patient education",
+      "problem": "Clinic websites often miss the exact questions patients ask before booking, causing calls, hesitation, and inconsistent explanations.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, and knowledge-gap discovery show repeated questions that are unanswered or poorly supported by existing content. The clinic can review those patterns and update FAQs, service pages, intake forms, or aftercare guides.",
+      "liveContextOrTools": "The agent can tag recurring topics, summarize trends for a weekly staff review, and help prioritize new documentation without replacing practitioner review.",
+      "exampleQuestionsOrRequests": [
+        "What are patients asking that our website does not answer?",
+        "Which questions should we add to the new patient FAQ?",
+        "Are people confused about insurance or pricing?"
+      ],
+      "businessOutcome": "The practice improves patient education content based on actual demand instead of guessing which pages need attention.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients a calmer path from curiosity to booked care",
+    "intro": "A DocsBot patient-facing agent can sit on your website as an embeddable chat widget, answer from clinic-approved sources, collect appointment intent, and escalate anything clinical, sensitive, or urgent to a person. It is especially useful for first-time patients who want clear explanations before calling.",
+    "requests": [
+      {
+        "request": "“I’ve never had acupuncture. What happens during the first visit?”",
+        "agentResponseStrategy": "Answer from the clinic’s first-visit guide, explain intake, treatment-room flow, typical preparation, and what to bring, then offer to collect appointment interest.",
+        "sourceTypes": [
+          "Clinic FAQ",
+          "New patient guide",
+          "Service pages",
+          "Consent overview"
+        ],
+        "optionalAction": "Collect name, contact information, preferred times, and new-patient status for staff follow-up.",
+        "icon": "FaceSmileIcon"
+      },
+      {
+        "request": "“Do you accept insurance or HSA/FSA cards?”",
+        "agentResponseStrategy": "Use the clinic’s payment, insurance, and billing policy pages to explain accepted payment methods and what the patient should verify with their plan.",
+        "sourceTypes": [
+          "Payment policy",
+          "Insurance FAQ",
+          "Billing scripts"
+        ],
+        "optionalAction": "Route coverage-specific questions to staff and include a summary of the patient’s plan question.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Can acupuncture help my back pain?”",
+        "agentResponseStrategy": "Provide a balanced educational answer from approved clinic materials and evidence summaries, avoid guarantees, and encourage the patient to consult the practitioner for individual guidance.",
+        "sourceTypes": [
+          "Practitioner-reviewed FAQ",
+          "NCCIH-style education pages",
+          "Clinic service descriptions"
+        ],
+        "optionalAction": "Offer to send the question to staff or collect appointment intent for a consultation.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-acupuncture-evidence-safety"
+        ]
+      },
+      {
+        "request": "“I have a symptom after treatment. What should I do?”",
+        "agentResponseStrategy": "Use approved aftercare guidance for routine questions, then escalate red-flag, urgent, or individualized medical questions according to the clinic’s instructions.",
+        "sourceTypes": [
+          "Aftercare guide",
+          "Escalation policy",
+          "Emergency instructions"
+        ],
+        "optionalAction": "Create a review task or handoff message with the patient’s description, contact details, and conversation summary.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can you send me your forms and parking instructions?”",
+        "agentResponseStrategy": "Retrieve the correct links from the clinic’s website or document library and answer practical logistics in the patient’s preferred language when possible.",
+        "sourceTypes": [
+          "Intake forms",
+          "Location page",
+          "Parking instructions",
+          "Accessibility notes"
+        ],
+        "optionalAction": "Send a form link or route a request for staff follow-up through the clinic’s configured workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“How do I get a copy of my records?”",
+        "agentResponseStrategy": "Answer from the clinic’s records-request policy and privacy notice, explain the administrative steps, and avoid exposing protected health information in the chat.",
+        "sourceTypes": [
+          "Privacy notice",
+          "Records policy",
+          "Staff scripts"
+        ],
+        "optionalAction": "Route the request to the records or front desk workflow for verification and human handling.",
+        "icon": "LockClosedIcon",
+        "sourceIds": [
+          "src-hipaa-privacy-rule"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make clinic knowledge easier for staff to find and follow",
+    "intro": "DocsBot can also run as a private internal knowledge agent for practitioners, receptionists, care coordinators, and managers. Train it on clinic procedures, staff manuals, approved patient scripts, consent language, training materials, and operational documents so the team can ask questions instead of digging through folders.",
+    "workflows": [
+      {
+        "name": "Front desk answer assistant",
+        "problem": "Receptionists need fast, consistent answers to practical patient questions while phones, check-ins, and scheduling requests compete for attention.",
+        "agentWorkflow": "The internal agent retrieves answers from payment policies, cancellation rules, provider schedules, visit-type descriptions, and approved scripts. It can draft a response for staff to review before sending.",
+        "sourceTypes": [
+          "Clinic policies",
+          "Service catalog",
+          "Phone scripts",
+          "FAQ pages"
+        ],
+        "optionalAction": "Draft an email, create a follow-up task, or route a question to the practitioner through a configured workflow.",
+        "outcome": "Fewer inconsistent answers and faster handling of routine patient inquiries.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Practitioner reference desk",
+        "problem": "Practitioners and assistants may need quick access to internal notes, protocol references, consent language, or aftercare instructions during a busy clinic day.",
+        "agentWorkflow": "DocsBot searches approved internal documents and returns source-grounded answers so the team can verify the underlying material rather than relying on memory.",
+        "sourceTypes": [
+          "SOPs",
+          "Aftercare PDFs",
+          "Training documents",
+          "Consent templates"
+        ],
+        "optionalAction": "Summarize the relevant procedure or prepare a staff note for review.",
+        "outcome": "Treatment-room and follow-up workflows stay more consistent across providers and locations.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Privacy and records workflow support",
+        "problem": "Patient record requests, privacy questions, and health information handling require careful, policy-based responses.",
+        "agentWorkflow": "The agent answers from the clinic’s privacy notice, HIPAA procedures, records-request policy, and staff training materials. It can remind staff when verification or human review is required.",
+        "sourceTypes": [
+          "Privacy notice",
+          "HIPAA procedures",
+          "Records policy",
+          "Training materials"
+        ],
+        "optionalAction": "Create a records-request task or handoff summary without disclosing protected health information in the chat.",
+        "outcome": "Staff can respond more confidently while keeping sensitive workflows inside defined permissions and review paths.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-hipaa-privacy-rule"
+        ]
+      },
+      {
+        "name": "Marketing content review helper",
+        "problem": "Acupuncture practices need clear service descriptions without overstating benefits or making unsupported health claims.",
+        "agentWorkflow": "DocsBot can help staff compare draft website copy, FAQs, or email text against approved clinic language and evidence references, then flag places where a practitioner should review wording.",
+        "sourceTypes": [
+          "Approved service pages",
+          "Evidence summaries",
+          "Brand guidelines",
+          "FTC-aware claim guidance"
+        ],
+        "optionalAction": "Generate a practitioner-review checklist or summarize claim-sensitive copy for approval.",
+        "outcome": "Patient education stays clearer and more consistent before content goes live.",
+        "icon": "PencilIcon",
+        "sourceIds": [
+          "src-ftc-health-claims"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from clinic content",
+      "mainLandingPageContext": "DocsBot trains AI agents on websites, help centers, internal content, documents, PDFs, and other configured knowledge sources to produce answers grounded in approved material.",
+      "industryApplication": "Train an acupuncture agent on first-visit FAQs, service descriptions, aftercare instructions, consent explanations, parking details, pricing pages, and clinic policies.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Website widget and patient support experience",
+      "mainLandingPageContext": "DocsBot agents can appear in a website or product chat widget and provide instant customer support while escalating complex questions to humans.",
+      "industryApplication": "Place an agent on the clinic website so prospective patients can ask practical questions before booking, then route clinical or sensitive questions to staff.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as live lookups, summaries, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect appointment intent, create a front desk task, forward an intake summary, trigger a follow-up workflow, or look up approved clinic context without giving the agent unrestricted access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for staff",
+      "mainLandingPageContext": "DocsBot can act as a private internal assistant trained on SOPs, policies, wikis, documents, and team knowledge for fast source-grounded employee answers.",
+      "industryApplication": "Give practitioners and front desk staff a searchable assistant for procedures, intake steps, aftercare scripts, privacy rules, referral workflows, and onboarding materials.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and discovery of missing knowledge.",
+      "industryApplication": "See what patients ask about most often, where the agent lacks approved answers, and which acupuncture FAQ, preparation, pricing, or aftercare pages need updates.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, access controls, and does not use customer data to train public models.",
+      "industryApplication": "Use permissioned sources and defined escalation paths for health-service workflows where patient privacy, staff access, and sensitive conversations matter.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for health-service teams that need private knowledge access, reviewable conversations, and consistent answers from approved sources.",
+      "Supports patient education and staff enablement without forcing your clinic to build its own retrieval system.",
+      "Helps clinics learn from real questions so FAQs, aftercare guides, and internal procedures improve over time."
+    ],
+    "whyTheseReviewsFit": "Acupuncture practices need trustworthy patient education, internal knowledge access, and careful handling of health-related questions. DocsBot proof from healthcare communications, education, and content-library teams shows how source-grounded AI agents can support learning, reduce manual interaction, and make owned knowledge easier to use.",
+    "trustClaimIcons": [
+      "ShieldCheckIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for acupuncture clinics",
+    "audience": [
+      "Acupuncturists",
+      "Acupuncture clinic owners",
+      "Front desk teams",
+      "Integrated wellness practices",
+      "Patient care coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "alternative-medicine",
+    "chiropractic-office",
+    "health-coaching",
+    "home-health-services",
+    "athletic-trainer",
+    "dentistry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "acupuncturist-health-services",
+    "webSearchQueries": [
+      "CDC acupuncture utilization United States adults 2022 acupuncture data",
+      "NCCIH acupuncture what to know safety evidence",
+      "BLS acupuncture offices employment acupuncturists occupational outlook",
+      "HHS HIPAA Privacy Rule patient access health information right to access",
+      "FTC health products advertising claims competent and reliable scientific evidence acupuncture wellness"
+    ],
+    "sourceUrls": [
+      "https://www.nccih.nih.gov/health/acupuncture-in-depth",
+      "https://www.hhs.gov/hipaa/for-professionals/privacy/index.html",
+      "https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance",
+      "https://www.bls.gov/oes/2023/may/oes291291.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45174,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 24950,
+        "outputTokens": 8180,
+        "reasoningOutputTokens": 189,
+        "totalTokens": 53354,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.190131,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.210131
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25512,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 10536,
+          "outputTokens": 5331,
+          "reasoningOutputTokens": 189,
+          "totalTokens": 30843,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.110049,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.130049
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19662,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14414,
+          "outputTokens": 2849,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22511,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080082,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080082
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1542884841-9f546e727bca?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU5MTB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Acupuncturist background image",
+    "source": "legacy-industry",
+    "query": "Acupuncturist"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer patient questions without giving medical advice or diagnosing?",
+      "answer": "Yes. DocsBot can be trained on your approved FAQs, service descriptions, consent language, aftercare instructions, and escalation rules so it answers within defined boundaries. For individualized, urgent, diagnosis-related, medication, pregnancy, or complex symptom questions, the agent can route the conversation to staff with a summary instead of improvising.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce front desk workload in a small acupuncture clinic?",
+      "answer": "DocsBot can handle repetitive questions about first visits, preparation, pricing pages, insurance notes, parking, forms, cancellation policies, and aftercare from your approved content. It can also collect appointment intent, preferred times, new-versus-returning status, and contact details before handing a structured summary to your team.",
+      "role": "Front desk and patient care coordinators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What kinds of patient questions are safe for the agent to answer automatically?",
+      "answer": "The best fit is practical and educational information you already publish: what to expect, what to wear, visit length, payment options, how to prepare, routine aftercare, forms, location details, and clinic policies. Clinical judgment, red-flag symptoms, contraindications, and personal health advice should be escalated to a licensed provider.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us convert website visitors into booked appointment requests?",
+      "answer": "Yes. A patient-facing agent can answer pre-booking questions, reduce uncertainty for first-time patients, and collect structured appointment interest. With customer-configured AI Actions, Skills, APIs, connectors, or forms, it can forward the request to email, CRM, a scheduling workflow, or another staff review process while leaving final booking control with your team.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent understand acupuncture-specific topics like needles, soreness, cupping, electroacupuncture, or treatment plans?",
+      "answer": "It can answer acupuncture-specific questions when those topics are present in the sources you provide. For example, you can train it on practitioner-reviewed service pages, aftercare PDFs, modality descriptions, consent overviews, and FAQs. If the source content is missing or too thin, DocsBot analytics can help reveal those knowledge gaps.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot prevent unsupported claims like “acupuncture cures” a condition?",
+      "answer": "DocsBot should be trained on approved, evidence-aware language and instructed to avoid guarantees, diagnoses, or overbroad claims. This matters because the FTC says health-related claims must be supported by competent and reliable scientific evidence, including claims based on traditional use.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-health-claims"
+      ]
+    },
+    {
+      "question": "Can we use the agent to explain evidence for acupuncture without sounding either too vague or too promotional?",
+      "answer": "Yes. You can provide practitioner-reviewed explanations and evidence summaries, then instruct the agent to use balanced language and escalate individual treatment questions. NCCIH summarizes research showing acupuncture may help several pain conditions, including back or neck pain, knee osteoarthritis pain, and postoperative pain.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-acupuncture-evidence-safety"
+      ]
+    },
+    {
+      "question": "How would DocsBot handle a patient asking if acupuncture is right for their specific symptoms?",
+      "answer": "The agent can provide general educational information from your approved materials, ask for administrative context if appropriate, and offer to route the question to a practitioner. It should not decide suitability, diagnose, assess risk, or recommend a personalized treatment plan unless your licensed staff reviews the request.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent support aftercare questions after a visit?",
+      "answer": "Yes. Train it on your approved aftercare guides, follow-up timing, routine soreness guidance, activity recommendations, and escalation instructions. For symptoms that your clinic defines as urgent, unusual, or individualized, DocsBot can collect the patient’s description and route a handoff summary to staff for review.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What about HIPAA and patient privacy if people type health details into chat?",
+      "answer": "Acupuncture practices should treat identifiable health details carefully. DocsBot supports security controls such as role-based permissions, access controls, encryption in transit and at rest, and customer-defined escalation paths. HIPAA sets national standards for protected health information and gives patients rights over their health information, including access and correction rights.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-privacy-rule"
+      ]
+    },
+    {
+      "question": "Can we keep protected health information out of the public-facing agent?",
+      "answer": "You can design the workflow to minimize sensitive data collection, use disclaimers, avoid exposing records in chat, and route personal health questions to a human review path. If you configure actions or integrations, keep them scoped to approved tasks such as creating a review request, sending a summary, or notifying staff without displaying private records to the patient.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot integrate with our scheduling, forms, CRM, or practice management process?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, forms, webhooks, and MCP Connectors. That can include collecting appointment intent, sending a handoff email, creating a task, forwarding a lead summary, or requesting a meeting through tools such as Calendly, Cal.com, or TidyCal when your clinic authorizes the workflow.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent book appointments directly, or should it only request appointments?",
+      "answer": "Most clinics should start with appointment request intake rather than fully automated booking. DocsBot can collect preferred times, service interest, new-patient status, contact details, and urgency, then route the summary to staff or a scheduling workflow. Humans can stay responsible for availability, clinical fit, insurance issues, and edge cases.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How long does implementation take if our policies and FAQs are scattered across PDFs, website pages, and staff notes?",
+      "answer": "DocsBot is designed to train on websites, PDFs, documents, internal content, and other configured knowledge sources. The main implementation work is usually content cleanup: deciding which files are approved, removing outdated language, adding escalation rules, and testing real patient questions before launch.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Do we need technical staff to maintain the agent?",
+      "answer": "Not for everyday content updates and review workflows. A clinic owner, manager, or trained coordinator can manage approved sources, review logs, update FAQs, and refine instructions. Technical help may be useful for deeper API, connector, CRM, or scheduling workflows, especially if you want live lookups or automated task creation.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the same system support both patients and staff?",
+      "answer": "Yes. You can use a patient-facing agent for website questions and a private internal knowledge agent for staff. The internal agent can search SOPs, privacy procedures, cancellation policies, scripts, consent templates, aftercare PDFs, and onboarding materials so staff get source-grounded answers without exposing internal documents publicly.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would a multidisciplinary clinic route acupuncture, massage, chiropractic, and wellness inquiries correctly?",
+      "answer": "DocsBot can be trained on each service line’s approved content and instructed to ask routing questions such as service interest, location, provider type, new-versus-returning status, and urgency. With configured workflows, it can send summaries to the right front desk queue, provider team, email, CRM, form, or task system.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help new receptionists answer consistently during onboarding?",
+      "answer": "Yes. A private internal agent can give new staff quick answers from approved phone scripts, payment policies, cancellation rules, intake steps, consent language, parking instructions, and aftercare references. It helps reduce reliance on memory while still letting managers review sensitive or unusual questions.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we know whether the agent is actually helping instead of just adding another tool?",
+      "answer": "Track the questions it answers, appointment requests captured, escalations created, repeated unanswered topics, staff time saved, and changes in front desk call volume. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to support that review.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we see what patients are asking before they book?",
+      "answer": "Yes. DocsBot conversation logs and knowledge-gap reporting can show recurring pre-booking questions about pain, safety, insurance, fees, visit length, forms, and aftercare. That gives your clinic practical input for improving FAQs, service pages, intake forms, and staff scripts based on actual patient demand.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why is patient education such a big part of the ROI for acupuncture clinics?",
+      "answer": "Many acupuncture prospects are trying to understand safety, evidence, expectations, and whether the service fits their situation before they call. NCCIH reports that U.S. adult acupuncture use rose from 1.0% in 2002 to 2.2% in 2022, with pain among the most common reasons for use.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-acupuncture-use-growth"
+      ]
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot?",
+      "answer": "Compare whether the tool can answer from your approved clinic sources, show source-grounded responses, support human escalation, manage internal knowledge, review logs, discover content gaps, and trigger bounded workflows. For a health-service setting, governance, content control, and escalation design matter more than a generic chat interface.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can patients ask questions in languages other than English?",
+      "answer": "Yes. DocsBot can support patient questions in more than 100 languages while staying grounded in your approved materials. Clinics should still review critical translations, publish key policies clearly, and route sensitive clinical questions to bilingual staff or an appropriate human review path when needed.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot use our clinic content or patient conversations to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and granular access controls, which are important when a clinic is centralizing patient-facing content and internal procedures.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "What should we prepare before launching an acupuncture AI agent?",
+      "answer": "Start with your first-visit guide, service descriptions, pricing and insurance pages, cancellation policy, intake instructions, privacy notice, consent overview, aftercare PDFs, emergency or escalation language, and staff scripts. Then test real scenarios: skeptical prospects, nervous first-timers, medication questions, post-treatment symptoms, records requests, and booking requests.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with records-request questions without exposing patient information?",
+      "answer": "Yes. Train it on your records-request policy, privacy notice, and staff scripts so it explains the administrative process and routes the request for verification. It should not display protected health information in chat. HIPAA gives individuals rights over their health information, including access and correction rights.",
+      "role": "Front desk and patient care coordinators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-privacy-rule"
+      ]
+    },
+    {
+      "question": "How do we keep practitioners comfortable with AI in patient communication?",
+      "answer": "Give practitioners control over approved sources, escalation rules, claim-sensitive wording, and review workflows. Start with low-risk content such as logistics, preparation, policies, and routine aftercare. Then review transcripts together to refine instructions, add missing content, and confirm the agent is staying inside clinic boundaries.",
+      "role": "Integrated wellness and multidisciplinary practices",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What pricing or procurement questions should a small clinic ask before buying?",
+      "answer": "Ask which use cases are included, how many agents you need, whether patient-facing and internal agents are separate, what usage limits apply, how source updates work, what support is available, and whether any custom API, connector, or scheduling workflow work is needed beyond the base setup.",
+      "role": "Solo acupuncturists and small clinic owners",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

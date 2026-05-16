@@ -1,0 +1,737 @@
+{
+  "slug": "blockchain-solutions",
+  "business": "Blockchain Solutions",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Blockchain Support and Web3 Operations",
+    "description": "DocsBot helps blockchain teams deliver source-grounded user support, developer guidance, and internal knowledge access while routing complex cases faster.",
+    "canonicalPath": "/industry/blockchain-solutions"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for blockchain products, protocols, and Web3 teams",
+    "headline": "DocsBot AI agents for blockchain support and operations",
+    "subheadline": "Train DocsBot on your docs, token policies, wallet guides, API references, governance materials, and internal runbooks so users and employees get fast answers, clearer handoffs, and safer escalation paths without relying on tribal knowledge.",
+    "proofBullets": [
+      {
+        "text": "Answer wallet, staking, API, governance, integration, and onboarding questions from approved blockchain documentation.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect support details, summarize incidents, route tickets, and escalate sensitive account, security, or transaction issues to humans.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Help developer relations and support teams find protocol rules, changelogs, SDK guidance, and known issue notes instantly.",
+        "icon": "CodeBracketIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or MCP options for approved live lookups, record updates, workflow triggers, and handoffs.",
+        "icon": "CpuChipIcon"
+      }
+    ],
+    "primaryCta": "Build your blockchain AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps blockchain solution providers create AI agents trained on their own public and private knowledge. Agents can support users in a website or product widget, assist internal teams in private chat, retrieve source-grounded answers from technical docs, summarize conversations, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Developer relations and protocol documentation teams",
+        "roleContext": "Blockchain users often need precise answers about contracts, SDKs, wallets, bridges, fees, staking, governance, and network behavior. DocsBot helps make that documentation easier to query without forcing users to read every release note or reference page.",
+        "bullets": [
+          {
+            "text": "Give developers source-grounded answers from API references, tutorials, changelogs, GitHub-style docs, and implementation notes.",
+            "icon": "CodeBracketIcon"
+          },
+          {
+            "text": "Surface repeated unanswered questions so documentation teams can improve guides, examples, and onboarding flows.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Support global builder communities with answers in more than 100 languages from the same approved knowledge base.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "CommandLineIcon"
+      },
+      {
+        "role": "Support, trust, and community operations leaders",
+        "roleContext": "Blockchain support teams handle high-volume education, onboarding, and troubleshooting while also protecting users from risky or sensitive requests. DocsBot can answer routine questions and prepare clean handoffs when a human must review the case.",
+        "bullets": [
+          {
+            "text": "Automate first-line answers for common questions about wallets, transactions, account setup, integrations, and product policies.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize user context and route complex cases to support, compliance, security, or engineering through configured workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Keep escalation boundaries clear for fraud, legal, financial, security, and account-specific requests.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Sales, partnerships, and solutions engineering teams",
+        "roleContext": "Blockchain infrastructure, custody, analytics, payments, and enterprise Web3 teams need fast answers to fit, security, pricing, implementation, and compliance questions. DocsBot can help qualify interest and equip sellers with approved product knowledge.",
+        "bullets": [
+          {
+            "text": "Answer presales questions from service catalogs, implementation guides, FAQs, security notes, and sales enablement materials.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect lead details such as company, use case, region, timeline, chain support, and integration requirements through structured intake.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft handoff summaries for sales, solutions engineering, or support while leaving pricing, legal terms, and commitments to humans.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-chainalysis-adoption-2024",
+      "metric": "Global crypto adoption remains geographically broad",
+      "claim": "Chainalysis reported that Central and Southern Asia and Oceania led its 2024 Global Crypto Adoption Index, with activity across exchanges, DeFi, merchant services, and stablecoins.",
+      "sourceTitle": "The 2024 Global Crypto Adoption Index",
+      "sourceUrl": "https://www.chainalysis.com/blog/2024-global-crypto-adoption-index/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "global user education demand",
+        "multilingual support",
+        "regional blockchain adoption"
+      ]
+    },
+    {
+      "id": "src-chainalysis-western-europe-2024",
+      "metric": "Western Europe received $987.25 billion in on-chain value",
+      "claim": "Chainalysis estimated Central, Northern, and Western Europe received $987.25 billion in on-chain value from July 2023 through June 2024, or 21.7% of global transaction volume.",
+      "sourceTitle": "2024 Western Europe Crypto Adoption: Stablecoins Dominate",
+      "sourceUrl": "https://www.chainalysis.com/blog/2024-western-europe-crypto-adoption/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "transaction scale",
+        "enterprise blockchain demand",
+        "regional market complexity"
+      ]
+    },
+    {
+      "id": "src-fbi-crypto-fraud-2023",
+      "metric": "$5.6 billion in reported cryptocurrency fraud losses in 2023",
+      "claim": "The FBI reported more than $5.6 billion in cryptocurrency-related fraud losses in 2023, including large losses from cryptocurrency investment fraud.",
+      "sourceTitle": "2023 Cryptocurrency Fraud Report Released",
+      "sourceUrl": "https://www.fbi.gov/news/stories/2023-cryptocurrency-fraud-report-released",
+      "sourceDate": "2024-09-09",
+      "bestUsedFor": [
+        "fraud risk",
+        "escalation boundaries",
+        "user education"
+      ]
+    },
+    {
+      "id": "src-sec-crypto-scam-alert-2024",
+      "metric": "SEC warned investors about crypto asset scam tactics",
+      "claim": "The SEC Office of Investor Education and Advocacy issued a May 2024 alert describing common ways fraudsters lure victims into scams involving crypto assets.",
+      "sourceTitle": "Investor Alert: 5 Ways Fraudsters May Lure Victims Into Scams Involving Crypto Asset Securities",
+      "sourceUrl": "https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset",
+      "sourceDate": "2024-05-29",
+      "bestUsedFor": [
+        "risk education",
+        "fraud warnings",
+        "high-impact escalation"
+      ]
+    },
+    {
+      "id": "src-electric-capital-dev-report-2024",
+      "metric": "One in three crypto developers works on multiple chains",
+      "claim": "Electric Capital’s 2024 developer report found that crypto developer and user activity is increasingly global and cross-chain, with one in three crypto developers working on multiple chains.",
+      "sourceTitle": "2024 Crypto Developer Report",
+      "sourceUrl": "https://www.developerreport.com/developer-report?s=bitcoin",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "developer support complexity",
+        "cross-chain documentation",
+        "technical enablement"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Protocol and product documentation assistant",
+      "problem": "Blockchain documentation can span wallet setup, smart contracts, APIs, token mechanics, governance, and chain-specific behavior, making it hard for users to find the right answer quickly.",
+      "agentWorkflow": "DocsBot trains on approved docs, FAQs, API references, changelogs, tutorials, and policy pages. The agent answers in the product’s voice, cites the relevant source material, and flags repeated unanswered questions so documentation teams can improve coverage.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved status fields, retrieve relevant docs based on product metadata, or create a documentation-gap task for the team.",
+      "exampleQuestionsOrRequests": [
+        "How do I connect my wallet to this app?",
+        "Which chains does this API endpoint support?",
+        "Where can I find the latest staking withdrawal rules?",
+        "Why did my bridge transaction show as pending?"
+      ],
+      "businessOutcome": "Reduce repetitive support and docs navigation friction while giving product, support, and developer relations teams visibility into what users are trying to learn.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-electric-capital-dev-report-2024"
+      ]
+    },
+    {
+      "name": "User education and fraud-aware support triage",
+      "problem": "Blockchain users ask support teams for help with transactions, wallets, seed phrases, scams, and account-specific concerns, but sensitive or risky cases need clear human review paths.",
+      "agentWorkflow": "DocsBot answers general education questions from approved help content, collects details for troubleshooting, summarizes the conversation, and routes suspicious, account-specific, legal, security, or financial requests to the right human queue.",
+      "liveContextOrTools": "Customer-configured workflows can create a support ticket, notify trust and safety, attach a conversation summary, or route cases by risk category without allowing the agent to make high-impact decisions.",
+      "exampleQuestionsOrRequests": [
+        "Is this a legitimate support message?",
+        "What should I do if I clicked a suspicious token airdrop link?",
+        "Can you explain why I should never share a seed phrase?",
+        "I sent funds to the wrong address. What information should I provide to support?"
+      ],
+      "businessOutcome": "Give users faster educational support while preserving human control for fraud, security, legal, account, and transaction-sensitive situations.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fbi-crypto-fraud-2023",
+        "src-sec-crypto-scam-alert-2024"
+      ]
+    },
+    {
+      "name": "Developer onboarding for SDKs, APIs, and cross-chain integrations",
+      "problem": "Web3 builders often work across multiple chains and tools, so support teams repeatedly answer the same implementation, compatibility, and troubleshooting questions.",
+      "agentWorkflow": "DocsBot retrieves answers from SDK docs, API references, sample apps, known issues, release notes, and internal support playbooks. It can summarize the developer’s issue and prepare a clean handoff to solutions engineering when code or architecture review is needed.",
+      "liveContextOrTools": "With approved Skills or connectors, the agent can collect environment details, create an engineering support task, or retrieve product-specific implementation notes based on the user’s selected chain or API plan.",
+      "exampleQuestionsOrRequests": [
+        "Which SDK version supports this chain?",
+        "What error does this API response code mean?",
+        "Can you summarize my integration issue for solutions engineering?",
+        "What changed in the latest contract deployment guide?"
+      ],
+      "businessOutcome": "Help builders move faster while reducing repetitive developer support and improving the quality of escalations to engineering.",
+      "icon": "CommandLineIcon",
+      "sourceIds": [
+        "src-electric-capital-dev-report-2024"
+      ]
+    },
+    {
+      "name": "Presales qualification for blockchain infrastructure and enterprise Web3",
+      "problem": "Prospects often ask detailed questions about chain support, custody models, compliance posture, throughput, deployment options, pricing fit, and implementation timelines before they are ready for a sales call.",
+      "agentWorkflow": "DocsBot answers approved presales questions from product pages, security notes, FAQs, implementation guides, and sales enablement content. It can collect structured lead details and qualify requests using customer-defined rules before forwarding a summary to sales.",
+      "liveContextOrTools": "Configured forms, APIs, CRM-style workflows, or scheduling Skills can capture company, use case, region, budget range, chain requirements, timeline, and preferred follow-up channel.",
+      "exampleQuestionsOrRequests": [
+        "Do you support stablecoin payouts in our target region?",
+        "What details do you need before a custody infrastructure demo?",
+        "Can you compare your developer API plans from the published docs?",
+        "Please send my requirements to a solutions engineer."
+      ],
+      "businessOutcome": "Improve lead capture quality and shorten discovery prep while keeping humans responsible for pricing, contracts, legal claims, and regulated commitments.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-chainalysis-western-europe-2024"
+      ]
+    },
+    {
+      "name": "Internal knowledge agent for operations, compliance, and incident response",
+      "problem": "Blockchain teams need quick access to release procedures, escalation paths, governance rules, vendor notes, support macros, policy guidance, and incident runbooks across fast-changing products.",
+      "agentWorkflow": "DocsBot trains on private SOPs, wikis, PDFs, policies, runbooks, sales playbooks, and internal docs. Employees ask questions in a private chat experience and receive source-grounded answers from approved internal knowledge.",
+      "liveContextOrTools": "With customer-defined permissions, the agent can summarize incidents, draft internal updates, create tasks, retrieve approved live context, or trigger review workflows while respecting role-based access.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a suspected smart contract incident?",
+        "Which support macro covers delayed withdrawals?",
+        "Summarize the latest governance vote notes for the support team.",
+        "What are the approved talking points for this network upgrade?"
+      ],
+      "businessOutcome": "Reduce time spent searching across internal systems and keep support, operations, sales, and compliance teams aligned on current procedures.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Community and multilingual knowledge support",
+      "problem": "Blockchain communities are global, always active, and often spread across time zones, creating high volumes of repeated questions about product usage, terminology, and announcements.",
+      "agentWorkflow": "DocsBot can answer from approved community FAQs, announcements, docs, and policy content in more than 100 languages. It keeps responses consistent and can escalate unclear or sensitive topics to moderators or support teams.",
+      "liveContextOrTools": "Configured workflows can notify community managers, create a moderation task, or route unanswered topics into a documentation review queue.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain this governance proposal in simple terms?",
+        "Where is the official bridge guide?",
+        "Is there a translated version of the wallet setup steps?",
+        "What changed in the latest network announcement?"
+      ],
+      "businessOutcome": "Scale community education without asking global users to wait for a moderator in their time zone.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-chainalysis-adoption-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A user-facing AI agent for wallet, protocol, product, and developer questions",
+    "intro": "Deploy DocsBot in a website, product, or documentation experience so users can ask practical blockchain questions and receive answers grounded in your approved knowledge. When a request involves account access, security risk, legal concerns, or transaction-specific review, the agent can collect context and hand off to your team.",
+    "requests": [
+      {
+        "request": "“How do I get started with your wallet, API, or protocol?”",
+        "agentResponseStrategy": "Guide the user through approved onboarding steps, link the answer to source content, ask clarifying questions when needed, and offer escalation when setup is blocked.",
+        "sourceTypes": [
+          "Help center",
+          "Developer docs",
+          "Onboarding guides",
+          "Product FAQs"
+        ],
+        "optionalAction": "Collect product area, chain, wallet type, region, and contact details before creating a handoff ticket through a configured workflow.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "request": "“What happened to my transaction?”",
+        "agentResponseStrategy": "Explain general transaction concepts from approved documentation, collect relevant non-secret details, and avoid making unsupported account or chain-state conclusions unless live lookup is explicitly configured.",
+        "sourceTypes": [
+          "Transaction FAQ",
+          "Support policy",
+          "Troubleshooting guides"
+        ],
+        "optionalAction": "Use an approved Skill or API to retrieve permitted status context, summarize the case, and route it to support when human review is required.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“Is this a scam or official message?”",
+        "agentResponseStrategy": "Provide safety education from approved materials, remind users not to share seed phrases or credentials, and escalate suspected fraud or impersonation to trust and safety workflows.",
+        "sourceTypes": [
+          "Security center",
+          "Fraud education pages",
+          "Support policy"
+        ],
+        "optionalAction": "Create a trust-and-safety ticket with the conversation summary, reported link, message text, and user-provided context.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-sec-crypto-scam-alert-2024"
+        ]
+      },
+      {
+        "request": "“Can your solution support our enterprise blockchain use case?”",
+        "agentResponseStrategy": "Answer from approved sales and implementation content, clarify requirements, and collect structured lead information without committing to custom pricing, legal terms, or regulated claims.",
+        "sourceTypes": [
+          "Product pages",
+          "Security notes",
+          "Implementation docs",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Forward a qualified lead summary to sales or solutions engineering through customer-configured forms, APIs, connectors, or workflows.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Which chain, SDK, or endpoint should I use?”",
+        "agentResponseStrategy": "Retrieve the most relevant approved developer documentation, explain tradeoffs that are present in the source material, and recommend human review for architecture-specific decisions.",
+        "sourceTypes": [
+          "API references",
+          "SDK docs",
+          "Release notes",
+          "Integration guides"
+        ],
+        "optionalAction": "Create a developer support task with the user’s stack, chain, SDK version, error message, and source links.",
+        "icon": "CodeBracketIcon"
+      },
+      {
+        "request": "“Can you explain this token, staking, or governance policy?”",
+        "agentResponseStrategy": "Summarize the approved policy or governance material in plain language, cite the source, and avoid individualized financial, legal, or investment advice.",
+        "sourceTypes": [
+          "Governance docs",
+          "Token policy pages",
+          "Staking FAQs",
+          "Risk disclosures"
+        ],
+        "optionalAction": "Route sensitive or jurisdiction-specific questions to a human reviewer with a concise summary of the user’s question.",
+        "icon": "ScaleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private blockchain knowledge agent for support, engineering, operations, and sales",
+    "intro": "DocsBot can act as an internal knowledge layer trained on your SOPs, wikis, runbooks, sales materials, policy notes, and technical references. Teams can ask operational questions, retrieve approved guidance, summarize context, and trigger bounded workflows when configured.",
+    "workflows": [
+      {
+        "name": "Incident and escalation runbook retrieval",
+        "problem": "During network incidents, contract issues, wallet outages, or suspicious activity spikes, teams need the right escalation procedure immediately.",
+        "agentWorkflow": "The agent retrieves current runbooks, incident roles, communication templates, and escalation rules from approved internal sources, then summarizes the next steps with source grounding.",
+        "sourceTypes": [
+          "Incident runbooks",
+          "Escalation policies",
+          "Status-page templates",
+          "Security SOPs"
+        ],
+        "optionalAction": "Create an incident task, draft an internal update, or notify the correct channel through customer-configured workflows.",
+        "outcome": "Faster internal coordination with clearer boundaries for sensitive operational decisions.",
+        "icon": "FireIcon"
+      },
+      {
+        "name": "Support macro and policy assistant",
+        "problem": "Support agents can lose time searching for approved language on delayed transactions, wallet recovery, staking changes, fraud reports, and account restrictions.",
+        "agentWorkflow": "DocsBot answers from support playbooks, macros, help center content, and policy documents, then drafts consistent response language for human review where needed.",
+        "sourceTypes": [
+          "Support playbooks",
+          "Macros",
+          "Policy documents",
+          "Help center articles"
+        ],
+        "optionalAction": "Draft a helpdesk response, summarize the ticket, or route the case by topic when connected through approved Skills, APIs, or exported ticket sources.",
+        "outcome": "More consistent answers and less manual searching across support knowledge.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "name": "Sales and solutions enablement",
+        "problem": "Sales and solutions teams need quick access to product fit, chain coverage, implementation notes, objection handling, and approved security language.",
+        "agentWorkflow": "The internal agent retrieves answers from sales enablement, product docs, security notes, implementation guides, case studies, and customer-facing FAQs.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Security notes",
+          "Implementation guides",
+          "Product FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare discovery notes, or create a task in a customer-configured sales workflow for human review.",
+        "outcome": "Better prepared sales conversations without relying on outdated slide decks or scattered notes.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Documentation gap reporting",
+        "problem": "Blockchain docs change often, and repeated community or support questions can reveal missing content before the documentation team sees the pattern.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review help teams identify repeated unanswered questions and confusing documentation areas.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Docs analytics",
+          "Help articles",
+          "Developer docs"
+        ],
+        "optionalAction": "Create documentation tasks or route content-gap summaries to product, developer relations, or technical writing workflows.",
+        "outcome": "A tighter feedback loop between real user questions and documentation improvements.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Training on approved blockchain knowledge sources",
+      "mainLandingPageContext": "DocsBot agents can be trained on help centers, product documentation, websites, internal content, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Use DocsBot to centralize wallet guides, API docs, governance notes, security education, SDK references, release notes, and internal blockchain runbooks into one source-grounded AI agent.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer and developer answers",
+      "mainLandingPageContext": "DocsBot provides instant answers grounded in the company’s own knowledge, helping users find relevant information without reading every document manually.",
+      "industryApplication": "Answer questions about transactions, supported chains, smart contract interactions, staking policies, bridge instructions, APIs, and onboarding steps while keeping responses tied to approved sources.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded actions such as lookups, summaries, routing, record creation, updates, notifications, and workflow triggers when customers configure the needed access.",
+      "industryApplication": "A blockchain team can configure approved live lookups, ticket creation, lead forwarding, incident summaries, or record updates using Skills, APIs, connectors, or remote Model Context Protocol servers.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which wallet, bridge, staking, API, governance, or security questions keep recurring so support, product, and documentation teams can improve content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer-data training of public models.",
+      "industryApplication": "Use private agents for operational runbooks, sales materials, incident procedures, and internal policies while maintaining permissions and customer-defined boundaries for sensitive blockchain workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support: Sony NURO handled over 30,000 inquiries in one month with about 80% resolution.",
+      "Train agents on your own content library so blockchain answers reflect your docs, policies, and product language.",
+      "Technical teams can avoid building their own RAG stack and launch source-grounded knowledge agents faster."
+    ],
+    "whyTheseReviewsFit": "Blockchain teams need scalable support, trustworthy answers, and fast deployment across technical documentation. DocsBot proof spans high-volume customer inquiries, owned-content training, and technical teams choosing DocsBot instead of building retrieval infrastructure from scratch.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "RocketLaunchIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for blockchain support, documentation, presales, and internal knowledge operations",
+    "audience": [
+      "Blockchain infrastructure teams",
+      "Web3 product companies",
+      "Protocol foundations",
+      "Developer relations teams",
+      "Crypto support and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "saas-solutions",
+    "cloud-computing-services",
+    "big-data-analytics",
+    "ai-automation-agency",
+    "ai-consulting",
+    "augmented-reality-solutions"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14",
+    "sourceIndustrySlug": "blockchain-solutions",
+    "webSearchQueries": [
+      "Chainalysis 2024 crypto adoption report global crypto activity regions DeFi stablecoins",
+      "FBI IC3 cryptocurrency investment fraud losses 2024 report",
+      "SEC crypto assets investor alerts risks disclosures 2024",
+      "Developer report crypto open source developers 2024 electric capital"
+    ],
+    "sourceUrls": [
+      "https://www.chainalysis.com/blog/2024-global-crypto-adoption-index/",
+      "https://www.chainalysis.com/blog/2024-western-europe-crypto-adoption/",
+      "https://www.fbi.gov/news/stories/2023-cryptocurrency-fraud-report-released",
+      "https://www.sec.gov/oiea/investor-alert-5-ways-fraudsters-may-lure-victims-scams-involving-crypto-asset",
+      "https://www.developerreport.com/developer-report?s=bitcoin"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 39325,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 19101,
+        "outputTokens": 8337,
+        "reasoningOutputTokens": 109,
+        "totalTokens": 47662,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.355727,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.365727
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19410,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 4434,
+          "outputTokens": 5329,
+          "reasoningOutputTokens": 109,
+          "totalTokens": 24739,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.189528,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.199528
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19915,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14667,
+          "outputTokens": 3008,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22923,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.166199,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.166199
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1644143379190-08a5f055de1d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ2MjN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Blockchain Solutions background image",
+    "source": "legacy-industry",
+    "query": "Blockchain Solutions"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer wallet, transaction, staking, and governance questions without giving financial or legal advice?",
+      "answer": "Yes. DocsBot can be trained on your approved help center, risk disclosures, staking FAQs, governance docs, and policy pages so it explains published information in plain language. You can define escalation rules for individualized financial, legal, jurisdiction-specific, account, or transaction-sensitive questions so a human reviewer handles anything outside approved guidance.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the AI agent from hallucinating chain support, contract behavior, or token policy details?",
+      "answer": "DocsBot is designed around source-grounded answers from your approved documentation rather than open-ended guessing. Blockchain teams can train it on API references, changelogs, wallet guides, token policies, governance materials, and internal runbooks, then review logs and knowledge gaps to improve weak or missing content over time.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot handle developer questions across multiple chains, SDKs, and integration paths?",
+      "answer": "Yes. DocsBot can retrieve answers from SDK docs, API references, tutorials, release notes, known issues, and implementation notes. That matters because Electric Capital’s 2024 developer report found that one in three crypto developers works on multiple chains, which increases support complexity for devrel and solutions teams.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-electric-capital-dev-report-2024"
+      ]
+    },
+    {
+      "question": "What should we automate first: customer support, developer docs, or internal operations?",
+      "answer": "Most blockchain teams start where repeated questions are creating the most drag: wallet setup, transaction troubleshooting, bridge guidance, API errors, supported-chain questions, or support macro lookup. DocsBot can serve both public users and private teams, so a practical rollout is to launch a documentation/support agent first, then add internal runbooks and scoped workflow actions once governance is clear.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent collect transaction or wallet troubleshooting details without asking for secrets?",
+      "answer": "Yes. You can instruct DocsBot to collect only approved non-secret context, such as product area, chain, wallet type, transaction hash, error message, region, or contact details. It should also remind users not to share seed phrases, private keys, passwords, or credentials, and route sensitive security or account cases to your team.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot support fraud-aware triage for scams, impersonation, and suspicious links?",
+      "answer": "DocsBot can answer from your security center and fraud education pages, collect user-provided context, summarize the case, and route suspected fraud to trust and safety workflows. This is important in crypto support because the FBI reported more than $5.6 billion in cryptocurrency-related fraud losses in 2023.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fbi-crypto-fraud-2023"
+      ]
+    },
+    {
+      "question": "Can DocsBot help users understand whether a message is official without making risky determinations?",
+      "answer": "DocsBot can explain your official communication policies, warn users not to share credentials or seed phrases, and ask for safe context such as the message text or reported URL. It can escalate suspected impersonation or phishing instead of declaring a case definitively safe, which aligns with the SEC’s warning that fraudsters use multiple tactics to lure victims into crypto asset scams.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-sec-crypto-scam-alert-2024"
+      ]
+    },
+    {
+      "question": "Will DocsBot work for a global Web3 community that asks questions in many languages and time zones?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved knowledge base and can support always-available community education. That fit is especially relevant because Chainalysis reported geographically broad crypto adoption in 2024, with Central and Southern Asia and Oceania leading its Global Crypto Adoption Index.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-chainalysis-adoption-2024"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot for Discord, forum, or community moderation workflows?",
+      "answer": "DocsBot can support community knowledge workflows by answering from approved FAQs, announcements, docs, and policy content, then escalating unclear or sensitive issues to moderators through configured workflows. Avoid positioning it as a replacement for human moderation; it is better used for repeated education, summaries, handoffs, and documentation-gap discovery.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit with our helpdesk, ticketing, CRM, or internal workflow tools?",
+      "answer": "DocsBot can be connected through customer-configured Skills, APIs, connectors, forms, webhooks, or workflow automations. It can summarize conversations, create or route tickets, forward lead details, update approved fields, or notify teams when you authorize those actions. It should not be given broad access to sensitive systems without scoped permissions and review rules.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot do live transaction, account, or status lookups?",
+      "answer": "Only when you configure an approved Skill, API, connector, metadata binding, or MCP connection that exposes the permitted data. Without that live context, DocsBot should answer general troubleshooting questions from documentation, collect safe details, and hand off to support rather than inventing transaction status or account conclusions.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from exposing internal runbooks, private policies, or partner materials to public users?",
+      "answer": "Use separate public and private agents or carefully scoped knowledge sources, with granular access controls and role-based permissions. DocsBot supports encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models, which helps teams govern sensitive blockchain operations content.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help our support team during network incidents or contract-related incidents?",
+      "answer": "Yes. A private DocsBot agent can retrieve incident runbooks, escalation policies, status-page templates, communication guidance, and security SOPs. It can summarize next steps or draft internal updates for review, while keeping incident decisions, public statements, and security-sensitive actions under human control.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would developer relations use DocsBot beyond answering basic documentation questions?",
+      "answer": "Devrel teams can use DocsBot to surface repeated unanswered questions, identify confusing docs, summarize developer issues for engineering, and route content gaps into documentation workflows. It can also help builders find relevant changelogs, SDK versions, sample apps, API response explanations, and implementation notes faster.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support presales for blockchain infrastructure, custody, analytics, or payments products?",
+      "answer": "Yes. DocsBot can answer approved presales questions from product pages, security notes, implementation guides, sales FAQs, and enablement materials. It can collect structured details such as company, use case, region, chain requirements, timeline, budget range, and preferred follow-up, then forward a qualified summary through configured workflows.",
+      "role": "Sales, partnerships, and solutions engineering teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the AI agent qualify enterprise blockchain leads without overpromising pricing, compliance, or custom implementation commitments?",
+      "answer": "Yes, if the rules are explicit. DocsBot can apply your qualification criteria, ask follow-up questions, and route a concise summary to sales or solutions engineering. Humans should remain responsible for final pricing, contracts, legal terms, regulated claims, custom architecture, and commitments that require commercial or compliance review.",
+      "role": "Sales, partnerships, and solutions engineering teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What ROI should we expect from a blockchain AI support or documentation agent?",
+      "answer": "ROI usually comes from reducing repetitive support volume, improving first-contact education, shortening developer onboarding, improving escalation quality, and revealing documentation gaps. For high-volume environments, DocsBot proof includes Sony NURO handling over 30,000 inquiries in one month with about 80% resolution, but your ROI should be measured against your own ticket mix and escalation rules.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What KPIs should we track after launch?",
+      "answer": "Track resolution rate, deflection rate, escalation rate, unanswered questions, user satisfaction, repeated topics, top source articles, documentation gaps, handoff quality, time to first response, and ticket categories reduced. For developer-facing agents, also track API error topics, SDK-version questions, integration-blocker trends, and docs pages that need better examples.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How hard is implementation if our docs are spread across GitHub-style docs, Notion, Confluence, PDFs, and internal SOPs?",
+      "answer": "DocsBot can train on many approved knowledge sources, including websites, product documentation, internal content, PDFs, Word documents, wikis, Google Drive, Notion, and Confluence. The bigger implementation task is usually governance: deciding what is public, what is internal, which sources are authoritative, who owns updates, and when the agent escalates.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Do we need engineering resources to launch, or can support and documentation teams manage it?",
+      "answer": "Support and documentation teams can often launch a source-grounded agent using approved content, instructions, and review workflows. Engineering becomes more important when you want live system lookups, custom Skills, API actions, MCP connectivity, ticket creation, CRM updates, or tightly controlled workflow automation.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we handle fast-changing docs, protocol upgrades, governance votes, and release notes?",
+      "answer": "Treat DocsBot as part of your documentation operating model. Keep authoritative sources current, separate draft content from approved content, review conversation logs after major releases, and use knowledge-gap reporting to catch recurring questions. For sensitive upgrade or governance topics, configure the agent to cite approved materials and escalate ambiguity.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support both self-serve users and internal support agents at the same time?",
+      "answer": "Yes. Public-facing agents can answer wallet, onboarding, API, staking, and policy questions from approved external content. Private agents can help employees search runbooks, macros, incident procedures, sales enablement, and internal policies. Many teams benefit from separating these experiences so permissions, tone, and escalation paths stay clear.",
+      "role": "Support, trust, and community operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should compliance and legal teams evaluate a DocsBot rollout for a crypto or Web3 business?",
+      "answer": "They should review source scope, disclaimers, escalation triggers, access controls, logs, data retention expectations, restricted topics, and which actions the agent can take. For blockchain teams, it is especially important to keep humans responsible for financial advice, legal interpretations, fraud determinations, account actions, sanctions-sensitive issues, and jurisdiction-specific commitments.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help our sales team respond consistently to security and compliance questionnaires?",
+      "answer": "DocsBot can act as an internal sales enablement agent trained on approved security notes, implementation guides, policy language, product FAQs, case studies, and sales playbooks. It can draft responses or discovery notes for human review, but final questionnaire submissions, legal representations, and contract language should stay with authorized team members.",
+      "role": "Sales, partnerships, and solutions engineering teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG system for blockchain documentation?",
+      "answer": "Building in-house can make sense for teams with strong AI infrastructure capacity and highly custom retrieval needs. DocsBot is a faster path when your goal is to launch source-grounded agents, train on owned content, review analytics, manage knowledge gaps, and add scoped actions without maintaining the full retrieval, chat, governance, and workflow layer yourself.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What happens when the user asks something the documentation does not cover?",
+      "answer": "DocsBot can be configured to acknowledge the gap, ask clarifying questions, provide only what is supported by approved sources, and escalate when needed. Its analytics and conversation review help teams identify repeated unanswered questions, so documentation, support macros, onboarding guides, or developer examples can be improved.",
+      "role": "Developer relations and protocol documentation teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support enterprise regions and use cases where on-chain activity and regulatory sensitivity are high?",
+      "answer": "DocsBot can help by giving consistent approved answers, collecting requirements, and routing regulated or region-specific questions to the right team. Regional complexity is real: Chainalysis estimated Central, Northern, and Western Europe received $987.25 billion in on-chain value from July 2023 through June 2024, or 21.7% of global transaction volume.",
+      "role": "Sales, partnerships, and solutions engineering teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-chainalysis-western-europe-2024"
+      ]
+    },
+    {
+      "question": "What guardrails should we set before allowing DocsBot to take actions, not just answer questions?",
+      "answer": "Start with low-risk actions such as creating tickets, summarizing cases, routing requests, notifying teams, collecting lead details, or drafting responses. For live lookups or updates, define scoped permissions, environment values, secrets handling, logging, network policy, approval paths, and restricted topics. High-impact account, legal, security, or financial actions should require human review.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    }
+  ]
+}

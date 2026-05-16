@@ -1,0 +1,751 @@
+{
+  "slug": "crop-consulting",
+  "business": "Crop Consulting",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Crop Consulting Workflows",
+    "description": "DocsBot helps crop consulting teams answer grower questions, retrieve field guidance, and route service requests from approved agronomy knowledge.",
+    "canonicalPath": "/industry/crop-consulting"
+  },
+  "hero": {
+    "eyebrow": "AI agents for agronomy teams",
+    "headline": "Crop consulting answers, field knowledge, and handoffs in one AI agent",
+    "subheadline": "DocsBot helps crop consultants turn recommendations, scouting notes, crop plans, SOPs, service pages, and internal expertise into source-grounded AI agents for growers and field teams.",
+    "proofBullets": [
+      {
+        "text": "Answer grower questions from approved crop guides, service documentation, FAQs, and internal knowledge.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help consultants retrieve field protocols, pest thresholds, product notes, and client-ready explanation drafts faster.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect scouting request details, summarize conversations, route follow-ups, and trigger bounded workflows when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Escalate sensitive recommendations, pesticide-use questions, unusual symptoms, or high-value account issues to a qualified human.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a crop consulting agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps crop consulting businesses create AI agents trained on their own agronomy documents, service materials, SOPs, client FAQs, reports, and internal playbooks. The agent can answer questions, summarize context, identify documentation gaps, support field teams, and take scoped actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Independent crop consultants and agronomists",
+        "roleContext": "For consultants balancing scouting, grower calls, report writing, and seasonal urgency.",
+        "bullets": [
+          {
+            "text": "Turn repeated questions about tissue sampling, soil tests, scouting windows, crop stages, and report terminology into fast, source-grounded answers.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Draft plain-language explanations from approved guidance so consultants can spend more time interpreting field conditions and less time rewriting the same advice.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Use conversation logs and topic reports to see which crop, pest, nutrient, or service questions growers ask most often.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Crop consulting firms and agronomy service managers",
+        "roleContext": "For teams standardizing recommendations, onboarding seasonal staff, and maintaining consistency across territories.",
+        "bullets": [
+          {
+            "text": "Centralize SOPs, crop guides, service catalogs, pricing guidance, onboarding documents, and report templates in a private internal knowledge agent.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Support multilingual grower communication with answers in more than 100 languages when your source material and review process allow it.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Route requests, create tasks, or prepare handoffs through customer-configured AI Actions when a grower needs a field visit, proposal, or specialist review.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Precision ag and data service teams",
+        "roleContext": "For advisors translating maps, sensor outputs, and decision-support materials into grower-friendly next steps.",
+        "bullets": [
+          {
+            "text": "USDA ERS reported that precision agriculture technology use in 2023 varied widely by technology and farm type, creating a need for clearer support around digital tools and data-led",
+            "icon": "CpuChipIcon",
+            "sourceIds": [
+              "src-usda-precision-ag"
+            ]
+          },
+          {
+            "text": "Make documentation around yield maps, soil maps, sampling methods, prescriptions, and data-delivery processes easier for staff and clients to navigate.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Connect live context through approved Skills, APIs, connectors, or MCP servers when your team wants controlled lookups from authorized systems.",
+            "icon": "ServerIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon",
+        "sourceIds": [
+          "src-usda-precision-ag"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-precision-ag",
+      "metric": "Precision agriculture adoption varies by technology and farm type; large-scale crop farms show much higher use than many",
+      "claim": "USDA ERS shows growing but uneven adoption of precision agriculture technologies, supporting the need for clearer guidance, documentation, and advisor support around digital agriculture tools.",
+      "sourceTitle": "Precision agriculture use increases with farm size and varies widely by technology",
+      "sourceUrl": "https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=110550",
+      "sourceDate": "2024-12-10",
+      "bestUsedFor": [
+        "precision agriculture adoption",
+        "digital tool support",
+        "workflow complexity"
+      ]
+    },
+    {
+      "id": "src-epa-wps",
+      "metric": "Worker Protection Standard covers over 2 million agricultural workers and pesticide handlers at over 600,000",
+      "claim": "EPA’s Worker Protection Standard creates important pesticide-safety obligations for agricultural employers, handlers, workers, and crop advisors.",
+      "sourceTitle": "Agricultural Worker Protection Standard (WPS)",
+      "sourceUrl": "https://www.epa.gov/pesticide-worker-safety/agricultural-worker-protection-standard-wps",
+      "sourceDate": "2026-04-22",
+      "bestUsedFor": [
+        "pesticide safety",
+        "compliance pressure",
+        "worker protection",
+        "crop advisor relevance"
+      ]
+    },
+    {
+      "id": "src-epa-wps-manual",
+      "metric": "EPA’s WPS compliance manual explicitly includes crop advisors among people who should understand WPS",
+      "claim": "EPA’s WPS compliance guidance is relevant to crop advisors involved in agricultural pesticide contexts.",
+      "sourceTitle": "Pesticide Worker Protection Standard “How to Comply” Manual",
+      "sourceUrl": "https://www.epa.gov/pesticide-worker-safety/pesticide-worker-protection-standard-how-comply-manual",
+      "sourceDate": "2025-11-10",
+      "bestUsedFor": [
+        "crop advisor compliance",
+        "regulated workflows",
+        "human review boundaries"
+      ]
+    },
+    {
+      "id": "src-usda-nass-tech-use",
+      "metric": "USDA NASS Technology Use report tracks farm computer usage, internet access, and precision agriculture practices by",
+      "claim": "USDA NASS data supports the operational reality that farms use a mix of digital tools and precision agriculture practices, creating diverse client-support needs for advisors.",
+      "sourceTitle": "Technology Use (Farm Computer Usage and Ownership) 2023",
+      "sourceUrl": "https://release.nass.usda.gov/reports/fmpc0823.pdf",
+      "sourceDate": "2023-08-18",
+      "bestUsedFor": [
+        "farm technology adoption",
+        "client support diversity",
+        "digital operations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Grower question answering from approved agronomy sources",
+      "problem": "Growers ask recurring questions about sampling, crop-stage terminology, scouting timing, report language, service availability, and what to prepare before a consultant visit.",
+      "agentWorkflow": "A DocsBot AI support agent answers from the consulting firm’s approved crop guides, service pages, FAQs, internal notes, and report templates. When the question needs a consultant’s judgment, the agent collects crop, field, location, symptoms, timing, and contact details for escalation.",
+      "liveContextOrTools": "Optional AI Actions can create a follow-up task, route the conversation to the right advisor, or forward a summary to helpdesk, email, CRM, or team chat through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "What should I collect before a tissue sample visit?",
+        "Can you explain the difference between this field report’s risk categories?",
+        "Who handles soybean disease scouting in my county?",
+        "I found a new patch of yellowing leaves—what details should I send my consultant?"
+      ],
+      "businessOutcome": "Reduces repetitive intake questions while giving consultants better context before they respond.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Field team SOP and scouting assistant",
+      "problem": "Seasonal scouts and junior agronomists need quick access to internal protocols while moving between fields, but SOPs, crop notes, forms, and training PDFs are often spread across folders.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves scouting procedures, crop-specific checklists, sample handling instructions, photo requirements, report-writing guidance, and escalation rules from approved documents.",
+      "liveContextOrTools": "The agent can run in private chat experiences for field and operations teams. With configured Skills, it can summarize a scout’s notes into a draft handoff or create an internal review task.",
+      "exampleQuestionsOrRequests": [
+        "What photos do we need for a suspected disease escalation?",
+        "Summarize this scouting note into a client-ready draft.",
+        "Which fields require a second review before recommendations go out?",
+        "What is our SOP for labeling soil samples?"
+      ],
+      "businessOutcome": "Improves consistency across consultants and reduces time spent searching internal folders during peak season.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "name": "Pesticide-safety and regulated-question triage",
+      "problem": "Crop consultants may receive questions that touch pesticide labels, worker safety, restricted-entry intervals, PPE, or application timing, where the wrong answer can create risk.",
+      "agentWorkflow": "DocsBot can retrieve approved safety policies, label-reference procedures, WPS training notes, and internal escalation rules, then provide bounded answers that direct high-impact or situation-specific questions to a qualified person.",
+      "liveContextOrTools": "Customer-defined permissions, logs, and review paths can keep sensitive responses within boundaries. The agent can route pesticide-safety questions to a licensed applicator, compliance lead, or consultant review queue.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find our pesticide-safety checklist?",
+        "Does this question need a licensed applicator review?",
+        "Summarize the grower’s pesticide-related question for compliance review.",
+        "What details should I collect before escalating a spray-drift concern?"
+      ],
+      "businessOutcome": "Helps teams keep regulated questions organized without presenting the AI as the final authority for pesticide-use decisions. EPA says the WPS protects over 2 million agricultural workers and pesticide handlers at more than 600,000 agricultural establishments.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-epa-wps"
+      ]
+    },
+    {
+      "name": "Precision ag service support and data explanation",
+      "problem": "Growers using yield maps, soil maps, prescriptions, and equipment data often need help understanding deliverables, file requirements, and what a consultant needs before analysis.",
+      "agentWorkflow": "A DocsBot agent answers from service documentation, data-collection instructions, field-mapping FAQs, proposal templates, and internal precision-ag playbooks. It can explain what files are needed, how deliverables are interpreted, and when to book a deeper consultation.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up the status of a submitted data package, create a missing-information task, or request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "What files do you need to build a variable-rate prescription?",
+        "Can you explain this yield map deliverable in plain English?",
+        "Has my soil-sampling data package been received?",
+        "Book a follow-up with the precision ag specialist."
+      ],
+      "businessOutcome": "Makes digital agriculture services easier to buy and support as precision technology adoption remains uneven across farm types and tools.",
+      "icon": "CpuChipIcon",
+      "sourceIds": [
+        "src-usda-precision-ag"
+      ]
+    },
+    {
+      "name": "Presales qualification for consulting services",
+      "problem": "Prospective growers, co-ops, and farm managers want to know whether a consulting firm supports their crop, acreage, region, and service model before contacting sales.",
+      "agentWorkflow": "A DocsBot presales agent answers from service pages, region coverage, crop expertise, pricing guidance, onboarding requirements, and case materials. It can collect structured intake details and apply customer-defined qualification rules before handoff.",
+      "liveContextOrTools": "AI Actions can submit a lead form, forward a qualified inquiry to CRM or email, create a task, or request a meeting through a configured scheduling tool while leaving custom pricing and contracts to humans.",
+      "exampleQuestionsOrRequests": [
+        "Do you consult on corn and soybean acres in my county?",
+        "What information do you need for a new farm assessment?",
+        "Can I request a nutrient-management consultation?",
+        "Send my details to someone who handles large-acreage accounts."
+      ],
+      "businessOutcome": "Improves inquiry quality and helps sales or account teams prioritize growers who match the firm’s services.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for seasonal planning",
+      "problem": "During planting, spraying, and harvest windows, support questions spike and reveal missing documentation, unclear report language, and training gaps.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, review workflows, and knowledge-gap discovery help managers see repeated questions and unanswered topics across growers and staff.",
+      "liveContextOrTools": "Teams can review conversations, improve source documents, update FAQs, and refine escalation paths before the next seasonal rush.",
+      "exampleQuestionsOrRequests": [
+        "Which crop-stage questions were most common this month?",
+        "What questions did the agent fail to answer from our sources?",
+        "Which service pages should we update before planting season?",
+        "Show repeated support topics from new growers."
+      ],
+      "businessOutcome": "Turns recurring questions into better documentation, training, and client communication.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give growers faster answers without removing the consultant from critical decisions",
+    "intro": "A DocsBot customer-facing agent can live on your website, client portal, or product experience to answer routine questions from approved sources, collect intake details, and escalate when agronomic judgment is required.",
+    "requests": [
+      {
+        "request": "“What do I need before my first crop consulting appointment?”",
+        "agentResponseStrategy": "Answer from onboarding documents and service FAQs, then collect crop, acreage, location, goals, prior soil-test status, and preferred contact details.",
+        "sourceTypes": [
+          "service pages",
+          "new-client onboarding guides",
+          "FAQs",
+          "intake forms"
+        ],
+        "optionalAction": "Create a lead or consultation request through a customer-configured form, CRM, email, or scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you explain my scouting report?”",
+        "agentResponseStrategy": "Use approved report glossaries, template notes, and client education content to explain terminology and next-step categories without inventing field-specific recommendations.",
+        "sourceTypes": [
+          "report templates",
+          "client education PDFs",
+          "internal glossary",
+          "approved recommendation language"
+        ],
+        "optionalAction": "Route the report and question to the assigned consultant when a grower asks for interpretation or action.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I think I have pest damage—what information should I send?”",
+        "agentResponseStrategy": "Collect structured details such as crop, growth stage, field location, symptoms, photos, timing, spread pattern, and recent field activity, then prepare a handoff.",
+        "sourceTypes": [
+          "scouting intake checklists",
+          "photo guidelines",
+          "crop-specific triage notes",
+          "escalation rules"
+        ],
+        "optionalAction": "Notify the field team or create a review task through approved workflows.",
+        "icon": "BugAntIcon"
+      },
+      {
+        "request": "“Where can I find pesticide-safety information?”",
+        "agentResponseStrategy": "Retrieve approved safety resources and direct situation-specific pesticide-use decisions to a qualified human or licensed professional according to the firm’s policy.",
+        "sourceTypes": [
+          "WPS guidance links",
+          "internal safety policies",
+          "label-reference procedures",
+          "compliance escalation rules"
+        ],
+        "optionalAction": "Route pesticide-safety questions to a compliance lead or licensed applicator review queue.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-epa-wps-manual"
+        ]
+      },
+      {
+        "request": "“Do you provide precision ag services for my operation?”",
+        "agentResponseStrategy": "Answer from service coverage pages, crop and region criteria, equipment/data requirements, and package descriptions, then qualify the opportunity.",
+        "sourceTypes": [
+          "service catalogs",
+          "coverage maps",
+          "precision ag FAQs",
+          "sales enablement notes"
+        ],
+        "optionalAction": "Forward qualified prospects with a summary of acreage, crops, current systems, timeline, and requested services.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish?”",
+        "agentResponseStrategy": "Provide multilingual responses from the same approved source material when the business enables that experience and reviews the content needed for client communication.",
+        "sourceTypes": [
+          "FAQs",
+          "client guides",
+          "service documentation",
+          "translated or approved source material"
+        ],
+        "optionalAction": "Escalate to bilingual staff when the question is complex, sensitive, or requires human judgment.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep agronomy knowledge searchable for consultants, scouts, and operations teams",
+    "intro": "DocsBot can work as a private internal knowledge agent trained on the documents crop consulting teams already rely on—SOPs, crop guides, onboarding materials, sales playbooks, service catalogs, report templates, and operational policies.",
+    "workflows": [
+      {
+        "name": "Seasonal staff onboarding",
+        "problem": "New scouts and coordinators need to learn procedures quickly before the busiest field windows.",
+        "agentWorkflow": "The agent answers questions from onboarding checklists, field SOPs, equipment instructions, sample-handling guides, report templates, and escalation rules.",
+        "sourceTypes": [
+          "training manuals",
+          "field SOPs",
+          "sample-handling documents",
+          "internal wikis",
+          "PDFs and Word documents"
+        ],
+        "optionalAction": "Summarize a trainee’s question pattern for managers to spot onboarding gaps.",
+        "outcome": "Shortens the time between training and productive field support.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Consultant report drafting support",
+        "problem": "Consultants often translate technical observations into client-ready summaries after long field days.",
+        "agentWorkflow": "DocsBot retrieves approved language, prior templates, glossary explanations, and firm-specific writing standards to help draft consistent summaries for human review.",
+        "sourceTypes": [
+          "report templates",
+          "style guides",
+          "approved recommendation language",
+          "client education content"
+        ],
+        "optionalAction": "Generate a draft summary or handoff note from consultant-provided context.",
+        "outcome": "Makes reports more consistent while leaving final recommendations with the consultant.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Service and sales enablement knowledge",
+        "problem": "Account managers need fast answers on service fit, coverage, deliverables, pricing rules, onboarding requirements, and objections.",
+        "agentWorkflow": "The internal agent answers from sales playbooks, service catalogs, pricing guidance, proposal templates, case materials, and implementation notes.",
+        "sourceTypes": [
+          "sales playbooks",
+          "service catalogs",
+          "proposal templates",
+          "pricing guidance",
+          "FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare an account summary, or create a task through customer-configured sales workflows.",
+        "outcome": "Helps sales teams respond faster without letting AI finalize pricing, legal terms, or contracts.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Compliance and safety reference retrieval",
+        "problem": "Crop consulting work may intersect with pesticide-safety obligations, label procedures, and field-entry questions.",
+        "agentWorkflow": "DocsBot retrieves internal compliance notes, WPS reference procedures, PPE checklists, and escalation policies so staff know where to look and when to involve a qualified reviewer.",
+        "sourceTypes": [
+          "compliance manuals",
+          "WPS resources",
+          "safety policies",
+          "PPE checklists",
+          "escalation matrices"
+        ],
+        "optionalAction": "Create a compliance-review task with a concise summary and source references.",
+        "outcome": "Keeps safety-related questions organized and reviewable. EPA’s Worker Protection Standard is intended to reduce pesticide poisonings and injuries among agricultural workers and pesticide handlers.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-epa-wps"
+        ]
+      },
+      {
+        "name": "Operations handoffs from field to office",
+        "problem": "Field observations, client messages, and follow-up tasks can get lost across texts, emails, notes, and spreadsheets.",
+        "agentWorkflow": "An internal agent can summarize field notes, extract missing details, and prepare a structured handoff for scheduling, billing, account management, or consultant review.",
+        "sourceTypes": [
+          "handoff templates",
+          "operations SOPs",
+          "client communication standards",
+          "field note examples"
+        ],
+        "optionalAction": "Trigger approved workflows such as creating a task, notifying a team channel, or updating an approved field through Skills, APIs, connectors, or MCP-connected tools.",
+        "outcome": "Improves continuity between field work, client service, and back-office operations.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from help centers, websites, documents, internal content, and other configured knowledge sources.",
+      "industryApplication": "Train agents on crop guides, consulting SOPs, report templates, service pages, onboarding materials, and internal agronomy knowledge so answers stay tied to approved sources.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can support customer-facing chat widgets and private internal team experiences.",
+      "industryApplication": "Put routine grower Q&A on your website while giving consultants, scouts, and coordinators a private place to ask internal process questions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, summaries, record creation, updates, and workflow triggers when configured.",
+      "industryApplication": "Collect scouting details, route grower requests, create follow-up tasks, look up authorized record status, notify teams, or trigger scheduling and handoff workflows under your rules.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See repeated grower questions, confusing report terms, missing service content, and internal training gaps before the next crop season.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Human escalation and controlled boundaries",
+      "mainLandingPageContext": "DocsBot supports human escalation for complex, sensitive, or high-impact questions and can be configured with scoped permissions and review paths.",
+      "industryApplication": "Escalate pesticide-use questions, unusual crop symptoms, client-specific recommendations, legal or contract issues, and high-value account decisions to the right person.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep client records, internal methods, pricing guidance, and field procedures in a governed AI agent experience designed for business knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library, documents, and approved knowledge sources.",
+      "Use analytics and conversation review to understand what growers, prospects, and staff are trying to learn.",
+      "Deploy source-grounded support for routine questions while escalating complex agronomy, safety, pricing, or contract decisions.",
+      "Govern access with SOC 2 Type II certification, GDPR-ready governance, encryption, role-based permissions, and customer-defined controls."
+    ],
+    "whyTheseReviewsFit": "Crop consulting teams depend on trusted knowledge, training materials, and clear documentation. These reviews emphasize DocsBot’s ability to train on owned content, answer from training materials, and reveal what users want to learn from documentation.",
+    "trustClaimIcons": [
+      "FolderIcon",
+      "ChartBarIcon",
+      "HandRaisedIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agent platform for crop consulting firms",
+    "audience": [
+      "Crop consultants",
+      "Agronomists",
+      "Precision agriculture teams",
+      "Agronomy service managers",
+      "Farm advisory firms"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "farming",
+    "organic-farming",
+    "seed-production",
+    "farm-equipment-sales",
+    "greenhouse-operations",
+    "agriculture-forestry-wildlife"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "crop-consulting",
+    "webSearchQueries": [
+      "USDA farms using precision agriculture technologies 2023 report",
+      "USDA crop consultants pest management scouting statistics",
+      "EPA pesticide worker protection standard agricultural handlers requirements",
+      "BLS agricultural workers crop consultants employment agriculture injuries data"
+    ],
+    "sourceUrls": [
+      "https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=110550",
+      "https://www.epa.gov/pesticide-worker-safety/agricultural-worker-protection-standard-wps",
+      "https://www.epa.gov/pesticide-worker-safety/pesticide-worker-protection-standard-how-comply-manual",
+      "https://release.nass.usda.gov/reports/fmpc0823.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 59717,
+        "cachedInputTokens": 4736,
+        "billableInputTokens": 54981,
+        "outputTokens": 11231,
+        "reasoningOutputTokens": 98,
+        "totalTokens": 70948,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.614203,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.624203
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20663,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20663,
+          "outputTokens": 5193,
+          "reasoningOutputTokens": 98,
+          "totalTokens": 25856,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.259105,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.269105
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19515,
+          "cachedInputTokens": 4736,
+          "billableInputTokens": 14779,
+          "outputTokens": 2936,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22451,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.164343,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.164343
+        },
+        {
+          "step": "faq",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19539,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 19539,
+          "outputTokens": 3102,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22641,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.190755,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.190755
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1621928372414-30e144d51d49?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQzMDh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Crop Consulting background image",
+    "source": "legacy-industry",
+    "query": "Crop Consulting"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer grower questions without making field-specific agronomic recommendations on its own?",
+      "answer": "Yes. DocsBot can be configured to answer routine questions from your approved crop guides, service FAQs, onboarding documents, report glossaries, and internal policies while escalating questions that require consultant judgment. For example, it can explain what information to collect for yellowing leaves, pest damage, tissue sampling, or a first appointment, then route the details to the assigned agronomist instead of inventing a recommendation.",
+      "role": "Independent crop consultants and agronomists",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would we keep the AI agent from giving pesticide-use advice that should come from a licensed or qualified person?",
+      "answer": "Use DocsBot as a triage and reference-retrieval layer rather than the final authority for pesticide decisions. The agent can retrieve approved safety resources, label-reference procedures, WPS notes, PPE checklists, and internal escalation rules, then direct situation-specific questions about application timing, restricted-entry intervals, worker safety, drift, or product use to a qualified reviewer. This matters because EPA’s Worker Protection Standard covers over 2 million agricultural workers and pesticide handlers at more than 600,000 agricultural ­­",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-wps"
+      ]
+    },
+    {
+      "question": "What kinds of crop consulting documents should we train the agent on first?",
+      "answer": "Start with high-volume, low-risk knowledge: service pages, new-client onboarding guides, FAQs, crop-stage glossaries, scouting intake checklists, sampling instructions, report templates, photo requirements, scheduling expectations, and internal routing rules. After that, add field SOPs, training manuals, sales playbooks, precision ag deliverable guides, and compliance reference materials. Keep sensitive recommendation language behind review workflows until your team is comfortable with the boundaries.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will this help our consultants during peak scouting season, or is it mainly for website inquiries?",
+      "answer": "It can support both. Customer-facing agents can handle routine grower questions and collect structured intake details, while private internal agents can help scouts and consultants find SOPs, sample-handling rules, report language, crop-specific checklists, and escalation procedures. The practical goal is to reduce repeated searching, texting, and rewriting during planting, spraying, scouting, and harvest windows.",
+      "role": "Independent crop consultants and agronomists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot explain scouting reports to growers without overstepping?",
+      "answer": "Yes, if you train it on approved report templates, terminology guides, client education PDFs, and firm-approved explanation language. It can explain terms like risk category, growth stage, sample status, or next-step labels in plain language. If the grower asks, “What should I do in this field?” or provides new symptoms, the agent can collect context and escalate to a consultant for interpretation.",
+      "role": "Independent crop consultants and agronomists",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot handle questions from growers who use different farm technology systems or have uneven digital maturity?",
+      "answer": "DocsBot can provide consistent instructions from your own documentation for file requirements, yield map deliverables, soil sampling packages, prescription workflows, portal access, and meeting preparation. That is useful in a market where USDA ERS reports that precision agriculture use varies widely by technology and farm type, meaning advisors often support clients with very different tools, expectations, and comfort levels.",
+      "role": "Precision ag and data service teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-precision-ag"
+      ]
+    },
+    {
+      "question": "Can the agent check the status of a soil sampling package, scouting request, or precision ag data submission?",
+      "answer": "Yes, when your team configures the right Skills, APIs, connectors, or workflow access. DocsBot can use approved live context to look up a record status, collect missing details, create a follow-up task, notify a team channel, or prepare a handoff. The important buying consideration is scope: decide which systems the agent may access, which fields it can update, and which actions require human review.",
+      "role": "Precision ag and data service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "We have SOPs in PDFs, Word documents, shared drives, and internal notes. Do we need to rebuild our knowledge base first?",
+      "answer": "Not necessarily. DocsBot can train on common business knowledge sources such as documents, PDFs, Word files, internal content, websites, and other configured sources. Most teams should still clean up the highest-risk or highest-volume materials before launch: remove outdated recommendations, mark draft documents clearly, consolidate duplicate SOPs, and define which sources are approved for grower-facing answers versus internal staff answers.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI for an AI agent in a crop consulting firm?",
+      "answer": "Track operational metrics that reflect seasonal pressure: repeated grower questions deflected, intake forms completed, consultation requests qualified, time saved searching SOPs, faster handoffs from field to office, fewer incomplete scouting requests, and documentation gaps closed before peak periods. For sales and service teams, also track lead quality, meeting requests, response times, and whether consultants receive better context before calling a grower back.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help onboard seasonal scouts and junior agronomists?",
+      "answer": "Yes. A private internal knowledge agent can answer questions from onboarding checklists, field SOPs, sample-handling guides, photo standards, equipment notes, report templates, and escalation rules. It can also summarize the kinds of questions new staff ask, which helps managers spot unclear training materials before the busiest weeks of the season.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should remain off-limits for automation in crop consulting workflows?",
+      "answer": "Most firms should keep final agronomic recommendations, pesticide-use decisions, legal or contract terms, custom pricing, sensitive account decisions, and unusual field diagnoses under human control. DocsBot can still help by collecting details, retrieving approved references, drafting summaries, and routing the issue to the right consultant, compliance lead, account manager, or specialist.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can we use DocsBot without exposing client records, pricing guidance, or internal methods too broadly?",
+      "answer": "Use separate agents, source sets, permissions, and review paths for different audiences. For example, a public website agent might answer from service pages and FAQs, while an internal agent can access SOPs, pricing guidance, report templates, and training materials. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we make the agent available in Spanish or other languages for grower communication?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, but the safest rollout is to pair multilingual output with approved source material and a review process. For routine service, appointment, intake, and documentation questions, multilingual answers can improve access. For complex agronomy, pesticide safety, account, or contract questions, the agent should escalate to bilingual staff or the appropriate reviewer.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will growers trust an AI agent on our website, or will it make our consulting service feel less personal?",
+      "answer": "Position it as a faster way to reach your team, not a replacement for the consultant relationship. The agent should answer routine questions, explain approved materials, collect better intake details, and clearly say when a consultant will review the issue. In crop consulting, trust improves when the agent is transparent about its sources, limits, and escalation path.",
+      "role": "Independent crop consultants and agronomists",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot qualify new consulting inquiries before they reach our sales or account team?",
+      "answer": "Yes. A DocsBot presales agent can answer from your service catalog, coverage areas, crop expertise, onboarding requirements, pricing guidance, and FAQs. It can collect structured details such as acreage, crops, county or region, current systems, timeline, service interest, and preferred contact method, then forward a qualified summary through a customer-configured CRM, form, email, scheduling, or workflow process.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit with our existing CRM, helpdesk, scheduling, or internal messaging tools?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, forms, webhooks, and approved workflow automations. In practice, that can mean forwarding a grower inquiry, creating a task, notifying a team channel, preparing a consultant handoff, requesting a meeting, or updating an approved field. During evaluation, map the exact systems, data fields, permissions, and review steps before connecting live actions.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent support precision ag services like yield maps, soil maps, prescriptions, and data package intake?",
+      "answer": "Yes. Train it on your precision ag FAQs, deliverable explanations, file requirements, equipment compatibility notes, service packages, and data submission instructions. The agent can explain what files are needed, what a deliverable means, what information is missing, and when a specialist should be booked. USDA NASS also tracks farm computer usage, internet access, and precision agriculture practices, reinforcing that advisors often need to support a mixed digital operating environment.",
+      "role": "Precision ag and data service teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-nass-tech-use"
+      ]
+    },
+    {
+      "question": "How do we prevent outdated crop guidance or old SOPs from becoming the answer?",
+      "answer": "Treat knowledge governance as part of implementation. Assign owners for source folders, archive old documents, label effective dates, remove duplicate guidance, and review conversation logs for weak answers. DocsBot’s analytics, reports, topic management, conversation review, and knowledge-gap discovery can help your team see where documentation is missing, confusing, or stale.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens when the agent cannot answer from our approved sources?",
+      "answer": "The preferred behavior is to say it does not have enough approved information, ask for missing context if useful, and escalate the question. For crop consulting, that is especially important for unusual symptoms, location-specific pest pressure, pesticide safety, nutrient recommendations, high-value accounts, and anything that could affect yield, compliance, or liability.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with report drafting after field visits?",
+      "answer": "Yes, as a drafting and consistency aid. Consultants can provide observations or notes, and DocsBot can help turn them into client-ready summaries using approved report templates, glossary language, writing standards, and education materials. The final recommendation, interpretation, and client communication should remain with the consultant.",
+      "role": "Independent crop consultants and agronomists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What reporting will managers get after the agent is live?",
+      "answer": "Managers can review conversation logs, topic trends, reports, satisfaction and resolution analysis, and knowledge gaps. In a crop consulting setting, that can reveal which crops, services, report terms, scouting steps, pest concerns, appointment questions, or precision ag deliverables are creating the most confusion. Those insights can guide staff training, FAQ updates, and pre-season communication.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or a custom-built RAG project?",
+      "answer": "The key comparison is whether the system can be governed around your approved knowledge, reviewed by your team, connected to scoped workflows, and improved through analytics. DocsBot is designed for source-grounded agents trained on your own content, with customer-configured actions, human escalation, conversation review, access controls, and reporting. A generic chatbot may be faster to launch but weaker on governance; a custom build may offer control but usually requires more engineering ownership.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can different teams have different answers and permissions?",
+      "answer": "Yes. Many crop consulting firms should separate customer-facing and internal experiences. Growers might see appointment prep, service FAQs, and intake flows, while consultants and coordinators can access internal SOPs, handoff templates, training materials, pricing guidance, and escalation matrices. Role-based permissions and granular access controls help keep each audience within the right knowledge boundary.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much internal work should we expect before launch?",
+      "answer": "Plan for a focused content and workflow setup rather than a massive IT project. The main work is choosing approved sources, cleaning outdated files, defining escalation rules, deciding which questions are safe for customer-facing answers, and mapping any actions such as lead capture, task creation, or routing. A practical first launch might cover routine grower FAQs and internal SOP retrieval before expanding into precision ag workflows or more complex handoffs.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support our firm as we add more acres, regions, crops, or service lines?",
+      "answer": "Yes, provided your knowledge management scales with the business. You can add source materials for new crops, regions, services, onboarding processes, and internal procedures, then use analytics to see where growers and staff still need better documentation. For larger teams, permissions, separate agents, escalation paths, and source ownership become increasingly important.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we handle regulated or safety-related questions from crop advisors themselves, not just growers?",
+      "answer": "For internal users, DocsBot can retrieve WPS references, safety policies, PPE checklists, label-reference procedures, and escalation matrices so advisors know where to look and who should review the situation. EPA’s WPS compliance manual explicitly includes crop advisors among people who should understand WPS, so internal safety-reference workflows should be clear, reviewable, and bounded.",
+      "role": "Crop consulting firms and agronomy service managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-wps-manual"
+      ]
+    }
+  ]
+}

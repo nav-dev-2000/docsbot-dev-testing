@@ -1,0 +1,720 @@
+{
+  "slug": "e-sports-organization",
+  "business": "E-Sports Organization",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for E-Sports Fan Support and Team Ops",
+    "description": "DocsBot helps e-sports organizations answer fan, player, sponsor, and staff questions faster with source-grounded AI agents and workflow handoffs.",
+    "canonicalPath": "/industry/e-sports-organization"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for competitive gaming organizations",
+    "headline": "Run fan support and team knowledge from one e-sports AI agent",
+    "subheadline": "DocsBot trains AI agents on your tournament rules, schedules, roster updates, merch policies, sponsor materials, player handbooks, and internal SOPs so fans get instant answers and staff can find the right information without digging through scattered docs.",
+    "proofBullets": [
+      {
+        "text": "Answer fan questions about match schedules, ticketing, streams, merch, memberships, and event rules from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give players, coaches, and staff private access to travel notes, scrim policies, brand guidelines, and operational SOPs.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, create tickets, route sponsorship inquiries, summarize requests, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Review conversation analytics to spot repeated questions, content gaps, and unclear tournament documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an e-sports AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps e-sports organizations create AI agents trained on their own public and private knowledge. A customer-facing agent can answer fans, players, parents, media, and sponsors through a website or product chat widget, while an internal knowledge agent helps operations, coaching, support, and partnerships teams retrieve source-grounded answers and take scoped actions through configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Fan engagement and community teams",
+        "roleContext": "Support staff can reduce repetitive questions across tournament days, roster announcements, merch drops, and live-stream schedules while keeping answers aligned with the organization’s official policies.",
+        "bullets": [
+          {
+            "text": "Answer recurring questions about match times, brackets, ticket access, stream links, event rules, and community guidelines.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Escalate moderation, refund, account, or safety-sensitive issues to a human with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use analytics to identify the FAQs fans keep asking after major announcements or schedule changes.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      },
+      {
+        "role": "Tournament and event operations",
+        "roleContext": "Event teams can make operational runbooks, vendor notes, venue guidance, broadcast checklists, and participant instructions searchable before and during high-pressure competitions.",
+        "bullets": [
+          {
+            "text": "Give staff instant answers from event SOPs, venue policies, check-in steps, broadcast notes, and emergency contact lists.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route missing badge, credential, tech setup, or team liaison requests into approved ticket or task workflows.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Keep temporary staff aligned without forcing everyone to read long PDFs or message the same coordinator repeatedly.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "TrophyIcon"
+      },
+      {
+        "role": "Partnerships, sales, and sponsorship teams",
+        "roleContext": "Commercial teams can use a DocsBot agent to answer prospect questions from media kits, audience notes, packages, case studies, activation rules, and follow-up playbooks.",
+        "bullets": [
+          {
+            "text": "Collect sponsor interest, budget range, timeline, region, title focus, and preferred follow-up channel through a structured intake flow.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Qualify leads with customer-defined rules and forward summaries to the organization’s configured CRM, inbox, or sales workflow.",
+            "icon": "ArrowTrendingUpIcon"
+          },
+          {
+            "text": "Help reps find approved audience claims, sponsorship inventory, proposal language, and objection-handling notes.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-circana-us-gamers-2024",
+      "metric": "71% of U.S. consumers played video games in 2024",
+      "claim": "Circana reported that 71% of U.S. consumers play video games, representing 236.4 million players and 1.7 billion weekly play hours.",
+      "sourceTitle": "71% of US Consumers Play Video Games, According to Circana’s 2024 Gamer Segmentation Report",
+      "sourceUrl": "https://www.circana.com/intelligence/press-releases/2024/71-of-us-consumers-play-video-games-according-to-circanas-2024-gamer-segmentation-report/",
+      "sourceDate": "September 2024",
+      "bestUsedFor": [
+        "gaming audience scale",
+        "fan support demand",
+        "mainstream gaming adoption"
+      ]
+    },
+    {
+      "id": "src-pew-teens-gaming-2024",
+      "metric": "85% of U.S. teens say they play video games",
+      "claim": "Pew Research Center reported that 85% of U.S. teens say they play video games, and 83% have or have access to a gaming console at home.",
+      "sourceTitle": "Teens, Social Media and Technology 2024",
+      "sourceUrl": "https://www.pewresearch.org/internet/2024/12/12/teens-social-media-and-technology-2024/",
+      "sourceDate": "December 2024",
+      "bestUsedFor": [
+        "youth audience expectations",
+        "player and parent support",
+        "community engagement"
+      ]
+    },
+    {
+      "id": "src-grandview-esports-market-2030",
+      "metric": "Sponsorship generated more than 40% of global e-sports revenue in 2024",
+      "claim": "Grand View Research states that sponsorship dominated global e-sports revenue in 2024, with more than 40% market share.",
+      "sourceTitle": "Esports Market Size, Share & Trends Analysis Report, 2030",
+      "sourceUrl": "https://www.grandviewresearch.com/industry-analysis/esports-market",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "sponsorship operations",
+        "commercial workflow pressure",
+        "partner support"
+      ]
+    },
+    {
+      "id": "src-frontiers-esports-fan-engagement",
+      "metric": "Fan engagement factors differ by e-sports platform and game context",
+      "claim": "A Frontiers in Sports and Active Living study found that e-sports fan engagement varies across PC and console team fans, underscoring the need for platform-aware communication.",
+      "sourceTitle": "Esports Fan Engagement: A Comparison of PC and Console Esports Team Fans",
+      "sourceUrl": "https://www.frontiersin.org/articles/10.3389/fspor.2022.880294/full",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "fan segmentation",
+        "community support",
+        "platform-specific messaging"
+      ]
+    },
+    {
+      "id": "src-esic-integrity-report-2025",
+      "metric": "ESIC received late-2024 allegations of match-fixing involving an e-sports team",
+      "claim": "The Esports Integrity Commission published a 2025 public investigation report after receiving allegations of match-fixing involving ATOX Esports in late 2024.",
+      "sourceTitle": "Public Report on Investigation into ATOX Esports",
+      "sourceUrl": "https://esic.gg/wp-content/uploads/2025/05/Public-Report-on-Investigation-into-ATOX-Esports.pdf",
+      "sourceDate": "May 2025",
+      "bestUsedFor": [
+        "competitive integrity workflows",
+        "policy access",
+        "sensitive escalation boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Fan support for tournaments, streams, and merch",
+      "problem": "Fans ask the same questions across Discord, websites, social posts, and event pages: when a match starts, where to watch, how refunds work, which merch sizes remain, or what venue rules apply.",
+      "agentWorkflow": "Train a DocsBot support agent on event pages, bracket rules, merch policies, venue FAQs, membership terms, and help articles. The agent answers in the organization’s voice, cites approved sources, collects missing details when needed, and escalates refund, account, or safety issues to a human.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved order, ticket, membership, or event-status context, then create a ticket or handoff summary when the request needs staff review.",
+      "exampleQuestionsOrRequests": [
+        "What time does our Valorant roster play today?",
+        "Where can I watch the academy team stream?",
+        "Can I exchange my jersey size after ordering?",
+        "What items are not allowed at the arena?"
+      ],
+      "businessOutcome": "Reduce repetitive front-line support during match days, merch drops, and live events while keeping fans pointed to the latest approved information.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Sponsor and partnership qualification",
+      "problem": "E-sports sponsorship teams often need to respond quickly to brands asking about packages, audience fit, activation rules, availability, and next steps.",
+      "agentWorkflow": "Train a presales agent on media kits, package descriptions, audience notes, case studies, brand guidelines, inventory rules, and approved pricing guidance. The agent answers basic fit questions, gathers structured lead details, applies customer-defined qualification rules, and prepares a summary for sales.",
+      "liveContextOrTools": "Through customer-configured CRM, email, form, or webhook workflows, DocsBot can forward qualified leads, create a task, draft a follow-up, or request a meeting using an approved scheduling flow.",
+      "exampleQuestionsOrRequests": [
+        "Do you have sponsorship inventory for a collegiate Rocket League event?",
+        "What audience segments do your Twitch broadcasts reach?",
+        "Can we sponsor a team jersey sleeve for next split?",
+        "Send our brand partnership request to the right person."
+      ],
+      "businessOutcome": "Move qualified sponsor conversations forward faster without letting unstructured inbound requests get buried in shared inboxes.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-grandview-esports-market-2030"
+      ]
+    },
+    {
+      "name": "Player, coach, and staff knowledge base",
+      "problem": "Players, coaches, creators, and temporary event staff need fast answers from scattered handbooks, travel notes, scrim rules, content guidelines, sponsor obligations, and HR policies.",
+      "agentWorkflow": "Deploy a private internal knowledge agent trained on player handbooks, onboarding docs, travel SOPs, brand guidelines, roster processes, equipment policies, and internal wikis. Staff ask natural-language questions and receive source-grounded answers from approved private sources.",
+      "liveContextOrTools": "The agent can work in private chat experiences, Slack, Microsoft Teams, or other configured team workflows, with permissions and role-based access for sensitive internal materials.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved sponsor mention for post-match interviews?",
+        "Where do academy players submit travel receipts?",
+        "What is the equipment replacement process?",
+        "Which content guidelines apply to player streams?"
+      ],
+      "businessOutcome": "Reduce operational interruptions and keep distributed teams aligned before travel, broadcasts, sponsor activations, and roster announcements.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Tournament operations and credential routing",
+      "problem": "Live competitions create time-sensitive questions about credentials, call times, desk setup, anti-cheat steps, bracket rules, media access, and on-site escalation paths.",
+      "agentWorkflow": "Train an operations agent on tournament manuals, venue maps, staff checklists, broadcast runbooks, team liaison notes, and escalation procedures. The agent retrieves the correct instruction, summarizes what is needed, and can route requests to the right operations queue when configured.",
+      "liveContextOrTools": "AI Actions can create a task, notify a channel, update an approved field, or call a customer-configured tool through Skills, APIs, connectors, or MCP Connectors connected to remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "A coach is missing a credential. What information do we need?",
+        "Where is the team check-in desk?",
+        "What is the anti-cheat setup checklist?",
+        "Route this tech issue to broadcast operations."
+      ],
+      "businessOutcome": "Help event teams respond consistently under pressure while keeping operational decisions inside approved workflows and human escalation paths.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Rules, integrity, and policy assistant",
+      "problem": "Competitive rulings, code-of-conduct questions, match disputes, and eligibility requirements require precise policy references and careful escalation rather than improvised answers.",
+      "agentWorkflow": "Train a DocsBot agent on rulebooks, player conduct policies, eligibility criteria, dispute procedures, match reporting steps, and integrity guidance. The agent can explain the relevant policy, collect required incident details, and route sensitive cases to league officials or compliance staff.",
+      "liveContextOrTools": "For high-impact rulings, keep the agent scoped to retrieval, intake, summaries, and handoffs while humans make final decisions. Logs and conversation review help teams audit recurring policy questions.",
+      "exampleQuestionsOrRequests": [
+        "What evidence is required for a match dispute?",
+        "Which rule covers substitute players?",
+        "How do we report suspected collusion?",
+        "Summarize this incident for the tournament admin."
+      ],
+      "businessOutcome": "Improve policy consistency without letting AI make final disciplinary, eligibility, or competitive integrity decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-esic-integrity-report-2025"
+      ]
+    },
+    {
+      "name": "Content and community knowledge-gap reporting",
+      "problem": "E-sports fans follow teams across platforms and games, so unclear announcements quickly become repeated questions after roster changes, schedule updates, merch launches, or rule changes.",
+      "agentWorkflow": "Use DocsBot analytics, logs, topic management, and conversation review to see what fans and staff ask most often. Turn recurring unanswered questions into better FAQs, event pages, playbooks, and announcement copy.",
+      "liveContextOrTools": "Reports can guide content updates, while configured workflows can send summaries to support, community, marketing, or documentation owners.",
+      "exampleQuestionsOrRequests": [
+        "What questions spiked after the roster announcement?",
+        "Which merch policy questions were not answered well?",
+        "Summarize unanswered questions from the last event weekend.",
+        "Which game community needs a new FAQ page?"
+      ],
+      "businessOutcome": "Improve public documentation and community messaging based on real fan and staff questions instead of guesswork.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-frontiers-esports-fan-engagement"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give fans instant, official answers before, during, and after match day",
+    "intro": "A DocsBot customer-facing agent can live on your website, event page, support center, or product chat widget. It answers from your approved sources, supports multilingual fan communities, gathers details for staff, and escalates complex requests when a human should step in.",
+    "requests": [
+      {
+        "request": "“When is the next match and where can I watch it?”",
+        "agentResponseStrategy": "Answer from the latest schedule, bracket, and broadcast pages, then provide the correct stream or event destination from approved content.",
+        "sourceTypes": [
+          "Schedule pages",
+          "Bracket rules",
+          "Broadcast links",
+          "Event FAQs"
+        ],
+        "optionalAction": "If live context is configured, look up event status or route schedule errors to the content owner.",
+        "icon": "PlayIcon"
+      },
+      {
+        "request": "“I ordered merch but need help with shipping or exchanges.”",
+        "agentResponseStrategy": "Use merch policies, order FAQs, and support instructions to explain next steps, collect the order details staff need, and avoid exposing sensitive information in chat.",
+        "sourceTypes": [
+          "Merch policies",
+          "Shipping FAQs",
+          "Return rules",
+          "Support macros"
+        ],
+        "optionalAction": "Create a helpdesk ticket or handoff summary through a customer-configured workflow.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Can our brand sponsor your next event?”",
+        "agentResponseStrategy": "Answer from media kits and partnership pages, gather company, region, budget range, timeline, title interest, and activation goals, then qualify the request with customer-defined rules.",
+        "sourceTypes": [
+          "Media kits",
+          "Sponsorship packages",
+          "Audience notes",
+          "Partnership FAQs"
+        ],
+        "optionalAction": "Forward a qualified lead and conversation summary to the configured sales or CRM workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“What are the event rules for attendees or competitors?”",
+        "agentResponseStrategy": "Retrieve the relevant venue, code-of-conduct, eligibility, or tournament rule content and cite the approved source so users know where the answer came from.",
+        "sourceTypes": [
+          "Rulebooks",
+          "Venue policies",
+          "Codes of conduct",
+          "Eligibility docs"
+        ],
+        "optionalAction": "Escalate disputes, safety concerns, or disciplinary issues to the right human reviewer.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“Can I get help in my language?”",
+        "agentResponseStrategy": "DocsBot agents can answer in more than 100 languages when trained on the organization’s approved content, helping global fan communities access consistent information.",
+        "sourceTypes": [
+          "Help center articles",
+          "Event pages",
+          "Public FAQs",
+          "Localized policies"
+        ],
+        "optionalAction": "Route translation gaps or unclear localized content to the documentation owner for review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this roster rumor true?”",
+        "agentResponseStrategy": "The agent should answer only from official announcements, roster pages, press releases, and approved FAQs, then avoid speculating when a claim is not in the source material.",
+        "sourceTypes": [
+          "Roster pages",
+          "Press releases",
+          "Team announcements",
+          "Media FAQs"
+        ],
+        "optionalAction": "Send repeated rumor-related questions to community or PR teams as a topic report.",
+        "icon": "NewspaperIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep e-sports staff aligned across operations, coaching, content, and revenue",
+    "intro": "DocsBot can operate as a private knowledge agent for distributed e-sports teams. Staff can ask questions about SOPs, policies, partner requirements, travel, equipment, onboarding, contracts, and campaign playbooks, then receive answers grounded in approved internal sources.",
+    "workflows": [
+      {
+        "name": "Event-day staff assistant",
+        "problem": "Temporary crews, admins, and team liaisons often need quick answers without interrupting the event lead every few minutes.",
+        "agentWorkflow": "Train the agent on runbooks, venue maps, staff contacts, broadcast schedules, credential procedures, and escalation paths so team members can ask practical operational questions in real time.",
+        "sourceTypes": [
+          "Event runbooks",
+          "Venue maps",
+          "Staff checklists",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Create a task, notify an operations channel, or hand off urgent issues through configured workflows.",
+        "outcome": "Fewer bottlenecks for event leads and more consistent execution during live competitions.",
+        "icon": "TrophyIcon"
+      },
+      {
+        "name": "Player and creator onboarding",
+        "problem": "New players and creators need to understand brand standards, sponsor mentions, content expectations, travel rules, and equipment processes quickly.",
+        "agentWorkflow": "Train a private agent on player handbooks, creator guidelines, sponsor obligations, social policies, expense rules, and onboarding docs so new team members can self-serve common questions.",
+        "sourceTypes": [
+          "Player handbooks",
+          "Brand guidelines",
+          "Sponsor obligations",
+          "Expense policies"
+        ],
+        "optionalAction": "Collect missing onboarding questions and send a weekly summary to operations or HR.",
+        "outcome": "Faster onboarding and fewer repeated questions across rosters, academies, and creator programs.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Partnership enablement for sales reps",
+        "problem": "Sales and partnerships teams need approved claims, package details, proposal language, and activation rules while responding to time-sensitive sponsor opportunities.",
+        "agentWorkflow": "Use DocsBot as a sales enablement agent trained on media kits, pricing guidance, proposal templates, audience notes, objection-handling docs, and internal partnership playbooks.",
+        "sourceTypes": [
+          "Media kits",
+          "Proposal templates",
+          "Audience summaries",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize an inbound lead, or create a CRM task through customer-configured tools.",
+        "outcome": "Reps can respond with consistent, approved information while humans retain control over pricing, contracts, and commitments.",
+        "icon": "PresentationChartBarIcon",
+        "sourceIds": [
+          "src-grandview-esports-market-2030"
+        ]
+      },
+      {
+        "name": "Competitive policy intake",
+        "problem": "Disputes, rule questions, and integrity reports require accurate references, complete intake, and careful human review.",
+        "agentWorkflow": "Train the agent on rulebooks, reporting procedures, conduct policies, eligibility requirements, and disciplinary workflows. It can explain procedures, collect incident context, and prepare a structured handoff.",
+        "sourceTypes": [
+          "Rulebooks",
+          "Conduct policies",
+          "Eligibility docs",
+          "Incident forms"
+        ],
+        "optionalAction": "Route the case to tournament admins or compliance staff while preserving logs for review.",
+        "outcome": "More complete incident reports and clearer policy communication without automating final rulings.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the organization’s own approved knowledge sources so answers stay aligned with the business rather than generic AI responses.",
+      "industryApplication": "Answer fan, player, sponsor, media, and attendee questions from official schedules, rules, FAQs, merch policies, roster pages, and event documentation.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "Embeddable website and product chat widget",
+      "mainLandingPageContext": "DocsBot can provide an AI support experience where users already look for help, including public websites and support surfaces.",
+      "industryApplication": "Place an agent on event pages, team websites, membership portals, or support centers so fans can ask match-day, merch, ticketing, and stream questions instantly.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can train on internal documents, SOPs, wikis, PDFs, Google Drive, Notion, Confluence, and other configured company sources.",
+      "industryApplication": "Give coaches, players, creators, operations staff, and partnership teams fast access to approved playbooks, handbooks, sponsor guidance, and event procedures.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded actions such as lookups, summaries, record creation, routing, updates, notifications, and workflow triggers.",
+      "industryApplication": "Collect sponsor leads, create support tickets, summarize incident reports, route credential issues, look up approved order or event context, and trigger staff workflows when configured.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides reporting and conversation review so teams can understand user questions, improve content, and identify gaps.",
+      "industryApplication": "See what fans ask after schedule changes, roster announcements, rule updates, merch drops, and live events, then turn those patterns into clearer documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect private playbooks, sponsor materials, staff policies, and internal procedures while giving the right people access to the right knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "simon-gaggle-mail-help-scout",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support moments, with Sony NURO handling over 30,000 inquiries in one month using DocsBot.",
+      "Supports website and human-assist workflows, helping teams answer repetitive questions while keeping people available for complex issues.",
+      "Trains on your owned content library so e-sports answers can reflect official rules, schedules, policies, and brand voice."
+    ],
+    "whyTheseReviewsFit": "E-sports organizations need fast, consistent answers when fan traffic spikes around matches, events, merch, and announcements. DocsBot proof shows scalable inquiry handling, owned-content training, and support workflows that assist both public users and human teams.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "UserGroupIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agent and internal knowledge automation for e-sports organizations",
+    "audience": [
+      "E-sports team executives",
+      "Tournament operators",
+      "Fan support leaders",
+      "Partnership and sponsorship teams",
+      "Community managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TrophyIcon"
+  },
+  "relatedIndustrySlugs": [
+    "fantasy-sports-management",
+    "sports-agent-gaming",
+    "game-development",
+    "online-gaming",
+    "gaming",
+    "gaming-podcast"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "e-sports-organization",
+    "webSearchQueries": [
+      "esports market revenue audience statistics 2024 report",
+      "esports fan engagement digital community support tournament operations challenges report",
+      "Pew esports gaming live streaming statistics US teens adults 2024",
+      "Newzoo global esports audience revenue 2024",
+      "esports integrity commission match fixing cheating report esports 2024",
+      "IOC Olympic Esports Games 2025 announcement esports growth",
+      "Statista esports market revenue 2024 audience source",
+      "Circana 2024 gamer segmentation report 71% US consumers play video games"
+    ],
+    "sourceUrls": [
+      "https://www.circana.com/intelligence/press-releases/2024/71-of-us-consumers-play-video-games-according-to-circanas-2024-gamer-segmentation-report/",
+      "https://www.pewresearch.org/internet/2024/12/12/teens-social-media-and-technology-2024/",
+      "https://www.grandviewresearch.com/industry-analysis/esports-market",
+      "https://www.frontiersin.org/articles/10.3389/fspor.2022.880294/full",
+      "https://esic.gg/wp-content/uploads/2025/05/Public-Report-on-Investigation-into-ATOX-Esports.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47727,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 27503,
+        "outputTokens": 8113,
+        "reasoningOutputTokens": 213,
+        "totalTokens": 55840,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.195509,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.215509
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27679,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12703,
+          "outputTokens": 5561,
+          "reasoningOutputTokens": 213,
+          "totalTokens": 33240,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.118917,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.138917
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20048,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14800,
+          "outputTokens": 2552,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22600,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076592,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076592
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1587202372616-b43abea06c2a?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU1NDZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "E-Sports Organization background image",
+    "source": "legacy-industry",
+    "query": "E-Sports Organization"
+  },
+  "faq": [
+    {
+      "question": "Can one AI agent support both fans and internal staff without exposing private team information?",
+      "answer": "Yes, but it should be configured as separate experiences or permissioned knowledge scopes. A public agent can answer fans from approved schedules, event FAQs, merch policies, roster pages, and sponsor-facing materials, while a private internal agent can use handbooks, travel SOPs, sponsor obligations, and operational runbooks with role-based access controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would DocsBot handle match-day spikes when fans all ask about streams, brackets, delays, tickets, and merch at once?",
+      "answer": "DocsBot is designed for high-volume repetitive support moments. You can train the agent on your official event pages, bracket rules, broadcast links, venue policies, and merch FAQs so fans get instant answers while staff focus on exceptions, outages, refunds, disputes, and VIP or partner issues.",
+      "role": "Fan engagement and community teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens if our schedule changes minutes before a match or broadcast?",
+      "answer": "The agent is only as current as the approved sources and live context you connect. For volatile details like match times, stream links, brackets, and venue updates, teams typically connect the agent to maintained source pages or approved Skills/APIs so it can answer from the latest authorized event context and route suspected content errors to staff.",
+      "role": "Tournament and event operations",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent answer across different games, rosters, regions, and platforms without mixing them up?",
+      "answer": "Yes, if your content is organized clearly by title, roster, league, region, season, and event. DocsBot can answer from source-grounded materials, and analytics can reveal where documentation is ambiguous. That matters because e-sports fan engagement varies by platform and game context, so one generic FAQ often is not enough.",
+      "role": "Fan engagement and community teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-frontiers-esports-fan-engagement"
+      ]
+    },
+    {
+      "question": "Will DocsBot speculate about roster rumors, transfers, scrim leaks, or unannounced sponsor deals?",
+      "answer": "It should be instructed not to speculate. A DocsBot agent can be scoped to answer only from official announcements, roster pages, press releases, and approved FAQs. If the information is not in your sources, it can say it does not have an official answer and flag repeated rumor-related questions for community or PR review.",
+      "role": "Fan engagement and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use DocsBot for sponsorship inquiries without letting AI negotiate pricing or inventory commitments?",
+      "answer": "Yes. The agent can answer from media kits, package descriptions, audience notes, activation rules, and approved sales materials, then collect company, region, budget range, timeline, game title interest, and follow-up preferences. Humans should still own final pricing, legal terms, exclusivity, and contractual commitments.",
+      "role": "Partnerships, sales, and sponsorship teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can we justify the investment to leadership if our fan support is handled through Discord, email, and social DMs today?",
+      "answer": "Frame ROI around reduced repetitive questions, faster event-day response, fewer internal interruptions, better sponsor lead capture, and clearer documentation gaps. Gaming has mainstream reach: Circana reported that 71% of U.S. consumers played video games in 2024, representing 236.4 million players and 1.7 billion weekly play hours.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-circana-us-gamers-2024"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us capture sponsor demand from website visitors instead of losing requests in a shared inbox?",
+      "answer": "Yes. A DocsBot presales agent can collect structured sponsor details, apply your qualification rules, summarize the opportunity, and forward the handoff to a configured CRM, email inbox, form, or sales workflow. That is especially useful because sponsorship represented more than 40% of global e-sports revenue in 2024, according to Grand View Research.",
+      "role": "Partnerships, sales, and sponsorship teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-grandview-esports-market-2030"
+      ]
+    },
+    {
+      "question": "What internal teams usually need to approve an AI agent for an e-sports organization?",
+      "answer": "Typical stakeholders include fan engagement, tournament operations, partnerships, IT/security, legal or compliance, merchandising, content/PR, and executive leadership. Each group will care about different controls: answer accuracy, data access, escalation, source ownership, brand voice, integration effort, and reporting on usage and outcomes.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent help temporary event staff without giving them full access to our internal systems?",
+      "answer": "Yes. You can train a private agent on the specific event runbooks, venue maps, credential procedures, call sheets, escalation paths, and broadcast checklists they need. Role-based permissions help limit access, while AI Actions can be scoped to safe tasks such as creating a ticket, notifying a channel, or preparing a handoff.",
+      "role": "Tournament and event operations",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we keep AI from making the wrong call on disputes, eligibility, cheating, or code-of-conduct issues?",
+      "answer": "Use the agent for retrieval, intake, summarization, and routing—not final rulings. It can cite the relevant rulebook, collect evidence, summarize the incident, and escalate to tournament admins or compliance staff. That boundary matters in competitive integrity workflows, where even public reports have addressed match-fixing allegations in e-sports.",
+      "role": "Tournament and event operations",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-esic-integrity-report-2025"
+      ]
+    },
+    {
+      "question": "Can DocsBot support parents, amateur players, collegiate teams, and younger fans asking practical event questions?",
+      "answer": "Yes. The agent can answer from approved eligibility rules, ticketing FAQs, venue policies, codes of conduct, travel instructions, and player onboarding content. Youth and family-facing clarity matters: Pew Research Center reported that 85% of U.S. teens say they play video games and 83% have or can access a console at home.",
+      "role": "Fan engagement and community teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-pew-teens-gaming-2024"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect with for tickets, CRM records, chat, or event workflows?",
+      "answer": "DocsBot can support customer-configured connections through AI Actions, Skills, APIs, connectors, webhooks, and MCP Connectors where authorized. Avoid assuming a native integration is required: the practical goal is to let the agent collect details, look up approved context, create records, notify teams, or route handoffs inside your existing workflow boundaries.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we embed the agent on tournament pages, team sites, membership portals, or support centers?",
+      "answer": "Yes. DocsBot can power an embeddable website or product chat widget, so fans can ask questions where they already look for match schedules, stream links, ticket policies, merch help, event rules, and memberships. Internal teams can also use private chat experiences for staff-only knowledge.",
+      "role": "Fan engagement and community teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much content cleanup is needed before launch?",
+      "answer": "You do not need perfect documentation, but you do need approved sources. Start with the highest-volume content: schedules, stream links, ticketing, merch policies, venue rules, codes of conduct, sponsorship pages, and event runbooks. Then use DocsBot analytics and logs to identify repeated unanswered questions and fix gaps over time.",
+      "role": "Tournament and event operations",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping our support and community teams?",
+      "answer": "Track deflected repetitive questions, resolution rate, escalation volume, unanswered topics, average response time, fan satisfaction signals, sponsor lead capture, and staff time saved during event windows. DocsBot analytics, logs, reports, topic management, and conversation review help show which content is working and where your documentation needs improvement.",
+      "role": "Fan engagement and community teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent maintain our brand voice across official, hype-driven, and policy-sensitive conversations?",
+      "answer": "Yes, within the sources and instructions you provide. You can train it on official FAQs, announcement style, support macros, community guidelines, sponsor language, and escalation rules. For sensitive topics such as refunds, safety, eligibility, discipline, or rumors, it should shift to precise, source-grounded language and hand off when needed.",
+      "role": "Fan engagement and community teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot work for multilingual fan communities and international events?",
+      "answer": "DocsBot agents can answer in more than 100 languages when trained on your approved content. For global events, teams should still review critical translations for rules, refunds, safety, eligibility, and venue policies, then use analytics to identify languages or topics where fans are not getting clear answers.",
+      "role": "Fan engagement and community teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How can partnerships teams prevent reps from using outdated audience claims or sponsor package language?",
+      "answer": "Use a private sales enablement agent trained on current media kits, audience summaries, proposal templates, inventory rules, approved pricing guidance, and objection-handling notes. Reps can retrieve consistent information quickly, while leadership keeps final commercial decisions, custom packages, and contract terms under human control.",
+      "role": "Partnerships, sales, and sponsorship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help us onboard new players, creators, coaches, and academy staff?",
+      "answer": "Yes. A private internal agent can answer questions from player handbooks, creator guidelines, sponsor obligations, content rules, travel policies, expense procedures, equipment processes, and HR materials. This reduces repeated Slack or Discord interruptions and gives new team members one place to ask operational questions.",
+      "role": "Tournament and event operations",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What security controls matter if we train the agent on sponsor decks, player handbooks, travel details, and internal SOPs?",
+      "answer": "Buyers should look for encryption, access controls, role-based permissions, audit-friendly logs, and clear data-use boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How is DocsBot different from asking staff to search Notion, Google Drive, Confluence, or long PDFs themselves?",
+      "answer": "DocsBot gives staff a natural-language layer over approved knowledge sources, so they can ask operational questions and receive source-grounded answers instead of searching through folders, wikis, PDFs, and old messages. It also shows what people keep asking, which helps operations and content owners improve the source material.",
+      "role": "Tournament and event operations",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should stay with humans even after we deploy an AI agent?",
+      "answer": "Humans should own disciplinary decisions, eligibility rulings, refunds outside policy, safety issues, legal commitments, sponsor negotiations, player welfare concerns, PR-sensitive announcements, and final contract terms. DocsBot is best used to retrieve source-grounded information, collect context, summarize, route, and trigger approved workflows.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we start with one use case, or do we need a full organization-wide AI rollout?",
+      "answer": "Most teams should start with a focused use case such as match-day fan FAQs, merch support, sponsor intake, event staff runbooks, or internal player onboarding. After launch, review analytics, fix content gaps, expand sources, and add scoped AI Actions only where the workflow is clear and low-risk.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

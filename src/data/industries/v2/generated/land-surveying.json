@@ -1,0 +1,759 @@
+{
+  "slug": "land-surveying",
+  "business": "Land Surveying",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Faster Land Surveying Operations",
+    "description": "DocsBot helps land surveying firms answer client questions, retrieve project knowledge, and route field requests from approved survey documents.",
+    "canonicalPath": "/industry/land-surveying"
+  },
+  "hero": {
+    "eyebrow": "AI agents for survey firms, field crews, and client service teams",
+    "headline": "Keep land surveying knowledge moving from field to client",
+    "subheadline": "DocsBot helps land surveying firms create AI agents trained on proposals, FAQs, SOPs, survey standards, project notes, templates, and internal documentation so clients and employees can get source-grounded answers, handoffs, and summaries without waiting on the licensed surveyor for every routine question.",
+    "proofBullets": [
+      {
+        "text": "Answer client questions about survey types, timelines, deliverables, required documents, and next steps from approved firm content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give field and office staff quick access to SOPs, equipment checklists, drafting standards, onboarding notes, and project documentation.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect intake details for boundary, ALTA/NSPS, construction staking, topographic, and as-built requests before routing the lead.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize inquiries, create tasks, trigger handoffs, or look up approved project status when your systems are connected.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a survey knowledge agent",
+    "secondaryCta": "Explore AI workflows for survey firms"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your land surveying firm’s approved knowledge into AI support and internal knowledge agents. Train agents on website pages, PDFs, Word documents, SOPs, proposals, service descriptions, project templates, policies, wikis, Google Drive, Notion, Confluence, and other configured sources. Then deploy them in a website widget, private team chat, Slack, Microsoft Teams, or customer-configured workflows with clear boundaries for sensitive or licensed decisions.",
+    "whoItHelps": [
+      {
+        "role": "Firm owners and operations managers",
+        "roleContext": "Keep client communication, intake, and internal procedures consistent while protecting licensed staff time for judgment-heavy boundary, title, and deliverable review work.",
+        "bullets": [
+          {
+            "text": "Standardize answers about service scope, turnaround expectations, client responsibilities, and deliverable formats.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Use conversation analytics to spot repeated questions, documentation gaps, and unclear service pages.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route quote requests, missing documents, and status questions to the right team with customer-configured workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Project managers and licensed surveyors",
+        "roleContext": "Reduce interruptions from routine lookups while keeping professional judgment, certification, legal interpretation, and client commitments under human control.",
+        "bullets": [
+          {
+            "text": "Retrieve approved notes, checklists, templates, and project context before field deployment or drafting review.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Prepare concise handoff summaries from client chats, ticket threads, or intake forms for human review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep field, CAD, and admin teams aligned on the same approved SOPs instead of scattered tribal knowledge.",
+            "icon": "UserGroupIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Client service, sales, and administrative teams",
+        "roleContext": "Respond quickly to property owners, developers, lenders, title teams, attorneys, and contractors without guessing about technical details.",
+        "bullets": [
+          {
+            "text": "Qualify inbound requests by collecting property address, parcel information, survey type, deadline, site access, and preferred follow-up.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Answer common questions about scheduling, deliverables, invoice status, and document requirements from approved sources.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Draft follow-up messages, appointment notes, or internal routing summaries for staff to review and send.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Field crews, CAD technicians, and new hires",
+        "roleContext": "Make practical procedures searchable when crews and technicians need quick guidance on equipment, safety reminders, field notes, file naming, drafting conventions, or onboarding materials.",
+        "bullets": [
+          {
+            "text": "Search SOPs, training content, and equipment procedures from a private internal knowledge agent.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Ask for checklist reminders before mobilizing to a site or handing off field data to the office.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Find the latest internal drafting, QA, and deliverable guidance without digging through shared drives.",
+            "icon": "ComputerDesktopIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-surveyors-workforce",
+      "metric": "56,100 surveyor jobs in 2024 and 3,900 projected annual openings",
+      "claim": "The U.S. Bureau of Labor Statistics reports surveyors held about 56,100 jobs in 2024, with about 3,900 openings projected each year from 2024 to 2034.",
+      "sourceTitle": "Surveyors: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/architecture-and-engineering/surveyors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "workforce replacement pressure",
+        "field and office work context"
+      ]
+    },
+    {
+      "id": "src-bls-surveyors-work-environment",
+      "metric": "Surveyors work outdoors, travel, carry equipment, and may work near traffic",
+      "claim": "BLS describes surveying as both field and office work, with outdoor weather exposure, long walks, heavy instrument packs, travel, and visibility precautions near traffic.",
+      "sourceTitle": "Surveyors: Occupational Outlook Handbook — Work Environment",
+      "sourceUrl": "https://www.bls.gov/ooh/architecture-and-engineering/surveyors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "field operations",
+        "safety reminders",
+        "crew readiness"
+      ]
+    },
+    {
+      "id": "src-nsps-2026-alta",
+      "metric": "2026 ALTA/NSPS standards effective February 23, 2026",
+      "claim": "NSPS publishes the 2026 ALTA/NSPS Land Title Survey Standards and related resources for firms managing land title survey requirements.",
+      "sourceTitle": "2026 ALTA/NSPS Standards",
+      "sourceUrl": "https://nsps.us.com/page/2026ALTA",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "standards updates",
+        "ALTA/NSPS workflow complexity",
+        "documentation control"
+      ]
+    },
+    {
+      "id": "src-osha-heat",
+      "metric": "OSHA recognizes heat as an occupational hazard for outdoor work",
+      "claim": "OSHA states that employers must provide workplaces free from recognized hazards and provides guidance for evaluating and controlling heat exposure, including outdoor work settings.",
+      "sourceTitle": "Heat — Overview: Working in Outdoor and Indoor Heat Environments",
+      "sourceUrl": "https://www.osha.gov/heat-exposure",
+      "sourceDate": "Current OSHA guidance",
+      "bestUsedFor": [
+        "field safety context",
+        "outdoor crew reminders",
+        "heat exposure planning"
+      ]
+    },
+    {
+      "id": "src-nsps-workforce-development",
+      "metric": "NSPS workforce materials cite an average licensed surveyor age of approximately 60",
+      "claim": "NSPS workforce development materials cite the national average age of a licensed surveyor as approximately 60, underscoring succession, training, and knowledge-preservation concerns.",
+      "sourceTitle": "NSPS Workforce Development Committee Spring Report",
+      "sourceUrl": "https://cdn.ymaws.com/nsps.us.com/resource/resmgr/2025_spring_meeting/2025__WFD_Spring_Report__-_U.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "knowledge preservation",
+        "training pressure",
+        "workforce aging"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Survey request intake and lead qualification",
+      "problem": "Prospects often submit incomplete requests, forcing admin staff or surveyors to chase addresses, parcel details, service type, deadlines, lender requirements, and site access information.",
+      "agentWorkflow": "A DocsBot presales agent answers service questions from approved pages and intake guidance, asks structured follow-up questions, qualifies the request using firm-defined rules, and prepares a summary for estimating or scheduling. With approved AI Actions, it can forward the lead to CRM, email, helpdesk software, forms, Slack, Microsoft Teams, or another configured workflow.",
+      "liveContextOrTools": "Use customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors for approved record creation, routing, status lookup, or meeting-request workflows.",
+      "exampleQuestionsOrRequests": [
+        "I need a boundary survey for a home closing next month. What information do you need?",
+        "Can you do an ALTA/NSPS survey for a commercial property, and what affects pricing?",
+        "Please collect the parcel, deadline, site access notes, and title contact before sending this to estimating."
+      ],
+      "businessOutcome": "Cleaner intake, fewer back-and-forth emails, faster handoffs, and better first-response consistency without letting the agent commit to pricing or licensed conclusions.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Client-facing survey status and deliverable support",
+      "problem": "Clients, lenders, attorneys, contractors, and property owners frequently ask where a project stands, what a deliverable means, or what documents are still needed.",
+      "agentWorkflow": "A DocsBot support agent answers from firm FAQs, project communication templates, deliverable guides, and approved status definitions. When connected to authorized systems, AI Actions can look up limited project status, collect missing information, summarize the conversation, create a task, or route the request to the project manager.",
+      "liveContextOrTools": "Approved live lookups can use customer-configured APIs, metadata, connectors, or workflow automations with permissions and logs around what the agent can access.",
+      "exampleQuestionsOrRequests": [
+        "Has my survey been scheduled yet?",
+        "What does it mean if my lender requested Table A items?",
+        "Can you send this access update to the project manager?"
+      ],
+      "businessOutcome": "Reduce routine status interruptions while giving clients a clear path to human help when the question involves scope changes, professional judgment, legal interpretation, or commitments.",
+      "icon": "ClockIcon"
+    },
+    {
+      "name": "ALTA/NSPS standards and checklist assistant",
+      "problem": "Commercial title surveys require careful coordination among standards, Table A items, title commitments, client expectations, and internal QA processes.",
+      "agentWorkflow": "Train a private DocsBot agent on the firm’s ALTA/NSPS guidance, checklists, template notes, approved client explanations, and internal QA procedures. Staff can ask the agent to retrieve relevant checklist items, explain internal process steps, or summarize what is missing before licensed review.",
+      "liveContextOrTools": "The agent should retrieve from approved firm materials and current standards folders; final certification, boundary judgments, and legal conclusions remain with qualified professionals.",
+      "exampleQuestionsOrRequests": [
+        "Show our current ALTA/NSPS intake checklist for a lender closing.",
+        "What information do we request before starting a commercial title survey?",
+        "Summarize the documents still missing from this intake packet."
+      ],
+      "businessOutcome": "Make standards-related procedures easier to find and reduce checklist drift as ALTA/NSPS materials change; NSPS lists 2026 ALTA/NSPS standards resources with an effective date in 2026.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-nsps-2026-alta"
+      ]
+    },
+    {
+      "name": "Field crew SOP and safety knowledge assistant",
+      "problem": "Survey crews work away from the office, often in weather, traffic, construction, rural, or remote conditions where quick access to current SOPs and safety reminders matters.",
+      "agentWorkflow": "A private internal DocsBot agent answers from equipment procedures, field-note standards, vehicle policies, site-access rules, emergency guidance, and crew checklists. Crews can ask for a pre-mobilization checklist, instrument setup reference, or handoff requirements before returning data to CAD.",
+      "liveContextOrTools": "Deploy in private team chat or mobile-friendly chat experiences; use approved workflows to notify a supervisor or create a task when an issue needs follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What should I check before leaving for a construction staking job?",
+        "Find our field-note requirements for a topographic survey.",
+        "What is our heat safety reminder for outdoor crews today?"
+      ],
+      "businessOutcome": "Support consistent field practices and faster onboarding for crews who face outdoor conditions, travel, heavy instrument packs, and traffic visibility concerns described by BLS.",
+      "icon": "MapPinIcon",
+      "sourceIds": [
+        "src-bls-surveyors-work-environment"
+      ]
+    },
+    {
+      "name": "Training and knowledge preservation for a retiring workforce",
+      "problem": "Many survey firms depend on senior licensed staff for unwritten procedures, client history, local practices, and quality expectations that are hard to transfer to new hires.",
+      "agentWorkflow": "DocsBot can train on SOPs, onboarding guides, recorded notes converted to documents, internal wikis, templates, past approved guidance, and project playbooks. New hires can ask questions in a private knowledge agent and managers can review analytics to see where training content is thin.",
+      "liveContextOrTools": "Use source-grounded answers, conversation review, reports, and knowledge-gap discovery to improve internal documentation over time.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find our drafting standards for easement exhibits?",
+        "Explain our process for reviewing field data before CAD drafting.",
+        "What should a new technician know before their first boundary project?"
+      ],
+      "businessOutcome": "Preserve firm knowledge as the workforce changes; NSPS workforce materials cite the national average age of a licensed surveyor at approximately 60.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-nsps-workforce-development"
+      ]
+    },
+    {
+      "name": "Proposal, email, and handoff drafting for survey teams",
+      "problem": "Survey staff spend time rewriting similar explanations for scope, deliverables, access needs, scheduling, and document requests across email, forms, and ticket threads.",
+      "agentWorkflow": "A DocsBot sales enablement or support agent drafts responses from approved proposal language, service descriptions, FAQs, pricing guidance, and objection-handling notes. Staff review before sending, while AI Actions can create tasks, attach summaries, or route the request to the right owner.",
+      "liveContextOrTools": "Customer-configured workflows can move summaries to CRM, ticketing systems, email, forms, or team channels without claiming a native integration.",
+      "exampleQuestionsOrRequests": [
+        "Draft a reply explaining what we need before quoting this boundary survey.",
+        "Summarize this client’s request and mark missing information.",
+        "Create a handoff note for the project manager from this website chat."
+      ],
+      "businessOutcome": "Faster, more consistent communication while keeping humans responsible for price, contract, schedule, scope, and licensed-professional commitments.",
+      "icon": "PencilIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients clear answers before they call the surveyor",
+    "intro": "A DocsBot customer-facing AI agent can be embedded on your website or used in support workflows to answer common questions from approved content, collect structured intake details, and escalate sensitive or complex requests to your staff.",
+    "requests": [
+      {
+        "request": "“What type of survey do I need for a fence, home closing, or commercial refinance?”",
+        "agentResponseStrategy": "Explain service categories using firm-approved descriptions, ask clarifying questions, and recommend a human follow-up when the request affects legal, boundary, lender, or contract decisions.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Approved intake scripts",
+          "Client education PDFs"
+        ],
+        "optionalAction": "Collect contact details, property address, parcel ID if known, deadline, and preferred follow-up channel before routing the lead.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“What documents do you need before you can quote my project?”",
+        "agentResponseStrategy": "Return a checklist from approved intake materials and tailor follow-up questions to the service type without guaranteeing cost or schedule.",
+        "sourceTypes": [
+          "Quote checklists",
+          "Proposal templates",
+          "Admin SOPs",
+          "Website forms"
+        ],
+        "optionalAction": "Create an internal task or forward a structured intake summary through a customer-configured workflow.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you explain the deliverables I received?”",
+        "agentResponseStrategy": "Answer from approved client-facing explanations, glossary content, and deliverable guides, then route the client to the project manager for legal, title, boundary, or certification questions.",
+        "sourceTypes": [
+          "Deliverable guides",
+          "Glossaries",
+          "Project FAQs",
+          "Client onboarding materials"
+        ],
+        "optionalAction": "Summarize the client’s question and attach it to a handoff for human response.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Is my crew visit scheduled or do you still need access information?”",
+        "agentResponseStrategy": "If authorized live context is configured, look up limited status fields or required-access notes; otherwise, collect missing information and route the request.",
+        "sourceTypes": [
+          "Approved status definitions",
+          "Scheduling notes",
+          "Site access policies",
+          "Project metadata"
+        ],
+        "optionalAction": "Trigger a notification, task, or helpdesk handoff with conversation context.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you support my language?”",
+        "agentResponseStrategy": "DocsBot agents can answer in more than 100 languages when trained on approved content, helping firms serve multilingual property owners, tenants, contractors, and stakeholders.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Website content",
+          "Service guides",
+          "Client instructions"
+        ],
+        "optionalAction": "Route translated intake details to staff for review before follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What should I know about the 2026 ALTA/NSPS standards?”",
+        "agentResponseStrategy": "Point to firm-approved explanations and escalate detailed standards interpretation to qualified staff; NSPS publishes 2026 ALTA/NSPS standards resources for land title surveys.",
+        "sourceTypes": [
+          "ALTA/NSPS procedure notes",
+          "Firm checklists",
+          "Client education materials",
+          "Standards folders"
+        ],
+        "optionalAction": "Collect the transaction role, property address, deadline, title contact, and requested Table A items for staff review.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-nsps-2026-alta"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make survey SOPs, project knowledge, and training searchable",
+    "intro": "DocsBot can act as a private internal knowledge agent for field, CAD, admin, project management, and leadership teams. Train it on approved sources so employees can find consistent answers while managers see what people ask and where documentation needs work.",
+    "workflows": [
+      {
+        "name": "Field mobilization and equipment readiness",
+        "problem": "Crews need repeatable pre-trip guidance, equipment procedures, site access notes, and handoff standards without calling the office for every detail.",
+        "agentWorkflow": "The agent retrieves relevant SOPs, equipment checklists, project prep steps, and field-note requirements from approved internal content.",
+        "sourceTypes": [
+          "Field SOPs",
+          "Equipment manuals",
+          "Vehicle policies",
+          "Crew checklists"
+        ],
+        "optionalAction": "Create a supervisor task or team-channel notification when a crew reports missing equipment, access issues, or unclear instructions.",
+        "outcome": "Fewer preventable delays and a more consistent pre-mobilization routine for field crews.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "CAD and deliverable QA support",
+        "problem": "Technicians often need quick reminders on file naming, layer standards, title block details, note language, and review steps.",
+        "agentWorkflow": "DocsBot answers from drafting standards, QA checklists, deliverable templates, and approved example files so technicians can confirm process before escalation.",
+        "sourceTypes": [
+          "CAD standards",
+          "QA checklists",
+          "Template libraries",
+          "Deliverable notes"
+        ],
+        "optionalAction": "Generate a draft QA summary or checklist completion note for human review.",
+        "outcome": "More consistent drafting support and fewer repeated procedural questions to senior staff.",
+        "icon": "ComputerDesktopIcon"
+      },
+      {
+        "name": "Project manager handoffs",
+        "problem": "Survey projects involve emails, calls, forms, title documents, field notes, and client requests that must be summarized accurately before action.",
+        "agentWorkflow": "A DocsBot agent can summarize approved conversation or ticket context, identify missing information, and route the handoff using customer-configured workflows.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Email summaries",
+          "Project notes",
+          "Intake forms"
+        ],
+        "optionalAction": "Create a task, route a summary, or update approved fields when connected through Skills, APIs, connectors, or workflows.",
+        "outcome": "Cleaner handoffs between admin, field, CAD, project management, and licensed review.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Onboarding and continuing training",
+        "problem": "New survey technicians and administrative staff may struggle to find the right internal procedure, especially in firms where knowledge sits with experienced surveyors.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, SOPs, training docs, policies, and internal wikis so employees can ask practical questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training PDFs",
+          "Policies",
+          "Internal wikis"
+        ],
+        "optionalAction": "Use analytics and knowledge-gap reports to identify which onboarding topics need clearer documentation.",
+        "outcome": "Better knowledge transfer in a profession where NSPS workforce materials cite an average licensed surveyor age of approximately 60.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-nsps-workforce-development"
+        ]
+      },
+      {
+        "name": "Safety and field policy reminders",
+        "problem": "Outdoor surveying work can involve heat, traffic, remote travel, construction sites, and physical equipment demands.",
+        "agentWorkflow": "The agent retrieves company safety policies, PPE guidance, vehicle procedures, heat reminders, and escalation instructions from approved sources.",
+        "sourceTypes": [
+          "Safety manuals",
+          "PPE policies",
+          "Vehicle procedures",
+          "Emergency plans"
+        ],
+        "optionalAction": "Route an incident note or safety question to the designated manager through an approved workflow.",
+        "outcome": "Make safety procedures easier to access for field teams; OSHA provides heat-exposure guidance for employers managing recognized hazards.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-heat"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your firm’s own content",
+      "mainLandingPageContext": "DocsBot agents train on approved knowledge sources such as websites, documentation, PDFs, Word documents, internal content, wikis, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Answer questions about survey services, intake requirements, deliverables, SOPs, drafting standards, and onboarding guidance without relying on generic AI guesses.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and customer support workflows",
+      "mainLandingPageContext": "DocsBot can deliver instant support through embeddable website chat and helpdesk-connected workflows when configured by the customer.",
+      "industryApplication": "Let property owners, title teams, developers, and contractors ask routine questions, provide missing details, and receive next steps before staff follow-up.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, field updates, and workflow triggers when the customer configures access.",
+      "industryApplication": "Use approved workflows to look up limited project status, create intake tasks, forward lead summaries, notify project managers, or route client requests to the right team.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can serve employees through private team chat, Slack, Microsoft Teams, and internal knowledge workflows.",
+      "industryApplication": "Give field crews, CAD technicians, admin staff, and project managers one searchable place for SOPs, checklists, templates, policies, and training materials.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which client questions, training gaps, status requests, or SOP topics recur so the firm can improve FAQs, onboarding, and internal documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private firm knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private project information, client communications, internal procedures, and credentialed workflows with role-aware access and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "anders-boligsiden-communication",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect the way your firm actually works.",
+      "Improve communication with clients and stakeholders across service, project, and support conversations.",
+      "Support both website self-service and staff-assisted response workflows.",
+      "Proven ability to handle high-volume customer inquiries with source-grounded automation."
+    ],
+    "whyTheseReviewsFit": "Land surveying firms need fast, trustworthy answers from their own documents, not generic responses. DocsBot proof spans content-trained agents, stakeholder communication, website assistants, and staff-supported workflows that match the daily mix of client questions, internal lookups, and handoffs in survey operations.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "UserGroupIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for land surveying firms",
+    "audience": [
+      "Land surveying firm owners",
+      "Licensed surveyors and project managers",
+      "Survey operations teams",
+      "Field crews and CAD technicians",
+      "Client service and intake teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MapPinIcon"
+  },
+  "relatedIndustrySlugs": [
+    "environmental-consultancy",
+    "environmental-monitoring",
+    "natural-resources-environmental",
+    "pipeline",
+    "mineral-resource-extraction",
+    "oil-gas-extraction-production"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "land-surveying",
+    "webSearchQueries": [
+      "land surveying industry employment United States BLS surveyors occupational outlook",
+      "NSPS land surveying workforce shortage surveyors aging profession",
+      "ALTA NSPS land title survey standards 2021 minimum standard detail requirements",
+      "OSHA surveying field crew hazards traffic heat construction sites"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/architecture-and-engineering/surveyors.htm",
+      "https://nsps.us.com/page/2026ALTA",
+      "https://www.osha.gov/heat-exposure",
+      "https://cdn.ymaws.com/nsps.us.com/resource/resmgr/2025_spring_meeting/2025__WFD_Spring_Report__-_U.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42131,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 21395,
+        "outputTokens": 8317,
+        "reasoningOutputTokens": 133,
+        "totalTokens": 50448,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.183427,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.193427
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21621,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6133,
+          "outputTokens": 5682,
+          "reasoningOutputTokens": 133,
+          "totalTokens": 27303,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.104435,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.114435
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20510,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15262,
+          "outputTokens": 2635,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23145,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078992,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078992
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1628158145409-9e222b56cc0b?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDAwNDF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Land Surveying background image",
+    "source": "legacy-industry",
+    "query": "Land Surveying"
+  },
+  "faq": [
+    {
+      "question": "Will the agent give legal or boundary advice to clients if they ask what their survey means?",
+      "answer": "No. DocsBot should be configured to answer only from approved client-facing explanations, glossaries, and deliverable guides, then escalate boundary, title, certification, legal interpretation, scope-change, or commitment questions to a licensed professional. That gives clients faster routine guidance without replacing professional judgment.",
+      "role": "Project managers and licensed surveyors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us qualify survey requests before a licensed surveyor gets involved?",
+      "answer": "Yes. A DocsBot presales agent can ask for the property address, parcel ID if known, survey type, deadline, lender or title contact, access notes, and preferred follow-up. It can summarize the request and route it through a customer-configured form, CRM, email, ticketing system, Slack, Microsoft Teams, or workflow for estimating review.",
+      "role": "Client service, sales, and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this reduce interruptions for project managers without hiding important client issues?",
+      "answer": "Use the agent for repeatable questions: documents needed, deliverable formats, basic status definitions, scheduling next steps, and intake completeness. When the client asks about pricing changes, boundary conclusions, title exceptions, certification, or contract commitments, the agent can create a handoff summary and route it to the project manager.",
+      "role": "Project managers and licensed surveyors",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it answer questions about ALTA/NSPS surveys without using outdated standards?",
+      "answer": "DocsBot answers from the sources you approve, so the key is maintaining a current standards and checklist folder. This is especially important for commercial title work because NSPS publishes 2026 ALTA/NSPS Land Title Survey Standards resources with an effective date of February 23, 2026.",
+      "role": "Project managers and licensed surveyors",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-nsps-2026-alta"
+      ]
+    },
+    {
+      "question": "What would we train the agent on first if our documentation is scattered across drives and old templates?",
+      "answer": "Start with high-value, low-risk content: service descriptions, intake checklists, proposal language, deliverable explanations, field SOPs, CAD standards, onboarding guides, safety policies, and approved email templates. You do not need perfect documentation on day one; analytics and conversation review can show which missing answers to document next.",
+      "role": "Firm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field crews use it for SOPs and safety reminders while they are away from the office?",
+      "answer": "Yes. A private internal agent can retrieve equipment checklists, field-note requirements, vehicle procedures, site-access rules, PPE guidance, and emergency escalation steps from approved firm documents. That fits surveying work where BLS describes field and office duties, outdoor exposure, travel, equipment carrying, and traffic visibility precautions.",
+      "role": "Field crews, CAD technicians, and new hires",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-surveyors-work-environment"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from quoting prices or promising turnaround times?",
+      "answer": "Train it on approved pricing and scheduling language, then set instructions that it may explain factors affecting cost or timing but cannot commit to a fee, delivery date, scope, or crew assignment. For quote-ready inquiries, it should collect details and route a summary to the responsible human for review.",
+      "role": "Firm owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot look up project status from our systems?",
+      "answer": "Yes, if your team configures approved access through Skills, APIs, connectors, MCP Connectors, metadata, or workflow automations. Keep lookups narrow: for example, scheduled/not scheduled, missing documents, assigned project manager, or access notes. Sensitive fields and status changes should use permissions, logs, and escalation rules.",
+      "role": "Firm owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will this integrate with our CRM, scheduling process, ticketing software, or shared drive?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, webhooks, forms, Slack, Microsoft Teams, Google Drive, Notion, Confluence, and other approved sources or workflows. Rather than assuming a native integration, plan the workflow around what the agent may read, summarize, create, update, or route.",
+      "role": "Firm owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What kind of ROI should a small or mid-sized survey firm expect?",
+      "answer": "The clearest ROI usually comes from fewer incomplete intake requests, fewer repeated status calls, faster admin responses, reduced searching for SOPs, and less interruption of licensed staff. Track baseline time spent on intake back-and-forth, routine emails, project-status questions, onboarding, and internal procedure lookups before launch.",
+      "role": "Firm owners and operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does this help with hiring, onboarding, and knowledge transfer?",
+      "answer": "DocsBot can turn SOPs, training guides, project playbooks, templates, and internal wikis into a searchable private knowledge agent for new hires and technicians. That matters in a profession facing succession pressure: NSPS workforce materials cite the national average age of a licensed surveyor at approximately 60.",
+      "role": "Field crews, CAD technicians, and new hires",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-nsps-workforce-development"
+      ]
+    },
+    {
+      "question": "Can client service staff use the agent without learning survey terminology deeply?",
+      "answer": "Yes. The agent can guide staff through approved intake scripts, service definitions, document checklists, and escalation rules. It can draft follow-up emails or handoff notes, but staff should still review messages before sending and escalate technical, legal, lender, or licensed-professional questions.",
+      "role": "Client service, sales, and administrative teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when a property owner asks which type of survey they need?",
+      "answer": "The agent can explain your firm’s service categories in plain language, ask clarifying questions such as purpose, deadline, property address, lender or permit requirements, and site access, then recommend staff follow-up. It should avoid making legal or contractual determinations about what the client must purchase.",
+      "role": "Client service, sales, and administrative teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for CAD standards and drafting QA, not just website questions?",
+      "answer": "Yes. A private internal agent can answer from CAD standards, layer conventions, file naming rules, title block instructions, note templates, deliverable checklists, and QA procedures. It can also draft a checklist summary for human review, helping technicians find the right procedure before escalating to senior staff.",
+      "role": "Field crews, CAD technicians, and new hires",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep private project details, client communications, and internal procedures secure?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For live actions, use scoped permissions, secrets management, logging, and customer-defined boundaries.",
+      "role": "Firm owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support multilingual property owners or tenants?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages when trained on approved content. For surveying, a practical workflow is to collect translated intake details, explain routine next steps, and route the summary to staff for review before anyone commits to scope, schedule, or price.",
+      "role": "Client service, sales, and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the agent is actually improving operations?",
+      "answer": "Track lead completion rate, missing-information follow-ups, time to first response, routine ticket deflection, project-status interruptions, handoff quality, common unresolved questions, and staff search time. DocsBot analytics, logs, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help identify what to improve.",
+      "role": "Firm owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will the agent work for both residential boundary surveys and commercial ALTA/NSPS work?",
+      "answer": "Yes, if you separate content and instructions by service type. Residential workflows may emphasize purpose, parcel details, access, and closing deadlines. ALTA/NSPS workflows should collect title commitment details, Table A requests, lender or title contacts, deadlines, and route standards interpretation to qualified staff.",
+      "role": "Project managers and licensed surveyors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much human review should we require before answers go to clients?",
+      "answer": "Most firms start with low-risk self-service answers for FAQs, document checklists, and intake collection, while requiring human review for drafted emails, quotes, scope changes, deliverable interpretation, or live project updates. Over time, review logs can show which answers are safe to automate further.",
+      "role": "Firm owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with safety communication for outdoor crews?",
+      "answer": "Yes. Train an internal agent on your safety manual, PPE policies, heat procedures, traffic-control expectations, vehicle rules, and emergency contacts. OSHA recognizes heat as an occupational hazard for outdoor work and provides guidance for evaluating and controlling heat exposure, so keeping approved reminders easy to find can support field readiness.",
+      "role": "Field crews, CAD technicians, and new hires",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-heat"
+      ]
+    },
+    {
+      "question": "What is the implementation lift for a firm without an IT department?",
+      "answer": "A practical rollout can start with uploaded PDFs, Word documents, website pages, SOPs, and shared knowledge sources, then expand to private team chat or a website widget. More advanced actions—status lookup, task creation, CRM updates, or scheduling workflows—can be added later with scoped APIs, connectors, or webhooks.",
+      "role": "Firm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is this different from asking staff to use a general AI tool?",
+      "answer": "DocsBot is designed around your approved firm knowledge, source-grounded answers, access controls, logs, analytics, and bounded actions. That is a better fit for surveying than a generic AI tool because client answers, SOPs, standards checklists, and internal procedures must reflect how your firm actually works.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent summarize messy intake emails, website chats, and title-document requests for handoff?",
+      "answer": "Yes. DocsBot can summarize approved conversation or ticket context, identify missing information, and prepare a structured handoff for estimating, scheduling, project management, or licensed review. With configured workflows, the summary can be routed to email, CRM, ticketing software, Slack, Microsoft Teams, or another approved system.",
+      "role": "Client service, sales, and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if the agent cannot find an answer in our approved documents?",
+      "answer": "Configure it to say it does not have enough approved information, ask clarifying questions if useful, and route the issue to a person. Those unanswered questions are valuable: conversation review and knowledge-gap reports show which FAQs, SOPs, templates, or training materials need improvement.",
+      "role": "Project managers and licensed surveyors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we deploy one agent for clients and another for internal staff?",
+      "answer": "Yes. Many survey firms should separate a public-facing agent from a private internal knowledge agent. The client agent can handle FAQs, intake, and handoffs, while the internal agent can access SOPs, CAD standards, project procedures, onboarding content, and policies with role-based permissions.",
+      "role": "Firm owners and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement or ownership ask before approving an AI agent vendor?",
+      "answer": "Ask what content the agent trains on, how answers are grounded, how permissions work, whether customer data trains public models, what logs and analytics are available, how human escalation works, and which actions can be scoped. For DocsBot, also evaluate SOC 2 Type II, encryption, GDPR-ready governance, and role-based access controls.",
+      "role": "Firm owners and operations managers",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

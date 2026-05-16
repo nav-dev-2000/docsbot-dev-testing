@@ -1,0 +1,713 @@
+{
+  "slug": "intermodal-transport",
+  "business": "Intermodal Transport",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Intermodal Transport Operations",
+    "description": "DocsBot helps intermodal transport teams answer shipment questions, surface SOPs, and route exceptions with source-grounded AI agents.",
+    "canonicalPath": "/industry/intermodal-transport"
+  },
+  "hero": {
+    "eyebrow": "AI agents for rail, drayage, ocean, terminal, and customer service workflows",
+    "headline": "Keep intermodal moves clear with DocsBot AI agents",
+    "subheadline": "DocsBot lets intermodal transport teams train AI agents on tariffs, SOPs, lane guides, customer FAQs, terminal instructions, equipment policies, and internal playbooks so customers and employees can get fast, source-grounded answers without waiting for a dispatcher or support queue.",
+    "proofBullets": [
+      {
+        "text": "Answer shipment, documentation, free-time, accessorial, and service-lane questions from approved company sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing container details, summarize an exception, create a task, or route a handoff when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give operations, sales, and support teams a private knowledge agent for SOPs, customer rules, onboarding, and escalation guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Review analytics and conversation logs to identify repeated customer questions, stale procedures, and missing knowledge base content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an intermodal AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps intermodal transport providers create AI agents trained on their own knowledge sources. Agents can answer in a website widget, private team chat, Slack, Microsoft Teams, API-powered workflows, or helpdesk-connected processes, then escalate sensitive exceptions to people with the context already summarized.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and account teams",
+        "roleContext": "For teams fielding recurring calls and emails about container status, appointment rules, accessorials, documentation, billing, and service expectations.",
+        "bullets": [
+          {
+            "text": "Give customers source-grounded answers from tariffs, FAQs, lane guides, and service policies before a rep opens the ticket.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect container, bill of lading, reference number, pickup, delivery, and contact details before routing exceptions to the right queue.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft helpdesk responses or summarize long threads when connected through approved Skills, APIs, connectors, or workflows.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Dispatch, terminal, and operations managers",
+        "roleContext": "For teams coordinating rail ramps, drayage partners, terminal procedures, chassis availability, accessorial events, and customer-specific rules.",
+        "bullets": [
+          {
+            "text": "Make SOPs, cutoff rules, yard instructions, escalation paths, and equipment policies searchable in one internal agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Trigger bounded workflows such as task creation, team notifications, exception summaries, or approved field updates when configured.",
+            "icon": "BoltIcon"
+          },
+          {
+            "text": "Support faster onboarding by giving new coordinators a consistent place to ask how a customer, ramp, or lane should be handled.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Compliance, finance, and claims teams",
+        "roleContext": "For teams managing detention, demurrage, accessorial disputes, documentation quality, customer commitments, and audit-ready handoffs.",
+        "bullets": [
+          {
+            "text": "Help staff find the right policy, invoice requirement, customer rule, or supporting document without searching shared drives manually.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize dispute context and surface relevant policy language while keeping final billing, legal, and claim decisions with humans.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Use role-based permissions, encryption, SOC 2 Type II certification, and GDPR-ready governance for private operational knowledge.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bts-freight-indicators",
+      "metric": "BTS tracks rail intermodal units, import/export containers, truck speeds, rates, and freight indices.",
+      "claim": "The Bureau of Transportation Statistics publishes current supply chain and freight indicators including rail intermodal units, import and export containers, truck speeds, ocean freight rates, and the Freight Transportation Services Index.",
+      "sourceTitle": "Latest Supply Chain and Freight Indicators",
+      "sourceUrl": "https://www.bts.gov/freight-indicators",
+      "sourceDate": "Updated May 2026",
+      "bestUsedFor": [
+        "Freight visibility pressure",
+        "Operational volatility",
+        "Need for current shipment context"
+      ]
+    },
+    {
+      "id": "src-fra-freight-rail-overview",
+      "metric": "Each American requires about 54 tons of freight movement per year.",
+      "claim": "The Federal Railroad Administration says each American requires the movement of approximately 54 tons of freight per year, and freight rail supports long-distance movement including double-stacked intermodal containers.",
+      "sourceTitle": "Freight Rail Overview",
+      "sourceUrl": "https://railroads.dot.gov/rail-network-development/freight-rail/freight-rail-overview",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Freight scale",
+        "Intermodal network importance",
+        "Rail efficiency"
+      ]
+    },
+    {
+      "id": "src-aar-2024-intermodal",
+      "metric": "U.S. railroads originated 13.84 million containers and truck trailers in 2024.",
+      "claim": "AAR’s January 2025 Rail Industry Overview reported that U.S. railroads originated 13.84 million containers and truck trailers in 2024, the most since 2021.",
+      "sourceTitle": "Rail Industry Overview January 2025",
+      "sourceUrl": "https://www.aar.org/wp-content/uploads/2025/01/AAR-RIO-January-10-FINAL.pdf",
+      "sourceDate": "January 2025",
+      "bestUsedFor": [
+        "Intermodal volume",
+        "Customer service scale",
+        "Operations complexity"
+      ]
+    },
+    {
+      "id": "src-fmc-dd-rule",
+      "metric": "Most FMC detention and demurrage billing rule provisions took effect May 28, 2024.",
+      "claim": "The Federal Maritime Commission announced a final rule on detention and demurrage billing practices, with most provisions taking effect May 28, 2024.",
+      "sourceTitle": "FMC Publishes Final Rule on Detention and Demurrage Billing Practices",
+      "sourceUrl": "https://www.fmc.gov/articles/fmc-publishes-final-rule-on-detention-and-demurrage-billing-practices/",
+      "sourceDate": "February 23, 2024",
+      "bestUsedFor": [
+        "Billing compliance pressure",
+        "Detention and demurrage workflows",
+        "Documentation accuracy"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Shipment and container question answering",
+      "problem": "Customers often ask the same questions about cutoff times, service lanes, appointment requirements, rail ramps, delivery windows, and documentation status.",
+      "agentWorkflow": "Train a DocsBot AI support agent on customer FAQs, service guides, routing rules, tariffs, terminal instructions, and knowledge base articles. The agent answers routine questions in the company voice, cites approved sources, asks for missing reference details, and escalates exceptions to a human queue.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can perform approved live lookups for shipment or container context and include the result in a bounded answer or handoff.",
+      "exampleQuestionsOrRequests": [
+        "What information do you need to check my container pickup status?",
+        "Which ramp handles this destination lane?",
+        "What documents are required before delivery can be scheduled?"
+      ],
+      "businessOutcome": "Reduce repetitive support volume while giving customers clearer answers and better-prepared escalations.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Detention, demurrage, and accessorial support",
+      "problem": "Intermodal teams need consistent explanations and evidence collection for detention, demurrage, per diem, chassis, storage, waiting time, and other charge questions.",
+      "agentWorkflow": "DocsBot can answer from published policies, customer contracts, invoice guidance, dispute SOPs, and internal playbooks. It can gather required identifiers, summarize the issue, attach relevant policy excerpts, and route the case to billing or claims for review.",
+      "liveContextOrTools": "AI Actions can create a billing review task, notify a finance channel, or update approved case fields when the customer has configured the workflow.",
+      "exampleQuestionsOrRequests": [
+        "Why was detention charged on this container?",
+        "What information is required to dispute this invoice?",
+        "Summarize this accessorial issue for the billing team."
+      ],
+      "businessOutcome": "Improve consistency in charge explanations and reduce back-and-forth before a human reviews the final billing decision.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-fmc-dd-rule"
+      ]
+    },
+    {
+      "name": "Internal SOP and exception handling assistant",
+      "problem": "Intermodal exceptions span modes, partners, terminals, customer rules, and deadlines, making it hard for coordinators to find the right procedure quickly.",
+      "agentWorkflow": "Create a private internal knowledge agent trained on dispatch SOPs, customer routing guides, escalation matrices, terminal notes, safety guidance, equipment policies, and onboarding materials. Employees ask natural-language questions and receive source-grounded procedural answers.",
+      "liveContextOrTools": "Configured Skills can generate an exception summary, create a task, notify dispatch, or route a handoff to the correct operations owner.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path when a container misses the rail cutoff?",
+        "How do we handle a customer request for a last-free-day extension?",
+        "Draft a handoff summary for this late pickup exception."
+      ],
+      "businessOutcome": "Help coordinators act from consistent procedures instead of relying on memory, tribal knowledge, or scattered folders.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Sales enablement and lane-fit qualification",
+      "problem": "Prospects and shippers need quick answers about lanes, service scope, equipment policies, onboarding requirements, and implementation fit before they talk to sales.",
+      "agentWorkflow": "Use DocsBot as a presales agent trained on service catalogs, lane documents, onboarding FAQs, qualification criteria, proposal templates, and sales playbooks. It can collect lead details, apply customer-defined fit rules, and forward summaries to sales systems through approved workflows.",
+      "liveContextOrTools": "When configured, the agent can use a custom form, scheduling workflow, CRM handoff, or MCP connector to pass structured lead context to the tools the team already uses.",
+      "exampleQuestionsOrRequests": [
+        "Can you support recurring rail-drayed freight between these markets?",
+        "What information do you need to quote an intermodal lane?",
+        "Book a follow-up with our transportation procurement team."
+      ],
+      "businessOutcome": "Give sales teams more complete context before follow-up and help prospects understand fit without waiting for manual triage.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Knowledge gap analytics for recurring issues",
+      "problem": "Repeated questions about ramp rules, free time, documentation, and accessorials often reveal missing or outdated content.",
+      "agentWorkflow": "DocsBot logs conversations, topics, reports, and unresolved questions so managers can see what customers and employees keep asking. Teams can use those insights to update FAQs, SOPs, training materials, and customer-facing guidance.",
+      "liveContextOrTools": "Analytics and conversation review can inform content updates, ticket macros, onboarding material, and routing improvements.",
+      "exampleQuestionsOrRequests": [
+        "Which shipment topics were unresolved this month?",
+        "What questions are customers asking about demurrage?",
+        "Which SOPs need clearer instructions for new coordinators?"
+      ],
+      "businessOutcome": "Turn support and operations questions into a practical roadmap for better documentation and training.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-bts-freight-indicators"
+      ]
+    },
+    {
+      "name": "High-volume intermodal inquiry triage",
+      "problem": "Rail intermodal volume creates a large stream of container, trailer, billing, and appointment questions across customers and partners.",
+      "agentWorkflow": "Deploy a DocsBot agent to answer routine questions, collect missing fields, summarize exceptions, and route cases by customer, lane, issue type, or urgency. Humans stay focused on complex service failures, contractual issues, and priority accounts.",
+      "liveContextOrTools": "Helpdesk-connected workflows can draft responses, classify tickets, or prepare escalation notes when the customer authorizes the connection.",
+      "exampleQuestionsOrRequests": [
+        "Classify this inquiry as delivery, billing, appointment, or documentation.",
+        "Summarize the last three customer emails for dispatch.",
+        "What details are missing before operations can investigate?"
+      ],
+      "businessOutcome": "Help teams scale inquiry handling during peak periods without losing context across handoffs.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-aar-2024-intermodal"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give shippers clearer answers before they open another ticket",
+    "intro": "A DocsBot customer-facing agent can live on your website, portal, or help center and answer from approved intermodal content. It can explain service processes, collect shipment details, qualify requests, and escalate exceptions with a structured summary for your team.",
+    "requests": [
+      {
+        "request": "“What do you need to check my container or trailer status?”",
+        "agentResponseStrategy": "Ask for the required reference numbers, customer account details, origin, destination, and contact information, then answer from approved status guidance or prepare a handoff for operations.",
+        "sourceTypes": [
+          "Customer FAQs",
+          "Shipment-status instructions",
+          "Service policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Run an approved live lookup or create a support ticket if the customer has configured the required Skill, API, or workflow.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“How do detention, demurrage, or storage charges work?”",
+        "agentResponseStrategy": "Explain the company’s published policy, define required billing details, surface dispute steps, and route complex or account-specific questions to a human billing reviewer.",
+        "sourceTypes": [
+          "Tariffs",
+          "Billing policies",
+          "Dispute SOPs",
+          "Customer contracts"
+        ],
+        "optionalAction": "Collect invoice, container, bill of lading, date, and contact details before creating a billing review task.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-fmc-dd-rule"
+        ]
+      },
+      {
+        "request": "“Can you support this intermodal lane?”",
+        "agentResponseStrategy": "Answer from service-lane documentation and sales-approved qualification rules, then collect shipment profile, frequency, equipment type, timeline, and follow-up preference.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Lane guides",
+          "Sales playbooks",
+          "Qualification forms"
+        ],
+        "optionalAction": "Forward a qualified lead summary to sales or request a meeting through an approved scheduling workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Which documents are required before pickup or delivery?”",
+        "agentResponseStrategy": "Provide the document checklist from approved operating procedures and ask clarifying questions when the answer depends on customer, port, terminal, commodity, or destination.",
+        "sourceTypes": [
+          "Document checklists",
+          "Terminal rules",
+          "Customer SOPs",
+          "Import/export FAQs"
+        ],
+        "optionalAction": "Create a task for document review or route the conversation to the right coordinator when information is incomplete.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I speak with someone about an exception?”",
+        "agentResponseStrategy": "Acknowledge the issue, gather the operational context, summarize the request, and escalate to the correct human team instead of making high-impact service commitments automatically.",
+        "sourceTypes": [
+          "Escalation matrices",
+          "Account rules",
+          "Exception SOPs",
+          "Helpdesk workflows"
+        ],
+        "optionalAction": "Notify the appropriate operations channel or create a ticket with the conversation summary and required identifiers.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Do you support customers in my language?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answering capability to respond from the same approved knowledge sources while keeping terminology consistent with your company guidance.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "FAQs",
+          "Service policies",
+          "Customer support scripts"
+        ],
+        "optionalAction": "Escalate to a bilingual team member for complex, contractual, or sensitive questions when needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make intermodal SOPs and customer rules searchable for every shift",
+    "intro": "DocsBot can serve as a private internal knowledge agent for dispatch, customer service, billing, sales, compliance, and management teams. Train it on the documents employees already use, then let staff ask operational questions in plain language and receive source-grounded answers.",
+    "workflows": [
+      {
+        "name": "Dispatch exception guidance",
+        "problem": "A missed cutoff, failed appointment, unavailable chassis, or late delivery can require fast decisions across multiple teams.",
+        "agentWorkflow": "The internal agent retrieves the relevant SOP, customer rule, terminal note, and escalation path, then drafts a concise handoff summary for dispatch or account management.",
+        "sourceTypes": [
+          "Dispatch SOPs",
+          "Terminal notes",
+          "Customer routing guides",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Create a task, notify a team channel, or route to a queue through customer-configured AI Actions.",
+        "outcome": "More consistent handling of exceptions across shifts, locations, and partner handoffs.",
+        "icon": "BellIcon"
+      },
+      {
+        "name": "Billing and dispute preparation",
+        "problem": "Charge questions often require policy context, timelines, documents, and communication history before finance can respond.",
+        "agentWorkflow": "DocsBot helps employees find the governing policy, summarize the dispute, list missing evidence, and prepare a draft response for human review.",
+        "sourceTypes": [
+          "Tariffs",
+          "Invoice policies",
+          "Contracts",
+          "Claims SOPs"
+        ],
+        "optionalAction": "Update approved case fields or create a billing review task when configured with the right permissions.",
+        "outcome": "Shorter internal preparation time and clearer handoffs for finance, claims, and account teams.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "name": "New-hire and partner onboarding",
+        "problem": "New coordinators need to learn customer-specific rules, rail terminology, terminal workflows, and escalation habits quickly.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, recorded notes, process docs, customer profiles, and internal FAQs so new hires can ask practical questions as work comes in.",
+        "sourceTypes": [
+          "Training materials",
+          "Onboarding guides",
+          "Customer profiles",
+          "Process FAQs"
+        ],
+        "optionalAction": "Use analytics to identify which onboarding topics create the most repeated questions.",
+        "outcome": "Reduce dependency on senior coordinators for every procedural question.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales and account research support",
+        "problem": "Account managers need quick, consistent answers about service scope, onboarding requirements, proposal language, and customer-specific commitments.",
+        "agentWorkflow": "DocsBot retrieves approved sales enablement content, drafts responses, summarizes account context, and prepares talking points for a human seller or account owner.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Case notes",
+          "Service catalogs"
+        ],
+        "optionalAction": "Forward summaries to CRM, email, or team chat through customer-configured connectors or workflows.",
+        "outcome": "Help commercial teams respond faster while keeping pricing, contracts, and commitments under human control.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Operations documentation improvement",
+        "problem": "If employees repeatedly ask the same questions, the underlying SOP or help article may be missing or unclear.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic reports, and knowledge-gap discovery to find unresolved internal questions and prioritize documentation updates.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "SOP libraries",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Create content-update tasks for the owner of the relevant SOP or FAQ.",
+        "outcome": "Continuously improve operational knowledge instead of letting tribal knowledge spread across inboxes and chats.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents train on websites, documents, help centers, internal files, wikis, PDFs, and other configured sources to answer from the company’s own knowledge.",
+      "industryApplication": "Answer intermodal questions using tariffs, lane guides, free-time rules, terminal instructions, customer SOPs, onboarding documents, and service FAQs.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, summaries, record updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Support approved shipment lookups, exception summaries, billing review tasks, CRM handoffs, team notifications, and workflow triggers across intermodal operations.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Customer-facing widget and support workflows",
+      "mainLandingPageContext": "DocsBot agents can answer in a website or product chat widget and can support helpdesk-connected workflows through customer-configured access.",
+      "industryApplication": "Deflect repetitive shipment, documentation, service-lane, and billing questions while escalating sensitive exceptions to dispatch, billing, or account teams.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can serve as an internal assistant for employees across operations, HR, IT, support, sales, compliance, finance, and legal teams.",
+      "industryApplication": "Give dispatchers, coordinators, account managers, and finance teams instant access to SOPs, customer rules, escalation paths, and training content.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides reports, logs, topic management, conversation review, satisfaction and resolution analysis, and discovery of unanswered topics.",
+      "industryApplication": "See which accessorial, ramp, documentation, status, and onboarding questions recur so your team can improve FAQs, SOPs, and training materials.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private operations content",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect customer rules, contracts, SOPs, and operational procedures while controlling which teams and agents can access private intermodal knowledge.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "sanchay-indned-ebike-support",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven high-volume support automation, including more than 30,000 inquiries handled in one month in the Sony NURO case study.",
+      "Train agents on owned manuals, websites, and multilingual support content so answers stay tied to approved operational knowledge.",
+      "Use embedded support and helpdesk-assisted workflows to help human teams respond faster with better context."
+    ],
+    "whyTheseReviewsFit": "Intermodal transport buyers need dependable answers at scale, not a generic bot. DocsBot proof spans high-volume inquiry handling, multilingual manual-based support, embedded customer assistance, and helpdesk-assisted human workflows—the same patterns transportation teams need for shipment, documentation, billing, and exception questions.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "LanguageIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for intermodal transport support, operations, sales, and internal knowledge management",
+    "audience": [
+      "Intermodal transport providers",
+      "Drayage and rail operations teams",
+      "Freight customer service teams",
+      "Logistics sales and account teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "freight-forwarding",
+    "third-party-logistics",
+    "cold-chain-logistics",
+    "fleet-telematics",
+    "cargo-airlines",
+    "last-mile-delivery"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "intermodal-transport",
+    "webSearchQueries": [
+      "intermodal freight transportation statistics containers rail truck United States DOT intermodal 2024",
+      "FMC detention demurrage final rule 2024 intermodal containers",
+      "Bureau Transportation Statistics freight moved by trucks rail water intermodal containers",
+      "AAR rail intermodal volume 2024 containers trailers United States",
+      "Association of American Railroads intermodal units 2024 up percent 2023"
+    ],
+    "sourceUrls": [
+      "https://www.bts.gov/freight-indicators",
+      "https://railroads.dot.gov/rail-network-development/freight-rail/freight-rail-overview",
+      "https://www.aar.org/wp-content/uploads/2025/01/AAR-RIO-January-10-FINAL.pdf",
+      "https://www.fmc.gov/articles/fmc-publishes-final-rule-on-detention-and-demurrage-billing-practices/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45173,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 24949,
+        "outputTokens": 7938,
+        "reasoningOutputTokens": 176,
+        "totalTokens": 53111,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.186499,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.206499
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25692,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 10716,
+          "outputTokens": 5184,
+          "reasoningOutputTokens": 176,
+          "totalTokens": 30876,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.108294,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.128294
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19481,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14233,
+          "outputTokens": 2754,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22235,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078205,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078205
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1606954736404-22c88d83a2f8?ixid=M3w1OTc2MjN8MXwxfHNlYXJjaHwxfHxsb2dpc3RpY3N8ZW58MHwwfHx8MTcxNDg3ODA3M3ww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Intermodal Transport background image",
+    "source": "legacy-industry",
+    "query": "Intermodal Transport"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer container-status questions, or does it only answer static FAQ content?",
+      "answer": "DocsBot can answer from static approved content such as status instructions, lane guides, terminal rules, and customer FAQs. If you configure a Skill, API, connector, or approved workflow to a shipment system, the agent can also perform bounded live lookups and include that context in an answer or handoff. Without that configured access, it should collect the right reference details and route the request to your team.",
+      "role": "Customer service and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the agent from promising a delivery time or last-free-day extension that operations has not approved?",
+      "answer": "Set the agent’s instructions and sources so it explains policies, gathers facts, and escalates high-impact exceptions instead of making service commitments. DocsBot is strongest when routine answers are automated but final decisions on missed cutoffs, expedited delivery, billing relief, or contract exceptions stay with dispatch, account management, finance, or claims.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the AI agent handle detention, demurrage, per diem, chassis, and storage questions consistently?",
+      "answer": "Yes. Train it on tariffs, billing policies, dispute SOPs, customer contracts, and invoice guidance so it can explain your published process, collect container and invoice details, summarize the issue, and route a prepared case to billing or claims. This is especially useful because most FMC detention and demurrage billing rule provisions took effect May 28, 2024, increasing the need for clear billing workflows.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fmc-dd-rule"
+      ]
+    },
+    {
+      "question": "What would we need to prepare before launching an intermodal support agent?",
+      "answer": "Start with the documents customers and coordinators already depend on: service-lane guides, terminal instructions, cutoff rules, document checklists, accessorial policies, escalation matrices, onboarding FAQs, and customer-specific SOPs. Then decide which topics are safe for self-service, which require account-specific authentication or live lookup, and which should always route to a human reviewer.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will DocsBot work with our TMS, visibility platform, helpdesk, or customer portal?",
+      "answer": "DocsBot can support connections through customer-configured Skills, APIs, connectors, webhooks, MCP connectors, or workflow automations. Buyers usually scope this in phases: first source-grounded answers from approved content, then live lookups or ticket creation, then approved field updates or notifications once permissions, logging, and exception boundaries are clear.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we deploy one agent for customers and a different private agent for operations staff?",
+      "answer": "Yes. A customer-facing agent can answer from public or customer-approved guidance in a website widget, portal, or help center, while a private internal knowledge agent can use SOPs, customer rules, escalation paths, training content, and billing playbooks. Role-based permissions help control who can access sensitive operational knowledge.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot help during peak periods when inquiry volume spikes across rail, drayage, and customer service?",
+      "answer": "DocsBot can deflect repetitive questions, ask for missing container or bill-of-lading details, classify inquiries, summarize long email threads, and prepare escalations. That matters in a high-volume environment: AAR reported that U.S. railroads originated 13.84 million containers and trailers in 2024, the most since 2021.",
+      "role": "Customer service and account teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-aar-2024-intermodal"
+      ]
+    },
+    {
+      "question": "How do we measure ROI beyond saying the agent saved time?",
+      "answer": "Track deflected repetitive inquiries, faster first response, fewer incomplete handoffs, lower internal search time, reduced billing back-and-forth, and knowledge gaps closed. For operations leaders, also compare before-and-after metrics such as average time to classify a ticket, percent of escalations with complete reference details, and repeated questions by lane, terminal, customer, or charge type.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help new coordinators learn ramp rules, customer exceptions, and accessorial procedures faster?",
+      "answer": "Yes. A private internal agent can answer from onboarding guides, customer profiles, dispatch SOPs, terminal notes, and escalation matrices. Instead of interrupting senior coordinators for every procedural question, new hires can ask how a lane, account, document issue, or missed cutoff should be handled and get a source-grounded answer with the relevant policy context.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the SOP is missing?",
+      "answer": "DocsBot can be configured to say it does not have enough approved information, ask clarifying questions, or escalate to the right team. Managers can then review logs, unresolved topics, and knowledge-gap reports to identify missing SOPs, outdated FAQs, unclear terminal instructions, or customer rules that need better documentation.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent distinguish between public policy answers and customer-specific contract rules?",
+      "answer": "Yes, if your knowledge sources and permissions are organized accordingly. Public-facing agents should use approved public or customer-safe content. Internal or authenticated workflows can use customer-specific SOPs, contracts, rate guidance, or escalation rules based on the access you configure. Sensitive commitments should still route to the responsible account, finance, legal, or operations owner.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent hallucinations in a workflow where one wrong answer can create a service failure?",
+      "answer": "DocsBot is designed around source-grounded answers from approved company knowledge. For intermodal operations, buyers should require citations or source references, clear fallback behavior, limited action permissions, human escalation for exceptions, and regular review of conversation logs. The goal is not to let AI improvise operations decisions; it is to make approved procedures easier to find and follow.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot route different issues to dispatch, billing, claims, sales, or account management?",
+      "answer": "Yes, when you define the routing logic and connect the right workflow. The agent can collect missing details, classify the issue, summarize the conversation, and create a task, ticket, notification, or handoff through approved Skills, APIs, connectors, or workflow automations. Common routing dimensions include customer, lane, mode, ramp, charge type, urgency, and exception category.",
+      "role": "Customer service and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is DocsBot secure enough for contracts, tariffs, customer rules, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For intermodal teams, that means private operational content can be separated from customer-facing answers and controlled by role, source, and workflow boundary.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support multilingual shipper or driver questions?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the same approved knowledge sources. For intermodal use cases, teams often keep the agent focused on routine policy, document, appointment, and service questions, then escalate complex contractual, billing, customs, or service-failure issues to a bilingual human reviewer when needed.",
+      "role": "Customer service and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit if we already use a TMS, EDI, visibility tools, and a helpdesk?",
+      "answer": "DocsBot should not replace your system of record. It works best as an AI layer that answers from approved content, helps users find the right process, collects missing details, summarizes context, and triggers bounded workflows into the systems you authorize. Live shipment data, ticket updates, or CRM handoffs depend on customer-configured integrations and permissions.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can sales teams use the same knowledge base to qualify intermodal lane-fit questions?",
+      "answer": "Yes. DocsBot can be trained on service catalogs, lane guides, onboarding requirements, qualification criteria, proposal templates, and sales playbooks. A presales agent can collect origin, destination, volume, equipment, frequency, timeline, and contact details, then forward a structured lead summary through approved CRM, email, scheduling, or workflow connections.",
+      "role": "Customer service and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of questions should we not automate on day one?",
+      "answer": "Avoid automating final decisions on claim liability, billing credits, legal interpretation, contract exceptions, guaranteed delivery commitments, safety-critical instructions, or service recovery promises. Start with repeatable questions: required documents, status-intake requirements, standard charge explanations, appointment rules, service scope, onboarding steps, and internal SOP retrieval.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How quickly can we find out whether our knowledge base is ready for AI?",
+      "answer": "A practical pilot can reveal this quickly. Load a focused set of approved documents for one lane group, customer segment, or billing workflow, then test real historical questions. DocsBot analytics and conversation review can show where answers are strong, where sources conflict, and where missing SOPs or outdated content would create risk before a wider rollout.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us manage constantly changing freight conditions and operating instructions?",
+      "answer": "DocsBot can help teams keep answers aligned with your latest approved documents and workflows, but your team still owns source updates. That matters because BTS tracks current freight indicators such as rail intermodal units, import and export containers, truck speeds, ocean freight rates, and freight indices, reflecting the volatility operations teams monitor.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-bts-freight-indicators"
+      ]
+    },
+    {
+      "question": "How will managers know what customers and employees are asking the agent?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can use this to see recurring questions about free time, ramp rules, documentation, accessorials, appointments, and onboarding, then prioritize better content, macros, SOPs, or routing rules.",
+      "role": "Dispatch, terminal, and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with building our own AI assistant on top of our TMS and document folders?",
+      "answer": "Building can make sense for teams with dedicated AI engineering capacity, but buyers should account for ingestion, permissions, prompt controls, retrieval quality, action boundaries, analytics, escalation workflows, monitoring, and ongoing content governance. DocsBot gives intermodal teams a faster path to source-grounded agents and scoped workflow actions without starting from a blank RAG project.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we limit what actions the agent is allowed to take?",
+      "answer": "Yes. AI Actions and Skills are customer-configured with defined instructions, environment values, secrets, metadata bindings, network policy, logging, and controls. For intermodal workflows, that means you can allow low-risk actions such as collecting fields or creating a review task while keeping approvals, charge changes, contractual commitments, and operational exceptions with humans.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What does a realistic first rollout look like for an intermodal provider?",
+      "answer": "Most teams should start with one high-friction workflow: customer status-intake questions, detention and demurrage dispute preparation, internal SOP search, or lane-fit qualification. Launch with approved sources, strict escalation rules, and a small user group. Then review unanswered questions, update content, add integrations, and expand by customer segment, department, or region.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support audit-ready handoffs for billing or claims disputes?",
+      "answer": "DocsBot can help prepare the handoff by summarizing the customer’s issue, listing missing evidence, surfacing relevant policy language, and routing the case to billing or claims. Humans should still make final billing, legal, and claim decisions. This is useful where detention and demurrage practices require careful documentation and consistent explanations.",
+      "role": "Compliance, finance, and claims teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fmc-dd-rule"
+      ]
+    }
+  ]
+}

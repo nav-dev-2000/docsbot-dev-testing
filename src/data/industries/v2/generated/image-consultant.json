@@ -1,0 +1,685 @@
+{
+  "slug": "image-consultant",
+  "business": "Image Consultant",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Image Consultants and Stylists",
+    "description": "DocsBot helps image consultants answer client questions, qualify styling needs, and automate intake so every client starts with clear context.",
+    "canonicalPath": "/industry/image-consultant"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for modern image consulting",
+    "headline": "Give every image consulting client a better first impression",
+    "subheadline": "DocsBot helps image consultants turn service guides, wardrobe frameworks, brand voice notes, intake forms, FAQs, and client education into AI agents that answer questions, collect styling context, route inquiries, and support your team before and after consultations.",
+    "proofBullets": [
+      {
+        "text": "Answer package, process, pricing-range, wardrobe edit, color analysis, and personal branding questions from approved service content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect client goals, event dates, sizes, style preferences, workplace dress codes, and follow-up needs through structured intake flows.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "text": "Summarize consultations, route high-intent leads, create tasks, and trigger approved scheduling or CRM workflows when configured.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Surface repeated questions and content gaps so your style guides, onboarding materials, and client resources keep improving.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your image consulting agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your image consulting knowledge: service pages, PDFs, wardrobe checklists, color-season guides, corporate image programs, client FAQs, onboarding notes, and internal SOPs. Your agent can deliver source-grounded answers, collect lead details, summarize requests, support booking workflows, and escalate sensitive or high-value decisions to you.",
+    "whoItHelps": [
+      {
+        "role": "Independent image consultants and personal stylists",
+        "roleContext": "Solo consultants need to protect their time while still giving prospective clients a polished, responsive experience.",
+        "bullets": [
+          {
+            "text": "Explain differences between wardrobe audits, personal shopping, color analysis, executive presence, and event styling packages.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect budget range, occasion, timeline, body-fit concerns, inspiration links, and preferred follow-up channel before the first call.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Prepare a consultation summary or next-step handoff so the consultant starts with usable context instead of scattered messages.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Boutique styling teams and agencies",
+        "roleContext": "Growing teams need consistent answers, repeatable onboarding, and searchable client-service knowledge across multiple consultants.",
+        "bullets": [
+          {
+            "text": "Give team members private answers from SOPs, brand guidelines, shopping checklists, client communication templates, and service playbooks.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Route inquiries by service type, geography, urgency, language, or consultant specialty through customer-configured workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Review analytics to find recurring client questions and missing documentation in packages, policies, or preparation guides.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Corporate image and personal branding consultants",
+        "roleContext": "Corporate programs often involve repeat questions from HR teams, executives, speakers, sales teams, or event participants.",
+        "bullets": [
+          {
+            "text": "Answer participant questions about dress-code guidance, executive presence sessions, pre-work, workshop logistics, and follow-up resources.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Support multilingual employees with answers in more than 100 languages when your approved content supports the answer.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Keep humans in control for sensitive advice about identity, workplace conflict, disability accommodations, or contractual commitments.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-personal-care-growth",
+      "metric": "Personal care and service occupations are projected to grow about as fast as average from 2024 to 2034.",
+      "claim": "BLS projects steady employment demand across personal care and service occupations, the broader category that includes appearance-related services.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Personal Care and Service Occupations",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/home.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "service-market context",
+        "personal services demand"
+      ]
+    },
+    {
+      "id": "src-personalization-expectations",
+      "metric": "71% of consumers expect personalized interactions, and 76% get frustrated when they do not receive them.",
+      "claim": "McKinsey research shows personalization has become a baseline expectation for many consumers, making relevant context important in service experiences.",
+      "sourceTitle": "McKinsey: The value of getting personalization right—or wrong—is multiplying",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "customer expectations",
+        "personalization demand",
+        "client experience"
+      ]
+    },
+    {
+      "id": "src-retail-personalization-loyalty",
+      "metric": "65% of consumers said they would remain loyal to companies that offer a more personalized experience.",
+      "claim": "Salesforce research connects personalization with customer loyalty, reinforcing the value of context-rich service journeys.",
+      "sourceTitle": "Salesforce Research: Personalization, Data Security, and Speed Drive Customer Loyalty Amid Uncertainty",
+      "sourceUrl": "https://www.salesforce.com/news/stories/customer-spending/real-time-connected-customer-2-2/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "loyalty",
+        "personalization",
+        "client retention"
+      ]
+    },
+    {
+      "id": "src-image-consulting-market",
+      "metric": "The image consulting market was estimated at US$4.50 billion in 2025 by Coherent Market Insights.",
+      "claim": "Commercial market research describes image consulting demand across personal branding, professional development, corporate grooming, and online styling services.",
+      "sourceTitle": "Coherent Market Insights: Image Consulting Market Size and Trends",
+      "sourceUrl": "https://www.coherentmarketinsights.com/market-insight/image-consulting-market-6106/market-size-and-trends",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market demand",
+        "competitive context",
+        "online styling"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service discovery and consultation qualification",
+      "problem": "Prospects often ask the same questions before booking: which package fits, what to prepare, whether virtual styling works, and how pricing or timing is handled.",
+      "agentWorkflow": "A DocsBot agent answers from your service catalog, FAQs, policies, and preparation guides, then gathers structured details such as occasion, goals, timeline, location, wardrobe needs, budget range, and preferred contact method. With approved workflows, it can forward qualified leads or request a consultation slot.",
+      "liveContextOrTools": "Use customer-configured forms, Skills, APIs, scheduling workflows, CRM handoffs, or email notifications for approved next steps.",
+      "exampleQuestionsOrRequests": [
+        "Which service is best if I need a new executive wardrobe before a promotion interview?",
+        "Can I do color analysis virtually, and what photos should I send?",
+        "I have an event in three weeks. Can someone review my needs and suggest the right package?"
+      ],
+      "businessOutcome": "Reduce repetitive pre-consultation messages while giving serious prospects a guided, polished path to book.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Client intake and style-profile preparation",
+      "problem": "Image consulting depends on context, but intake details often arrive in emails, forms, texts, photos, and notes that are hard to review quickly.",
+      "agentWorkflow": "DocsBot can collect and summarize client goals, lifestyle constraints, dress-code needs, sizes, preferences, inspiration notes, shopping dislikes, event details, and follow-up questions. The consultant receives a concise brief before the session instead of manually assembling context.",
+      "liveContextOrTools": "When configured, AI Actions can create a task, update approved CRM or client-record fields, attach a summary, or notify the assigned consultant.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this client’s goals and the wardrobe concerns they mentioned.",
+        "Create a prep checklist for a client doing a closet edit next Friday.",
+        "Route this request to the consultant who handles executive presence and public speaking."
+      ],
+      "businessOutcome": "Consultants spend less time reconstructing client context and more time delivering high-value style guidance.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Personalized client education without overpromising",
+      "problem": "Clients expect personalization, and McKinsey reports that 71% of consumers expect personalized interactions while 76% get frustrated when they do not receive them.",
+      "agentWorkflow": "Train DocsBot on your approved style education, seasonal color notes, fit principles, packing lists, wardrobe maintenance tips, capsule wardrobe frameworks, and post-session resources. The agent can explain concepts in your voice while escalating subjective, sensitive, or final styling judgments to the consultant.",
+      "liveContextOrTools": "Use source-grounded answers from your content library, with optional human escalation for body image, identity, workplace, or event-critical concerns.",
+      "exampleQuestionsOrRequests": [
+        "Remind me how to apply my color palette when shopping online.",
+        "What should I bring to my wardrobe edit?",
+        "Can you explain the difference between business casual and smart casual using my consultant’s guide?"
+      ],
+      "businessOutcome": "Extend the value of each consultation with consistent, on-brand education between sessions.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-personalization-expectations"
+      ]
+    },
+    {
+      "name": "Corporate workshop and participant support",
+      "problem": "Corporate image programs create repeated logistical and content questions from employees, HR teams, speakers, and managers.",
+      "agentWorkflow": "A DocsBot agent answers workshop questions from agendas, pre-work instructions, dress-code guides, executive presence materials, speaker notes, and HR-approved FAQs. It can summarize participant questions for the consulting team and identify topics that need clearer resources.",
+      "liveContextOrTools": "Deploy through a private chat experience, team workspace, or website portal; route unresolved questions to the program lead.",
+      "exampleQuestionsOrRequests": [
+        "What should participants complete before the executive presence workshop?",
+        "Where is the slide deck for the sales-team dress-code session?",
+        "Summarize the top questions employees asked after today’s training."
+      ],
+      "businessOutcome": "Improve program consistency while reducing manual follow-up for consultants and corporate coordinators.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Internal knowledge assistant for styling operations",
+      "problem": "As a styling business grows, consultants need fast access to SOPs, package rules, communication templates, vendor notes, and brand standards.",
+      "agentWorkflow": "DocsBot becomes a private internal knowledge agent trained on SOPs, Notion pages, Google Drive files, PDFs, Word documents, pricing guidance, onboarding checklists, and client communication standards. Staff can ask how to handle common situations and receive source-grounded answers.",
+      "liveContextOrTools": "Private team chat, Slack, Microsoft Teams, APIs, connectors, and MCP Connectors can be used where authorized to connect approved tools and workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy for rescheduling a personal shopping session?",
+        "Which template should I use after a color analysis appointment?",
+        "Where is the checklist for onboarding a new associate stylist?"
+      ],
+      "businessOutcome": "Keep quality consistent across consultants without making everyone search through shared drives or old messages.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Content gap and question trend reporting",
+      "problem": "If prospects repeatedly ask about preparation, pricing, virtual sessions, or follow-up, your website and onboarding materials may not be clear enough.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, conversation review, and reports help identify repeated questions, unresolved topics, satisfaction signals, and knowledge gaps. Your team can update the knowledge base and retrain the agent with clearer resources.",
+      "liveContextOrTools": "Use conversation logs, reports, and knowledge-gap discovery; route high-priority gaps into task or documentation workflows when configured.",
+      "exampleQuestionsOrRequests": [
+        "Which questions did prospects ask most often this month?",
+        "Show topics the agent could not answer from our approved sources.",
+        "Summarize common objections before booking a package."
+      ],
+      "businessOutcome": "Turn everyday client questions into better service pages, guides, and internal playbooks.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing agent that feels prepared, polished, and on brand",
+    "intro": "Your DocsBot website or portal agent can greet prospects, explain your services, answer from approved content, collect consultation context, and hand off sensitive or high-intent requests to a human. It supports the personal, premium experience clients expect without inventing advice outside your sources.",
+    "requests": [
+      {
+        "request": "“I need help looking more polished for a new leadership role. What should I book?”",
+        "agentResponseStrategy": "Compare your approved service packages, ask about goals and timeline, collect contact details, and recommend a human consultation path without making final fit or pricing commitments.",
+        "sourceTypes": [
+          "Service catalog",
+          "FAQ page",
+          "Package descriptions",
+          "Lead intake form"
+        ],
+        "optionalAction": "Forward the lead summary to your CRM, inbox, or scheduling workflow when configured.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“What photos and measurements do I need before a virtual styling session?”",
+        "agentResponseStrategy": "Answer from your preparation guide, list required materials, clarify privacy expectations, and invite the client to upload or bring items through your approved process.",
+        "sourceTypes": [
+          "Preparation checklist",
+          "Virtual consultation guide",
+          "Privacy policy"
+        ],
+        "optionalAction": "Create a prep task or send the client a checklist through a customer-configured workflow.",
+        "icon": "CameraIcon"
+      },
+      {
+        "request": "“Can you help me choose an outfit for a wedding next month?”",
+        "agentResponseStrategy": "Gather event type, dress code, climate, comfort needs, color preferences, and existing wardrobe notes, then route the request to the consultant for personalized styling judgment.",
+        "sourceTypes": [
+          "Event styling FAQ",
+          "Client intake questions",
+          "Consultant service notes"
+        ],
+        "optionalAction": "Generate a concise handoff summary for the assigned stylist.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you offer corporate image workshops for sales teams?”",
+        "agentResponseStrategy": "Explain workshop formats from approved materials, collect company size, audience, location, timing, and objectives, then qualify the inquiry for follow-up.",
+        "sourceTypes": [
+          "Corporate services page",
+          "Workshop one-sheet",
+          "Sales FAQ"
+        ],
+        "optionalAction": "Notify the business development lead or create a follow-up task when configured.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“Can you remind me how to maintain my capsule wardrobe after my session?”",
+        "agentResponseStrategy": "Answer from your post-session resources, link the right checklist, and suggest when to book a follow-up if the client needs a consultant’s review.",
+        "sourceTypes": [
+          "Post-session guide",
+          "Wardrobe checklist",
+          "Maintenance FAQ"
+        ],
+        "optionalAction": "Route a follow-up request or collect scheduling intent.",
+        "icon": "BookmarkIcon"
+      },
+      {
+        "request": "“Do you work with clients who have specific body image concerns?”",
+        "agentResponseStrategy": "Respond carefully from your inclusivity and consultation policy, avoid sensitive assumptions, and offer a private human consultation for personal circumstances.",
+        "sourceTypes": [
+          "Client care policy",
+          "Inclusivity statement",
+          "Escalation guidance"
+        ],
+        "optionalAction": "Escalate to a consultant with a respectful handoff summary.",
+        "icon": "HeartIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for your consulting methods and team standards",
+    "intro": "DocsBot can give consultants, assistants, sales staff, and workshop facilitators fast answers from your internal documents, training materials, policies, and client-service playbooks. That keeps service consistent while preserving human judgment for final recommendations.",
+    "workflows": [
+      {
+        "name": "Consultant onboarding and training",
+        "problem": "New associates need to learn your methodology, tone, package boundaries, and client follow-up standards without interrupting senior consultants all day.",
+        "agentWorkflow": "Train DocsBot on onboarding docs, style methodology notes, email templates, SOPs, workshop scripts, and service rules. New team members can ask scenario-based questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "Training manuals",
+          "SOPs",
+          "Brand voice guide",
+          "Email templates"
+        ],
+        "optionalAction": "Log unanswered onboarding questions for content improvement.",
+        "outcome": "Faster ramp-up and more consistent client communication across the team.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Client handoff summaries",
+        "problem": "When a lead moves from intake to a consultant, the important details can be buried in forms, emails, or chat transcripts.",
+        "agentWorkflow": "DocsBot can summarize the inquiry, highlight timeline, service interest, concerns, and missing details, then prepare a clean handoff for the consultant or coordinator.",
+        "sourceTypes": [
+          "Conversation transcript",
+          "Intake form",
+          "Service catalog",
+          "Client notes"
+        ],
+        "optionalAction": "Create a task, update approved fields, or notify the assigned team member through configured actions.",
+        "outcome": "Less context switching before consultations and fewer repeated questions for clients.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Workshop delivery support",
+        "problem": "Corporate facilitators need quick access to agendas, scripts, examples, dress-code notes, and participant resources during program delivery.",
+        "agentWorkflow": "A private DocsBot agent can retrieve workshop materials, explain program flow, draft follow-up summaries, and answer internal questions from the approved workshop knowledge base.",
+        "sourceTypes": [
+          "Workshop deck",
+          "Facilitator guide",
+          "Participant FAQ",
+          "Follow-up templates"
+        ],
+        "optionalAction": "Generate a post-workshop question summary for review.",
+        "outcome": "More consistent corporate programs and easier follow-up after live sessions.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Policy and boundary guidance",
+        "problem": "Image consulting can touch sensitive topics such as identity, workplace expectations, body image, or privacy around photos and measurements.",
+        "agentWorkflow": "DocsBot can retrieve your client-care policies, consent language, privacy notes, and escalation guidance so staff know when to keep advice general and when to involve the lead consultant.",
+        "sourceTypes": [
+          "Client care policy",
+          "Privacy policy",
+          "Escalation SOP",
+          "Consent language"
+        ],
+        "optionalAction": "Escalate sensitive cases to a human with a neutral summary.",
+        "outcome": "A more respectful, controlled client experience for high-trust conversations.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agent",
+      "mainLandingPageContext": "DocsBot agents answer from approved company knowledge such as websites, help centers, PDFs, docs, and internal content.",
+      "industryApplication": "Turn service descriptions, package FAQs, wardrobe prep guides, corporate workshop materials, and post-session resources into instant client answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Structured lead intake and qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and apply customer-defined qualification rules.",
+      "industryApplication": "Capture style goals, event timing, budget range, location, service interest, and follow-up preferences before a human consultation.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Create a consultation task, summarize a styling request, forward a corporate workshop lead, or trigger an approved scheduling workflow.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other internal sources.",
+      "industryApplication": "Help stylists find package rules, client-care standards, onboarding materials, shopping workflow notes, and communication templates.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which questions prospects ask before booking and which parts of your service pages, prep guides, or FAQs need improvement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect sensitive client context such as measurements, photos, personal goals, and private consultation notes with governed access and clear boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on your own consulting materials so answers reflect your methods, not generic fashion advice.",
+      "Support both client-facing service questions and private team knowledge with one source-grounded AI platform.",
+      "Use analytics to improve the guides, FAQs, and workflows that shape the client experience."
+    ],
+    "whyTheseReviewsFit": "Image consultants win trust through expertise, consistency, and responsiveness. DocsBot proof from personal services, training-material, and content-library users shows how businesses use their own knowledge to deliver reliable answers, support common questions, and maintain a polished client experience.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for image consultants, personal stylists, and corporate image consulting teams",
+    "audience": [
+      "Independent image consultants",
+      "Personal styling agencies",
+      "Corporate image consultants",
+      "Personal branding consultants"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "beauty-salon",
+    "barber-shop",
+    "event-planning",
+    "fitness-trainer",
+    "florist",
+    "dry-cleaning-laundry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "image-consultant",
+    "webSearchQueries": [
+      "image consulting services market size personal styling industry report",
+      "BLS personal care and service occupations projected 2024 2034",
+      "McKinsey consumers expect personalization 71 percent frustrated 76 percent personalization",
+      "Salesforce customer loyalty personalized experience 65 percent"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/personal-care-and-service/home.htm",
+      "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/the-value-of-getting-personalization-right-or-wrong-is-multiplying",
+      "https://www.salesforce.com/news/stories/customer-spending/real-time-connected-customer-2-2/",
+      "https://www.coherentmarketinsights.com/market-insight/image-consulting-market-6106/market-size-and-trends"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44298,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 23562,
+        "outputTokens": 7638,
+        "reasoningOutputTokens": 197,
+        "totalTokens": 51936,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.17866,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.19866
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25511,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10023,
+          "outputTokens": 4927,
+          "reasoningOutputTokens": 197,
+          "totalTokens": 30438,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.102835,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.122835
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18787,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13539,
+          "outputTokens": 2711,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21498,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075825,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075825
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxmYXNoaW9ufGVufDB8MHx8fDE3MTQ4NzgwNjZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Image Consultant background image",
+    "source": "legacy-industry",
+    "query": "Image Consultant"
+  },
+  "faq": [
+    {
+      "question": "Will the agent sound like our styling philosophy, or will it give generic fashion advice?",
+      "answer": "DocsBot is trained on your approved service pages, wardrobe frameworks, color analysis notes, brand voice guide, FAQs, and post-session resources. That lets the agent answer in your language and stay grounded in your methodology instead of improvising generic style opinions. You can keep final outfit, fit, body-image, or event-critical recommendations with a human consultant.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot qualify styling leads before I spend time on a discovery call?",
+      "answer": "Yes. A DocsBot agent can ask structured intake questions about the client’s goals, occasion, timeline, budget range, location, current wardrobe needs, dress-code constraints, and preferred follow-up channel. With approved workflows, it can send a concise lead summary to your inbox, CRM, scheduling process, or assigned consultant so you can prioritize serious inquiries.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we stop the agent from promising a specific package, price, or result?",
+      "answer": "You can train the agent on approved package descriptions, pricing-range language, policies, and escalation rules. The agent can explain differences between services and collect context, but it should be instructed to avoid final commitments on fit, pricing exceptions, contracts, timelines, or guaranteed outcomes unless those rules are explicitly in your approved content.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it handle sensitive conversations around body image, identity, workplace expectations, or measurements?",
+      "answer": "DocsBot can answer from your inclusivity policy, client-care standards, privacy notes, and escalation SOPs, but sensitive topics should be routed carefully. The agent can acknowledge the request, avoid assumptions, collect only necessary context, and hand off to a human consultant when the conversation involves personal identity, body image, disability accommodations, workplace conflict, or highly personal styling concerns.",
+      "role": "Corporate image and personal branding consultants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What client information can the intake flow collect before a wardrobe edit or personal shopping session?",
+      "answer": "A configured intake flow can collect goals, sizes, preferred fit, event dates, inspiration links, shopping dislikes, colors to avoid, workplace dress codes, lifestyle constraints, budget range, location, and follow-up preferences. DocsBot can then summarize the profile for the consultant so the first session starts with usable context instead of scattered emails, forms, and texts.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support both our public website visitors and our internal styling team?",
+      "answer": "Yes. You can use DocsBot for a client-facing agent that answers service and preparation questions, and a private internal knowledge agent for SOPs, client communication templates, package rules, training notes, vendor guidance, and workshop materials. Access controls and role-based permissions help keep public and internal knowledge separate.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much content do we need before launching an agent?",
+      "answer": "Most image consulting teams can start with service pages, package descriptions, preparation checklists, FAQs, client policies, post-session guides, and a few internal SOPs. The agent improves as you add clearer source material. DocsBot analytics and knowledge-gap discovery can show which questions the agent could not answer well so you know what to document next.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will the agent help with corporate image workshops, not just one-on-one styling?",
+      "answer": "Yes. DocsBot can be trained on workshop agendas, pre-work instructions, dress-code guides, executive presence materials, facilitator notes, participant FAQs, and follow-up resources. It can answer participant questions, help HR or program coordinators find logistics, summarize recurring questions, and route unresolved issues to the program lead.",
+      "role": "Corporate image and personal branding consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it answer questions from employees in different languages during a corporate program?",
+      "answer": "DocsBot can answer in more than 100 languages when your approved content supports the answer. For corporate image programs, that can help participants understand pre-work, dress-code guidance, session logistics, and follow-up resources while keeping the source material controlled by your team.",
+      "role": "Corporate image and personal branding consultants",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we measure whether this is actually saving time?",
+      "answer": "Track repetitive pre-booking questions answered, qualified leads captured, consultation summaries created, unresolved questions routed to humans, and documentation gaps discovered. For agencies, you can also compare response time, no-show reduction from better prep, consultant admin time, and the volume of repeated questions about packages, virtual sessions, pricing, and policies.",
+      "role": "Boutique styling teams and agencies",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is there enough demand in image consulting to justify automation for a smaller practice?",
+      "answer": "Automation can make sense even for solo consultants when it protects high-value consultation time. The image consulting market was estimated at US$4.50 billion in 2025, and demand is tied to personal branding, professional development, corporate grooming, and online styling services.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-image-consulting-market"
+      ]
+    },
+    {
+      "question": "Will clients accept an AI agent for a service that feels personal and high-touch?",
+      "answer": "The agent should not replace the consultant relationship. It should make the first touchpoint more responsive by answering basic questions, collecting context, and preparing the human handoff. That matters because McKinsey found that 71% of consumers expect personalized interactions and 76% get frustrated when they do not receive them.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-personalization-expectations"
+      ]
+    },
+    {
+      "question": "Can DocsBot help improve retention after the first consultation?",
+      "answer": "Yes. Train the agent on your post-session guides, capsule wardrobe maintenance tips, color palette notes, packing lists, and follow-up recommendations. It can remind clients how to apply what they learned and route them back to a consultant when they need a review. Salesforce research found that 65% of consumers said they would remain loyal to companies offering a more personalized experience.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-retail-personalization-loyalty"
+      ]
+    },
+    {
+      "question": "How does DocsBot protect private client details like photos, measurements, goals, and notes?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. You should still configure your workflow so the agent requests only necessary information, keeps credentials out of chats, and escalates sensitive cases through approved human review paths.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we connect the agent to our scheduler, CRM, forms, or team notifications?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, forms, webhooks, and approved automation steps. For example, the agent can collect scheduling intent, forward a qualified lead, create a task, update approved fields, or notify a team channel. DocsBot should be configured with scoped permissions and human review for high-impact commitments.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need a technical person to keep the knowledge base accurate?",
+      "answer": "Not necessarily. The operational work is usually deciding what content is approved, current, and safe for the agent to use. A practice owner, operations lead, or senior stylist can maintain service guides, FAQs, policies, and templates. More technical help may be useful for custom APIs, CRM updates, MCP Connectors, or advanced workflow automation.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep different consultants from giving inconsistent answers through the agent?",
+      "answer": "Use DocsBot as a shared source-grounded knowledge layer. Train it on your approved package rules, client-care standards, brand voice, shopping workflow, email templates, and escalation policies. Then review logs and unanswered questions to identify where your team needs clearer guidance or updated documentation.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can new associate stylists use DocsBot during onboarding?",
+      "answer": "Yes. A private internal knowledge agent can answer scenario-based questions from onboarding docs, SOPs, methodology notes, client communication templates, workshop scripts, and service boundaries. This helps new team members learn how your practice handles rescheduling, follow-up, package selection, client tone, and escalation without interrupting senior consultants all day.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "DocsBot should be configured to say when it cannot answer from approved sources, ask clarifying questions when appropriate, and route the issue to a human. Conversation review, analytics, topic management, and knowledge-gap discovery can show which questions need better website copy, prep guides, client policies, or internal SOPs.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review what prospects and clients are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For image consultants, those reports can reveal confusion around pricing, virtual color analysis, photo requirements, event styling timelines, wardrobe edit prep, or corporate workshop scope.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or contact form?",
+      "answer": "A basic chatbot or form usually captures a message and waits for a reply. DocsBot can answer from approved consulting materials, ask structured qualification questions, summarize the conversation, route the request, trigger approved workflows, and reveal recurring content gaps. That makes it more useful for service discovery, intake, and internal knowledge than a static contact form.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent recommend outfits or style choices directly to clients?",
+      "answer": "It can explain your approved style principles, preparation steps, capsule wardrobe guidance, color palette education, and package options. But final styling judgments should stay with a human, especially when the request involves fit, body confidence, cultural context, workplace consequences, formal events, or a paid deliverable. DocsBot is best used to educate, gather context, and prepare the consultant.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will this work for premium clients who expect white-glove service?",
+      "answer": "Yes, if you position the agent as a concierge-style intake and education layer rather than a replacement for the consultant. It can give immediate, polished answers, remember to ask the right prep questions, and create a clean handoff so the human consultation feels more prepared and personal.",
+      "role": "Independent image consultants and personal stylists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we include in our launch plan?",
+      "answer": "Start with one focused workflow such as service discovery, wardrobe-edit prep, or corporate workshop support. Upload approved content, define escalation rules, test real prospect questions, review sensitive-topic handling, connect only the workflows you trust, and monitor logs after launch. Then expand into internal SOP search, onboarding support, and analytics-driven content improvements.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help if we are growing from a solo practice into a small agency?",
+      "answer": "Yes. As volume grows, DocsBot can centralize your service rules, templates, onboarding notes, client-care policies, and package guidance so new consultants answer consistently. It can also route inquiries by service type, urgency, geography, language, or consultant specialty when your team configures those workflows.",
+      "role": "Boutique styling teams and agencies",
+      "category": "Scalability"
+    },
+    {
+      "question": "What procurement concerns should a corporate client expect us to answer if we use AI in workshops?",
+      "answer": "Corporate buyers may ask where participant questions are stored, who can access them, whether the agent uses approved workshop content only, how sensitive questions escalate, and whether data is used to train public models. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption, access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Corporate image and personal branding consultants",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,753 @@
+{
+  "slug": "chiropractic-office",
+  "business": "Chiropractic Office",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Chiropractic Office Automation",
+    "description": "DocsBot helps chiropractic offices answer patient questions, route intake, and surface approved care instructions with source-grounded AI agents.",
+    "canonicalPath": "/industry/chiropractic-office"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for busy chiropractic teams",
+    "headline": "DocsBot AI agents keep chiropractic office questions moving",
+    "subheadline": "Train an AI agent on your clinic FAQs, patient instructions, intake packets, service pages, insurance notes, and internal SOPs so patients and staff can get consistent answers, clear next steps, and human handoffs when a request needs clinical or billing review.",
+    "proofBullets": [
+      {
+        "text": "Answer common patient questions about visit preparation, clinic policies, services, forms, hours, and after-visit instructions from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake or appointment intent, summarize the request, and route it to front desk, billing, or care staff through configured workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, payer notes, phone scripts, referral steps, and office procedures without searching folders.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate sensitive, clinical, billing, or privacy questions to a human with conversation context and customer-defined boundaries.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a chiropractic AI agent",
+    "secondaryCta": "See patient support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps chiropractic offices create AI agents trained on their own approved knowledge. The agent can support patients through a website widget, help staff find internal policies in private chat, summarize requests, identify recurring knowledge gaps, and use customer-configured AI Actions, Skills, APIs, connectors, or review workflows for bounded routing and handoffs.",
+    "whoItHelps": [
+      {
+        "role": "Front desk and patient access teams",
+        "roleContext": "Reception staff handle repetitive questions while also scheduling visits, confirming forms, and managing phone volume. A DocsBot agent can answer routine questions and collect structured details before a staff member steps in.",
+        "bullets": [
+          {
+            "text": "Guide new patients to the right forms, preparation instructions, parking details, and clinic policies.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Collect appointment intent, preferred contact method, and reason for visit, then prepare a concise handoff for staff review.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Reduce repeated calls by making approved answers available after hours through the website chat widget.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Practice owners and office managers",
+        "roleContext": "Small healthcare offices need consistent patient communication, faster onboarding for staff, and visibility into what patients ask most often. DocsBot analytics and logs help reveal content gaps and recurring issues.",
+        "bullets": [
+          {
+            "text": "Keep service descriptions, office policies, and care instructions consistent across staff and patient-facing answers.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Review conversation logs, topic trends, satisfaction signals, and unanswered questions to improve documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support healthcare privacy expectations with role-based permissions, encryption, SOC 2 Type II certification, and GDPR-ready governance.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Billing and insurance coordinators",
+        "roleContext": "Chiropractic offices often field coverage, claim, and payment questions that require careful boundaries. A DocsBot agent can explain approved office processes while routing account-specific questions to humans.",
+        "bullets": [
+          {
+            "text": "Answer general billing process questions from approved office policies without making coverage guarantees.",
+            "icon": "CreditCardIcon"
+          },
+          {
+            "text": "Collect missing claim or invoice context and route the summary to the right billing workflow when configured.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "The 2024 CAQH Index estimated a $20 billion opportunity to reduce administrative waste in healthcare transactions.",
+            "icon": "CalculatorIcon",
+            "sourceIds": [
+              "src-caqh-admin-savings"
+            ]
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      },
+      {
+        "role": "Chiropractors and clinical teams",
+        "roleContext": "Clinicians need patient education to be consistent without letting automation diagnose, triage emergencies, or replace professional judgment. DocsBot can surface approved educational content and escalate clinical uncertainty.",
+        "bullets": [
+          {
+            "text": "Retrieve approved exercise handouts, care-plan education, and after-visit reminders for staff or patient self-service.",
+            "icon": "HeartIcon"
+          },
+          {
+            "text": "Route symptom-specific, urgent, or diagnosis-related questions to the clinic’s human review path instead of giving medical advice.",
+            "icon": "ExclamationCircleIcon"
+          },
+          {
+            "text": "Medicare says Part B covers manual manipulation of the spine to correct vertebral subluxation, while it does not cover certain other chiropractor-ordered services such as X-rays, massage therapy, and acupuncture.",
+            "icon": "InformationCircleIcon",
+            "sourceIds": [
+              "src-medicare-chiro-coverage"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-chiropractors-outlook",
+      "metric": "Chiropractor employment projected to grow 10% from 2024 to 2034",
+      "claim": "BLS reports 2024 median pay, projected employment growth, and occupational details for chiropractors, supporting the need for scalable office workflows as demand grows.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Chiropractors",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/chiropractors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "growth pressure",
+        "staffing and demand context"
+      ]
+    },
+    {
+      "id": "src-caqh-admin-savings",
+      "metric": "$20 billion opportunity to reduce administrative waste",
+      "claim": "The 2024 CAQH Index reported a major savings opportunity in routine healthcare administrative transactions, including processes like eligibility, claims, and payment workflows.",
+      "sourceTitle": "CAQH: New CAQH Index Reveals $20B Savings Opportunity to Cut Waste, Reduce Costs, and Improve Patient Access",
+      "sourceUrl": "https://www.caqh.org/news/new-caqh-index-reveals-20b-savings-opportunity-cut-waste-reduce-costs-and-improve-patient-access",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "administrative burden",
+        "billing workflows",
+        "automation opportunity"
+      ]
+    },
+    {
+      "id": "src-hipaa-security-rule",
+      "metric": "HIPAA Security Rule requires administrative, physical, and technical safeguards for ePHI",
+      "claim": "HHS states that the HIPAA Security Rule sets national standards for protecting electronic protected health information maintained by covered entities and business associates.",
+      "sourceTitle": "HHS: The Security Rule",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/security/index.html",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "privacy expectations",
+        "security safeguards",
+        "regulated health data"
+      ]
+    },
+    {
+      "id": "src-hipaa-privacy-rule",
+      "metric": "HIPAA Privacy Rule applies to covered health care providers that transmit health information electronically in standard transactions",
+      "claim": "HHS describes covered entities and patients’ rights under the HIPAA Privacy Rule, including privacy notices for direct-treatment providers.",
+      "sourceTitle": "HHS: Summary of the HIPAA Privacy Rule",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "privacy notices",
+        "patient rights",
+        "covered entity context"
+      ]
+    },
+    {
+      "id": "src-medicare-chiro-coverage",
+      "metric": "Medicare Part B covers manual spinal manipulation for vertebral subluxation",
+      "claim": "Medicare.gov explains chiropractic coverage limits, including covered manual manipulation and excluded services such as X-rays, massage therapy, and acupuncture ordered by a chiropractor.",
+      "sourceTitle": "Medicare.gov: Chiropractic services",
+      "sourceUrl": "https://www.medicare.gov/coverage/chiropractic-services",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "coverage questions",
+        "billing boundaries",
+        "patient education"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "New patient intake and form guidance",
+      "problem": "Prospective patients often need help understanding what to bring, which forms to complete, and how the first visit works before they are ready to book.",
+      "agentWorkflow": "A DocsBot agent answers from the clinic’s intake packet, service pages, policies, and FAQ. It can collect name, contact details, appointment intent, reason for visit, and preferred follow-up channel, then create a structured handoff through an approved form, email, ticket, CRM, or scheduling workflow.",
+      "liveContextOrTools": "Use customer-configured Skills, APIs, connectors, or scheduling workflows to request an appointment, submit a lead form, notify staff, or pass a summarized intake request to the front desk.",
+      "exampleQuestionsOrRequests": [
+        "I’m a new patient. What forms do I need before my first chiropractic appointment?",
+        "Do you treat sports injuries, and how do I request an appointment?",
+        "Can someone call me about availability this week?"
+      ],
+      "businessOutcome": "Patients get clear next steps before calling, while staff receive cleaner requests with the context needed to respond quickly.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "After-visit instruction assistant",
+      "problem": "Patients may forget post-visit recommendations, home-care instructions, or follow-up steps after they leave the office.",
+      "agentWorkflow": "Train the agent on approved after-visit instructions, exercise sheets, FAQs, and clinic communication policies. The agent can retrieve the right general education, remind patients to follow their provider’s plan, and escalate pain, worsening symptoms, or diagnosis-related questions to staff.",
+      "liveContextOrTools": "With approved workflows, the agent can collect the patient’s question, summarize it, and route it to the care team for review instead of making clinical judgments.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the stretches my chiropractor recommended?",
+        "Is it normal to feel sore after an adjustment?",
+        "I lost my after-care handout. Can you show me the general instructions?"
+      ],
+      "businessOutcome": "Consistent source-grounded education supports adherence while keeping clinical decisions with licensed staff.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Billing, coverage, and payment question routing",
+      "problem": "Insurance and billing questions are frequent, but account-specific answers require accuracy, privacy boundaries, and human review.",
+      "agentWorkflow": "DocsBot can answer general billing policies from approved content, explain what information the office needs, and avoid guaranteeing benefits or reimbursement. For account-specific questions, it collects missing details and routes a summary to billing staff.",
+      "liveContextOrTools": "Configured AI Actions can create a task, send a secure internal notification, or look up allowed status fields where the clinic has authorized the connection and permissions.",
+      "exampleQuestionsOrRequests": [
+        "Do you take my insurance?",
+        "What information do you need to verify benefits?",
+        "Can I get help understanding a chiropractic bill?"
+      ],
+      "businessOutcome": "The office reduces repetitive billing explanations while keeping benefit verification, PHI, and payment disputes in controlled workflows.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-caqh-admin-savings"
+      ]
+    },
+    {
+      "name": "Internal SOP and staff training agent",
+      "problem": "Front desk procedures, referral scripts, payer notes, phone policies, and provider preferences can be scattered across binders, files, and staff memory.",
+      "agentWorkflow": "A private DocsBot agent can train on SOPs, PDFs, Word documents, Google Drive, Notion, Confluence, and internal policy sources. Staff ask natural-language questions and receive source-grounded answers with links back to approved materials.",
+      "liveContextOrTools": "The agent can work in private team chat, Slack, Microsoft Teams, or an internal chat experience when configured, with role-based access to sensitive sources.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for a referral from a primary care office?",
+        "How do we handle a missed appointment?",
+        "Where is the current phone script for new patient inquiries?"
+      ],
+      "businessOutcome": "New staff ramp faster, experienced staff spend less time searching, and managers see which SOPs need clarification.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Patient communication trend analysis",
+      "problem": "Practice owners may not know which questions repeatedly slow down phone lines, create appointment friction, or reveal missing website content.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery show what patients and staff ask most often. Managers can use those insights to update FAQs, intake pages, and internal playbooks.",
+      "liveContextOrTools": "Review workflows can turn repeated unanswered questions into documentation tasks or route content gaps to the right owner.",
+      "exampleQuestionsOrRequests": [
+        "What are patients asking about most before booking?",
+        "Which insurance questions are not answered in our public FAQ?",
+        "What topics should we add to our new patient page?"
+      ],
+      "businessOutcome": "The clinic improves self-service content and reduces repeat questions without guessing what patients need.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Privacy-aware patient request triage",
+      "problem": "Chiropractic offices must balance fast answers with privacy obligations and clinical safety boundaries.",
+      "agentWorkflow": "DocsBot can be configured to answer only from approved sources, keep sensitive requests within defined escalation paths, and hand off clinical, emergency, identity, or account-specific issues to humans. Access controls and review logs help managers govern how the agent is used.",
+      "liveContextOrTools": "Scoped Skills, metadata bindings, network policy, logging, and customer-defined controls define what the agent can access or trigger. MCP Connectors can also connect to authorized Model Context Protocol servers when a clinic has approved tools to expose.",
+      "exampleQuestionsOrRequests": [
+        "Can you update my contact information?",
+        "I have severe pain after my visit. What should I do?",
+        "Can you send my records to another provider?"
+      ],
+      "businessOutcome": "Patients receive fast direction while the office keeps high-impact requests inside controlled, reviewable workflows.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-hipaa-security-rule",
+        "src-hipaa-privacy-rule"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients a clearer path from question to appointment",
+    "intro": "A customer-facing DocsBot agent can live on your chiropractic website and answer from your clinic’s approved content. It helps patients understand services, visit preparation, forms, billing processes, and follow-up steps, then hands off requests that need staff judgment.",
+    "requests": [
+      {
+        "request": "“What happens at my first chiropractic visit?”",
+        "agentResponseStrategy": "Answer from the new patient page, intake packet, and clinic FAQ. Include preparation steps, paperwork guidance, what to bring, and a reminder that clinical recommendations come from the provider.",
+        "sourceTypes": [
+          "New patient packet",
+          "Clinic FAQ",
+          "Service pages",
+          "Office policies"
+        ],
+        "optionalAction": "Offer to collect appointment intent and preferred contact details for front desk follow-up through a configured workflow.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“Do you accept my insurance?”",
+        "agentResponseStrategy": "Explain the office’s general insurance process from approved billing content, avoid coverage guarantees, and ask for the information staff need to verify benefits.",
+        "sourceTypes": [
+          "Billing FAQ",
+          "Insurance policy notes",
+          "Payment policy"
+        ],
+        "optionalAction": "Create a billing task or route a summarized verification request to staff if the clinic has configured that workflow.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“Where are my post-treatment exercises?”",
+        "agentResponseStrategy": "Retrieve approved general instructions and links to patient education materials, while reminding the patient to follow their provider’s specific plan and contact the office for changes or worsening symptoms.",
+        "sourceTypes": [
+          "After-care handouts",
+          "Exercise sheets",
+          "Patient education PDFs"
+        ],
+        "optionalAction": "Escalate symptom-specific or urgent concerns to a human review queue with the conversation summary.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can I book an appointment this week?”",
+        "agentResponseStrategy": "Collect scheduling intent, visit type, preferred dates, contact details, and whether the person is new or returning, then prepare the handoff.",
+        "sourceTypes": [
+          "Appointment policies",
+          "Service catalog",
+          "New patient rules"
+        ],
+        "optionalAction": "Use an approved scheduling Skill or workflow such as Calendly, Cal.com, TidyCal, or a similar configured system.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Does Medicare cover chiropractic care?”",
+        "agentResponseStrategy": "Answer from the clinic’s approved Medicare explanation and route detailed eligibility or claim questions to billing staff. Medicare.gov states that Part B covers manual spinal manipulation for vertebral subluxation but not certain other chiropractor-ordered services.",
+        "sourceTypes": [
+          "Billing FAQ",
+          "Medicare policy notes",
+          "Public payer references"
+        ],
+        "optionalAction": "Offer to send the question to billing staff for patient-specific review.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-medicare-chiro-coverage"
+        ]
+      },
+      {
+        "request": "“Can you send my records to another provider?”",
+        "agentResponseStrategy": "Explain the clinic’s records request process from approved policy content and avoid collecting unnecessary PHI in open chat.",
+        "sourceTypes": [
+          "Records release policy",
+          "Privacy notice",
+          "Patient forms"
+        ],
+        "optionalAction": "Route the request to staff or direct the patient to the approved release form and secure process.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help chiropractic staff find the right policy, script, or next step",
+    "intro": "A private DocsBot internal knowledge agent gives front desk, billing, management, and care teams a faster way to retrieve office knowledge. Train it on SOPs, policies, payer notes, staff training materials, and care documentation while preserving access controls and review paths.",
+    "workflows": [
+      {
+        "name": "Front desk call handling",
+        "problem": "Receptionists need quick answers while patients are waiting on the phone or standing at the desk.",
+        "agentWorkflow": "Staff ask the internal agent for the current process, policy, or script. The agent responds from approved SOPs and links back to the source so employees can verify details.",
+        "sourceTypes": [
+          "Phone scripts",
+          "SOPs",
+          "Office policies",
+          "FAQ documents"
+        ],
+        "optionalAction": "Draft a follow-up email or create a task for staff review through configured workflows.",
+        "outcome": "Calls move faster and new staff rely less on interrupting senior team members.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Billing workflow support",
+        "problem": "Billing coordinators need consistent answers about benefit verification steps, superbills, invoices, payment plans, and claim follow-up.",
+        "agentWorkflow": "The internal agent retrieves payer notes, office billing policies, and process checklists. For live work, configured Skills can create tasks, summarize patient questions, or route exceptions to a human owner.",
+        "sourceTypes": [
+          "Billing SOPs",
+          "Payer notes",
+          "Payment policies",
+          "Claim follow-up checklists"
+        ],
+        "optionalAction": "Create a billing task or update an approved status field when the clinic has authorized the connection.",
+        "outcome": "Billing staff spend less time searching for process details and more time resolving exceptions.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "name": "Provider and care-team knowledge retrieval",
+        "problem": "Clinical teams need quick access to approved patient education, referral instructions, and after-care materials without using the agent for diagnosis.",
+        "agentWorkflow": "The agent searches approved clinical education content and internal references, then surfaces source-grounded material. It can be instructed to escalate diagnosis, emergency, or individualized treatment questions.",
+        "sourceTypes": [
+          "Patient education PDFs",
+          "After-care guides",
+          "Referral instructions",
+          "Care-plan templates"
+        ],
+        "optionalAction": "Summarize a patient education request for staff follow-up when configured.",
+        "outcome": "Education stays consistent while licensed professionals remain responsible for clinical judgment.",
+        "icon": "HeartIcon"
+      },
+      {
+        "name": "Compliance and privacy procedure lookup",
+        "problem": "Healthcare offices need staff to follow privacy, access, and records processes consistently.",
+        "agentWorkflow": "Train the private agent on the clinic’s privacy notice, release-of-information procedure, records policy, and staff training materials. The agent can answer process questions and point employees to the governing source.",
+        "sourceTypes": [
+          "Privacy notice",
+          "HIPAA training materials",
+          "Records request SOPs",
+          "Access control policy"
+        ],
+        "optionalAction": "Route uncertain privacy questions to the designated manager or compliance contact for review.",
+        "outcome": "Staff get faster procedural guidance while sensitive decisions remain controlled.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-hipaa-security-rule"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, PDFs, documents, internal content, and other configured knowledge sources.",
+      "industryApplication": "Train an agent on chiropractic FAQs, new patient forms, after-care instructions, payment policies, referral steps, and staff SOPs so answers match your office’s actual guidance.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget for patient self-service",
+      "mainLandingPageContext": "DocsBot agents can work in an embeddable website or product chat widget and answer customer questions instantly.",
+      "industryApplication": "Place a patient support agent on your chiropractic website to answer visit preparation, service, form, hours, and general billing questions even when the phone line is closed.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as live lookups, record creation, routing, summaries, notifications, and workflow triggers when configured.",
+      "industryApplication": "Use approved workflows to collect appointment intent, summarize intake requests, create staff tasks, route billing questions, or notify the right team without giving the agent unrestricted access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as a private team assistant trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other sources.",
+      "industryApplication": "Give front desk, billing, and care teams a searchable assistant for office procedures, payer notes, scripts, referral workflows, and onboarding materials.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which patient questions repeat, which content is missing, and where intake, billing, or after-care documentation needs improvement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Support healthcare buyer expectations with controlled knowledge access, reviewable conversations, and boundaries for PHI, billing, clinical, and records workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making and reduce unnecessary human back-and-forth.",
+      "DocsBot answers from your own approved content library, helping patient-facing and staff-facing guidance stay consistent.",
+      "Education-heavy workflows benefit from agents that reinforce key concepts without replacing expert instruction."
+    ],
+    "whyTheseReviewsFit": "Chiropractic offices depend on clear education, consistent policies, and efficient staff workflows. DocsBot’s healthcare and knowledge-base proof shows how owned content can become a practical AI agent for patient questions, staff support, and internal decision-making.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for chiropractic offices",
+    "audience": [
+      "Chiropractic practice owners",
+      "Office managers",
+      "Front desk teams",
+      "Billing coordinators",
+      "Patient experience teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "medical-office",
+    "physicians-office",
+    "alternative-medicine",
+    "acupuncturist-health-services",
+    "healthcare-revenue-cycle-management",
+    "health-coaching"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "chiropractic-office",
+    "webSearchQueries": [
+      "BLS chiropractors occupational outlook number jobs 2024",
+      "CAQH index healthcare administrative transactions cost provider 2024",
+      "HIPAA Security Rule covered entities administrative safeguards technical safeguards HHS",
+      "HHS HIPAA Privacy Rule covered entities health care providers patients rights notice privacy practices",
+      "CMS chiropractic services Medicare manual maintenance therapy excluded"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/healthcare/chiropractors.htm",
+      "https://www.caqh.org/news/new-caqh-index-reveals-20b-savings-opportunity-cut-waste-reduce-costs-and-improve-patient-access",
+      "https://www.hhs.gov/hipaa/for-professionals/security/index.html",
+      "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
+      "https://www.medicare.gov/coverage/chiropractic-services"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 43298,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 23074,
+        "outputTokens": 8058,
+        "reasoningOutputTokens": 152,
+        "totalTokens": 51356,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.183611,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.203611
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 23490,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 8514,
+          "outputTokens": 5365,
+          "reasoningOutputTokens": 152,
+          "totalTokens": 28855,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.105504,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.125504
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19808,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14560,
+          "outputTokens": 2693,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22501,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078107,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078107
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1638636241638-aef5120c5153?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU5Nzd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Chiropractic Office background image",
+    "source": "legacy-industry",
+    "query": "Chiropractic Office"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer patient questions without giving medical advice or trying to diagnose symptoms?",
+      "answer": "Yes. Configure the agent to answer only from approved clinic content, such as visit-prep pages, FAQs, after-care handouts, and office policies. For symptom-specific, urgent, diagnosis, or treatment-plan questions, it can stop short of advice and hand off the conversation summary to staff for review.",
+      "role": "Chiropractors and clinical teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce phone volume for a small chiropractic front desk?",
+      "answer": "A DocsBot agent can handle repetitive questions about hours, location, parking, forms, first-visit expectations, services, payment policies, and after-visit instructions through the website widget. It can also collect appointment intent and preferred contact details so staff respond to a cleaner request instead of starting from scratch.",
+      "role": "Front desk and patient access teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will DocsBot connect directly to our scheduling system?",
+      "answer": "DocsBot can support scheduling workflows when your office configures an approved Skill, API, connector, form, webhook, or scheduling workflow. The safest pattern is to collect visit type, new-or-returning status, preferred times, and contact details, then either request an appointment or route the summary to staff for confirmation.",
+      "role": "Front desk and patient access teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it for insurance questions without making coverage promises?",
+      "answer": "Yes. Train the agent on your billing FAQ and insurance process so it explains what your office needs to verify benefits, what payment options exist, and who reviews account-specific questions. It should avoid guaranteeing coverage, reimbursement, or patient responsibility and route those cases to billing staff.",
+      "role": "Billing and insurance coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How should the agent answer Medicare chiropractic coverage questions?",
+      "answer": "Use your approved Medicare language and billing policy. The agent can explain that Medicare Part B covers manual manipulation of the spine to correct vertebral subluxation, while Medicare.gov says it does not cover certain chiropractor-ordered services such as X-rays, massage therapy, and acupuncture. Patient-specific eligibility or claims questions should go to billing.",
+      "role": "Billing and insurance coordinators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-medicare-chiro-coverage"
+      ]
+    },
+    {
+      "question": "Can DocsBot help new staff learn our front desk scripts and office procedures?",
+      "answer": "Yes. A private internal knowledge agent can be trained on SOPs, phone scripts, payer notes, referral steps, missed-appointment policies, privacy procedures, and onboarding documents. Staff can ask natural-language questions and get source-grounded answers with links back to the approved material.",
+      "role": "Practice owners and office managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What documentation do we need before launching a chiropractic AI agent?",
+      "answer": "Most offices start with the content patients and staff already rely on: website service pages, new-patient packets, intake instructions, FAQs, payment policies, after-care handouts, records-release procedures, billing SOPs, and staff scripts. The launch is stronger when each answer has an owner who can approve updates.",
+      "role": "Practice owners and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep outdated policies or old forms from being used in answers?",
+      "answer": "Treat the agent’s knowledge base like an operational source of truth. Remove obsolete files, label current policies clearly, connect approved repositories where possible, and review analytics for unanswered or disputed questions. DocsBot’s logs and knowledge-gap reporting help managers see where content needs cleanup.",
+      "role": "Practice owners and office managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent handle after-hours patient questions?",
+      "answer": "Yes. A website agent can answer approved self-service questions after hours, such as what to bring, how to prepare, where forms are, what general after-care instructions say, and how to request a callback. Urgent, clinical, billing, or privacy-sensitive requests can be routed to your defined human process.",
+      "role": "Front desk and patient access teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot support HIPAA-conscious workflows?",
+      "answer": "DocsBot supports healthcare privacy expectations with role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II certification, and customer-defined boundaries. HHS states that the HIPAA Security Rule requires administrative, physical, and technical safeguards for ePHI, so clinics should still configure use, access, and escalation policies carefully.",
+      "role": "Practice owners and office managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-security-rule"
+      ]
+    },
+    {
+      "question": "Does DocsBot use our patient or office data to train public models?",
+      "answer": "No. DocsBot does not use customer data to train public models. Offices can also use access controls, review logs, scoped Skills, secrets management, metadata bindings, and network policy to define what an agent may access or do in patient-facing and internal workflows.",
+      "role": "Practice owners and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we prevent patients from entering too much PHI in the website chat?",
+      "answer": "You can write instructions that discourage unnecessary sensitive details, present approved records or billing request paths, and route account-specific needs to staff. For high-risk topics, the agent can collect only minimal routing information, summarize the request, and direct the patient to your secure process.",
+      "role": "Practice owners and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when a patient asks about severe pain, neurological symptoms, or an emergency?",
+      "answer": "The agent should be configured to avoid clinical triage beyond your approved safety language. For severe, worsening, urgent, or emergency-type messages, it can provide the clinic’s approved direction, stop answering clinically, and escalate or instruct the patient to use the appropriate urgent care pathway.",
+      "role": "Chiropractors and clinical teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot summarize an intake request before our team calls the patient back?",
+      "answer": "Yes. The agent can collect structured details such as new-or-returning status, reason for visit, preferred dates, contact method, insurance question, and consented follow-up channel. It can then prepare a concise handoff through a customer-configured form, email, ticket, CRM, or scheduling workflow.",
+      "role": "Front desk and patient access teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping the practice?",
+      "answer": "Track repeat-question reduction, after-hours conversations, appointment requests captured, unresolved topics, patient satisfaction signals, handoff quality, staff time saved, and content gaps found. DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help owners improve the knowledge base over time.",
+      "role": "Practice owners and office managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent help with billing workflows beyond answering FAQs?",
+      "answer": "When configured with approved AI Actions, Skills, APIs, or connectors, DocsBot can collect missing billing context, create a task, notify a coordinator, summarize the patient’s question, or look up allowed status fields. The 2024 CAQH Index estimated a $20 billion opportunity to reduce administrative waste in healthcare transactions, which is why bounded billing automation is attractive.",
+      "role": "Billing and insurance coordinators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-caqh-admin-savings"
+      ]
+    },
+    {
+      "question": "Will the agent work for both patient-facing questions and private staff questions?",
+      "answer": "Yes, but they should usually be separate experiences with different knowledge and permissions. A public website agent can answer approved patient questions, while a private internal agent can access SOPs, payer notes, scripts, and staff procedures that should not be exposed publicly.",
+      "role": "Practice owners and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How long does implementation usually take for a clinic with messy documents?",
+      "answer": "The main work is content readiness, not AI complexity. Start with a narrow pilot such as new-patient FAQs, forms, and hours; then add billing policies, after-care handouts, and SOPs. Messy folders can still work, but offices get better answers when documents are current, clearly named, and reviewed by owners.",
+      "role": "Practice owners and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support multiple locations or providers with different policies?",
+      "answer": "Yes. You can organize knowledge so answers reflect location-specific hours, parking, services, provider preferences, forms, or escalation paths. For sensitive differences, use clear source separation, role-based permissions, and review workflows so the agent does not mix policies across locations.",
+      "role": "Practice owners and office managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does the agent avoid hallucinating when our content does not answer the question?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved knowledge. You can instruct the agent to say it does not know, ask a clarifying question, or escalate when the source material is missing. Conversation logs and knowledge-gap discovery then show what content your office should add.",
+      "role": "Practice owners and office managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. Start with answer-only or low-risk routing, review logs, inspect unresolved questions, and tune instructions before enabling more actions. Many clinics will want a staged rollout: public FAQs first, intake handoffs second, internal SOP support third, and live system actions only after permissions are clear.",
+      "role": "Practice owners and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should billing staff still handle manually?",
+      "answer": "Billing staff should retain benefit verification, account-specific balances, claim disputes, refunds, payment arrangements, and anything involving PHI or payer judgment. The agent is best used to explain the general process, collect missing information, prepare summaries, and route exceptions to the right person.",
+      "role": "Billing and insurance coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer in languages other than English for our patient population?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help offices provide basic access to approved information such as forms, hours, preparation steps, and general policies. For clinical, billing, legal, or consent-sensitive conversations, use your office’s approved language-access and human review process.",
+      "role": "Front desk and patient access teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot to our website?",
+      "answer": "A generic chatbot often gives broad responses. DocsBot is positioned as a source-grounded AI agent trained on your clinic’s own content, with configurable handoffs, analytics, internal knowledge support, and bounded actions. That matters in chiropractic workflows where answers must match office policy and escalate safely.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What will our clinicians worry about during evaluation?",
+      "answer": "Clinicians usually want assurance that the agent will not diagnose, contradict care plans, invent exercises, or replace provider judgment. Address that by using approved education materials, clear escalation rules, source-grounded answers, and human review for symptom-specific, urgent, or individualized treatment questions.",
+      "role": "Chiropractors and clinical teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can the agent help us understand what patients ask before they book?",
+      "answer": "Yes. DocsBot analytics and conversation review can reveal repeated questions about pricing, insurance, first visits, services, forms, or post-treatment concerns. Owners can use those patterns to improve website pages, intake packets, staff scripts, and follow-up materials instead of guessing where friction exists.",
+      "role": "Practice owners and office managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this useful for a solo chiropractor, or only for larger practices?",
+      "answer": "Solo and small practices can benefit because the same few staff members often answer phones, manage forms, handle billing questions, and support patients. BLS projects chiropractor employment to grow 10% from 2024 to 2034, so scalable administrative workflows can matter even before a clinic becomes large.",
+      "role": "Practice owners and office managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-chiropractors-outlook"
+      ]
+    },
+    {
+      "question": "What should we ask during procurement or vendor review?",
+      "answer": "Ask how the agent is trained, how sources are cited, what happens when information is missing, how human escalation works, what data is used for model training, how access controls are managed, whether conversations are logged, and how Skills or connectors are scoped before touching scheduling, billing, or patient systems.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

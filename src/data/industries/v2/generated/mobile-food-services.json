@@ -1,0 +1,734 @@
+{
+  "slug": "mobile-food-services",
+  "business": "Mobile Food Services",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Mobile Food Service Operations",
+    "description": "DocsBot helps mobile food services answer menu, location, catering, and event questions while routing requests and reducing repeat support work.",
+    "canonicalPath": "/industry/mobile-food-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for food trucks, carts, and pop-ups",
+    "headline": "Keep mobile food customers informed wherever you serve next",
+    "subheadline": "DocsBot creates AI agents trained on your menus, schedules, event details, FAQs, catering policies, prep notes, and team SOPs so customers get fast answers and staff can retrieve the right operational guidance without digging through scattered documents.",
+    "proofBullets": [
+      {
+        "text": "Answer menu, allergen, pricing, hours, location, and event questions from approved sources in your brand voice.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect catering, private event, and bulk-order details before handing qualified requests to your team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give staff quick access to prep lists, closing procedures, permit notes, and service-day checklists.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to route issues, create tasks, summarize requests, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your mobile food AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps mobile food businesses turn their owned knowledge into customer-facing and internal AI agents. Train an agent on menus, service calendars, FAQs, SOPs, policies, PDFs, website pages, and team knowledge, then deploy it through a website widget, private team chat, Slack, Microsoft Teams, API, or customer-configured workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and operators",
+        "roleContext": "Run leaner service days by making location updates, catering rules, menu changes, and recurring customer questions easier to answer from one approved knowledge base.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions about today’s location, hours, ordering windows, payment options, and sold-out items.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Qualify event and catering inquiries by collecting date, location, guest count, budget range, menu interest, and follow-up details.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Review conversation logs and knowledge gaps to see which answers customers still cannot find.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Frontline service teams",
+        "roleContext": "Help staff find the latest prep, setup, and service guidance without interrupting managers during a rush.",
+        "bullets": [
+          {
+            "text": "Ask for opening, closing, restocking, or prep steps from SOPs and training materials.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Retrieve approved responses for allergen, ingredient, substitution, and menu availability questions.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Escalate sensitive complaints, refund requests, or safety concerns to the right human with a summary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Marketing and event coordinators",
+        "roleContext": "Keep pop-up, festival, neighborhood route, and private booking information consistent across customer conversations and team handoffs.",
+        "bullets": [
+          {
+            "text": "Answer event attendees with parking, pickup, timing, menu, and pre-order guidance from current event pages.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Draft summaries of inquiries so coordinators can follow up faster after busy service windows.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route high-intent partnership, corporate lunch, or venue requests to email, CRM, forms, or ticketing workflows when configured.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-census-mobile-food-establishments",
+      "metric": "12,487 U.S. employer establishments",
+      "claim": "The Census Bureau profile for NAICS 722330 lists 12,487 employer establishments for mobile food services in the United States.",
+      "sourceTitle": "Census Bureau Profile: 722330 - Mobile food services",
+      "sourceUrl": "https://data.census.gov/profile/722330_-_Mobile_food_services?codeset=naics~722330&g=010XX00US",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "industry scale",
+        "operator fragmentation",
+        "local competition"
+      ]
+    },
+    {
+      "id": "src-ibisworld-food-truck-growth",
+      "metric": "17.0% average annual business growth from 2019 to 2024",
+      "claim": "IBISWorld reports that the number of U.S. food truck businesses grew 17.0% per year on average over the five years between 2019 and 2024.",
+      "sourceTitle": "Food Trucks in the US Number of Businesses Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/number-of-businesses/food-trucks/4322/",
+      "sourceDate": "Crawled 2025",
+      "bestUsedFor": [
+        "market growth",
+        "competitive pressure",
+        "customer acquisition"
+      ]
+    },
+    {
+      "id": "src-nra-off-premises-2025",
+      "metric": "Nearly 75% of restaurant traffic is off-premises",
+      "claim": "The National Restaurant Association reports that nearly three out of four restaurant orders are taken to go, reflecting how important convenience and off-premises ordering have become.",
+      "sourceTitle": "From trend to transformation: Off-premises dining now essential for restaurant consumers, operators",
+      "sourceUrl": "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "customer expectations",
+        "takeout behavior",
+        "convenience demand"
+      ]
+    },
+    {
+      "id": "src-fda-food-code",
+      "metric": "FDA Food Code model for retail food safety",
+      "claim": "FDA describes the Food Code as a model that provides a scientific and legal basis for regulating retail and food service operations and preventing foodborne illness and injury.",
+      "sourceTitle": "FDA Food Code",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "sourceDate": "Updated regularly",
+      "bestUsedFor": [
+        "food safety pressure",
+        "SOP accuracy",
+        "temperature and handling guidance"
+      ]
+    },
+    {
+      "id": "src-sf-mobile-food-safety",
+      "metric": "Mobile food facilities must manage handwashing and temperature controls",
+      "claim": "San Francisco’s mobile food facility guidance includes handwashing requirements and cold-holding guidance for potentially hazardous foods at or below 41°F.",
+      "sourceTitle": "Food safety rules for mobile food facilities",
+      "sourceUrl": "https://www.sf.gov/information--food-safety-rules-mobile-food-facilities",
+      "sourceDate": "Crawled 2025",
+      "bestUsedFor": [
+        "mobile food compliance examples",
+        "temperature control",
+        "frontline checklist needs"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Today’s location, hours, and menu availability agent",
+      "problem": "Customers often ask the same time-sensitive questions right before service: where the truck is parked, what is still available, whether pre-orders are open, and when service ends.",
+      "agentWorkflow": "Train DocsBot on your website, route calendar, menu pages, event notes, FAQs, and operating policies. When connected to approved live sources through Skills, APIs, connectors, or MCP-enabled tools, the agent can retrieve current schedule details, answer the customer, and route unresolved questions to staff.",
+      "liveContextOrTools": "Customer-configured live lookups can pull approved schedule, inventory, event, or form data where the business has authorized access.",
+      "exampleQuestionsOrRequests": [
+        "Where are you parked today?",
+        "Are the birria tacos still available?",
+        "Can I pre-order for pickup at the market tonight?",
+        "Do you take Apple Pay or cash only?"
+      ],
+      "businessOutcome": "Reduce last-minute message volume while giving customers clear answers before they decide where to eat.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Catering and private event qualification",
+      "problem": "Mobile food operators may lose high-value event leads when details arrive through DMs, emails, and website forms without enough information to quote or schedule.",
+      "agentWorkflow": "DocsBot can ask structured intake questions, apply customer-defined qualification rules, summarize the request, and forward the lead through configured forms, CRM, email, helpdesk, or scheduling workflows. Humans stay responsible for final pricing, contracts, and event commitments.",
+      "liveContextOrTools": "AI Actions can submit lead forms, create tasks, send summaries, or request a meeting through approved scheduling workflows such as Calendly-style tools when configured.",
+      "exampleQuestionsOrRequests": [
+        "Can your truck serve 150 people at our office next Friday?",
+        "Do you offer vegan catering packages?",
+        "What do you need from a venue to book a food truck?",
+        "Can someone call me about a graduation party?"
+      ],
+      "businessOutcome": "Capture complete event requests even after hours and help owners prioritize the strongest opportunities.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Allergen, ingredient, and menu FAQ support",
+      "problem": "Mobile service teams need consistent answers about ingredients and substitutions, especially when customers are deciding quickly in a line or online.",
+      "agentWorkflow": "Train the agent on approved menu descriptions, allergen notes, substitution policies, preparation disclaimers, and escalation rules. The agent can answer from sources, avoid unsupported claims, and hand off sensitive or uncertain questions to a human.",
+      "liveContextOrTools": "Configured sources can include PDFs, menu spreadsheets, website pages, internal notes, and approved knowledge base articles.",
+      "exampleQuestionsOrRequests": [
+        "Which items are gluten-free?",
+        "Does the sauce contain peanuts?",
+        "Can you make this dairy-free?",
+        "What should I ask staff if I have a severe allergy?"
+      ],
+      "businessOutcome": "Improve consistency across customer touchpoints while keeping staff involved for high-risk food allergy decisions.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Service-day SOP and training assistant",
+      "problem": "Fast-moving teams need quick access to prep quantities, truck setup steps, closing checklists, and event-specific instructions without asking the owner every time.",
+      "agentWorkflow": "Use DocsBot as a private internal knowledge agent trained on SOPs, opening and closing procedures, prep lists, safety notes, onboarding materials, and manager-approved policies. Staff can ask questions in private chat, Slack, Microsoft Teams, or another configured internal experience.",
+      "liveContextOrTools": "The agent can summarize procedures, retrieve source references, surface missing documentation, and create follow-up tasks through approved workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is the closing checklist for the commissary?",
+        "How do we set up for a festival with generator power?",
+        "What goes in the vegetarian prep bin?",
+        "Where is the refund policy for weather cancellations?"
+      ],
+      "businessOutcome": "Shorten onboarding and reduce repeated manager interruptions during setup, service, and breakdown.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Food safety and checklist retrieval",
+      "problem": "Mobile operators must keep procedures easy to find because food safety expectations can involve temperature control, handwashing, storage, and local inspection requirements.",
+      "agentWorkflow": "DocsBot can make approved food safety SOPs, local permit notes, temperature log instructions, and training materials searchable for staff. The agent should be configured to cite internal sources and escalate uncertain compliance questions to a designated manager.",
+      "liveContextOrTools": "AI Actions can create checklist reminders, summarize incidents, or route inspection-related questions for review when configured.",
+      "exampleQuestionsOrRequests": [
+        "What is our cold-holding checklist?",
+        "Where do I record cooler temperatures?",
+        "What should I do if the handwash station needs supplies?",
+        "Who reviews a health department notice?"
+      ],
+      "businessOutcome": "Make critical procedures easier to retrieve while preserving human review for compliance and safety decisions.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fda-food-code",
+        "src-sf-mobile-food-safety"
+      ]
+    },
+    {
+      "name": "Customer feedback and knowledge-gap analysis",
+      "problem": "Questions and complaints often repeat across Instagram messages, website chats, emails, and events, but owners may not have time to review patterns.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see what customers ask most often and where content needs improvement. Staff can update FAQs, menu pages, or SOPs based on repeated unanswered topics.",
+      "liveContextOrTools": "Configured helpdesk or ticketing workflows can let the agent summarize, route, or draft responses for recurring issues.",
+      "exampleQuestionsOrRequests": [
+        "What questions did customers ask most this week?",
+        "Which menu items caused confusion?",
+        "Summarize complaints about wait times from yesterday’s event.",
+        "What FAQ should we add before the next festival?"
+      ],
+      "businessOutcome": "Turn recurring questions into better public content and smoother service-day communication.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give hungry customers instant answers before they move on",
+    "intro": "Mobile food customers make quick decisions. A DocsBot AI support agent can answer from your approved menu, route, event, catering, and policy content so customers know where to find you, what to order, and how to request follow-up.",
+    "requests": [
+      {
+        "request": "“Where are you today, and what time do you sell out?”",
+        "agentResponseStrategy": "Use approved schedule and service-hour sources, then explain any configured sold-out or limited-quantity policy without guessing.",
+        "sourceTypes": [
+          "Route calendar",
+          "Event pages",
+          "Website FAQs",
+          "Menu updates"
+        ],
+        "optionalAction": "If connected to approved live schedule or inventory context, look up current details and notify staff when information appears stale.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can you cater our company lunch?”",
+        "agentResponseStrategy": "Collect date, location, headcount, dietary needs, menu interest, budget range, and follow-up contact before handing off a structured summary.",
+        "sourceTypes": [
+          "Catering pages",
+          "Event policies",
+          "Lead forms",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Create a lead, send a summary to the owner, or trigger a configured scheduling workflow for qualified requests.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Do you have vegan, gluten-free, or nut-free options?”",
+        "agentResponseStrategy": "Answer only from approved ingredient and allergen materials, include careful boundaries, and suggest speaking with staff for severe allergies.",
+        "sourceTypes": [
+          "Menu documents",
+          "Ingredient notes",
+          "Allergen policies",
+          "Staff guidance"
+        ],
+        "optionalAction": "Escalate uncertain or high-risk allergy questions to a person with the conversation context included.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“How do I order ahead for tonight’s pop-up?”",
+        "agentResponseStrategy": "Explain ordering windows, pickup location, payment method, and cancellation policy from the business’s published rules.",
+        "sourceTypes": [
+          "Ordering FAQs",
+          "Pop-up pages",
+          "Payment policies",
+          "Refund rules"
+        ],
+        "optionalAction": "Route customers to an approved form, ordering page, or handoff workflow when configured.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Are you available for a festival next month?”",
+        "agentResponseStrategy": "Ask qualification questions and summarize requirements for the team, including power, parking, service window, expected attendance, and menu constraints.",
+        "sourceTypes": [
+          "Booking policies",
+          "Venue requirements",
+          "Event intake forms",
+          "Operations notes"
+        ],
+        "optionalAction": "Forward the qualified inquiry through email, CRM, helpdesk, or a task workflow configured by the business.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Why did my order take longer than expected?”",
+        "agentResponseStrategy": "Use approved service policies and escalation rules to acknowledge the issue, collect order details, and prepare a handoff instead of making unsupported refund promises.",
+        "sourceTypes": [
+          "Service policies",
+          "Refund rules",
+          "Complaint workflows",
+          "Manager notes"
+        ],
+        "optionalAction": "Create a ticket or notify a manager with a concise summary when configured.",
+        "icon": "HandRaisedIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help your crew find the right answer during prep, rush, and cleanup",
+    "intro": "DocsBot can work as a private knowledge agent for owners, managers, and staff. Train it on SOPs, onboarding content, policies, menu notes, event briefs, and internal documents so teams can ask operational questions and get source-grounded answers.",
+    "workflows": [
+      {
+        "name": "Opening and closing procedures",
+        "problem": "Checklists change by venue, commissary, market, and event, making it easy for small steps to live in texts or manager memory.",
+        "agentWorkflow": "The agent retrieves approved opening, setup, restocking, and closing procedures from internal documents and can summarize the checklist for a specific service format.",
+        "sourceTypes": [
+          "SOPs",
+          "Training PDFs",
+          "Commissary procedures",
+          "Event briefs"
+        ],
+        "optionalAction": "Create a task, notify a manager, or record a checklist exception through approved workflows when configured.",
+        "outcome": "More consistent service prep and fewer repeated procedural questions.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Staff onboarding and menu training",
+        "problem": "New staff need fast answers about ingredients, scripts, substitutions, upsells, and operating rules before they can serve confidently.",
+        "agentWorkflow": "DocsBot answers from training materials, brand guidelines, menu notes, and FAQs, then helps managers identify missing onboarding content from repeated employee questions.",
+        "sourceTypes": [
+          "Training guides",
+          "Menu notes",
+          "Brand guidelines",
+          "FAQs"
+        ],
+        "optionalAction": "Generate a summary of unanswered staff questions for manager review.",
+        "outcome": "Speed up training while keeping answers aligned with the owner’s approved materials.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Permit, inspection, and safety reference",
+        "problem": "Food trucks and carts operate under local requirements, and staff need the right internal procedure without turning the AI into a compliance decision-maker.",
+        "agentWorkflow": "The agent makes permit notes, inspection prep lists, temperature log instructions, and food safety SOPs searchable, cites the source, and escalates ambiguous regulatory questions to a manager.",
+        "sourceTypes": [
+          "Permit notes",
+          "Inspection checklists",
+          "Temperature logs",
+          "Food safety SOPs"
+        ],
+        "optionalAction": "Route inspection questions or incident summaries to a designated reviewer with logs and source references when configured.",
+        "outcome": "Keep safety procedures easier to find while maintaining human review for compliance judgments.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-food-code"
+        ]
+      },
+      {
+        "name": "Event-day briefings",
+        "problem": "Every event can have different parking, power, menu, timing, staffing, and contact details.",
+        "agentWorkflow": "Upload event briefs, venue instructions, run-of-show documents, and customer notes so staff can ask practical questions before arrival or during setup.",
+        "sourceTypes": [
+          "Event briefs",
+          "Venue notes",
+          "Run-of-show documents",
+          "Customer emails"
+        ],
+        "optionalAction": "Summarize the event brief into a pre-shift checklist or notify staff through a configured team channel.",
+        "outcome": "Reduce confusion at festivals, offices, markets, and private events.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "name": "Support inbox and review triage",
+        "problem": "Owners may receive support requests across email, forms, social DMs, and website chat while also managing service.",
+        "agentWorkflow": "When connected through customer-configured helpdesk, ticketing, email, or workflow access, DocsBot can summarize conversations, draft responses, route issues, and surface repeated topics for review.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Support tickets",
+          "Email summaries",
+          "Review notes"
+        ],
+        "optionalAction": "Create tickets, route urgent issues, or draft a response for human approval through configured workflows.",
+        "outcome": "Spend less time reconstructing customer context after a busy shift.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your food service knowledge",
+      "mainLandingPageContext": "DocsBot agents answer from help centers, websites, internal documents, PDFs, team conversations, and other configured sources.",
+      "industryApplication": "Train on menu pages, route calendars, catering PDFs, allergen notes, event briefs, SOPs, permit notes, and staff training materials so answers reflect your actual operation.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot delivers instant, source-grounded answers in the company’s voice through customer-facing chat and support experiences.",
+      "industryApplication": "Answer where you are serving, what is on the menu, how to order, which policies apply, and when a human should step in.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as live lookups, record updates, task creation, routing, workflow triggers, and handoffs through configured access.",
+      "industryApplication": "Use approved connections to look up event details, route catering leads, create follow-up tasks, notify managers, or trigger workflows from website and team conversations.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot includes analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which menu, location, catering, ordering, and allergy questions repeat so your website, FAQs, and staff scripts improve over time.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved knowledge sources.",
+      "industryApplication": "Support tourists, festival crowds, campus communities, and multilingual neighborhoods with consistent answers about your menu and service details.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, staff guidance, pricing notes, and operational documents private while controlling who can access internal agents and configured actions.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so customer and staff answers stay tied to approved sources.",
+      "Deploy scalable self-service for recurring questions without adding another repetitive task for busy operators.",
+      "Use conversation insights to understand what customers and employees are trying to learn."
+    ],
+    "whyTheseReviewsFit": "Mobile food businesses depend on fast, accurate communication from lean teams. DocsBot proof spans source-grounded answers, scalable support, multilingual manuals, easy deployment, and high-volume inquiry handling—practical strengths for operators balancing service, events, catering, and customer questions.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for mobile food service businesses",
+    "audience": [
+      "Food truck owners",
+      "Mobile food cart operators",
+      "Pop-up restaurant teams",
+      "Catering and event coordinators",
+      "Food service operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "mobile-beverage-services",
+    "food-trucks",
+    "caterer",
+    "food-hospitality",
+    "bakery",
+    "catering-equipment-rental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "mobile-food-services",
+    "webSearchQueries": [
+      "U.S. Census mobile food services NAICS 722330 annual receipts establishments",
+      "IBISWorld food trucks US market size 2024",
+      "FDA Food Code mobile food establishment food safety temperature holding",
+      "National Restaurant Association off premise delivery takeout statistics consumers 2024"
+    ],
+    "sourceUrls": [
+      "https://data.census.gov/profile/722330_-_Mobile_food_services?codeset=naics~722330&g=010XX00US",
+      "https://www.ibisworld.com/united-states/number-of-businesses/food-trucks/4322/",
+      "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/",
+      "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "https://www.sf.gov/information--food-safety-rules-mobile-food-facilities"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40942,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20718,
+        "outputTokens": 7916,
+        "reasoningOutputTokens": 112,
+        "totalTokens": 48858,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.175591,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.185591
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21478,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6502,
+          "outputTokens": 5117,
+          "reasoningOutputTokens": 112,
+          "totalTokens": 26595,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.096754,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.106754
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19464,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14216,
+          "outputTokens": 2799,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22263,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078837,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078837
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1487004121828-9fa15a215a7a?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU2NjZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Mobile Food Services background image",
+    "source": "legacy-industry",
+    "query": "Mobile Food Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer “Where are you today?” without giving customers stale location or hours information?",
+      "answer": "Yes, if your schedule, event pages, route calendar, or approved live lookup is kept current. DocsBot answers from the sources you train it on, and with configured Skills, APIs, connectors, or MCP-enabled tools it can retrieve authorized live schedule context. If the source looks missing or stale, the agent should be configured to say so and route the question to staff instead of guessing.",
+      "role": "Owners and operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot handle sold-out items or menu changes during a busy service window?",
+      "answer": "DocsBot can answer from approved menu availability rules, event notes, and any authorized inventory or update source you connect. Many operators start with static menu FAQs and a simple “sold-out policy,” then add live lookups later. The safest setup is to let the agent confirm known availability, explain uncertainty clearly, and notify staff when customers repeatedly ask about an item that has changed.",
+      "role": "Owners and operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use this for catering and private event leads, not just customer FAQs?",
+      "answer": "Yes. DocsBot can collect structured details like date, address, guest count, service window, power or parking needs, dietary requirements, budget range, and contact information. It can then summarize the request and send it through a configured form, email, CRM-style workflow, helpdesk, task system, or scheduling flow. Your team still controls final quotes, contracts, staffing, and event commitments.",
+      "role": "Marketing and event coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kind of ROI should a small food truck operator look for before buying an AI agent?",
+      "answer": "The clearest ROI usually comes from fewer repetitive messages, faster catering follow-up, fewer missed event leads, and less manager interruption during prep or service. Mobile food is a fragmented market with 12,487 U.S. employer establishments, so small operators often compete on speed, clarity, and convenience as much as menu quality.",
+      "role": "Owners and operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-census-mobile-food-establishments"
+      ]
+    },
+    {
+      "question": "Will this actually reduce staff workload, or will it create another system to maintain?",
+      "answer": "It depends on how focused the launch is. The best first rollout is narrow: today’s location, hours, menu, ordering rules, catering intake, and escalation paths. DocsBot also shows conversation logs and knowledge gaps, so maintenance becomes reviewing what customers asked and updating the missing source content rather than answering the same questions manually every day.",
+      "role": "Owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can frontline staff use the same agent for SOPs without exposing internal notes to customers?",
+      "answer": "Yes. You can separate customer-facing agents from private internal knowledge agents and control access with role-based permissions. The internal agent can be trained on prep lists, closing procedures, permit notes, temperature log instructions, event briefs, and training materials, while the public agent only uses approved customer-facing content.",
+      "role": "Frontline service teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we handle allergen questions if the AI is not a food safety expert?",
+      "answer": "Train the agent only on approved ingredient notes, allergen policies, menu documents, and escalation rules. For severe allergies or uncertain preparation details, the agent should avoid unsupported assurances and direct the customer to a human. That matters because mobile food service must manage food safety procedures such as temperature control and handwashing requirements.",
+      "role": "Frontline service teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-sf-mobile-food-safety"
+      ]
+    },
+    {
+      "question": "Can DocsBot help with food safety checklists without making compliance decisions for us?",
+      "answer": "Yes. DocsBot is best used to retrieve your approved SOPs, inspection prep notes, temperature log instructions, and permit reminders. It can cite internal sources and route ambiguous questions to a manager. The FDA describes the Food Code as a model basis for retail and food service regulation, so compliance-sensitive answers should remain grounded in approved procedures and human review.",
+      "role": "Owners and operators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-food-code"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect with if our schedule lives in one tool and leads come through forms or email?",
+      "answer": "DocsBot can work from uploaded files, websites, PDFs, internal documents, team knowledge, and customer-configured workflows. For live context or actions, teams can use approved Skills, APIs, connectors, MCP Connectors, forms, webhooks, or workflow tools to look up schedule data, create tasks, send summaries, or route leads. DocsBot should not be presented as a guaranteed native integration with a specific third-party tool unless you configure that connection.",
+      "role": "Marketing and event coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer customers in multiple languages at festivals, campuses, and tourist areas?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved knowledge sources. That can help multilingual customers understand menu options, pickup instructions, event details, ordering windows, and basic policies. For allergy, refund, safety, or complaint issues, configure escalation so a person can review the conversation context.",
+      "role": "Marketing and event coordinators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much content do we need before launching a useful mobile food AI agent?",
+      "answer": "You do not need a full knowledge base on day one. A practical starter set includes your menu, ingredient notes, allergen boundaries, service calendar, event pages, ordering rules, catering intake questions, refund or weather policy, and common staff SOPs. The agent’s analytics can then show which missing answers are worth documenting next.",
+      "role": "Owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we stop the agent from promising refunds, discounts, bookings, or menu items it should not commit to?",
+      "answer": "Set clear instructions and scoped actions. DocsBot can be configured to collect details, summarize the issue, explain published policy, and hand off to a manager rather than making high-impact commitments. For catering, refunds, complaints, food safety, and severe allergies, the safest workflow keeps humans responsible for final decisions.",
+      "role": "Owners and operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we review what customers asked so we know what to fix on our menu page or website?",
+      "answer": "Yes. DocsBot includes analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For mobile food teams, that can reveal repeated confusion around pickup times, sold-out items, dietary options, event parking, pre-orders, catering minimums, or weather policies.",
+      "role": "Marketing and event coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What metrics should we track after launch?",
+      "answer": "Useful metrics include deflected repetitive questions, unresolved topics, catering leads captured, lead completeness, handoff volume, response time, customer satisfaction, staff questions answered, and documentation gaps closed. Operators should also review whether high-value event inquiries get summarized and routed faster, not just whether the agent answers simple FAQs.",
+      "role": "Owners and operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this worth it if most of our customers message us on Instagram or ask questions in person?",
+      "answer": "It can still be useful if you use DocsBot as the approved answer base behind your website, QR codes, staff workflows, and internal team chat. Customers can self-serve before arriving, while staff can quickly retrieve consistent answers during service. You can also use conversation insights to improve public FAQs and scripts for questions that still come through social DMs or the line.",
+      "role": "Owners and operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support off-premises ordering expectations for customers who decide quickly?",
+      "answer": "Yes. The agent can explain ordering windows, pickup instructions, payment options, event location, menu availability, and cancellation rules from approved sources. That matters because the National Restaurant Association reports that nearly three out of four restaurant orders are taken to go, making fast, clear off-premises communication a core customer expectation.",
+      "role": "Owners and operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nra-off-premises-2025"
+      ]
+    },
+    {
+      "question": "How would this work for a multi-truck operation or several pop-up concepts under one brand?",
+      "answer": "You can structure knowledge by location, concept, route, menu, event type, or audience. The key is source hygiene: each answer should know which truck, date, menu, or event it applies to. For internal use, role-based access can keep manager notes, pricing guidance, and SOPs separate from customer-facing information.",
+      "role": "Owners and operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "What does onboarding look like for a team that does not have a technical person?",
+      "answer": "Start by collecting the sources you already use: website pages, menus, catering PDFs, route calendars, SOP documents, staff notes, and FAQs. Then define what the agent may answer, what it must escalate, and where handoffs should go. More advanced live lookups or workflow actions can be added later through configured Skills, APIs, connectors, or automations.",
+      "role": "Owners and operators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can staff ask operational questions in Slack or Microsoft Teams instead of logging into another portal?",
+      "answer": "Yes. DocsBot can be used through private team chat, Slack, Microsoft Teams, API, or other configured internal experiences. For mobile food teams, that means a prep cook, driver, event lead, or manager can ask about checklists, setup steps, menu notes, or closing procedures without digging through documents during a rush.",
+      "role": "Frontline service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we protect recipes, pricing notes, staff procedures, and private event details?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For sensitive actions, Skills can be scoped with secrets, metadata bindings, network policy, logging, and customer-defined controls.",
+      "role": "Owners and operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent cite where an answer came from so staff trust it?",
+      "answer": "DocsBot supports source-grounded answers, which is especially useful for internal SOPs, safety steps, event briefs, and menu guidance. Staff can see that an answer came from the approved checklist, training document, or policy instead of relying on memory. For compliance-sensitive topics, configure the agent to cite sources and escalate uncertainty.",
+      "role": "Frontline service teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or FAQ widget?",
+      "answer": "A basic chatbot often answers a fixed list of questions. DocsBot is positioned as an AI agent trained on your owned knowledge, with source-grounded answers, internal knowledge use cases, analytics, multilingual responses, and bounded actions when configured. That makes it better suited for changing menus, event details, catering intake, SOP retrieval, and handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help us capture demand after hours when nobody is watching messages?",
+      "answer": "Yes. DocsBot can answer common questions and collect structured inquiries when your team is offline. For catering or events, it can gather the information needed for follow-up and send a summarized handoff through an approved workflow. This is especially valuable when prospects ask about availability, headcount, budget, venue constraints, or dietary needs outside service hours.",
+      "role": "Marketing and event coordinators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What happens when customers ask about local permits, parking rules, or health department requirements?",
+      "answer": "The agent should answer only from your approved permit notes, event instructions, and internal policies. If the question requires interpretation of a regulation or a decision by the health department, it should route the issue to a manager. Mobile food compliance can involve local requirements, so the AI should retrieve guidance, not act as the final authority.",
+      "role": "Owners and operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help new employees learn the menu and service scripts faster?",
+      "answer": "Yes. An internal agent can be trained on menu notes, substitution rules, upsell suggestions, brand voice, opening procedures, and common customer questions. New staff can ask practical questions before or during service, while managers review unanswered questions to improve onboarding materials and reduce repeated coaching interruptions.",
+      "role": "Frontline service teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How should we think about pricing and procurement if we are a small operator with seasonal volume?",
+      "answer": "Evaluate DocsBot against the cost of missed catering leads, owner time spent answering repeat questions, inconsistent staff answers, and slow follow-up after busy events. A good pilot should focus on one or two high-friction workflows, define success metrics before launch, and avoid overbuilding integrations until the answer quality and handoff process are proven.",
+      "role": "Owners and operators",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,701 @@
+{
+  "slug": "life-coach",
+  "business": "Life Coach",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents That Help Life Coaches Scale Client Support",
+    "description": "DocsBot helps life coaches answer client questions, qualify prospects, share resources, and route follow-ups with source-grounded AI agents.",
+    "canonicalPath": "/industry/life-coach"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for coaching practices",
+    "headline": "Give Your Life Coaching Practice an AI Agent That Knows Your Method",
+    "subheadline": "DocsBot helps life coaches turn programs, FAQs, worksheets, policies, onboarding guides, and session resources into an AI support agent that answers routine questions, prepares clients, qualifies prospects, and escalates sensitive requests to you.",
+    "proofBullets": [
+      {
+        "text": "Answer questions from your coaching packages, worksheets, FAQs, policies, and approved resource library.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect prospect goals, timeline, budget, and fit signals before a discovery call or intake review.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Summarize inquiries, route follow-ups, create tasks, or trigger approved workflows with AI Actions and Skills.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Keep coaching boundaries clear by escalating crisis, therapy, legal, financial, or high-impact requests to a human.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build your coaching AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your own coaching knowledge: program pages, intake FAQs, client handbooks, worksheets, email templates, policies, PDFs, Notion or Google Drive resources, and internal SOPs. Your agent can provide source-grounded answers, collect context, summarize conversations, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+    "whoItHelps": [
+      {
+        "role": "Solo life coaches and founders",
+        "roleContext": "Independent coaches need to market, sell, onboard, deliver, and follow up without turning every routine question into a manual email thread.",
+        "bullets": [
+          {
+            "text": "Explain packages, session formats, pricing ranges, refund policies, and preparation steps from approved content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect discovery-call intent and route qualified prospects into a scheduling or follow-up workflow when configured.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Surface repeated questions so you can improve sales pages, onboarding emails, and client resources.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Group coaching and course teams",
+        "roleContext": "Programs with cohorts, workshops, and digital resources need consistent answers without pulling coaches away from live facilitation.",
+        "bullets": [
+          {
+            "text": "Help participants find worksheets, replay links, prep instructions, and program policies from your knowledge base.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Answer in more than 100 languages when your audience spans countries, time zones, or communities.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Summarize participant questions and hand off sensitive or individualized requests to the right team member.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "AcademicCapIcon"
+      },
+      {
+        "role": "Operations and client success assistants",
+        "roleContext": "Client-facing team members need quick access to program rules, scripts, onboarding details, and escalation paths.",
+        "bullets": [
+          {
+            "text": "Use a private internal knowledge agent for SOPs, email templates, client policies, offer details, and task checklists.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Draft responses or handoff summaries for helpdesk-style workflows when approved connections are configured.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Protect the coach’s time by separating routine logistics from questions that require personal judgment.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-icf-global-growth",
+      "metric": "109,200 professional coaches globally in 2022",
+      "claim": "ICF’s 2023 Global Coaching Study estimated 109,200 coach practitioners worldwide, up 54% from 2019, with global coaching revenue of $4.564 billion.",
+      "sourceTitle": "2023 ICF Global Coaching Study Executive Summary",
+      "sourceUrl": "https://coachingfederation.org/app/uploads/2023/04/2023ICFGlobalCoachingStudy_ExecutiveSummary.pdf",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "industry growth",
+        "competition",
+        "need for differentiation"
+      ]
+    },
+    {
+      "id": "src-icf-north-america",
+      "metric": "North America coaching revenue estimated at $2.088 billion",
+      "claim": "ICF estimated 34,200 coach practitioners in North America, with average annual coaching revenue of $67,800 and an average of 13.5 active clients currently being coached.",
+      "sourceTitle": "2023 ICF Global Coaching Study Executive Summary",
+      "sourceUrl": "https://coachingfederation.org/app/uploads/2023/04/2023ICFGlobalCoachingStudy_ExecutiveSummary.pdf",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "small practice operations",
+        "client volume",
+        "business model pressure"
+      ]
+    },
+    {
+      "id": "src-icf-credentials",
+      "metric": "85% of coach practitioners reported a certification or credential",
+      "claim": "In the 2022 survey behind the 2023 ICF study, 85% of coach practitioners said they currently held a certification or credential from a coaching organization.",
+      "sourceTitle": "2023 ICF Global Coaching Study Executive Summary",
+      "sourceUrl": "https://coachingfederation.org/app/uploads/2023/04/2023ICFGlobalCoachingStudy_ExecutiveSummary.pdf",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "trust expectations",
+        "credential questions",
+        "prospect education"
+      ]
+    },
+    {
+      "id": "src-ibisworld-us-market",
+      "metric": "U.S. life coach market reached $2.6 billion in 2025",
+      "claim": "IBISWorld reported the U.S. Life Coaches market size at $2.6 billion in 2025 and $2.5 billion in 2024.",
+      "sourceTitle": "Life Coaches in the US - Market Size (2006–2031)",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/life-coaches/4184/",
+      "sourceDate": "November 2025",
+      "bestUsedFor": [
+        "U.S. market size",
+        "competitive growth",
+        "demand trends"
+      ]
+    },
+    {
+      "id": "src-grandview-programs",
+      "metric": "Packages and programs led U.S. life coaching revenue share in 2024",
+      "claim": "Grand View Research reported that packages and programs held the largest U.S. life coaching revenue share in 2024, driven by specialization, expectations, experience, and certifications.",
+      "sourceTitle": "U.S. Life Coaching Market Size, Share & Trends Analysis Report 2033",
+      "sourceUrl": "https://www.grandviewresearch.com/industry-analysis/us-life-coaching-market-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "program-based offers",
+        "client expectations",
+        "service packaging"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Discovery-call qualification and routing",
+      "problem": "Prospects often ask the same questions about fit, outcomes, pricing, session cadence, confidentiality, and who coaching is or is not for.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages and FAQs, asks structured intake questions, captures goals and urgency, and applies your qualification instructions. With approved Skills or workflow automations, it can submit a lead form, create a task, notify your team, or pass scheduling intent to a booking workflow.",
+      "liveContextOrTools": "Can use customer-configured forms, APIs, scheduling workflows, CRM-style records, email notifications, or MCP connectors where authorized.",
+      "exampleQuestionsOrRequests": [
+        "Am I a fit for your career transition program?",
+        "What happens on a discovery call?",
+        "Can I book if I’m looking for therapy instead of coaching?"
+      ],
+      "businessOutcome": "Spend less time answering basic fit questions and more time reviewing qualified prospects who understand your coaching boundaries.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Client onboarding and session preparation",
+      "problem": "New clients may miss intake instructions, worksheet links, program expectations, cancellation rules, or prep steps before the first session.",
+      "agentWorkflow": "Train the agent on onboarding guides, client handbooks, worksheets, and policies. It can answer logistics, point clients to the right prep resource, summarize unresolved questions, and escalate anything that requires personal coaching judgment.",
+      "liveContextOrTools": "Can retrieve approved documents, summarize a client’s submitted questions, or trigger a reminder workflow when configured.",
+      "exampleQuestionsOrRequests": [
+        "What should I complete before session one?",
+        "Where is the values worksheet?",
+        "What is your cancellation policy?"
+      ],
+      "businessOutcome": "Reduce back-and-forth before sessions while giving clients a more consistent start to the coaching relationship.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Program resource navigation",
+      "problem": "As coaching programs grow, clients can struggle to find the right replay, reflection prompt, workbook page, or module explanation at the moment they need it.",
+      "agentWorkflow": "DocsBot can act as a source-grounded program assistant trained on your course content, worksheets, replays, notes, and FAQs. It answers from approved materials, cites the source context, and reveals topics where clients need clearer resources.",
+      "liveContextOrTools": "Works through a website widget, private chat experience, or team-facing knowledge assistant depending on how the program is delivered.",
+      "exampleQuestionsOrRequests": [
+        "Which module covers boundaries at work?",
+        "Can you explain the weekly reflection exercise?",
+        "Where do I find the replay for the goal-setting workshop?"
+      ],
+      "businessOutcome": "Improve resource access for group programs without turning every content question into a coach interruption.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Boundary-safe coaching support triage",
+      "problem": "Life coaches must be clear when a request belongs in coaching, therapy, medical care, legal advice, financial advice, or emergency support.",
+      "agentWorkflow": "Configure the agent with your scope, disclaimers, referral language, escalation rules, and crisis-handling instructions. It can answer general policy questions, avoid high-impact advice, and route sensitive requests to a human or appropriate external resource according to your rules.",
+      "liveContextOrTools": "Uses customer-defined boundaries, logs, human escalation, and limited AI Actions for routing or notification when appropriate.",
+      "exampleQuestionsOrRequests": [
+        "Can you diagnose why I feel this way?",
+        "Should I quit my job tomorrow?",
+        "I’m in crisis; what should I do?"
+      ],
+      "businessOutcome": "Maintain a professional client experience while keeping sensitive or high-impact decisions out of automation.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Content gap and offer intelligence",
+      "problem": "Coaches often do not know which pages, PDFs, or program instructions are confusing until the same questions show up repeatedly.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery. Review recurring questions to improve landing pages, intake emails, handbooks, worksheets, or lesson content.",
+      "liveContextOrTools": "Uses DocsBot reporting and conversation review; teams can turn findings into content updates, SOP changes, or follow-up tasks.",
+      "exampleQuestionsOrRequests": [
+        "What are prospects asking before booking?",
+        "Which onboarding questions keep repeating?",
+        "What topics are missing from the program library?"
+      ],
+      "businessOutcome": "Improve your coaching content and sales clarity using the questions clients and prospects actually ask.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Group-coaching participant support",
+      "problem": "Cohort programs create spikes of similar questions around start dates, live calls, assignments, community guidelines, replays, and accountability routines.",
+      "agentWorkflow": "Deploy an agent trained on cohort schedules, community rules, lesson summaries, templates, and FAQs. It can answer participant questions, summarize common blockers for the facilitator, and route individual coaching requests to a human.",
+      "liveContextOrTools": "Can use approved live context such as cohort metadata, current module, or program calendar when configured through Skills, APIs, or connectors.",
+      "exampleQuestionsOrRequests": [
+        "What is due before the next group call?",
+        "Where do I post my weekly commitment?",
+        "Can I get a summary of this week’s focus?"
+      ],
+      "businessOutcome": "Support more participants without diluting the live coaching time that makes the program valuable.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-grandview-programs"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI agent for prospects, clients, and program participants",
+    "intro": "Place a DocsBot agent on your website, client portal, or program pages so people can get immediate answers from your approved coaching materials. The agent can explain logistics and resources, collect context, and escalate individualized or sensitive questions to you.",
+    "requests": [
+      {
+        "request": "“Which coaching package is right for me?”",
+        "agentResponseStrategy": "Compare packages using your approved service descriptions, ask clarifying fit questions, and invite the prospect into a discovery-call or lead-review workflow when configured.",
+        "sourceTypes": [
+          "Service pages",
+          "Pricing guidance",
+          "FAQs",
+          "Intake criteria"
+        ],
+        "optionalAction": "Submit a custom lead form or forward a summarized fit profile to your follow-up system.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“How do I prepare for my first session?”",
+        "agentResponseStrategy": "Retrieve onboarding steps, intake forms, worksheets, cancellation rules, and expectations from the client handbook or program guide.",
+        "sourceTypes": [
+          "Client handbook",
+          "Worksheets",
+          "Welcome emails",
+          "Policies"
+        ],
+        "optionalAction": "Trigger a reminder or create a task for missing prep details when an approved workflow exists.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can you help me with a personal crisis?”",
+        "agentResponseStrategy": "Avoid acting as a therapist, medical provider, lawyer, or emergency service. Use your approved boundary language and escalate according to your human-review rules.",
+        "sourceTypes": [
+          "Scope-of-practice statement",
+          "Escalation policy",
+          "Crisis language",
+          "Referral guidance"
+        ],
+        "optionalAction": "Notify the coach or route the person to the appropriate human or emergency pathway based on your configured policy.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Where is the replay or worksheet for this module?”",
+        "agentResponseStrategy": "Search your program library and return the most relevant resource with a concise explanation of how to use it.",
+        "sourceTypes": [
+          "Course library",
+          "PDFs",
+          "Video summaries",
+          "Module notes"
+        ],
+        "optionalAction": "Record the repeated request as a content gap for review if many participants ask the same question.",
+        "icon": "PlayIcon"
+      },
+      {
+        "request": "“Are you certified, and what does that mean?”",
+        "agentResponseStrategy": "Answer from your own credential page, bio, code of ethics, and coaching philosophy so prospects can evaluate fit without exaggeration.",
+        "sourceTypes": [
+          "Coach bio",
+          "Credential page",
+          "Ethics statement",
+          "FAQ"
+        ],
+        "optionalAction": "Offer to route credential or corporate procurement questions to the coach or operations team.",
+        "icon": "IdentificationIcon",
+        "sourceIds": [
+          "src-icf-credentials"
+        ]
+      },
+      {
+        "request": "“Can you summarize the next steps after I submit my intake form?”",
+        "agentResponseStrategy": "Explain the next steps from your onboarding materials and, when configured, prepare a summary for the coach to review before the session.",
+        "sourceTypes": [
+          "Intake process",
+          "Onboarding checklist",
+          "Email templates",
+          "SOPs"
+        ],
+        "optionalAction": "Create a handoff summary or notify the coach after intake submission through an approved workflow.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for coaching operations and delivery",
+    "intro": "DocsBot can also support the people behind the practice. Train a private internal agent on SOPs, offer details, scripts, policies, program calendars, and client-success workflows so assistants and facilitators can find the right answer without searching scattered files.",
+    "workflows": [
+      {
+        "name": "Coach and assistant SOP lookup",
+        "problem": "Operational knowledge often lives in documents, spreadsheets, emails, and memory, slowing down client support.",
+        "agentWorkflow": "Ask the internal agent how to handle refunds, reschedules, onboarding steps, community moderation, call preparation, or post-session follow-up. The answer is grounded in approved internal sources.",
+        "sourceTypes": [
+          "SOPs",
+          "Policies",
+          "Team wikis",
+          "Email templates"
+        ],
+        "optionalAction": "Create a task or route the question to the coach when the SOP requires judgment.",
+        "outcome": "Keep delivery consistent even as the practice adds assistants, contractors, or facilitators.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Sales enablement for consult calls",
+        "problem": "Before discovery calls, coaches need a concise view of the prospect’s goals, blockers, fit, and questions.",
+        "agentWorkflow": "The agent can summarize lead forms, prior messages, and approved prospect context, then draft talking points or follow-up notes for the coach to review.",
+        "sourceTypes": [
+          "Lead forms",
+          "Sales FAQs",
+          "Offer notes",
+          "Objection-handling docs"
+        ],
+        "optionalAction": "Draft a follow-up email or update an approved field in a CRM-style record when configured.",
+        "outcome": "Enter consult calls better prepared while keeping final advice, pricing, and commitments human-led.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Program improvement review",
+        "problem": "Client questions reveal friction, but they are easy to miss when they arrive through email, chat, calls, and community posts.",
+        "agentWorkflow": "Use DocsBot analytics and conversation logs to identify repeated questions, low-confidence topics, and missing resources. Turn those insights into updated worksheets, clearer FAQs, or better onboarding content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap reports",
+          "Program materials"
+        ],
+        "optionalAction": "Create content-update tasks for your team based on reviewed trends.",
+        "outcome": "Improve program clarity with real client language instead of guessing what needs to be explained.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Multilingual resource support",
+        "problem": "Coaches with international audiences may need to make policies and resources understandable across languages without rewriting every answer manually.",
+        "agentWorkflow": "DocsBot can answer from the same approved materials in more than 100 languages, helping teams serve prospects and participants who prefer a different language.",
+        "sourceTypes": [
+          "Program FAQs",
+          "Policies",
+          "Worksheets",
+          "Service pages"
+        ],
+        "optionalAction": "Escalate nuanced or sensitive language questions to a human reviewer.",
+        "outcome": "Make logistics and resource navigation more accessible while keeping coaching judgment with the coach.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your coaching knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved business content such as websites, help centers, PDFs, documents, wikis, and internal knowledge sources.",
+      "industryApplication": "Use your agent to answer questions from service pages, worksheets, onboarding guides, program resources, policies, ethical boundaries, and FAQs.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can appear in customer-facing chat experiences or private internal knowledge workflows.",
+      "industryApplication": "Support prospects on your public site while giving assistants and facilitators a private place to ask about SOPs, offers, and client-success procedures.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions using customer-configured rules, APIs, connectors, workflow triggers, and remote Model Context Protocol servers.",
+      "industryApplication": "Let the agent collect intake details, prepare summaries, create tasks, notify your team, route sensitive questions, or pass scheduling intent into an approved booking workflow.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, satisfaction and resolution analysis, and insight into unanswered or repeated questions.",
+      "industryApplication": "See which coaching offers, policies, worksheets, or onboarding steps confuse prospects and clients, then improve those resources.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and controlled boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person, with permissions and customer-defined controls for Skills.",
+      "industryApplication": "Route therapy, crisis, legal, financial, medical, or highly personal decisions to a human rather than letting automation overstep.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Security and governance for private practice knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and does not use customer data to train public models.",
+      "industryApplication": "Protect client-facing resources, internal SOPs, proprietary coaching frameworks, and team knowledge with controlled access and private-source handling.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train an AI agent on your own coaching content, not generic internet advice.",
+      "Give prospects and clients faster answers while keeping sensitive coaching judgment human-led.",
+      "Use conversation insights to improve FAQs, worksheets, onboarding, and program resources."
+    ],
+    "whyTheseReviewsFit": "Coaching businesses win trust through clear methods, consistent communication, and owned intellectual property. DocsBot proof from training-material, content-library, and business self-service users shows how teams turn their own knowledge into practical AI assistance without replacing the human expertise clients pay for.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "HandRaisedIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for life coaching practices",
+    "audience": [
+      "Solo life coaches",
+      "Group coaching programs",
+      "Coaching operations teams",
+      "Client success assistants"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "life-skills-training",
+    "fitness-trainer",
+    "diet-center",
+    "event-planning",
+    "beauty-salon"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "life-coach",
+    "webSearchQueries": [
+      "life coaching industry market size IBISWorld life coaches United States 2024",
+      "ICF global coaching study 2023 clients coaching statistics",
+      "BLS personal service occupations coaches counselors self-employed life coaches"
+    ],
+    "sourceUrls": [
+      "https://coachingfederation.org/app/uploads/2023/04/2023ICFGlobalCoachingStudy_ExecutiveSummary.pdf",
+      "https://coachingfederation.org/resources/research/global-coaching-study/",
+      "https://www.ibisworld.com/united-states/market-size/life-coaches/4184/",
+      "https://www.grandviewresearch.com/industry-analysis/us-life-coaching-market-report"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44436,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 23700,
+        "outputTokens": 7291,
+        "reasoningOutputTokens": 176,
+        "totalTokens": 51727,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.1738,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.1938
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25649,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10161,
+          "outputTokens": 4855,
+          "reasoningOutputTokens": 176,
+          "totalTokens": 30504,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.1021,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.1221
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18787,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13539,
+          "outputTokens": 2436,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21223,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.0717,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.0717
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/uploads/14122810486321888a497/1b0cc699?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxjb2FjaGluZ3xlbnwwfDB8fHwxNzE0ODc4MDY1fDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Life Coach background image",
+    "source": "legacy-industry",
+    "query": "Life Coach"
+  },
+  "faq": [
+    {
+      "question": "Will the AI agent give coaching advice, or only answer logistical and program questions?",
+      "answer": "You control that boundary. Most coaching practices use DocsBot for source-grounded answers about packages, onboarding, worksheets, policies, session prep, replays, and program resources. Sensitive, highly personal, crisis, therapy, legal, medical, financial, or major life-decision requests can be routed to a human using your escalation rules.",
+      "role": "Solo life coaches and founders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot qualify prospects before I spend time on a discovery call?",
+      "answer": "Yes. A DocsBot agent can ask structured fit questions about goals, timeline, budget range, preferred coaching format, readiness, and boundaries. With approved Skills, APIs, forms, or workflow automations, it can submit a lead form, create a task, notify your team, or pass scheduling intent into your booking process for human review.",
+      "role": "Solo life coaches and founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this help if I am a solo coach without an operations team?",
+      "answer": "DocsBot can reduce routine back-and-forth by answering from your approved service pages, FAQs, policies, intake instructions, and client resources. That is useful in a competitive and growing field: ICF estimated 109,200 professional coach practitioners globally in 2022, up 54% from 2019.",
+      "role": "Solo life coaches and founders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-icf-global-growth"
+      ]
+    },
+    {
+      "question": "Can the agent answer questions about my credentials without overpromising outcomes?",
+      "answer": "Yes. Train it on your bio, credential page, coaching philosophy, ethics statement, and scope-of-practice language. It can explain what your credentials mean in your own words while avoiding exaggerated guarantees. Credential clarity matters because 85% of coach practitioners in ICF’s 2022 survey reported holding a certification or credential.",
+      "role": "Solo life coaches and founders",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-icf-credentials"
+      ]
+    },
+    {
+      "question": "Can we use this for group coaching without replacing the facilitator?",
+      "answer": "Yes. For cohorts and programs, DocsBot can help participants find schedules, worksheets, replay links, module explanations, community rules, and prep instructions. Individual coaching needs, sensitive topics, or facilitator judgment can still escalate to your team, so the live experience remains human-led.",
+      "role": "Group coaching and course teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot handle crisis language or a client asking for therapy?",
+      "answer": "You can configure boundary language, crisis handling instructions, referral wording, and escalation paths. The agent should not act as a therapist, medical provider, lawyer, financial advisor, or emergency service. It can provide your approved safety language and route the person to a human or appropriate emergency pathway based on your policy.",
+      "role": "Solo life coaches and founders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What sources should we train the agent on first?",
+      "answer": "Start with high-friction materials: coaching package pages, discovery-call FAQs, client handbook, cancellation and refund policies, onboarding emails, intake instructions, worksheets, program calendars, module summaries, replay libraries, and escalation rules. Internal teams can also add SOPs, scripts, offer notes, and task checklists for private use.",
+      "role": "Operations and client success assistants",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support clients across time zones or in different languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved materials. That is especially useful for international audiences, asynchronous programs, and cohorts where participants ask logistical questions outside business hours. Nuanced, culturally sensitive, or personal coaching questions can still escalate to a human reviewer.",
+      "role": "Group coaching and course teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will clients trust an AI agent in a relationship-driven coaching business?",
+      "answer": "The best use is transparent and bounded: position the agent as a resource assistant, not a replacement coach. It should answer from your approved materials, cite or reflect your program language, and escalate when the question needs judgment. That preserves the human coaching relationship while giving clients faster access to logistics and resources.",
+      "role": "Solo life coaches and founders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help us see what prospects are confused about before they book?",
+      "answer": "Yes. DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. You can review repeated questions about pricing, fit, session cadence, credentials, outcomes, or policies, then improve sales pages, intake emails, and FAQs.",
+      "role": "Solo life coaches and founders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can it work with our scheduling, CRM, forms, or community tools?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and MCP options where you authorize the connection. For coaching teams, common actions include collecting lead details, passing scheduling intent, creating tasks, sending notifications, updating approved fields, or preparing handoff summaries.",
+      "role": "Operations and client success assistants",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much setup work is required before the agent is useful?",
+      "answer": "The fastest path is to train it on the content you already use: your website, PDFs, documents, Notion or Google Drive resources, policies, email templates, and SOPs. Then define what it may answer, what it must not answer, which questions require escalation, and which actions are allowed.",
+      "role": "Solo life coaches and founders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this help with course-style programs and packaged coaching offers?",
+      "answer": "Yes. DocsBot can support package and program delivery by answering from modules, worksheets, schedules, replays, FAQs, and community guidelines. That fits how many coaching businesses sell: Grand View Research reported that packages and programs held the largest U.S. life coaching revenue share in 2024.",
+      "role": "Group coaching and course teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-grandview-programs"
+      ]
+    },
+    {
+      "question": "How do we prevent the AI from sharing private client information with the wrong person?",
+      "answer": "Use separate agents or access rules for public, client-facing, and internal content. DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models.",
+      "role": "Operations and client success assistants",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can assistants use DocsBot internally without exposing SOPs to clients?",
+      "answer": "Yes. You can create a private internal knowledge agent for operations and delivery. Assistants can ask about refund rules, rescheduling, onboarding steps, community moderation, call prep, follow-up templates, or escalation paths while keeping those SOPs separate from the public website agent.",
+      "role": "Operations and client success assistants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "Configure it to say when the answer is not in the approved sources, ask for missing context, suggest the closest relevant resource, or escalate to a human. Conversation logs and knowledge-gap reports then show which missing answers should become new FAQs, worksheets, onboarding notes, or SOP updates.",
+      "role": "Group coaching and course teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot summarize intake forms or prospect conversations before a consult?",
+      "answer": "Yes, when the relevant information is available through approved sources, forms, APIs, connectors, or workflows. The agent can summarize goals, blockers, fit signals, open questions, and next steps so the coach enters the call prepared. Final pricing, commitments, and coaching recommendations should remain human-led.",
+      "role": "Solo life coaches and founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we measure whether the AI agent is worth it?",
+      "answer": "Track repeated questions answered, qualified leads captured, manual emails reduced, discovery-call preparedness, onboarding completion, participant resource usage, escalations, unanswered topics, and content improvements. For small practices, the ROI often comes from protecting billable coaching time and reducing low-value administrative interruptions.",
+      "role": "Solo life coaches and founders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support both public prospects and paid clients without mixing answers?",
+      "answer": "Yes. Many practices separate public sales content from paid program resources. A public agent can answer package, credential, fit, and discovery-call questions, while a client or internal agent can use onboarding guides, worksheets, replays, SOPs, and program policies with the access controls you configure.",
+      "role": "Group coaching and course teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will it sound like my coaching brand, or like generic internet advice?",
+      "answer": "DocsBot is trained on your own approved knowledge, so answers can reflect your language, frameworks, program names, policies, and boundaries. The key is to provide strong source material and instructions. It should not be positioned as a generic advice bot or a substitute for your coaching judgment.",
+      "role": "Solo life coaches and founders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. Start with answer-only support, review logs and escalations, improve source content, then add bounded actions such as lead capture, notifications, task creation, or handoff summaries. This phased rollout is safer for coaching practices because it lets you validate tone, boundaries, and accuracy before automating more steps.",
+      "role": "Operations and client success assistants",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does this compare with a generic chatbot on my website?",
+      "answer": "A generic chatbot usually answers from broad model knowledge or scripted flows. DocsBot is designed as a source-grounded AI agent trained on your coaching materials, with analytics, human escalation, private internal use cases, and optional customer-configured Actions and Skills for bounded workflow steps.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle pricing questions without creating sales problems?",
+      "answer": "Yes, if you train it on approved pricing guidance and rules. It can explain published packages, what is included, payment or refund policies, and when a custom quote or human conversation is needed. For nuanced pricing, discounts, corporate contracts, or exceptions, route the request to you or your operations team.",
+      "role": "Solo life coaches and founders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Is this relevant if my practice is still small?",
+      "answer": "Yes, especially if you repeat the same answers about fit, pricing, preparation, cancellations, worksheets, and next steps. ICF estimated the average annual coaching revenue in North America at $67,800 with an average of 13.5 active clients currently being coached, so even modest time savings can matter for small practices.",
+      "role": "Solo life coaches and founders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-icf-north-america"
+      ]
+    },
+    {
+      "question": "Can we use the agent to improve our coaching curriculum over time?",
+      "answer": "Yes. Review conversation topics, low-confidence answers, unanswered questions, and repeated resource requests. If participants keep asking where a worksheet is, what an exercise means, or how to prepare for a call, that is a signal to improve the module, replay notes, onboarding email, or program FAQ.",
+      "role": "Group coaching and course teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "slug": "cash-advances",
+  "business": "Cash Advances",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Cash Advance Support & Operations",
+    "description": "DocsBot helps cash advance teams answer borrower questions, qualify requests, and route sensitive cases with source-grounded AI agents.",
+    "canonicalPath": "/industry/cash-advances"
+  },
+  "hero": {
+    "eyebrow": "AI support and internal knowledge agents for cash advance teams",
+    "headline": "Move cash advance questions from queues to governed AI agents",
+    "subheadline": "DocsBot helps cash advance businesses create AI agents trained on approved policies, FAQs, disclosures, SOPs, and support history so borrowers get faster answers while staff get consistent guidance for intake, servicing, escalation, and documentation workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer borrower questions from approved fee, eligibility, repayment, renewal, document, and store-policy content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details, summarize requests, and route qualified or sensitive cases to the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, scripts, compliance notes, escalation rules, and training materials.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for approved status lookups and workflow handoffs.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build a cash advance AI agent",
+    "secondaryCta": "Explore governed support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your cash advance knowledge into AI agents that can answer customers, assist employees, summarize conversations, identify missing documentation topics, and trigger bounded workflows when configured. Teams can deploy agents in website widgets, private team chat, helpdesk-style workflows, Slack, Microsoft Teams, or API-powered experiences while keeping sensitive actions behind permissions and human review.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and servicing leaders",
+        "roleContext": "Support teams face repetitive questions about eligibility, repayment dates, documents, fees, payment methods, renewals, and account status. DocsBot helps move routine education and intake into a governed first line while preserving escalation for account-specific, complaint, hardship, or compliance-sensitive cases.",
+        "bullets": [
+          {
+            "text": "Deflect common policy and documentation questions with source-grounded responses trained on your approved borrower materials.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Summarize conversations and collect missing details before handoff so agents spend less time reconstructing context.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Review analytics and logs to spot repeated questions, confusing policy pages, and gaps in borrower-facing content.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, risk, and operations teams",
+        "roleContext": "Cash advance providers operate in a high-scrutiny lending environment where fee explanations, state rules, disclosures, complaints, and repayment communications must be handled consistently. DocsBot can make approved guidance searchable and keep sensitive decisions within customer-defined boundaries.",
+        "bullets": [
+          {
+            "text": "Give employees fast answers from SOPs, compliance notes, call scripts, and escalation matrices without searching scattered folders.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Route complaints, payment disputes, identity concerns, or hardship language to human review instead of letting the agent make high-impact decisions.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Maintain logs, role-based access, encryption, and SOC 2 Type II aligned controls for teams handling private financial workflows.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Branch, online lending, and growth teams",
+        "roleContext": "Prospective borrowers often need quick clarity before starting an application. DocsBot can answer fit and process questions from approved content, collect lead or application-intent details, and hand off qualified requests to a person or workflow configured by the business.",
+        "bullets": [
+          {
+            "text": "Explain requirements, locations, hours, document needs, repayment options, and next steps in more than 100 languages.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Use structured intake forms to capture name, contact details, state, desired amount, employment or income context, and preferred follow-up channel when configured.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified requests and conversation summaries to approved CRM, ticketing, email, or scheduling workflows through customer-configured actions.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fed-emergency-expense",
+      "metric": "63% could cover a $400 emergency expense with cash or equivalent",
+      "claim": "The Federal Reserve reported that 63% of U.S. adults in 2024 said they would cover a hypothetical $400 emergency expense completely using cash or its equivalent, leaving 37% who would use another method or be unable to pay.",
+      "sourceTitle": "Federal Reserve: Economic Well-Being of U.S. Households in 2024",
+      "sourceUrl": "https://www.federalreserve.gov/consumerscommunities/sheddataviz/unexpectedexpenses-table.html",
+      "sourceDate": "May 2025",
+      "bestUsedFor": [
+        "consumer liquidity pressure",
+        "demand for short-term credit clarity",
+        "borrower urgency"
+      ]
+    },
+    {
+      "id": "src-cfpb-payday-costs",
+      "metric": "A common payday fee can imply an APR near 400%",
+      "claim": "The CFPB explains that a $45 fee on a $300 two-week payday loan equates to an annual percentage rate of almost 400%, making clear cost explanations critical for borrowers.",
+      "sourceTitle": "Consumer Financial Protection Bureau: What are the costs and fees for a payday loan?",
+      "sourceUrl": "https://www.consumerfinance.gov/ask-cfpb/what-are-the-costs-and-fees-for-a-payday-loan-en-1589/",
+      "sourceDate": "October 2024",
+      "bestUsedFor": [
+        "fee transparency",
+        "borrower education",
+        "disclosure clarity"
+      ]
+    },
+    {
+      "id": "src-ftc-payday-title-loans",
+      "metric": "FTC cites 391% APR for a typical two-week payday loan example",
+      "claim": "The FTC advises consumers to understand payday and car title loan costs and says a typical two-week payday loan fee of $15 per $100 translates to a 391% APR.",
+      "sourceTitle": "Federal Trade Commission Consumer Advice: What To Know About Payday and Car Title Loans",
+      "sourceUrl": "https://consumer.ftc.gov/articles/0097-payday-loans",
+      "sourceDate": "Current consumer advice page",
+      "bestUsedFor": [
+        "consumer protection expectations",
+        "fee and APR education",
+        "regulated messaging"
+      ]
+    },
+    {
+      "id": "src-cfpb-title-seizure",
+      "metric": "One in five single-payment auto title loan borrowers had a vehicle seized",
+      "claim": "A CFPB study found that one in five borrowers who took out a single-payment auto title loan had their car or truck seized after failing to repay the debt.",
+      "sourceTitle": "CFPB Finds One-in-Five Auto Title Loan Borrowers Have Vehicle Seized for Failing to Repay Debt",
+      "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-finds-one-five-auto-title-loan-borrowers-have-vehicle-seized-failing-repay-debt/",
+      "sourceDate": "May 2016",
+      "bestUsedFor": [
+        "title loan risk",
+        "sensitive escalation",
+        "repayment education"
+      ]
+    },
+    {
+      "id": "src-cfpb-payday-tools",
+      "metric": "CFPB consumer tools cover APR, NSF fees, rollovers, and repayment issues",
+      "claim": "The CFPB’s payday loan consumer resources emphasize understanding APR, finance charges, NSF fees, rollovers, and repayment obligations before taking out a payday loan.",
+      "sourceTitle": "Consumer Financial Protection Bureau: Payday loans consumer tools",
+      "sourceUrl": "https://www.consumerfinance.gov/consumer-tools/payday-loans/",
+      "sourceDate": "Updated 2025",
+      "bestUsedFor": [
+        "borrower FAQs",
+        "consumer education topics",
+        "support content planning"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Borrower education and fee explanation agent",
+      "problem": "Prospects and borrowers repeatedly ask what a cash advance costs, what documents they need, how repayment works, and what happens if they cannot pay on time.",
+      "agentWorkflow": "Train DocsBot on approved FAQs, disclosures, fee examples, state-specific pages, document checklists, repayment policies, and escalation scripts. The agent answers general questions, cites approved sources, avoids personalized legal or financial advice, and escalates hardship, complaint, or account-specific questions to a person.",
+      "liveContextOrTools": "Customer-configured Skills can look up branch hours, state availability, document checklist versions, or general product availability. Sensitive account balances or repayment changes should use scoped permissions and review paths.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need before I start an application?",
+        "Can you explain the fees and APR in plain language?",
+        "What should I do if I may miss my repayment date?"
+      ],
+      "businessOutcome": "Reduces repetitive support volume while improving consistency around high-scrutiny fee, repayment, and documentation explanations.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-cfpb-payday-costs"
+      ]
+    },
+    {
+      "name": "Structured intake and qualified handoff workflow",
+      "problem": "Incomplete inquiries slow down callbacks, branch visits, and online application follow-up because staff often need to ask the same eligibility and documentation questions again.",
+      "agentWorkflow": "DocsBot can collect structured details through a custom intake flow, summarize the borrower’s request, identify missing information, and route the handoff to sales, support, branch staff, or a ticketing queue based on customer-defined rules.",
+      "liveContextOrTools": "With approved APIs, connectors, Skills, or forms, the agent can create a task, submit a lead form, notify a team, or forward a summary to CRM, helpdesk, email, Slack, or Microsoft Teams workflows configured by the business.",
+      "exampleQuestionsOrRequests": [
+        "I want to know if I can apply today.",
+        "Please send my information to the nearest branch.",
+        "Can someone call me about what I need to bring?"
+      ],
+      "businessOutcome": "Creates cleaner handoffs and helps staff prioritize ready-to-assist borrowers without letting the agent make credit or underwriting decisions.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Repayment, renewal, and hardship triage",
+      "problem": "Questions about due dates, rollovers, NSF fees, payment problems, and hardship language require careful routing because a bad answer can create borrower frustration or compliance risk.",
+      "agentWorkflow": "Train the agent on approved repayment FAQs, renewal policy language, state limitations, call-center scripts, and escalation procedures. It can answer general policy questions, collect context, flag sensitive phrases, and prepare a concise handoff for a human servicing specialist.",
+      "liveContextOrTools": "When authorized, a Skill can perform an approved status lookup or create a servicing ticket. Boundaries can restrict the agent from changing terms, promising extensions, waiving fees, or giving financial advice without review.",
+      "exampleQuestionsOrRequests": [
+        "What happens if my payment is returned?",
+        "Can I renew or extend my cash advance?",
+        "I lost my job and cannot repay on time."
+      ],
+      "businessOutcome": "Helps route vulnerable or high-risk conversations quickly while keeping repayment changes and regulated decisions with trained staff.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-cfpb-payday-tools"
+      ]
+    },
+    {
+      "name": "Internal SOP and compliance knowledge agent",
+      "problem": "Policies change by product, state, branch, channel, and complaint type. Employees need fast, consistent answers without digging through PDFs, wikis, spreadsheets, and training decks.",
+      "agentWorkflow": "DocsBot can train on internal SOPs, compliance guidance, scripts, onboarding documents, escalation matrices, and policy updates. Employees ask natural-language questions and receive source-grounded answers with references to the approved materials.",
+      "liveContextOrTools": "Private team access, role-based permissions, conversation review, analytics, and logs help managers see what employees ask and which knowledge sources need improvement.",
+      "exampleQuestionsOrRequests": [
+        "Which script should I use for an APR explanation?",
+        "When do I escalate a complaint to compliance?",
+        "What is the current checklist for an in-store application?"
+      ],
+      "businessOutcome": "Improves consistency across branches and support teams while exposing documentation gaps that create repeated employee questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Complaint and dispute summarization assistant",
+      "problem": "Complaint, payment dispute, and identity-related cases often arrive with long conversation histories and attachments that staff must review before responding.",
+      "agentWorkflow": "DocsBot can summarize the conversation, extract key dates and borrower concerns, identify the policy sources involved, and draft an internal response outline for human review. The agent can also route the case based on issue type and urgency rules configured by the business.",
+      "liveContextOrTools": "With approved helpdesk or ticketing workflows, DocsBot can summarize, tag, route, or draft responses while leaving final complaint responses, account changes, and legal positions to authorized humans.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this borrower’s complaint for compliance review.",
+        "Draft a response outline using our approved complaint procedure.",
+        "Route this dispute to the correct queue."
+      ],
+      "businessOutcome": "Speeds case preparation and improves handoff quality without replacing controlled review for sensitive financial communications.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for borrower content",
+      "problem": "If borrowers keep asking the same questions about fees, rollovers, documents, or repayment timing, the root problem may be unclear website and disclosure content.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, satisfaction analysis, and knowledge-gap discovery help teams see which questions are frequent, unresolved, or poorly supported by current content.",
+      "liveContextOrTools": "Teams can review analytics, update source content, retrain the agent on revised FAQs or policy pages, and compare future conversations to see whether confusion declines.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are borrowers asking most often this month?",
+        "Where are answers missing from our public FAQ?",
+        "Which policy topics trigger the most escalations?"
+      ],
+      "businessOutcome": "Turns support conversations into a practical roadmap for improving borrower education and internal documentation.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-fed-emergency-expense"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give borrowers faster answers without turning the agent into an underwriter",
+    "intro": "A DocsBot customer-facing agent can sit in a website widget or approved support workflow to answer general cash advance questions from your own sources, collect context, and escalate sensitive cases. It helps borrowers understand process, documents, fees, and next steps while preserving human control for credit decisions, legal interpretations, complaints, and account changes.",
+    "requests": [
+      {
+        "request": "“How much does a cash advance cost?”",
+        "agentResponseStrategy": "Respond from approved fee and APR explanation pages, clarify that costs vary by product, amount, term, and jurisdiction, and offer to connect the borrower with a human for account-specific or state-specific details.",
+        "sourceTypes": [
+          "Fee schedules",
+          "APR examples",
+          "State-specific FAQs",
+          "Disclosures"
+        ],
+        "optionalAction": "Create a follow-up task or route the visitor to a human specialist if they ask for personalized cost or eligibility guidance.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-ftc-payday-title-loans"
+        ]
+      },
+      {
+        "request": "“What do I need to apply?”",
+        "agentResponseStrategy": "Use the current document checklist and application FAQ to explain required information, accepted document types, branch or online steps, and common reasons an application may need more information.",
+        "sourceTypes": [
+          "Application FAQs",
+          "Document checklists",
+          "Branch policies",
+          "Product pages"
+        ],
+        "optionalAction": "Collect contact details and application intent through a structured form, then forward the summary to an approved intake workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I extend my payment?”",
+        "agentResponseStrategy": "Give only approved general policy language, warn that extensions or rollovers may involve additional costs where allowed, and escalate to servicing for account-specific options.",
+        "sourceTypes": [
+          "Repayment policies",
+          "Renewal FAQs",
+          "Servicing scripts",
+          "Escalation rules"
+        ],
+        "optionalAction": "Open a servicing ticket or request human follow-up when configured, without promising repayment changes.",
+        "icon": "ClockIcon",
+        "sourceIds": [
+          "src-cfpb-payday-costs"
+        ]
+      },
+      {
+        "request": "“I have a complaint about my loan.”",
+        "agentResponseStrategy": "Acknowledge the issue, collect concise details, avoid debating liability or making promises, and route the matter to the complaint process defined by the business.",
+        "sourceTypes": [
+          "Complaint procedures",
+          "Escalation matrices",
+          "Support scripts",
+          "Compliance guidance"
+        ],
+        "optionalAction": "Create a ticket with a summary, category, urgency flag, and conversation transcript for human review.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you have a location near me?”",
+        "agentResponseStrategy": "Answer from approved location, hours, and service-area content. If live data is configured, the agent can look up current branch details or route the visitor to a scheduling or callback workflow.",
+        "sourceTypes": [
+          "Location pages",
+          "Hours data",
+          "Service-area rules",
+          "Contact policies"
+        ],
+        "optionalAction": "Trigger a branch callback, booking request, or team notification through customer-configured Skills, APIs, connectors, or webhooks.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What happens if my car title loan is not repaid?”",
+        "agentResponseStrategy": "Use approved title-loan education and repayment materials, explain general risks without legal advice, and escalate immediately for account-specific repayment or repossession concerns.",
+        "sourceTypes": [
+          "Title loan FAQs",
+          "Repayment policies",
+          "Risk disclosures",
+          "Servicing scripts"
+        ],
+        "optionalAction": "Route to a trained servicing specialist or compliance-reviewed workflow when the borrower mentions repossession, default, or hardship.",
+        "icon": "TruckIcon",
+        "sourceIds": [
+          "src-cfpb-title-seizure"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep frontline lending, servicing, and compliance teams aligned",
+    "intro": "A private DocsBot internal knowledge agent helps employees find approved answers from SOPs, policies, training materials, scripts, and compliance documents. It supports faster onboarding, more consistent borrower communications, and better visibility into the questions staff cannot answer confidently today.",
+    "workflows": [
+      {
+        "name": "Branch and call-center policy lookup",
+        "problem": "Employees may need to interpret different procedures for online inquiries, storefront visits, document exceptions, repayment questions, and state-specific limitations.",
+        "agentWorkflow": "Train DocsBot on SOPs, policy manuals, training PDFs, scripts, and internal FAQs. Staff ask questions in private chat and receive grounded answers with source references so they can verify the approved language.",
+        "sourceTypes": [
+          "SOPs",
+          "Training decks",
+          "Call scripts",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Escalate unresolved questions to a supervisor or compliance queue with the employee question and source context attached.",
+        "outcome": "Improves consistency and reduces time spent searching for the latest procedure.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Compliance review preparation",
+        "problem": "Compliance teams need clean summaries of borrower conversations, complaint categories, policy references, and unresolved facts before review.",
+        "agentWorkflow": "DocsBot can summarize case notes, extract key facts, identify relevant source documents, and draft internal review notes for a human compliance owner.",
+        "sourceTypes": [
+          "Complaint procedures",
+          "Ticket history exports",
+          "Policy notes",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Create or update approved ticket fields, route the case, and notify the responsible team through configured workflows.",
+        "outcome": "Shortens preparation time while keeping regulated judgments and final responses under human control.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New staff must learn product rules, borrower communication expectations, escalation triggers, privacy practices, and support tooling quickly.",
+        "agentWorkflow": "DocsBot can answer onboarding questions from training materials, role guides, scripts, quizzes, and process documentation, then surface repeated trainee questions as documentation gaps.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Role play scripts",
+          "Training videos or summaries",
+          "Policy manuals"
+        ],
+        "optionalAction": "Generate a learning summary or notify a manager when a trainee repeatedly asks about a high-risk workflow.",
+        "outcome": "Helps new employees ramp faster with consistent source-grounded guidance.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales enablement for approved borrower conversations",
+        "problem": "Growth, branch, and customer-care teams need approved answers to product-fit, eligibility, document, and next-step questions without improvising regulated language.",
+        "agentWorkflow": "Train an internal agent on sales playbooks, approved objection handling, product pages, branch details, and compliance-reviewed scripts. Reps can ask for suggested talking points or a follow-up draft, then review before sending.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Approved scripts",
+          "Product pages",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Draft follow-up emails, create tasks, or prepare handoff summaries through approved CRM, inbox, or workflow connections.",
+        "outcome": "Supports faster follow-up while keeping final outreach, pricing, and regulated commitments with staff.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved cash advance knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on a business’s own websites, help content, PDFs, Word documents, internal documents, wikis, and other configured knowledge sources.",
+      "industryApplication": "Use approved disclosures, fee examples, document checklists, repayment FAQs, branch policies, SOPs, and scripts so customer and employee answers stay aligned with current materials.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers for sensitive borrower topics",
+      "mainLandingPageContext": "DocsBot agents answer from configured sources and can provide consistent information in the company’s voice.",
+      "industryApplication": "Explain costs, repayment, eligibility steps, and documentation needs from official materials instead of free-form improvisation, with escalation for personalized or regulated questions.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs through customer-configured access.",
+      "industryApplication": "Configure approved actions for branch lookups, intake form submission, ticket creation, servicing handoffs, team notifications, or live status checks while limiting sensitive account actions.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket workflow intelligence",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access to learn from, summarize, route, answer, or draft ticket responses.",
+      "industryApplication": "Summarize borrower conversations, route complaints, draft response outlines, and prepare servicing handoffs without claiming final authority over account changes or complaint outcomes.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and visibility into missing content.",
+      "industryApplication": "See which fee, repayment, document, location, or renewal questions keep recurring and update borrower FAQs or employee SOPs accordingly.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support private financial workflows with access boundaries, logging, and permissions that help protect borrower and operational knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect approved policies, FAQs, and procedures.",
+      "Support high-volume self-service while keeping humans available for sensitive borrower situations.",
+      "Give internal teams faster access to source-grounded knowledge for support, servicing, and operations."
+    ],
+    "whyTheseReviewsFit": "Cash advance teams need fast borrower self-service, dependable internal knowledge, and clear handoffs to people when conversations become sensitive. DocsBot proof spans owned-content training, website assistants, helpdesk-style support, high-volume inquiry handling, and internal decision support.",
+    "trustClaimIcons": [
+      "ArchiveBoxIcon",
+      "UserGroupIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for cash advance businesses",
+    "audience": [
+      "Cash advance support leaders",
+      "Payday lending operations teams",
+      "Compliance and risk managers",
+      "Branch and online lending teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BanknotesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "bank-credit-union",
+    "microfinance",
+    "collection-agency",
+    "finance-insurance",
+    "financial-consulting",
+    "insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "cash-advances",
+    "webSearchQueries": [
+      "CFPB payday loans annual percentage rates fees consumer financial protection bureau",
+      "Federal Reserve report economic well-being adults unable cover emergency expense 400 2024",
+      "CFPB small dollar lending payday vehicle title loans complaints report"
+    ],
+    "sourceUrls": [
+      "https://www.federalreserve.gov/consumerscommunities/sheddataviz/unexpectedexpenses-table.html",
+      "https://www.consumerfinance.gov/ask-cfpb/what-are-the-costs-and-fees-for-a-payday-loan-en-1589/",
+      "https://consumer.ftc.gov/articles/0097-payday-loans",
+      "https://www.consumerfinance.gov/about-us/newsroom/cfpb-finds-one-five-auto-title-loan-borrowers-have-vehicle-seized-failing-repay-debt/",
+      "https://www.consumerfinance.gov/consumer-tools/payday-loans/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 39417,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 19193,
+        "outputTokens": 7964,
+        "reasoningOutputTokens": 130,
+        "totalTokens": 47381,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.172499,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.182499
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19394,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 4418,
+          "outputTokens": 5429,
+          "reasoningOutputTokens": 109,
+          "totalTokens": 24823,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.096224,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.106224
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20023,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14775,
+          "outputTokens": 2535,
+          "reasoningOutputTokens": 21,
+          "totalTokens": 22558,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076275,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076275
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUyMzl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cash Advances background image",
+    "source": "legacy-industry",
+    "query": "Cash Advances"
+  },
+  "faq": [
+    {
+      "question": "Can the agent explain fees and APR without creating compliance risk?",
+      "answer": "Yes. DocsBot should be trained on your approved fee schedules, disclosures, APR examples, state pages, and scripts so it gives general, source-grounded explanations instead of improvising. For personalized cost, eligibility, legal, or repayment advice, configure escalation to a trained employee. This matters because regulators highlight that small-dollar loan fees can translate into APRs near 400%.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfpb-payday-costs"
+      ]
+    },
+    {
+      "question": "Will DocsBot make underwriting or credit decisions for us?",
+      "answer": "No. For cash advance workflows, DocsBot is best positioned as a governed education, intake, routing, summarization, and internal knowledge agent. It can collect information, explain approved requirements, and prepare handoffs, but credit decisions, adverse actions, repayment changes, hardship decisions, and legal interpretations should remain with your authorized systems and staff.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce call volume without leaving borrowers stuck?",
+      "answer": "Start with repetitive, low-risk questions: documents needed, branch hours, application steps, payment methods, general repayment policy, renewal rules, and fee education. DocsBot can answer from approved content, ask clarifying questions, and escalate hardship, complaint, account-specific, or confused borrowers with a summary so staff do not restart the conversation.",
+      "role": "Customer support and servicing leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent handle urgent borrowers who need money quickly?",
+      "answer": "DocsBot can provide immediate answers about required documents, service areas, next steps, and follow-up options, then collect structured intake details for a faster handoff. That urgency is common in this market: the Federal Reserve reported that 37% of U.S. adults in 2024 would not cover a $400 emergency expense fully with cash or equivalent.",
+      "role": "Branch, online lending, and growth teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fed-emergency-expense"
+      ]
+    },
+    {
+      "question": "What happens when a borrower says they cannot repay on time?",
+      "answer": "Configure the agent to stop general self-service and follow your hardship or servicing triage rules. It can acknowledge the issue, collect basic context, avoid promises about extensions or fee waivers, create a ticket or handoff summary when configured, and route the borrower to trained servicing staff for account-specific options.",
+      "role": "Customer support and servicing leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support both storefront and online lending workflows?",
+      "answer": "Yes. You can train agents on branch policies, online application FAQs, location pages, document checklists, product pages, and channel-specific scripts. For storefront workflows, it can help borrowers prepare before visiting. For online workflows, it can answer pre-application questions, collect intake details, and route summaries to approved follow-up systems.",
+      "role": "Branch, online lending, and growth teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep answers current when state rules or product policies change?",
+      "answer": "Use DocsBot as a controlled knowledge layer trained on your approved sources, then update the underlying policy pages, SOPs, disclosures, scripts, and FAQs when rules change. Teams can review logs and knowledge-gap reports to see where borrowers or employees still ask confusing questions after an update.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can employees use this internally without exposing sensitive SOPs to borrowers?",
+      "answer": "Yes. DocsBot can support separate customer-facing and private internal knowledge agents with role-based access controls. Borrowers can receive approved public answers, while employees can ask about SOPs, scripts, escalation rules, complaint procedures, training materials, and compliance notes in a private team experience.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What systems would DocsBot need to connect with?",
+      "answer": "Many cash advance teams start without deep integrations by training on approved websites, PDFs, SOPs, FAQs, disclosures, and scripts. When ready, customer-configured Skills, APIs, connectors, webhooks, or MCP options can support bounded actions such as branch lookups, lead forms, ticket creation, CRM handoffs, status checks, or team notifications.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent collect application-intent details before a callback?",
+      "answer": "Yes. DocsBot can use structured intake flows to collect details such as name, contact information, state, requested amount, preferred branch or channel, income or employment context, document readiness, and preferred follow-up method. It can then summarize the request and route it through your approved workflow without deciding approval.",
+      "role": "Branch, online lending, and growth teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from giving financial advice?",
+      "answer": "Define clear instructions and escalation boundaries. The agent should provide general education from approved materials, avoid recommending whether someone should borrow, avoid interpreting law, and escalate personalized affordability, rollover, hardship, complaint, or repayment-change questions to humans. Conversation review and logs help teams audit whether boundaries are working.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help with complaints and disputes?",
+      "answer": "Yes, but it should assist rather than decide. DocsBot can summarize borrower messages, extract key dates, classify issue type, identify relevant policy sources, draft an internal response outline, and route the case to compliance or servicing. Final complaint responses, account changes, legal positions, and dispute outcomes should remain under human review.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What reporting would managers get after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see common borrower questions, unresolved topics, frequent escalations, missing content, and internal employee confusion around procedures such as fees, renewals, repayment, documents, or complaints.",
+      "role": "Customer support and servicing leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent explain payday loan rollovers, NSF fees, and repayment obligations?",
+      "answer": "Yes, if those topics are covered in your approved content. Train DocsBot on repayment FAQs, renewal policies, state-specific limitations, fee disclosures, and servicing scripts. The CFPB’s payday loan consumer resources emphasize APR, finance charges, NSF fees, rollovers, and repayment obligations, so these topics need especially controlled language.",
+      "role": "Customer support and servicing leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cfpb-payday-tools"
+      ]
+    },
+    {
+      "question": "How should we evaluate ROI for a cash advance AI agent?",
+      "answer": "Measure reduction in repetitive calls and chats, faster first response, fewer incomplete handoffs, shorter onboarding time, lower handle time for escalated cases, improved answer consistency, and fewer documentation gaps. For growth teams, also track prepared applicants, qualified callbacks, branch visit readiness, and conversion from informational inquiries to human follow-up.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this work for multilingual borrowers?",
+      "answer": "DocsBot can answer in more than 100 languages, which helps when borrowers need plain-language explanations of documents, fees, locations, and next steps. For regulated content, the safest approach is to train on approved multilingual materials where available and route sensitive or ambiguous conversations to trained staff.",
+      "role": "Branch, online lending, and growth teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should compliance review before we go live?",
+      "answer": "Review the source content, prohibited topics, escalation triggers, sample answers, disclaimers, intake fields, retention expectations, access permissions, and any configured Skills or API actions. Pay special attention to fee explanations, APR examples, renewals, hardship language, complaints, title-loan risk, state-specific rules, and account-specific servicing boundaries.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help new branch or call-center staff ramp faster?",
+      "answer": "Yes. A private internal agent can answer questions from onboarding guides, SOPs, scripts, policy manuals, compliance notes, and escalation matrices. New staff can ask how to explain APR, what documents are required, when to escalate a complaint, or how to handle repayment questions without searching multiple folders.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot protect borrower and operational data?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can be configured with customer-defined controls so sensitive lookups and actions stay scoped, logged, and permissioned.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use it in our existing helpdesk or ticket workflow?",
+      "answer": "Yes, through customer-configured Skills, APIs, connectors, exports, or approved workflow access. DocsBot can support helpdesk-style workflows by summarizing conversations, drafting responses, routing tickets, tagging issue types, or preparing handoffs. Avoid treating it as the final authority for complaints, account changes, or regulated servicing decisions.",
+      "role": "Customer support and servicing leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How is this different from a generic website chatbot?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not a generic script bot. It can support borrower education, internal SOP lookup, ticket summarization, intake, routing, workflow actions, analytics, and knowledge-gap discovery while keeping high-impact financial decisions behind human review.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle title loan questions safely?",
+      "answer": "Yes, with careful boundaries. Train it on approved title-loan FAQs, repayment policies, risk disclosures, and servicing scripts, then escalate default, repossession, hardship, or account-specific questions. That caution is warranted: a CFPB study found one in five single-payment auto title loan borrowers had a vehicle seized after failing to repay.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-cfpb-title-seizure"
+      ]
+    },
+    {
+      "question": "What if our policies are split across PDFs, spreadsheets, shared drives, and old training decks?",
+      "answer": "That is a common starting point. DocsBot can train on websites, PDFs, Word documents, internal documents, wikis, Google Drive, Notion, Confluence, and other configured sources. Implementation should include source cleanup, ownership rules, and a process for retiring outdated materials so the agent relies on approved current guidance.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can managers see whether the AI is creating confusion or improving it?",
+      "answer": "Yes. Use conversation logs, topic reports, satisfaction and resolution analysis, and knowledge-gap discovery to review where borrowers get answers, where they escalate, and where the agent lacks sufficient source material. That feedback helps improve public FAQs, disclosures, scripts, and internal SOPs over time.",
+      "role": "Customer support and servicing leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Who needs to be involved in buying and launching this?",
+      "answer": "A realistic buying group usually includes support or servicing leadership, compliance and risk, operations, branch or online lending leaders, IT or security, and sometimes legal. Support owns volume and workflows, compliance owns boundaries, operations owns SOPs, IT reviews access and integrations, and growth teams care about intake quality.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

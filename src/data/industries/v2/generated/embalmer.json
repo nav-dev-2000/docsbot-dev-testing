@@ -1,0 +1,754 @@
+{
+  "slug": "embalmer",
+  "business": "Embalmer",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Embalming Workflow Support",
+    "description": "DocsBot helps embalmers and funeral care teams answer family questions, retrieve SOPs, and route sensitive requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/embalmer"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for preparation rooms and funeral care teams",
+    "headline": "DocsBot AI agents help embalmers move from questions to action",
+    "subheadline": "Train a DocsBot agent on your preparation room SOPs, family-facing service pages, price disclosures, aftercare resources, safety notes, and internal policies so staff can find answers faster, families get clear guidance, and sensitive requests are escalated to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer family questions from approved service pages, preparation FAQs, aftercare materials, and policies while keeping sensitive cases ready for human handoff.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give staff fast access to preparation room checklists, chemical handling notes, documentation steps, and firm-specific workflows from private sources.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect consultation or transfer request details, summarize context, and route the request through customer-configured workflows or ticketing systems.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated questions, missing policy language, and training gaps across family and staff interactions.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an embalming support agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps embalming businesses and funeral care organizations create AI agents trained on their own approved knowledge. Agents can answer family and staff questions, retrieve SOPs and policies, summarize intake context, draft handoffs, identify knowledge gaps, and take bounded actions when configured through AI Actions, Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Licensed embalmers and preparation room leads",
+        "roleContext": "Teams that need fast, consistent access to technical procedures, case notes, safety reminders, and documentation steps without searching through binders, shared drives, or long policy files.",
+        "bullets": [
+          {
+            "text": "Ask for the current preparation checklist, PPE reminder, or documentation step and receive a source-grounded answer from approved internal materials.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Summarize case-specific context for the next team member while keeping final professional judgment with licensed staff.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Review repeated internal questions to see where SOPs, onboarding materials, or prep room references need clarification.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "BeakerIcon"
+      },
+      {
+        "role": "Funeral directors and arrangers",
+        "roleContext": "Family-facing staff who need accurate, compassionate explanations of viewing, embalming, transfer, cremation, pricing, and authorization processes while staying aligned with firm policies.",
+        "bullets": [
+          {
+            "text": "Provide consistent answers about your services, viewing requirements, required authorizations, and next steps from your own website and policy documents.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect appointment intent, preferred contact method, location, timeline, and service questions before handing off to a person.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "The FTC Funeral Rule gives consumers rights to itemized price information and requires specific funeral provider disclosures, making accurate explanations especially important.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-ftc-funeral-rule"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Owners, managers, and compliance coordinators",
+        "roleContext": "Leaders responsible for consistent family communication, staff training, OSHA-aware preparation room practices, and controlled access to private operating knowledge.",
+        "bullets": [
+          {
+            "text": "Make policies, training documents, and procedure updates searchable for employees through private team chat, Slack, Microsoft Teams, or controlled internal access.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Use conversation logs, topic reports, and knowledge-gap discovery to improve family FAQs, staff training, and operational documentation.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "NIOSH notes that local exhaust ventilation can reduce embalmer formaldehyde exposure below OSHA’s 0.75 ppm 8-hour permissible exposure limit, underscoring the need for accessible safety guidance.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-niosh-formaldehyde"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ftc-funeral-rule",
+      "metric": "Funeral providers must give itemized price information and required disclosures.",
+      "claim": "The FTC Funeral Rule requires funeral providers to give consumers itemized price lists and disclosures, including language related to embalming and other goods and services.",
+      "sourceTitle": "Federal Trade Commission: Funeral Industry Practices Rule",
+      "sourceUrl": "https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule",
+      "sourceDate": "Current FTC rule page, accessed May 2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "family-facing price and service explanations",
+        "embalming disclosure accuracy"
+      ]
+    },
+    {
+      "id": "src-ftc-consumer-funeral-rule",
+      "metric": "Consumers have the right to choose only the funeral goods and services they want.",
+      "claim": "The FTC explains that consumers can choose only the funeral goods and services they want and get price information, whether arranging at need or in advance.",
+      "sourceTitle": "Federal Trade Commission Consumer Advice: The FTC Funeral Rule",
+      "sourceUrl": "https://consumer.ftc.gov/articles/ftc-funeral-rule",
+      "sourceDate": "FTC consumer guidance, accessed May 2026",
+      "bestUsedFor": [
+        "consumer expectations",
+        "price transparency",
+        "family education"
+      ]
+    },
+    {
+      "id": "src-niosh-formaldehyde",
+      "metric": "NIOSH evaluated ventilation that reduced embalming formaldehyde exposure below OSHA’s 0.75 ppm 8-hour TWA limit.",
+      "claim": "NIOSH guidance on controlling formaldehyde during embalming highlights ventilation and exposure-control practices relevant to preparation room safety communication.",
+      "sourceTitle": "CDC NIOSH: Controlling Formaldehyde Exposures During Embalming",
+      "sourceUrl": "https://www.cdc.gov/niosh/docs/hazardcontrol/hc26.html",
+      "sourceDate": "CDC NIOSH hazard control guidance, accessed May 2026",
+      "bestUsedFor": [
+        "worker safety",
+        "preparation room procedures",
+        "chemical exposure risk"
+      ]
+    },
+    {
+      "id": "src-osha-formaldehyde-funeral",
+      "metric": "OSHA’s formaldehyde standard applies to embalming exposures in funeral homes.",
+      "claim": "OSHA states that its occupational exposure standard for formaldehyde applies to exposures employees receive due to embalming conducted by funeral homes.",
+      "sourceTitle": "OSHA Standard Interpretation: Formaldehyde exposure and ergonomic hazards in the embalming/funeral home industry",
+      "sourceUrl": "https://www.osha.gov/laws-regs/standardinterpretations/2005-07-08",
+      "sourceDate": "July 8, 2005",
+      "bestUsedFor": [
+        "regulatory safety pressure",
+        "employee training",
+        "preparation room compliance"
+      ]
+    },
+    {
+      "id": "src-nfda-cremation-2024",
+      "metric": "NFDA projected the U.S. cremation rate at 61.9% for 2024.",
+      "claim": "NFDA reported that the U.S. cremation rate was projected to reach 61.9% in 2024, showing that families increasingly ask about disposition choices beyond traditional burial.",
+      "sourceTitle": "National Funeral Directors Association: U.S. Cremation Rate is Projected to Climb to 61.9% in 2024",
+      "sourceUrl": "https://nfda.org/news/in-the-news/nfda-news/id/8945/us-cremation-rate-is-projected-to-climb-to-619-in-2024",
+      "sourceDate": "July 25, 2024",
+      "bestUsedFor": [
+        "changing consumer preferences",
+        "family education",
+        "service mix"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Family-facing embalming and viewing guidance agent",
+      "problem": "Families often ask sensitive, urgent questions about whether embalming is required, what happens before a viewing, what authorizations are needed, and how timelines affect options.",
+      "agentWorkflow": "A DocsBot AI support agent answers from your approved service pages, GPL language, preparation FAQs, authorization instructions, and aftercare resources. It keeps tone compassionate, cites approved sources where appropriate, and escalates emotional, legal, pricing, or case-specific questions to staff.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can collect contact details, preferred service location, viewing date, and transfer questions, then create a task or send a summarized handoff to the funeral director.",
+      "exampleQuestionsOrRequests": [
+        "Do we have to choose embalming if we want a private family viewing?",
+        "What information do you need before preparation can begin?",
+        "Can someone call me about timing for a Saturday service?"
+      ],
+      "businessOutcome": "Families receive clearer first responses while staff get structured context before the conversation becomes case-specific or emotionally complex.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-ftc-consumer-funeral-rule"
+      ]
+    },
+    {
+      "name": "Preparation room SOP and safety knowledge agent",
+      "problem": "Preparation room staff need quick answers from policies, chemical handling instructions, equipment checklists, and documentation standards while working in a regulated, high-attention environment.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves source-grounded answers from SOPs, training manuals, PPE guidance, inspection checklists, and firm-specific preparation protocols. Employees can ask in plain language instead of searching folders or binders.",
+      "liveContextOrTools": "Configured Skills can surface the relevant checklist, summarize a completed case note for review, or create a maintenance task when staff report missing supplies or equipment issues.",
+      "exampleQuestionsOrRequests": [
+        "Show the checklist for a standard arterial embalming case.",
+        "What documentation is required before release for viewing?",
+        "Create a supply restock task for gloves and disinfectant."
+      ],
+      "businessOutcome": "Staff spend less time searching for procedures and more time following approved processes consistently across shifts and locations.",
+      "icon": "BeakerIcon",
+      "sourceIds": [
+        "src-osha-formaldehyde-funeral"
+      ]
+    },
+    {
+      "name": "Intake, transfer, and authorization routing assistant",
+      "problem": "A phone call, website inquiry, or after-hours form can contain urgent details that must reach the right person without losing context or asking the family to repeat painful information.",
+      "agentWorkflow": "DocsBot collects structured intake details, summarizes the situation, identifies missing information from customer-defined rules, and prepares a handoff for the licensed staff member or arranger. It can answer general next-step questions from approved materials while escalating case decisions.",
+      "liveContextOrTools": "Through customer-configured AI Actions, connectors, webhooks, or MCP server tools, the agent can create a task, route a notification, update approved fields, or attach a summary to the appropriate internal workflow.",
+      "exampleQuestionsOrRequests": [
+        "We need a transfer from a care facility tonight. What happens next?",
+        "Here is the decedent information; please have a director call me.",
+        "Route this to the on-call embalmer and include the service date."
+      ],
+      "businessOutcome": "Teams receive more complete, organized requests and can respond faster without giving the agent authority over regulated or sensitive decisions.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "name": "Price list, disclosure, and service FAQ assistant",
+      "problem": "Funeral teams must explain services and pricing accurately, and families may ask about embalming, direct cremation, immediate burial, visitation, caskets, and optional preparation services.",
+      "agentWorkflow": "DocsBot answers from the current general price list, service catalog, website copy, state-specific internal notes, and approved disclosure language. It can guide families to a human for decisions, unusual circumstances, or any answer that depends on law, contract terms, or case facts.",
+      "liveContextOrTools": "The agent can use customer-configured workflows to request a consultation, email approved documents, or create a follow-up ticket for staff review.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain the difference between direct cremation and a viewing with preparation?",
+        "Where can I find the current general price list?",
+        "Is embalming included in this service package?"
+      ],
+      "businessOutcome": "Families get consistent, understandable answers while the firm reduces repetitive front-desk questions and protects sensitive conversations with escalation paths.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ftc-funeral-rule"
+      ]
+    },
+    {
+      "name": "Training and onboarding companion for new staff",
+      "problem": "New apprentices, trade embalmers, and administrative staff need to learn firm-specific procedures, communication standards, and preparation room expectations without interrupting senior staff for every question.",
+      "agentWorkflow": "A DocsBot internal knowledge agent trains on onboarding materials, SOPs, checklists, policy updates, and role-specific guides. Staff can ask procedural questions, review summaries, and find the source document behind each answer.",
+      "liveContextOrTools": "Managers can review analytics to see repeated onboarding questions and update training content where the agent reveals gaps.",
+      "exampleQuestionsOrRequests": [
+        "What should I review before assisting on my first preparation case?",
+        "Where is the policy for release documentation?",
+        "Summarize our family communication standards for new arrangers."
+      ],
+      "businessOutcome": "Onboarding becomes more consistent, and managers get visibility into what staff are trying to learn across locations or roles.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Consumer preference and service education agent",
+      "problem": "As cremation, memorialization, and viewing preferences change, families ask more nuanced questions about preparation choices, timing, keepsakes, ceremonies, and disposition options.",
+      "agentWorkflow": "DocsBot answers from approved educational pages, service menus, aftercare materials, and FAQs. It can explain options neutrally, ask clarifying questions, and route families to a funeral director for recommendations or final arrangements.",
+      "liveContextOrTools": "When configured, the agent can collect the family’s preferred follow-up channel, service timeframe, disposition interest, and location before sending a summary to staff.",
+      "exampleQuestionsOrRequests": [
+        "Can we still have a viewing if we choose cremation later?",
+        "What choices do we have if we do not want a traditional burial?",
+        "Please have someone contact me about a small family ceremony."
+      ],
+      "businessOutcome": "Families can explore options privately and at their own pace while staff receive better-qualified, more informed inquiries.",
+      "icon": "SparklesIcon",
+      "sourceIds": [
+        "src-nfda-cremation-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give families clear answers before the conversation needs a person",
+    "intro": "A DocsBot customer-facing agent can sit on your website or service pages to answer common questions from approved materials, collect consultation details, and escalate grief-sensitive, legal, pricing, or case-specific issues to your team.",
+    "requests": [
+      {
+        "request": "“Is embalming required for the service we are considering?”",
+        "agentResponseStrategy": "Answer only from approved service and disclosure materials, explain when a human should confirm details, and route the family to staff for case-specific guidance.",
+        "sourceTypes": [
+          "General price list",
+          "Service pages",
+          "Disclosure language",
+          "Family FAQs"
+        ],
+        "optionalAction": "Create a follow-up task with the family’s contact details, service interest, and question summary.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-ftc-funeral-rule"
+        ]
+      },
+      {
+        "request": "“What should we expect before a viewing?”",
+        "agentResponseStrategy": "Provide a compassionate overview from the firm’s family education materials, clarify that exact timing depends on the case, and offer a human callback.",
+        "sourceTypes": [
+          "Viewing preparation FAQ",
+          "Aftercare resources",
+          "Website pages",
+          "Authorization instructions"
+        ],
+        "optionalAction": "Collect preferred viewing timeframe and contact method, then send a summarized handoff to the arranger.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can we schedule a consultation or have someone call tonight?”",
+        "agentResponseStrategy": "Collect structured scheduling intent and urgency while avoiding promises the firm has not approved. Escalate urgent or sensitive requests to the configured on-call path.",
+        "sourceTypes": [
+          "Contact policy",
+          "Scheduling instructions",
+          "Location pages",
+          "After-hours procedures"
+        ],
+        "optionalAction": "Use a customer-configured scheduling workflow, form, API, or notification to request the appointment or callback.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What are our choices if we prefer cremation?”",
+        "agentResponseStrategy": "Explain available options from approved service materials and invite staff follow-up for recommendations, local requirements, and final arrangements.",
+        "sourceTypes": [
+          "Cremation service pages",
+          "Memorial options FAQ",
+          "Price list",
+          "Family education guides"
+        ],
+        "optionalAction": "Forward the family’s preferred disposition, ceremony questions, and timeline to the appropriate staff member.",
+        "icon": "FireIcon",
+        "sourceIds": [
+          "src-nfda-cremation-2024"
+        ]
+      },
+      {
+        "request": "“Can you send me the price information?”",
+        "agentResponseStrategy": "Direct the family to approved price list resources and explain next steps in plain language without improvising fees, discounts, legal disclosures, or contractual terms.",
+        "sourceTypes": [
+          "General price list",
+          "Casket price list",
+          "Outer burial container price list",
+          "Service catalog"
+        ],
+        "optionalAction": "Create a staff-reviewed document request or route the conversation to the front office.",
+        "icon": "BanknotesIcon",
+        "sourceIds": [
+          "src-ftc-consumer-funeral-rule"
+        ]
+      },
+      {
+        "request": "“I’m not sure who I should talk to.”",
+        "agentResponseStrategy": "Ask a few low-burden clarifying questions, identify the likely team or location, and escalate rather than forcing the family through a long form.",
+        "sourceTypes": [
+          "Contact routing rules",
+          "Location pages",
+          "Staff roles",
+          "Service categories"
+        ],
+        "optionalAction": "Prepare a concise handoff summary for the funeral director, arranger, or office team.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make preparation room knowledge easier to find and safer to use",
+    "intro": "DocsBot can also serve as a private internal knowledge agent for embalmers, funeral directors, managers, and administrative teams. Train it on approved internal sources so employees get consistent answers with access controls, logs, and reviewable conversations.",
+    "workflows": [
+      {
+        "name": "SOP retrieval for preparation tasks",
+        "problem": "Preparation procedures, checklists, and documentation rules may live across binders, PDFs, shared drives, and informal team knowledge.",
+        "agentWorkflow": "Staff ask a plain-language question and receive a source-grounded answer from the approved SOP, policy, or checklist, with links back to the underlying material when available.",
+        "sourceTypes": [
+          "Preparation room SOPs",
+          "Case documentation checklists",
+          "Training manuals",
+          "Policy PDFs"
+        ],
+        "optionalAction": "Generate a case preparation checklist draft for staff review or create a task when required information is missing.",
+        "outcome": "Staff can find approved procedures quickly while licensed professionals remain responsible for final preparation decisions.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Safety and exposure-control reminders",
+        "problem": "Preparation room work involves chemical exposure controls, PPE, ventilation, cleanup, and equipment practices that must remain visible to staff.",
+        "agentWorkflow": "The agent retrieves safety guidance from internal policies and approved regulatory references so employees can check requirements, refresh training, and find the right document before work begins.",
+        "sourceTypes": [
+          "Safety policies",
+          "PPE checklists",
+          "Ventilation procedures",
+          "Regulatory reference notes"
+        ],
+        "optionalAction": "Route a reported safety concern or equipment issue to the manager through a configured workflow.",
+        "outcome": "Safety information becomes easier to access at the moment staff need it, supporting more consistent preparation room practices.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-niosh-formaldehyde"
+        ]
+      },
+      {
+        "name": "Shift handoff and case summary support",
+        "problem": "Important details can be buried in notes, calls, emails, or intake forms when a case moves from arranger to preparation staff or from one shift to another.",
+        "agentWorkflow": "DocsBot can summarize approved context, identify missing fields from firm-defined rules, and draft a concise handoff for human review.",
+        "sourceTypes": [
+          "Intake notes",
+          "Authorized case documents",
+          "Internal message threads",
+          "Workflow records"
+        ],
+        "optionalAction": "Attach the summary to a ticket, notify the next team member, or update approved status fields through configured Skills or APIs.",
+        "outcome": "Teams reduce repeated questions and preserve context without giving the agent authority over sensitive case decisions.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Training analytics and documentation gaps",
+        "problem": "Managers may not know which policies confuse new employees until mistakes, repeated questions, or inconsistent explanations appear.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, and knowledge-gap discovery show what staff and families ask most often, where answers are missing, and which documents need updates.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Training content",
+          "Policy documents"
+        ],
+        "optionalAction": "Create documentation improvement tasks or route repeated unanswered topics to the owner of the policy.",
+        "outcome": "Training materials improve based on actual questions rather than guesswork.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Owner and manager knowledge access",
+        "problem": "Multi-location funeral organizations and trade embalming teams need controlled access to the same operating knowledge without exposing private information broadly.",
+        "agentWorkflow": "Use role-based permissions and granular access controls so staff only access the sources appropriate for their role, location, or function.",
+        "sourceTypes": [
+          "Location policies",
+          "Management playbooks",
+          "HR policies",
+          "Compliance notes"
+        ],
+        "optionalAction": "Trigger a manager review when a question touches a restricted policy, credentialed task, or high-impact decision.",
+        "outcome": "Private knowledge is easier to use while sensitive procedures remain governed by permissions and review paths.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own embalming and funeral care knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on configured company knowledge sources such as websites, PDFs, help centers, internal documents, wikis, and approved files.",
+      "industryApplication": "Train an agent on service pages, preparation room SOPs, authorization instructions, safety policies, aftercare resources, price list references, and family FAQs so answers stay aligned with your firm.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers for family and staff questions",
+      "mainLandingPageContext": "DocsBot agents provide instant answers grounded in approved sources and can surface gaps where documentation is missing.",
+      "industryApplication": "Use source-grounded responses for questions about viewing preparation, embalming authorization, service options, staff procedures, and next steps instead of relying on improvised explanations.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded, customer-configured lookups, summaries, routing, record updates, workflow triggers, and handoffs through approved tools.",
+      "industryApplication": "Configure live actions to collect intake details, create a callback task, notify the on-call team, summarize a case handoff, or connect to approved internal systems through APIs, connectors, or Model Context Protocol servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive or high-impact conversations",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate grief-sensitive, legal, pricing, consent, identity, or case-specific preparation questions to licensed staff while still giving families general guidance from approved materials.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Internal knowledge access with governance",
+      "mainLandingPageContext": "DocsBot supports private internal assistants, role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no training of public models on customer data.",
+      "industryApplication": "Give employees controlled access to SOPs, safety guidance, training materials, and policy documents without making sensitive internal knowledge broadly visible.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot includes analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which family questions, staff procedures, disclosure topics, or preparation room processes generate confusion so managers can improve content and training.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Website widget, private team chat, and multilingual support",
+      "mainLandingPageContext": "DocsBot agents can be deployed in website widgets, private team chat, Slack, Microsoft Teams, APIs, and multilingual experiences across more than 100 languages.",
+      "industryApplication": "Support families on service pages, give employees a private knowledge assistant, and help multilingual households understand approved next-step information before speaking with staff.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare communications teams use DocsBot to streamline internal decision-making and reduce unnecessary direct human interaction.",
+      "DocsBot supports source-grounded learning and training workflows for complex, sensitive topics.",
+      "Teams can train DocsBot on their own content library so answers stay connected to approved materials."
+    ],
+    "whyTheseReviewsFit": "Embalming and funeral care work depends on trust, precise knowledge, and careful handoffs. DocsBot proof from healthcare communications, education, and content-library use shows how teams use approved knowledge to support decisions, answer recurring questions, and keep people aligned without replacing human judgment.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for embalming and funeral care teams",
+    "audience": [
+      "Licensed embalmers",
+      "Funeral directors",
+      "Funeral home owners",
+      "Preparation room managers",
+      "Death care operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BeakerIcon"
+  },
+  "relatedIndustrySlugs": [
+    "home-health-services",
+    "healthcare-revenue-cycle-management",
+    "emergency-medical-services",
+    "alternative-medicine",
+    "child-youth-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "embalmer",
+    "webSearchQueries": [
+      "BLS embalmer occupational outlook employment embalmer 2024",
+      "OSHA funeral home embalming formaldehyde hazards embalming",
+      "FTC funeral rule funeral providers price list embalming disclosure",
+      "NFDA cremation burial statistics 2024 report",
+      "BLS occupational employment embalmer May 2024"
+    ],
+    "sourceUrls": [
+      "https://www.ftc.gov/legal-library/browse/rules/funeral-industry-practices-rule",
+      "https://consumer.ftc.gov/articles/ftc-funeral-rule",
+      "https://www.cdc.gov/niosh/docs/hazardcontrol/hc26.html",
+      "https://www.osha.gov/laws-regs/standardinterpretations/2005-07-08",
+      "https://nfda.org/news/in-the-news/nfda-news/id/8945/us-cremation-rate-is-projected-to-climb-to-619-in-2024"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46211,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 25475,
+        "outputTokens": 8263,
+        "reasoningOutputTokens": 169,
+        "totalTokens": 54474,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.192817,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.212817
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25554,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10066,
+          "outputTokens": 5702,
+          "reasoningOutputTokens": 169,
+          "totalTokens": 31256,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.114567,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.134567
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20657,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15409,
+          "outputTokens": 2561,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23218,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07825,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07825
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/reserve/xd45Y326SvKzSR3Nanc8_MRJ_8125-1.jpg?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzYwNjB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Embalmer background image",
+    "source": "legacy-industry",
+    "query": "Embalmer"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without letting it make embalming or case-specific decisions?",
+      "answer": "Yes. DocsBot is best positioned as a source-grounded support layer, not a replacement for licensed judgment. It can retrieve approved SOPs, explain general next steps, summarize intake context, and route sensitive questions to staff. You define escalation rules for legal, consent, identity, pricing, grief-sensitive, or case-specific preparation decisions.",
+      "role": "Licensed embalmers and preparation room leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help when families ask whether embalming is required?",
+      "answer": "DocsBot can answer from your approved service pages, general price list language, disclosure materials, and family FAQs, then escalate if the answer depends on state law, timing, viewing plans, transportation, or case facts. This matters because the FTC Funeral Rule requires funeral providers to give itemized price information and required disclosures related to embalming and other services.",
+      "role": "Funeral directors and arrangers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-funeral-rule"
+      ]
+    },
+    {
+      "question": "Can the agent answer family questions after hours without creating risk for our on-call director?",
+      "answer": "Yes, if you scope it carefully. A customer-facing DocsBot agent can provide approved general answers, collect low-burden details, identify urgency, and create a summarized handoff for the on-call path. It should avoid promises about timing, pricing exceptions, legal requirements, or case handling unless those instructions are explicitly approved in your sources.",
+      "role": "Funeral directors and arrangers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What internal documents should we train the embalming knowledge agent on first?",
+      "answer": "Start with high-use, high-risk materials: preparation room SOPs, PPE and chemical handling guidance, release documentation checklists, authorization workflows, viewing preparation FAQs, transfer procedures, after-hours routing rules, and current price disclosure references. Then use DocsBot analytics and unanswered questions to identify missing or outdated policy language.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will staff see the source behind an answer, or just a generated response?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved knowledge. For preparation room use, that means staff can ask in plain language and verify the underlying SOP, checklist, policy, or training file when available. This is especially important when the answer touches documentation, safety reminders, or firm-specific procedures.",
+      "role": "Licensed embalmers and preparation room leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with OSHA and formaldehyde-related safety reminders?",
+      "answer": "DocsBot can make your approved safety policies, PPE checklists, ventilation procedures, and regulatory reference notes easier for staff to find. It should not replace formal safety training or exposure monitoring. OSHA states its formaldehyde occupational exposure standard applies to employee exposures from embalming in funeral homes.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-formaldehyde-funeral"
+      ]
+    },
+    {
+      "question": "How do we keep private preparation room procedures away from families or unauthorized staff?",
+      "answer": "Use separate agent experiences and controlled knowledge sources. DocsBot supports private internal assistants, granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no training of public models on customer data. Family-facing agents should only use approved public and family-appropriate content.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it integrate with our case management, forms, or ticketing workflow?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, or MCP server tools. Typical actions include collecting missing intake details, creating a task, routing a notification, attaching a summary, or updating approved fields. Buyers should define exactly which systems, fields, and actions are allowed before launch.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would we measure ROI for a funeral home or trade embalming operation?",
+      "answer": "Look at reduced repetitive family questions, faster access to SOPs, fewer internal interruptions, more complete intake handoffs, after-hours request capture, and lower time spent searching for policies. For managers, the strongest ROI signal is often not full automation; it is better-prepared staff and fewer avoidable handoff gaps during sensitive cases.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this feel inappropriate or impersonal to grieving families?",
+      "answer": "It can be implemented in a compassionate, limited way. The agent should clearly answer routine questions from approved materials, use calm language, avoid pretending to be a person, and offer human follow-up early. The goal is not to automate grief support; it is to reduce confusion before a director or arranger takes over.",
+      "role": "Funeral directors and arrangers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help explain cremation, viewing, and memorial options without steering families?",
+      "answer": "Yes. Train the agent on your approved education pages, service menus, memorial options, cremation FAQs, and price list references. It can explain options neutrally and route families to a director for recommendations. NFDA projected the U.S. cremation rate at 61.9% in 2024, so families increasingly ask about choices beyond traditional burial.",
+      "role": "Funeral directors and arrangers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nfda-cremation-2024"
+      ]
+    },
+    {
+      "question": "What happens when the AI does not know the answer or the policy is missing?",
+      "answer": "DocsBot should be configured to say when it cannot answer from approved sources and escalate to a person. Its analytics, logs, topic management, and knowledge-gap discovery can also show which family questions or staff procedures lack reliable documentation, so managers know what to update next.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use it for apprentice or new employee onboarding?",
+      "answer": "Yes. A private DocsBot internal knowledge agent can answer questions from onboarding guides, preparation room SOPs, family communication standards, documentation steps, and policy updates. New staff can get consistent answers without interrupting senior embalmers for every lookup, while managers review repeated questions to improve training content.",
+      "role": "Licensed embalmers and preparation room leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much cleanup do our SOPs and policies need before implementation?",
+      "answer": "You do not need perfect documentation, but you do need approved source material. During setup, prioritize current, authoritative documents and remove duplicates, outdated policies, and informal notes that should not guide answers. DocsBot analytics can then reveal where staff or family questions expose gaps in your content.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support multiple locations with different policies or price lists?",
+      "answer": "Yes, if your knowledge sources and permissions are organized by location, role, or workflow. A multi-location organization can separate public pages, internal SOPs, location-specific procedures, and price references so staff and families receive answers aligned with the right branch, service area, or escalation path.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot send families price information or explain the general price list?",
+      "answer": "DocsBot can direct families to approved price list resources and explain next steps from your current materials, without improvising fees, discounts, package terms, or legal language. FTC consumer guidance says consumers can choose only the funeral goods and services they want and get price information when arranging at need or in advance.",
+      "role": "Funeral directors and arrangers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-consumer-funeral-rule"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving legal, medical, or regulatory advice?",
+      "answer": "Define strict instructions and escalation paths. The agent can provide approved general information, retrieve your policies, and route sensitive questions, but it should not interpret law, make eligibility decisions, diagnose conditions, approve authorizations, or make preparation recommendations. Human review should remain mandatory for high-impact or regulated decisions.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can preparation room staff use it without logging into another complicated system?",
+      "answer": "DocsBot can be deployed through private team chat, Slack, Microsoft Teams, APIs, or controlled internal access, depending on how your team works. The practical goal is to let staff ask plain-language questions and retrieve the right checklist, policy, or safety reminder without hunting through binders, shared drives, or long PDFs.",
+      "role": "Licensed embalmers and preparation room leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What buyer stakeholders should be involved before we launch an embalming support agent?",
+      "answer": "Include the owner or general manager, licensed embalmer or prep room lead, funeral director or arranger, compliance or safety lead, and whoever manages your website, forms, case software, or internal documents. Each group should approve source content, escalation rules, permissions, and what the agent is not allowed to answer.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is DocsBot different from a generic website chatbot?",
+      "answer": "DocsBot is better evaluated as a source-grounded AI agent trained on your approved funeral care knowledge. Beyond chat, it can support internal SOP retrieval, family FAQ answers, intake summaries, knowledge-gap reporting, and bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can it summarize transfer or intake details without asking families to repeat painful information?",
+      "answer": "Yes. DocsBot can collect structured details such as contact information, location, timing, service interest, and callback preference, then prepare a concise handoff for staff. With approved workflows, it can create a task or route a notification, while leaving sensitive decisions and follow-up conversations to the funeral team.",
+      "role": "Funeral directors and arrangers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What analytics would a manager actually review after launch?",
+      "answer": "Useful reports include repeated family questions, unanswered topics, escalation reasons, staff SOP searches, training gaps, satisfaction or resolution trends, and conversations that need review. For an embalming or funeral care team, these insights can guide website updates, staff training, disclosure language, and internal documentation cleanup.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support multilingual families?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured, using your approved source materials as the basis for responses. For funeral care, multilingual support is most useful for general next-step guidance, service explanations, appointment requests, and routing families to the right person for human follow-up.",
+      "role": "Funeral directors and arrangers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should remain outside the AI agent’s scope?",
+      "answer": "Keep final preparation decisions, authorization approval, identity verification, legal interpretations, special pricing exceptions, complaint resolution, and emotionally complex family conversations with people. DocsBot should support those workflows by retrieving approved information, collecting context, drafting summaries, and escalating at the right moment.",
+      "role": "Owners, managers, and compliance coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help reinforce safety practices at the moment staff need them?",
+      "answer": "Yes, by making approved safety guidance searchable in the preparation room workflow. For example, staff can quickly find PPE reminders, ventilation procedures, or cleanup checklists. NIOSH guidance on controlling formaldehyde during embalming highlights ventilation and exposure-control practices relevant to preparation room safety communication.",
+      "role": "Licensed embalmers and preparation room leads",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-niosh-formaldehyde"
+      ]
+    }
+  ]
+}

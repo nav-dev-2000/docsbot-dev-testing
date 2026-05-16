@@ -1,0 +1,779 @@
+{
+  "slug": "classic-car-restoration",
+  "business": "Classic Car Restoration",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Classic Car Restoration Shops",
+    "description": "DocsBot helps classic car restoration teams answer buyer questions, retrieve build knowledge, and route estimate requests from approved shop sources.",
+    "canonicalPath": "/industry/classic-car-restoration"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for restoration shops",
+    "headline": "Keep restoration knowledge moving from the front desk to the garage",
+    "subheadline": "DocsBot lets classic car restoration businesses create AI agents trained on your service pages, build documentation, parts notes, inspection checklists, photo guides, FAQs, and internal procedures so customers get clear answers and technicians find shop knowledge faster.",
+    "proofBullets": [
+      {
+        "text": "Answer prospect questions about services, timelines, inspection steps, restomod options, documentation, and next best handoff from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help technicians search restoration notes, SOPs, PDFs, manuals, parts references, and job-specific guidance without digging through folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect project details, qualify estimate requests, summarize intake conversations, and route the right opportunities to your team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use scoped AI Actions to create tasks, prepare handoffs, trigger workflows, or look up approved live context when your shop configures the connection.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your restoration agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps classic car restoration shops turn scattered knowledge into customer-facing and internal AI agents. Train agents on your website, service catalog, manuals, SOPs, FAQs, build notes, PDFs, and other approved sources so they can give source-grounded answers, summarize requests, surface knowledge gaps, and take bounded actions through configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and restoration shop managers",
+        "roleContext": "Keep customer communication consistent while protecting technician time for high-value fabrication, paint, mechanical, upholstery, and finishing work.",
+        "bullets": [
+          {
+            "text": "Explain what your shop does and does not restore, how intake works, and when a human estimator should step in.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Summarize website chats or estimate requests into usable project briefs before the first phone call.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to identify repeated questions that deserve better service pages, FAQs, or intake forms.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Service advisors and estimators",
+        "roleContext": "Give front-office staff a faster way to answer project-fit, documentation, scheduling, and parts-source questions without interrupting the floor for every detail.",
+        "bullets": [
+          {
+            "text": "Collect year, make, model, condition, goals, photos, budget range, location, and timeline before routing the lead.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Retrieve approved language for inspection fees, documentation expectations, storage policies, and scope boundaries.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Prepare a clean handoff when a question needs owner review, custom pricing, or specialist input.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Technicians, fabricators, and apprentices",
+        "roleContext": "Preserve hard-won restoration knowledge so newer staff can find approved procedures, historical build notes, parts references, and quality checkpoints in the moment.",
+        "bullets": [
+          {
+            "text": "Ask private questions against SOPs, training notes, manuals, photos, PDFs, and internal documentation.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Find procedures for disassembly documentation, parts labeling, rust repair steps, reassembly checks, and finish standards.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Capture unanswered technician questions as documentation gaps that managers can review and improve.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Parts and project coordinators",
+        "roleContext": "Coordinate rare parts, vendor notes, client approvals, and build documentation with less manual searching across emails, spreadsheets, folders, and job records.",
+        "bullets": [
+          {
+            "text": "Look up approved vendor notes, part numbers, availability references, alternates, and restoration-specific fitment guidance when connected.",
+            "icon": "CubeIcon"
+          },
+          {
+            "text": "Draft status summaries for customers from approved project notes while leaving commitments and pricing under human control.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Trigger configured workflows for missing information, internal review, or next-step reminders.",
+            "icon": "BellIcon"
+          }
+        ],
+        "roleIcon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-sema-classic-vehicles",
+      "metric": "More than 9.4 million pre-1990 vehicles are estimated to be on the road.",
+      "claim": "SEMA reports that classic vehicles remain a substantial enthusiast segment, with owners modifying older cars using modern parts and technology.",
+      "sourceTitle": "Classic Cars, Modern Markets Report Now Available",
+      "sourceUrl": "https://www.sema.org/get-involved/councils-networks/hria/classic-cars-modern-markets-report-now-available",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "classic vehicle audience size",
+        "customer demand for restoration and restomod information",
+        "market interest"
+      ]
+    },
+    {
+      "id": "src-sema-parts-spend",
+      "metric": "Consumers spent almost $1 billion on accessories and customization parts for older cars in one year.",
+      "claim": "SEMA’s Classic Cars, Modern Markets coverage highlights significant consumer spending on older-car accessories and customization parts.",
+      "sourceTitle": "Classic Cars, Modern Markets",
+      "sourceUrl": "https://www.sema.org/news-media/magazine/2021/03/classic-cars-modern-markets",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "parts research pressure",
+        "restomod demand",
+        "prospect education"
+      ]
+    },
+    {
+      "id": "src-bls-body-repair",
+      "metric": "About 16,000 automotive body and glass repairer openings are projected each year from 2024 to 2034.",
+      "claim": "BLS projects continued replacement demand for automotive body and glass repairers even with slower overall employment growth.",
+      "sourceTitle": "Automotive Body and Glass Repairers, Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-body-and-glass-repairers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor pressure",
+        "training and onboarding",
+        "technician knowledge retention"
+      ]
+    },
+    {
+      "id": "src-hagerty-collector-scale",
+      "metric": "Hagerty data says around 43 million U.S. vehicles fit its collector-vehicle definition.",
+      "claim": "Hagerty frames the U.S. collector vehicle market as far broader than public auction headlines suggest.",
+      "sourceTitle": "The Collector Car Market: By the Numbers",
+      "sourceUrl": "https://www.hagertyagent.com/resources/hagerty-insights/the-collector-car-market-by-the-numbers",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "collector market scale",
+        "buyer education",
+        "service demand context"
+      ]
+    },
+    {
+      "id": "src-hagerty-cost-complexity",
+      "metric": "Hagerty notes rising parts costs, specialized labor costs, and complexity in newer collector cars.",
+      "claim": "Hagerty reports that the cost of parts and specialized labor, along with complexity in some newer collector cars, has changed collector-car buying and restoration economics.",
+      "sourceTitle": "Collector Car Prices Have Returned to Normal Since the Pandemic, but the Market Is Forever Changed",
+      "sourceUrl": "https://www.hagerty.com/media/market-trends/hagerty-insider/collector-car-prices-have-returned-to-normal-since-the-pandemic-but-the-market-is-forever-changed/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "expectation setting",
+        "estimate education",
+        "project scope complexity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Project-fit and estimate intake agent",
+      "problem": "Restoration leads often arrive with incomplete details, broad questions, and unrealistic expectations about cost, scope, documentation, or timeline.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages, intake rules, FAQs, portfolio notes, and policy documents. It collects vehicle year, make, model, photos, current condition, goals, budget range, storage needs, and preferred follow-up, then prepares a concise handoff for the right estimator.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, forms, or scheduling workflows, the agent can submit an intake form, create a task, forward the summary to a CRM or helpdesk-style system, or request a consultation slot.",
+      "exampleQuestionsOrRequests": [
+        "Can you restore a 1967 Camaro that is already disassembled?",
+        "What information do you need before giving a rough estimate?",
+        "I want a restomod, not a factory-correct build. Is that a fit for your shop?"
+      ],
+      "businessOutcome": "Higher-quality inbound leads, fewer repetitive front-desk conversations, and a clearer handoff before a human invests time in scoping the project.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Customer education agent for restoration expectations",
+      "problem": "Classic car owners may need education on inspection, parts availability, project phases, progress updates, and why custom restoration work cannot be quoted like routine repair.",
+      "agentWorkflow": "The agent explains your process from approved content: discovery, inspection, teardown, documentation, parts sourcing, bodywork, paint, mechanical, upholstery, assembly, testing, and delivery. It can point customers to source pages and escalate pricing or commitment questions.",
+      "liveContextOrTools": "Configured workflows can route complex questions, collect missing photos, or generate a customer-ready summary for staff review before follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Why do you need a paid inspection before quoting the full restoration?",
+        "What happens after teardown reveals more rust?",
+        "How often will I receive progress updates?"
+      ],
+      "businessOutcome": "Better-informed prospects and customers who understand your process before they request exceptions, rush timelines, or fixed pricing too early.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-hagerty-cost-complexity"
+      ]
+    },
+    {
+      "name": "Internal restoration knowledge assistant",
+      "problem": "Build knowledge often lives in veteran technicians’ heads, scattered PDFs, paper manuals, photo folders, vendor notes, and old job files.",
+      "agentWorkflow": "DocsBot trains on approved internal knowledge sources such as SOPs, manuals, checklists, parts notes, historical build documentation, Google Drive, Notion, Confluence, PDFs, Word documents, and text files. Team members ask natural-language questions and receive source-grounded answers with the context they need.",
+      "liveContextOrTools": "Private chat, Slack, Microsoft Teams, or internal deployment can give staff quick access. If configured, Skills can retrieve approved job metadata or create a follow-up task when documentation is missing.",
+      "exampleQuestionsOrRequests": [
+        "Where is our procedure for labeling parts during teardown?",
+        "What finish checklist do we use before final delivery?",
+        "Do we have notes from the last Tri-Five wiring conversion?"
+      ],
+      "businessOutcome": "Less searching, faster onboarding, and more consistent execution across long-running projects where details matter.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-body-repair"
+      ]
+    },
+    {
+      "name": "Parts, vendor, and fitment research support",
+      "problem": "Rare parts, remanufactured components, restomod upgrades, and customer-supplied parts create repetitive lookup work and uncertainty.",
+      "agentWorkflow": "An internal agent retrieves your approved parts references, vendor policies, fitment notes, substitution rules, warranty language, and previous project documentation. It can summarize options for a coordinator while keeping final purchasing decisions with your team.",
+      "liveContextOrTools": "With scoped Skills, APIs, connectors, or MCP-enabled tools, the agent can look up approved live records, draft a parts inquiry, update a task field, or notify a coordinator when review is needed.",
+      "exampleQuestionsOrRequests": [
+        "What vendors have we used for this model’s weatherstripping?",
+        "Do we accept customer-supplied sheet metal on concours builds?",
+        "Summarize the approved alternator options for this restomod package."
+      ],
+      "businessOutcome": "Fewer repeated lookups and cleaner parts coordination without letting the AI make purchasing, safety, or fitment decisions on its own.",
+      "icon": "CubeIcon",
+      "sourceIds": [
+        "src-sema-parts-spend"
+      ]
+    },
+    {
+      "name": "Build status and handoff summarization",
+      "problem": "Long restoration projects generate notes, photos, decisions, parts delays, and customer conversations that are hard to condense quickly.",
+      "agentWorkflow": "DocsBot can summarize approved notes, conversations, and documentation into internal briefings or customer-facing drafts. Staff can review the summary, edit sensitive details, and send the update through their normal communication process.",
+      "liveContextOrTools": "Configured actions can create a task, draft a response in helpdesk-style software, notify a team channel, or route a project update for review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the last three updates for this Mustang project.",
+        "Draft a customer update explaining why paint work is waiting on trim fitment.",
+        "What open decisions does the customer still need to make?"
+      ],
+      "businessOutcome": "More consistent updates and fewer details lost between the shop floor, office, vendors, and customers.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Documentation gap discovery",
+      "problem": "If customers and employees keep asking the same questions, the shop may not know which FAQs, intake pages, or SOPs need improvement.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see recurring questions and weak documentation areas.",
+      "liveContextOrTools": "Managers can review unanswered or low-confidence topics and add better source material to the agent over time.",
+      "exampleQuestionsOrRequests": [
+        "Which questions about inspections are prospects asking most?",
+        "What internal procedures are technicians asking about repeatedly?",
+        "Where did the agent need escalation this month?"
+      ],
+      "businessOutcome": "A practical improvement loop for service pages, onboarding material, estimate policies, and internal restoration procedures.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give owners clear restoration answers before they call the shop",
+    "intro": "Embed a DocsBot AI support agent on your website to answer from approved shop knowledge, guide prospects through intake, and escalate nuanced project questions to a person. It can support multilingual questions in more than 100 languages when your customer base needs it.",
+    "requests": [
+      {
+        "request": "“Can you restore my inherited 1965 Mustang if it has rust and missing parts?”",
+        "agentResponseStrategy": "Explain your intake process, what photos and documents to provide, when inspection is required, and which questions need estimator review.",
+        "sourceTypes": [
+          "Service pages",
+          "Intake forms",
+          "FAQ pages",
+          "Inspection policies"
+        ],
+        "optionalAction": "Collect contact details, vehicle information, condition notes, photos, goals, and preferred follow-up for a human estimator.",
+        "icon": "CameraIcon"
+      },
+      {
+        "request": "“What is the difference between factory-correct restoration and a restomod?”",
+        "agentResponseStrategy": "Answer from your approved service descriptions and portfolio language, then clarify which options your shop supports and what choices affect scope.",
+        "sourceTypes": [
+          "Service catalog",
+          "Portfolio notes",
+          "Build guides",
+          "FAQs"
+        ],
+        "optionalAction": "Route the visitor to the correct intake path based on restoration goal, project stage, and desired follow-up.",
+        "icon": "WrenchIcon",
+        "sourceIds": [
+          "src-sema-classic-vehicles"
+        ]
+      },
+      {
+        "request": "“How long will my restoration take and why can’t you guarantee the final price now?”",
+        "agentResponseStrategy": "Set expectations using your own policy language about inspection, teardown findings, parts availability, custom fabrication, change orders, and approvals.",
+        "sourceTypes": [
+          "Estimate policies",
+          "Project phase docs",
+          "Customer agreements",
+          "Update templates"
+        ],
+        "optionalAction": "Escalate pricing, contract, or timeline commitments to the appropriate human reviewer.",
+        "icon": "ClockIcon",
+        "sourceIds": [
+          "src-hagerty-cost-complexity"
+        ]
+      },
+      {
+        "request": "“Do you work with out-of-state customers?”",
+        "agentResponseStrategy": "Explain shipping, storage, communication, documentation, and consultation policies from approved sources, without promising availability unless your workflow provides it.",
+        "sourceTypes": [
+          "Shipping policies",
+          "Storage terms",
+          "Consultation pages",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Use a configured scheduling or lead workflow to request a call, submit a form, or notify the front office.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you have examples of similar builds?”",
+        "agentResponseStrategy": "Point visitors to approved portfolio content, case examples, photo galleries, and service pages that match the vehicle type or build goal.",
+        "sourceTypes": [
+          "Portfolio pages",
+          "Photo guides",
+          "Project summaries",
+          "Website content"
+        ],
+        "optionalAction": "Capture the visitor’s project type and send the conversation summary to the sales or service team.",
+        "icon": "PhotoIcon"
+      },
+      {
+        "request": "“Can you help me understand what parts I need before I bring the car in?”",
+        "agentResponseStrategy": "Provide general guidance from approved parts and intake documentation, then make clear that final fitment, safety, and purchase decisions require shop review.",
+        "sourceTypes": [
+          "Parts policies",
+          "Vendor notes",
+          "Intake checklists",
+          "Fitment references"
+        ],
+        "optionalAction": "Create a parts-review task or route the question to a coordinator when configured.",
+        "icon": "CubeIcon",
+        "sourceIds": [
+          "src-sema-parts-spend"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give your shop a searchable memory for long restoration projects",
+    "intro": "DocsBot can serve as a private internal knowledge agent for owners, advisors, technicians, apprentices, parts coordinators, and operations teams. Train it on the documents your shop already trusts so people can retrieve the right answer without interrupting specialists.",
+    "workflows": [
+      {
+        "name": "Technician SOP retrieval",
+        "problem": "Technicians may need a specific procedure, checklist, or reference note while a vehicle is on a lift or in teardown.",
+        "agentWorkflow": "The agent answers from approved SOPs, manuals, PDFs, build notes, and training documents, with source-grounded context so staff can verify the answer.",
+        "sourceTypes": [
+          "SOPs",
+          "Manuals",
+          "PDFs",
+          "Training notes",
+          "Quality checklists"
+        ],
+        "optionalAction": "Create a documentation-gap task when the answer is missing or unclear.",
+        "outcome": "Less time hunting through folders and fewer interruptions for senior technicians.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Apprentice onboarding support",
+        "problem": "Newer staff need repeated guidance on shop standards, documentation practices, labeling, safety reminders, and escalation paths.",
+        "agentWorkflow": "DocsBot provides always-available answers from onboarding material, internal policies, restoration procedures, and manager-approved reference documents.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Policy documents",
+          "Training libraries",
+          "Process checklists"
+        ],
+        "optionalAction": "Managers can review logs to see which topics need better training content.",
+        "outcome": "A more consistent learning path in a labor market where BLS projects about 16,000 body and glass repairer openings each year from 2024 to 2034.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-body-repair"
+        ]
+      },
+      {
+        "name": "Estimator and advisor playbook",
+        "problem": "Front-office staff need consistent answers on inspection fees, deposits, change orders, storage, parts sourcing, and customer communication rules.",
+        "agentWorkflow": "An internal agent retrieves approved talking points, policy language, proposal templates, objection handling, and service catalog details.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Policy documents",
+          "Proposal templates",
+          "Service catalogs"
+        ],
+        "optionalAction": "Draft a follow-up email or handoff summary for human review before sending.",
+        "outcome": "More consistent communication across advisors without letting AI commit to pricing, deadlines, or contract terms.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Project note summarization",
+        "problem": "Owners and managers need quick context before a customer call, vendor decision, or internal production meeting.",
+        "agentWorkflow": "DocsBot summarizes approved project notes, prior conversations, open questions, and documented decisions into a short briefing.",
+        "sourceTypes": [
+          "Project notes",
+          "Meeting notes",
+          "Customer conversations",
+          "Task exports"
+        ],
+        "optionalAction": "Trigger a workflow to notify the project owner, create a task, or route the summary to a team channel.",
+        "outcome": "Faster preparation for status calls and fewer missed details across long restoration timelines.",
+        "icon": "NewspaperIcon"
+      },
+      {
+        "name": "Parts coordination knowledge base",
+        "problem": "Coordinators repeatedly look for vendor preferences, approved alternates, customer-supplied parts policies, and prior build decisions.",
+        "agentWorkflow": "The agent answers from parts references, vendor notes, approved alternates, fitment documentation, and shop policies.",
+        "sourceTypes": [
+          "Vendor notes",
+          "Parts spreadsheets",
+          "Fitment references",
+          "Purchase policies"
+        ],
+        "optionalAction": "Use configured actions to draft a vendor inquiry, update an approved field, or route the decision to a manager.",
+        "outcome": "Cleaner handoffs between parts, estimating, and production while final purchasing decisions stay with staff.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "AI agents trained on your own restoration knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from approved company content, including websites, help centers, internal documents, PDFs, Word files, text files, wikis, Google Drive, Notion, Confluence, and other knowledge sources.",
+      "industryApplication": "Train an agent on service pages, intake policies, project-phase explanations, manuals, teardown procedures, parts notes, photo guides, and staff training content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents provide instant answers in your company’s voice from configured sources and can escalate complex or sensitive questions to a human.",
+      "industryApplication": "Answer restoration prospects about services, inspection steps, restomod options, documentation, project phases, out-of-state work, and next steps while routing pricing or commitment questions to your team.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Presales intake and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and apply customer-defined qualification rules.",
+      "industryApplication": "Collect vehicle details, condition, goals, photos, budget range, location, timeline, and project type before forwarding a qualified restoration inquiry to sales or estimating.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as live lookups, summaries, routing, record creation, field updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Create estimate-review tasks, route out-of-scope projects, summarize intake conversations, look up approved job context, or connect to remote Model Context Protocol servers your shop authorizes.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can operate as a private assistant for employees, with role-based permissions, access controls, and answers from internal knowledge sources.",
+      "industryApplication": "Give technicians, advisors, parts coordinators, and apprentices a faster way to retrieve SOPs, policies, manuals, vendor notes, and approved job knowledge.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and discovery of unanswered topics.",
+      "industryApplication": "See whether prospects keep asking about pricing, inspections, timelines, shipping, photos, parts, or restomod scope, then improve your website and internal documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for shop knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep customer project details, internal procedures, vendor notes, and shop policies inside controlled sources and permissioned workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, website, FAQs, and content library so answers reflect the way your shop works.",
+      "Deploy customer support on your website while giving staff an assistant for private knowledge and support workflows.",
+      "Use analytics and conversation review to learn which restoration questions need clearer documentation."
+    ],
+    "whyTheseReviewsFit": "Restoration businesses need answers grounded in their own knowledge, not generic automotive advice. DocsBot proof spans manual-driven product support, owned-content training, embedded website assistance, and high-volume customer inquiry handling—useful patterns for shops balancing customer education with specialist time.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RectangleGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for classic car restoration businesses",
+    "audience": [
+      "Classic car restoration shop owners",
+      "Restoration service advisors",
+      "Automotive restoration technicians",
+      "Parts and project coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "motor-vehicle-repair",
+    "automotive-part-sales",
+    "car-auction-house",
+    "used-car-sales",
+    "car-wash-detailing",
+    "automotive-electronics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "classic-car-restoration",
+    "webSearchQueries": [
+      "classic car restoration market size United States IBISWorld automotive restoration shops",
+      "SEMA classic cars collector car market restoration parts statistics",
+      "BLS automotive body repairers occupational outlook employment",
+      "Hagerty collector car market report parts restoration data"
+    ],
+    "sourceUrls": [
+      "https://www.sema.org/get-involved/councils-networks/hria/classic-cars-modern-markets-report-now-available",
+      "https://www.sema.org/news-media/magazine/2021/03/classic-cars-modern-markets",
+      "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-body-and-glass-repairers.htm",
+      "https://www.hagertyagent.com/resources/hagerty-insights/the-collector-car-market-by-the-numbers",
+      "https://www.hagerty.com/media/market-trends/hagerty-insider/collector-car-prices-have-returned-to-normal-since-the-pandemic-but-the-market-is-forever-changed/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42238,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 21502,
+        "outputTokens": 8469,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 50707,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.185975,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.195975
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21739,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6251,
+          "outputTokens": 5581,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 27320,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.103215,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.113215
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20499,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15251,
+          "outputTokens": 2888,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23387,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08276,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08276
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1544896478-d5b709d413c5?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHx2aW50YWdlLWNhcnxlbnwwfDB8fHwxNzE0ODc4MDYwfDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Classic Car Restoration background image",
+    "source": "legacy-industry",
+    "query": "Classic Car Restoration"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify restoration leads before my estimator spends time on them?",
+      "answer": "Yes. A DocsBot agent can collect year, make, model, current condition, photos, goals, budget range, location, storage needs, timeline, and preferred follow-up. It can answer from your approved intake policies, flag poor-fit projects, and prepare a concise handoff so your estimator starts with context instead of a vague “how much to restore this?” message.",
+      "role": "Owners and restoration shop managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we stop the agent from promising a price, delivery date, or build slot we have not approved?",
+      "answer": "DocsBot should be trained on your estimate policies and configured to escalate commitments to a person. It can explain why inspections, teardown findings, parts availability, fabrication, change orders, and approvals affect scope, but you can keep final pricing, scheduling, contracts, and acceptance decisions under human review.",
+      "role": "Service advisors and estimators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will this work for both customer-facing questions and private shop knowledge?",
+      "answer": "Yes. Many shops would use one customer-facing agent for website intake and education, and a separate private internal agent for SOPs, manuals, build notes, vendor policies, training content, and project documentation. Role-based permissions help keep internal procedures and customer records separate from public-facing answers.",
+      "role": "Owners and restoration shop managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent explain why a full restoration cannot be quoted like routine collision repair?",
+      "answer": "Yes. If your policies and process documents explain inspections, teardown, hidden rust, parts sourcing, custom fabrication, and approval steps, DocsBot can give consistent expectation-setting answers. That matters because Hagerty notes that parts costs, specialized labor costs, and added vehicle complexity have changed collector-car restoration economics.",
+      "role": "Service advisors and estimators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-hagerty-cost-complexity"
+      ]
+    },
+    {
+      "question": "What information can the agent collect from someone asking about a barn find or inherited car?",
+      "answer": "It can ask for the vehicle year, make, model, VIN if appropriate, title status, photos, running condition, rust areas, missing parts, disassembly state, desired outcome, budget range, timeline, location, transport needs, and whether the owner wants factory-correct, driver-quality, or restomod work. Your team defines which fields are required before routing.",
+      "role": "Service advisors and estimators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us educate restomod prospects without sounding like generic car advice?",
+      "answer": "Yes. Train the agent on your service pages, portfolio notes, build guides, FAQs, and approved language about factory-correct restoration versus restomod work. It can explain your shop’s options, boundaries, and intake process from your sources, which is useful in a market where SEMA estimates more than 9.4 million pre-1990 vehicles are on the road.",
+      "role": "Owners and restoration shop managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-sema-classic-vehicles"
+      ]
+    },
+    {
+      "question": "How would technicians actually use this without leaving the shop floor workflow?",
+      "answer": "A private internal agent can answer natural-language questions against SOPs, manuals, PDFs, checklists, parts notes, and build documentation. Teams can deploy it in private chat experiences such as Slack, Microsoft Teams, or internal access points, depending on configuration, so technicians can retrieve approved procedures without digging through folders or interrupting a senior tech.",
+      "role": "Technicians, fabricators, and apprentices",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it help onboard apprentices when our senior fabricators are already overloaded?",
+      "answer": "Yes. DocsBot can answer from onboarding guides, shop standards, safety reminders, labeling procedures, teardown checklists, and escalation rules. Managers can review repeated questions to see where training material is weak. That is relevant because BLS projects about 16,000 automotive body and glass repairer openings per year from 2024 to 2034.",
+      "role": "Technicians, fabricators, and apprentices",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-body-repair"
+      ]
+    },
+    {
+      "question": "Can the agent search old build notes, vendor notes, PDFs, and photo documentation?",
+      "answer": "Yes, if those sources are added as approved training content or connected through customer-configured workflows. DocsBot can train on internal documents, PDFs, Word files, text files, Google Drive, Notion, Confluence, and similar knowledge sources, then return source-grounded answers so staff can verify where the information came from.",
+      "role": "Technicians, fabricators, and apprentices",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot connect to our CRM, forms, task system, or project records?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, or workflows to forward lead summaries, create tasks, update approved fields, notify a team, or look up approved live context. It should be scoped to the systems and actions you authorize rather than treated as an unrestricted automation layer.",
+      "role": "Owners and restoration shop managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "We use spreadsheets and folders more than formal shop software. Is that a problem?",
+      "answer": "Not necessarily. Restoration knowledge often starts in practical places: folders, PDFs, manuals, spreadsheets, photo notes, estimate templates, email exports, and SOP documents. DocsBot can begin with approved static sources and later add more structured workflows as your shop standardizes intake, project tracking, or task routing.",
+      "role": "Parts and project coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with rare parts, alternates, and customer-supplied parts policies?",
+      "answer": "Yes, as a retrieval and coordination assistant. It can answer from your approved vendor notes, parts spreadsheets, fitment references, substitution rules, warranty language, and customer-supplied parts policies. Final purchasing, safety, fitment, and warranty decisions should remain with your team, especially when parts choices affect drivability or build quality.",
+      "role": "Parts and project coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can this reduce front-desk interruptions without hiding the team from serious buyers?",
+      "answer": "DocsBot can answer repetitive questions about services, photos needed, inspections, timelines, transport, storage, and next steps, then escalate qualified or nuanced inquiries with a summary. The goal is not to block customers; it is to make the first human conversation more productive and protect technician time from basic information requests.",
+      "role": "Service advisors and estimators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What KPIs should we watch after launching an AI agent for our restoration shop?",
+      "answer": "Track qualified intake submissions, incomplete-lead reduction, common unanswered topics, escalation reasons, response satisfaction, estimate-prep time, repeat questions by category, and internal knowledge searches. For internal use, also watch onboarding questions, SOP retrieval volume, and documentation gaps that show where policies or build notes need improvement.",
+      "role": "Owners and restoration shop managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review conversations to see what prospects and employees keep asking?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a restoration shop, that can reveal repeated questions about inspection fees, rust surprises, restomod scope, out-of-state logistics, storage, parts delays, or undocumented shop procedures.",
+      "role": "Owners and restoration shop managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep customer project details, vendor notes, and internal procedures private?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy that customer data is not used to train public models. You can separate public website knowledge from private internal sources and restrict sensitive actions through permissions and scoped Skills.",
+      "role": "Owners and restoration shop managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we control what the agent is allowed to do if we enable actions?",
+      "answer": "Yes. AI Actions and Skills are designed for bounded tasks such as creating a task, routing a request, preparing a handoff, looking up approved context, updating an approved field, or triggering a workflow. Skills can be configured with secrets, metadata bindings, network policy, logging, and customer-defined controls, so the agent only accesses what you authorize.",
+      "role": "Owners and restoration shop managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will DocsBot replace our estimator or project manager?",
+      "answer": "No. It is best used to collect information, answer from approved sources, summarize context, retrieve shop knowledge, and route work. Human staff should still own project acceptance, pricing, timelines, change orders, parts decisions, customer approvals, quality judgment, and any commitment that affects safety, cost, or contractual expectations.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How much documentation do we need before this is useful?",
+      "answer": "You do not need a perfect knowledge base to start. Useful starting sources include service pages, FAQs, inspection policies, intake forms, estimate templates, storage terms, SOPs, checklists, vendor notes, manuals, and a few representative build summaries. DocsBot analytics can then show which missing answers should be documented next.",
+      "role": "Owners and restoration shop managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent draft customer updates for long-running builds?",
+      "answer": "Yes, when trained on or connected to approved project notes and communication templates. DocsBot can summarize recent decisions, open questions, parts delays, inspection findings, or next steps into a draft. Staff should review before sending so tone, commitments, costs, and sensitive details stay under human control.",
+      "role": "Parts and project coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it handle out-of-state prospects asking about shipping, storage, and updates?",
+      "answer": "Yes, if your shipping, storage, consultation, documentation, and communication policies are included. The agent can explain what your shop requires before accepting an out-of-state project, collect location and transport details, and route the conversation to staff when availability, pricing, or contract terms need review.",
+      "role": "Service advisors and estimators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with putting a generic AI chatbot on our website?",
+      "answer": "The difference is grounding and control. DocsBot agents are trained on your approved restoration knowledge, can cite or reference source context, follow your escalation rules, and support private internal knowledge workflows. A generic chatbot may answer broadly, but that is risky when customers ask about estimates, parts, safety, scope, or shop policy.",
+      "role": "Owners and restoration shop managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent support customers who speak another language?",
+      "answer": "Yes. DocsBot can support multilingual questions in more than 100 languages. For a restoration shop, that can help prospects understand intake requirements, photos needed, process steps, and next actions, while still escalating pricing, contracts, and nuanced project decisions to your team.",
+      "role": "Service advisors and estimators",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source material is unclear?",
+      "answer": "DocsBot can be configured to escalate to a person, collect the missing details, or create a documentation-gap task. Managers can review unanswered or low-confidence topics and improve the source material over time, which is especially useful for edge cases like unusual models, incomplete disassembly, rare parts, or custom restomod requests.",
+      "role": "Owners and restoration shop managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use it to improve parts coordination as the collector market keeps changing?",
+      "answer": "Yes. DocsBot can help coordinators retrieve approved vendor preferences, alternates, fitment notes, and customer-supplied parts rules. SEMA reported that consumers spent almost $1 billion on accessories and customization parts for older cars in one year, which reflects why parts questions and restomod expectations can create real coordination load.",
+      "role": "Parts and project coordinators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-sema-parts-spend"
+      ]
+    },
+    {
+      "question": "Can a small restoration shop justify this if we do not have a big IT team?",
+      "answer": "Yes, if the first use case is practical: website intake, repeated customer questions, internal SOP search, or project-summary drafting. Start with a narrow source set and clear escalation rules. More advanced Skills, APIs, connectors, or MCP options can be added later when you are ready to automate handoffs or live lookups.",
+      "role": "Owners and restoration shop managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Who should own the rollout inside the shop?",
+      "answer": "The best owner is usually a shop manager, service advisor, or operations lead who understands both customer communication and internal workflow. Technicians, estimators, and parts coordinators should help validate source material, escalation rules, and answer quality so the agent reflects how the shop actually works.",
+      "role": "Owners and restoration shop managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help us avoid repeating the same inspection and change-order explanations?",
+      "answer": "Yes. Train DocsBot on your inspection policy, teardown process, approval language, change-order rules, and customer update templates. It can give consistent explanations before and during a project, then escalate anything that requires a binding decision. This helps customers understand why hidden rust, missing parts, and custom fabrication change the plan.",
+      "role": "Service advisors and estimators",
+      "category": "Workflow fit"
+    }
+  ]
+}

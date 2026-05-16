@@ -1,0 +1,709 @@
+{
+  "slug": "athletic-trainer",
+  "business": "Athletic Trainer",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Athletic Training Operations",
+    "description": "DocsBot helps athletic trainers answer athlete questions, surface care protocols, and route intake details with source-grounded AI agents.",
+    "canonicalPath": "/industry/athletic-trainer"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for athletic training teams",
+    "headline": "DocsBot AI agents keep athletic training knowledge ready",
+    "subheadline": "Train a DocsBot agent on your protocols, rehab handouts, emergency action plans, scheduling policies, FAQs, and internal procedures so athletes, parents, coaches, and staff get fast answers while sensitive or clinical decisions stay with qualified professionals.",
+    "proofBullets": [
+      {
+        "text": "Answer routine questions from approved rehab instructions, participation policies, service pages, FAQs, and athlete education materials.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Retrieve internal SOPs, emergency action plans, referral steps, equipment checklists, and venue-specific procedures for staff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect intake details, route requests, summarize conversations, and prepare human handoffs through customer-configured AI Actions.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review conversation logs and reports to spot repeated questions, missing handouts, and documentation gaps across your program.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an athletic training agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps athletic trainers create AI agents trained on their own approved knowledge sources. The agent can answer common questions, retrieve internal procedures, summarize athlete or parent conversations, route requests, and trigger bounded workflows when configured with Skills, APIs, connectors, MCP servers, or customer-defined review paths.",
+    "whoItHelps": [
+      {
+        "role": "Athletic trainers and sports medicine directors",
+        "roleContext": "For teams managing injury prevention education, documentation, athlete communication, emergency readiness, and coordination with physicians or school staff.",
+        "bullets": [
+          {
+            "text": "Make rehab handouts, return-to-activity instructions, taping policies, and referral steps searchable from one private knowledge agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use conversation analytics to identify which athlete questions keep recurring and where your documentation needs improvement.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Keep sensitive or diagnosis-related questions routed to a qualified professional instead of letting automation make clinical judgments.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Schools, clubs, colleges, and athletic departments",
+        "roleContext": "For organizations that need consistent communication across athletes, parents, coaches, administrators, and medical staff.",
+        "bullets": [
+          {
+            "text": "BLS projects athletic trainer employment to grow 11% from 2024 to 2034, increasing demand for scalable operating systems.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-athletic-trainers"
+            ]
+          },
+          {
+            "text": "Publish consistent answers about hours, appointment preparation, documentation requirements, and program policies through a website widget.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Give coaches and staff quick access to approved procedures without searching through shared drives or outdated PDFs.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Clinic, occupational health, and performance support teams",
+        "roleContext": "For practices that support athletes, active adults, tactical populations, performing artists, or employees across varied care settings.",
+        "bullets": [
+          {
+            "text": "NATA describes athletic trainers as health care professionals who provide prevention, emergent care, examination, therapeutic intervention, and rehabilitation services.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-nata-athletic-training"
+            ]
+          },
+          {
+            "text": "Collect service-fit questions, appointment intent, and basic intake context before a staff member follows up.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft summaries for staff review so handoffs include the athlete’s question, relevant source links, and requested next step.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-athletic-trainers",
+      "metric": "11% projected employment growth for athletic trainers from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects athletic trainer employment to grow much faster than the average for all occupations, with about 2,400 openings per year over the decade.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Athletic Trainers",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/athletic-trainers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "growth pressure",
+        "operations scale"
+      ]
+    },
+    {
+      "id": "src-nata-athletic-training",
+      "metric": "Athletic training spans prevention, emergent care, examination, diagnosis, treatment, and rehabilitation",
+      "claim": "NATA defines athletic trainers as highly qualified health care professionals who collaborate with physicians and provide a broad set of sports medicine services.",
+      "sourceTitle": "National Athletic Trainers’ Association: Athletic Training",
+      "sourceUrl": "https://www.nata.org/about/athletic-training",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "scope of practice",
+        "clinical breadth",
+        "care coordination"
+      ]
+    },
+    {
+      "id": "src-ncaa-health-care-admin",
+      "metric": "NCAA guidance emphasizes independent medical care and protected authority for team physicians and athletic trainers",
+      "claim": "The NCAA encourages schools to set up systems that protect independent medical authority for return-to-play and other health care decisions.",
+      "sourceTitle": "NCAA Sport Science Institute: Athletics Health Care Administration",
+      "sourceUrl": "https://www.ncaa.org/sports/2021/2/10/sport-science-institute-athletics-health-care-administration.aspx",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "governance",
+        "return-to-play boundaries",
+        "medical independence"
+      ]
+    },
+    {
+      "id": "src-ncaa-sports-medicine-handbook",
+      "metric": "Emergency action plan review is part of athletics health care administration",
+      "claim": "The NCAA Sports Medicine Handbook discusses emergency action plans and shared responsibilities among athletics administrators, medical personnel, coaches, and other stakeholders.",
+      "sourceTitle": "NCAA Sports Medicine Handbook",
+      "sourceUrl": "https://ncaaorg.s3.amazonaws.com/ssi/publications/SSI_SMHB.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "emergency readiness",
+        "policy access",
+        "staff coordination"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Athlete and parent question answering",
+      "problem": "Athletes and parents often ask the same questions about clinic hours, appointment preparation, rehab instructions, forms, and what to do when symptoms change.",
+      "agentWorkflow": "A DocsBot support agent answers from approved FAQs, athlete education pages, rehab handouts, service descriptions, and policy documents. If the request is complex, sensitive, or outside your sources, it can ask for missing details and escalate with a concise summary for staff review.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can collect intake details, create a task, route a message, or trigger a scheduling handoff without making clinical decisions.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first athletic training appointment?",
+        "Where can I find the ankle sprain home exercise handout?",
+        "My symptoms changed after practice. Can I send this to the athletic trainer?"
+      ],
+      "businessOutcome": "Reduces repetitive front-desk and email work while keeping athlete-facing answers grounded in the training team’s own approved materials.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Emergency protocol retrieval for staff",
+      "problem": "Athletic trainers manage emergency and non-emergency situations, and staff need quick access to venue-specific procedures when time matters.",
+      "agentWorkflow": "Train an internal DocsBot agent on emergency action plans, venue maps, AED locations, communication trees, incident documentation steps, and referral procedures. Staff can ask plain-language questions and receive source-grounded answers with links back to the approved protocol.",
+      "liveContextOrTools": "AI Actions can notify the right team channel, create an incident follow-up task, or prepare a post-event summary when those workflows are configured and permissioned.",
+      "exampleQuestionsOrRequests": [
+        "Where is the AED for the south field?",
+        "What is the emergency communication sequence for a weekend tournament?",
+        "Summarize the post-incident documentation steps for staff."
+      ],
+      "businessOutcome": "Keeps protocol knowledge easier to find across coaches, administrators, and sports medicine staff while preserving human responsibility for emergency care.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ncaa-sports-medicine-handbook"
+      ]
+    },
+    {
+      "name": "Rehab and return-to-activity education assistant",
+      "problem": "Athletic trainers need to reinforce instructions without rewriting the same explanations for every athlete, coach, or parent.",
+      "agentWorkflow": "DocsBot can answer from approved rehabilitation handouts, physician collaboration notes your team chooses to include, progression criteria, contraindication reminders, and return-to-activity education. The agent can distinguish between general education and questions that require staff review.",
+      "liveContextOrTools": "When connected to approved systems, a Skill can look up a non-sensitive status label, gather missing information, or route a question to the assigned staff member for review.",
+      "exampleQuestionsOrRequests": [
+        "What does this rehab phase focus on?",
+        "Can you explain the home exercise instructions in simpler language?",
+        "Who should review my return-to-activity question?"
+      ],
+      "businessOutcome": "Improves consistency of education while avoiding automated diagnosis, clearance, or return-to-play decisions.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-ncaa-health-care-admin"
+      ]
+    },
+    {
+      "name": "Internal SOP and documentation assistant",
+      "problem": "Procedures live across PDFs, shared drives, wikis, emails, and policy binders, making it difficult for staff to find the current version quickly.",
+      "agentWorkflow": "A private DocsBot knowledge agent retrieves current SOPs, administrative procedures, supply checklists, communication templates, onboarding materials, and compliance guidance from approved internal sources. Staff can ask questions in private chat, Slack, Microsoft Teams, or another configured experience.",
+      "liveContextOrTools": "Analytics and logs show which topics staff search for most, helping leaders update handbooks and close knowledge gaps.",
+      "exampleQuestionsOrRequests": [
+        "What is the process for documenting a referral?",
+        "Where is the current concussion communication template?",
+        "What supplies are required for away-game coverage?"
+      ],
+      "businessOutcome": "Reduces time spent hunting for procedures and helps new or rotating staff follow the same operating playbook.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Service intake and lead qualification",
+      "problem": "Private practices, clinics, and performance programs need to answer service-fit questions and collect enough context before scheduling a consultation.",
+      "agentWorkflow": "A DocsBot presales agent answers from service pages, pricing guidance you provide, insurance or payment FAQs, program descriptions, and intake requirements. It can collect structured details such as name, sport, organization, reason for contact, preferred location, and follow-up channel.",
+      "liveContextOrTools": "With approved scheduling, CRM, form, email, or helpdesk workflows, the agent can forward qualified inquiries, create records, or request a meeting while humans handle pricing commitments and clinical fit decisions.",
+      "exampleQuestionsOrRequests": [
+        "Do you support high school teams for tournament coverage?",
+        "Can I request a consultation for workplace injury prevention?",
+        "What information do you need before scheduling a performance assessment?"
+      ],
+      "businessOutcome": "Captures more complete inquiries and helps staff prioritize the right follow-up without inventing service promises.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Multilingual athlete education access",
+      "problem": "Athletes and families may need policy or care instructions explained in their preferred language, especially when programs serve diverse communities.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from the same approved knowledge sources, helping users understand clinic policies, appointment steps, and general education materials while keeping clinical escalation rules intact.",
+      "liveContextOrTools": "Conversation review helps staff see which languages and topics are driving demand so translated source materials can be improved over time.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain the appointment policy in Spanish?",
+        "Where is the translated heat illness prevention handout?",
+        "What should my parent know before the evaluation?"
+      ],
+      "businessOutcome": "Expands access to approved information while keeping the source of truth under the athletic training team’s control.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give athletes, parents, and coaches fast answers from your approved sources",
+    "intro": "A DocsBot customer-facing agent can live on your website or portal and answer routine questions about services, forms, preparation, education resources, and next steps. It can collect context and escalate when a staff member needs to make the call.",
+    "requests": [
+      {
+        "request": "“What should I do before my first appointment?”",
+        "agentResponseStrategy": "Answer from your appointment-prep page, intake forms, location details, and scope-of-service notes, then offer to collect missing information for staff follow-up.",
+        "sourceTypes": [
+          "Website pages",
+          "Appointment FAQs",
+          "Intake instructions",
+          "Service policies"
+        ],
+        "optionalAction": "Submit a structured intake form or create a follow-up task through an approved workflow.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Can I keep practicing with this injury?”",
+        "agentResponseStrategy": "Avoid giving clearance or diagnosis. Provide general safety language from approved materials and route the user to the athletic trainer or appropriate medical contact.",
+        "sourceTypes": [
+          "Safety policies",
+          "Escalation instructions",
+          "Athlete education handouts"
+        ],
+        "optionalAction": "Prepare a human handoff summary with symptoms described by the user and the source documents consulted.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-ncaa-health-care-admin"
+        ]
+      },
+      {
+        "request": "“Where can I find the rehab instructions you gave me?”",
+        "agentResponseStrategy": "Retrieve the approved handout or educational article, summarize the relevant section, and remind the athlete to follow their individualized plan from the clinician.",
+        "sourceTypes": [
+          "Rehab handouts",
+          "Exercise education PDFs",
+          "Program knowledge base"
+        ],
+        "optionalAction": "Route document-access issues to staff or create a support request if configured.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you provide coverage for our tournament?”",
+        "agentResponseStrategy": "Answer from service descriptions, coverage policies, availability guidance, and requirements you provide, then collect the event details needed for staff follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Coverage policies",
+          "Pricing guidance",
+          "Lead intake forms"
+        ],
+        "optionalAction": "Forward a qualified inquiry to CRM, email, or helpdesk software through customer-configured Actions.",
+        "icon": "TrophyIcon"
+      },
+      {
+        "request": "“Can you explain this policy in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering to explain approved policy or education content while preserving source links and escalation instructions.",
+        "sourceTypes": [
+          "Policy pages",
+          "Athlete education content",
+          "Translated or source-language materials"
+        ],
+        "optionalAction": "Log repeated translation requests so staff can prioritize official translated handouts.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“Who should I contact after an incident at practice?”",
+        "agentResponseStrategy": "Answer from your communication tree, emergency action plan summary, and after-hours policy, while clearly directing urgent situations to emergency services or the designated medical contact.",
+        "sourceTypes": [
+          "Emergency action plans",
+          "Communication trees",
+          "After-hours policies"
+        ],
+        "optionalAction": "Notify a designated staff channel or create a follow-up task if the workflow is authorized.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put SOPs, protocols, and program knowledge in one private AI agent",
+    "intro": "Athletic training teams can use DocsBot as a private internal knowledge assistant trained on SOPs, handbooks, policies, checklists, templates, and approved clinical education materials. Staff get faster answers while leaders see which documents need updates.",
+    "workflows": [
+      {
+        "name": "Venue and event coverage playbooks",
+        "problem": "Coverage requirements, supplies, emergency contacts, and venue procedures can vary by sport, site, and event.",
+        "agentWorkflow": "Staff ask the agent for the current coverage checklist, venue protocol, contact list, and documentation steps. DocsBot returns source-grounded answers and links back to the approved documents.",
+        "sourceTypes": [
+          "Venue protocols",
+          "Coverage checklists",
+          "Emergency action plans",
+          "Staff schedules"
+        ],
+        "optionalAction": "Create a preparation task or notify a team channel when an event checklist is incomplete.",
+        "outcome": "Improves consistency before games, practices, tournaments, and off-site events.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "name": "New staff and student onboarding",
+        "problem": "New employees, interns, and rotating staff need to learn procedures quickly without interrupting senior clinicians for every operational question.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training manuals, policy documents, forms, equipment procedures, communication templates, and role expectations.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Policy manuals",
+          "Training materials",
+          "SOPs"
+        ],
+        "optionalAction": "Log unanswered questions so managers can add missing onboarding documentation.",
+        "outcome": "Speeds up orientation and helps new team members follow the same documented standards.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Administrative documentation support",
+        "problem": "Athletic trainers balance care delivery with documentation, follow-up coordination, incident reporting, and communication across stakeholders.",
+        "agentWorkflow": "An internal agent retrieves templates, summarizes conversation context, drafts staff-facing notes, and routes non-clinical tasks through approved workflows. Humans review records and make clinical decisions.",
+        "sourceTypes": [
+          "Documentation templates",
+          "Referral workflows",
+          "Incident report instructions",
+          "Communication policies"
+        ],
+        "optionalAction": "Prepare a draft summary or create a ticket/task in the system your team configures.",
+        "outcome": "Reduces administrative friction without automating clinical judgment or regulated decisions.",
+        "icon": "PencilIcon",
+        "sourceIds": [
+          "src-nata-athletic-training"
+        ]
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "If athletes, parents, and staff keep asking the same questions, the problem may be missing or unclear documentation.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, conversation review, and topic management help leaders identify repeated questions, low-confidence answers, and content gaps in handouts or SOPs.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Agent reports",
+          "Topic analytics",
+          "Knowledge base sources"
+        ],
+        "optionalAction": "Create internal tasks for handbook updates, FAQ additions, or policy clarification.",
+        "outcome": "Turns recurring questions into a practical content improvement roadmap.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "AI agents trained on your own sources",
+      "mainLandingPageContext": "DocsBot creates source-grounded agents from websites, documents, help centers, internal files, team knowledge, and other configured sources.",
+      "industryApplication": "Train an athletic training agent on athlete education, program policies, rehab handouts, SOPs, emergency plans, onboarding guides, and service pages.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot agents can take bounded actions through customer-defined Skills, APIs, connectors, workflow automations, and optional MCP connectivity.",
+      "industryApplication": "Collect intake details, create tasks, route sensitive questions, prepare handoff summaries, update approved fields, or notify staff when a workflow is authorized.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can support public-facing website chat experiences and private internal team knowledge workflows.",
+      "industryApplication": "Offer athletes and parents a website support agent while giving athletic trainers, coaches, or administrators a private SOP assistant.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Human escalation and boundaries",
+      "mainLandingPageContext": "DocsBot can escalate complex or sensitive questions to a person and operate within customer-defined instructions and permissions.",
+      "industryApplication": "Use automation for general education, intake, and routing while keeping diagnosis, emergency care, and return-to-play authority with qualified professionals.",
+      "icon": "HandRaisedIcon",
+      "sourceIds": [
+        "src-ncaa-health-care-admin"
+      ]
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and visibility into repeated questions.",
+      "industryApplication": "See which policies, rehab resources, forms, or event procedures athletes and staff struggle to find, then improve your content library.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions.",
+      "industryApplication": "Protect internal protocols and private operating knowledge with permissions, encryption, and customer-managed boundaries for what the agent can access or do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for health-service teams that need internal knowledge access, source-grounded answers, and efficient decision support.",
+      "Useful for education-heavy programs where learners, athletes, or staff need help finding the right concept or instruction.",
+      "Train agents on your own content library so answers reflect your approved materials instead of generic web information."
+    ],
+    "whyTheseReviewsFit": "Athletic training teams need clear education, consistent internal procedures, and guarded workflows around health-related questions. DocsBot proof from healthcare communications, education, and owned-content knowledge bases shows how teams use source-grounded agents to improve access to trusted information.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for athletic trainers",
+    "audience": [
+      "Athletic trainers",
+      "Sports medicine directors",
+      "Athletic departments",
+      "Private athletic training clinics",
+      "Occupational health and performance teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "health-coaching",
+    "chiropractic-office",
+    "home-health-services",
+    "emergency-medical-services",
+    "child-youth-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "athletic-trainer",
+    "webSearchQueries": [
+      "BLS athletic trainers employment 2024 occupational outlook handbook",
+      "NATA athletic trainer role injury prevention emergency care rehabilitation",
+      "athletic trainers projected growth Bureau of Labor Statistics 2024 2034",
+      "NCAA athletic trainers health care administrator sports medicine handbook emergency action plan"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/healthcare/athletic-trainers.htm",
+      "https://www.nata.org/about/athletic-training",
+      "https://www.ncaa.org/sports/2021/2/10/sport-science-institute-athletics-health-care-administration.aspx",
+      "https://ncaaorg.s3.amazonaws.com/ssi/publications/SSI_SMHB.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40195,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27651,
+        "outputTokens": 7411,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 47606,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.183429,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.193429
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21412,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14116,
+          "outputTokens": 4831,
+          "reasoningOutputTokens": 123,
+          "totalTokens": 26243,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.109579,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.119579
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18783,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13535,
+          "outputTokens": 2580,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21363,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07385,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07385
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU5MzJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Athletic Trainer background image",
+    "source": "legacy-industry",
+    "query": "Athletic Trainer"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer athlete and parent questions without giving medical advice or return-to-play clearance?",
+      "answer": "Yes. Configure the agent to answer only from approved policies, rehab handouts, appointment instructions, and education materials, while routing diagnosis, symptom changes, emergency concerns, and return-to-play questions to a qualified professional. This fits athletic training governance because NCAA guidance emphasizes protected medical authority for return-to-play and related health care decisions.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ncaa-health-care-admin"
+      ]
+    },
+    {
+      "question": "How would an AI agent help if our staff already knows the protocols?",
+      "answer": "The value is consistency and speed when protocols are scattered across PDFs, shared drives, binders, websites, and emails. DocsBot can make EAPs, referral steps, rehab handouts, equipment checklists, and communication templates searchable in plain language so staff spend less time hunting and more time applying professional judgment.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use DocsBot for emergency action plan lookup during events?",
+      "answer": "DocsBot can be trained on approved emergency action plans, venue maps, AED locations, communication trees, and post-incident documentation steps so staff can retrieve the current protocol quickly. It should support access to the plan, not replace emergency care decisions or hands-on response. NCAA sports medicine guidance discusses EAPs and shared responsibilities among athletics stakeholders.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-ncaa-sports-medicine-handbook"
+      ]
+    },
+    {
+      "question": "What kind of ROI should an athletic department expect from this?",
+      "answer": "Most teams should evaluate ROI around reduced repetitive questions, faster access to SOPs, fewer incomplete intake requests, smoother onboarding, and clearer documentation gaps. BLS projects athletic trainer employment to grow 11% from 2024 to 2034, so scalable operating systems matter as demand increases and staff time stays constrained.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-athletic-trainers"
+      ]
+    },
+    {
+      "question": "Will DocsBot integrate with our scheduling, forms, CRM, helpdesk, or team communication tools?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, workflow automations, and optional MCP connectivity. That can include collecting appointment intent, creating a task, forwarding a qualified inquiry, notifying a staff channel, or preparing a handoff summary. Avoid treating it as a guaranteed native integration until your specific systems and permissions are reviewed.",
+      "role": "Clinic, occupational health, and performance support teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent handle questions from coaches without exposing athlete-specific information?",
+      "answer": "Yes, if you design the knowledge sources and permissions carefully. A coach-facing or staff-facing agent can answer from general policies, practice procedures, EAPs, and communication templates while excluding athlete-specific records. DocsBot supports access controls and role-based permissions, so different audiences can have different knowledge boundaries.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the agent from using outdated rehab handouts or old policy PDFs?",
+      "answer": "Start with a source audit, assign owners for key documents, remove obsolete files, and train the agent only on approved materials. DocsBot’s source-grounded answers link back to the underlying content, and conversation review helps reveal where users are finding unclear, outdated, or missing information that needs to be corrected.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both a public website agent and a private internal SOP assistant?",
+      "answer": "Yes. A public-facing agent can answer routine athlete, parent, coach, and service-fit questions from approved website pages and FAQs. A private internal agent can help staff retrieve SOPs, EAPs, checklists, onboarding guides, and documentation templates. Keeping them separate helps protect internal procedures and audience-specific information.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we include in the first knowledge base before launch?",
+      "answer": "For an athletic training pilot, start with appointment prep, clinic hours, intake forms, rehab handouts, participation policies, escalation language, EAP summaries, referral workflows, staff communication trees, and high-volume FAQs. Launch with the materials you are comfortable having the agent cite, then expand after reviewing unanswered questions and staff feedback.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help private athletic training or performance clinics qualify new inquiries?",
+      "answer": "Yes. A presales or intake agent can answer from service pages, coverage policies, pricing guidance you provide, insurance or payment FAQs, and program descriptions. It can collect structured details like sport, organization, event date, location, reason for contact, and preferred follow-up channel, then route the summary to staff for review.",
+      "role": "Clinic, occupational health, and performance support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle questions in Spanish or another language?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge sources. For athletic training teams, that can help explain appointment steps, policies, and general education while still preserving escalation rules for clinical, urgent, or individualized questions.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What information can the agent safely collect before a human follows up?",
+      "answer": "Common examples include name, contact preference, organization, sport or activity, location, event date, reason for inquiry, requested service, and non-urgent context the user chooses to provide. For health-related questions, configure the agent to collect only what your team approves, avoid diagnosis, and summarize the request for staff review.",
+      "role": "Clinic, occupational health, and performance support teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot draft documentation or incident summaries for staff?",
+      "answer": "DocsBot can summarize conversations, retrieve documentation templates, and prepare draft staff-facing handoffs or task notes through approved workflows. Humans should review records and make clinical decisions. That boundary is important because NATA describes athletic trainers as health care professionals providing prevention, emergent care, examination, treatment, and rehabilitation services.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nata-athletic-training"
+      ]
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually working?",
+      "answer": "Track repeated question reduction, staff time saved on routine lookups, unanswered or low-confidence topics, escalation volume, intake completeness, satisfaction signals, and which documents are most frequently cited. DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to support those reviews.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this increase risk if an athlete asks, “Can I keep playing?”",
+      "answer": "Only if the agent is configured poorly. A safer implementation instructs DocsBot not to clear participation, diagnose, or override medical judgment. It can provide approved general safety language, ask whether the user wants to contact the athletic trainer, and prepare an escalation summary. NCAA guidance emphasizes independent medical authority for return-to-play decisions.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-ncaa-health-care-admin"
+      ]
+    },
+    {
+      "question": "What does implementation look like for a small school or club with limited IT support?",
+      "answer": "A practical rollout can start with a focused document set and one audience, such as athlete FAQs or internal EAP lookup. Upload approved sources, define escalation rules, test common scenarios, review logs, and expand gradually. More advanced actions, such as creating tasks or routing requests, can be added later through customer-configured workflows.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is this different from putting our policies into a generic AI tool?",
+      "answer": "DocsBot is designed for source-grounded agents trained on your approved content, with controls for access, escalation, analytics, and bounded actions. For athletic training, that matters because answers should reflect your current protocols, not generic internet advice, and sensitive questions should route to qualified staff instead of being handled as open-ended AI chat.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we restrict what student workers, interns, coaches, and administrators can see?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. You can separate public FAQs, coach-facing procedures, student onboarding materials, and internal athletic training SOPs so each audience gets the knowledge it needs without exposing documents that should stay private.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot use our athlete, staff, or organizational data to train public models?",
+      "answer": "No. DocsBot’s product context states that customer data is not used to train public models. DocsBot also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions for teams that need stronger governance around internal knowledge and workflows.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent help new staff learn our operating procedures faster?",
+      "answer": "Yes. Train a private DocsBot agent on onboarding guides, policy manuals, coverage checklists, documentation templates, equipment procedures, venue protocols, and communication expectations. New staff, interns, or rotating personnel can ask plain-language questions and get source-linked answers instead of interrupting senior clinicians for every operational detail.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "Configure DocsBot to say it does not have enough approved information, ask for missing details if appropriate, and escalate to a person with a concise summary. Conversation logs then show where the knowledge base is incomplete, helping leaders add a missing FAQ, clarify a handout, or update an SOP.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot across multiple venues, sports, or campuses?",
+      "answer": "Yes, but structure the content carefully. Use clear naming for venue protocols, sport-specific checklists, AED locations, communication trees, and event coverage procedures. DocsBot can retrieve the relevant source-grounded answer, while permissions and review processes help keep multi-site information current and controlled.",
+      "role": "Schools, clubs, colleges, and athletic departments",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who needs to be involved in the buying decision?",
+      "answer": "Typical stakeholders include the head athletic trainer or sports medicine director, athletic administration, compliance or legal, IT, operations, and sometimes a clinic or school communications lead. The clinical owner should define safety boundaries, IT should review data access, and administrators should evaluate workflow impact and reporting needs.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How can conversation analytics improve our handouts and policies?",
+      "answer": "DocsBot can show which questions athletes, parents, coaches, or staff ask repeatedly, where answers are missing, and which topics require escalation. That turns everyday confusion into a documentation roadmap: improve the rehab handout, clarify the appointment page, update the EAP summary, or create a better onboarding section.",
+      "role": "Athletic trainers and sports medicine directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support occupational health, tactical, performing arts, or workplace injury prevention programs too?",
+      "answer": "Yes. Athletic trainers work across prevention, emergent care, examination, therapeutic intervention, and rehabilitation, and NATA describes the profession as collaborating with physicians across a broad health care scope. DocsBot can adapt to those settings by training on the organization’s own service descriptions, education materials, SOPs, and intake workflows.",
+      "role": "Clinic, occupational health, and performance support teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nata-athletic-training"
+      ]
+    }
+  ]
+}

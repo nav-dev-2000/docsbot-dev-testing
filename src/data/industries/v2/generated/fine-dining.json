@@ -1,0 +1,759 @@
+{
+  "slug": "fine-dining",
+  "business": "Fine Dining Restaurants",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Fine Dining Guest Experience",
+    "description": "DocsBot helps fine dining restaurants answer guest questions, preserve service standards, and route reservation details with AI agents trained on your knowledge.",
+    "canonicalPath": "/industry/fine-dining"
+  },
+  "hero": {
+    "eyebrow": "AI service support for reservation-led hospitality",
+    "headline": "AI agents that protect the fine dining guest experience",
+    "subheadline": "DocsBot helps fine dining restaurants create source-grounded AI agents trained on menus, wine notes, reservation policies, private dining packages, SOPs, and guest-facing FAQs, so guests get fast answers while your team stays focused on hospitality.",
+    "proofBullets": [
+      {
+        "text": "Answer menu, tasting-menu, dietary, dress-code, parking, cancellation, and private dining questions from approved restaurant content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect reservation intent, special occasions, allergy notes, and party details before routing the request to your host or events team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give managers and staff private access to SOPs, service standards, pre-shift notes, onboarding materials, and escalation guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated guest questions, missing menu explanations, and service documentation gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your fine dining AI agent",
+    "secondaryCta": "Explore guest and staff workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your restaurant’s approved knowledge into AI support agents and internal knowledge agents. It can answer in your voice, retrieve source-grounded details, support multilingual guest questions, summarize context for staff, and take bounded actions when you configure Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep standards consistent across guest communications, private dining inquiries, team onboarding, and pre-service operations without asking managers to repeat the same answers all day.",
+        "bullets": [
+          {
+            "text": "Maintain a single source of truth for reservation policies, service standards, staff expectations, and guest-facing FAQs.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Review conversation topics to learn what guests ask before booking and where your website or menu needs clearer information.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Route sensitive, high-value, or exception-based requests to a human with conversation context already summarized.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Hosts, reservationists, and guest relations teams",
+        "roleContext": "Give guests quick, polished answers before they call, while helping staff collect the right details for special occasions, dietary needs, seating preferences, and waitlist follow-up.",
+        "bullets": [
+          {
+            "text": "Answer common questions about availability guidance, deposits, cancellations, attire, accessibility, parking, and large-party policies.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Capture booking intent and special-request context for staff review or customer-configured scheduling workflows.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Support international guests with answers in more than 100 languages from the same approved restaurant knowledge.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Chefs, beverage directors, and service leaders",
+        "roleContext": "Make complex menu, ingredient, allergen, pairing, and service knowledge easier for front-of-house teams to find during training and before service.",
+        "bullets": [
+          {
+            "text": "Surface approved explanations for tasting menus, ingredient sourcing, wine pairings, nonalcoholic pairings, and seasonal changes.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Help staff find allergen, substitution, and escalation guidance from internal documents instead of relying on memory.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Summarize repeated guest questions so leaders can improve menus, staff briefings, FAQs, and training materials.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "CakeIcon"
+      },
+      {
+        "role": "Private dining and events teams",
+        "roleContext": "Respond faster to corporate dinners, celebrations, chef’s table requests, buyouts, and tasting experiences by giving prospects accurate answers and structured intake.",
+        "bullets": [
+          {
+            "text": "Explain room capacities, package ranges, deposit rules, menu formats, beverage options, and planning timelines from approved materials.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Qualify leads by collecting date, party size, budget range, event type, dietary requirements, and preferred follow-up channel.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Forward summaries to CRM, email, helpdesk, or other sales systems through customer-configured workflows when authorized.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-restaurant-sales-labor-tech",
+      "metric": "$1.1 trillion forecast for 2024 U.S. restaurant sales; 47% of operators expected technology and automation for labor shortages to become more common.",
+      "claim": "The National Restaurant Association’s 2024 State of the Restaurant Industry press release tied record sales expectations to employment growth, technology advancement, app usage, off-premises services, and labor-pressure responses.",
+      "sourceTitle": "Restaurant Industry Sales Forecast to Set $1.1 Trillion Record in 2024",
+      "sourceUrl": "https://restaurant.org/research-and-media/media/press-releases/restaurant-industry-sales-forecast-to-set-1-1-trillion-record-in-2024/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "restaurant technology adoption",
+        "labor pressure",
+        "industry scale",
+        "automation demand"
+      ]
+    },
+    {
+      "id": "src-food-code-allergen-sesame",
+      "metric": "Sesame became the ninth major food allergen effective January 1, 2023.",
+      "claim": "FDA guidance on the 2022 Food Code notes sesame’s addition as a major allergen and says employee food safety training programs must include food allergy awareness of the nine major food allergens.",
+      "sourceTitle": "Addition to the 2022 Food Code - Sesame Added as a Major Food Allergen",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "allergen awareness",
+        "staff training",
+        "food safety operations",
+        "menu knowledge risk"
+      ]
+    },
+    {
+      "id": "src-bls-food-service-employment",
+      "metric": "12.322 million food services and drinking places jobs in February 2024.",
+      "claim": "BLS Current Employment Statistics highlights reported food services and drinking places employment of 12.322 million in February 2024, illustrating the labor scale behind restaurant operations.",
+      "sourceTitle": "Current Employment Statistics Highlights, February 2024",
+      "sourceUrl": "https://www.bls.gov/ces/publications/highlights/2024/current-employment-statistics-highlights-02-2024.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "restaurant labor scale",
+        "staffing burden",
+        "operations complexity"
+      ]
+    },
+    {
+      "id": "src-opentable-no-shows",
+      "metric": "28% of Americans said they had not shown up for a reservation in the past year.",
+      "claim": "OpenTable reported that reservation no-shows create meaningful revenue risk for restaurants and cited consumer self-reporting on missed reservations.",
+      "sourceTitle": "Show Up for Restaurants: The Fight Against Reservation No-Shows",
+      "sourceUrl": "https://www.opentable.com/blog/no-show-numbers/",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "reservation operations",
+        "guest reminders",
+        "cancellation policy communication",
+        "revenue leakage"
+      ]
+    },
+    {
+      "id": "src-opentable-network-demand",
+      "metric": "OpenTable’s dashboard uses a network of more than 65,000 restaurants and millions of diners.",
+      "claim": "OpenTable’s State of the Industry dashboard provides a large-scale snapshot of online reservation dining demand compared with prior periods.",
+      "sourceTitle": "State of the Restaurant Industry - OpenTable Data",
+      "sourceUrl": "https://www.opentable.com/state-of-industry",
+      "sourceDate": "Current dashboard",
+      "bestUsedFor": [
+        "reservation-led demand",
+        "diner behavior",
+        "restaurant demand monitoring"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Reservation concierge and policy explainer",
+      "problem": "Fine dining teams lose time answering repeated calls about availability, deposits, cancellation rules, dress code, seating, tasting menus, and special occasions.",
+      "agentWorkflow": "A DocsBot AI agent answers from approved reservation policies, website content, FAQs, and private notes. It can collect date, time, party size, celebration details, accessibility needs, and dietary flags, then prepare a staff handoff or trigger a customer-configured scheduling workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or scheduling workflows, the agent can request live availability context, create a task, send a summary to the host team, or route exceptions to a manager.",
+      "exampleQuestionsOrRequests": [
+        "Do you have a tasting menu available for four guests next Friday?",
+        "What happens if I need to cancel a prepaid reservation?",
+        "Can you note that we are celebrating an anniversary and need a quiet table?"
+      ],
+      "businessOutcome": "Reduce repetitive reservation questions while keeping final availability, seating exceptions, deposits, and VIP handling under staff control.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Menu, allergen, and pairing knowledge assistant",
+      "problem": "Guests expect detailed menu guidance, while staff must keep up with seasonal changes, allergens, pairings, sourcing, and substitution policies.",
+      "agentWorkflow": "Train DocsBot on menus, wine notes, beverage pairings, ingredient sheets, allergen guidance, chef notes, and escalation rules. The agent gives source-grounded answers and can direct uncertain or safety-sensitive requests to trained staff.",
+      "liveContextOrTools": "Configured Skills can look up the current menu version, retrieve approved pairing notes, or generate a pre-service summary for staff review.",
+      "exampleQuestionsOrRequests": [
+        "Which dishes can be adapted for a sesame allergy?",
+        "What nonalcoholic pairing works with the seafood course?",
+        "How should servers describe the new lamb dish tonight?"
+      ],
+      "businessOutcome": "Help guests and staff find consistent menu information while reinforcing human review for allergen-sensitive or high-risk dining decisions.",
+      "icon": "CakeIcon",
+      "sourceIds": [
+        "src-food-code-allergen-sesame"
+      ]
+    },
+    {
+      "name": "Private dining and chef’s table lead qualification",
+      "problem": "High-value event inquiries often arrive with missing details, making back-and-forth communication slow and easy to drop during service.",
+      "agentWorkflow": "A DocsBot presales agent explains private dining packages, room capacities, planning timelines, deposits, sample menus, beverage options, and service formats from approved content. It collects structured lead details and summarizes the opportunity for follow-up.",
+      "liveContextOrTools": "With customer-configured forms, APIs, connectors, or CRM workflows, the agent can forward qualified event leads, create a task, notify the events team, or update approved fields.",
+      "exampleQuestionsOrRequests": [
+        "Can we book a private room for 22 guests in June?",
+        "What information do you need for a corporate tasting dinner?",
+        "Do you offer wine pairings for buyout events?"
+      ],
+      "businessOutcome": "Respond to premium inquiries quickly, qualify fit earlier, and give events staff the context they need before they reply.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Pre-shift staff knowledge agent",
+      "problem": "Managers repeat SOPs, menu changes, wine notes, comp rules, sequence-of-service expectations, and training guidance across multiple roles and shifts.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, onboarding materials, service manuals, training decks, policies, pre-shift notes, and internal FAQs. Staff can ask questions in a private chat experience and receive source-grounded answers.",
+      "liveContextOrTools": "When configured for Slack, Microsoft Teams, private chat, or approved internal workflows, staff can access the agent where they already communicate.",
+      "exampleQuestionsOrRequests": [
+        "What is tonight’s amuse-bouche description?",
+        "How do we handle a guest who arrives late for a tasting menu?",
+        "Where is the checklist for closing the wine room?"
+      ],
+      "businessOutcome": "Preserve service standards, reduce manager interruptions, and make onboarding knowledge easier for new and seasonal staff to access.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-food-service-employment"
+      ]
+    },
+    {
+      "name": "Guest feedback and service-gap analysis",
+      "problem": "Reviews, guest questions, support conversations, and post-visit comments often reveal patterns that are hard to see during busy service weeks.",
+      "agentWorkflow": "DocsBot can summarize conversations, identify repeated topics, surface unanswered questions, and help managers find gaps in FAQs, menu descriptions, booking pages, and internal training content.",
+      "liveContextOrTools": "With approved workflows, teams can route follow-up tasks, prepare response drafts, or notify the right manager when a recurring issue appears.",
+      "exampleQuestionsOrRequests": [
+        "What are guests asking about most before booking?",
+        "Which menu questions are not answered well on the website?",
+        "Summarize last week’s private dining inquiry themes."
+      ],
+      "businessOutcome": "Turn guest questions into clearer content, better staff coaching, and more informed hospitality decisions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "No-show prevention and reservation readiness",
+      "problem": "No-shows, unclear cancellation rules, and incomplete party details can leave premium seats unused or force the host team into last-minute recovery.",
+      "agentWorkflow": "A DocsBot agent explains cancellation policies, collects confirmation details, answers prepaid-experience questions, and prepares reminders or escalation summaries through customer-approved workflows.",
+      "liveContextOrTools": "When connected to authorized reservation, email, task, or messaging workflows, the agent can trigger reminders, create a follow-up task, or route uncertain confirmations to the host team.",
+      "exampleQuestionsOrRequests": [
+        "Can you remind guests of our cancellation window?",
+        "Which parties still have missing allergy notes?",
+        "Create a host-team summary for tonight’s unconfirmed tables."
+      ],
+      "businessOutcome": "Improve reservation communication and reduce preventable friction around premium dining commitments.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-opentable-no-shows"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest-facing AI agent that sounds prepared before service begins",
+    "intro": "Embed a DocsBot agent on your website or reservation pages to answer guest questions from approved restaurant knowledge, collect useful context, and escalate nuanced requests before the guest experience feels impersonal.",
+    "requests": [
+      {
+        "request": "“Do you accommodate gluten-free, dairy-free, or sesame allergies?”",
+        "agentResponseStrategy": "Respond from approved allergen and menu guidance, clarify that staff must confirm safety-sensitive requests, and collect details for the reservation or service team.",
+        "sourceTypes": [
+          "Menus",
+          "Allergen guidance",
+          "Chef notes",
+          "Reservation policies"
+        ],
+        "optionalAction": "Create a handoff summary for the host or manager through a customer-configured workflow.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-food-code-allergen-sesame"
+        ]
+      },
+      {
+        "request": "“What should I know before booking the tasting menu?”",
+        "agentResponseStrategy": "Explain timing, format, pricing guidance if approved, deposit rules, cancellation windows, arrival expectations, attire, and dietary-note deadlines from restaurant sources.",
+        "sourceTypes": [
+          "Tasting menu pages",
+          "FAQ pages",
+          "Booking policies",
+          "Guest emails"
+        ],
+        "optionalAction": "Collect preferred date, party size, occasion, and follow-up channel for staff review.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can you help plan a private dinner for 18 guests?”",
+        "agentResponseStrategy": "Qualify the event with structured questions, answer from private dining materials, and summarize the lead in a format the events team can act on.",
+        "sourceTypes": [
+          "Private dining packets",
+          "Event FAQs",
+          "Room capacity sheets",
+          "Sample menus"
+        ],
+        "optionalAction": "Forward the qualified inquiry to email, CRM, helpdesk, or a task system when the restaurant has configured that workflow.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Do you have parking, accessibility, or arrival instructions?”",
+        "agentResponseStrategy": "Give clear answers from approved location, accessibility, valet, ride-share, and arrival guidance, with escalation for unusual accessibility requests.",
+        "sourceTypes": [
+          "Website pages",
+          "Guest confirmation templates",
+          "Accessibility notes",
+          "Location FAQs"
+        ],
+        "optionalAction": "Route special arrival needs to the host team with the guest’s reservation context if authorized.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you answer in my language?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual support to answer from the same approved sources while preserving consistent policies and service expectations.",
+        "sourceTypes": [
+          "Website content",
+          "Menus",
+          "FAQs",
+          "Policies"
+        ],
+        "optionalAction": "Summarize the multilingual conversation for staff in the team’s preferred working language.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I need to change my reservation details.”",
+        "agentResponseStrategy": "Collect the requested change, confirm what information is needed, explain relevant policies, and escalate the actual reservation change to approved staff or a configured workflow.",
+        "sourceTypes": [
+          "Reservation policies",
+          "Confirmation templates",
+          "Cancellation rules",
+          "Host SOPs"
+        ],
+        "optionalAction": "Create a task or send a structured summary to the host team through an approved connector or API.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for consistent hospitality execution",
+    "intro": "Give hosts, servers, sommeliers, managers, and events staff a private DocsBot agent trained on the documents that define your service. Staff can ask natural-language questions and get source-grounded answers instead of searching folders during a shift.",
+    "workflows": [
+      {
+        "name": "Service standards and SOP lookup",
+        "problem": "Fine dining service depends on details, but SOPs are often scattered across binders, PDFs, drives, and team messages.",
+        "agentWorkflow": "Train the internal agent on service manuals, sequence-of-service documents, opening and closing checklists, comp policies, VIP handling notes, and manager escalation guidance.",
+        "sourceTypes": [
+          "SOPs",
+          "Checklists",
+          "Service manuals",
+          "Manager policies"
+        ],
+        "optionalAction": "Generate a shift-ready summary or create a manager follow-up task when staff identify outdated instructions.",
+        "outcome": "Help teams execute the same standards across roles, shifts, and locations.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Onboarding and role training",
+        "problem": "New hosts, servers, runners, bartenders, and managers need fast access to policies, menu language, service expectations, and operational routines.",
+        "agentWorkflow": "DocsBot answers from onboarding materials, training guides, wine education notes, role checklists, HR policies, and internal FAQs.",
+        "sourceTypes": [
+          "Training decks",
+          "Employee handbooks",
+          "Role guides",
+          "Pre-shift notes"
+        ],
+        "optionalAction": "Surface repeated onboarding questions so leaders can improve training content and fill documentation gaps.",
+        "outcome": "Reduce repeated manager explanations and give new staff confidence before they interact with guests.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Menu change and beverage briefing",
+        "problem": "Seasonal menus and pairing updates can change quickly, creating inconsistency between the kitchen, bar, cellar, and dining room.",
+        "agentWorkflow": "The agent retrieves the latest approved dish descriptions, ingredient notes, pairing recommendations, pronunciation guidance, and 86’d item updates from configured sources.",
+        "sourceTypes": [
+          "Menu sheets",
+          "Wine notes",
+          "Beverage lists",
+          "Chef updates"
+        ],
+        "optionalAction": "Prepare a concise pre-shift briefing for staff review from the current source materials.",
+        "outcome": "Keep front-of-house explanations aligned with chef and beverage leadership.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "name": "Reservation exception handoffs",
+        "problem": "Late arrivals, allergy notes, VIP requests, large parties, and prepaid experiences require careful handling and context-rich escalation.",
+        "agentWorkflow": "Staff can ask the agent how to handle a scenario, retrieve relevant policy language, and generate a summary for the manager or host stand.",
+        "sourceTypes": [
+          "Reservation SOPs",
+          "Cancellation policies",
+          "VIP notes",
+          "Guest communication templates"
+        ],
+        "optionalAction": "Route the summarized issue to the right team channel or task system through an approved workflow.",
+        "outcome": "Help staff move quickly while keeping judgment-based exceptions with human leaders.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "name": "Operational analytics and content gaps",
+        "problem": "Managers may not know which guest or staff questions repeat until they become service problems.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help identify common questions, unsatisfied topics, and missing documentation.",
+        "sourceTypes": [
+          "Agent logs",
+          "Conversation reports",
+          "FAQ content",
+          "Internal knowledge sources"
+        ],
+        "optionalAction": "Create a content-improvement task or manager review item when a knowledge gap appears.",
+        "outcome": "Continuously improve guest FAQs, staff training, and internal procedures based on real questions.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your restaurant knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved websites, documents, help content, PDFs, team knowledge, and other configured sources.",
+      "industryApplication": "Train guest-facing and internal agents on menus, reservation policies, private dining packets, wine notes, SOPs, onboarding materials, and service standards.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers in your voice",
+      "mainLandingPageContext": "DocsBot agents answer from the company’s own sources so customers and employees get consistent, contextual responses.",
+      "industryApplication": "Give guests polished answers about attire, tasting menus, accessibility, allergen process, and policies without drifting away from your hospitality standards.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Use approved workflows to collect reservation details, qualify private dining leads, summarize guest requests, create follow-up tasks, or route exceptions to managers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agents for teams",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, answering questions from internal SOPs, policies, wikis, PDFs, and shared documents.",
+      "industryApplication": "Help hosts, servers, sommeliers, kitchen leaders, and managers retrieve service standards, menu notes, and training guidance during onboarding or pre-shift preparation.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the same configured knowledge base.",
+      "industryApplication": "Support travelers, hotel concierge referrals, corporate guests, and international diners while keeping policies and menu explanations consistent.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, topic management, satisfaction and resolution analysis, reports, and visibility into missing content.",
+      "industryApplication": "See which booking, menu, private dining, allergy, and policy questions guests ask most, then improve pages, FAQs, and staff training.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Governance and private source handling",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect internal SOPs, private event materials, staff policies, and operational knowledge while giving the right teams access to the right agent.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your owned content library so guest and staff answers stay aligned with your standards.",
+      "Support website and team workflows without forcing every repeated question through a manager or host.",
+      "Use proven AI support patterns for high-volume inquiries, first-line answers, and human-assisted follow-up."
+    ],
+    "whyTheseReviewsFit": "Fine dining teams need more than generic automation: they need accurate answers from approved content, easy deployment, and support for both guest inquiries and staff knowledge. DocsBot proof from hospitality training, content-library use, and support workflows speaks directly to those needs.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI guest support and internal knowledge agents for fine dining restaurants",
+    "audience": [
+      "Fine dining owners",
+      "General managers",
+      "Reservation and guest relations teams",
+      "Private dining and events teams",
+      "Chefs and beverage directors"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "farm-to-table-restaurants",
+    "caterer",
+    "bed-and-breakfast",
+    "hotel-resort",
+    "food-hospitality",
+    "alcoholic-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "fine-dining",
+    "webSearchQueries": [
+      "National Restaurant Association 2024 State of the Restaurant Industry off-premises technology labor costs fine dining",
+      "BLS food services drinking places employment May 2024 chefs waiters restaurants",
+      "FDA Food Code employee health allergen restaurant 2022 food code",
+      "OpenTable dining trends restaurant reservations no-shows 2024",
+      "BLS occupational employment food services and drinking places May 2024 waiters cooks chefs bartenders"
+    ],
+    "sourceUrls": [
+      "https://restaurant.org/research-and-media/media/press-releases/restaurant-industry-sales-forecast-to-set-1-1-trillion-record-in-2024/",
+      "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "https://www.bls.gov/ces/publications/highlights/2024/current-employment-statistics-highlights-02-2024.pdf",
+      "https://www.opentable.com/blog/no-show-numbers/",
+      "https://www.opentable.com/state-of-industry"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45939,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33395,
+        "outputTokens": 8206,
+        "reasoningOutputTokens": 210,
+        "totalTokens": 54145,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.209714,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.229714
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25737,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18441,
+          "outputTokens": 5551,
+          "reasoningOutputTokens": 210,
+          "totalTokens": 31288,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.131192,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.151192
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20202,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14954,
+          "outputTokens": 2655,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22857,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078522,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078522
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1565895405140-6b9830a88c19?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU0MjB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Fine Dining Restaurants background image",
+    "source": "legacy-industry",
+    "query": "Fine Dining Restaurants"
+  },
+  "faq": [
+    {
+      "question": "Can an AI agent answer guest questions without making our service feel less personal?",
+      "answer": "Yes—when it is trained on your approved restaurant content and written in your hospitality voice. DocsBot is best used for fast, consistent answers to questions about menus, dress code, parking, tasting-menu timing, cancellation rules, and private dining basics, while nuanced requests, VIP handling, complaints, and exceptions can be escalated to staff with context.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the agent from giving the wrong answer about allergens or dietary accommodations?",
+      "answer": "Train the agent only on approved menus, allergen guidance, chef notes, and escalation rules, then require it to route safety-sensitive or uncertain answers to trained staff. That matters because sesame became the ninth major food allergen effective January 1, 2023, and employee food safety training must include awareness of the nine major allergens.",
+      "role": "Chefs, beverage directors, and service leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-food-code-allergen-sesame"
+      ]
+    },
+    {
+      "question": "Can DocsBot connect with our reservation system to check live availability?",
+      "answer": "DocsBot can support live lookups or scheduling workflows when you configure the right Skills, APIs, connectors, MCP servers, or approved automation. Many restaurants start by using the agent to collect date, time, party size, occasion, dietary notes, and contact details, then hand off the summary to the host team before enabling deeper reservation-system actions.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Would this replace our host, reservationist, or guest relations team?",
+      "answer": "No. DocsBot should handle repeatable first-line questions and structured intake, not judgment-based hospitality. Hosts and managers should still own final availability, seating exceptions, VIP recognition, complaints, allergy confirmation, prepaid reservation changes, and high-value guest relationships. The agent helps them start with cleaner context instead of a blank inbox or phone log.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What ROI should a fine dining operator look for beyond fewer phone calls?",
+      "answer": "Look at reduced repetitive inquiries, faster private dining response, more complete reservation notes, fewer unclear policy conversations, better staff access to SOPs, and clearer content gaps. Restaurants face labor pressure across a large market: U.S. restaurant sales were forecast at $1.1 trillion for 2024, and 47% of operators expected technology and automation for labor shortages to become more common.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-restaurant-sales-labor-tech"
+      ]
+    },
+    {
+      "question": "Can the agent qualify private dining and buyout leads before our events manager replies?",
+      "answer": "Yes. A DocsBot presales agent can answer from private dining packets, room capacity sheets, sample menus, beverage options, deposit rules, and planning timelines. It can collect event date, party size, format, budget range, dietary needs, company or host name, and preferred follow-up channel, then forward a structured summary through a customer-configured workflow.",
+      "role": "Private dining and events teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we make sure the AI doesn’t quote an old menu or outdated wine pairing?",
+      "answer": "Use approved source management and keep time-sensitive content in a clear location, such as current menu sheets, chef notes, wine updates, and 86’d item lists. DocsBot answers from configured knowledge sources, so your operating process should define who owns updates, how often sources are refreshed, and what topics require staff confirmation.",
+      "role": "Chefs, beverage directors, and service leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can staff use DocsBot internally during pre-shift or onboarding?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, service manuals, onboarding guides, wine notes, role checklists, comp policies, and pre-shift notes. Staff can ask natural-language questions and receive source-grounded answers, helping managers avoid repeating the same explanations across roles and shifts.",
+      "role": "Chefs, beverage directors, and service leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should we automate first if we are cautious about AI in a luxury hospitality setting?",
+      "answer": "Start with low-risk, high-volume questions: dress code, parking, accessibility basics, cancellation windows, tasting-menu timing, private dining intake, and general reservation-policy explanations. Then add internal SOP lookup and staff training. Keep allergy, VIP, refund, complaint, and exception workflows routed to humans until you are confident in sources, tone, and escalation rules.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help reduce no-shows or incomplete reservation details?",
+      "answer": "DocsBot can explain cancellation policies, collect confirmation details, ask for missing allergy or occasion notes, and prepare reminder or follow-up tasks through approved workflows. Clearer communication matters because OpenTable reported that 28% of Americans said they had not shown up for a reservation in the past year.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-opentable-no-shows"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle multilingual guests without creating inconsistent policy answers?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved restaurant knowledge base. That means international guests can ask about tasting menus, dress code, dietary processes, arrival instructions, or private dining in their preferred language while the underlying policy language remains consistent with your approved sources.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What information would we need to prepare before launch?",
+      "answer": "Most fine dining teams should gather website FAQs, reservation and cancellation policies, tasting-menu details, dress code, parking and accessibility notes, private dining packets, sample menus, allergen process language, SOPs, service standards, onboarding materials, and escalation rules. The cleaner the source library, the more confidently the agent can answer and hand off.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we review what guests are asking and improve our website or menus from that data?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see repeated booking, menu, allergen, parking, attire, or private dining questions and use those patterns to improve FAQs, menu descriptions, confirmation emails, and staff briefings.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we protect internal SOPs, staff policies, and private event pricing?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. You can separate guest-facing content from internal knowledge so staff-only SOPs, comp rules, private dining materials, and operational policies are available only to authorized users.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent take actions, or does it only answer questions?",
+      "answer": "DocsBot can take bounded actions when you configure AI Actions, Skills, APIs, connectors, MCP servers, or workflow automations. In a restaurant context, that may mean collecting missing reservation details, creating a task, routing a private dining lead, notifying the host team, summarizing a guest request, or updating approved fields—within your permissions and review rules.",
+      "role": "General buyer",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we avoid the agent promising availability, discounts, substitutions, or seating requests we cannot honor?",
+      "answer": "Define strict answer boundaries. The agent can explain policies, collect preferences, and say staff will confirm availability or exceptions. For high-impact commitments—table assignments, comps, refunds, allergy accommodations, off-menu substitutions, pricing exceptions, or VIP requests—route the conversation to a human with a summary instead of allowing the agent to commit.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support multiple locations or restaurant concepts with different menus and policies?",
+      "answer": "Yes. DocsBot can be trained on approved sources for different concepts, locations, or teams, with access controls and role-based permissions to keep knowledge separated where needed. For restaurant groups, the key implementation decision is whether to use one shared brand knowledge base, location-specific agents, or a mix of both.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How would this fit with our current tools like reservation platforms, CRM, email, Slack, or Teams?",
+      "answer": "DocsBot can work alongside existing systems through customer-configured Skills, APIs, connectors, webhooks, MCP connectors, and workflow automations. Instead of claiming every tool is native, the practical buying question is which approved systems should receive summaries, tasks, lead details, reservation context, or internal staff notifications.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What does success look like for a reservation or guest relations team?",
+      "answer": "Success usually means fewer repetitive calls, faster answers outside service hours, more complete reservation notes, cleaner handoffs for special occasions and dietary needs, shorter time to respond to private dining inquiries, and fewer managers interrupted for policy lookups. Track both deflection and hospitality quality, not just conversation volume.",
+      "role": "Hosts, reservationists, and guest relations teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the AI help with staff turnover and seasonal onboarding?",
+      "answer": "Yes. An internal DocsBot agent can give new hosts, servers, runners, sommeliers, and managers fast access to role guides, service standards, menu language, wine notes, opening and closing checklists, and escalation procedures. Restaurant operations have major labor scale—BLS reported 12.322 million food services and drinking places jobs in February 2024.",
+      "role": "Owners and general managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-food-service-employment"
+      ]
+    },
+    {
+      "question": "How should chefs and beverage directors stay in control of menu and pairing language?",
+      "answer": "Make culinary and beverage leaders the owners of the approved source material. DocsBot can surface chef notes, ingredient sourcing, pairing explanations, nonalcoholic options, pronunciation guidance, and seasonal menu updates, but the final language should come from the people responsible for the guest experience and be refreshed whenever the menu changes.",
+      "role": "Chefs, beverage directors, and service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot widget to our website?",
+      "answer": "A generic chatbot often answers broadly. DocsBot is positioned as an AI agent trained on your restaurant’s approved knowledge, with source-grounded answers, internal staff use cases, analytics, multilingual support, and scoped workflow actions when configured. That makes it better suited to fine dining, where tone, accuracy, escalation, and service standards matter.",
+      "role": "Owners and general managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for both guest-facing and staff-only questions?",
+      "answer": "Yes, but they should usually be separated by audience and permissions. A guest-facing agent can answer website, reservation, menu, and private dining questions. A private internal agent can answer SOP, training, service standard, comp-policy, and pre-shift questions for staff. Role-based permissions help keep sensitive operational content protected.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What procurement or ownership questions should we settle before buying?",
+      "answer": "Decide who owns source accuracy, who approves public answers, who reviews conversation logs, who handles escalations, which systems the agent may access, and what actions require human approval. Fine dining AI projects work best when operations, guest relations, culinary leadership, events, and IT agree on boundaries before launch.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us understand demand patterns before guests book?",
+      "answer": "DocsBot can show what prospective diners ask before booking—such as menu format, dress code, dietary process, cancellation policy, parking, accessibility, and private dining availability. That complements broader reservation-demand signals; OpenTable’s industry dashboard draws on a network of more than 65,000 restaurants and millions of diners.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-opentable-network-demand"
+      ]
+    }
+  ]
+}

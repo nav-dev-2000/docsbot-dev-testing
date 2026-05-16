@@ -1,0 +1,725 @@
+{
+  "slug": "real-estate-housing",
+  "business": "Real Estate & Housing",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Real Estate and Housing Operations",
+    "description": "DocsBot helps real estate and housing teams answer property, resident, policy, and lead questions faster with source-grounded AI agents.",
+    "canonicalPath": "/industry/real-estate-housing"
+  },
+  "hero": {
+    "eyebrow": "AI automation for brokerages, property teams, housing providers, and residents",
+    "headline": "Run real estate conversations with DocsBot AI agents",
+    "subheadline": "DocsBot turns your listings, policies, resident guides, SOPs, FAQs, contracts, training materials, and service playbooks into AI agents that answer questions, qualify inquiries, summarize context, route handoffs, and keep teams aligned across customer and internal workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer buyer, seller, renter, owner, resident, and stakeholder questions from approved real estate knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details, qualify fit with your rules, and forward summaries through customer-configured forms, APIs, connectors, or workflows.",
+        "icon": "BookmarkIcon"
+      },
+      {
+        "text": "Help property, leasing, support, and operations teams find SOPs, policy details, lease guidance, and process steps without searching folders.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Escalate sensitive, contractual, financial, legal, or fair-housing-related questions to the right human with conversation context.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a real estate AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps real estate and housing organizations create AI agents trained on their own content. Agents can respond in a website widget, private team chat, Slack or Microsoft Teams experience, helpdesk-connected workflow, or API-powered interface, depending on how the customer configures access, sources, Skills, and approvals.",
+    "whoItHelps": [
+      {
+        "role": "Brokerages and real estate teams",
+        "roleContext": "Give buyers and sellers faster answers while keeping agents focused on negotiations, showings, pricing strategy, and relationship-building.",
+        "bullets": [
+          {
+            "text": "Explain service areas, buying or selling steps, showing preparation, document checklists, and common process questions from approved guides.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Capture inquiry details such as timeline, budget range, property type, financing status, and preferred follow-up channel.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Prepare a clean handoff summary for the agent so follow-up starts with context instead of a blank intake form.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "HomeIcon"
+      },
+      {
+        "role": "Property management and housing operations",
+        "roleContext": "Support residents, owners, leasing staff, and maintenance coordinators with consistent answers about policies, community rules, repairs, renewals, and procedures.",
+        "bullets": [
+          {
+            "text": "Make lease FAQs, move-in instructions, amenity rules, pet policies, parking guidance, and maintenance triage steps easier to find.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use approved AI Actions to look up request status, create a ticket, route a concern, or notify the right team when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Surface recurring resident questions and documentation gaps through logs, analytics, topic reports, and conversation review.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Housing providers and compliance leaders",
+        "roleContext": "Keep sensitive housing workflows bounded by approved sources, review paths, role permissions, and human escalation for high-impact decisions.",
+        "bullets": [
+          {
+            "text": "HUD issued 2024 guidance explaining how the Fair Housing Act applies to tenant screening practices that may involve automation, machine learning, or AI.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-hud-tenant-screening-ai"
+            ]
+          },
+          {
+            "text": "Route screening, eligibility, advertising, accommodation, legal, and adverse-action questions to qualified staff instead of letting an agent decide outcomes.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use private internal agents to help staff locate current policies, SOPs, scripts, and escalation instructions from approved sources.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-hud-tenant-screening-ai"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nar-online-home-search",
+      "metric": "43% of 2024 buyers started by looking for properties online",
+      "claim": "NAR’s 2024 Profile of Home Buyers and Sellers highlights how important digital property search, online information, photos, and floor plans are to the modern home search process.",
+      "sourceTitle": "2024 Profile of Home Buyers and Sellers Highlights",
+      "sourceUrl": "https://www.nar.realtor/sites/default/files/2024-11/2024-profile-of-home-buyers-and-sellers-highlights-11-04-2024_2.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "buyer behavior",
+        "digital self-service",
+        "listing questions",
+        "lead capture"
+      ]
+    },
+    {
+      "id": "src-bls-property-managers",
+      "metric": "466,100 property, real estate, and community association manager jobs in 2024",
+      "claim": "The Bureau of Labor Statistics describes property, real estate, and community association managers as overseeing many aspects of residential, commercial, or industrial properties, with about 39,000 projected openings per year over the decade.",
+      "sourceTitle": "Property, Real Estate, and Community Association Managers, Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/management/property-real-estate-and-community-association-managers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "operations workload",
+        "property management staffing"
+      ]
+    },
+    {
+      "id": "src-hud-tenant-screening-ai",
+      "metric": "HUD issued fair housing guidance for rental applicant screening on April 29, 2024",
+      "claim": "HUD guidance explains how the Fair Housing Act applies to tenant screening practices with varying levels of human involvement, including automation, machine learning, and other forms of AI.",
+      "sourceTitle": "Guidance on Application of the Fair Housing Act to the Screening of Applicants for Rental Housing",
+      "sourceUrl": "https://archives.hud.gov/news/2024/FHEO_Guidance_on_Screening_of_Applicants_for_Rental_Housing.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "AI governance",
+        "tenant screening boundaries"
+      ]
+    },
+    {
+      "id": "src-nar-first-time-buyers",
+      "metric": "First-time buyers made up 32% of all home buyers in NAR’s 2024 generational trends summary",
+      "claim": "NAR notes that first-time buyers often have different levels of market knowledge, financial context, goals, and emotional factors than repeat buyers.",
+      "sourceTitle": "First-Time Homebuyers",
+      "sourceUrl": "https://www.nar.realtor/first-time-homebuyers",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "buyer education",
+        "process guidance",
+        "first-time buyer support"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Property inquiry and listing knowledge agent",
+      "problem": "Prospects expect quick answers about availability, neighborhoods, amenities, floor plans, fees, showing steps, and next actions, especially when the first search often starts online.",
+      "agentWorkflow": "Train DocsBot on listing pages, FAQs, community pages, brochures, service areas, buyer guides, and showing instructions. The agent answers from approved sources, asks clarifying questions, captures interest details, and prepares a handoff when the prospect is ready for a person.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or workflow automations, the agent can look up current availability, create a lead record, trigger a follow-up task, or request a showing through a scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you have two-bedroom apartments available next month?",
+        "What should I bring to my first buyer consultation?",
+        "Can you send this inquiry to an agent who handles condos downtown?"
+      ],
+      "businessOutcome": "Give prospects faster self-service while sending agents cleaner, more complete inquiry context.",
+      "icon": "HomeModernIcon",
+      "sourceIds": [
+        "src-nar-online-home-search"
+      ]
+    },
+    {
+      "name": "Resident and owner support agent",
+      "problem": "Property teams repeatedly answer the same questions about maintenance, rent payments, parking, pets, move-ins, amenities, renewals, and community rules.",
+      "agentWorkflow": "DocsBot can be trained on resident handbooks, lease FAQs, owner communications, SOPs, maintenance categories, and property policies. It provides source-grounded answers, collects missing details, and escalates urgent or sensitive issues to staff.",
+      "liveContextOrTools": "Customer-configured AI Actions can create a maintenance ticket, route a noise complaint, summarize a resident issue, notify a team, or look up request status when the property system connection is authorized.",
+      "exampleQuestionsOrRequests": [
+        "How do I submit an after-hours maintenance request?",
+        "What is the pet policy for this building?",
+        "Can you summarize this owner’s complaint before I call them back?"
+      ],
+      "businessOutcome": "Reduce repetitive support work and improve consistency across residents, owners, and onsite teams.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-bls-property-managers"
+      ]
+    },
+    {
+      "name": "Fair housing and policy guidance assistant",
+      "problem": "Housing teams need fast access to compliant scripts, policies, escalation rules, and internal guidance without asking AI to make eligibility or legal decisions.",
+      "agentWorkflow": "Train an internal DocsBot agent on fair housing policies, advertising guidelines, accommodation procedures, screening SOPs, escalation playbooks, and approved staff scripts. The agent answers policy questions from sources and routes high-impact decisions to qualified humans.",
+      "liveContextOrTools": "Use scoped permissions, logs, role-based access, and review workflows for sensitive topics. Actions can create a compliance review task or prepare a handoff summary without deciding applicant eligibility.",
+      "exampleQuestionsOrRequests": [
+        "Where is our approved reasonable accommodation process?",
+        "What should leasing staff say when asked about screening criteria?",
+        "Create a compliance review task for this unusual applicant question."
+      ],
+      "businessOutcome": "Help teams find current policy language while keeping regulated housing decisions under human control.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-hud-tenant-screening-ai"
+      ]
+    },
+    {
+      "name": "First-time buyer education agent",
+      "problem": "First-time buyers often need extra guidance on process steps, terminology, documentation, financing milestones, inspections, offers, timelines, and what happens after acceptance.",
+      "agentWorkflow": "DocsBot can answer from buyer guides, onboarding emails, checklists, FAQs, glossary content, preferred process documentation, and agent-approved educational resources. It can distinguish general education from advice that needs a licensed professional.",
+      "liveContextOrTools": "The agent can collect learning needs, send a checklist, draft a follow-up for the agent, or route mortgage, legal, tax, or contract-specific questions to the appropriate professional.",
+      "exampleQuestionsOrRequests": [
+        "What happens after my offer is accepted?",
+        "What is earnest money?",
+        "Which questions should I ask before a home inspection?"
+      ],
+      "businessOutcome": "Improve buyer confidence while preserving the agent’s role for advice, negotiation, and transaction decisions.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-nar-first-time-buyers"
+      ]
+    },
+    {
+      "name": "Internal operations and training knowledge agent",
+      "problem": "Real estate and housing organizations run on scattered SOPs, local procedures, vendor instructions, policy updates, and training notes that are hard to find during busy workdays.",
+      "agentWorkflow": "Train DocsBot on internal wikis, PDFs, Word documents, Google Drive, Notion, Confluence, SOPs, onboarding materials, scripts, vendor instructions, and team FAQs. Employees ask natural-language questions and receive source-grounded answers with context.",
+      "liveContextOrTools": "DocsBot Skills, APIs, connectors, and MCP Connectors can connect an agent to approved live systems or remote Model Context Protocol servers for bounded lookups, summaries, task creation, and workflow triggers.",
+      "exampleQuestionsOrRequests": [
+        "Where is the move-out inspection checklist?",
+        "What is our process for owner statement questions?",
+        "Summarize the onboarding steps for a new leasing coordinator."
+      ],
+      "businessOutcome": "Help distributed teams answer operational questions consistently and identify documentation gaps through analytics.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Sales enablement and follow-up assistant",
+      "problem": "Agents, leasing specialists, and account managers need quick access to service explanations, objection handling, proposal language, community differentiators, and past conversation context.",
+      "agentWorkflow": "DocsBot can act as a private sales enablement agent trained on service pages, listing packets, pricing guidance, case studies, call scripts, FAQs, proposal templates, and objection handling notes. It drafts follow-ups and summarizes prospect needs for human review.",
+      "liveContextOrTools": "When configured with approved tools, the agent can retrieve CRM context, prepare a task, draft an email, or forward qualified lead details to sales systems without making contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up email for a relocating renter who needs a pet-friendly unit.",
+        "What objections do sellers raise about our listing process?",
+        "Summarize this prospect before my consultation."
+      ],
+      "businessOutcome": "Give sales and leasing teams faster preparation while keeping final outreach, pricing, and contract language in human hands.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers, renters, residents, and owners answers without losing the human relationship",
+    "intro": "DocsBot can power customer-facing real estate and housing agents that respond from your approved knowledge sources, collect structured details, and escalate complex or sensitive requests. The result is faster self-service for common questions and better handoffs for the conversations that need your team.",
+    "requests": [
+      {
+        "request": "“Is this home, unit, or community a good fit for me?”",
+        "agentResponseStrategy": "Answer from listings, community pages, eligibility FAQs, amenity guides, and service descriptions; ask follow-up questions; and route the lead when human guidance is needed.",
+        "sourceTypes": [
+          "Listings",
+          "Community pages",
+          "FAQs",
+          "Service guides"
+        ],
+        "optionalAction": "Submit a custom lead form or send a summarized inquiry to the right agent or leasing team.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What are the next steps before my showing, move-in, renewal, or closing?”",
+        "agentResponseStrategy": "Retrieve the right checklist, explain the sequence in plain language, and flag steps that require staff, legal, lender, title, or licensed professional review.",
+        "sourceTypes": [
+          "Checklists",
+          "Onboarding emails",
+          "Transaction guides",
+          "Resident handbooks"
+        ],
+        "optionalAction": "Collect scheduling intent and trigger an approved booking or follow-up workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What does this policy, fee, rule, or document mean?”",
+        "agentResponseStrategy": "Provide source-grounded summaries from approved documents and avoid making legal, financial, screening, or eligibility determinations.",
+        "sourceTypes": [
+          "Lease FAQs",
+          "Policy documents",
+          "HOA rules",
+          "Disclosures",
+          "Resident guides"
+        ],
+        "optionalAction": "Create a staff handoff with the customer’s question, relevant source, and conversation summary.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can someone check the status of my request?”",
+        "agentResponseStrategy": "Confirm the request type, collect identifying details, and use configured live context only when the customer has authorized system access and the workflow is scoped.",
+        "sourceTypes": [
+          "Support articles",
+          "Maintenance SOPs",
+          "Ticket categories",
+          "Resident FAQs"
+        ],
+        "optionalAction": "Look up request status, create a ticket, or notify the correct team through a customer-configured Skill, API, or connector.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Can you explain the home buying process?”",
+        "agentResponseStrategy": "Offer educational guidance from approved buyer resources, glossary pages, and checklists while routing advice-specific questions to the responsible professional.",
+        "sourceTypes": [
+          "Buyer guides",
+          "Glossaries",
+          "Agent-approved FAQs",
+          "Process checklists"
+        ],
+        "optionalAction": "Send a buyer education summary to the assigned agent for follow-up.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-nar-first-time-buyers"
+        ]
+      },
+      {
+        "request": "“I need help in another language.”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering capabilities to respond from the same approved sources while preserving source-grounded consistency.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Policy documents",
+          "Help center articles",
+          "Website content"
+        ],
+        "optionalAction": "Escalate to a bilingual staff member when the topic is sensitive or requires personal review.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep real estate teams aligned with a private operational knowledge agent",
+    "intro": "For internal teams, DocsBot can search across approved company knowledge, explain SOPs, summarize documents, draft responses, and show where employees are asking repeated questions. Access controls and role-based permissions help keep private sources available only to the people who should use them.",
+    "workflows": [
+      {
+        "name": "Leasing and resident support playbooks",
+        "problem": "Leasing and support teams need fast, consistent answers during calls, tours, renewals, and resident issue follow-up.",
+        "agentWorkflow": "Train DocsBot on leasing scripts, property FAQs, resident policies, renewal procedures, escalation rules, and team playbooks so staff can ask natural-language questions and retrieve the right source-backed answer.",
+        "sourceTypes": [
+          "Leasing scripts",
+          "Resident guides",
+          "Renewal SOPs",
+          "Escalation playbooks"
+        ],
+        "optionalAction": "Draft a resident reply or create a follow-up task for review through an approved workflow.",
+        "outcome": "Reduce inconsistent answers and make onboarding easier for new leasing or support staff.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Property operations and maintenance triage",
+        "problem": "Maintenance coordinators and managers need to classify issues, find vendor steps, and communicate clearly without digging through folders.",
+        "agentWorkflow": "DocsBot can retrieve maintenance categories, access rules, vendor instructions, warranty notes, emergency procedures, and communication templates from approved internal sources.",
+        "sourceTypes": [
+          "Maintenance SOPs",
+          "Vendor instructions",
+          "Emergency procedures",
+          "Communication templates"
+        ],
+        "optionalAction": "Create a task, route a request, or summarize the issue for a manager when configured.",
+        "outcome": "Move routine questions to documented answers while keeping urgent or safety-related calls with staff.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Compliance and policy lookup",
+        "problem": "Teams need to quickly find current policy language while avoiding unsupported answers in regulated housing contexts.",
+        "agentWorkflow": "Use DocsBot as a policy assistant trained on approved fair housing materials, internal procedures, advertising rules, accommodation workflows, and human escalation instructions.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Fair housing policies",
+          "Screening SOPs",
+          "Advertising guidelines"
+        ],
+        "optionalAction": "Generate a compliance handoff summary or route the question to a designated reviewer.",
+        "outcome": "Improve policy access without delegating legal, eligibility, or screening decisions to AI.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-hud-tenant-screening-ai"
+        ]
+      },
+      {
+        "name": "Sales and listing preparation",
+        "problem": "Agents and managers spend time assembling service details, property context, objection handling, and follow-up language before meetings.",
+        "agentWorkflow": "Train DocsBot on sales playbooks, listing packets, neighborhood notes, case studies, seller FAQs, buyer FAQs, proposal language, and approved positioning.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Listing packets",
+          "Proposal templates",
+          "Service FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize prospect needs, or prepare a call brief for human review.",
+        "outcome": "Help agents prepare faster while keeping final advice, pricing, and commitments with licensed professionals.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved real estate content",
+      "mainLandingPageContext": "DocsBot agents are trained on the knowledge sources a business provides, such as websites, help centers, PDFs, internal documents, wikis, and team resources.",
+      "industryApplication": "Answer questions about listings, community rules, resident policies, buying steps, selling process, leases, owner communication, amenities, and internal SOPs without relying on generic AI memory.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing widget and private team access",
+      "mainLandingPageContext": "DocsBot can be used through an embeddable website widget, private team chat, Slack, Microsoft Teams, API-powered interfaces, and helpdesk-connected workflows when configured.",
+      "industryApplication": "Place an AI support agent on a brokerage, property management, housing provider, or community website while giving staff a private operations assistant for internal policies and procedures.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, summaries, record creation, updates, workflow triggers, and handoffs within customer-defined rules.",
+      "industryApplication": "Look up availability, create a maintenance ticket, route a resident concern, collect lead details, draft a response, or send a summarized handoff when the customer has configured the required workflow.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and insight into unanswered topics.",
+      "industryApplication": "See what buyers, renters, residents, owners, and employees keep asking so teams can improve FAQs, onboarding guides, policy pages, and internal SOPs.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private housing knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Use private sources for owner communications, internal procedures, sales playbooks, resident policies, and compliance materials with controlled access and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support and stakeholder communication, from public questions to internal knowledge access.",
+      "Train agents on your owned content library so answers stay aligned with your real estate and housing materials.",
+      "Use analytics and conversation review to understand what customers, residents, and employees are trying to learn."
+    ],
+    "whyTheseReviewsFit": "Real estate and housing teams need clear communication, trustworthy owned-source answers, and practical automation that supports—not replaces—the people responsible for relationships and decisions. DocsBot proof spans customer communication, content-trained agents, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for real estate and housing support, operations, presales, and internal knowledge",
+    "audience": [
+      "Real estate brokerages",
+      "Property management companies",
+      "Housing providers",
+      "Leasing teams",
+      "Community association managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "real-estate-agent",
+    "property-management",
+    "commercial-leasing",
+    "corporate-housing",
+    "landlord-services",
+    "mortgage-company"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "real-estate-housing",
+    "webSearchQueries": [
+      "NAR 2024 home buyers searched online first step percentage",
+      "National Multifamily Housing Council renter preferences maintenance online portal 2024",
+      "HUD fair housing guidance tenant screening automated systems 2024",
+      "BLS property real estate and community association managers employment 2024"
+    ],
+    "sourceUrls": [
+      "https://www.nar.realtor/sites/default/files/2024-11/2024-profile-of-home-buyers-and-sellers-highlights-11-04-2024_2.pdf",
+      "https://www.bls.gov/ooh/management/property-real-estate-and-community-association-managers.htm",
+      "https://archives.hud.gov/news/2024/FHEO_Guidance_on_Screening_of_Applicants_for_Rental_Housing.pdf",
+      "https://www.nar.realtor/first-time-homebuyers"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41047,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28503,
+        "outputTokens": 7825,
+        "reasoningOutputTokens": 105,
+        "totalTokens": 48872,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.191769,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.201769
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21693,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14397,
+          "outputTokens": 5049,
+          "reasoningOutputTokens": 105,
+          "totalTokens": 26742,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.113552,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.123552
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19354,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14106,
+          "outputTokens": 2776,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22130,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078217,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078217
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1635111300299-e6e677daf7b7?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDI0Mzh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Real Estate & Housing background image",
+    "source": "legacy-industry",
+    "query": "Real Estate & Housing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer listing, unit, amenity, and showing questions without giving unsupported advice?",
+      "answer": "Yes. DocsBot can be trained on your approved listings, community pages, brochures, buyer guides, showing instructions, and FAQs. It answers from those sources, asks clarifying questions, and routes advice-heavy, pricing, negotiation, financing, legal, or contract-specific questions to a person with conversation context.",
+      "role": "Brokerages and real estate teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would an AI agent help when so many prospects start their home search online?",
+      "answer": "DocsBot can give online prospects immediate answers about property details, service areas, next steps, and required information before a staff member follows up. That matters because NAR reported that 43% of 2024 buyers started by looking for properties online, making fast digital response a key part of lead capture.",
+      "role": "Brokerages and real estate teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nar-online-home-search"
+      ]
+    },
+    {
+      "question": "Can the agent qualify a buyer, seller, or renter before sending the lead to our team?",
+      "answer": "Yes. DocsBot can collect structured details such as timeline, budget range, property type, financing status, desired location, move-in needs, and preferred follow-up channel. You can define qualification rules, then use forms, APIs, connectors, or workflows to send a summarized handoff to the right person or system.",
+      "role": "Brokerages and real estate teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot replace our agents, leasing specialists, or resident support staff?",
+      "answer": "No. DocsBot is best used for repetitive questions, source-grounded explanations, intake, summaries, and routing. Humans should remain responsible for relationship-building, negotiations, pricing strategy, lease interpretation, legal issues, fair housing judgment, screening decisions, escalations, and high-impact commitments.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help property managers reduce repetitive resident and owner questions?",
+      "answer": "Yes. DocsBot can be trained on resident handbooks, lease FAQs, owner communications, SOPs, maintenance categories, amenity rules, parking guidance, pet policies, and renewal procedures. It can answer common questions consistently, collect missing details, and escalate urgent, sensitive, or property-specific issues to staff.",
+      "role": "Property management and housing operations",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of maintenance workflows can DocsBot support?",
+      "answer": "DocsBot can explain maintenance categories, after-hours instructions, access rules, vendor steps, emergency procedures, and communication templates from approved sources. With configured AI Actions, Skills, APIs, or connectors, it can create a ticket, route a concern, notify a team, look up status, or summarize an issue for review.",
+      "role": "Property management and housing operations",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the AI agent from making fair housing, screening, or eligibility decisions?",
+      "answer": "Use DocsBot as a policy lookup and escalation assistant, not a decision-maker. Train it on approved fair housing materials, advertising rules, screening SOPs, accommodation procedures, and escalation scripts. Then configure instructions so screening, eligibility, adverse-action, legal, and accommodation questions route to qualified staff.",
+      "role": "Housing providers and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Why is fair housing governance such a major concern for AI in rental operations?",
+      "answer": "HUD issued guidance on April 29, 2024 explaining how the Fair Housing Act applies to rental applicant screening practices involving automation, machine learning, AI, and different levels of human involvement. That makes clear boundaries, documentation, review paths, and human oversight essential for housing AI workflows.",
+      "role": "Housing providers and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hud-tenant-screening-ai"
+      ]
+    },
+    {
+      "question": "Can staff use DocsBot internally for SOPs, policies, scripts, and training materials?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, onboarding materials, vendor instructions, playbooks, and team FAQs. Employees can ask natural-language questions and receive source-grounded answers with access controls.",
+      "role": "Property management and housing operations",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot handle outdated listings, policies, or property rules?",
+      "answer": "DocsBot’s answer quality depends on the sources you approve and maintain. Teams should connect or upload current listings, policies, FAQs, resident guides, and SOPs, then use logs, conversation review, topic reports, and knowledge-gap analytics to identify stale content, missing answers, or recurring confusion.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot connect to our CRM, property management system, helpdesk, or scheduling tools?",
+      "answer": "DocsBot can support approved live lookups and actions through customer-configured AI Actions, Skills, APIs, connectors, MCP Connectors, forms, webhooks, or workflow automations. Avoid assuming a native integration; instead, scope the exact lookup, record creation, routing, handoff, or booking workflow your team wants to authorize.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we automate first: lead intake, resident support, or internal policy lookup?",
+      "answer": "Start where volume, repeatability, and risk are easiest to control. Many teams begin with listing FAQs, move-in instructions, maintenance triage, resident handbook questions, or internal SOP lookup. Save screening, legal, accommodation, contractual, and financial topics for tightly scoped internal guidance and human escalation.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much content do we need before launching a real estate AI agent?",
+      "answer": "You do not need a perfect knowledge base, but you do need reliable starting sources: listings or community pages, FAQs, process guides, resident handbooks, SOPs, escalation rules, and approved scripts. DocsBot analytics can then show which questions lack good source coverage so your documentation improves over time.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support first-time buyers without crossing into regulated advice?",
+      "answer": "Yes. DocsBot can answer educational questions from approved buyer guides, glossaries, checklists, onboarding emails, and agent-reviewed FAQs, then route mortgage, legal, tax, contract, or negotiation-specific questions to the right professional. NAR’s 2024 generational trends summary reported first-time buyers made up 32% of all buyers.",
+      "role": "Brokerages and real estate teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nar-first-time-buyers"
+      ]
+    },
+    {
+      "question": "How do we evaluate ROI if the agent is mostly answering questions and routing handoffs?",
+      "answer": "Track deflected repetitive questions, faster first response, more complete lead intake, reduced staff search time, fewer misrouted requests, improved after-hours coverage, and documentation gaps resolved. For property teams, also monitor maintenance intake completeness, renewal question volume, resident satisfaction signals, and staff time spent on repeat explanations.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What KPIs should a property management team monitor after launch?",
+      "answer": "Useful KPIs include total conversations, resolution rate, escalation rate, top resident topics, unanswered questions, maintenance tickets created, average response time, handoff quality, satisfaction signals, and policy-gap trends. DocsBot logs, analytics, topic management, reports, conversation review, and satisfaction or resolution analysis support this review cycle.",
+      "role": "Property management and housing operations",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can leadership see whether residents, owners, or employees are asking the same questions repeatedly?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That helps leaders spot recurring confusion around move-ins, amenities, renewals, maintenance, fees, showing steps, owner statements, SOPs, or policy changes.",
+      "role": "Property management and housing operations",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot protect private resident, owner, applicant, and internal business information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. Skills can also be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "Housing providers and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate public website answers from private staff-only knowledge?",
+      "answer": "Yes. You can use DocsBot for a customer-facing website widget and a private internal knowledge agent with different sources, permissions, instructions, and workflows. Public agents might answer listing or resident FAQs, while internal agents can access SOPs, scripts, compliance guidance, owner procedures, or sales playbooks.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when a resident asks something urgent or safety-related?",
+      "answer": "DocsBot should be configured to recognize urgent, sensitive, emergency, legal, or safety-related topics and escalate instead of trying to resolve them autonomously. It can collect context, summarize the issue, point to approved emergency instructions when appropriate, and notify or route the request through an approved workflow.",
+      "role": "Property management and housing operations",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for renters, residents, or buyers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while using the same approved source material. For sensitive topics such as lease obligations, accommodations, screening, legal notices, or financial questions, teams should configure escalation to bilingual staff or qualified reviewers as needed.",
+      "role": "General buyer",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from hallucinating property details or inventing policies?",
+      "answer": "Use source-grounded answers, approved content, clear instructions, scoped workflows, and escalation rules. DocsBot should be trained on your owned materials rather than generic AI memory, and teams should review logs, unanswered topics, and low-confidence patterns to improve sources and tighten boundaries over time.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help new leasing coordinators or onsite staff ramp faster?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions from training materials, leasing scripts, renewal SOPs, resident policies, vendor instructions, and escalation playbooks. This helps new staff find the right process during calls, tours, renewals, maintenance intake, and resident follow-up without searching through folders.",
+      "role": "Property management and housing operations",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would DocsBot fit into a brokerage sales enablement workflow?",
+      "answer": "DocsBot can be trained on service pages, listing packets, buyer and seller FAQs, proposal templates, case studies, objection handling notes, pricing guidance, and follow-up examples. It can draft emails, prepare call briefs, summarize prospect needs, and support handoffs while humans approve final advice and commitments.",
+      "role": "Brokerages and real estate teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot scale across multiple properties, offices, regions, or brands?",
+      "answer": "Yes, if the knowledge structure and permissions are designed carefully. Teams can separate sources by property, community, office, market, or role, then use access controls and instructions to keep answers relevant. Analytics can reveal which locations need better FAQs, resident guides, or SOP coverage.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What are the biggest implementation risks buyers should plan for?",
+      "answer": "The common risks are messy source content, unclear escalation rules, outdated property data, overbroad system access, weak ownership for content updates, and stakeholder disagreement about what AI may answer. A successful rollout defines approved sources, human review paths, sensitive-topic boundaries, and launch metrics before deployment.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How should a compliance leader review DocsBot before approving a pilot?",
+      "answer": "Review source scope, role-based permissions, logs, retention expectations, escalation rules, prohibited topics, live-action boundaries, and whether the agent can create tasks without deciding outcomes. For housing, pay special attention to fair housing, screening, advertising, reasonable accommodation, adverse-action, and legal handoff workflows.",
+      "role": "Housing providers and compliance leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help with the workload faced by property and community association managers?",
+      "answer": "Yes. DocsBot can reduce repetitive lookup and communication work by answering from approved resident, owner, lease, maintenance, and SOP sources. The workload is meaningful: BLS reported 466,100 property, real estate, and community association manager jobs in 2024, with about 39,000 projected openings per year over the decade.",
+      "role": "Property management and housing operations",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-property-managers"
+      ]
+    }
+  ]
+}

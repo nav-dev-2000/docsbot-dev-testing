@@ -1,0 +1,728 @@
+{
+  "slug": "environmental-health",
+  "business": "Environmental Health",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Environmental Health Operations",
+    "description": "DocsBot helps environmental health teams answer public questions, retrieve policy guidance, and route field requests from approved agency knowledge.",
+    "canonicalPath": "/industry/environmental-health"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for environmental health teams",
+    "headline": "Give environmental health staff an AI agent for public service and field knowledge",
+    "subheadline": "DocsBot trains AI agents on your approved regulations, inspection guides, outreach materials, FAQs, SOPs, and internal documents so residents, regulated facilities, and staff can get consistent answers while complex or sensitive issues move to the right human expert.",
+    "proofBullets": [
+      {
+        "text": "Answer resident and business questions from approved environmental health pages, PDFs, policies, and FAQs.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help staff retrieve inspection procedures, permit requirements, response scripts, and field guidance without searching multiple folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect intake details, summarize a request, create a task, route a ticket, or prepare a handoff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review conversations, unanswered questions, and knowledge gaps to improve public guidance and internal documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an environmental health AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps environmental health organizations create AI agents trained on their own knowledge sources. The agent can support public-facing self-service, internal staff lookup, helpdesk-style intake, multilingual communication, and scoped workflow automation through customer-configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Environmental health directors and program managers",
+        "roleContext": "Coordinate public communication, program guidance, inspections, and service requests across food safety, water, vector control, housing, nuisance, and emergency response programs.",
+        "bullets": [
+          {
+            "text": "Keep approved public guidance consistent across offices, websites, call centers, and after-hours inquiries.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Use analytics to see repeated questions, unclear policies, and missing public-facing content.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Route complex, safety-critical, legal, or enforcement questions to qualified staff with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Inspectors, sanitarians, and field specialists",
+        "roleContext": "Support teams that need quick access to codes, SOPs, inspection language, complaint history summaries, and public education materials while keeping judgment with trained personnel.",
+        "bullets": [
+          {
+            "text": "Retrieve procedure reminders, permit explanations, inspection references, and outreach language from approved sources.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize resident complaints or facility questions before assigning follow-up work.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Help new staff locate training materials, checklists, and program-specific guidance faster.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Public information, community outreach, and contact center teams",
+        "roleContext": "Respond to high-volume questions from residents, food operators, event organizers, landlords, tenants, and community partners.",
+        "bullets": [
+          {
+            "text": "Provide always-available, source-grounded answers in more than 100 languages when content supports the response.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Collect missing details for complaints, permit questions, event inquiries, or education requests before staff review.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Prepare summaries and handoffs for public health staff instead of sending incomplete emails or voicemail notes.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-naccho-lhd-profile",
+      "metric": "More than 3,300 local health departments",
+      "claim": "NACCHO describes its National Profile as a major data source on local health department infrastructure, activities, staffing, governance, and services across the United States.",
+      "sourceTitle": "NACCHO National Profile of Local Health Departments",
+      "sourceUrl": "https://www.naccho.org/resources/lhd-research/national-profile-of-local-health-departments",
+      "sourceDate": "2022 Profile Study",
+      "bestUsedFor": [
+        "local health department scale",
+        "environmental health service breadth",
+        "workforce and infrastructure context"
+      ]
+    },
+    {
+      "id": "src-fda-retail-food-protection",
+      "metric": "Over 1 million food establishments overseen",
+      "claim": "FDA says more than 3,000 state, local, and tribal agencies have primary responsibility for regulating retail food and foodservice, overseeing over 1 million establishments.",
+      "sourceTitle": "FDA Retail Food Protection",
+      "sourceUrl": "https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/retail-food-protection",
+      "sourceDate": "Current FDA page",
+      "bestUsedFor": [
+        "inspection workload",
+        "regulated facility questions",
+        "food safety program scale"
+      ]
+    },
+    {
+      "id": "src-fda-food-code",
+      "metric": "Model code for retail food safety regulation",
+      "claim": "FDA publishes the Food Code as a model that helps jurisdictions establish a scientific and legal basis for regulating retail and foodservice operations.",
+      "sourceTitle": "FDA Food Code",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "sourceDate": "Current FDA page",
+      "bestUsedFor": [
+        "regulatory reference complexity",
+        "food safety guidance",
+        "inspection consistency"
+      ]
+    },
+    {
+      "id": "src-cdc-eh-resources",
+      "metric": "CDC environmental health topics include food, water, recreational water, and vector control",
+      "claim": "CDC environmental health resources for professionals cover food safety, drinking water, recreational water, vector control, and related program areas.",
+      "sourceTitle": "CDC Resources for Environmental Health Professionals",
+      "sourceUrl": "https://www.cdc.gov/environmental-health-services/php/about/resources.html",
+      "sourceDate": "Current CDC page",
+      "bestUsedFor": [
+        "program breadth",
+        "staff knowledge retrieval",
+        "public health communication"
+      ]
+    },
+    {
+      "id": "src-cdc-nors",
+      "metric": "Outbreak investigations often involve state, local, and territorial health departments",
+      "claim": "CDC’s NORS materials note that most outbreaks in the United States are investigated by state, local, and territorial health departments, with CDC assistance for larger or multistate events.",
+      "sourceTitle": "CDC NORS Data",
+      "sourceUrl": "https://www.cdc.gov/nors/data/",
+      "sourceDate": "Current CDC page",
+      "bestUsedFor": [
+        "outbreak response workflow",
+        "escalation and handoff",
+        "interagency coordination"
+      ]
+    },
+    {
+      "id": "src-epa-ejscreen",
+      "metric": "EPA screening and mapping for environmental justice indicators",
+      "claim": "EPA describes EJScreen as an environmental justice screening and mapping tool that combines environmental and demographic indicators for communities.",
+      "sourceTitle": "EPA EJScreen Fact Sheet",
+      "sourceUrl": "https://www.epa.gov/system/files/documents/2023-06/ejscreen-fact-sheet.pdf",
+      "sourceDate": "June 2023",
+      "bestUsedFor": [
+        "community context",
+        "environmental justice outreach",
+        "data-informed triage"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Public environmental health question answering",
+      "problem": "Residents and regulated businesses ask the same questions about permits, complaints, restaurant inspections, mold, septic, water, pests, pools, and local rules across phone, email, and web channels.",
+      "agentWorkflow": "Train DocsBot on approved public webpages, ordinances, FAQs, inspection handouts, program guides, and outreach PDFs. The agent answers in plain language, cites the underlying source, asks clarifying questions, and escalates complex enforcement, legal, or safety questions to staff.",
+      "liveContextOrTools": "A customer-configured Skill can collect contact details, location, facility name, issue category, and preferred follow-up channel before creating a task or routing a ticket.",
+      "exampleQuestionsOrRequests": [
+        "Do I need a temporary food permit for a school fundraiser?",
+        "How do I report a suspected sewage issue near my property?",
+        "What should I do if I find standing water and mosquitoes?",
+        "Where can I find my county’s pool inspection requirements?"
+      ],
+      "businessOutcome": "Deflects routine inquiries while giving staff better-structured requests and a clearer record of what the public is trying to understand.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Food safety code and inspection guidance assistant",
+      "problem": "Retail food programs operate in a complex regulatory environment: FDA notes that more than 3,000 state, local, and tribal agencies oversee over 1 million food establishments in the United States.",
+      "agentWorkflow": "Create an internal knowledge agent trained on local food codes, inspection manuals, FDA model code references, violation templates, standard operating procedures, and training materials. Staff can ask for source-grounded guidance and draft consistent educational explanations for operators.",
+      "liveContextOrTools": "Configured actions can summarize a facility question, prepare a draft response, or route a policy interpretation request to a senior specialist for review.",
+      "exampleQuestionsOrRequests": [
+        "What guidance should I send a mobile food vendor about approved commissary documentation?",
+        "Find our current cooling procedure language for operator education.",
+        "Summarize the difference between a priority item and a core item from our materials."
+      ],
+      "businessOutcome": "Improves consistency in staff guidance and reduces time spent searching code manuals or shared drives before inspections and operator conversations.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-retail-food-protection"
+      ]
+    },
+    {
+      "name": "Complaint intake and triage support",
+      "problem": "Environmental health complaints often arrive with missing location, timing, exposure, facility, or contact information, creating back-and-forth before staff can assign a case.",
+      "agentWorkflow": "DocsBot can guide the resident through a structured intake flow, ask for missing details, summarize the issue, classify it by program area, and prepare a handoff for staff. Sensitive or urgent matters can be escalated according to agency instructions.",
+      "liveContextOrTools": "Through approved Skills, APIs, connectors, or MCP-connected tools, the agent can create a task, notify a team channel, or update approved fields in a complaint workflow the agency controls.",
+      "exampleQuestionsOrRequests": [
+        "I want to report a sewage smell behind my apartment building.",
+        "A restaurant made my family sick last night. What details do you need?",
+        "There is green water in a public pool near me."
+      ],
+      "businessOutcome": "Improves intake completeness and helps teams triage issues faster without letting the AI make enforcement or health-risk determinations.",
+      "icon": "ExclamationCircleIcon"
+    },
+    {
+      "name": "Outbreak and incident knowledge hub",
+      "problem": "During foodborne, waterborne, vector, wildfire smoke, heat, or contamination events, staff need fast access to approved scripts, situation updates, reporting pathways, and public guidance.",
+      "agentWorkflow": "Train a private agent on emergency communications, incident SOPs, call scripts, forms, interagency contacts, and approved public updates. Staff can ask for the latest approved response language, summarize calls, and identify which materials need updating.",
+      "liveContextOrTools": "Customer-configured workflows can route after-action notes, create follow-up tasks, or send summaries to incident command or communications staff for review.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved public script for this boil water advisory?",
+        "Summarize these resident calls into themes for the morning briefing.",
+        "Which internal SOP explains food facility reopening after a power outage?"
+      ],
+      "businessOutcome": "Keeps high-pressure communication tied to approved sources while helping teams capture patterns and reduce duplicate work during response periods.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-cdc-nors"
+      ]
+    },
+    {
+      "name": "Environmental justice and community outreach preparation",
+      "problem": "Community meetings often require program teams to explain environmental health concerns clearly, consistently, and in multiple languages while acknowledging local context.",
+      "agentWorkflow": "DocsBot can retrieve approved explanations, translate supported content, summarize meeting questions, and help outreach staff prepare plain-language answers from agency materials. Staff can review sensitive or policy-heavy responses before publication.",
+      "liveContextOrTools": "When authorized, a Skill can look up approved public datasets or community context and generate a staff-facing briefing summary for outreach planning.",
+      "exampleQuestionsOrRequests": [
+        "Prepare plain-language talking points about lead, asthma triggers, and indoor air quality from our materials.",
+        "Summarize the top questions residents asked at last month’s community meeting.",
+        "Draft a bilingual FAQ from our approved mosquito prevention handout."
+      ],
+      "businessOutcome": "Improves outreach readiness and makes community-facing communication more consistent across programs and staff.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-epa-ejscreen"
+      ]
+    },
+    {
+      "name": "Training and onboarding knowledge assistant",
+      "problem": "Environmental health programs cover food safety, drinking water, recreational water, vector control, and more, creating a broad training burden for new staff and cross-trained teams.",
+      "agentWorkflow": "Build an internal DocsBot agent on training decks, SOPs, checklists, forms, code interpretations, field notes, and policy updates. Employees ask practical questions and receive source-grounded answers with links back to the relevant material.",
+      "liveContextOrTools": "Analytics reveal recurring employee questions and documentation gaps, helping managers improve training content over time.",
+      "exampleQuestionsOrRequests": [
+        "Which checklist do I use for a temporary food event?",
+        "Where is our recreational water sampling SOP?",
+        "Explain our escalation path for suspected foodborne illness complaints."
+      ],
+      "businessOutcome": "Reduces repeated supervisor questions and helps new or reassigned staff find the right guidance faster.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-cdc-eh-resources"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A public-facing AI agent for environmental health self-service",
+    "intro": "DocsBot can sit on your website as a source-grounded support agent that answers from approved agency content, collects structured details, supports multilingual access, and escalates issues that need a qualified employee.",
+    "requests": [
+      {
+        "request": "“Do I need a permit for a temporary food booth?”",
+        "agentResponseStrategy": "Answer from the agency’s permit pages and local guidance, ask about event type and date, and offer to collect details for staff follow-up if the situation is unclear.",
+        "sourceTypes": [
+          "Permit pages",
+          "Temporary event FAQs",
+          "Food program handouts"
+        ],
+        "optionalAction": "Create a structured intake record or forward a summary to the appropriate food program queue when configured.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“How do I report mold, sewage, pests, or unsafe housing conditions?”",
+        "agentResponseStrategy": "Explain the documented reporting pathway, collect location and issue details, and make clear when the resident should contact emergency services or another agency based on approved guidance.",
+        "sourceTypes": [
+          "Complaint instructions",
+          "Housing health guidance",
+          "Program routing rules"
+        ],
+        "optionalAction": "Route the report, create a task, or prepare a staff handoff with contact information and issue summary.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“What does this restaurant inspection result mean?”",
+        "agentResponseStrategy": "Use approved inspection result explanations, score guides, and public education materials to explain terms without making new enforcement judgments.",
+        "sourceTypes": [
+          "Inspection score guides",
+          "Public food safety FAQs",
+          "Local code summaries"
+        ],
+        "optionalAction": "Offer a link to the relevant public record page or route detailed facility questions to staff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you explain this advisory in Spanish?”",
+        "agentResponseStrategy": "Provide a multilingual answer from the approved advisory and include the source so residents can verify the official message.",
+        "sourceTypes": [
+          "Public advisories",
+          "Translated outreach materials",
+          "Emergency communication scripts"
+        ],
+        "optionalAction": "Capture follow-up questions for the communications team to review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Which agency handles my water, septic, vector, or food complaint?”",
+        "agentResponseStrategy": "Use routing rules and public program descriptions to guide residents to the right department, partner agency, or staff contact.",
+        "sourceTypes": [
+          "Program directories",
+          "Jurisdiction guidance",
+          "Contact center scripts"
+        ],
+        "optionalAction": "Collect the resident’s location and issue type, then prepare a routed handoff if configured.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Where can I get guidance before opening a food business?”",
+        "agentResponseStrategy": "Answer from start-up guides, plan review instructions, permit checklists, and approved operator education materials.",
+        "sourceTypes": [
+          "Plan review guides",
+          "Operator FAQs",
+          "Application checklists"
+        ],
+        "optionalAction": "Qualify the inquiry, collect business details, and forward a summary to the permitting team.",
+        "icon": "BuildingStorefrontIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for inspectors, program staff, and communicators",
+    "intro": "DocsBot gives environmental health employees a private assistant trained on approved internal knowledge. Staff can retrieve procedures, summarize context, draft responses, and surface gaps without exposing sensitive sources outside the access controls you define.",
+    "workflows": [
+      {
+        "name": "Inspector procedure lookup",
+        "problem": "Field staff often need quick access to SOPs, local interpretations, forms, and code references before or after site visits.",
+        "agentWorkflow": "Ask the internal agent for the relevant procedure, checklist, or policy excerpt and receive a source-grounded answer with links back to the governing document.",
+        "sourceTypes": [
+          "Inspection manuals",
+          "Local code references",
+          "SOPs",
+          "Training materials"
+        ],
+        "optionalAction": "Generate a draft operator education note or create a follow-up task for supervisor review.",
+        "outcome": "Shortens document search time and supports more consistent field communication.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Program routing and contact center support",
+        "problem": "Frontline staff must route calls across food, water, housing, pools, waste, vector control, and partner agencies without missing key details.",
+        "agentWorkflow": "DocsBot can ask routing questions, summarize the request, identify the likely program area from approved rules, and suggest the next handoff step.",
+        "sourceTypes": [
+          "Routing matrices",
+          "Program directories",
+          "Call scripts",
+          "Complaint forms"
+        ],
+        "optionalAction": "Send a handoff summary to email, Slack, Microsoft Teams, helpdesk software, or another customer-configured workflow.",
+        "outcome": "Improves handoff quality and reduces repeat explanations for residents and staff.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Policy and public communication drafting",
+        "problem": "Staff need to explain technical rules in resident-friendly language while staying aligned with approved policy.",
+        "agentWorkflow": "Use DocsBot to retrieve the governing source, draft a plain-language response, and highlight where human review is needed for enforcement, legal, or health-risk language.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Policy memos",
+          "Outreach materials",
+          "Legal-approved templates"
+        ],
+        "optionalAction": "Create a draft response or briefing summary for staff review before publishing or sending.",
+        "outcome": "Helps teams communicate consistently without letting AI decide sensitive policy positions.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "Repeated staff and public questions reveal unclear pages, missing forms, outdated PDFs, and training gaps.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review help managers see common questions, low-confidence areas, and content that needs improvement.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base analytics",
+          "Topic reports",
+          "Documentation gap reports"
+        ],
+        "optionalAction": "Create an editorial task or notify the content owner when a gap pattern appears.",
+        "outcome": "Turns support and staff questions into a practical documentation improvement backlog.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from agency knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on approved websites, documents, help centers, PDFs, internal content, and other configured knowledge sources.",
+      "industryApplication": "Environmental health teams can answer from local rules, permit guides, inspection handouts, advisories, SOPs, and outreach materials rather than relying on generic AI responses.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can support public website experiences and private internal team chat for employees.",
+      "industryApplication": "Use one agent for resident self-service and another private agent for inspectors, call center staff, communications teams, and program managers.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record updates, and workflow triggers when configured by the customer.",
+      "industryApplication": "An environmental health agent can collect complaint details, summarize a food operator question, route a permit inquiry, create a task, or trigger an approved workflow while staying within defined permissions.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and review boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Keep enforcement interpretations, urgent health issues, legal questions, and safety-critical decisions with qualified staff while still using AI to prepare context and handoffs.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which permits, complaints, advisories, inspection terms, and resident concerns generate repeat questions so your team can improve guidance and training.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Support internal SOPs, staff-only procedures, and non-public program materials with access controls and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own approved content library so answers stay grounded in agency materials.",
+      "Use conversation insights to understand what residents, businesses, and staff are trying to learn.",
+      "Support internal decision workflows while reducing repetitive human touchpoints."
+    ],
+    "whyTheseReviewsFit": "Environmental health teams need dependable knowledge access, consistent public communication, and practical support for internal workflows. DocsBot proof spans healthcare communications, owned-content knowledge agents, and documentation analytics that help teams answer questions and improve their source material.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for environmental health operations",
+    "audience": [
+      "Environmental health departments",
+      "Local health agencies",
+      "Food safety and inspection programs",
+      "Public health communications teams",
+      "Environmental health consultants"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "environmental-consultancy",
+    "environmental-monitoring",
+    "natural-resources-environmental",
+    "conservation-organizations",
+    "carbon-accounting",
+    "pipeline"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "environmental-health",
+    "webSearchQueries": [
+      "CDC environmental health services local health departments data food water vector hazards",
+      "NACCHO 2022 National Profile local health departments environmental health services",
+      "EPA environmental justice screening community environmental health risks data",
+      "FDA Food Code local environmental health inspections retail food"
+    ],
+    "sourceUrls": [
+      "https://www.naccho.org/resources/lhd-research/national-profile-of-local-health-departments",
+      "https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/retail-food-protection",
+      "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "https://www.cdc.gov/environmental-health-services/php/about/resources.html",
+      "https://www.cdc.gov/nors/data/",
+      "https://www.epa.gov/system/files/documents/2023-06/ejscreen-fact-sheet.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40795,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28251,
+        "outputTokens": 7743,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 48538,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.189909,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.199909
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21508,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14212,
+          "outputTokens": 5022,
+          "reasoningOutputTokens": 100,
+          "totalTokens": 26530,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.112684,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.122684
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19287,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14039,
+          "outputTokens": 2721,
+          "reasoningOutputTokens": 23,
+          "totalTokens": 22008,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077225,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077225
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1500215238115-1322078d92a3?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzk5NTZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Environmental Health background image",
+    "source": "legacy-industry",
+    "query": "Environmental Health"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for public self-service without letting it make enforcement or health-risk decisions?",
+      "answer": "Yes. DocsBot can answer from approved public pages, FAQs, ordinances, permit guides, advisories, and outreach materials, then escalate sensitive questions to staff. For environmental health teams, the right pattern is source-grounded guidance, structured intake, and human review for enforcement interpretations, urgent hazards, legal questions, or case-specific risk determinations.",
+      "role": "Environmental health directors and program managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would an AI agent handle food permit, plan review, and temporary event questions that vary by jurisdiction?",
+      "answer": "Train the agent on your local permit pages, application checklists, event guidance, operator FAQs, and routing rules. It can ask clarifying questions such as event date, food type, location, nonprofit status, or facility type, then answer from the relevant source or collect details for staff follow-up when the scenario is not clearly covered.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help with retail food program workload without replacing inspectors?",
+      "answer": "DocsBot is best used to reduce repetitive lookup and communication work, not to replace professional judgment. It can help staff find local code references, inspection SOPs, operator education language, and violation templates. That matters in a large regulatory environment where FDA says more than 3,000 state, local, and tribal agencies oversee over 1 million retail food and foodservice establishments.",
+      "role": "Inspectors, sanitarians, and field specialists",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-fda-retail-food-protection"
+      ]
+    },
+    {
+      "question": "What happens when a resident submits an incomplete complaint about sewage, mold, pests, or a suspected foodborne illness?",
+      "answer": "DocsBot can guide the resident through a structured intake flow, ask for missing details, summarize the issue, and route the handoff according to your program rules. It can collect information such as location, date, contact details, facility name, symptoms, photos, or preferred follow-up channel while leaving triage and investigation decisions to staff.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we connect the agent to our complaint, permitting, or ticketing system?",
+      "answer": "Yes, when your team configures the right Skills, APIs, connectors, webhooks, MCP-connected tools, or workflow automations. DocsBot can collect details, prepare a summary, create a task or ticket, update approved fields, or notify a team. Buyers should scope exactly which systems, fields, permissions, and review paths are allowed before launch.",
+      "role": "Environmental health directors and program managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will staff be able to see which source the answer came from?",
+      "answer": "Yes. DocsBot is designed around source-grounded answers from approved knowledge. For internal use, inspectors and program staff can receive answers with links back to the governing SOP, code reference, checklist, training document, or public guidance so they can verify the source before acting on it.",
+      "role": "Inspectors, sanitarians, and field specialists",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we keep the agent from using outdated PDFs, old advisories, or superseded policy memos?",
+      "answer": "Implementation should start with source governance: decide which folders, webpages, PDFs, SOPs, and policy documents are authoritative; remove or archive outdated materials; and assign content owners. DocsBot analytics and conversation review can then reveal recurring questions, low-confidence areas, and documentation gaps that need cleanup.",
+      "role": "Environmental health directors and program managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the public-facing agent answer in multiple languages for residents and business owners?",
+      "answer": "DocsBot can answer in more than 100 languages when configured for multilingual support and when the underlying approved content supports the response. For environmental health, agencies should still define review rules for emergency advisories, legal wording, enforcement language, and translated materials that require official approval.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this support incident response, boil water advisories, outbreaks, smoke events, or power outage guidance?",
+      "answer": "A private DocsBot agent can be trained on approved incident SOPs, call scripts, public updates, reopening guidance, interagency contacts, and briefing materials. Staff can retrieve the current approved language, summarize resident calls, and prepare handoffs. CDC notes that most U.S. outbreaks are investigated by state, local, and territorial health departments, often with CDC support for larger or multistate events.",
+      "role": "Environmental health directors and program managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-cdc-nors"
+      ]
+    },
+    {
+      "question": "Can DocsBot help new inspectors and cross-trained staff find the right procedure faster?",
+      "answer": "Yes. An internal knowledge agent can answer practical staff questions from training decks, SOPs, inspection manuals, checklists, field guidance, and policy updates. That is useful because environmental health programs span areas such as food safety, drinking water, recreational water, vector control, and related services, creating a broad onboarding burden.",
+      "role": "Inspectors, sanitarians, and field specialists",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-cdc-eh-resources"
+      ]
+    },
+    {
+      "question": "What security controls matter if we include internal SOPs, staff-only procedures, or complaint workflow information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Environmental health buyers should separate public and private agents, restrict sensitive sources, avoid placing credentials in chat, and define who can review logs, configure Skills, and approve workflow actions.",
+      "role": "Environmental health directors and program managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent explain restaurant inspection scores or violations to the public without creating new legal interpretations?",
+      "answer": "Yes, if it is trained on your approved inspection score guides, public food safety FAQs, code summaries, and plain-language education materials. It should explain terms, link to official sources, and route facility-specific disputes, enforcement questions, or legal interpretations to qualified staff rather than creating new judgments.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually reducing workload?",
+      "answer": "Track deflected routine inquiries, completed intake forms, reduced back-and-forth, after-hours questions answered, staff search time, escalation rate, unresolved topics, and repeat questions by program area. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery to support operational review.",
+      "role": "Environmental health directors and program managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support environmental justice outreach and community meeting preparation?",
+      "answer": "Yes. DocsBot can retrieve approved talking points, summarize community questions, draft plain-language responses, and support multilingual outreach from agency materials. If your team authorizes specific datasets or tools, a Skill can help prepare staff-facing briefing summaries. EPA describes EJScreen as a screening and mapping tool that combines environmental and demographic indicators for communities.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-epa-ejscreen"
+      ]
+    },
+    {
+      "question": "What is the best first pilot for an environmental health department?",
+      "answer": "Most teams should start with a narrow, high-volume use case: temporary food event questions, complaint intake, restaurant inspection explanations, operator startup guidance, or internal SOP lookup. A focused pilot makes it easier to approve sources, test escalation rules, measure answer quality, and build staff confidence before expanding across programs.",
+      "role": "Environmental health directors and program managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot handle questions that cross program boundaries, such as water, septic, housing, vector control, and partner agencies?",
+      "answer": "DocsBot can be trained on routing matrices, program directories, jurisdiction guidance, contact center scripts, and complaint forms. It can ask clarifying questions, identify the likely program area from approved rules, and prepare a handoff summary. If the answer depends on another agency’s authority, it can direct the user to the documented pathway.",
+      "role": "Public information, community outreach, and contact center teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for both a county health department and a smaller city or district program?",
+      "answer": "Yes. DocsBot can support a public website agent, a private internal agent, or a scoped program-specific agent depending on size and staffing. Local health infrastructure is diverse: NACCHO describes its National Profile as covering infrastructure, activities, staffing, governance, and services across more than 3,300 local health departments in the United States.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-naccho-lhd-profile"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving confident answers when the policy is unclear?",
+      "answer": "Use approved sources, clear instructions, conservative escalation rules, and conversation review. DocsBot can be configured to cite sources, ask clarifying questions, avoid unsupported claims, and escalate low-confidence or sensitive questions. Teams should review unanswered questions and update content where residents or staff are repeatedly confused.",
+      "role": "Environmental health directors and program managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can inspectors use DocsBot in the field to draft operator education language after an inspection?",
+      "answer": "Yes, with appropriate boundaries. An internal agent can retrieve the relevant SOP, code explanation, or approved education handout and draft plain-language operator guidance for staff review. It should not decide violations or enforcement actions; it should help staff communicate consistently from approved materials.",
+      "role": "Inspectors, sanitarians, and field specialists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with adding more website FAQs or a basic chatbot?",
+      "answer": "Static FAQs help only when users know what to click. A generic chatbot can create risk if it is not grounded in approved sources. DocsBot is better suited for environmental health because it can answer from your agency materials, cite sources, collect structured intake details, escalate to humans, and reveal knowledge gaps through analytics.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can procurement and IT limit what the AI agent is allowed to access or do?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, and Skills can be configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls. During procurement, teams should document approved sources, allowed actions, restricted data, retention expectations, and escalation ownership.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "What internal stakeholders usually need to sign off before launch?",
+      "answer": "Typical stakeholders include environmental health leadership, program managers, public information officers, inspectors or senior sanitarians, IT/security, legal or compliance, contact center supervisors, and records or privacy staff. Public-facing launches usually need tighter review of source content, disclaimers, escalation paths, and complaint-handling workflows.",
+      "role": "Environmental health directors and program managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us identify which public guidance is confusing or missing?",
+      "answer": "Yes. DocsBot analytics, logs, topic management, reports, and conversation review can show repeated questions, low-confidence answers, unanswered topics, and content gaps. For environmental health teams, those insights can become a practical backlog for updating permit pages, inspection explanations, complaint instructions, training materials, and outreach handouts.",
+      "role": "Environmental health directors and program managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent use FDA Food Code references while still respecting our local code and adopted rules?",
+      "answer": "Yes, but the knowledge design matters. FDA publishes the Food Code as a model that helps jurisdictions establish a scientific and legal basis for regulating retail and foodservice operations. DocsBot should be trained on your adopted local code, local interpretations, inspection manuals, and any FDA model references you approve, with local rules prioritized in the answer instructions.",
+      "role": "Inspectors, sanitarians, and field specialists",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-food-code"
+      ]
+    },
+    {
+      "question": "What should we avoid automating in an environmental health AI rollout?",
+      "answer": "Avoid automating final enforcement decisions, legal determinations, urgent health-risk triage, outbreak conclusions, inspection findings, or commitments that require qualified staff authority. Start with lower-risk work: source-grounded answers, procedure lookup, complaint detail collection, routing, summaries, draft responses, and human-reviewed workflow actions.",
+      "role": "Environmental health directors and program managers",
+      "category": "Human oversight"
+    }
+  ]
+}

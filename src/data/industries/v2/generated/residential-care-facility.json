@@ -1,0 +1,727 @@
+{
+  "slug": "residential-care-facility",
+  "business": "Residential Care Facility",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Residential Care Facility Operations",
+    "description": "DocsBot helps residential care facilities give staff and families fast, source-grounded answers while reducing repeated administrative questions.",
+    "canonicalPath": "/industry/residential-care-facility"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for residential care teams",
+    "headline": "Give residential care staff faster answers from trusted facility knowledge",
+    "subheadline": "DocsBot helps residential care facilities create AI agents trained on approved policies, family FAQs, onboarding materials, activity calendars, resident handbooks, and operational procedures, so teams can retrieve consistent information, summarize requests, route issues, and escalate sensitive care questions to people.",
+    "proofBullets": [
+      {
+        "text": "Answer family, resident, and staff questions from approved facility documents with source-grounded responses.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Help caregivers find SOPs, infection-prevention steps, meal guidance, visitation policies, and emergency procedures faster.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect missing details, route requests, create tasks, summarize handoffs, or trigger approved workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support human escalation for medical, safety, admissions, billing, or resident-specific decisions that need qualified staff review.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a residential care AI agent",
+    "secondaryCta": "Explore care facility workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your facility’s approved knowledge into AI agents that can answer questions, retrieve procedures, summarize context, and support bounded workflow actions. Deploy agents in a website widget for families, in private team chat for staff, or through customer-configured Skills, APIs, connectors, helpdesk workflows, Slack, Microsoft Teams, and MCP-enabled systems where authorized.",
+    "whoItHelps": [
+      {
+        "role": "Administrators and executive directors",
+        "roleContext": "Leaders need consistent communication across admissions, staffing, compliance, and family expectations while protecting sensitive resident decisions.",
+        "bullets": [
+          {
+            "text": "Give families approved answers about tours, services, visiting hours, move-in documents, fees, and what to expect before staff follow-up.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Summarize recurring questions and knowledge gaps so administrators can improve handbooks, policies, and staff training content.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Residential care operators face high-touch expectations in a sector where assisted living employs about 298,800 full-time nursing and social work employees.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-ahca-assisted-living-facts"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Care managers and frontline caregivers",
+        "roleContext": "Care teams need quick access to facility-specific procedures without searching through binders, shared drives, or long policy files during a busy shift.",
+        "bullets": [
+          {
+            "text": "Ask natural-language questions about SOPs, incident documentation, meal accommodations, infection-prevention reminders, and shift routines.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Create structured handoff summaries or task requests through approved workflows while keeping high-impact resident decisions with people.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "CDC reports that about 1 in 43 nursing home residents has at least one healthcare-associated infection on any given day, making consistent procedure access important.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-cdc-hai-progress"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Admissions, family liaison, and support staff",
+        "roleContext": "Inquiry volume can be repetitive, but families still need compassionate, accurate information and timely escalation when a question becomes personal or complex.",
+        "bullets": [
+          {
+            "text": "Answer common admissions, room availability, tour preparation, amenities, transportation, and communication-policy questions from approved sources.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect lead details such as name, contact information, care needs, timeline, budget range, and preferred follow-up channel through custom intake flows.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified inquiries, summaries, and conversation context to the right person or system through customer-configured Skills, APIs, forms, or connectors.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ahca-assisted-living-facts",
+      "metric": "About 298,800 full-time nursing and social work employees work in assisted living communities.",
+      "claim": "AHCA/NCAL reports that among 1.46 million full-time nursing and 35,000 social work employees in long-term care, about one-fifth are employed full-time at assisted living communities.",
+      "sourceTitle": "Assisted Living Facts & Figures",
+      "sourceUrl": "https://www.ahcancal.org/Assisted-Living/Facts-and-Figures/Pages/default.aspx",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "labor scale",
+        "staff communications",
+        "operational complexity"
+      ]
+    },
+    {
+      "id": "src-cdc-hai-progress",
+      "metric": "About 1 in 43 nursing home residents has at least one healthcare-associated infection on any given day.",
+      "claim": "CDC’s HAI progress report highlights the ongoing infection-prevention burden in nursing homes and other care settings.",
+      "sourceTitle": "Current HAI Progress Report",
+      "sourceUrl": "https://www.cdc.gov/healthcare-associated-infections/php/data/progress-report.html",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "infection prevention",
+        "procedure consistency",
+        "resident safety communications"
+      ]
+    },
+    {
+      "id": "src-cdc-longtermcare-infection",
+      "metric": "Long-term care residents are at higher risk of infection.",
+      "claim": "CDC states that people in nursing homes, assisted living facilities, and other long-term care facilities have a higher risk of getting an infection and provides prevention resources for residents, families, and caregivers.",
+      "sourceTitle": "Infection Prevention and Long-term Care Facility Residents",
+      "sourceUrl": "https://www.cdc.gov/longtermcare/index.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "infection prevention",
+        "family education",
+        "caregiver guidance"
+      ]
+    },
+    {
+      "id": "src-cms-staffing-final-rule",
+      "metric": "CMS finalized minimum staffing standards for federally funded nursing homes in 2024.",
+      "claim": "The 2024 CMS final rule set minimum staffing standards and facility assessment requirements for nursing facilities that participate in Medicare and Medicaid.",
+      "sourceTitle": "Medicare and Medicaid Programs; Minimum Staffing Standards for Long-Term Care Facilities and Medicaid Institutional Payment Transparency Reporting",
+      "sourceUrl": "https://www.federalregister.gov/documents/2024/05/10/2024-08273/medicare-and-medicaid-programs-minimum-staffing-standards-for-long-term-care-facilities-and-medicaid",
+      "sourceDate": "May 10, 2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "facility assessment",
+        "staffing documentation"
+      ]
+    },
+    {
+      "id": "src-ahca-fast-facts",
+      "metric": "Workforce shortages can force long-term care providers to limit admissions, downsize, or close.",
+      "claim": "AHCA/NCAL notes that long-term care workforce shortages can affect admissions, facility size, and continuity of operations because facilities must maintain staffing standards.",
+      "sourceTitle": "Fast Facts",
+      "sourceUrl": "https://www.ahcancal.org/Data-and-Research/facts/Pages/default.aspx",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "staffing pressure",
+        "operations bottlenecks",
+        "admissions impact"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Family inquiry and admissions intake agent",
+      "problem": "Families often ask the same questions about services, tours, cost ranges, availability, visiting rules, and move-in requirements before staff can assess whether the facility is a fit.",
+      "agentWorkflow": "A DocsBot agent answers from approved admissions pages, brochures, resident handbooks, service descriptions, FAQs, and policies. It can collect structured intake details, apply customer-defined qualification rules, summarize the conversation, and route the lead to admissions for review.",
+      "liveContextOrTools": "With configured Skills, APIs, forms, or connectors, the agent can submit an inquiry form, create a task, notify admissions, or request a tour through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you support residents who need help with medication reminders?",
+        "What should we bring for a tour?",
+        "Can someone contact me about availability for my parent this month?",
+        "What documents are needed before move-in?"
+      ],
+      "businessOutcome": "Admissions teams spend less time repeating basic information and receive better-context handoffs for compassionate follow-up.",
+      "icon": "HomeModernIcon"
+    },
+    {
+      "name": "Staff SOP and shift-support knowledge agent",
+      "problem": "Frontline teams need quick answers from facility-specific procedures during busy shifts, but policies may live across binders, PDFs, shared drives, and onboarding materials.",
+      "agentWorkflow": "Train DocsBot on approved SOPs, emergency plans, staff manuals, infection-control resources, dining procedures, activity guidelines, and escalation paths. Staff ask questions in private chat and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "Customer-configured Skills can create follow-up tasks, summarize a shift note draft, route a maintenance request, or alert a supervisor while keeping resident-specific judgments under staff control.",
+      "exampleQuestionsOrRequests": [
+        "Where is the procedure for a missed meal delivery?",
+        "What is our escalation path after a fall report?",
+        "Summarize the steps for visitor sign-in after hours.",
+        "Which form do I use for a maintenance issue in a resident room?"
+      ],
+      "businessOutcome": "Care teams retrieve consistent procedures faster, reduce avoidable interruptions, and identify documents that need updates based on repeated questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Infection-prevention and safety guidance assistant",
+      "problem": "Residential care facilities must keep infection-prevention guidance visible to residents, families, and staff, especially because CDC says long-term care residents are at higher risk of infection.",
+      "agentWorkflow": "DocsBot can answer from approved infection-prevention policies, hand hygiene reminders, visitor screening instructions, outbreak communication templates, PPE guidance, and resident education materials. Sensitive health questions can be routed to a qualified staff member.",
+      "liveContextOrTools": "Approved actions can generate a handoff summary, route a question to infection-prevention leadership, or create a review task when a policy gap is detected.",
+      "exampleQuestionsOrRequests": [
+        "What is the current visitor guidance when someone has respiratory symptoms?",
+        "Where do staff find the hand hygiene audit form?",
+        "How should families report a recent exposure before visiting?",
+        "What information can we share about infection-prevention practices?"
+      ],
+      "businessOutcome": "Facilities make approved guidance easier to find while preserving human review for clinical, safety, and resident-specific decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cdc-longtermcare-infection"
+      ]
+    },
+    {
+      "name": "Family communication and policy answer agent",
+      "problem": "Families want timely answers about activities, meals, visiting hours, transportation, communication expectations, and general facility policies without waiting for a callback.",
+      "agentWorkflow": "A website or portal agent answers from resident handbooks, family guides, activity calendars, dining menus, communications policies, and approved notices. When a request requires a resident-specific response, the agent collects context and escalates to staff.",
+      "liveContextOrTools": "With approved connectors or APIs, the agent can look up public calendar details, send a routed message, create a ticket, or trigger a family liaison workflow according to facility permissions.",
+      "exampleQuestionsOrRequests": [
+        "What time is the family council meeting?",
+        "Can visitors join residents for lunch?",
+        "How do we update emergency contact information?",
+        "Who should I contact about a billing question?"
+      ],
+      "businessOutcome": "Families get faster self-service answers while staff receive cleaner, better-routed requests for personal follow-up.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Compliance documentation and facility assessment support",
+      "problem": "Long-term care providers face staffing, assessment, and documentation pressure; CMS finalized minimum staffing standards and facility assessment requirements for federally funded nursing homes in 2024.",
+      "agentWorkflow": "DocsBot can help administrators and department leads search policy libraries, summarize assessment inputs, retrieve training references, draft internal checklists, and identify gaps in documentation. Final compliance decisions and submissions remain with qualified staff.",
+      "liveContextOrTools": "Customer-configured workflows can route document-update tasks, collect missing policy owners, summarize review notes, or create an internal ticket for compliance follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Which policies mention overnight staffing escalation?",
+        "Summarize the documents we use for facility assessment preparation.",
+        "What training materials apply to new medication aides?",
+        "Create a task to review this outdated emergency contact procedure."
+      ],
+      "businessOutcome": "Leaders reduce time spent searching for compliance materials and improve readiness for internal reviews, audits, and policy updates.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-cms-staffing-final-rule"
+      ]
+    },
+    {
+      "name": "Workforce onboarding and training assistant",
+      "problem": "Care facilities must onboard new hires quickly while maintaining consistent expectations across shifts, roles, and departments.",
+      "agentWorkflow": "DocsBot trains on onboarding guides, HR policies, training materials, role checklists, resident-rights education, communication standards, and internal FAQs. New employees can ask role-specific questions and supervisors can review knowledge gaps from analytics.",
+      "liveContextOrTools": "Configured Skills can prepare onboarding summaries, route HR questions, create training follow-up tasks, or notify supervisors when repeated questions suggest a content gap.",
+      "exampleQuestionsOrRequests": [
+        "What do new evening-shift caregivers need to complete this week?",
+        "Where is the resident privacy policy?",
+        "Explain our call-out procedure for new employees.",
+        "Which training module covers family communication expectations?"
+      ],
+      "businessOutcome": "New staff get always-available support while managers see where training materials need clarification.",
+      "icon": "AcademicCapIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A family-facing AI agent that answers clearly and knows when to hand off",
+    "intro": "DocsBot can power an embedded website agent for families, prospects, residents, and responsible parties. It answers from approved public materials, collects details for staff, and escalates personal, medical, billing, or safety questions to the right human workflow.",
+    "requests": [
+      {
+        "request": "“Do you have availability and can I schedule a tour for my mother?”",
+        "agentResponseStrategy": "Answer from approved admissions and service information, collect care needs and contact details, then route a tour request or scheduling intent through a configured workflow.",
+        "sourceTypes": [
+          "Admissions FAQs",
+          "Service pages",
+          "Tour instructions",
+          "Intake forms"
+        ],
+        "optionalAction": "Submit a structured lead form or create an admissions task for staff follow-up.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What are your visiting hours and illness precautions?”",
+        "agentResponseStrategy": "Use current approved visiting policies and infection-prevention guidance, provide clear next steps, and escalate if the visitor describes a high-risk or resident-specific situation.",
+        "sourceTypes": [
+          "Visitor policies",
+          "Infection-prevention notices",
+          "Family handbook"
+        ],
+        "optionalAction": "Route an exception request or policy question to the family liaison team.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“How do I update a resident’s emergency contact?”",
+        "agentResponseStrategy": "Explain the approved process, list required information, and avoid exposing or changing private records unless the facility has configured a secure, permissioned workflow.",
+        "sourceTypes": [
+          "Resident handbook",
+          "Administrative procedures",
+          "Privacy guidance"
+        ],
+        "optionalAction": "Create a secure follow-up request for administrative staff or direct the family to the approved form.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“What activities are planned this week?”",
+        "agentResponseStrategy": "Answer from calendars, newsletters, and activity descriptions while clarifying that schedules may change and staff can confirm resident-specific participation.",
+        "sourceTypes": [
+          "Activity calendars",
+          "Newsletters",
+          "Community updates"
+        ],
+        "optionalAction": "Send a routed message to activities staff when the family asks about participation, transportation, or accommodations.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Can you explain the move-in checklist?”",
+        "agentResponseStrategy": "Summarize the approved checklist, documents, packing guidance, payment steps, and points of contact in a family-friendly sequence.",
+        "sourceTypes": [
+          "Move-in checklist",
+          "Resident agreement guide",
+          "Family FAQ"
+        ],
+        "optionalAction": "Generate an admissions handoff summary with missing items for staff review.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Who should I contact about a concern?”",
+        "agentResponseStrategy": "Ask clarifying questions, identify whether the concern is operational, billing, safety, resident care, or urgent, and route to the proper escalation path.",
+        "sourceTypes": [
+          "Contact directory",
+          "Grievance policy",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Create a ticket or notify a designated manager through a customer-configured workflow.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for administrators, caregivers, and support teams",
+    "intro": "Residential care teams can use DocsBot privately to retrieve procedures, summarize internal knowledge, support onboarding, and route operational requests. Agents stay grounded in approved sources and can be scoped with permissions, logs, and boundaries for sensitive workflows.",
+    "workflows": [
+      {
+        "name": "Care procedure lookup",
+        "problem": "Staff lose time searching across shared drives, printed binders, and policy manuals for the right procedure during shift work.",
+        "agentWorkflow": "The agent answers from SOPs, staff manuals, checklists, training PDFs, and internal wikis, returning concise steps and source references.",
+        "sourceTypes": [
+          "SOPs",
+          "Staff manuals",
+          "Training PDFs",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a supervisor review task when staff identify outdated or conflicting guidance.",
+        "outcome": "Faster access to consistent operational instructions without replacing professional judgment.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Incident and maintenance routing",
+        "problem": "Operational issues can be reported inconsistently, causing delays for maintenance, housekeeping, management, or nursing leadership.",
+        "agentWorkflow": "DocsBot can ask structured follow-up questions, summarize the issue, classify the request, and route it through configured ticketing, task, or notification workflows.",
+        "sourceTypes": [
+          "Incident procedures",
+          "Maintenance request rules",
+          "Department routing guides"
+        ],
+        "optionalAction": "Create a ticket, notify the right team, or draft a handoff summary using approved Skills, APIs, connectors, or MCP server tools.",
+        "outcome": "Cleaner request intake and fewer missed details before a human takes action.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Onboarding and HR policy support",
+        "problem": "New employees need repeated answers about scheduling expectations, attendance, documentation, privacy, resident interaction, and required training.",
+        "agentWorkflow": "The agent answers from HR policies, onboarding checklists, training materials, and manager-approved FAQs, then surfaces repeated questions in analytics.",
+        "sourceTypes": [
+          "HR policies",
+          "Onboarding guides",
+          "Training materials",
+          "Manager FAQs"
+        ],
+        "optionalAction": "Route unresolved questions to HR or create a training follow-up task for a supervisor.",
+        "outcome": "More consistent onboarding support and better visibility into where new hires need clarification.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Policy review and knowledge-gap reporting",
+        "problem": "Administrators need to know which policies staff and families struggle to find, understand, or apply.",
+        "agentWorkflow": "DocsBot logs and analytics help teams review common questions, unanswered topics, satisfaction signals, and repeated issues across support and internal knowledge experiences.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Policy libraries",
+          "Family FAQs"
+        ],
+        "optionalAction": "Generate a content-gap report or create documentation tasks for policy owners.",
+        "outcome": "Facilities can improve high-demand documents and reduce repeated administrative questions over time.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from facility knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on a business’s own knowledge sources and answer from approved content with source-grounded responses.",
+      "industryApplication": "Train agents on resident handbooks, family FAQs, SOPs, infection-prevention guidance, activity calendars, admissions materials, and staff policies.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Customer-facing website widget",
+      "mainLandingPageContext": "DocsBot can provide instant support through an embeddable website or product chat widget.",
+      "industryApplication": "Offer families and prospective residents fast answers about tours, services, visiting rules, move-in steps, activities, and contact paths before staff follow-up.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, trained on SOPs, policies, wikis, files, and internal documentation.",
+      "industryApplication": "Help caregivers, administrators, admissions staff, activities teams, and support roles retrieve approved procedures and onboarding guidance during daily operations.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills support bounded lookups, summaries, routing, record updates, task creation, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect admissions details, route family concerns, summarize handoffs, create operational tasks, notify managers, or connect to approved internal systems with scoped permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which policies, admissions questions, family concerns, or staff procedures generate the most confusion, then update content and training materials.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer-data training for public models.",
+      "industryApplication": "Support sensitive residential care operations with permissions, review paths, and controlled access to private knowledge sources for staff and family-facing workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making and reduce unnecessary back-and-forth.",
+      "Agents can reinforce training and operational knowledge from your approved materials.",
+      "DocsBot is designed for teams that need answers grounded in their own content library."
+    ],
+    "whyTheseReviewsFit": "Residential care teams need trusted knowledge at the moment of need: policy answers for staff, clear guidance for families, and practical support for training. DocsBot proof from healthcare communications, education, and content-heavy teams shows how owned knowledge can become an always-available AI assistant.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for residential care facilities",
+    "audience": [
+      "Residential care facility administrators",
+      "Assisted living operators",
+      "Care managers and frontline caregivers",
+      "Admissions and family liaison teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "healthcare-revenue-cycle-management",
+    "child-youth-services",
+    "emergency-medical-services",
+    "health-coaching",
+    "alternative-medicine",
+    "dentistry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "residential-care-facility",
+    "webSearchQueries": [
+      "CDC long-term care facilities infection prevention staffing residents statistics",
+      "AHCA NCAL assisted living facts staffing long term care 2024",
+      "CMS nursing home staffing final rule 2024",
+      "PHI direct care workforce long term care turnover report"
+    ],
+    "sourceUrls": [
+      "https://www.ahcancal.org/Assisted-Living/Facts-and-Figures/Pages/default.aspx",
+      "https://www.cdc.gov/healthcare-associated-infections/php/data/progress-report.html",
+      "https://www.cdc.gov/longtermcare/index.html",
+      "https://www.federalregister.gov/documents/2024/05/10/2024-08273/medicare-and-medicaid-programs-minimum-staffing-standards-for-long-term-care-facilities-and-medicaid",
+      "https://www.ahcancal.org/Data-and-Research/facts/Pages/default.aspx"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40962,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28418,
+        "outputTokens": 8005,
+        "reasoningOutputTokens": 121,
+        "totalTokens": 48967,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.194256,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.204256
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21552,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14256,
+          "outputTokens": 5164,
+          "reasoningOutputTokens": 121,
+          "totalTokens": 26716,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114924,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124924
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19410,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14162,
+          "outputTokens": 2841,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22251,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079332,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079332
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1615461065929-4f8ffed6ca40?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg3MTB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Residential Care Facility background image",
+    "source": "legacy-industry",
+    "query": "Residential Care Facility"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer family questions without giving medical advice or making resident-specific promises?",
+      "answer": "Yes. A DocsBot agent can be trained on approved public materials such as handbooks, visitation policies, activity calendars, admissions FAQs, and service descriptions. You can instruct it to answer general policy questions, collect context, and escalate medical, safety, billing, admissions, or resident-specific decisions to staff for review.",
+      "role": "Administrators and executive directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce the repetitive calls our admissions and front desk teams handle every day?",
+      "answer": "DocsBot can answer common questions about tours, move-in documents, visiting hours, amenities, service descriptions, and contact paths from approved sources. For higher-intent inquiries, it can collect structured details, summarize the conversation, and route a cleaner handoff to admissions through customer-configured forms, APIs, connectors, or workflows.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can staff use it during a shift to find SOPs without searching through binders and shared drives?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on SOPs, staff manuals, checklists, emergency procedures, infection-prevention guidance, HR policies, and training PDFs. Caregivers can ask natural-language questions and receive source-grounded answers with references back to the approved material, while professional judgment stays with staff.",
+      "role": "Care managers and frontline caregivers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a policy is outdated, missing, or conflicts with another document?",
+      "answer": "DocsBot can surface the sources it used and help administrators review unanswered questions, repeated topics, and knowledge gaps in logs and analytics. Teams can use that insight to update handbooks, SOPs, family FAQs, onboarding content, or policy libraries instead of letting informal answers spread across shifts.",
+      "role": "Administrators and executive directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use it for infection-prevention questions from families and staff?",
+      "answer": "Yes, if you train it on your approved infection-prevention policies, visitor guidance, hand hygiene reminders, outbreak notices, and education materials. This is especially relevant because CDC states that people in nursing homes, assisted living facilities, and other long-term care facilities have a higher risk of infection.",
+      "role": "Care managers and frontline caregivers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cdc-longtermcare-infection"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from exposing private resident information?",
+      "answer": "Deploy separate experiences for public and internal use, scope each agent to the right knowledge sources, and use role-based permissions for private content. DocsBot supports granular access controls, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models.",
+      "role": "Administrators and executive directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot connect with the systems we already use for tickets, tasks, scheduling, or CRM follow-up?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, forms, webhooks, helpdesk workflows, Slack, Microsoft Teams, and MCP-enabled systems where authorized. Use cases include creating a task, submitting a lead form, routing a family concern, notifying a manager, or preparing a handoff summary. Specific system access depends on the workflow you configure.",
+      "role": "Administrators and executive directors",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will this replace our care managers or family liaison team?",
+      "answer": "No. DocsBot is best positioned as a support layer for approved answers, intake, summarization, routing, and knowledge retrieval. Sensitive decisions about resident care, safety, medical questions, billing, admissions fit, grievances, or exceptions should be escalated to qualified staff using clear human review paths.",
+      "role": "Administrators and executive directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help with compliance preparation or facility assessment work?",
+      "answer": "DocsBot can help leaders search policy libraries, retrieve training references, summarize internal materials, draft checklists, and create documentation follow-up tasks. Final compliance decisions and submissions remain with qualified staff. This matters for many operators because CMS finalized minimum staffing standards and facility assessment requirements for federally funded nursing homes in 2024.",
+      "role": "Administrators and executive directors",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cms-staffing-final-rule"
+      ]
+    },
+    {
+      "question": "How quickly can we launch if our content is spread across PDFs, Word documents, Google Drive, and policy folders?",
+      "answer": "DocsBot can train on common knowledge sources such as PDFs, Word documents, text files, websites, internal documentation, Google Drive, Notion, Confluence, wikis, and other configured sources. A practical rollout usually starts with one bounded use case, such as family FAQs or staff SOP lookup, then expands after content owners review accuracy and gaps.",
+      "role": "Administrators and executive directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should we train the first agent on for the fastest operational win?",
+      "answer": "For a family-facing agent, start with admissions FAQs, tour instructions, service descriptions, visiting policies, move-in checklists, activity calendars, and contact directories. For an internal agent, start with SOPs, emergency plans, infection-control policies, onboarding guides, escalation paths, and maintenance routing rules. Avoid resident-specific records unless you have a secure, permissioned workflow.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it handle after-hours family questions without creating expectations we cannot meet?",
+      "answer": "Yes. The agent can provide approved answers after hours, clarify what it can and cannot do, collect non-urgent details, and route the request for staff follow-up. You can write escalation instructions so urgent, safety-related, medical, or resident-specific concerns direct families to the appropriate human contact path instead of promising an immediate resolution.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping?",
+      "answer": "Track repeated question volume, unanswered topics, family inquiry completion, staff search reduction, escalation rates, satisfaction signals, and content gaps. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so administrators can improve documents and workflows over time.",
+      "role": "Administrators and executive directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can this help with onboarding new caregivers when supervisors are already stretched?",
+      "answer": "Yes. A private DocsBot agent can answer from onboarding guides, HR policies, training materials, role checklists, resident-rights education, communication standards, and internal FAQs. New hires can ask shift-specific questions, while supervisors can review recurring questions to see where training materials need clarification.",
+      "role": "Care managers and frontline caregivers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What safeguards are available for high-risk topics like falls, medication questions, grievances, or infection concerns?",
+      "answer": "Use clear boundaries: answer only from approved policy, show source references, ask clarifying intake questions when appropriate, and escalate high-impact situations to qualified staff. DocsBot can support handoff summaries, routed notifications, and review tasks, but the facility should keep clinical judgment, incident review, medication decisions, and grievance resolution with people.",
+      "role": "Care managers and frontline caregivers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support multiple buildings or communities with different policies?",
+      "answer": "Yes. You can structure agents and knowledge sources by community, department, audience, or permission level so users receive answers from the right approved materials. For multi-site operators, that helps avoid mixing location-specific visiting rules, contacts, dining details, activity schedules, or escalation paths.",
+      "role": "Administrators and executive directors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does this fit facilities facing staffing pressure and high call volume?",
+      "answer": "DocsBot helps reduce avoidable interruptions by answering repeated questions, helping staff find procedures, and routing requests with better context. That matters in a sector where AHCA/NCAL notes long-term care workforce shortages can force providers to limit admissions, downsize, or close because facilities must maintain staffing standards.",
+      "role": "Administrators and executive directors",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ahca-fast-facts"
+      ]
+    },
+    {
+      "question": "Can admissions use the agent to qualify inquiries before a human follow-up?",
+      "answer": "Yes. DocsBot can collect details such as contact information, care needs, timing, budget range, preferred follow-up channel, and tour interest through a structured intake flow. It can apply customer-defined qualification rules and forward the summary to admissions through approved Skills, APIs, connectors, forms, or workflows.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will families trust an AI agent for a sensitive care decision?",
+      "answer": "The agent should be presented as a fast way to get approved general information, not as a replacement for compassionate staff. Trust improves when answers are clear, source-grounded, limited to approved policies, and paired with obvious escalation paths for personal, urgent, emotional, medical, financial, or safety-related questions.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can it answer in languages other than English for families and staff?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help families and employees access approved facility information more easily. Facilities should still review translated public-facing content, escalation language, and high-risk workflows to make sure sensitive questions are handled appropriately.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent staff from relying on the agent when they should call a supervisor?",
+      "answer": "Set explicit instructions for escalation, train the agent only on approved materials, and include source references so staff can verify the underlying policy. For fall events, resident changes, medication questions, safety risks, abuse concerns, or anything outside policy, the agent should summarize context and direct staff to the supervisor or required procedure.",
+      "role": "Care managers and frontline caregivers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent create tasks or tickets when a family reports a maintenance or administrative issue?",
+      "answer": "Yes, when configured with approved Skills, APIs, connectors, or workflows. DocsBot can ask for missing details, classify the request, summarize the issue, and create or route a task for maintenance, housekeeping, billing, admissions, or management review. Permissions and logging should match the sensitivity of the request.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Integrations"
+    },
+    {
+      "question": "What makes DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is designed around your approved knowledge, source-grounded answers, internal knowledge use cases, analytics, and bounded workflow actions. For residential care, that means the same platform can support family FAQs, admissions intake, staff SOP lookup, onboarding support, issue routing, and policy-gap reporting with human escalation where needed.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations to see what families and staff are confused about?",
+      "answer": "Yes. DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Administrators can use those insights to identify confusing policies, missing family FAQ content, repeated staff SOP questions, or outdated documents that need an owner.",
+      "role": "Administrators and executive directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What internal stakeholders should be involved before launch?",
+      "answer": "Include an administrator or executive director, admissions or family liaison lead, care manager, compliance or clinical policy owner, HR or training lead, and someone responsible for systems access. That group can approve content, define escalation rules, decide which actions are allowed, and review early conversation logs before expanding.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this support both assisted living-style operations and more regulated nursing facility workflows?",
+      "answer": "Yes, but the scope should match the facility type and risk level. Use DocsBot for approved answers, document retrieval, intake, summaries, routing, onboarding, and policy review. More regulated workflows should have tighter permissions, clearer escalation, and stronger human review, especially where staffing, infection prevention, and resident-specific care decisions are involved.",
+      "role": "Administrators and executive directors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we think about pricing and procurement justification?",
+      "answer": "Build the business case around reduced repetitive inquiries, faster staff access to SOPs, cleaner admissions handoffs, fewer avoidable interruptions, improved onboarding support, and better visibility into documentation gaps. Procurement should also weigh security controls, implementation effort, content readiness, human escalation requirements, and which workflows need integration work.",
+      "role": "Administrators and executive directors",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help our team keep family-facing answers consistent across phone, website, email, and in-person conversations?",
+      "answer": "Yes. By training on the same approved handbooks, FAQs, service descriptions, calendars, and policies, DocsBot gives staff and families a shared reference point. Teams can use the agent publicly on the website and privately for staff so answers stay aligned even when different shifts or departments handle the question.",
+      "role": "Admissions, family liaison, and support staff",
+      "category": "Workflow fit"
+    }
+  ]
+}

@@ -1,0 +1,755 @@
+{
+  "slug": "title-insurance",
+  "business": "Title Insurance",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Title Insurance Workflows",
+    "description": "DocsBot helps title insurance teams answer closing questions, surface policy guidance, and route file updates with source-grounded AI agents.",
+    "canonicalPath": "/industry/title-insurance"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for title and settlement teams",
+    "headline": "Keep title insurance answers moving from order to closing",
+    "subheadline": "DocsBot helps title insurance companies create AI agents trained on your closing FAQs, underwriting guidance, escrow procedures, wire-fraud instructions, policy documents, and internal SOPs so buyers, agents, lenders, and employees can get faster source-grounded answers with clear escalation paths.",
+    "proofBullets": [
+      {
+        "text": "Answer buyer, seller, lender, and agent questions from approved FAQs, closing instructions, policy language, and office procedures.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give escrow, production, and post-closing teams a private knowledge agent for SOPs, forms, curative steps, and underwriting references.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize conversations, route requests, create tickets, or trigger approved handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support sensitive transaction workflows with permissions, logs, human escalation, encryption, and SOC 2 Type II governance.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a title insurance AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your approved title insurance content into AI support agents and internal knowledge agents. Teams can train agents on websites, help centers, PDFs, Word documents, SOPs, policy explanations, closing checklists, and other configured sources. The agent answers with source-grounded context, detects documentation gaps, escalates sensitive questions, and can take bounded actions when you configure Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Escrow and closing operations leaders",
+        "roleContext": "Give high-volume closing teams a consistent way to answer status, fee, signing, funding, recording, and post-closing questions without forcing staff to hunt across files and procedure binders.",
+        "bullets": [
+          {
+            "text": "Create searchable guidance for order intake, closing timelines, payoff follow-up, signing logistics, disbursement rules, and recording packages.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route complex, transaction-specific, or sensitive questions to a licensed professional or closing officer with a summary of what the customer asked.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Track repeated customer and employee questions so leaders can improve FAQs, scripts, and internal training materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Title production and underwriting teams",
+        "roleContext": "Make internal standards easier to find while keeping curative, underwriting, and legal judgment in human hands where review is required.",
+        "bullets": [
+          {
+            "text": "Help examiners and processors retrieve approved procedures for searches, commitments, requirements, exceptions, endorsements, and curative workflows.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize file notes or intake context for handoff to an underwriter, attorney, or senior title officer when a question needs review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep answers grounded in the company’s own manuals, forms, underwriting bulletins, and state-specific reference materials.",
+            "icon": "BookOpenIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Customer support, sales, and agency partners",
+        "roleContext": "Support buyers, sellers, real estate agents, lenders, and referral partners with faster explanations while preserving clear boundaries around fraud, funds, legal advice, and policy commitments.",
+        "bullets": [
+          {
+            "text": "Answer common questions about owner’s policies, lender’s policies, settlement fees, Closing Disclosure terms, wire precautions, and what happens next.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect lead or quote-request details through structured intake and forward qualified requests to the right branch, sales contact, or closing desk when configured.",
+            "icon": "AtSymbolIcon"
+          },
+          {
+            "text": "Provide multilingual first-line support for recurring closing questions while escalating sensitive funds, identity, and legal issues to staff.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-alta-premium-volume-2024",
+      "metric": "$16.2 billion in 2024 title insurance premiums",
+      "claim": "ALTA reported that the U.S. title insurance industry generated $16.2 billion in title insurance premiums during 2024, up 7% from 2023.",
+      "sourceTitle": "ALTA Reports Title Insurance Premium Volume Increased 7% in 2024",
+      "sourceUrl": "https://www.alta.org/news-and-publications/press-release/ALTA-Reports-Title-Insurance-Premium-Volume-Increased-7-in-2024",
+      "sourceDate": "May 15, 2025",
+      "bestUsedFor": [
+        "industry scale",
+        "transaction volume sensitivity",
+        "buyer education pressure"
+      ]
+    },
+    {
+      "id": "src-alta-close-hours",
+      "metric": "22 hours for a standard transaction and 45 hours for a difficult transaction",
+      "claim": "ALTA industry reporting cites an ndp | analytics study finding that expert title professionals spend about 22 hours to close a standard transaction and 45 hours for more difficult transactions.",
+      "sourceTitle": "ALTA Industry News 2024",
+      "sourceUrl": "https://alta.org/news-and-publications/industry-news/2024",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "workflow complexity",
+        "staff productivity",
+        "closing operations bottlenecks"
+      ]
+    },
+    {
+      "id": "src-fbi-ic3-2024",
+      "metric": "$16.6 billion in reported 2024 internet crime losses",
+      "claim": "The FBI’s 2024 IC3 report recorded 859,532 complaints of suspected internet crime and reported losses exceeding $16 billion, a 33% increase from 2023.",
+      "sourceTitle": "FBI Releases Annual Internet Crime Report",
+      "sourceUrl": "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "fraud risk",
+        "wire-fraud education",
+        "security-sensitive workflows"
+      ]
+    },
+    {
+      "id": "src-cfpb-respa-faq",
+      "metric": "Title insurance is listed as a settlement service under RESPA guidance",
+      "claim": "The CFPB’s RESPA FAQ says settlement services include closing services, title services, title insurance, document preparation, surveys, inspections, appraisals, and other real estate settlement services.",
+      "sourceTitle": "Real Estate Settlement Procedures Act FAQs",
+      "sourceUrl": "https://www.consumerfinance.gov/compliance/compliance-resources/mortgage-resources/real-estate-settlement-procedures-act/real-estate-settlement-procedures-act-faqs/",
+      "sourceDate": "Updated CFPB compliance resource",
+      "bestUsedFor": [
+        "compliance pressure",
+        "settlement service scope",
+        "regulated workflow boundaries"
+      ]
+    },
+    {
+      "id": "src-cfpb-reg-x-title-service",
+      "metric": "Regulation X defines title service functions",
+      "claim": "CFPB Regulation X defines title service to include title examination and evaluation, commitment preparation, clearance of underwriting objections, policy issuance, and related processing and administrative services.",
+      "sourceTitle": "12 CFR § 1024.2 Definitions",
+      "sourceUrl": "https://www.consumerfinance.gov/rules-policy/regulations/1024/2",
+      "sourceDate": "Current regulation page",
+      "bestUsedFor": [
+        "title workflow scope",
+        "internal knowledge use cases",
+        "operational complexity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Closing question and status support agent",
+      "problem": "Buyers, sellers, agents, and lenders ask recurring questions about fees, signing steps, funding, recording, and next actions while staff are trying to move files toward closing.",
+      "agentWorkflow": "Train a DocsBot support agent on your public FAQs, closing process guides, wire-fraud notices, branch instructions, and settlement education content. The agent answers routine questions, asks for missing context, summarizes the request, and escalates transaction-specific or sensitive items to a human closing team.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up permitted order status fields, create a support ticket, notify a branch queue, or prepare a handoff summary without exposing confidential credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to closing?",
+        "Has my recording been completed?",
+        "Can you explain why owner’s title insurance appears on my closing estimate?",
+        "I received wiring instructions. How do I verify them safely?"
+      ],
+      "businessOutcome": "Reduce repetitive closing inquiries while giving customers clearer answers and keeping funds, identity, and legal questions on a human review path.",
+      "icon": "ClockIcon"
+    },
+    {
+      "name": "Wire-fraud education and escalation assistant",
+      "problem": "Real estate transactions involve high-value payments, and customers often need timely, consistent instructions about how to verify payment directions and report suspicious messages.",
+      "agentWorkflow": "Train an agent on your approved fraud-prevention scripts, branch contact rules, payment verification procedures, incident escalation paths, and customer education materials. It can answer general safety questions, refuse unsafe requests for credentials or payment changes, and route urgent concerns to staff.",
+      "liveContextOrTools": "AI Actions can collect non-sensitive incident details, create a fraud-review ticket, notify an escrow manager, or trigger an approved workflow for immediate human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "I got an email changing wire instructions. Is this legitimate?",
+        "What number should I call to verify wiring instructions?",
+        "Can I send my bank details here?",
+        "I think I sent funds to the wrong account. What should I do now?"
+      ],
+      "businessOutcome": "Deliver consistent fraud guidance at the moment of concern and escalate urgent payment-risk issues quickly.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fbi-ic3-2024"
+      ]
+    },
+    {
+      "name": "Internal title production knowledge agent",
+      "problem": "Title examiners, processors, and assistants need fast access to procedures for commitments, exceptions, curative requirements, endorsements, recordings, and post-closing work.",
+      "agentWorkflow": "Build a private DocsBot knowledge agent trained on SOPs, underwriting manuals, checklists, bulletins, form libraries, state-specific guidance, and training documents. Employees ask natural-language questions and get source-grounded answers with links back to the approved materials.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved file metadata, generate a curative checklist draft, summarize notes for underwriter review, or create an internal task for missing documentation.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for clearing an unreleased mortgage?",
+        "Which checklist applies before issuing this commitment?",
+        "How do we document a recording rejection?",
+        "Summarize the requirements that need senior review."
+      ],
+      "businessOutcome": "Reduce search time and improve procedural consistency across branches while keeping underwriting judgment with qualified reviewers.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-cfpb-reg-x-title-service"
+      ]
+    },
+    {
+      "name": "Compliance and partner guidance assistant",
+      "problem": "Title and settlement staff field questions about RESPA, affiliated business arrangements, referral boundaries, fee explanations, and disclosure terminology that require careful, approved language.",
+      "agentWorkflow": "Train the agent on company compliance policies, approved consumer explanations, training notes, regulator-facing procedures, and internal escalation rules. It provides plain-language guidance from approved sources and flags issues that require compliance, attorney, or management review.",
+      "liveContextOrTools": "A configured workflow can route policy questions to compliance, create a review task, or save a summary for audit and training follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can an agent require a buyer to use our title company?",
+        "How should we explain a title service fee?",
+        "Where is our affiliated business arrangement script?",
+        "Which questions should be escalated to compliance?"
+      ],
+      "businessOutcome": "Make approved guidance easier to access while reducing off-script answers in regulated settlement-service conversations.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-cfpb-respa-faq"
+      ]
+    },
+    {
+      "name": "Sales, branch intake, and partner enablement agent",
+      "problem": "Referral partners and prospects ask about service areas, order intake, commercial versus residential handling, quote requests, and branch contacts across multiple locations.",
+      "agentWorkflow": "Use DocsBot as a presales and sales enablement agent trained on service pages, rate sheets where appropriate, branch information, partner FAQs, onboarding materials, and sales scripts. It can qualify a request, collect structured details, and prepare a handoff for a human representative.",
+      "liveContextOrTools": "Through customer-configured forms, webhooks, CRM workflows, scheduling tools, or MCP connectors to approved systems, the agent can forward qualified leads, request a meeting, create a task, or update approved fields.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle closings in this county?",
+        "I’m a broker and want to open an order. What do you need?",
+        "Can someone contact me about a commercial transaction?",
+        "Which branch handles this property location?"
+      ],
+      "businessOutcome": "Capture more complete intake information and give sales or branch teams cleaner context before follow-up.",
+      "icon": "BuildingStorefrontIcon"
+    },
+    {
+      "name": "Post-closing and policyholder self-service agent",
+      "problem": "After closing, customers still ask about policies, recorded documents, final title policies, escrow refunds, and whom to contact for corrections or copies.",
+      "agentWorkflow": "Train the agent on post-closing FAQs, policy delivery steps, document copy procedures, common timelines, and customer support scripts. It answers routine questions, explains next steps, and escalates issues that require file-specific review.",
+      "liveContextOrTools": "With approved live context, the agent can check permitted delivery status, create a document-copy request, route a correction request, or summarize the issue for post-closing staff.",
+      "exampleQuestionsOrRequests": [
+        "When will I receive my owner’s policy?",
+        "How do I get a copy of my recorded deed?",
+        "Who handles a misspelled name after closing?",
+        "What does this exception on my policy mean?"
+      ],
+      "businessOutcome": "Extend helpful service beyond the closing table while reducing repetitive post-closing email and phone follow-up.",
+      "icon": "ArchiveBoxIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent for buyers, sellers, lenders, and agents",
+    "intro": "Embed DocsBot on your website, branch pages, partner portal, or support experience to answer routine title insurance and closing questions from approved content. The agent can collect context, explain next steps, and escalate sensitive issues such as funds, identity, legal interpretation, or transaction-specific commitments.",
+    "requests": [
+      {
+        "request": "“What does title insurance cover, and do I need an owner’s policy?”",
+        "agentResponseStrategy": "Answer from approved consumer education pages and policy explanations, clarify general concepts, and offer a handoff for transaction-specific coverage questions.",
+        "sourceTypes": [
+          "Consumer FAQs",
+          "Policy explanations",
+          "Approved sales scripts"
+        ],
+        "optionalAction": "Collect contact details and route the question to a licensed title professional or sales contact when configured.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“I’m closing tomorrow. What should I bring and where do I go?”",
+        "agentResponseStrategy": "Provide general signing preparation steps and branch instructions from approved content, then ask for non-sensitive context if routing is needed.",
+        "sourceTypes": [
+          "Closing checklists",
+          "Branch instructions",
+          "Appointment FAQs"
+        ],
+        "optionalAction": "Create a support ticket, notify the closing desk, or request scheduling follow-up through an approved workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I received new wire instructions by email.”",
+        "agentResponseStrategy": "Use approved fraud-prevention guidance, avoid validating payment instructions in chat, advise the customer to verify through official channels, and escalate immediately.",
+        "sourceTypes": [
+          "Wire-fraud notices",
+          "Escrow procedures",
+          "Incident escalation scripts"
+        ],
+        "optionalAction": "Collect a safe summary of the concern and trigger a staff review or urgent callback workflow.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fbi-ic3-2024"
+        ]
+      },
+      {
+        "request": "“Can you tell me whether my recording is complete?”",
+        "agentResponseStrategy": "Explain normal recording and post-closing timelines from approved FAQs, then use live lookup only if the company has configured permitted order-status access.",
+        "sourceTypes": [
+          "Post-closing FAQs",
+          "Recording timelines",
+          "Order status metadata"
+        ],
+        "optionalAction": "Look up allowed status fields, create a document-copy request, or route the file to post-closing staff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I’m an agent. How do I open a new order?”",
+        "agentResponseStrategy": "Guide the partner through required intake details, service area information, and branch contact rules from approved onboarding materials.",
+        "sourceTypes": [
+          "Partner onboarding guides",
+          "Order intake forms",
+          "Branch service pages"
+        ],
+        "optionalAction": "Submit a structured intake form or forward a qualified request to the right branch or sales queue.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "request": "“Can the seller require me to use a specific title company?”",
+        "agentResponseStrategy": "Respond only with approved compliance language and general educational content, then recommend staff or legal review for transaction-specific concerns.",
+        "sourceTypes": [
+          "Compliance FAQs",
+          "Consumer education pages",
+          "Escalation policies"
+        ],
+        "optionalAction": "Route the question to compliance or the closing officer with the conversation summary.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-cfpb-respa-faq"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for production, escrow, compliance, and sales teams",
+    "intro": "DocsBot can also run as a private internal agent trained on the documents your staff already use: SOPs, underwriting guidance, policy manuals, training decks, branch procedures, sales playbooks, and compliance notes. Employees get faster source-grounded answers while leaders see repeated questions and documentation gaps.",
+    "workflows": [
+      {
+        "name": "SOP lookup for processors and escrow staff",
+        "problem": "Staff often need to confirm the right procedure while juggling calls, lender requests, payoff follow-up, and file deadlines.",
+        "agentWorkflow": "Employees ask the private agent natural-language questions about procedures, checklists, forms, and next steps. DocsBot answers from approved internal sources and links back to the relevant document for verification.",
+        "sourceTypes": [
+          "SOPs",
+          "Closing checklists",
+          "Training documents",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a task for missing documentation or summarize the procedure for a supervisor handoff when configured.",
+        "outcome": "Faster procedural answers and fewer interruptions to senior staff.",
+        "icon": "ListBulletIcon",
+        "sourceIds": [
+          "src-alta-close-hours"
+        ]
+      },
+      {
+        "name": "Underwriting and curative handoff preparation",
+        "problem": "Complex title issues need careful review, but underwriters and attorneys lose time when handoffs lack context.",
+        "agentWorkflow": "The agent can summarize file notes provided by staff, retrieve relevant internal guidance, identify what information is still missing, and prepare a structured handoff for the qualified reviewer.",
+        "sourceTypes": [
+          "Underwriting manuals",
+          "Curative checklists",
+          "File notes supplied by staff",
+          "Bulletins"
+        ],
+        "optionalAction": "Create a review ticket, assign a task, or notify the appropriate internal queue through approved actions.",
+        "outcome": "Cleaner review packets and more consistent escalation for title issues.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Compliance question routing",
+        "problem": "Referral, fee, disclosure, and marketing questions can expose a title company to risk if employees rely on memory or informal answers.",
+        "agentWorkflow": "Train DocsBot on approved compliance policies and scripts. It answers general internal questions, points to source material, and marks questions that require compliance or legal review.",
+        "sourceTypes": [
+          "Compliance policies",
+          "RESPA training",
+          "Approved scripts",
+          "Audit notes"
+        ],
+        "optionalAction": "Route a question to compliance, log the topic, and preserve a summary for training follow-up.",
+        "outcome": "More consistent compliance guidance across branches and partner-facing teams.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-cfpb-respa-faq"
+        ]
+      },
+      {
+        "name": "Partner sales enablement",
+        "problem": "Sales reps and branch managers need quick answers about service areas, partner onboarding, differentiators, order flow, and objection handling.",
+        "agentWorkflow": "Use an internal sales enablement agent trained on service pages, branch coverage, partner FAQs, proposal templates, testimonial snippets, and approved messaging. Reps can ask for talking points or draft follow-up emails for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Partner FAQs",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or send a qualified partner request to the right queue when configured.",
+        "outcome": "Faster partner response and more consistent sales messaging without automating contractual commitments.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting for operations leaders",
+        "problem": "Recurring unanswered questions reveal training, documentation, or process gaps that can quietly slow closings and frustrate staff.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, conversation review, and reports show what customers and employees ask, what content is missing, and where answers need improvement.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support topics",
+          "Internal knowledge sources",
+          "Reviewed answers"
+        ],
+        "optionalAction": "Create documentation tasks or notify content owners when repeated gaps appear.",
+        "outcome": "Operations leaders can improve FAQs, SOPs, and training based on actual questions.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on company knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved websites, documents, help centers, internal content, PDFs, Word files, wikis, and other configured knowledge sources.",
+      "industryApplication": "Train agents on closing FAQs, title insurance explanations, branch procedures, underwriting guidance, escrow SOPs, post-closing instructions, and partner onboarding materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Embeddable customer support widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can work in website chat widgets, private team chat experiences, and helpdesk-connected workflows when configured.",
+      "industryApplication": "Offer 24/7 first-line answers for buyers, sellers, agents, and lenders while giving staff a private place to search procedures and approved answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support bounded live lookups, record updates, workflow triggers, summaries, and handoffs through customer-configured connections, including MCP connectors for remote Model Context Protocol servers.",
+      "industryApplication": "Use approved actions to check permitted order-status fields, create tickets, route fraud concerns, submit intake forms, notify a branch queue, or summarize a file handoff.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, regulated, or need a person, with customer-defined controls around what agents can access and do.",
+      "industryApplication": "Keep wire instructions, identity issues, legal interpretation, coverage commitments, and underwriting decisions on clear review paths while still answering routine questions instantly.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which closing, policy, post-closing, partner, and employee questions repeat most often so your team can improve scripts, FAQs, SOPs, and training.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use role-aware access for internal title, escrow, compliance, and branch materials while protecting private transaction knowledge and sensitive operational procedures.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume questions without losing source-grounded control.",
+      "Train agents on your own content library, procedures, and customer-facing materials.",
+      "Support customers and stakeholders with clearer communication across real estate workflows."
+    ],
+    "whyTheseReviewsFit": "Title insurance teams need dependable answers for customers, partners, and employees across many documents and time-sensitive workflows. DocsBot proof spans real estate communication, owned-content training, and high-volume support, giving title companies confidence that AI agents can assist without replacing expert review.",
+    "trustClaimIcons": [
+      "BoltIcon",
+      "FolderIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for title insurance companies",
+    "audience": [
+      "Title insurance agencies",
+      "Settlement and escrow teams",
+      "Title production teams",
+      "Real estate closing operations",
+      "Compliance and partner support leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "mortgage-company",
+    "home-inspection",
+    "property-management",
+    "commercial-leasing",
+    "real-estate-housing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "title-insurance",
+    "webSearchQueries": [
+      "ALTA title insurance industry market size policies real estate transactions 2024",
+      "FBI Internet Crime Report real estate wire fraud losses 2024",
+      "CFPB TRID closing disclosure title insurance real estate settlement procedures",
+      "ALTA wire fraud survey title companies payoff fraud 2024",
+      "site:consumerfinance.gov TRID closing disclosure title insurance settlement agent",
+      "site:consumerfinance.gov RESPA real estate settlement procedures act title insurance"
+    ],
+    "sourceUrls": [
+      "https://www.alta.org/news-and-publications/press-release/ALTA-Reports-Title-Insurance-Premium-Volume-Increased-7-in-2024",
+      "https://alta.org/news-and-publications/industry-news/2024",
+      "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "https://www.consumerfinance.gov/compliance/compliance-resources/mortgage-resources/real-estate-settlement-procedures-act/real-estate-settlement-procedures-act-faqs/",
+      "https://www.consumerfinance.gov/rules-policy/regulations/1024/2"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45824,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 25088,
+        "outputTokens": 8539,
+        "reasoningOutputTokens": 184,
+        "totalTokens": 54363,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.19599,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.21599
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25443,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 9955,
+          "outputTokens": 5609,
+          "reasoningOutputTokens": 184,
+          "totalTokens": 31052,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.112895,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.132895
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20381,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15133,
+          "outputTokens": 2930,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23311,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.083095,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.083095
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxpbnN1cmFuY2V8ZW58MHwwfHx8MTcxNDg3ODA2OXww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Title Insurance background image",
+    "source": "legacy-industry",
+    "query": "Title Insurance"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without giving it authority to approve title decisions or change wire instructions?",
+      "answer": "Yes. DocsBot is best positioned as a source-grounded support and knowledge layer, not an autonomous decision-maker for high-risk title work. You can configure it to answer routine questions from approved content, refuse or escalate sensitive funds and identity issues, and route underwriting, legal, coverage, or payment-change questions to the right human reviewer.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help our escrow team during the final week before closing?",
+      "answer": "A DocsBot agent can answer repetitive questions about signing logistics, what to bring, fee explanations, funding steps, recording timelines, and post-closing next steps from your approved FAQs and branch instructions. When the question is file-specific or sensitive, it can collect safe context, summarize the issue, and route it to the closing desk instead of leaving staff to reconstruct the conversation.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent answer questions from real estate agents, buyers, sellers, and lenders differently?",
+      "answer": "Yes. You can train the agent on different approved source sets and instructions for consumer education, partner onboarding, lender-facing process notes, and internal procedures. Role-based permissions and escalation rules help keep internal SOPs private while still giving external users clear answers from public or approved customer-facing content.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the agent from giving legal advice or making policy coverage commitments?",
+      "answer": "Use strict instructions, approved source content, and escalation rules. DocsBot can explain general concepts from your approved materials, link or refer back to source documents, and flag transaction-specific interpretation, coverage commitments, exceptions, underwriting calls, and legal questions for a licensed title professional, attorney, underwriter, or compliance reviewer.",
+      "role": "Title production and underwriting teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What title insurance content should we train the first agent on?",
+      "answer": "Most teams should start with high-volume, low-risk content: closing FAQs, branch instructions, wire-fraud education, post-closing timelines, policyholder FAQs, partner intake steps, and internal SOPs that staff already trust. Then add underwriting manuals, curative checklists, compliance scripts, and state-specific guidance in a private internal agent with tighter permissions.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with internal production questions like commitments, exceptions, endorsements, and curative workflows?",
+      "answer": "Yes. A private DocsBot knowledge agent can be trained on underwriting manuals, SOPs, bulletins, checklists, and form libraries so processors and examiners can retrieve approved procedures faster. That fits the operational scope of title service work, which Regulation X defines to include examination, commitment preparation, clearance of underwriting objections, policy issuance, and related processing services.",
+      "role": "Title production and underwriting teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cfpb-reg-x-title-service"
+      ]
+    },
+    {
+      "question": "Can DocsBot connect to our title production system or order-status data?",
+      "answer": "DocsBot can use approved Skills, APIs, connectors, webhooks, or MCP connectors when your team configures the connection and permissions. A common approach is to expose only safe fields—such as order status, branch routing, appointment information, or document-delivery status—while keeping credentials, bank details, and restricted file data out of chat.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot replace our helpdesk, CRM, or title platform?",
+      "answer": "No. DocsBot should sit alongside those systems as an AI support, knowledge, and workflow layer. It can answer from approved content, collect structured intake details, create or route tickets, prepare summaries, or update approved fields through customer-configured workflows, but your core title production, escrow, accounting, CRM, and compliance systems remain the systems of record.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if our biggest pain is constant calls and emails, not ticket volume?",
+      "answer": "Track deflected repetitive questions, time saved on status updates, fewer interruptions to senior escrow or underwriting staff, faster partner intake, after-hours answer coverage, and documentation gaps resolved. Title operations are labor-intensive: ALTA industry reporting cites about 22 expert hours for a standard transaction and 45 hours for a difficult transaction, so even modest reductions in search and follow-up time can matter.",
+      "role": "Escrow and closing operations leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-alta-close-hours"
+      ]
+    },
+    {
+      "question": "Can the agent support wire-fraud education without creating more risk?",
+      "answer": "Yes, if it is configured carefully. DocsBot can answer from your approved fraud-prevention scripts, tell users not to share bank details in chat, avoid validating payment changes, and escalate suspicious messages for immediate human follow-up. That matters because the FBI’s 2024 IC3 report recorded 859,532 internet crime complaints and losses exceeding $16 billion.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fbi-ic3-2024"
+      ]
+    },
+    {
+      "question": "What happens if a buyer says they received new wire instructions by email?",
+      "answer": "The agent should not confirm or change payment instructions. It can provide your approved safety guidance, direct the buyer to verify through official channels, collect a non-sensitive summary of the concern, and trigger an urgent callback or fraud-review workflow for staff. This keeps the answer consistent while preserving human control over funds-related issues.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us keep branch offices consistent without ignoring local procedures?",
+      "answer": "Yes. You can train agents on shared corporate policies plus branch-specific instructions, then use routing, permissions, and source organization to keep answers aligned with the correct office, county, state, or transaction type. Analytics can also show where branches are getting repeated questions or where procedures need clearer documentation.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we handle state-specific underwriting guidance and different underwriter requirements?",
+      "answer": "Use a private internal agent with organized source sets, clear labels, and instructions that require the agent to reference the applicable state, underwriter, transaction type, or document date when answering. For anything ambiguous or judgment-based, DocsBot should summarize the issue and escalate to the underwriter, attorney, or senior title officer rather than resolving it autonomously.",
+      "role": "Title production and underwriting teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent explain Closing Disclosure or settlement fee questions to consumers?",
+      "answer": "It can provide plain-language explanations from your approved consumer FAQs, scripts, and fee education materials, while escalating transaction-specific disputes or compliance-sensitive questions. That boundary is important because CFPB RESPA guidance treats title insurance and title services as settlement services, so teams need consistent, approved language in settlement-service conversations.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfpb-respa-faq"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot for RESPA, affiliated business arrangement, or referral-policy questions?",
+      "answer": "Yes, especially as an internal compliance guidance assistant. Train it on approved policies, scripts, and escalation rules so staff can find the right language quickly. DocsBot can answer general internal questions from those sources and route anything involving a specific referral, fee, disclosure, or partner arrangement to compliance or legal review.",
+      "role": "Title production and underwriting teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much staff training is required before launch?",
+      "answer": "For customer-facing use, train staff on what the agent can answer, when it escalates, how handoffs appear, and how to review conversation logs. For internal use, train employees to ask procedural questions, verify cited sources, flag outdated content, and avoid entering restricted information unless your approved workflow permits it.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What does implementation look like if our SOPs are scattered across PDFs, Word docs, shared drives, and emails?",
+      "answer": "Start by selecting the content staff already trust, removing stale or contradictory versions, and grouping sources by audience and workflow. DocsBot can train on PDFs, Word documents, websites, internal content, wikis, and other configured sources, but a successful launch depends on content ownership, review cycles, and clear escalation rules as much as ingestion.",
+      "role": "Title production and underwriting teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent create tickets or route requests to the correct closing team?",
+      "answer": "Yes, when configured through DocsBot AI Actions, Skills, APIs, connectors, forms, webhooks, or approved workflow automations. It can collect missing details, summarize the conversation, create a ticket or task, notify a branch queue, or hand off to a closing desk while keeping high-impact decisions with people.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we know whether the agent is answering from the right source instead of guessing?",
+      "answer": "DocsBot is designed for source-grounded answers trained on your approved knowledge. Buyers should evaluate whether answers cite or point back to approved materials, how the agent behaves when content is missing, how logs are reviewed, and whether sensitive or uncertain questions are escalated instead of answered confidently without support.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What reporting will operations leaders get after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For title teams, that can reveal repeated questions about closing prep, wire verification, recording timelines, policy delivery, branch routing, and internal procedures that need better documentation or training.",
+      "role": "Escrow and closing operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help our sales or agency-relations team respond faster to referral partners?",
+      "answer": "Yes. A presales or partner enablement agent can answer from service area pages, branch information, onboarding materials, approved scripts, rate guidance where appropriate, and order-opening instructions. It can also collect structured intake details and forward a qualified request to the right branch, sales contact, CRM workflow, or closing desk when configured.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot?",
+      "answer": "Look beyond the chat interface. DocsBot can function as a source-grounded AI support agent, private internal knowledge agent, and workflow automation layer trained on approved title content. Evaluation should focus on content control, human escalation, secure permissions, logs, analytics, and bounded actions—not just whether a widget can answer basic website questions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Is DocsBot appropriate for commercial title or only residential closings?",
+      "answer": "DocsBot can support both, as long as the content and boundaries match the workflow. Residential teams may start with consumer FAQs, signing prep, and post-closing questions. Commercial teams may emphasize intake, document collection, title review handoffs, internal procedures, partner communication, and escalation for complex endorsements or underwriting judgment.",
+      "role": "Title production and underwriting teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot protect private transaction and operating information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For title teams, those controls help separate public FAQs from private escrow, production, compliance, branch, and operational sources.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we launch internally first before exposing an agent to buyers and agents?",
+      "answer": "Yes. Many title companies would start with a private knowledge agent for escrow, production, compliance, or sales teams. That lets leaders validate source quality, escalation behavior, reporting, and staff adoption before adding a customer-facing agent for routine closing, policyholder, partner, or post-closing questions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should our compliance team review before procurement signs off?",
+      "answer": "Compliance should review approved source content, escalation rules, transcript/log access, role-based permissions, data retention expectations, prohibited topics, wire-fraud handling, RESPA-related scripts, and whether the agent clearly avoids legal advice or transaction-specific commitments. They should also confirm which actions require human review before any workflow is enabled.",
+      "role": "Title production and underwriting teams",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support multilingual buyers and sellers without forcing our staff to translate every FAQ manually?",
+      "answer": "DocsBot can answer in more than 100 languages from your approved source content. For title insurance, teams should still review critical language around funds, identity, legal advice, coverage, and compliance, and route sensitive multilingual conversations to staff when exact wording or transaction-specific interpretation matters.",
+      "role": "Customer support, sales, and agency partners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we avoid exposing internal underwriting manuals to external users?",
+      "answer": "Separate customer-facing and internal agents or source sets, apply role-based permissions, and limit the public agent to approved consumer, partner, and branch materials. Internal underwriting manuals, curative procedures, and compliance notes should stay in private team experiences with access controls, logs, and human escalation for sensitive questions.",
+      "role": "Title production and underwriting teams",
+      "category": "Security and compliance"
+    }
+  ]
+}

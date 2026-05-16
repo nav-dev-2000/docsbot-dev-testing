@@ -1,0 +1,694 @@
+{
+  "slug": "nutrition-counseling",
+  "business": "Nutrition Counseling",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Nutrition Counseling Practices",
+    "description": "DocsBot helps nutrition counseling teams answer client questions, surface care resources, route intake, and reduce repetitive admin work.",
+    "canonicalPath": "/industry/nutrition-counseling"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for dietitians and nutrition teams",
+    "headline": "Give nutrition clients faster guidance from your approved resources",
+    "subheadline": "DocsBot helps nutrition counseling practices build AI agents trained on their own handouts, service pages, FAQs, policies, onboarding materials, and internal procedures. Support clients between appointments, qualify new inquiries, and help staff retrieve accurate practice knowledge without replacing professional judgment.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions from approved nutrition handouts, program FAQs, preparation guides, and service policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, scheduling intent, and service-fit information before a human follow-up.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Route sensitive, clinical, billing, or complex client questions to the right team member with context.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, client onboarding steps, education materials, and referral workflows.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build a nutrition support agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your nutrition counseling practice approves: website pages, PDFs, client education materials, program descriptions, policies, FAQs, internal SOPs, and team documents. Agents can provide source-grounded answers, summarize conversations, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP tools, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Registered dietitians and nutrition counselors",
+        "roleContext": "Use an AI support agent to handle repeated education and logistics questions while keeping individualized nutrition assessment, diagnosis, and treatment decisions with licensed professionals.",
+        "bullets": [
+          {
+            "text": "Explain what clients should bring, how follow-ups work, and where to find approved handouts.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Escalate symptoms, medical condition questions, eating-disorder concerns, or individualized care decisions to a human clinician.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use conversation analytics to see which resources clients ask for most often and where materials need improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Practice owners and operations managers",
+        "roleContext": "Nutrition counseling demand is growing: BLS projects dietitian and nutritionist employment to grow 6% from 2024 to 2034, with about 6,200 openings per year.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive front-desk questions about services, insurance policies, appointment preparation, and program fit.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Route new inquiries with structured context so staff can prioritize urgent, qualified, or high-fit requests.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Keep approved answers consistent across the website widget, private team chat, and helpdesk-style workflows.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon",
+        "sourceIds": [
+          "src-bls-dietitians-outlook"
+        ]
+      },
+      {
+        "role": "Client care coordinators and administrative teams",
+        "roleContext": "Give non-clinical staff a faster way to find approved language for policies, referrals, program descriptions, and routine follow-up without searching folders or interrupting clinicians.",
+        "bullets": [
+          {
+            "text": "Draft responses to common emails, then let staff review, personalize, and send.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Create handoff summaries for inquiries that need a dietitian, billing review, or scheduling follow-up.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Find the correct internal process for cancellations, waitlists, telehealth setup, and new-client onboarding.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-dietitians-outlook",
+      "metric": "6% projected employment growth for dietitians and nutritionists, 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects dietitian and nutritionist employment to grow faster than average, with about 6,200 openings each year over the decade.",
+      "sourceTitle": "Dietitians and Nutritionists: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/Healthcare/Dietitians-and-nutritionists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "practice growth",
+        "administrative workload"
+      ]
+    },
+    {
+      "id": "src-cdc-chronic-disease-nutrition",
+      "metric": "Poor nutrition is a significant chronic disease risk factor",
+      "claim": "CDC identifies poor nutrition and physical inactivity as significant risk factors for obesity, type 2 diabetes, heart disease, stroke, certain cancers, and depression.",
+      "sourceTitle": "About Chronic Diseases",
+      "sourceUrl": "https://www.cdc.gov/chronic-disease/about/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "client education demand",
+        "prevention context",
+        "public health burden"
+      ]
+    },
+    {
+      "id": "src-academy-mnt-obesity-guideline",
+      "metric": "Telehealth and group counseling can expand access for obesity-related MNT",
+      "claim": "An Academy of Nutrition and Dietetics evidence-based guideline notes that registered dietitian nutritionists collaborate with clients and care teams using evidence, clinical expertise, and client circumstances, and that telehealth and group counseling can help increase access.",
+      "sourceTitle": "Medical Nutrition Therapy Interventions Provided by Dietitians for Adult Overweight and Obesity Management",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/36462613/",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "evidence-based counseling",
+        "telehealth workflows",
+        "professional judgment boundaries"
+      ]
+    },
+    {
+      "id": "src-cdc-obesity-consequences",
+      "metric": "Obesity is associated with serious chronic conditions",
+      "claim": "CDC states that adults with obesity often have other serious chronic diseases, including diabetes and heart disease.",
+      "sourceTitle": "Adult Obesity Facts",
+      "sourceUrl": "https://www.cdc.gov/obesity/adult-obesity-facts/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "chronic condition education",
+        "risk communication",
+        "client support complexity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "New-client intake and service-fit routing",
+      "problem": "Prospective clients often ask whether a practice can help with weight management, diabetes support, sports nutrition, digestive concerns, family nutrition, or general wellness before booking.",
+      "agentWorkflow": "A DocsBot agent answers from approved service pages, clinician bios, program descriptions, insurance notes, and preparation FAQs. It can collect goals, location, preferred appointment type, timeline, and contact details, then forward a summary to staff through a customer-configured form, email, CRM, helpdesk, or scheduling workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or scheduling workflows, the agent can request a consultation, create a lead record, or route the inquiry to the correct coordinator. Individualized medical advice stays with a qualified professional.",
+      "exampleQuestionsOrRequests": [
+        "Do you help people with prediabetes meal planning?",
+        "Can I work with a dietitian if I follow a vegetarian diet?",
+        "What information do you need before my first appointment?"
+      ],
+      "businessOutcome": "Faster responses for new clients and cleaner handoffs for staff without forcing clinicians to answer every repetitive presales question.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Between-visit education from approved materials",
+      "problem": "Clients forget instructions, lose handouts, or ask repeated questions about general nutrition concepts, grocery planning, appointment preparation, and program expectations between sessions.",
+      "agentWorkflow": "Train the agent on your approved handouts, recipes, general education PDFs, FAQ pages, and program resources. The agent retrieves source-grounded answers, links clients to the right material, and flags questions that are too clinical, urgent, or individualized for human follow-up.",
+      "liveContextOrTools": "The agent can run in an embedded website widget or private client portal experience when configured. For sensitive topics, instructions can require escalation instead of generating advice.",
+      "exampleQuestionsOrRequests": [
+        "Where is the high-fiber foods handout?",
+        "What should I track before my follow-up?",
+        "Can you summarize the plate-method guide from my program materials?"
+      ],
+      "businessOutcome": "Clients get convenient access to approved education while clinicians preserve boundaries around individualized nutrition care.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-academy-mnt-obesity-guideline"
+      ]
+    },
+    {
+      "name": "Staff knowledge assistant for SOPs and client workflows",
+      "problem": "Front-desk and care coordination teams need fast answers about policies, forms, telehealth setup, referral steps, cancellations, and program logistics.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, policies, onboarding checklists, scripts, forms, and internal wikis. Staff can ask natural-language questions and receive consistent, source-grounded answers with links back to the underlying document.",
+      "liveContextOrTools": "With customer-configured Skills, the agent can summarize a client inquiry, create a task, notify a team channel, or prepare a handoff for review.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for a no-show appointment?",
+        "Which form do we send for a pediatric nutrition consult?",
+        "Draft a follow-up note using our approved cancellation policy."
+      ],
+      "businessOutcome": "Less time searching internal files and fewer inconsistent answers across administrative staff.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for education content",
+      "problem": "Nutrition practices may not know which client questions are recurring until staff hear the same topics repeatedly across calls, emails, and sessions.",
+      "agentWorkflow": "DocsBot conversation logs, topic reporting, review tools, and knowledge-gap discovery show what clients and staff ask, which answers need improvement, and which materials may be missing. Teams can update FAQs, handouts, and onboarding documents based on repeated questions.",
+      "liveContextOrTools": "Reviewed conversation summaries can inform content planning while keeping sensitive client-specific decisions out of automated publishing workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which topics are clients asking about most this month?",
+        "What questions did the agent escalate because our materials were incomplete?",
+        "Show gaps in our telehealth setup instructions."
+      ],
+      "businessOutcome": "More complete education resources and fewer repeated operational questions over time.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Program and group counseling support",
+      "problem": "Group programs and telehealth counseling can expand access, but they also increase repeated questions about logistics, materials, session rules, and where to find resources.",
+      "agentWorkflow": "A DocsBot agent answers participant questions from program guides, session agendas, telehealth instructions, eligibility notes, and general education content. It can summarize common participant questions for the facilitator and route individual care concerns to a clinician.",
+      "liveContextOrTools": "Customer-configured workflows can create follow-up tasks, send summaries to the care team, or update approved non-clinical fields after review.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find the week two workbook?",
+        "What time is the next group session?",
+        "Can you summarize the grocery-planning resource from the program?"
+      ],
+      "businessOutcome": "Programs scale with clearer self-service support while clinicians focus on counseling and care decisions.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-academy-mnt-obesity-guideline"
+      ]
+    },
+    {
+      "name": "Chronic-condition education triage",
+      "problem": "Nutrition counseling clients often arrive with questions connected to obesity, diabetes, heart disease, and other chronic conditions, which requires clear boundaries between general education and personalized care.",
+      "agentWorkflow": "The agent can explain approved general education resources and practice policies, then escalate individualized clinical questions, symptom concerns, medication-related issues, or condition-specific meal-plan changes to a dietitian or care team member.",
+      "liveContextOrTools": "Scoped instructions, logs, human escalation, and role-based access help the practice keep high-impact health questions inside defined review paths.",
+      "exampleQuestionsOrRequests": [
+        "Which approved handout explains heart-healthy eating basics?",
+        "Is this question something I should ask my dietitian directly?",
+        "Can you help me prepare questions for my next appointment?"
+      ],
+      "businessOutcome": "Clients receive helpful navigation while the practice avoids positioning the AI agent as a substitute for licensed medical nutrition therapy.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cdc-chronic-disease-nutrition",
+        "src-cdc-obesity-consequences"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI agent for nutrition questions that should not wait for office hours",
+    "intro": "Place a DocsBot agent on your website or client resource area so visitors and clients can find approved answers about services, appointments, preparation, general education resources, and next steps. For individualized nutrition care, the agent can route the request to a professional with a concise summary.",
+    "requests": [
+      {
+        "request": "“Do you offer nutrition counseling for diabetes or heart-health goals?”",
+        "agentResponseStrategy": "Answer from approved service descriptions, clarify that recommendations are individualized during sessions, and collect contact details or booking intent for staff follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Clinician bios",
+          "Program FAQs",
+          "Intake forms"
+        ],
+        "optionalAction": "Create a lead summary or consultation request through a customer-configured workflow.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“What should I complete before my first appointment?”",
+        "agentResponseStrategy": "Retrieve the correct onboarding checklist, forms, telehealth instructions, and preparation guidance from the practice knowledge base.",
+        "sourceTypes": [
+          "Onboarding PDFs",
+          "Client portal instructions",
+          "Practice policies",
+          "Preparation guides"
+        ],
+        "optionalAction": "Send staff a summary if the client cannot access a form or needs manual help.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you explain the handout my dietitian gave me?”",
+        "agentResponseStrategy": "Summarize approved educational content in plain language, cite the source material, and avoid creating a new individualized meal plan unless the practice has explicitly approved that workflow for human review.",
+        "sourceTypes": [
+          "Education handouts",
+          "Program workbooks",
+          "Recipes",
+          "General nutrition guides"
+        ],
+        "optionalAction": "Escalate to the dietitian when the client asks for personal medical nutrition changes.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“I need to cancel, reschedule, or ask about billing.”",
+        "agentResponseStrategy": "Answer from published policies and route account-specific questions to the appropriate administrative team.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "Billing FAQ",
+          "Scheduling rules",
+          "Insurance notes"
+        ],
+        "optionalAction": "Create a task, ticket, or handoff summary in the practice’s configured system.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Is this urgent or should I wait until my next session?”",
+        "agentResponseStrategy": "Follow practice-defined safety instructions, avoid clinical triage beyond approved language, and direct urgent or individualized health concerns to the appropriate human or emergency pathway.",
+        "sourceTypes": [
+          "Escalation policy",
+          "Safety instructions",
+          "Scope-of-service guidance",
+          "Contact pages"
+        ],
+        "optionalAction": "Notify staff or present urgent-contact instructions when the practice has configured that pathway.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I join a telehealth or group nutrition program?”",
+        "agentResponseStrategy": "Explain eligibility, format, preparation steps, and general program expectations from approved materials, then collect scheduling intent for staff review.",
+        "sourceTypes": [
+          "Program pages",
+          "Telehealth instructions",
+          "Group session guides",
+          "FAQs"
+        ],
+        "optionalAction": "Request a consultation or route the inquiry to a coordinator through an approved workflow.",
+        "icon": "VideoCameraIcon",
+        "sourceIds": [
+          "src-academy-mnt-obesity-guideline"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for the work behind nutrition counseling",
+    "intro": "DocsBot helps clinicians, coordinators, and practice leaders retrieve internal procedures, approved language, education materials, and operational knowledge without digging through folders. Staff can ask questions in private chat, review sources, and use summaries to move routine work forward.",
+    "workflows": [
+      {
+        "name": "SOP and policy retrieval",
+        "problem": "Administrative staff need accurate answers about cancellation rules, onboarding steps, referral documentation, telehealth setup, and program eligibility.",
+        "agentWorkflow": "Train DocsBot on internal SOPs, policies, training documents, and scripts. Staff ask natural questions and receive source-grounded answers that point back to the approved document.",
+        "sourceTypes": [
+          "SOPs",
+          "Practice policies",
+          "Training docs",
+          "Internal wikis"
+        ],
+        "optionalAction": "Draft a staff response or create a task for the owner of a missing policy.",
+        "outcome": "Fewer interruptions for clinicians and more consistent operational answers.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Clinician resource lookup",
+        "problem": "Dietitians may need to quickly find approved handouts, patient education resources, or program materials during or after counseling sessions.",
+        "agentWorkflow": "The internal agent searches across PDFs, drive folders, websites, and approved content libraries to surface the right education resource and summarize what it covers.",
+        "sourceTypes": [
+          "PDF handouts",
+          "Resource libraries",
+          "Program workbooks",
+          "Care guides"
+        ],
+        "optionalAction": "Prepare a short summary for human review before it is sent to the client.",
+        "outcome": "Clinicians spend less time locating resources and more time on individualized counseling.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Inquiry and handoff summaries",
+        "problem": "New-client emails and website requests can include goals, constraints, questions, and scheduling needs that staff must manually interpret.",
+        "agentWorkflow": "DocsBot can summarize the inquiry, classify the likely service category, identify missing details, and prepare a handoff for a coordinator or clinician.",
+        "sourceTypes": [
+          "Website inquiries",
+          "Email text",
+          "Intake forms",
+          "Service taxonomy"
+        ],
+        "optionalAction": "With approved Skills or APIs, create a task, route a ticket, or update approved non-clinical fields.",
+        "outcome": "Cleaner intake queues and faster follow-up from the right team member.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Content improvement from recurring questions",
+        "problem": "When clients repeatedly ask the same nutrition or logistics questions, practices need a practical way to update FAQs and handouts.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic reporting, and knowledge-gap discovery to review unanswered or frequently asked questions, then decide which resources should be updated.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap reports",
+          "Existing FAQs"
+        ],
+        "optionalAction": "Draft revised FAQ language for human review before publishing.",
+        "outcome": "A knowledge base that improves with real client and staff questions.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved practice content",
+      "mainLandingPageContext": "DocsBot trains AI agents on websites, help centers, documents, PDFs, internal files, and other configured knowledge sources to answer in the organization’s voice.",
+      "industryApplication": "Nutrition counseling practices can answer questions from approved handouts, service pages, program guides, policies, and education resources instead of relying on generic nutrition content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing widget and private team access",
+      "mainLandingPageContext": "DocsBot agents can support website or product chat experiences and private team knowledge workflows.",
+      "industryApplication": "Use a website agent for prospective clients and a private internal agent for staff who need SOPs, forms, policies, and education resources.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record updates, workflow triggers, and handoffs through customer-configured systems.",
+      "industryApplication": "A nutrition practice can configure approved workflows for consultation requests, task creation, handoff summaries, scheduling intent, or routed administrative follow-up while keeping clinical decisions with humans.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and review boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person, with configurable rules and permissions.",
+      "industryApplication": "Escalate individualized medical nutrition therapy questions, urgent concerns, eating-disorder topics, medication-related issues, or account-specific billing questions to qualified staff.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, reporting, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Practice owners can see which client education topics, onboarding questions, and program logistics cause the most confusion, then improve resources over time.",
+      "icon": "PresentationChartBarIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your approved content library.",
+      "Supports healthcare-adjacent internal decision workflows with human oversight where needed.",
+      "Helps education-heavy teams make complex concepts easier to access."
+    ],
+    "whyTheseReviewsFit": "Nutrition counseling is education-rich, operationally detailed, and trust-sensitive. DocsBot proof from healthcare communications, university education, and content-library teams shows how organizations use owned knowledge to answer questions, support internal decisions, and make approved information easier to retrieve.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ShieldCheckIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for nutrition counseling practices",
+    "audience": [
+      "Registered dietitians",
+      "Nutrition counselors",
+      "Nutrition practice owners",
+      "Client care coordinators",
+      "Health services operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "health-coaching",
+    "alternative-medicine",
+    "athletic-trainer",
+    "chiropractic-office",
+    "healthcare-revenue-cycle-management",
+    "child-youth-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "nutrition-counseling",
+    "webSearchQueries": [
+      "nutrition counseling dietitian statistics chronic disease CDC nutrition",
+      "Academy of Nutrition and Dietetics nutrition counseling medical nutrition therapy evidence",
+      "Bureau Labor Statistics dietitians nutritionists employment outlook",
+      "CDC poor nutrition chronic diseases obesity diabetes heart disease"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/Healthcare/Dietitians-and-nutritionists.htm",
+      "https://www.cdc.gov/chronic-disease/about/",
+      "https://pubmed.ncbi.nlm.nih.gov/36462613/",
+      "https://www.cdc.gov/obesity/adult-obesity-facts/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40389,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27845,
+        "outputTokens": 7329,
+        "reasoningOutputTokens": 114,
+        "totalTokens": 47718,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.182684,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.192684
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21640,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14344,
+          "outputTokens": 4823,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 26463,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.110029,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.120029
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18749,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13501,
+          "outputTokens": 2506,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21255,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.072655,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.072655
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxudXRyaXRpb258ZW58MHwwfHx8MTcxNDg3ODA1N3ww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Nutrition Counseling background image",
+    "source": "legacy-industry",
+    "query": "Nutrition Counseling"
+  },
+  "faq": [
+    {
+      "question": "How do we make sure the AI agent does not give individualized medical nutrition advice?",
+      "answer": "Train the agent on approved practice content and set clear instructions for scope boundaries. DocsBot can answer general questions from handouts, service pages, policies, and program materials, then escalate individualized meal-plan changes, symptoms, eating-disorder concerns, medication-related questions, or medical nutrition therapy decisions to a dietitian or care team member.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help prospective clients understand whether our practice is a fit before they book?",
+      "answer": "Yes. A DocsBot agent can answer from your service pages, clinician bios, program descriptions, insurance notes, and intake FAQs. It can collect goals, location, appointment preference, timeline, and contact details, then route a summarized inquiry through a customer-configured form, email, CRM, scheduling, or helpdesk-style workflow for staff follow-up.",
+      "role": "Practice owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of client questions should we automate first?",
+      "answer": "Start with repeatable, low-risk questions: what to bring to the first appointment, how follow-ups work, where to find forms, program eligibility, telehealth setup, cancellation policies, billing instructions, and links to approved handouts. Keep personal diagnosis, treatment changes, symptoms, supplement advice, and condition-specific meal planning in a human review path.",
+      "role": "Client care coordinators and administrative teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support between-visit education without replacing the dietitian-client relationship?",
+      "answer": "Yes. DocsBot can help clients find and understand approved education materials between sessions, such as grocery-planning guides, program workbooks, and general nutrition handouts. The agent should be configured to summarize approved content and route individualized questions back to the clinician, preserving professional judgment for assessment and treatment decisions.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit into our front-desk and care coordination workflow?",
+      "answer": "DocsBot can act as a first-line intake and knowledge assistant. It can answer routine questions, draft staff-reviewed replies, summarize website inquiries, identify missing details, and create handoff context for scheduling, billing, or clinician review through customer-configured Skills, APIs, connectors, or workflow automations.",
+      "role": "Client care coordinators and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should a small nutrition practice expect from an AI support agent?",
+      "answer": "The clearest ROI usually comes from fewer repetitive calls and emails, faster lead response, cleaner intake handoffs, and less staff time searching for forms, policies, and handouts. Nutrition counseling demand is not shrinking: BLS projects dietitian and nutritionist employment to grow 6% from 2024 to 2034, with about 6,200 openings per year.",
+      "role": "Practice owners and operations managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-dietitians-outlook"
+      ]
+    },
+    {
+      "question": "Can the agent handle diabetes, obesity, heart-health, or chronic-condition questions?",
+      "answer": "It can help clients navigate approved general education and practice resources for chronic-condition-related nutrition topics, while escalating personalized care decisions. This boundary matters because CDC identifies poor nutrition as a significant risk factor for conditions including obesity, type 2 diabetes, heart disease, stroke, certain cancers, and depression.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-cdc-chronic-disease-nutrition"
+      ]
+    },
+    {
+      "question": "How do we prevent inconsistent answers across our website, emails, and staff conversations?",
+      "answer": "Use DocsBot as a source-grounded knowledge layer trained on the same approved service pages, policies, FAQs, handouts, and SOPs. The public agent can answer client-facing questions, while a private internal agent helps staff retrieve the same approved language for calls, emails, onboarding, cancellations, and program logistics.",
+      "role": "Practice owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we review what the agent told a client if there is a concern?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reporting, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. That lets practice leaders audit conversations, see escalations, identify confusing materials, and improve instructions or source documents over time.",
+      "role": "Practice owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a client asks something urgent or clinically sensitive?",
+      "answer": "You can define escalation rules for urgent, individualized, or sensitive questions. The agent can avoid clinical triage beyond approved language, show the practice’s escalation instructions, and route the conversation summary to the right human team member when a customer-configured workflow is in place.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot work with our scheduling, CRM, forms, or helpdesk tools?",
+      "answer": "DocsBot can support customer-configured workflows using Skills, APIs, connectors, MCP options, forms, webhooks, or other approved integrations. Typical actions include collecting booking intent, creating a consultation request, forwarding a lead summary, creating a task, routing a ticket, or updating approved non-clinical fields.",
+      "role": "Practice owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will we need to rebuild all of our nutrition education content before launching?",
+      "answer": "No. Most practices can start with existing service pages, PDFs, onboarding checklists, program guides, FAQs, policies, and internal SOPs. The better those materials are, the better the agent’s answers will be. DocsBot’s knowledge-gap reports can then show which missing or unclear resources should be improved next.",
+      "role": "Practice owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much control do dietitians have over what the agent can say?",
+      "answer": "Dietitians and practice leaders control the approved knowledge sources, instructions, escalation rules, and review workflows. The agent should be configured to retrieve from approved materials, cite or link back to sources where appropriate, and avoid unsupported nutrition advice outside the practice’s defined scope.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support group nutrition programs or telehealth programs?",
+      "answer": "Yes. DocsBot can answer participant questions from program guides, session agendas, telehealth instructions, eligibility notes, and general education resources. That fits a growing access model: an Academy of Nutrition and Dietetics guideline notes that telehealth and group counseling can help increase access for obesity-related medical nutrition therapy.",
+      "role": "Practice owners and operations managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-academy-mnt-obesity-guideline"
+      ]
+    },
+    {
+      "question": "How do we measure whether the agent is actually improving client support?",
+      "answer": "Track repetitive-question volume, lead response time, completed intake details, escalation rate, unanswered questions, staff time spent searching for information, client satisfaction, and the topics that generate the most confusion. DocsBot reports and knowledge-gap discovery help you turn those signals into better FAQs, handouts, and SOPs.",
+      "role": "Practice owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can non-clinical staff safely use the internal agent?",
+      "answer": "Yes, when it is trained on approved internal content and configured with role-appropriate access. Care coordinators can use it to find cancellation rules, onboarding steps, referral workflows, telehealth instructions, and approved response language, while clinical decisions still route to licensed professionals.",
+      "role": "Client care coordinators and administrative teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What security controls matter for a nutrition counseling practice evaluating AI?",
+      "answer": "Look for controls around data access, encryption, permissions, logging, and data use. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Practice owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use DocsBot if our client materials are stored across PDFs, website pages, and internal folders?",
+      "answer": "Yes. DocsBot can train on websites, PDFs, Word documents, text files, internal files, Google Drive, Notion, Confluence, and other configured knowledge sources. For a nutrition practice, that can include handouts, recipes, program workbooks, SOPs, intake instructions, service descriptions, and policy documents.",
+      "role": "Client care coordinators and administrative teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we handle insurance, billing, and account-specific questions?",
+      "answer": "Use the agent for published policy explanations and routing, not account-specific determinations unless you have configured an approved lookup workflow. It can explain your billing FAQ, insurance notes, cancellation rules, and payment policies, then escalate client-specific balances, coverage questions, or disputes to administrative staff.",
+      "role": "Client care coordinators and administrative teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What would implementation look like for a practice with limited technical staff?",
+      "answer": "A practical rollout is to start with one public use case and one internal use case: website intake FAQs plus a staff SOP assistant. Upload or connect approved content, define escalation rules, test common scenarios, review conversations, and expand only after the team trusts the answers and workflow boundaries.",
+      "role": "Practice owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is this different from putting a generic AI chatbot on our website?",
+      "answer": "DocsBot is designed around your approved knowledge, source-grounded answers, reviewable conversations, analytics, and bounded workflows. For nutrition counseling, that means the agent should answer from your handouts, policies, service pages, and SOPs rather than generating generic wellness advice that may not match your clinical approach.",
+      "role": "Practice owners and operations managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help us identify which client education materials need improvement?",
+      "answer": "Yes. DocsBot’s conversation logs, topic reporting, review tools, and knowledge-gap discovery can show repeated questions, weak answers, missing materials, and topics that often require escalation. That gives practice leaders a practical feedback loop for updating handouts, onboarding instructions, program FAQs, and internal procedures.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will clients know when they need to talk to a real person?",
+      "answer": "They should. You can configure the agent to state boundaries clearly, route individualized care questions to a dietitian, and provide the appropriate contact or escalation path. This is especially important when clients ask about symptoms, medication interactions, eating-disorder concerns, pregnancy, pediatric nutrition, or condition-specific changes.",
+      "role": "Registered dietitians and nutrition counselors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot scale if we add more clinicians, programs, or locations?",
+      "answer": "Yes. As your practice grows, DocsBot can support multiple knowledge sources, public and private agent experiences, program-specific materials, internal SOPs, and routed workflows. The key is maintaining clean source ownership, access controls, escalation rules, and a regular review process for outdated nutrition or operational content.",
+      "role": "Practice owners and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement or leadership ask before approving AI for a nutrition practice?",
+      "answer": "Ask what data the agent can access, whether customer data trains public models, how permissions work, how answers are grounded in approved content, what gets logged, how escalations are handled, who reviews failures, and which actions are allowed. Also confirm that clinical judgment remains with qualified professionals.",
+      "role": "Practice owners and operations managers",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

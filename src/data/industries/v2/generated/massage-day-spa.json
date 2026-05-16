@@ -1,0 +1,758 @@
+{
+  "slug": "massage-day-spa",
+  "business": "Massage & Day Spa",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Massage & Day Spa Operations",
+    "description": "DocsBot helps massage and day spa teams answer service questions, qualify bookings, and keep staff aligned with source-grounded AI automation.",
+    "canonicalPath": "/industry/massage-day-spa"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for wellness service teams",
+    "headline": "Let spa clients get clear answers before they book",
+    "subheadline": "DocsBot helps massage and day spa businesses create AI agents trained on your service menu, policies, therapist bios, intake guidance, FAQs, membership details, and internal SOPs—so clients get fast answers and staff can focus on the in-person experience.",
+    "proofBullets": [
+      {
+        "text": "Answer massage, facial, package, membership, gift card, preparation, cancellation, and aftercare questions from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking intent, preferences, contraindication notes, and follow-up details before routing to your scheduling or front desk workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give reception, therapists, managers, and marketers a private knowledge agent for SOPs, promotions, brand voice, and policy questions.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot missing FAQ content, repeated service questions, and high-interest treatments.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your spa AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your spa’s owned knowledge into AI agents that can answer client questions, support staff, summarize conversations, draft responses, route requests, and trigger approved workflows through AI Actions, Skills, APIs, connectors, or MCP-enabled systems. It can appear in a website widget, private team chat, helpdesk-style workflow, Slack, Microsoft Teams, or custom experience.",
+    "whoItHelps": [
+      {
+        "role": "Owners and spa directors",
+        "roleContext": "Keep service information, policies, and promotions consistent while reducing interruptions to the front desk during peak booking windows.",
+        "bullets": [
+          {
+            "text": "Give clients fast answers about massage modalities, facial options, add-ons, memberships, packages, gratuity, parking, and cancellation policies.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Use conversation logs and knowledge-gap reports to see which services clients ask about before booking.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Support growth in a market where U.S. spas reported $22.5 billion in 2024 revenue and 187 million spa visits.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-ispa-big-five"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front desk and guest services teams",
+        "roleContext": "Help reception staff handle routine questions, collect missing details, and escalate sensitive or high-touch requests to the right person.",
+        "bullets": [
+          {
+            "text": "Pre-answer questions about arrival time, forms, robe policies, therapist preferences, pregnancy massage, accessibility, and service pairings.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect structured booking intent and route it to approved scheduling, email, form, or ticket workflows when configured.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Draft polite responses for rescheduling, late arrival, refund, membership, and gift card questions for human review when needed.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Therapists, estheticians, and trainers",
+        "roleContext": "Give practitioners and new hires a private assistant for approved protocols, room setup, aftercare language, contraindication escalation rules, and brand standards.",
+        "bullets": [
+          {
+            "text": "Retrieve SOPs, treatment-room checklists, product notes, and client-facing aftercare guidance without searching shared drives.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Support onboarding in a labor market where BLS projects massage therapist employment to grow 15% from 2024 to 2034.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-bls-massage-outlook"
+            ]
+          },
+          {
+            "text": "Keep humans responsible for clinical judgment, contraindication decisions, and anything that requires licensed professional review.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Marketing and membership teams",
+        "roleContext": "Turn your approved service descriptions, promotions, seasonal packages, and brand guidelines into reusable drafts for campaigns and client education.",
+        "bullets": [
+          {
+            "text": "Draft email, SMS, social, and landing page copy from your service catalog and brand voice instructions.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Use repeated client questions to improve package descriptions, first-visit guidance, and membership FAQ content.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Speak to wellness motivations: AMTA reports consumers cite soreness, chronic pain, injury recovery, relaxation, stress reduction, and mental health reasons for massage.",
+            "icon": "FaceSmileIcon",
+            "sourceIds": [
+              "src-amta-fact-sheet"
+            ]
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ispa-big-five",
+      "metric": "$22.5B U.S. spa revenue in 2024",
+      "claim": "ISPA’s 2025 U.S. Spa Industry Study Big Five chart reports 2024 U.S. spa revenue of $22.5 billion, 187 million visits, 21,980 locations, and $120.3 revenue per visit.",
+      "sourceTitle": "2025 ISPA U.S. Spa Industry Study Big Five Chart",
+      "sourceUrl": "https://viewer.joomag.com/2025-ispa-us-spa-industry-study-big-five-chart/0181408001741805077",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "spa market scale",
+        "visit volume",
+        "revenue per visit",
+        "growth context"
+      ]
+    },
+    {
+      "id": "src-bls-massage-outlook",
+      "metric": "15% projected employment growth",
+      "claim": "The U.S. Bureau of Labor Statistics projects massage therapist employment to grow 15% from 2024 to 2034, with about 24,700 openings projected each year on average.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Massage Therapists",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/massage-therapists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "staff onboarding",
+        "industry employment outlook"
+      ]
+    },
+    {
+      "id": "src-ibisworld-massage-services",
+      "metric": "$21.6B massage services market in 2024",
+      "claim": "IBISWorld reports the U.S. massage services industry generated $21.6 billion in 2024 revenue, with 436,000 employees and 260,000 businesses.",
+      "sourceTitle": "Massage Services in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/massage-services/6028/",
+      "sourceDate": "September 2024",
+      "bestUsedFor": [
+        "market size",
+        "fragmented local competition",
+        "business count",
+        "employment scale"
+      ]
+    },
+    {
+      "id": "src-amta-fact-sheet",
+      "metric": "Top massage motivations include soreness, chronic pain, and stress reduction",
+      "claim": "AMTA’s massage therapy industry fact sheet identifies soreness, chronic pain, injury recovery, relaxation, stress reduction, and mental health reasons among major consumer motivations for massage.",
+      "sourceTitle": "Massage Therapy Industry Fact Sheet",
+      "sourceUrl": "https://www.amtamassage.org/publications/massage-industry-fact-sheet/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "client intent",
+        "service education",
+        "wellness messaging",
+        "FAQ planning"
+      ]
+    },
+    {
+      "id": "src-spa-business-ispa-2025",
+      "metric": "Recruitment and retention remain a spa concern",
+      "claim": "Spa Business reported from the 2025 ISPA U.S. Spa Industry Study that operators cited recruitment and retention of high-quality staff as a concern, with qualified massage therapist hiring particularly difficult.",
+      "sourceTitle": "ISPA releases 2025 US Spa Industry Study with details of spa staff compensation",
+      "sourceUrl": "https://www.spabusiness.com/index.cfm?codeID=356147&pagetype=news",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "staffing pressure",
+        "training needs",
+        "operations bottlenecks"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service menu and booking-fit assistant",
+      "problem": "Clients often need help choosing between massage types, session lengths, facial add-ons, packages, couples services, or memberships before they are ready to call.",
+      "agentWorkflow": "A DocsBot AI support agent answers from your service menu, FAQs, therapist bios, pricing notes, policies, and preparation guides. It can ask follow-up questions about goals, time available, therapist preference, and first-visit status, then summarize the request for a front desk handoff.",
+      "liveContextOrTools": "With approved AI Actions, Skills, APIs, or connectors, the agent can collect booking intent, create a lead or task, forward a summary to staff, or hand off to a scheduling workflow without making unsupported clinical decisions.",
+      "exampleQuestionsOrRequests": [
+        "Which massage should I book for stress versus soreness?",
+        "Do you offer couples massages on weekends?",
+        "What should I know before my first facial and massage package?",
+        "Can someone help me choose between a 60-minute and 90-minute service?"
+      ],
+      "businessOutcome": "More self-service answers before booking, cleaner intake context for staff, and fewer abandoned inquiries from clients who are unsure which treatment fits.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "First-visit preparation and aftercare guide",
+      "problem": "New guests ask the same questions about arrival time, paperwork, clothing, hydration, tipping, soreness after massage, skincare after a facial, and what to avoid after treatment.",
+      "agentWorkflow": "Train DocsBot on your pre-visit emails, intake instructions, house rules, accessibility notes, cancellation terms, and aftercare content. The agent gives consistent, source-grounded guidance and escalates sensitive health or policy exceptions to staff.",
+      "liveContextOrTools": "The agent can trigger approved workflows such as sending a preparation checklist, creating a follow-up task, or routing a question to reception when configured.",
+      "exampleQuestionsOrRequests": [
+        "How early should I arrive for my first appointment?",
+        "Can I get a massage if I am pregnant?",
+        "What should I avoid after a deep tissue massage?",
+        "Do I need to fill out forms before I arrive?"
+      ],
+      "businessOutcome": "Clients arrive better prepared, staff repeat fewer routine explanations, and policies are communicated consistently in your spa’s voice.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Membership, package, and gift card support",
+      "problem": "Spa memberships and packages can create revenue, but they also generate questions about expiration dates, transferability, cancellation terms, booking rules, and gift card redemption.",
+      "agentWorkflow": "DocsBot answers from approved membership terms, package descriptions, redemption policies, gift card FAQs, and promotional rules. When the client’s situation requires account-specific context, the agent collects details and routes a concise summary to the right team member.",
+      "liveContextOrTools": "With customer-configured live lookup permissions, the agent can check approved status fields, create a support ticket, update allowed records, or escalate account changes to human review.",
+      "exampleQuestionsOrRequests": [
+        "Can I use my package for a couples massage?",
+        "How do I redeem a gift card online?",
+        "What happens if I need to pause my membership?",
+        "Can I buy a massage package as a gift?"
+      ],
+      "businessOutcome": "Clearer membership support, fewer repetitive policy calls, and better handoffs for revenue-sensitive account changes.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Private SOP assistant for spa staff",
+      "problem": "Front desk teams, therapists, and managers need quick access to protocols, room setup, product notes, cleaning procedures, retail talking points, and escalation paths—especially with part-time schedules and staff turnover.",
+      "agentWorkflow": "DocsBot becomes an internal knowledge agent trained on SOPs, onboarding docs, service protocols, product guides, HR policies, brand voice, and manager notes. Staff ask questions in private chat, Slack, Microsoft Teams, or another configured experience and receive answers grounded in approved sources.",
+      "liveContextOrTools": "Skills can generate shift notes, summarize policy changes, create training tasks, or route documentation gaps to a manager. Use scoped permissions for private HR, client, or payroll content.",
+      "exampleQuestionsOrRequests": [
+        "What is the room setup checklist for the hot stone service?",
+        "How should we explain this month’s membership offer?",
+        "Where is the contraindication escalation policy?",
+        "What is the approved wording for late arrivals?"
+      ],
+      "businessOutcome": "Faster onboarding, fewer manager interruptions, and more consistent service delivery across locations and shifts.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-massage-outlook",
+        "src-spa-business-ispa-2025"
+      ]
+    },
+    {
+      "name": "Feedback, review, and knowledge-gap intelligence",
+      "problem": "Client feedback, chat logs, missed questions, and repeated objections often sit in separate tools, making it hard to improve FAQs, services, and staff training.",
+      "agentWorkflow": "DocsBot can review conversations, summarize themes, identify repeated unanswered questions, surface knowledge gaps, and help teams draft better FAQ, service, or aftercare content from approved sources.",
+      "liveContextOrTools": "With approved workflows, the agent can route urgent complaints, create follow-up tasks, send summaries to managers, or tag topics for later content updates.",
+      "exampleQuestionsOrRequests": [
+        "What questions are clients asking before booking prenatal massage?",
+        "Which policies caused the most confusion this month?",
+        "Summarize recent feedback about couples massage packages.",
+        "What should we add to our first-visit FAQ?"
+      ],
+      "businessOutcome": "Better client education, more useful website content, and clearer visibility into service demand and friction points.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Localized presales assistant for multi-location spas",
+      "problem": "Multi-location spas need consistent answers while still accounting for local hours, services, parking, room availability rules, and therapist specialties.",
+      "agentWorkflow": "A DocsBot presales agent answers from shared brand content and location-specific pages. It can collect location preference, service interest, budget range, preferred follow-up method, and event or group booking details before routing the lead.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or Model Context Protocol servers can provide approved live context such as location metadata, lead routing rules, or task creation in the systems the spa already uses.",
+      "exampleQuestionsOrRequests": [
+        "Which location offers lymphatic drainage massage?",
+        "Can you help me plan a spa day for four people?",
+        "Do you have parking at the downtown location?",
+        "Who should I speak with about a corporate wellness event?"
+      ],
+      "businessOutcome": "More consistent multi-location answers, better qualified inquiries, and cleaner handoffs for group, event, and high-value bookings.",
+      "icon": "MapPinIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients a calm, informed experience before the appointment starts",
+    "intro": "A DocsBot customer-facing agent can live on your website or booking flow to answer common spa questions, collect intent, and hand off anything personal, sensitive, or account-specific to your staff.",
+    "requests": [
+      {
+        "request": "“I have chronic neck pain and want a relaxing massage. What should I book?”",
+        "agentResponseStrategy": "Explain service differences from approved descriptions, ask non-diagnostic preference questions, recommend contacting staff for medical concerns, and offer to pass booking intent to reception.",
+        "sourceTypes": [
+          "Service menu",
+          "Contraindication guidance",
+          "First-visit FAQ",
+          "Escalation policy"
+        ],
+        "optionalAction": "Create a front desk follow-up task with the client’s goals, preferred session length, and contact details when configured.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-amta-fact-sheet"
+        ]
+      },
+      {
+        "request": "“Can I buy a gift card and schedule a couples massage for Saturday?”",
+        "agentResponseStrategy": "Answer gift card and couples service policies from approved content, collect timing and contact preferences, and route the request to the scheduling workflow if live booking is configured.",
+        "sourceTypes": [
+          "Gift card policy",
+          "Package rules",
+          "Couples service page",
+          "Scheduling FAQ"
+        ],
+        "optionalAction": "Forward a structured inquiry to email, forms, helpdesk software, or a scheduling workflow through an approved Skill or connector.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“What should I do before and after my deep tissue massage?”",
+        "agentResponseStrategy": "Provide source-grounded preparation and aftercare instructions, explain what is normal versus when to contact the spa, and avoid medical diagnosis.",
+        "sourceTypes": [
+          "Preparation guide",
+          "Aftercare guide",
+          "Service FAQ",
+          "Staff-approved safety language"
+        ],
+        "optionalAction": "Send or display the spa’s preparation checklist and route special concerns to staff.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Do you offer services for parties, retreats, or employee wellness days?”",
+        "agentResponseStrategy": "Answer from approved group booking pages, collect event size, date range, budget range, service interest, and preferred follow-up channel.",
+        "sourceTypes": [
+          "Group booking page",
+          "Corporate wellness FAQ",
+          "Service catalog",
+          "Lead form instructions"
+        ],
+        "optionalAction": "Qualify the inquiry using customer-defined rules and forward a summary to the right manager or sales workflow.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "request": "“What languages can you help me in?”",
+        "agentResponseStrategy": "Respond in the client’s preferred language when the spa has enabled multilingual support and keep answers grounded in the same approved policies and service content.",
+        "sourceTypes": [
+          "Service FAQ",
+          "Policy pages",
+          "Translated content where available",
+          "Brand voice instructions"
+        ],
+        "optionalAction": "Escalate to a human when the request needs staff judgment, account context, or a language-specific document the agent has not been trained on.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I’m running late. What happens to my appointment?”",
+        "agentResponseStrategy": "Explain the late-arrival and cancellation policy from approved sources, ask for appointment-identifying details only when appropriate, and route to staff for live schedule decisions.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "Late arrival policy",
+          "Booking FAQ",
+          "Front desk escalation rules"
+        ],
+        "optionalAction": "Create a time-sensitive handoff with the client’s name, contact detail, appointment time, and message when configured.",
+        "icon": "ClockIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep spa knowledge searchable for every shift, location, and role",
+    "intro": "DocsBot can serve as a private internal knowledge agent trained on your operating procedures, service protocols, staff handbook, promotions, retail guides, and leadership notes—so teams can get trusted answers without interrupting managers.",
+    "workflows": [
+      {
+        "name": "Reception answer desk",
+        "problem": "Front desk teams juggle phones, walk-ins, online inquiries, and policy questions while trying to keep the client experience calm.",
+        "agentWorkflow": "Staff ask the internal agent for approved wording, policy summaries, service comparisons, and next steps. The agent can draft replies and suggest escalation when a question is sensitive or outside the knowledge base.",
+        "sourceTypes": [
+          "Service catalog",
+          "Policy docs",
+          "FAQ",
+          "Brand voice guide",
+          "Helpdesk history exports"
+        ],
+        "optionalAction": "Draft an email or helpdesk response, summarize the issue, and route it for review through a configured workflow.",
+        "outcome": "Faster, more consistent answers without making the front desk memorize every package, policy, and promotion.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Therapist onboarding and protocol retrieval",
+        "problem": "New and part-time practitioners need reliable access to setup steps, product use notes, sanitation procedures, and approved client language.",
+        "agentWorkflow": "Train DocsBot on SOPs, room checklists, modality guides, product manuals, and onboarding materials. Employees ask natural-language questions and receive source-grounded answers with links back to approved material.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Room setup checklists",
+          "Product guides",
+          "Employee handbook"
+        ],
+        "optionalAction": "Generate a shift checklist, training summary, or documentation-gap task for managers when configured.",
+        "outcome": "Shorter ramp time, fewer repeated manager questions, and more consistent treatment-room preparation.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-spa-business-ispa-2025"
+        ]
+      },
+      {
+        "name": "Manager trend review",
+        "problem": "Leaders need to know what clients and staff keep asking, but patterns are hidden in conversations, emails, forms, and informal notes.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help identify repeated questions, low-confidence answers, and missing content. Managers can prioritize FAQ updates, staff reminders, or service page changes.",
+        "sourceTypes": [
+          "Conversation logs",
+          "FAQ content",
+          "Service pages",
+          "Support tickets",
+          "Manager notes"
+        ],
+        "optionalAction": "Create content-update tasks, summarize themes, or notify the responsible team through an approved workflow.",
+        "outcome": "Better content decisions and clearer visibility into operational friction across the client journey.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Promotion and campaign draft support",
+        "problem": "Marketing teams often need fresh copy for seasonal packages, memberships, wellness education, and retail add-ons without drifting from brand standards.",
+        "agentWorkflow": "The internal agent drafts promotional copy from approved service descriptions, brand voice, pricing rules, exclusions, and campaign notes. Humans review final messaging before publishing.",
+        "sourceTypes": [
+          "Brand guidelines",
+          "Promotion rules",
+          "Service catalog",
+          "Membership terms",
+          "Retail product notes"
+        ],
+        "optionalAction": "Generate campaign outlines, social captions, FAQ updates, or staff talking points for review.",
+        "outcome": "Faster marketing production with fewer inconsistencies between website copy, reception scripts, and promotional offers.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents train on approved knowledge sources and answer in the company’s voice with grounded responses.",
+      "industryApplication": "Answer spa questions from service menus, first-visit guides, policies, membership terms, aftercare instructions, therapist bios, and location pages.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Website widget and customer-facing chat interface",
+      "mainLandingPageContext": "DocsBot can appear in website or product chat experiences to help customers get instant answers.",
+      "industryApplication": "Place an AI support agent on service, pricing, gift card, and booking pages so clients can compare treatments before calling or scheduling.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot can take bounded actions through customer-configured Skills, APIs, connectors, workflows, and remote Model Context Protocol tools.",
+      "industryApplication": "Collect booking intent, route group inquiries, create front desk tasks, summarize late-arrival messages, or forward qualified leads to approved systems.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on SOPs, policies, wikis, files, and internal documents.",
+      "industryApplication": "Help reception, therapists, estheticians, and managers retrieve protocols, approved client language, retail notes, and operating procedures during busy shifts.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides visibility into conversations, recurring topics, satisfaction and resolution analysis, and unanswered questions.",
+      "industryApplication": "See which services, policies, and packages create confusion, then improve FAQs, staff scripts, and service pages.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "feature": "Human escalation and governed workflows",
+      "mainLandingPageContext": "DocsBot supports escalation and customer-defined boundaries for complex, sensitive, or high-impact questions.",
+      "industryApplication": "Escalate medical concerns, contraindication questions, account disputes, refunds, therapist complaints, or anything requiring licensed or managerial judgment.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages while using the same approved knowledge sources.",
+      "industryApplication": "Support travelers, local multilingual communities, and gift buyers with consistent spa information across languages.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own service, policy, and training content—not generic spa advice.",
+      "Support clients and staff with answers that stay grounded in approved business knowledge.",
+      "Use conversation insights to improve FAQs, service pages, and internal documentation over time."
+    ],
+    "whyTheseReviewsFit": "Massage and day spa teams need practical AI that is easy to maintain, grounded in their own content, and useful across customer service, training, and marketing. DocsBot proof spans self-service support, owned content libraries, and training-material answers—the same foundations a spa needs for consistent client and staff experiences.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "ShieldCheckIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for massage and day spa businesses",
+    "audience": [
+      "Massage spa owners",
+      "Day spa directors",
+      "Front desk managers",
+      "Wellness service teams",
+      "Spa marketing managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "beauty-salon",
+    "barber-shop",
+    "fitness-center",
+    "fitness-trainer",
+    "diet-center",
+    "event-planning"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "massage-day-spa",
+    "webSearchQueries": [
+      "IBISWorld day spa industry United States market size 2024 massage services employment",
+      "BLS massage therapists employment outlook 2024",
+      "American Massage Therapy Association massage industry fact sheet consumer reasons stress pain 2024",
+      "ISPA spa industry study revenue visits 2024"
+    ],
+    "sourceUrls": [
+      "https://viewer.joomag.com/2025-ispa-us-spa-industry-study-big-five-chart/0181408001741805077",
+      "https://www.bls.gov/ooh/healthcare/massage-therapists.htm",
+      "https://www.ibisworld.com/united-states/industry/massage-services/6028/",
+      "https://www.amtamassage.org/publications/massage-industry-fact-sheet/",
+      "https://www.spabusiness.com/index.cfm?codeID=356147&pagetype=news"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42016,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 21792,
+        "outputTokens": 8143,
+        "reasoningOutputTokens": 117,
+        "totalTokens": 50159,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.181681,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.191681
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21666,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6690,
+          "outputTokens": 5528,
+          "reasoningOutputTokens": 117,
+          "totalTokens": 27194,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.103389,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.113389
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20350,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15102,
+          "outputTokens": 2615,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22965,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078292,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078292
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDE1MTl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Massage & Day Spa background image",
+    "source": "legacy-industry",
+    "query": "Massage & Day Spa"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot help clients choose the right service without giving medical advice?",
+      "answer": "Yes. A DocsBot agent can compare your approved massage types, facial options, add-ons, session lengths, and preparation guidance, then ask non-diagnostic questions about goals, preferences, and timing. For pain, pregnancy, contraindications, or health-sensitive concerns, it can use your escalation rules and route the client to staff instead of making a clinical judgment.",
+      "role": "Owners and spa directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce front desk interruptions during peak booking hours?",
+      "answer": "DocsBot can answer routine questions about services, pricing notes, arrival time, forms, parking, cancellation rules, gift cards, memberships, and aftercare before a client calls. It can also collect booking intent and summarize the inquiry for reception, so staff spend less time repeating basics and more time handling live guests, schedule exceptions, and higher-touch requests.",
+      "role": "Front desk and guest services teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent connect to our scheduling or spa management software?",
+      "answer": "DocsBot can support scheduling handoffs through customer-configured Skills, APIs, connectors, forms, webhooks, or approved workflow automations. It should be scoped to realistic actions such as collecting preferred date, location, therapist preference, service interest, and contact details, then routing that summary to your scheduling process unless you authorize a live booking workflow.",
+      "role": "Owners and spa directors",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will it work if we use different booking, POS, email, or form tools at each location?",
+      "answer": "Usually, the right pattern is to start with source-grounded answers and structured handoffs, then add integrations where they are worth the effort. DocsBot can route requests to email, forms, helpdesk-style workflows, Slack, Microsoft Teams, APIs, connectors, or MCP-enabled systems when configured, without requiring every location to have the same software stack on day one.",
+      "role": "Owners and spa directors",
+      "category": "Scalability"
+    },
+    {
+      "question": "What content do we need before launching a spa AI agent?",
+      "answer": "The strongest launch content is usually your service menu, pricing notes, location pages, therapist bios, first-visit FAQ, cancellation and late-arrival policies, membership terms, gift card rules, intake guidance, aftercare instructions, promotions, and escalation rules. Internal agents can also use SOPs, room setup checklists, product guides, staff handbook content, and approved client-facing language.",
+      "role": "Owners and spa directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep the agent from giving outdated promotion, price, or policy information?",
+      "answer": "Train it on approved sources and make ownership clear: someone should be responsible for updating seasonal packages, membership terms, cancellation rules, and pricing notes. DocsBot’s logs, reports, topic management, and knowledge-gap discovery can help managers spot repeated questions, low-confidence areas, and content that needs clarification after launch.",
+      "role": "Marketing and membership teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support memberships, packages, and gift card questions without creating account risk?",
+      "answer": "Yes, if boundaries are defined. The agent can explain general terms from your approved membership, package, and gift card policies. For account-specific balances, freezes, refunds, transfers, disputes, or exceptions, it can collect the relevant details and route a concise handoff to a human or authorized workflow rather than making the decision itself.",
+      "role": "Marketing and membership teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it help with group bookings, spa parties, retreats, or corporate wellness inquiries?",
+      "answer": "Yes. A customer-facing agent can answer from your group booking and event policies, then collect event size, date range, service interests, budget range, location preference, accessibility notes, and preferred follow-up channel. With approved workflows, it can qualify the inquiry and forward a structured summary to the right manager or sales process.",
+      "role": "Owners and spa directors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping the business?",
+      "answer": "Useful KPIs include routine questions answered, booking inquiries captured, after-hours leads, handoff quality, unanswered-question rate, top service topics, front desk time saved, membership or gift card confusion, and content gaps resolved. For a market with 187 million U.S. spa visits reported in 2024, even small improvements in pre-booking clarity can matter operationally.",
+      "role": "Owners and spa directors",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-ispa-big-five"
+      ]
+    },
+    {
+      "question": "Will clients trust an AI agent on a wellness website?",
+      "answer": "Trust usually depends on tone, boundaries, and accuracy. DocsBot answers from your approved spa content, can use your brand voice, and can escalate sensitive questions to staff. Position it as a helpful service guide—not a replacement for licensed judgment, therapist recommendations, or front desk decisions that require live schedule or account context.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can the agent answer in multiple languages for tourists or multilingual local clients?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while grounding responses in the same approved service, policy, and preparation content. For higher-risk issues—medical concerns, account disputes, refunds, or nuanced policy exceptions—it should still route to a human, especially if translated source content is incomplete.",
+      "role": "Front desk and guest services teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How can this help with therapist and esthetician onboarding?",
+      "answer": "DocsBot can act as a private internal knowledge agent trained on SOPs, room setup checklists, product notes, sanitation procedures, service protocols, approved aftercare language, and escalation rules. That matters in a labor market where BLS projects massage therapist employment to grow 15% from 2024 to 2034, creating ongoing onboarding and training pressure.",
+      "role": "Therapists, estheticians, and trainers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-massage-outlook"
+      ]
+    },
+    {
+      "question": "Can staff use DocsBot during a shift without exposing HR, payroll, or client-sensitive content?",
+      "answer": "Yes, with the right permissions. DocsBot supports granular access controls and role-based permissions, so internal knowledge can be scoped by role, location, or use case. Sensitive HR, payroll, client, or manager-only material should be separated and governed so front desk staff, therapists, managers, and marketers only access what they are allowed to see.",
+      "role": "Owners and spa directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter if we are collecting intake notes or contact details?",
+      "answer": "Use scoped workflows, collect only what the spa needs, and avoid putting credentials or unnecessary sensitive details into chat. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Owners and spa directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help with contraindication questions like pregnancy, injuries, medications, or chronic pain?",
+      "answer": "It can provide your approved general guidance and ask clients to contact the spa for review, but it should not diagnose, clear someone for treatment, or override licensed professional judgment. For contraindications, pregnancy massage, injuries, medications, chronic pain, or post-procedure concerns, the best setup is a clear escalation path to trained staff.",
+      "role": "Therapists, estheticians, and trainers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it draft email, SMS, or social copy for seasonal spa promotions?",
+      "answer": "Yes. An internal DocsBot agent can draft campaign copy from your service catalog, brand voice guide, membership terms, promotion rules, retail notes, and exclusions. Human review should remain part of the workflow so final offers, pricing, dates, disclaimers, and package details match what reception and booking systems will honor.",
+      "role": "Marketing and membership teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or FAQ widget?",
+      "answer": "A basic chatbot often answers a narrow set of scripted questions. DocsBot is better positioned as a source-grounded AI agent trained on your spa’s owned knowledge, with analytics, conversation review, knowledge-gap reporting, internal team use cases, and optional bounded actions through Skills, APIs, connectors, or approved workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can managers review what the agent said to clients?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, satisfaction and resolution analysis, conversation review, and knowledge-gap discovery. Spa leaders can use that visibility to review answer quality, identify confusing services or policies, improve website content, and decide where human escalation rules need tightening.",
+      "role": "Owners and spa directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a client is angry about a refund, late arrival, therapist issue, or bad experience?",
+      "answer": "Those should be treated as escalation scenarios. DocsBot can acknowledge the concern, explain approved policy language when appropriate, collect key details, and create a structured handoff for a manager or front desk lead. It should not make refund decisions, adjudicate therapist complaints, or promise exceptions unless your workflow explicitly allows that.",
+      "role": "Front desk and guest services teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use one agent across multiple locations with different hours, services, and parking rules?",
+      "answer": "Yes. DocsBot can be trained on shared brand content plus location-specific pages for hours, amenities, parking, service availability, therapist specialties, and local policies. Multi-location teams should structure sources carefully so the agent asks for or detects the relevant location before answering details that vary by site.",
+      "role": "Owners and spa directors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much staff time is required to maintain it after launch?",
+      "answer": "Maintenance depends on how often your services, promotions, prices, and policies change. Most spas should assign an owner to update source documents, review unanswered questions, and check conversation themes. DocsBot’s knowledge-gap and reporting tools help focus that work on the topics clients and staff are actually asking about.",
+      "role": "Owners and spa directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us understand which services clients are interested in before they book?",
+      "answer": "Yes. Conversation logs, topic reporting, and knowledge-gap analysis can show repeated questions about modalities, couples services, prenatal massage, facials, memberships, packages, gift cards, and first-visit concerns. That insight is useful because AMTA identifies soreness, chronic pain, injury recovery, relaxation, stress reduction, and mental health among major consumer massage motivations.",
+      "role": "Marketing and membership teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-amta-fact-sheet"
+      ]
+    },
+    {
+      "question": "Will it replace our reception team?",
+      "answer": "No. For most spas, the practical goal is to reduce repetitive questions and improve handoffs, not remove the human experience. Reception still owns live schedule changes, exceptions, payment issues, relationship-building, upset clients, accessibility needs, therapist coordination, and anything requiring judgment. DocsBot helps staff enter those conversations with better context.",
+      "role": "Front desk and guest services teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help with staff consistency when we rely on part-time schedules or turnover?",
+      "answer": "Yes. A private internal agent can make SOPs, service protocols, product guidance, room setup steps, and approved wording searchable across shifts. That is especially relevant because spa operators have reported recruitment and retention concerns, including difficulty hiring qualified massage therapists.",
+      "role": "Therapists, estheticians, and trainers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-spa-business-ispa-2025"
+      ]
+    },
+    {
+      "question": "What should procurement or ownership ask before approving an AI agent for our spa?",
+      "answer": "Ask where answers come from, how sources are updated, what gets escalated, what data is collected, who can view logs, what systems it can access, how permissions are scoped, and how success will be measured. Also confirm security posture, implementation effort, staff training needs, and whether actions are bounded by your policies.",
+      "role": "Owners and spa directors",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

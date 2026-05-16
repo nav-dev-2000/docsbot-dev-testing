@@ -1,0 +1,714 @@
+{
+  "slug": "locksmith-services",
+  "business": "Locksmith",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Locksmith Service Calls and Dispatch",
+    "description": "DocsBot helps locksmith teams answer urgent questions, qualify requests, and route service details from approved knowledge before a technician is sent.",
+    "canonicalPath": "/industry/locksmith-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and workflow automation for locksmith service teams",
+    "headline": "Resolve locksmith questions faster with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your service catalog, pricing guidance, emergency intake scripts, technician SOPs, lock hardware notes, and customer FAQs so customers and staff get source-grounded answers, cleaner handoffs, and faster next steps.",
+    "proofBullets": [
+      {
+        "text": "Answer lockout, rekey, safe, smart-lock, and access-control questions from your approved service content.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "text": "Collect address, lock type, urgency, access constraints, and preferred contact details before dispatch.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "text": "Route emergency, commercial, automotive, and after-hours requests to the right workflow or human reviewer.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Summarize conversations for technicians so field teams arrive with context, not guesswork.",
+        "icon": "DocumentTextIcon"
+      }
+    ],
+    "primaryCta": "Build a locksmith AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps locksmith businesses create AI agents trained on their own approved knowledge. A customer-facing agent can answer service questions and collect job details through a website widget, while an internal knowledge agent can help dispatchers and technicians find SOPs, hardware notes, policies, and handoff summaries without digging through files.",
+    "whoItHelps": [
+      {
+        "role": "Owners and operations managers",
+        "roleContext": "Keep customer communication consistent across emergency, residential, commercial, automotive, and safe-service requests while preserving human control over pricing, identity-sensitive work, and final dispatch decisions.",
+        "bullets": [
+          {
+            "text": "Use analytics and conversation review to see repeated service questions and content gaps.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Forward qualified requests, summaries, and intake details to the CRM, ticketing, email, or dispatch workflow you configure.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Set boundaries so sensitive jobs, disputed pricing, or identity-verification concerns escalate to a person.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Dispatchers and customer service staff",
+        "roleContext": "Give phone, web, and message intake teams a consistent source for service definitions, trip-fee language, coverage areas, after-hours policies, and technician handoff notes.",
+        "bullets": [
+          {
+            "text": "Retrieve approved answers for common questions about rekeying, lockouts, key duplication, commercial hardware, and appointment preparation.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft response notes or ticket summaries for human review when a job needs follow-up.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support customers in more than 100 languages when your knowledge sources are configured for multilingual service.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Field technicians and trainers",
+        "roleContext": "Make SOPs, warranty notes, install references, and job preparation checklists available in a private team experience before or after a service call.",
+        "bullets": [
+          {
+            "text": "Ask for the approved procedure for a specific lock family, safe-service checklist, or commercial door hardware scenario.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Summarize job notes, customer concerns, and follow-up tasks before a technician visit.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Use knowledge-gap reports to identify missing training content for new technicians.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-locksmith-employment",
+      "metric": "14,790 U.S. locksmiths and safe repairers in May 2023",
+      "claim": "The Bureau of Labor Statistics estimated 14,790 U.S. locksmiths and safe repairers, with a mean annual wage of $52,130 in May 2023.",
+      "sourceTitle": "BLS Occupational Employment and Wages, May 2023: Locksmiths and Safe Repairers",
+      "sourceUrl": "https://www.bls.gov/oes/2023/may/oes499094.htm",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "labor scale",
+        "technician time value",
+        "field workforce context"
+      ]
+    },
+    {
+      "id": "src-ibisworld-locksmith-businesses",
+      "metric": "29,304 locksmith businesses in the U.S. in 2025",
+      "claim": "IBISWorld reported 29,304 locksmith businesses in the United States in 2025 and 2.8% business-count growth that year.",
+      "sourceTitle": "IBISWorld: Locksmiths in the US - Number of Businesses",
+      "sourceUrl": "https://www.ibisworld.com/united-states/number-of-businesses/locksmiths/4833/",
+      "sourceDate": "June 2025",
+      "bestUsedFor": [
+        "market fragmentation",
+        "local competition",
+        "buyer urgency"
+      ]
+    },
+    {
+      "id": "src-ftc-locksmith-caution",
+      "metric": "FTC cautions consumers about hiring reputable locksmiths",
+      "claim": "The Federal Trade Commission urges consumers to use caution when seeking a locksmith and points consumers to guidance on hiring a legitimate local locksmith.",
+      "sourceTitle": "FTC Urges Consumers to Use Caution When Seeking a Locksmith",
+      "sourceUrl": "https://www.ftc.gov/node/43494",
+      "sourceDate": "Consumer guidance, crawled 2026",
+      "bestUsedFor": [
+        "trust pressure",
+        "scam risk",
+        "customer transparency"
+      ]
+    },
+    {
+      "id": "src-bbb-locksmith-scam",
+      "metric": "BBB says many complaints concern undisclosed fees",
+      "claim": "The Better Business Bureau warns consumers about locksmith scams and says many complaints involve fees that were not disclosed when the customer called.",
+      "sourceTitle": "BBB Scam Alert: Locked out? Don't fall for a locksmith con",
+      "sourceUrl": "https://www.bbb.org/article/news-releases/22797-bbb-scam-alert-locked-out-dont-fall-for-a-locksmith-cons",
+      "sourceDate": "2020",
+      "bestUsedFor": [
+        "pricing transparency",
+        "customer trust",
+        "emergency intake"
+      ]
+    },
+    {
+      "id": "src-aloa-certification",
+      "metric": "ALOA certifications include automotive, safe, vault, and institutional locksmith tracks",
+      "claim": "ALOA lists certification offerings across general, commercial, automotive, safe and vault, institutional, investigative, and fire-door inspection areas.",
+      "sourceTitle": "ALOA Certification Offerings",
+      "sourceUrl": "https://www.aloa.org/certifications",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "service complexity",
+        "training documentation",
+        "specialty workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Emergency lockout intake and routing",
+      "problem": "Customers in lockout situations need quick answers, but dispatchers also need accurate address, lock type, urgency, and safety context before sending a technician.",
+      "agentWorkflow": "A DocsBot agent answers approved lockout FAQs, collects structured details, clarifies whether the request is residential, commercial, automotive, or safe-related, and prepares a handoff summary for a dispatcher or helpdesk workflow.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or workflow automations, the agent can create a ticket, send a dispatch summary, or notify the right after-hours queue.",
+      "exampleQuestionsOrRequests": [
+        "I’m locked out of my apartment. What information do you need before sending someone?",
+        "Can you help with a car lockout tonight?",
+        "Do I need proof of residence before the technician opens the door?"
+      ],
+      "businessOutcome": "Reduce back-and-forth during urgent calls while keeping final dispatch and identity-sensitive decisions with your team.",
+      "icon": "BoltIcon"
+    },
+    {
+      "name": "Transparent service and pricing guidance",
+      "problem": "Locksmith buyers often worry about hidden charges, especially because the BBB says many locksmith complaints involve fees that were not disclosed when the customer called.",
+      "agentWorkflow": "Train the agent on your approved pricing explanations, trip-fee rules, after-hours policies, service limitations, and estimate disclaimers so it can explain what affects cost and when a human must confirm final pricing.",
+      "liveContextOrTools": "The agent can collect job details, flag requests that need a custom quote, and route the summary to a manager or dispatcher for review.",
+      "exampleQuestionsOrRequests": [
+        "What affects the price of a lockout call?",
+        "Is drilling always required?",
+        "Can I get an estimate before a technician arrives?"
+      ],
+      "businessOutcome": "Build trust before the service call and reduce disputes caused by unclear expectations.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-bbb-locksmith-scam"
+      ]
+    },
+    {
+      "name": "Commercial account support and access-control FAQs",
+      "problem": "Property managers, offices, and retailers ask repeat questions about rekeying, master key systems, access control, restricted keys, and service scheduling.",
+      "agentWorkflow": "DocsBot answers from your commercial service pages, FAQs, account policies, hardware references, and proposal language, then collects building type, door count, urgency, and preferred follow-up details.",
+      "liveContextOrTools": "When configured, AI Actions can forward qualified commercial leads to CRM-style systems, create a follow-up task, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you rekey 40 doors after tenant turnover?",
+        "Do you service restricted key systems?",
+        "What information do you need for an access-control estimate?"
+      ],
+      "businessOutcome": "Qualify higher-value commercial opportunities without forcing staff to repeat the same intake script.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Technician SOP and hardware knowledge assistant",
+      "problem": "Locksmith work spans automotive, safe, vault, institutional, commercial, and specialty areas; ALOA’s certification categories reflect the breadth of training and service knowledge involved.",
+      "agentWorkflow": "A private DocsBot agent retrieves approved procedures, hardware notes, safety reminders, warranty guidance, and training content for technicians and new hires.",
+      "liveContextOrTools": "Teams can connect internal sources such as PDFs, Word files, Google Drive, Notion, Confluence, or other approved repositories; MCP Connectors can extend access to authorized tools where your team exposes them through Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "What is our checklist before servicing a commercial panic bar?",
+        "Where is the warranty note for this smart-lock install?",
+        "What should a new technician confirm before a safe-service appointment?"
+      ],
+      "businessOutcome": "Shorten internal search time and help field teams follow consistent procedures from approved materials.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-aloa-certification"
+      ]
+    },
+    {
+      "name": "Review repeated questions and documentation gaps",
+      "problem": "Recurring questions about service areas, emergency availability, proof of ownership, warranty terms, and lock types can consume staff time if they are not documented clearly.",
+      "agentWorkflow": "DocsBot logs conversations, reports topics, surfaces unresolved questions, and helps teams identify where website pages, FAQs, or internal SOPs need improvement.",
+      "liveContextOrTools": "Managers can review conversations, analyze satisfaction and resolution trends, and update source content so future answers improve.",
+      "exampleQuestionsOrRequests": [
+        "What are customers asking before booking?",
+        "Which emergency-service topics are not answered well?",
+        "What should we add to the service-area FAQ?"
+      ],
+      "businessOutcome": "Turn customer conversations into better self-service content and more consistent staff guidance.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Scam-aware trust and legitimacy education",
+      "problem": "The FTC urges consumers to use caution when seeking a locksmith, so legitimate providers need clear, credible answers about identification, licensing, estimates, and arrival expectations.",
+      "agentWorkflow": "Train the agent on your credentials, service policies, technician identification process, customer preparation checklist, and escalation rules so it can answer trust questions without overpromising.",
+      "liveContextOrTools": "If a customer reports a suspicious listing or disputed job, the agent can collect details and route the issue to a manager or support queue for human handling.",
+      "exampleQuestionsOrRequests": [
+        "How do I know your technician is legitimate?",
+        "Will your locksmith show identification?",
+        "What should I confirm before approving work?"
+      ],
+      "businessOutcome": "Differentiate a legitimate local locksmith through consistent, transparent customer education.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-locksmith-caution"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give locked-out customers clear next steps before a technician is dispatched",
+    "intro": "A DocsBot customer-facing agent can sit on your website and answer from your approved service content, then collect the details your team needs for a faster, safer handoff.",
+    "requests": [
+      {
+        "request": "“I’m locked out right now. Can someone come?”",
+        "agentResponseStrategy": "Confirm the service type, location, urgency, contact details, access constraints, and any proof-of-authorization requirements from approved policy content, then route to human dispatch.",
+        "sourceTypes": [
+          "Emergency intake scripts",
+          "Service-area pages",
+          "Authorization policies"
+        ],
+        "optionalAction": "Create a ticket or notify the dispatch channel through a customer-configured workflow.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“How much does a rekey or lockout cost?”",
+        "agentResponseStrategy": "Explain approved estimate ranges or pricing factors, trip-fee language, after-hours considerations, and when final pricing requires technician or dispatcher confirmation.",
+        "sourceTypes": [
+          "Pricing guidance",
+          "Service policies",
+          "FAQ pages"
+        ],
+        "optionalAction": "Collect job details and send a quote request summary for human review.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Do you handle commercial locks and access control?”",
+        "agentResponseStrategy": "Answer from service pages and commercial capability documents, then qualify the request by building type, door count, hardware type, timeline, and preferred follow-up.",
+        "sourceTypes": [
+          "Commercial service pages",
+          "Hardware notes",
+          "Sales enablement FAQs"
+        ],
+        "optionalAction": "Forward a qualified commercial lead and conversation summary to the configured sales or operations workflow.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“What should I do before the technician arrives?”",
+        "agentResponseStrategy": "Provide approved preparation steps, safety reminders, identification expectations, parking or access notes, and escalation instructions for unusual circumstances.",
+        "sourceTypes": [
+          "Technician arrival checklist",
+          "Customer preparation guides",
+          "Identity and authorization policies"
+        ],
+        "optionalAction": "Send a preparation summary or appointment note through an approved messaging workflow if configured.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can you explain why a lock might need drilling?”",
+        "agentResponseStrategy": "Use approved service guidance to explain non-destructive entry, exceptions, customer approval expectations, and when a technician must inspect the lock before deciding.",
+        "sourceTypes": [
+          "Service standards",
+          "Customer FAQs",
+          "Training notes"
+        ],
+        "optionalAction": "Escalate pricing or damage concerns to a human manager before any commitment is made.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Do you service my language or my tenant’s language?”",
+        "agentResponseStrategy": "Provide multilingual answers from approved knowledge where configured, while routing complex or sensitive service authorization issues to a person.",
+        "sourceTypes": [
+          "Multilingual website content",
+          "Service policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a translated intake summary for the dispatcher when your workflow supports it.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep dispatchers, technicians, and managers aligned on approved locksmith knowledge",
+    "intro": "Use DocsBot as a private knowledge agent for SOPs, service standards, policies, training materials, and customer handoff notes so your team can answer consistently across high-pressure calls and field work.",
+    "workflows": [
+      {
+        "name": "Dispatcher decision support",
+        "problem": "Dispatchers must quickly distinguish lockout, rekey, safe, automotive, and commercial requests while asking the right follow-up questions.",
+        "agentWorkflow": "The internal agent retrieves the correct intake checklist, escalation rule, service-area note, and policy language from approved sources.",
+        "sourceTypes": [
+          "Dispatcher SOPs",
+          "Service-area rules",
+          "Escalation policies"
+        ],
+        "optionalAction": "Generate a job summary and route it into a configured ticketing, dispatch, email, Slack, or Teams workflow.",
+        "outcome": "Cleaner job intake and fewer missing details before the technician arrives.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Technician pre-call briefings",
+        "problem": "Field staff lose time when job notes, lock details, customer concerns, and follow-up history are spread across systems or documents.",
+        "agentWorkflow": "DocsBot summarizes the customer conversation and retrieves relevant SOPs or hardware notes for the technician to review before the visit.",
+        "sourceTypes": [
+          "Conversation transcripts",
+          "Hardware references",
+          "Service manuals"
+        ],
+        "optionalAction": "Send a pre-call summary through a customer-approved workflow or create a task for missing information.",
+        "outcome": "Technicians arrive with better context and fewer avoidable calls back to dispatch.",
+        "icon": "TruckIcon"
+      },
+      {
+        "name": "New-hire onboarding and training",
+        "problem": "Locksmith teams need consistent training across service categories, company policies, customer communication, and safety-sensitive authorization rules.",
+        "agentWorkflow": "A private knowledge agent answers new-hire questions from training materials, SOPs, service manuals, and policy documents while showing source-grounded context.",
+        "sourceTypes": [
+          "Training manuals",
+          "SOPs",
+          "Policy documents"
+        ],
+        "optionalAction": "Use topic reports to identify where onboarding content is missing or unclear.",
+        "outcome": "Speed up learning while keeping answers tied to approved company materials.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Manager review of sensitive or disputed work",
+        "problem": "Questions involving ownership, access authorization, complaints, pricing disputes, or possible fraud should not be handled entirely by automation.",
+        "agentWorkflow": "DocsBot can collect the facts, summarize the conversation, retrieve the relevant policy, and escalate the case for manager review.",
+        "sourceTypes": [
+          "Authorization policies",
+          "Complaint handling procedures",
+          "Pricing guidelines"
+        ],
+        "optionalAction": "Create a review task or handoff note with customer-configured permissions and logs.",
+        "outcome": "Protect sensitive decisions while still reducing administrative work around the handoff.",
+        "icon": "HandRaisedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your locksmith knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from approved websites, documents, manuals, policies, PDFs, and internal knowledge sources.",
+      "industryApplication": "Train an agent on service pages, rekey FAQs, lockout scripts, safe-service notes, commercial hardware references, and technician SOPs.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot provides instant answers in your company voice based on configured sources rather than generic web guesses.",
+      "industryApplication": "Give customers consistent explanations for emergency service, proof-of-authorization expectations, pricing factors, and appointment preparation.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform customer-configured lookups, summaries, record creation, updates, routing, and workflow triggers.",
+      "industryApplication": "Collect lockout intake details, create a dispatch ticket, route commercial leads, notify a team, or summarize a job for technician follow-up when authorized.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive requests",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person.",
+      "industryApplication": "Escalate identity-sensitive lock openings, pricing disputes, unusual access requests, or safety concerns to a dispatcher or manager.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot includes logs, analytics, reports, conversation review, topic management, and knowledge-gap discovery.",
+      "industryApplication": "See which service questions repeat, where pricing explanations are unclear, and which pages or SOPs should be improved.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Private internal knowledge access",
+      "mainLandingPageContext": "DocsBot can support internal teams through private chat experiences, Slack, Microsoft Teams, and approved knowledge repositories.",
+      "industryApplication": "Help dispatchers and technicians retrieve SOPs, hardware notes, policies, onboarding content, and handoff context from one searchable agent.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "jpa-health-internal-decisioning"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own service content, not generic locksmith advice.",
+      "Support both customer self-service and human-assisted workflows.",
+      "Use source-grounded answers, review paths, and escalation for sensitive service situations."
+    ],
+    "whyTheseReviewsFit": "Locksmith teams need fast answers, trustworthy source material, and clear handoffs when a request affects property access. DocsBot proof spans owned-content training, website and support-team assistance, and internal decision support for organizations that need dependable knowledge workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for locksmith service businesses",
+    "audience": [
+      "Locksmith business owners",
+      "Emergency locksmith dispatch teams",
+      "Commercial locksmith service managers",
+      "Field technician training leads"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "KeyIcon"
+  },
+  "relatedIndustrySlugs": [
+    "private-security",
+    "emergency-management",
+    "cybersecurity",
+    "attorney-services",
+    "compliance-consulting",
+    "private-investigator"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "locksmith-services",
+    "webSearchQueries": [
+      "locksmith industry IBISWorld number of businesses employees United States locksmiths",
+      "BLS locksmiths and safe repairers occupational outlook employment May 2023",
+      "FTC locksmith scams consumer advice emergency lockout",
+      "ALOA locksmith licensing states require locksmith license"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/oes/2023/may/oes499094.htm",
+      "https://www.ibisworld.com/united-states/number-of-businesses/locksmiths/4833/",
+      "https://www.ftc.gov/node/43494",
+      "https://www.bbb.org/article/news-releases/22797-bbb-scam-alert-locked-out-dont-fall-for-a-locksmith-cons",
+      "https://www.aloa.org/certifications"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44296,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 31752,
+        "outputTokens": 7541,
+        "reasoningOutputTokens": 163,
+        "totalTokens": 51837,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.195632,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.215632
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25697,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18401,
+          "outputTokens": 4785,
+          "reasoningOutputTokens": 163,
+          "totalTokens": 30482,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.119602,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.139602
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18599,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13351,
+          "outputTokens": 2756,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21355,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07603,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07603
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/flagged/photo-1564767609213-c75ee685263a?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDMwNDF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Locksmith background image",
+    "source": "legacy-industry",
+    "query": "Locksmith"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without letting it approve lock openings or make authorization decisions?",
+      "answer": "Yes. For locksmith workflows, DocsBot is best used to collect facts, explain your approved proof-of-authorization policy, summarize the request, and escalate sensitive access decisions to a dispatcher or manager. You can set boundaries so identity-sensitive work, suspicious circumstances, disputed pricing, or unusual access requests stay under human control.",
+      "role": "Owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help during a late-night lockout when our dispatcher is busy or covering multiple calls?",
+      "answer": "A customer-facing DocsBot agent can answer urgent lockout FAQs, collect the address, service type, lock or vehicle details, contact information, access constraints, and urgency, then prepare a clean handoff for your configured dispatch, ticketing, email, or notification workflow. A human can still make the final dispatch decision.",
+      "role": "Dispatchers and customer service staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent explain pricing without creating the same hidden-fee complaints that hurt locksmith trust?",
+      "answer": "Yes, if you train it on approved pricing guidance. The agent can explain trip fees, after-hours factors, lock type, service complexity, estimate limitations, and when final pricing requires a technician or dispatcher. That matters because the BBB warns that many locksmith-scam complaints involve fees not disclosed when the customer called.",
+      "role": "Owners and operations managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-bbb-locksmith-scam"
+      ]
+    },
+    {
+      "question": "Will DocsBot make up locksmith advice if it does not know the answer?",
+      "answer": "DocsBot is designed for source-grounded answers from your configured content, such as service pages, SOPs, pricing guidance, warranty notes, and hardware references. For missing, risky, or ambiguous questions, you can route the conversation to a person and use analytics to identify the documentation gap that caused the escalation.",
+      "role": "Owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What kinds of locksmith documents should we train the agent on first?",
+      "answer": "Start with the content your team already repeats: emergency intake scripts, service-area rules, rekey and lockout FAQs, pricing explanation language, proof-of-authorization policies, after-hours procedures, commercial service descriptions, safe-service limitations, technician arrival checklists, and internal SOPs. Add hardware notes and training documents once the core customer flow is stable.",
+      "role": "Dispatchers and customer service staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both residential emergency calls and higher-value commercial account inquiries?",
+      "answer": "Yes. You can train the same overall knowledge base, or separate agents by use case. A residential flow can focus on lockouts, rekeys, proof requirements, and arrival prep, while a commercial flow can qualify building type, door count, master key systems, access-control needs, timeline, and preferred follow-up.",
+      "role": "Owners and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does this fit with our dispatch software, CRM, forms, or helpdesk?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, MCP Connectors, or workflow automations to pass summaries, create tickets, route leads, notify teams, or update approved fields. It should be scoped to the systems and actions you authorize rather than treated as an unrestricted dispatcher.",
+      "role": "Owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can technicians use DocsBot privately, or is it only for website visitors?",
+      "answer": "Technicians can use DocsBot as a private internal knowledge agent trained on SOPs, manuals, warranty notes, installation references, commercial hardware guidance, onboarding content, and service policies. That lets field teams ask for approved procedures or pre-call context without exposing internal material to customers.",
+      "role": "Field technicians and trainers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent customers from getting unsafe or overly specific bypass instructions?",
+      "answer": "Use DocsBot for your approved service explanations, preparation steps, eligibility questions, and escalation paths—not for teaching unauthorized entry. You can define instructions that avoid sensitive procedural detail, require human review for access questions, and route anything involving ownership, safety, fraud risk, or disputed work to a person.",
+      "role": "Owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help us look more legitimate to customers comparing locksmiths online?",
+      "answer": "Yes. Train it on your credentials, service policies, technician identification process, estimate language, local service information, and customer preparation checklist. That supports transparent answers at the moment customers are cautious; the FTC urges consumers to use caution when seeking a locksmith and to look for reputable providers.",
+      "role": "Owners and operations managers",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-ftc-locksmith-caution"
+      ]
+    },
+    {
+      "question": "What ROI should a locksmith business look for besides fewer phone calls?",
+      "answer": "Look at cleaner intake, fewer missing job details, faster dispatcher triage, reduced repeated questions, better commercial lead capture, fewer pricing misunderstandings, improved technician preparation, and less time searching for SOPs. For small teams, saving dispatcher and technician attention during urgent calls can be as important as pure ticket deflection.",
+      "role": "Owners and operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would we measure whether the agent is actually helping our dispatch team?",
+      "answer": "Review conversation volume, resolved questions, escalation reasons, unanswered topics, satisfaction or resolution trends, qualified lead handoffs, and repeated knowledge gaps. For locksmiths, also track operational signals such as missing address details, unclear lock type, after-hours confusion, pricing objections, and technician callbacks caused by incomplete intake.",
+      "role": "Owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent support customers in languages our dispatcher does not speak fluently?",
+      "answer": "DocsBot can answer in more than 100 languages when your knowledge sources and configuration support the workflow. For locksmith use cases, multilingual support is useful for intake, preparation instructions, pricing factors, and service FAQs, while authorization-sensitive or disputed situations should still escalate to a human review path.",
+      "role": "Dispatchers and customer service staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for a small owner-operated locksmith, or is it only for multi-location companies?",
+      "answer": "It can work for both. A small shop might start with website FAQs, emergency intake, pricing explanations, and lead summaries. A larger or multi-location company may add separate workflows for after-hours dispatch, commercial accounts, internal SOP search, technician onboarding, and manager review queues.",
+      "role": "Owners and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if our pricing depends on inspection and we do not want the AI giving fixed quotes?",
+      "answer": "You can train DocsBot to explain pricing factors and estimate disclaimers instead of promising fixed prices. It can collect details such as lock type, service time, location, vehicle or property type, and urgency, then route the summary to a dispatcher or manager for confirmation before anyone commits to a final price.",
+      "role": "Owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help new dispatchers learn the difference between lockout, rekey, safe, automotive, and commercial requests?",
+      "answer": "Yes. A private internal agent can retrieve the right intake checklist, terminology, service limitations, escalation rule, and approved customer-facing language. That is useful in a field with varied specialties; ALOA certification offerings span areas such as automotive, safe and vault, institutional, commercial, and fire-door inspection work.",
+      "role": "Field technicians and trainers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-aloa-certification"
+      ]
+    },
+    {
+      "question": "How much cleanup do we need before implementation if our SOPs are scattered across PDFs, Google Drive, and old documents?",
+      "answer": "You do not need a perfect knowledge base to start, but you should prioritize current, approved documents and remove outdated pricing, old service-area rules, and conflicting procedures. DocsBot can train on common document and knowledge sources, then analytics can show which missing or unclear topics need documentation improvement.",
+      "role": "Field technicians and trainers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we review what the agent told a customer if there is a complaint or pricing dispute?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, and topic management. For locksmiths, that review trail can help managers understand what was asked, what source-grounded answer was given, what details were collected, and whether the conversation should have escalated earlier.",
+      "role": "Owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot handle commercial leads like property managers asking about rekeying 40 doors?",
+      "answer": "The agent can answer from your commercial service pages and proposal guidance, then collect building type, door count, hardware details, site access constraints, urgency, account status, and preferred follow-up. With configured workflows, it can forward the qualified lead and conversation summary to your CRM-style, email, ticketing, or sales process.",
+      "role": "Owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security controls matter if we connect internal SOPs, customer conversations, or dispatch workflows?",
+      "answer": "For sensitive locksmith operations, look for controlled access, encryption, auditability, human escalation, and limits on what actions the agent can take. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent ask the right pre-arrival questions before a technician is sent?",
+      "answer": "Yes. You can configure intake around your workflow: location, contact details, residential versus commercial versus automotive, lock type, proof-of-authorization expectations, urgency, parking or access notes, safe or smart-lock details, and any safety concerns. The agent can then summarize the request for a human dispatcher or technician.",
+      "role": "Dispatchers and customer service staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we stop the AI from sending low-quality or out-of-area jobs to technicians?",
+      "answer": "Use qualification rules and escalation boundaries. DocsBot can collect service area, job type, urgency, customer contact details, and required context, then route only the summary or lead through your approved workflow. Your dispatcher can still reject jobs, request more information, or override the next step.",
+      "role": "Owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot reduce the number of times technicians call dispatch for missing context?",
+      "answer": "That is a strong use case. DocsBot can summarize the customer conversation, highlight lock type, location, urgency, customer concerns, proof expectations, and follow-up tasks, then retrieve relevant SOPs or hardware notes for the technician. The goal is better pre-call context, not replacing field judgment.",
+      "role": "Field technicians and trainers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot on our locksmith website?",
+      "answer": "DocsBot is positioned around agents trained on your approved locksmith knowledge, not generic web answers. It can support source-grounded customer responses, private internal knowledge access, analytics, human escalation, and bounded actions such as summaries, routing, ticket creation, notifications, or lead handoffs when you configure the workflow.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should we keep human even after deploying DocsBot?",
+      "answer": "Keep humans responsible for final dispatch decisions, identity or ownership concerns, suspicious circumstances, pricing exceptions, complaints, destructive-entry approval, regulated or licensing-sensitive statements, and commercial commitments. DocsBot should gather context, provide approved explanations, and make handoffs cleaner, while your team handles high-impact decisions.",
+      "role": "Owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Why should locksmith buyers care about automation if the trade is still technician-driven?",
+      "answer": "The field work remains technician-driven, but the surrounding communication is repetitive and time-sensitive. BLS estimated 14,790 U.S. locksmiths and safe repairers in May 2023, and every missed detail can waste skilled labor. DocsBot helps protect technician time by improving intake, handoffs, SOP access, and customer preparation.",
+      "role": "Owners and operations managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-locksmith-employment"
+      ]
+    },
+    {
+      "question": "Can this help us compete in a fragmented local locksmith market?",
+      "answer": "Yes. In a market with many local providers, fast and transparent responses can affect whether a customer books or keeps searching. IBISWorld reported 29,304 locksmith businesses in the U.S. in 2025, so DocsBot can help differentiate your shop with consistent answers, trust education, after-hours intake, and commercial lead capture.",
+      "role": "Owners and operations managers",
+      "category": "Competitive comparisons",
+      "sourceIds": [
+        "src-ibisworld-locksmith-businesses"
+      ]
+    }
+  ]
+}

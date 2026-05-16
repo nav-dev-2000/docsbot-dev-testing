@@ -1,0 +1,758 @@
+{
+  "slug": "medical-device-suppliers",
+  "business": "Medical Device Suppliers",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Medical Device Supplier Operations",
+    "description": "DocsBot helps medical device suppliers deliver source-grounded product answers, qualify requests, and streamline support without slowing regulated teams.",
+    "canonicalPath": "/industry/medical-device-suppliers"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for regulated medtech supplier teams",
+    "headline": "Help buyers, reps, and support teams navigate device knowledge faster",
+    "subheadline": "DocsBot turns your approved catalogs, IFUs, service notes, policies, training materials, and internal SOPs into AI agents that answer product questions, summarize context, route requests, and escalate sensitive issues to the right human team.",
+    "proofBullets": [
+      {
+        "text": "Answer compatibility, ordering, warranty, documentation, and basic service questions from approved supplier content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect lead or support details, qualify the request, and prepare handoffs for sales, customer service, or technical support.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give internal teams quick access to SOPs, quality notes, onboarding materials, and product knowledge across locations.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Use scoped AI Actions to look up approved record status, create tasks, notify teams, or draft responses for human review.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a medical device supplier agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps medical device suppliers create AI agents trained on their own approved knowledge sources. Teams can deploy customer-facing support agents, private internal knowledge agents, documentation assistants, and workflow agents that retrieve source-grounded answers, summarize context, collect structured details, and take bounded actions through configured Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and technical service leaders",
+        "roleContext": "Support teams often field repeat questions about manuals, accessories, order status, troubleshooting steps, and documentation availability while still needing a clear path for regulated, safety-critical, or patient-specific issues.",
+        "bullets": [
+          {
+            "text": "Deflect routine website or helpdesk questions with source-grounded answers from manuals, FAQs, product pages, and service knowledge.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize support history, collect missing details, and route complex cases to the right technical or quality contact.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot repeated product questions and documentation gaps.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Sales, distribution, and account teams",
+        "roleContext": "Device buyers need fast answers about product fit, accessories, replacement items, lead times, implementation requirements, and purchasing next steps before a rep can move the opportunity forward.",
+        "bullets": [
+          {
+            "text": "Support presales conversations with approved answers about specifications, compatibility, documentation, service options, and ordering requirements.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Collect structured lead details such as facility type, device interest, region, urgency, installed base, and preferred follow-up path.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Prepare account summaries, objection-handling notes, and drafted follow-up emails while humans control pricing, contracts, and regulated commitments.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Quality, regulatory, and operations teams",
+        "roleContext": "Medical device suppliers manage controlled knowledge, changing quality expectations, and postmarket documentation workflows. FDA’s QMSR aligns device quality requirements with ISO 13485:2016, making source control and consistent internal guidance especially important.",
+        "bullets": [
+          {
+            "text": "Make controlled SOPs, training references, quality notes, and approved policies easier for employees to find.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Draft summaries for review workflows, internal tickets, supplier follow-ups, or field feedback triage without replacing human judgment.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep sensitive workflows bounded with permissions, logs, customer-defined controls, and escalation paths.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon",
+        "sourceIds": [
+          "src-fda-qmsr"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-advamed-jobs",
+      "metric": "Nearly 519,000 direct U.S. medtech jobs",
+      "claim": "AdvaMed reports that the medtech industry directly accounts for nearly 519,000 U.S. jobs, highlighting the scale of teams that depend on accurate product, quality, and support knowledge.",
+      "sourceTitle": "Medical Device Industry Facts",
+      "sourceUrl": "https://www.advamed.org/medical-device-industry-facts/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "industry scale",
+        "operations complexity",
+        "workforce knowledge access"
+      ]
+    },
+    {
+      "id": "src-fda-qmsr",
+      "metric": "FDA QMSR incorporates ISO 13485:2016",
+      "claim": "FDA issued a final rule amending medical device CGMP requirements in 21 CFR 820 to align more closely with ISO 13485:2016 quality management system requirements.",
+      "sourceTitle": "Quality Management System Regulation: Final Rule Amending the Quality System Regulation – Frequently Asked Questions",
+      "sourceUrl": "https://www.fda.gov/medical-devices/quality-system-qs-regulationmedical-device-good-manufacturing-practices/proposed-rule-quality-system-regulation-amendments-frequently-asked-questions",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "quality system change",
+        "regulated documentation"
+      ]
+    },
+    {
+      "id": "src-fda-recalls",
+      "metric": "FDA maintains public medical device recall and early alert programs",
+      "claim": "FDA’s medical device recall and early alert pages show the ongoing need for timely, accurate communications about corrections, removals, and high-risk device issues.",
+      "sourceTitle": "Medical Device Recalls and Early Alerts",
+      "sourceUrl": "https://www.fda.gov/medical-devices/medical-device-safety/medical-device-recalls",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "recall communications",
+        "postmarket support",
+        "customer notification workflows"
+      ]
+    },
+    {
+      "id": "src-fda-maude",
+      "metric": "MAUDE contains medical device adverse event reports",
+      "claim": "FDA describes MAUDE as a database containing medical device reports of adverse events, including manufacturer and user facility reports.",
+      "sourceTitle": "About Manufacturer and User Facility Device Experience (MAUDE) Database",
+      "sourceUrl": "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities/about-manufacturer-and-user-facility-device-experience-maude",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "postmarket surveillance context",
+        "adverse event reporting",
+        "support escalation"
+      ]
+    },
+    {
+      "id": "src-ecri-hazards",
+      "metric": "ECRI’s 2025 hazard list covers medical device and health technology risks",
+      "claim": "ECRI’s 2025 Top 10 Health Technology Hazards brief identifies safety issues involving medical devices and systems, reinforcing the need for careful support boundaries and accurate guidance.",
+      "sourceTitle": "Top 10 Health Technology Hazards 2025 – Executive Brief",
+      "sourceUrl": "https://www.ecri.org.uk/wp-content/uploads/2025/02/ECRI_Device_Safety_Top_10_Health_Technology_Hazards_for_2025_Executive_Brief.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "safety risk",
+        "support escalation",
+        "clinical technology hazards"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product documentation and compatibility assistant",
+      "problem": "Buyers, distributors, and service teams need fast answers across catalogs, IFUs, accessory matrices, cleaning guidance, and product FAQs without searching scattered PDFs.",
+      "agentWorkflow": "A DocsBot agent answers from approved product pages, manuals, PDFs, FAQs, and knowledge bases, cites the source material, asks clarifying questions, and routes uncertain or safety-sensitive questions to a human technical specialist.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved product metadata, accessory availability, warranty status, or document versions before preparing a response.",
+      "exampleQuestionsOrRequests": [
+        "Which replacement accessory works with this model number?",
+        "Where can I find the latest IFU and cleaning instructions?",
+        "Does this product support our facility’s existing equipment?",
+        "Can you send this question to technical support with the device model and serial number?"
+      ],
+      "businessOutcome": "Reduces repetitive lookup work while giving customers and reps a more consistent path to approved product knowledge.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Regulated support triage and escalation",
+      "problem": "Support teams must separate routine product questions from issues that may require service review, quality follow-up, complaint handling, or adverse event escalation.",
+      "agentWorkflow": "The agent collects structured details, summarizes the issue, checks approved troubleshooting or service content, and escalates complex, safety-related, or reportable concerns to the appropriate human workflow.",
+      "liveContextOrTools": "Configured AI Actions can create a support ticket, attach a conversation summary, notify a quality or technical queue, and apply customer-defined routing rules. FDA’s MAUDE database contains medical device adverse event reports, so supplier teams need disciplined escalation paths for postmarket signals.",
+      "exampleQuestionsOrRequests": [
+        "The device displayed this error code during setup. What should I do next?",
+        "I need to report a product issue from a hospital customer.",
+        "Create a case summary for quality review.",
+        "Route this to technical service because it may involve device performance."
+      ],
+      "businessOutcome": "Improves handoffs and documentation quality without letting the AI make clinical, safety, or regulatory decisions.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fda-maude"
+      ]
+    },
+    {
+      "name": "Presales qualification for device buyers and distributors",
+      "problem": "Inbound leads often arrive with missing context: facility type, device interest, installed equipment, timeline, budget process, region, and purchasing role.",
+      "agentWorkflow": "A DocsBot presales agent answers approved product and policy questions, collects structured intake details, applies customer-defined qualification rules, and forwards a concise summary to sales or distributor teams.",
+      "liveContextOrTools": "Through approved forms, connectors, APIs, webhooks, or scheduling workflows, the agent can request a meeting, create a lead record, notify a sales channel, or draft a follow-up email for review.",
+      "exampleQuestionsOrRequests": [
+        "Help me choose the right configuration for a multi-site clinic.",
+        "Do you sell through a distributor in my region?",
+        "Book a demo with a product specialist.",
+        "Summarize this lead and send it to the regional sales team."
+      ],
+      "businessOutcome": "Shortens response time for serious buyers while keeping human reps responsible for pricing, contracts, regulatory claims, and final recommendations.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Internal knowledge agent for SOPs and quality processes",
+      "problem": "Operations, field service, customer service, and sales employees need consistent answers from controlled SOPs, training materials, onboarding docs, and policy references.",
+      "agentWorkflow": "DocsBot provides a private internal knowledge assistant trained on approved company sources. Employees ask natural-language questions, receive source-grounded answers, and see where documentation gaps are creating repeated questions.",
+      "liveContextOrTools": "Access can be governed by role-based permissions, approved source libraries, logs, and review practices so teams can keep sensitive or controlled knowledge within defined boundaries.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved process for handling a returned device?",
+        "Where is the current distributor onboarding checklist?",
+        "Summarize the SOP for complaint intake before I open a case.",
+        "What changed in the latest service bulletin?"
+      ],
+      "businessOutcome": "Helps distributed teams find the same approved answer faster and reduces reliance on tribal knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Recall and customer communication preparation",
+      "problem": "Medical device recalls and early alerts require timely, accurate communication, and FDA maintains public recall and early alert programs for device corrections and removals.",
+      "agentWorkflow": "A DocsBot agent can help support and operations teams retrieve approved recall FAQs, draft customer-facing response snippets, summarize affected product guidance, and route requests to quality, regulatory, or service teams.",
+      "liveContextOrTools": "With scoped AI Actions, the agent can create tasks, notify customer service queues, prepare a handoff summary, or look up approved account or shipment context when the customer has authorized those systems.",
+      "exampleQuestionsOrRequests": [
+        "Draft a support response using the approved recall FAQ.",
+        "Which customers asked about this affected lot today?",
+        "Create a task for the service team with this customer’s device details.",
+        "Summarize the communication history for quality review."
+      ],
+      "businessOutcome": "Keeps recall support more consistent while preserving human approval for regulated communications and customer commitments.",
+      "icon": "MegaphoneIcon",
+      "sourceIds": [
+        "src-fda-recalls"
+      ]
+    },
+    {
+      "name": "Field service and distributor enablement assistant",
+      "problem": "Distributor reps and field teams need quick access to installation notes, service bulletins, training content, ordering rules, and escalation guidance while working away from headquarters.",
+      "agentWorkflow": "DocsBot can serve as a private team assistant in a chat interface, Slack, Microsoft Teams, or an internal support experience, answering from approved sales, service, and training sources.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, and MCP Connectors for remote Model Context Protocol servers can support approved live lookups or workflow triggers where your team authorizes them.",
+      "exampleQuestionsOrRequests": [
+        "What is the latest service bulletin for this model?",
+        "Which training module should a new distributor complete first?",
+        "Draft a follow-up note after this field visit.",
+        "Create a handoff summary for the account manager."
+      ],
+      "businessOutcome": "Helps field and channel teams stay aligned with the latest approved information without waiting on headquarters for every answer.",
+      "icon": "TruckIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give device buyers a faster path to approved product answers",
+    "intro": "A DocsBot customer-facing agent can sit on your website, documentation portal, or support experience to answer from approved supplier knowledge, collect the details your team needs, and escalate questions that require a human specialist.",
+    "requests": [
+      {
+        "request": "“Which device model, accessory, or replacement part fits my use case?”",
+        "agentResponseStrategy": "Ask clarifying questions, search approved catalog and compatibility content, provide source-grounded guidance, and suggest human follow-up for final selection or regulated claims.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Compatibility matrices",
+          "Manuals and IFUs",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Collect facility, device, and timeline details, then forward the summary to sales or technical support.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“Where is the latest manual, IFU, certificate, or service bulletin?”",
+        "agentResponseStrategy": "Retrieve the relevant document from approved sources, summarize the key location or next step, and avoid inventing document versions when the source is missing.",
+        "sourceTypes": [
+          "PDF manuals",
+          "IFUs",
+          "Quality documents",
+          "Service bulletins"
+        ],
+        "optionalAction": "Create a documentation request or notify the owner when the agent detects a missing or outdated source.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“I have a problem with a device in the field.”",
+        "agentResponseStrategy": "Collect model, serial number, setting, symptoms, error codes, and urgency; answer only from approved troubleshooting content; and escalate safety-sensitive issues to human support.",
+        "sourceTypes": [
+          "Troubleshooting guides",
+          "Service SOPs",
+          "Support policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a ticket, attach the structured summary, and route it to technical service, quality, or customer support.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Can I schedule a demo or talk to a specialist?”",
+        "agentResponseStrategy": "Qualify the request with approved intake questions and explain the next step using your configured sales process.",
+        "sourceTypes": [
+          "Sales FAQs",
+          "Product pages",
+          "Lead forms",
+          "Scheduling rules"
+        ],
+        "optionalAction": "Trigger an approved scheduling workflow or forward the request to the right regional contact.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Does this guidance apply to patient care decisions?”",
+        "agentResponseStrategy": "Stay within product documentation, disclaim clinical or patient-specific decision-making, and route the conversation to the appropriate human team when needed.",
+        "sourceTypes": [
+          "Approved support boundaries",
+          "Regulatory policies",
+          "Escalation instructions",
+          "Product documentation"
+        ],
+        "optionalAction": "Prepare a human handoff summary with the customer’s question, product context, and source references.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-ecri-hazards"
+        ]
+      },
+      {
+        "request": "“What is the status of my order, return, or warranty request?”",
+        "agentResponseStrategy": "Use approved policies to explain the process, collect identifiers, and perform a live lookup only when your team has configured secure access to the relevant system.",
+        "sourceTypes": [
+          "Order policies",
+          "Warranty policies",
+          "Return procedures",
+          "Customer service SOPs"
+        ],
+        "optionalAction": "Look up approved status fields, create a task, or route the request to customer service.",
+        "icon": "TruckIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep supplier teams aligned on controlled knowledge and daily workflows",
+    "intro": "DocsBot can operate as a private internal agent for sales, support, quality, field service, regulatory, and operations teams. It helps employees retrieve approved answers, summarize context, and move work forward with bounded actions.",
+    "workflows": [
+      {
+        "name": "Quality and regulatory knowledge lookup",
+        "problem": "Teams need consistent access to quality procedures, controlled policies, and regulatory guidance as medical device quality requirements evolve.",
+        "agentWorkflow": "Train an internal DocsBot agent on approved SOPs, policies, training docs, and quality references so employees can ask process questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Quality manuals",
+          "Training records",
+          "Policy libraries"
+        ],
+        "optionalAction": "Flag unanswered or repeated questions for documentation owners to review.",
+        "outcome": "Improves consistency in internal guidance while keeping controlled decisions with qualified owners.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-qmsr"
+        ]
+      },
+      {
+        "name": "Support ticket summarization and routing",
+        "problem": "Support cases often include long conversations, attachments, model details, and missing context that slow technical review.",
+        "agentWorkflow": "DocsBot can summarize ticket context, identify missing details, draft a response from approved sources, and route the case based on customer-defined rules.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Helpdesk knowledge",
+          "Troubleshooting guides",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Create or update approved ticket fields, notify the right queue, or prepare a review-ready draft response.",
+        "outcome": "Reduces manual triage work and gives specialists cleaner context before they respond.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Sales enablement and account preparation",
+        "problem": "Account teams need current product answers, objection handling, proposal language, and prospect context before calls with hospitals, clinics, distributors, or procurement teams.",
+        "agentWorkflow": "A sales enablement agent retrieves product knowledge, approved messaging, competitive notes, implementation details, case studies, and FAQs; when configured, it can research public account context for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product specs",
+          "Proposal templates",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft follow-up emails, prepare call notes, or create sales tasks through configured workflows.",
+        "outcome": "Helps reps respond faster while preserving human approval for pricing, contracts, and regulated claims.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Distributor onboarding and training assistant",
+        "problem": "Channel partners need repeat access to training material, ordering guidance, service boundaries, documentation locations, and escalation rules.",
+        "agentWorkflow": "DocsBot answers partner and internal onboarding questions from approved training libraries, manuals, policies, and enablement content.",
+        "sourceTypes": [
+          "Training materials",
+          "Distributor guides",
+          "Ordering policies",
+          "Service boundaries"
+        ],
+        "optionalAction": "Summarize common onboarding questions and surface missing or confusing training content.",
+        "outcome": "Improves partner self-service and reduces repeated enablement requests for internal teams.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Postmarket signal intake support",
+        "problem": "Field feedback, service notes, and customer complaints can arrive through multiple channels and need careful routing.",
+        "agentWorkflow": "The agent collects structured details, summarizes customer language, identifies the relevant SOP or escalation path, and routes the issue to the right human process.",
+        "sourceTypes": [
+          "Complaint intake SOPs",
+          "Service logs",
+          "Support conversations",
+          "Quality escalation rules"
+        ],
+        "optionalAction": "Create a review task, notify a quality queue, or generate a handoff summary with source references and missing fields.",
+        "outcome": "Helps teams standardize intake while keeping reportability and safety decisions with qualified personnel.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved supplier knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, product documentation, internal content, PDFs, wikis, and other configured knowledge sources.",
+      "industryApplication": "Train agents on catalogs, IFUs, manuals, service notes, warranty policies, distributor guides, SOPs, and approved FAQs so customers and employees get source-grounded answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing support and documentation experiences",
+      "mainLandingPageContext": "DocsBot agents can work in website or product chat widgets and documentation assistants, answering questions from approved sources and escalating when needed.",
+      "industryApplication": "Support device buyers, hospital procurement teams, distributors, and field users with product documentation, compatibility answers, and structured escalation.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, record creation, updates, routing, notifications, and workflow triggers when configured.",
+      "industryApplication": "Look up approved order, warranty, product, or account context; create support tasks; route quality issues; notify sales; or prepare human-reviewed response drafts.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge and team deployment",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant for teams across HR, IT, sales, support, operations, compliance, finance, legal, and other functions.",
+      "industryApplication": "Give sales, support, field service, regulatory, quality, and operations teams a governed place to ask questions about controlled documents, procedures, and product knowledge.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which product questions, document requests, error codes, compatibility issues, and policy topics keep recurring so content owners can improve approved sources.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer data training for public models.",
+      "industryApplication": "Support supplier knowledge workflows that involve controlled documents, customer records, quality processes, and regulated handoffs with permissions and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "jpa-health-internal-decisioning"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, websites, and knowledge libraries for consistent first-line support.",
+      "Support multilingual, documentation-heavy products with always-available customer guidance.",
+      "Bring AI assistance into healthcare-adjacent internal decision workflows while reducing unnecessary handoffs."
+    ],
+    "whyTheseReviewsFit": "Medical device suppliers need AI that respects approved content, complex documentation, and support handoffs. DocsBot proof spans product manuals, owned content libraries, multilingual self-service, and healthcare communications workflows where teams rely on source-grounded answers and internal knowledge access.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "LanguageIcon",
+      "HeartIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for medical device suppliers",
+    "audience": [
+      "Medical device supplier customer support teams",
+      "Medtech sales and distributor teams",
+      "Quality, regulatory, and operations leaders",
+      "Field service and technical support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "laboratory-equipment-suppliers",
+    "safety-equipment-suppliers",
+    "iot-device-manufacturing",
+    "b2b-product-distributors",
+    "contract-manufacturing",
+    "aerospace-parts-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "medical-device-suppliers",
+    "webSearchQueries": [
+      "FDA medical device recalls annual report 2024 number recalls",
+      "FDA medical device quality system regulation final rule ISO 13485 2024",
+      "medical devices market size United States manufacturers suppliers employment NAICS BLS",
+      "ECRI top health technology hazards 2025 medical devices",
+      "AdvaMed medical technology industry facts jobs United States 2024",
+      "FDA medical device adverse event reports MAUDE annual 2024"
+    ],
+    "sourceUrls": [
+      "https://www.advamed.org/medical-device-industry-facts/",
+      "https://www.fda.gov/medical-devices/quality-system-qs-regulationmedical-device-good-manufacturing-practices/proposed-rule-quality-system-regulation-amendments-frequently-asked-questions",
+      "https://www.fda.gov/medical-devices/medical-device-safety/medical-device-recalls",
+      "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities/about-manufacturer-and-user-facility-device-experience-maude",
+      "https://www.ecri.org.uk/wp-content/uploads/2025/02/ECRI_Device_Safety_Top_10_Health_Technology_Hazards_for_2025_Executive_Brief.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45123,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32579,
+        "outputTokens": 8376,
+        "reasoningOutputTokens": 225,
+        "totalTokens": 53499,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.210224,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.230224
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24834,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 17538,
+          "outputTokens": 5592,
+          "reasoningOutputTokens": 225,
+          "totalTokens": 30426,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.129549,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.149549
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20289,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15041,
+          "outputTokens": 2784,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23073,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080675,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080675
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1504813184591-01572f98c85f?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxNZWRpY2FsJTIwRGV2aWNlJTIwU3VwcGxpZXJzfGVufDB8MHx8fDE3Nzg4MjI5MTV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "medical professionals working",
+    "source": "unsplash-search",
+    "query": "Medical Device Suppliers"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer product compatibility questions without making unsupported device recommendations?",
+      "answer": "Yes. A DocsBot agent can answer from your approved catalogs, IFUs, accessory matrices, manuals, and FAQs, then cite the source it used. You can configure it to ask clarifying questions, avoid claims that are not in approved content, and escalate final selection, clinical fit, or regulated claims to a human specialist.",
+      "role": "Customer support and technical service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our support team if most questions arrive with missing model, serial number, or facility details?",
+      "answer": "DocsBot can collect structured intake details before a handoff: model, serial number, lot, setting, symptoms, error codes, urgency, contact information, and whether the issue may involve device performance. It can then summarize the conversation and route the case to support, technical service, or quality using your defined rules.",
+      "role": "Customer support and technical service leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use an AI agent for complaint intake or adverse event triage?",
+      "answer": "DocsBot can support intake by collecting details, summarizing customer language, finding the relevant SOP, and routing the issue to a qualified human workflow. It should not decide reportability or safety significance. FDA describes MAUDE as containing medical device reports of adverse events, including manufacturer and user facility reports, which is why escalation boundaries matter.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-maude"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our technical service specialists?",
+      "answer": "No. The best fit is first-line assistance and triage: answering repeat documentation, warranty, compatibility, order-process, and basic troubleshooting questions from approved sources. Specialists stay responsible for complex diagnostics, regulated commitments, clinical context, quality decisions, and customer-specific exceptions.",
+      "role": "Customer support and technical service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the agent from using outdated manuals, IFUs, or service bulletins?",
+      "answer": "Train the agent on approved source libraries and define ownership for document updates. DocsBot can answer from configured sources, show source-grounded responses, and surface unanswered or repeated questions that reveal stale or missing content. For controlled documents, many teams start with a limited library and review process before expanding access.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support our QMSR and ISO 13485 alignment work?",
+      "answer": "DocsBot can help employees find approved SOPs, quality procedures, training references, and policy guidance faster, while keeping decisions with qualified owners. FDA’s QMSR final rule amends 21 CFR 820 to align more closely with ISO 13485:2016 quality management system requirements, increasing the value of consistent controlled-document access.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-qmsr"
+      ]
+    },
+    {
+      "question": "Can the agent help during recall or field correction communications?",
+      "answer": "Yes, as a preparation and routing layer. DocsBot can retrieve approved recall FAQs, draft response snippets for human review, summarize customer questions, and create tasks or handoffs through configured workflows. FDA maintains medical device recall and early alert programs for corrections, removals, and high-risk device issues, so human approval should remain central.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fda-recalls"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect to for order status, warranty, CRM, or ticket creation?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, webhooks, forms, or MCP Connectors to perform approved live lookups and bounded actions. Common patterns include looking up approved order or warranty fields, creating a support ticket, forwarding a lead summary, notifying a team, or updating approved record fields.",
+      "role": "Sales, distribution, and account teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we deploy one agent for customers and another for internal teams?",
+      "answer": "Yes. Many suppliers would separate a customer-facing product and support agent from a private internal knowledge agent. The public agent can use approved customer content, while the internal agent can access SOPs, service notes, sales playbooks, distributor guidance, and quality procedures with role-based permissions.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle sensitive customer, quality, or support information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer data training for public models. Skills can be scoped with secrets, environment values, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What ROI should we expect beyond simple ticket deflection?",
+      "answer": "Look at repeat documentation questions, time spent searching PDFs, incomplete support intake, slow lead routing, distributor enablement requests, and quality handoff rework. DocsBot’s value is often faster first responses, cleaner escalations, fewer repetitive lookups, better knowledge-gap visibility, and more consistent use of approved content.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would sales teams use DocsBot without creating risk around pricing, claims, or contracts?",
+      "answer": "Sales agents can answer from approved product pages, specs, implementation notes, FAQs, and sales enablement materials; collect facility, region, timeline, installed-base, and product-interest details; and draft follow-ups for review. Humans should remain responsible for pricing, contractual terms, regulated claims, and final recommendations.",
+      "role": "Sales, distribution, and account teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help qualify distributor or hospital procurement inquiries before a rep gets involved?",
+      "answer": "Yes. A presales agent can ask structured intake questions, apply your qualification rules, summarize the opportunity, and route it to the right regional sales, distributor, or technical team. It can also use configured scheduling or CRM workflows, but final commercial commitments should stay with your sales process.",
+      "role": "Sales, distribution, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the agent is safe and useful after launch?",
+      "answer": "Track resolution rate, escalation rate, unanswered questions, source coverage, repeated product topics, satisfaction, lead completion, ticket quality, and human-review feedback. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to support ongoing governance.",
+      "role": "Customer support and technical service leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can quality or regulatory teams review what the agent said to customers?",
+      "answer": "Yes. DocsBot supports logs, conversation review, analytics, and customer-defined review workflows. For regulated suppliers, teams can review sensitive conversations, identify policy gaps, tune instructions, remove or update sources, and define escalation rules for topics such as complaints, recalls, device performance, or patient-specific questions.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What prevents the agent from giving clinical advice or patient-specific guidance?",
+      "answer": "You can define support boundaries in the agent instructions, train it on approved product documentation, and route clinical, patient-specific, safety-sensitive, or uncertain questions to humans. ECRI’s 2025 health technology hazards brief highlights medical device and health technology safety risks, reinforcing the need for careful escalation boundaries.",
+      "role": "Customer support and technical service leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-ecri-hazards"
+      ]
+    },
+    {
+      "question": "How much content cleanup is needed before implementation?",
+      "answer": "You do not need a perfect knowledge base to start, but you do need an approved starter set. Good first sources include current manuals, IFUs, product FAQs, compatibility tables, warranty policies, escalation rules, and top support articles. DocsBot analytics can then show which missing or confusing topics deserve cleanup next.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field service and distributor teams use DocsBot away from headquarters?",
+      "answer": "Yes. DocsBot can act as a private team assistant through chat, Slack, Microsoft Teams, or an internal support experience when configured. Field and channel teams can ask about service bulletins, installation notes, training modules, ordering rules, escalation paths, and approved follow-up language.",
+      "role": "Sales, distribution, and account teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we avoid giving distributors access to internal-only quality or commercial information?",
+      "answer": "Use separate agents, scoped source libraries, granular access controls, and role-based permissions. A distributor-facing assistant can be limited to training, ordering, product, and escalation content, while internal teams can access controlled SOPs, quality notes, account context, or commercial guidance based on their roles.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot work with multilingual customers or international distributors?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help suppliers support global distributor and customer questions. For regulated content, the agent should still rely on the approved source language and your localization process, with human escalation for unclear, jurisdiction-specific, or high-risk requests.",
+      "role": "Sales, distribution, and account teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent cannot find an approved answer?",
+      "answer": "It should say it does not have enough approved information, ask for clarifying details if useful, and escalate to the right human team. That behavior is especially important for compatibility, troubleshooting, complaint, recall, and patient-care-adjacent questions where guessing would create operational or regulatory risk.",
+      "role": "Customer support and technical service leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is DocsBot different from a generic chatbot on our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not a generic scripted bot. It can retrieve from manuals, PDFs, websites, help content, SOPs, and policies; collect structured details; summarize context; identify knowledge gaps; and take bounded actions through configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot draft customer replies without sending them automatically?",
+      "answer": "Yes. DocsBot can draft responses from approved sources for human review, including support replies, recall FAQ responses, lead follow-ups, distributor enablement notes, or technical handoff summaries. This lets teams speed up writing while preserving human approval for regulated, contractual, or customer-specific commitments.",
+      "role": "Customer support and technical service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Who needs to be involved in buying and launching this?",
+      "answer": "Typical stakeholders include support, technical service, sales, quality, regulatory, IT/security, documentation owners, and operations. Support and sales define high-volume workflows; quality and regulatory set boundaries; IT reviews access and integrations; documentation owners keep sources current; operations measures adoption and outcomes.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will this scale across multiple product lines, brands, or acquired documentation sets?",
+      "answer": "Yes, but the safest approach is phased. Start with one product family or workflow, validate source quality and escalation behavior, then expand to additional product lines, regions, and teams. Separate agents or source scopes can keep brands, permissions, and controlled content distinct as usage grows.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should procurement compare DocsBot with building our own RAG assistant?",
+      "answer": "Compare time to launch, source management, security controls, analytics, human review, workflow actions, maintenance burden, and who will own ongoing tuning. DocsBot gives teams a ready platform for source-grounded agents, internal knowledge, analytics, and bounded actions, reducing the need to build and maintain every RAG layer internally.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What pricing or procurement factors should we plan for?",
+      "answer": "Plan around the number of agents or use cases, knowledge sources, internal and external audiences, integration complexity, review requirements, and rollout scope. A practical pilot usually targets a measurable workflow such as documentation lookup, support triage, distributor enablement, or lead qualification before expanding.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help a large medtech supplier workforce find consistent answers?",
+      "answer": "Yes. DocsBot can serve as an internal knowledge agent for distributed support, sales, operations, field service, quality, and regulatory teams. AdvaMed reports that the medtech industry directly accounts for nearly 519,000 U.S. jobs, showing the scale of teams that depend on accurate product and process knowledge.",
+      "role": "Quality, regulatory, and operations teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-advamed-jobs"
+      ]
+    }
+  ]
+}

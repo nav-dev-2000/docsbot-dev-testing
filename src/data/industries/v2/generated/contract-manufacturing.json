@@ -1,0 +1,742 @@
+{
+  "slug": "contract-manufacturing",
+  "business": "Contract Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Contract Manufacturing Operations",
+    "description": "DocsBot helps contract manufacturing teams answer RFQs, supplier questions, and SOP requests faster with source-grounded AI automation.",
+    "canonicalPath": "/industry/contract-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "AI automation for high-mix manufacturing teams",
+    "headline": "DocsBot AI agents keep contract manufacturing knowledge moving",
+    "subheadline": "Train DocsBot on your capability statements, engineering notes, quality procedures, customer FAQs, work instructions, and supplier documentation so prospects, customers, sales teams, and operations staff can get fast answers with clear escalation paths.",
+    "proofBullets": [
+      {
+        "text": "Answer RFQ, capability, tolerance, material, certification, lead-time, and onboarding questions from approved manufacturing content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Help sales and program teams qualify inquiries, collect project requirements, summarize conversations, and route handoffs to the right owner.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give internal teams searchable access to SOPs, quality notes, training materials, customer requirements, and troubleshooting guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to look up order context, create tickets or tasks, update approved fields, and notify teams when follow-up is needed.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a manufacturing AI agent",
+    "secondaryCta": "Explore DocsBot for operations"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps contract manufacturers create AI agents trained on their own technical, commercial, and operational knowledge. Agents can answer customer and employee questions, summarize context, identify documentation gaps, qualify leads, draft support responses, and take bounded workflow actions through customer-configured Skills, APIs, connectors, MCP servers, or approved automations.",
+    "whoItHelps": [
+      {
+        "role": "Sales, estimating, and business development teams",
+        "roleContext": "Contract manufacturers win trust when they answer technical fit questions quickly without overpromising capacity, pricing, or compliance commitments.",
+        "bullets": [
+          {
+            "text": "Respond to common capability, material, finish, tolerance, MOQ, certification, and onboarding questions from approved sales and technical sources.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured RFQ context such as part type, volume, drawings, target timeline, application, incumbent supplier, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Prepare handoff summaries for estimators, account managers, or engineering review before quoting or committing to delivery terms.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Operations, quality, and production leaders",
+        "roleContext": "High-mix manufacturing environments depend on consistent access to procedures, customer requirements, inspection notes, and change history.",
+        "bullets": [
+          {
+            "text": "Make SOPs, work instructions, quality procedures, setup notes, and customer-specific requirements easier to retrieve in private team chat.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Summarize recurring production, ticket, and customer questions so leaders can spot training gaps and documentation debt.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support controlled handoffs for sensitive quality, safety, contract, or regulated-product questions that require human review.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Customer support and program management teams",
+        "roleContext": "Customers often need updates, documentation, shipping context, or clarification across long-running programs with many internal stakeholders.",
+        "bullets": [
+          {
+            "text": "Answer routine customer questions from approved onboarding guides, policies, quality documents, and support knowledge bases.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "When connected to authorized systems, look up live record context, draft replies, route tickets, or create follow-up tasks within defined permissions.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Escalate complex engineering changes, pricing disputes, quality claims, or contractual decisions to the right human owner.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-deloitte-2025-manufacturing-outlook",
+      "metric": "Manufacturers are balancing optimized cost and resilience while tackling talent, supply chain, AI, and smart operations priorities.",
+      "claim": "Deloitte’s 2025 outlook highlights ongoing manufacturing priorities around talent, AI and generative AI, supply chain agility, smart operations, and cost-resilience balance.",
+      "sourceTitle": "2025 Manufacturing Industry Outlook",
+      "sourceUrl": "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/manufacturing-industry-outlook/2025.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "manufacturing operating pressure",
+        "talent and supply chain context",
+        "AI adoption rationale"
+      ]
+    },
+    {
+      "id": "src-nist-mep-supplier-scouting",
+      "metric": "NIST MEP connects buyers with U.S. manufacturers that have specific production and technical capabilities.",
+      "claim": "NIST MEP’s Supplier Scouting service identifies U.S. manufacturers with specific production and technical capabilities and connects them to supply chain customers.",
+      "sourceTitle": "Supplier Scouting",
+      "sourceUrl": "https://www.nist.gov/mep/supply-chain/supplier-scouting",
+      "sourceDate": "NIST page, accessed 2026",
+      "bestUsedFor": [
+        "supplier capability discovery",
+        "domestic sourcing demand",
+        "technical capability matching"
+      ]
+    },
+    {
+      "id": "src-deloitte-supply-chain-lead-times",
+      "metric": "Average production-material lead time was 79 days in April 2024.",
+      "claim": "Deloitte reported that average lead time for production materials reached 79 days in April 2024, underscoring the need for better supply chain visibility and communication.",
+      "sourceTitle": "Supply chain resilience amid disruptions",
+      "sourceUrl": "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/global-supply-chain-resilience-amid-disruptions.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "lead time pressure",
+        "supply chain communication",
+        "customer status expectations"
+      ]
+    },
+    {
+      "id": "src-fda-qmsr-2026",
+      "metric": "FDA QMSR became effective February 2, 2026.",
+      "claim": "The FDA says the Quality Management System Regulation became effective on February 2, 2026, amending 21 CFR Part 820 and incorporating ISO 13485:2016 by reference for medical device quality management systems.",
+      "sourceTitle": "Quality Management System Regulation (QMSR)",
+      "sourceUrl": "https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-system-qs-regulationmedical-device-current-good-manufacturing-practices-cgmp",
+      "sourceDate": "Updated February 2, 2026",
+      "bestUsedFor": [
+        "regulated manufacturing documentation",
+        "medical device contract manufacturing",
+        "quality system pressure"
+      ]
+    },
+    {
+      "id": "src-deloitte-smart-manufacturing-2025",
+      "metric": "Deloitte surveyed 600 U.S. manufacturing executives on smart manufacturing and operations challenges.",
+      "claim": "Deloitte’s 2025 Smart Manufacturing and Operations Survey of 600 executives found manufacturers pursuing smart operations while working through talent, transformation, and operational risk barriers.",
+      "sourceTitle": "2025 Smart Manufacturing and Operations Survey",
+      "sourceUrl": "https://www2.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "smart operations priorities",
+        "data foundation investment",
+        "operational risk and talent barriers"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "RFQ and capability intake agent",
+      "problem": "Prospects arrive with incomplete part requirements, unclear volumes, and repeated questions about materials, tolerances, certifications, engineering support, and production fit.",
+      "agentWorkflow": "DocsBot answers from approved capability pages, FAQs, line cards, equipment lists, quality documents, and sales enablement materials. It collects missing RFQ details through a structured intake flow, applies customer-defined qualification rules, and prepares a summary for sales or estimating review.",
+      "liveContextOrTools": "With approved Skills, APIs, forms, or workflow automations, the agent can submit a lead form, create a CRM or ticketing record, route the inquiry by process family, and request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you manufacture low-volume machined aluminum housings with anodizing?",
+        "What information do you need before quoting this assembly?",
+        "Do you support ISO-controlled production for medical device components?"
+      ],
+      "businessOutcome": "Fewer incomplete RFQs, faster first responses, and cleaner handoffs from website inquiry to estimating or engineering review.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Customer order and program support agent",
+      "problem": "Program managers and support teams field recurring questions about order status, document requests, shipping policies, production milestones, and escalation contacts.",
+      "agentWorkflow": "DocsBot answers routine questions from onboarding guides, customer support articles, quality policies, shipping FAQs, and account documentation. When an issue needs human judgment, the agent summarizes the request and escalates with context.",
+      "liveContextOrTools": "If authorized, AI Actions can look up order or ticket status, create a follow-up task, update approved support fields, notify a program manager, or draft a response for review.",
+      "exampleQuestionsOrRequests": [
+        "Can you summarize the latest update for this purchase order?",
+        "Where do I find the certificate or inspection documentation process?",
+        "Who should handle a customer request to change the drawing revision?"
+      ],
+      "businessOutcome": "Program teams spend less time repeating policy answers and more time resolving exceptions, engineering changes, and customer-sensitive issues.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-deloitte-supply-chain-lead-times"
+      ]
+    },
+    {
+      "name": "Internal SOP and quality knowledge assistant",
+      "problem": "Operators, quality staff, and supervisors lose time searching across PDFs, drives, wikis, training files, and customer-specific work instructions.",
+      "agentWorkflow": "DocsBot trains on approved SOPs, inspection procedures, onboarding materials, quality manuals, PDFs, Word documents, and internal knowledge sources. Employees ask procedural questions in private chat and receive source-grounded answers with citations to the relevant internal material.",
+      "liveContextOrTools": "Configured workflows can route unanswered questions to document owners, create tasks for missing procedures, or summarize repeated knowledge gaps for quality and operations leaders.",
+      "exampleQuestionsOrRequests": [
+        "What is the inspection process for first article documentation?",
+        "Which SOP covers nonconforming material disposition?",
+        "Summarize the setup checklist for this product family."
+      ],
+      "businessOutcome": "More consistent procedure access, faster onboarding, and better visibility into which instructions need clarification or updating.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Supplier and sourcing knowledge agent",
+      "problem": "Contract manufacturers are often asked to explain domestic capability, substitute materials, supplier readiness, and production options while balancing lead times and sourcing risk.",
+      "agentWorkflow": "DocsBot answers from approved supplier policies, approved-vendor notes, material guidance, sourcing FAQs, capability matrices, and customer communication templates. It can help teams prepare consistent responses about supplier constraints without inventing availability or commitments.",
+      "liveContextOrTools": "With approved live context, the agent can retrieve supplier record notes, create sourcing tasks, route material questions, or notify purchasing when a customer inquiry needs follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Which approved suppliers support this finish?",
+        "What information should we collect before evaluating a substitute material?",
+        "How do we explain our domestic production capabilities to this prospect?"
+      ],
+      "businessOutcome": "Better cross-functional communication between sales, purchasing, engineering, and customers when supplier capability or lead-time questions arise.",
+      "icon": "CubeIcon",
+      "sourceIds": [
+        "src-nist-mep-supplier-scouting"
+      ]
+    },
+    {
+      "name": "Regulated product documentation support",
+      "problem": "Medical device, aerospace, electronics, and other regulated contract manufacturing programs require careful documentation, controlled answers, and clear human review boundaries.",
+      "agentWorkflow": "DocsBot retrieves approved quality system guidance, customer requirements, compliance notes, training files, and document-control references. It can summarize what the internal source says while escalating final interpretations, audits, quality decisions, or regulatory commitments to qualified personnel.",
+      "liveContextOrTools": "Customer-configured workflows can route compliance questions, create review tasks, or generate a handoff summary with source references and conversation history.",
+      "exampleQuestionsOrRequests": [
+        "Which quality records are needed for this customer package?",
+        "What does our procedure say about supplier audit documentation?",
+        "Summarize the training requirements for this regulated program."
+      ],
+      "businessOutcome": "Teams get faster access to controlled knowledge while keeping sensitive quality and compliance decisions inside defined review paths.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-qmsr-2026"
+      ]
+    },
+    {
+      "name": "Manufacturing documentation gap analysis",
+      "problem": "Repeated customer and employee questions often reveal missing pages, outdated FAQs, unclear SOPs, or confusing onboarding materials.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see where people are asking the same questions and where approved content is incomplete.",
+      "liveContextOrTools": "Teams can use reports to prioritize new help articles, updated work instructions, sales enablement pages, training materials, or internal policy revisions.",
+      "exampleQuestionsOrRequests": [
+        "Which customer questions are not answered by our current support docs?",
+        "What SOP topics are employees asking about most often?",
+        "Which RFQ questions should become a public FAQ?"
+      ],
+      "businessOutcome": "Documentation improves around real demand instead of guesswork, supporting better customer self-service and internal consistency.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-deloitte-smart-manufacturing-2025"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers and customers a faster path from question to qualified handoff",
+    "intro": "A customer-facing DocsBot agent can sit on your website or customer portal to answer approved questions, collect project context, and escalate complex manufacturing, pricing, engineering, or quality issues to your team.",
+    "requests": [
+      {
+        "request": "“Can you manufacture this part, and what details do you need to quote it?”",
+        "agentResponseStrategy": "Answer from capability and RFQ documentation, collect missing details, ask for drawing or requirement context when appropriate, and prepare a qualified summary for estimating.",
+        "sourceTypes": [
+          "Capability pages",
+          "RFQ checklists",
+          "Sales enablement docs",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Submit a structured lead form or create a sales handoff through a configured CRM, helpdesk, email, or workflow connection.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Do you support this material, finish, certification, or inspection package?”",
+        "agentResponseStrategy": "Retrieve approved capability, quality, and certification content while avoiding commitments that require engineering, quality, or commercial review.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Certification notes",
+          "Material guides",
+          "Process documentation"
+        ],
+        "optionalAction": "Route the question to engineering or quality with a concise summary and source references.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“What is the status or next step for my order?”",
+        "agentResponseStrategy": "Answer general process questions from support documentation and, when configured with live context, look up authorized record information for a scoped response.",
+        "sourceTypes": [
+          "Customer onboarding guides",
+          "Support policies",
+          "Order workflow notes",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Create a support ticket, notify the program manager, or draft a customer reply for review.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can I book a technical review or manufacturability discussion?”",
+        "agentResponseStrategy": "Collect scheduling intent, project context, role, company, timeline, and topic so the right person can follow up prepared.",
+        "sourceTypes": [
+          "Meeting qualification rules",
+          "Sales playbooks",
+          "Engineering review criteria",
+          "Website forms"
+        ],
+        "optionalAction": "Use a customer-configured scheduling Skill or workflow for tools such as Calendly, Cal.com, TidyCal, or similar systems.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you explain your domestic production capabilities?”",
+        "agentResponseStrategy": "Answer from approved capability statements and sourcing content, then ask clarifying questions about volume, process, material, geography, and timing.",
+        "sourceTypes": [
+          "Capability matrices",
+          "Plant profiles",
+          "Supplier policy docs",
+          "Sourcing FAQs"
+        ],
+        "optionalAction": "Route domestic sourcing opportunities to business development or operations for review.",
+        "icon": "BuildingOffice2Icon",
+        "sourceIds": [
+          "src-nist-mep-supplier-scouting"
+        ]
+      },
+      {
+        "request": "“Can you provide a quote right now?”",
+        "agentResponseStrategy": "Explain the approved quoting process, collect required inputs, and make clear that final pricing, capacity, legal terms, and delivery commitments require human review.",
+        "sourceTypes": [
+          "Quoting policy",
+          "Terms and conditions",
+          "RFQ checklist",
+          "Sales playbook"
+        ],
+        "optionalAction": "Forward the request with a concise summary to estimating or account management.",
+        "icon": "BanknotesIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Turn shop, quality, and commercial knowledge into a private operations agent",
+    "intro": "A private DocsBot agent helps employees retrieve source-grounded answers from approved internal knowledge instead of searching through disconnected folders, wikis, PDFs, and message threads.",
+    "workflows": [
+      {
+        "name": "SOP and work-instruction lookup",
+        "problem": "Employees need fast, consistent answers to process questions without relying on whoever happens to know where the latest file lives.",
+        "agentWorkflow": "Train DocsBot on SOPs, work instructions, training materials, PDFs, Word files, wiki pages, and internal policies. Employees ask plain-language questions and get source-grounded answers with links back to the approved source.",
+        "sourceTypes": [
+          "SOPs",
+          "Work instructions",
+          "Training files",
+          "Quality manuals"
+        ],
+        "optionalAction": "Route unanswered questions to a document owner or create a task for missing content.",
+        "outcome": "Faster internal answers, more consistent procedure access, and clearer signals about which documents need improvement.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Estimator and sales enablement assistant",
+        "problem": "Sales and estimating teams need quick access to capability details, objection handling, qualification rules, proposal language, and customer-facing FAQs.",
+        "agentWorkflow": "DocsBot retrieves approved sales playbooks, product and service catalogs, capability matrices, pricing guidance, proposal templates, implementation notes, testimonials, and FAQs so reps can prepare better answers and handoffs.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Capability matrices",
+          "Proposal templates",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft follow-up emails, summarize prospect research when web search is configured, or create a task in a customer-approved sales workflow.",
+        "outcome": "More consistent buyer communication and better-prepared human follow-up before quoting, negotiating, or committing to terms.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Quality and compliance question routing",
+        "problem": "Quality teams get repeated procedural questions, but final answers may depend on product class, customer agreements, or regulated-program boundaries.",
+        "agentWorkflow": "DocsBot answers from approved quality manuals, training content, controlled procedures, customer requirements, and compliance guidance. It can summarize the relevant source language and direct sensitive decisions to qualified reviewers.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Controlled procedures",
+          "Customer requirements",
+          "Compliance guidance"
+        ],
+        "optionalAction": "Create review tasks, notify quality owners, or generate handoff summaries with source references and conversation context.",
+        "outcome": "Employees find controlled guidance faster while quality, regulatory, and customer-sensitive decisions remain in human review paths.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-qmsr-2026"
+        ]
+      },
+      {
+        "name": "Support ticket and issue summarization",
+        "problem": "Program, support, and production teams need concise context when a customer issue, nonconformance, shipment question, or engineering change moves between functions.",
+        "agentWorkflow": "With configured helpdesk, ticketing, exported ticket, or workflow access, DocsBot can summarize issue history, draft responses, classify topics, and route requests to the right team.",
+        "sourceTypes": [
+          "Ticket history exports",
+          "Support procedures",
+          "Customer account notes",
+          "Issue classification rules"
+        ],
+        "optionalAction": "Create or update approved ticket fields, notify a channel, or draft a customer response for human review.",
+        "outcome": "Less time reconstructing context and more consistent cross-functional follow-through.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Documentation and knowledge-gap reporting",
+        "problem": "Recurring questions across RFQs, support tickets, and internal chat often point to gaps in public documentation or internal training.",
+        "agentWorkflow": "DocsBot uses analytics, logs, topic management, conversation review, reports, and satisfaction or resolution analysis to show what people ask and where the agent could not answer confidently from approved sources.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base articles",
+          "Internal documentation"
+        ],
+        "optionalAction": "Prioritize content updates, assign documentation tasks, or refine AI instructions and source coverage.",
+        "outcome": "Teams improve manuals, FAQs, onboarding guides, and SOPs based on real questions from customers and employees.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the organization’s configured knowledge sources and provide answers grounded in those approved materials.",
+      "industryApplication": "Answer contract manufacturing questions from capability statements, quality policies, RFQ guidance, onboarding materials, manuals, and support content without relying on generic model knowledge.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, field updates, and workflow triggers when configured by the customer.",
+      "industryApplication": "Look up authorized order context, create support or estimating tasks, submit lead forms, notify program managers, or route quality questions through approved workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for teams using internal documents, SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Give production, quality, purchasing, program management, and sales teams one place to ask about procedures, customer requirements, training, and troubleshooting guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or approved workflows to learn from, summarize, route, answer, or draft ticket responses.",
+      "industryApplication": "Summarize customer issue history, draft routine responses, classify order questions, and escalate complex engineering, quality, pricing, or contract requests to human owners.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which RFQ, SOP, customer onboarding, order status, and quality documentation questions keep repeating so content owners can improve the source material.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for business knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect proprietary manufacturing knowledge, customer requirements, procedures, and commercial content while controlling which sources and actions each agent can access.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on multilingual manuals, websites, and owned content libraries for scalable customer support.",
+      "Give teams source-grounded answers without building and maintaining a custom RAG stack.",
+      "Support high-volume customer inquiry environments with analytics and resolution-focused operations."
+    ],
+    "whyTheseReviewsFit": "Contract manufacturing teams need practical AI that can learn from manuals, technical content, support knowledge, and internal documentation. DocsBot proof shows teams using owned knowledge to support customers, reduce repetitive work, and avoid the overhead of building retrieval infrastructure themselves.",
+    "trustClaimIcons": [
+      "LanguageIcon",
+      "CpuChipIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for contract manufacturing support, RFQ intake, internal knowledge, and operations teams",
+    "audience": [
+      "Contract manufacturers",
+      "Manufacturing sales and estimating teams",
+      "Quality and operations leaders",
+      "Program management and customer support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingOffice2Icon"
+  },
+  "relatedIndustrySlugs": [
+    "manufacturing",
+    "industrial-manufacturing",
+    "aerospace-parts-manufacturing",
+    "additive-manufacturing",
+    "plastics-manufacturing",
+    "iot-device-manufacturing",
+    "b2b-product-distributors",
+    "electric-vehicle-components"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "contract-manufacturing",
+    "webSearchQueries": [
+      "contract manufacturing market supply chain challenges report lead times reshoring 2024",
+      "NIST manufacturing extension partnership supplier scouting contract manufacturers supply chain",
+      "Deloitte 2025 manufacturing industry outlook talent shortage supply chain",
+      "FDA 21 CFR 820 contract manufacturer quality system regulation",
+      "FDA Quality Management System Regulation effective February 2 2026 contract manufacturers",
+      "NAM manufacturers outlook workforce shortage supply chain 2025"
+    ],
+    "sourceUrls": [
+      "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/manufacturing-industry-outlook/2025.html",
+      "https://www.nist.gov/mep/supply-chain/supplier-scouting",
+      "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/global-supply-chain-resilience-amid-disruptions.html",
+      "https://www.fda.gov/medical-devices/postmarket-requirements-devices/quality-system-qs-regulationmedical-device-current-good-manufacturing-practices-cgmp",
+      "https://www2.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47039,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 27327,
+        "outputTokens": 9610,
+        "reasoningOutputTokens": 185,
+        "totalTokens": 56649,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.217396,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.237396
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 26803,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 12339,
+          "outputTokens": 6940,
+          "reasoningOutputTokens": 185,
+          "totalTokens": 33743,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.138564,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.158564
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20236,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14988,
+          "outputTokens": 2670,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22906,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078832,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078832
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1717386255773-1e3037c81788?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxDb250cmFjdCUyME1hbnVmYWN0dXJpbmd8ZW58MHwwfHx8MTc3ODg1MDcwNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a large machine in a large building",
+    "source": "unsplash-search",
+    "query": "Contract Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot help us qualify RFQs before an estimator spends time on them?",
+      "answer": "Yes. A DocsBot agent can ask for required RFQ details such as part type, drawings, material, finish, volume, target timeline, application, and preferred follow-up channel. It can answer basic capability questions from approved content, then prepare a structured handoff for estimating or engineering review instead of trying to generate a final quote on its own.",
+      "role": "Sales, estimating, and business development teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the agent from overpromising lead times, capacity, certifications, or pricing?",
+      "answer": "DocsBot should be trained on approved capability, quality, onboarding, and quoting documents, with instructions to avoid commitments that require human review. For sensitive questions, it can explain the approved process, collect context, and route the request to sales, estimating, quality, or operations with a concise summary.",
+      "role": "Sales, estimating, and business development teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer technical fit questions about tolerances, materials, finishes, MOQs, or inspection packages?",
+      "answer": "Yes, when those answers exist in your approved source materials. DocsBot can retrieve information from capability matrices, equipment lists, material guides, quality notes, FAQs, and sales enablement documents. For edge cases or customer-specific requirements, it can escalate instead of inventing an answer.",
+      "role": "Sales, estimating, and business development teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support domestic sourcing and supplier capability questions from prospects?",
+      "answer": "Yes. DocsBot can answer from approved plant profiles, capability statements, sourcing FAQs, supplier policies, and customer communication templates. That is useful when buyers are looking for U.S. manufacturers with specific production and technical capabilities, a need reflected in NIST MEP’s Supplier Scouting program.",
+      "role": "Sales, estimating, and business development teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nist-mep-supplier-scouting"
+      ]
+    },
+    {
+      "question": "Can this help program managers respond to recurring order status and documentation questions?",
+      "answer": "Yes. DocsBot can answer routine questions from onboarding guides, support policies, shipping FAQs, document request procedures, and account documentation. If you authorize live context through Skills, APIs, connectors, or workflows, it can look up scoped order or ticket details, create follow-up tasks, notify a program manager, or draft a reply for review.",
+      "role": "Customer support and program management teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What would DocsBot do when a customer asks for a drawing revision change, pricing exception, or quality claim decision?",
+      "answer": "Those should remain human-controlled. DocsBot can collect the customer’s request, summarize the conversation, attach relevant source references, and route it to the right owner. It should not make engineering, commercial, legal, quality, or contract decisions unless your team has explicitly defined a narrow approved action.",
+      "role": "Customer support and program management teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can our operators and supervisors use DocsBot to find SOPs and work instructions faster?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, work instructions, quality manuals, training files, PDFs, Word documents, wikis, and other approved sources. Employees can ask plain-language questions and receive source-grounded answers with links back to the relevant internal material.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle controlled documents and outdated procedures?",
+      "answer": "DocsBot is only as reliable as the sources you connect and maintain. Most manufacturers should start with controlled repositories, approved PDFs, current SOP libraries, or document-owner workflows. DocsBot can also surface unanswered or recurring questions so quality and operations leaders can identify documentation gaps or content that needs revision.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help regulated contract manufacturing teams without creating compliance risk?",
+      "answer": "DocsBot can retrieve approved quality system guidance, customer requirements, compliance notes, training files, and document-control references, while routing final interpretations or regulated decisions to qualified personnel. This matters for medical device work because FDA’s QMSR became effective February 2, 2026, amending 21 CFR Part 820 and incorporating ISO 13485:2016 by reference.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-qmsr-2026"
+      ]
+    },
+    {
+      "question": "Can we separate what a customer-facing agent knows from what employees can access internally?",
+      "answer": "Yes. You can configure different agents, sources, permissions, and instructions for public, customer-facing, and private internal use cases. For example, a website RFQ agent might use capability pages and public FAQs, while an internal operations agent can use SOPs, customer requirements, quality notes, and training documents with role-based access controls.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What systems can DocsBot connect to for RFQ, support, or operations workflows?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP servers, forms, webhooks, and approved automations to support bounded actions. Examples include creating a ticket or task, submitting a lead form, routing an inquiry, looking up authorized record context, updating approved fields, notifying a team, or drafting a response for human review.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot integrate with our ERP, CRM, helpdesk, or scheduling tools?",
+      "answer": "Potentially, if your team provides an approved connection path through Skills, APIs, connectors, exported sources, MCP servers, or workflow automation. DocsBot should not be positioned as having a guaranteed native integration with every manufacturing system; the right implementation depends on your stack, permissions, data model, and workflow boundaries.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How quickly can we pilot this without cleaning up every document in the company?",
+      "answer": "A practical pilot can start with a narrow workflow: RFQ intake, customer support FAQs, SOP lookup, or quality question routing. Use a curated set of approved documents first, review answer quality, add escalation rules, and expand source coverage after you see which questions repeat and which gaps matter operationally.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What content should we train the first manufacturing agent on?",
+      "answer": "Start with high-demand, lower-risk content: capability statements, RFQ checklists, customer onboarding guides, shipping policies, approved FAQs, SOPs, work instructions, quality procedures, training materials, and support knowledge. Avoid using uncontrolled message threads or outdated folders as primary sources until owners validate what should be trusted.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI for a contract manufacturing AI agent?",
+      "answer": "Track practical metrics such as faster RFQ response time, fewer incomplete inquiries, reduced repetitive questions to program managers, faster SOP retrieval, improved escalation quality, and documentation gaps closed. For customer-facing use, also review qualified lead volume, handoff completeness, conversation resolution, and avoided back-and-forth before estimating.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this replace estimators, program managers, or quality engineers?",
+      "answer": "No. DocsBot is best used to reduce repetitive information retrieval, intake, summarization, and routing work. Estimators, program managers, engineers, and quality leaders should still own quoting, capacity commitments, manufacturability judgments, customer negotiations, regulated decisions, and exception handling.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with supplier lead-time communication and customer expectations?",
+      "answer": "Yes, DocsBot can help teams give consistent process answers, retrieve approved supplier or sourcing guidance, and route material availability questions to purchasing or program management. This is relevant because Deloitte reported average production-material lead time reached 79 days in April 2024, increasing the need for clear supply chain communication.",
+      "role": "Customer support and program management teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-deloitte-supply-chain-lead-times"
+      ]
+    },
+    {
+      "question": "How does DocsBot protect proprietary manufacturing knowledge and customer requirements?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It does not use customer data to train public models. For live actions, customers define what systems, secrets, metadata, network access, and logs are available to the agent.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent said if a customer or employee challenges an answer?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, topic management, analytics, and satisfaction or resolution analysis. Those records help teams audit answer quality, understand escalation patterns, identify missing source material, and refine instructions or documentation over time.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG system on top of internal documents?",
+      "answer": "DocsBot is designed for teams that want source-grounded agents, knowledge ingestion, chat experiences, analytics, governance features, and configurable actions without maintaining a custom retrieval stack. A custom build may fit highly specialized architectures, but it usually requires engineering ownership for ingestion, permissions, evaluation, monitoring, and workflow integrations.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent support multilingual customers, suppliers, or plant teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured for the use case. For manufacturing, that can help with customer support, supplier communication, internal SOP access, and training questions, while still relying on the approved source materials and escalation rules you define.",
+      "role": "Customer support and program management teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent cannot find a confident answer in our documents?",
+      "answer": "It should say it does not have enough approved information, ask for missing context if useful, and escalate to the right owner. DocsBot can also log those unanswered questions so content owners can decide whether to update an FAQ, SOP, onboarding guide, quality note, or sales enablement document.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us find gaps in our manufacturing documentation?",
+      "answer": "Yes. DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can show recurring RFQ, SOP, onboarding, order-status, and quality questions. Deloitte’s 2025 smart manufacturing research surveyed 600 U.S. manufacturing executives on smart operations and operational challenges, reinforcing the value of better operational visibility.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-deloitte-smart-manufacturing-2025"
+      ]
+    },
+    {
+      "question": "How should we roll this out to skeptical shop-floor or quality teams?",
+      "answer": "Start with a focused internal assistant for a painful search problem, such as SOP lookup or customer-specific requirement retrieval. Keep answers source-grounded, show links to the approved document, define escalation rules, and involve document owners early so employees see DocsBot as a faster path to trusted guidance, not an uncontrolled advice engine.",
+      "role": "Operations, quality, and production leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can a customer-facing agent book meetings or route high-fit prospects to sales?",
+      "answer": "Yes. DocsBot can collect scheduling intent, company details, project context, timeline, and technical-review needs. With a customer-configured scheduling Skill or workflow, it can support meeting requests through tools such as Calendly, Cal.com, TidyCal, or similar systems, while leaving complex pricing and manufacturing commitments to humans.",
+      "role": "Sales, estimating, and business development teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement and IT ask before approving DocsBot?",
+      "answer": "They should review data sources, access controls, retention expectations, security requirements, user roles, live-action permissions, audit needs, and integration boundaries. For manufacturing, they should also clarify whether the first deployment is public RFQ intake, internal SOP retrieval, customer support, or regulated documentation support, because each has different risk controls.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

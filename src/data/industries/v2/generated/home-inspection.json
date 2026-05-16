@@ -1,0 +1,716 @@
+{
+  "slug": "home-inspection",
+  "business": "Home Inspection",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Home Inspection Teams | DocsBot",
+    "description": "DocsBot helps home inspection firms answer buyer questions, qualify requests, route follow-ups, and make SOPs searchable from one AI agent.",
+    "canonicalPath": "/industry/home-inspection"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for inspection firms",
+    "headline": "DocsBot AI agents keep home inspection clients informed",
+    "subheadline": "Train DocsBot on your inspection services, FAQs, report guidance, standards notes, scheduling policies, and internal SOPs so buyers, agents, office staff, and inspectors get fast, source-grounded answers before and after the inspection.",
+    "proofBullets": [
+      {
+        "text": "Answer pre-inspection questions about scope, timing, pricing factors, add-on services, report delivery, and how clients should prepare.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect property details, buyer contact information, scheduling intent, and special concerns before handing the request to your team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give office staff and inspectors instant access to SOPs, template language, tool checklists, safety reminders, and report-writing guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Route complex report, repair negotiation, legal, code, or safety questions to a qualified human instead of overstepping the agent’s role.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a home inspection AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps home inspection companies create AI agents trained on their own website, service pages, report explanations, FAQs, training documents, PDFs, policies, and internal procedures. The agent can answer common questions, summarize context, identify knowledge gaps, collect intake details, and trigger approved handoffs through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and office managers",
+        "roleContext": "Keep client communication consistent when buyers, sellers, and real estate agents ask the same time-sensitive questions during a transaction.",
+        "bullets": [
+          {
+            "text": "Explain what is and is not included in your inspection services using approved company wording.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Capture quote or booking details such as address, property type, square footage, preferred dates, and add-on requests.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to find repeated questions that should become better website or onboarding content.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Inspectors and field teams",
+        "roleContext": "Reduce time spent hunting through SOPs, templates, equipment guidance, and reporting notes while keeping inspection judgment with the professional.",
+        "bullets": [
+          {
+            "text": "Search internal procedures, report-writing conventions, add-on service checklists, and photo documentation guidance from a private knowledge agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Find approved language for explaining limitations, inaccessible areas, client expectations, and next-step recommendations.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Use scoped workflows to summarize inspection context or create internal tasks after a client follow-up request.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Client service and agent relations teams",
+        "roleContext": "Help buyers and real estate partners understand scheduling, attendance, report timing, and follow-up boundaries without waiting for a callback.",
+        "bullets": [
+          {
+            "text": "Respond in a website widget or connected helpdesk-style workflow with answers grounded in your approved sources.",
+            "icon": "DevicePhoneMobileIcon"
+          },
+          {
+            "text": "Escalate report interpretation, repair advice, legal questions, or urgent safety concerns to the right person.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support multilingual buyers and agents with answers in more than 100 languages when your content is available to the agent.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-inspector-work",
+      "metric": "147,600 construction and building inspector jobs in 2024",
+      "claim": "BLS reports that construction and building inspectors examine worksites, document findings in writing, and that home inspectors often inspect during the day and write reports in the evening.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Construction and Building Inspectors",
+      "sourceUrl": "https://www.bls.gov/ooh/construction-and-extraction/construction-and-building-inspectors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "report-writing workload",
+        "field and office workflow pressure"
+      ]
+    },
+    {
+      "id": "src-bls-openings",
+      "metric": "About 14,800 projected openings each year",
+      "claim": "BLS projects about 14,800 annual openings for construction and building inspectors from 2024 to 2034, largely from replacement needs.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Construction and Building Inspectors",
+      "sourceUrl": "https://www.bls.gov/ooh/construction-and-extraction/construction-and-building-inspectors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "staffing pressure",
+        "onboarding needs",
+        "knowledge retention"
+      ]
+    },
+    {
+      "id": "src-nar-consumer-guide",
+      "metric": "Inspection contingencies can affect whether a transaction continues",
+      "claim": "NAR explains that a buyer may include an inspection contingency as a condition that must be met for the transaction to continue.",
+      "sourceTitle": "National Association of REALTORS® Consumer Guide: Home Inspections",
+      "sourceUrl": "https://www.nar.realtor/the-facts/consumer-guide-home-inspections",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "buyer education",
+        "transaction urgency",
+        "client communication"
+      ]
+    },
+    {
+      "id": "src-ashi-sop",
+      "metric": "ASHI standards define minimum home inspection practice",
+      "claim": "ASHI’s Standard of Practice sets minimum requirements for residential home inspections and report expectations.",
+      "sourceTitle": "ASHI Standard of Practice for Home Inspections",
+      "sourceUrl": "https://ashiwebstorage.blob.core.windows.net/files/SOPs/ASHI%20SOP%20and%20Rationale%202nd%20Public%20Comment%20Version.pdf",
+      "sourceDate": "2014, public comment version accessed 2026",
+      "bestUsedFor": [
+        "standards awareness",
+        "scope explanation",
+        "report limitations"
+      ]
+    },
+    {
+      "id": "src-ibisworld-fragmented",
+      "metric": "No large market-share leader reported by IBISWorld",
+      "claim": "IBISWorld describes the U.S. Building Inspectors industry as fragmented, with no companies large enough to include as major market-share holders.",
+      "sourceTitle": "IBISWorld Building Inspectors in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-research-reports/building-inspectors-industry/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "competitive differentiation",
+        "small-business operations",
+        "lead response pressure"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Pre-inspection intake and scheduling triage",
+      "problem": "Buyers and agents often need quick answers while contracts, contingencies, and closing timelines are moving.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages and FAQs, collects address, property type, square footage, preferred times, inspection purpose, and add-on needs, then prepares a structured handoff for your office team or configured booking workflow.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can pass intake details to scheduling, forms, email, CRM, or helpdesk software. Humans stay responsible for final availability, pricing exceptions, and service commitments.",
+      "exampleQuestionsOrRequests": [
+        "Can you inspect a 1960s home this week?",
+        "What information do you need to give me a quote?",
+        "Can I add radon, sewer scope, or mold sampling to the inspection?"
+      ],
+      "businessOutcome": "Respond faster to high-intent buyers and agents while reducing repetitive phone and email intake.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-nar-consumer-guide"
+      ]
+    },
+    {
+      "name": "Service scope and standards explainer",
+      "problem": "Clients may confuse a home inspection with a code inspection, appraisal, warranty, or repair estimate.",
+      "agentWorkflow": "Train the agent on your standards references, service agreements, FAQs, sample reports, and limitation language so it can explain inspection scope, excluded items, attendance policies, report timing, and when a human inspector should clarify the issue.",
+      "liveContextOrTools": "The agent can surface citations from approved documents and escalate sensitive questions about legal rights, repair demands, or safety-critical findings.",
+      "exampleQuestionsOrRequests": [
+        "Does the inspection guarantee there are no hidden defects?",
+        "Do you check every outlet, appliance, and roof area?",
+        "What is the difference between a home inspection and an appraisal?"
+      ],
+      "businessOutcome": "Set expectations earlier, reduce misunderstandings, and make your company’s boundaries easier to understand.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ashi-sop"
+      ]
+    },
+    {
+      "name": "Post-report follow-up assistant",
+      "problem": "After receiving a detailed report, clients often ask what findings mean, what to do next, or which items are most important.",
+      "agentWorkflow": "A DocsBot agent trained on your report guide, sample explanations, FAQ language, and follow-up policy can explain report structure, define common terms, summarize non-advisory next steps, and route complex interpretation to the inspector.",
+      "liveContextOrTools": "With customer-configured live context, the agent can use permitted report metadata or a secure handoff summary. Review paths and access controls are important because inspection reports can contain transaction-sensitive details.",
+      "exampleQuestionsOrRequests": [
+        "What does 'further evaluation recommended' mean?",
+        "Where do I find the roof photos in the report?",
+        "Can someone call me about the electrical panel section?"
+      ],
+      "businessOutcome": "Improve client confidence after delivery without letting the AI replace professional judgment or negotiation advice.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Internal SOP and report-writing knowledge agent",
+      "problem": "BLS notes that inspectors document findings in writing, and home inspectors often write reports in the evening, making fast access to consistent language valuable.",
+      "agentWorkflow": "DocsBot can serve as a private knowledge agent trained on SOPs, reporting conventions, template comments, equipment checklists, add-on service guides, and onboarding materials so inspectors and coordinators can quickly retrieve approved guidance.",
+      "liveContextOrTools": "Teams can access the agent through private chat, Slack, Microsoft Teams, or customer-configured workflows, with role-based access to private knowledge sources.",
+      "exampleQuestionsOrRequests": [
+        "What is our approved wording for an inaccessible crawlspace?",
+        "Which photos are required for water heater documentation?",
+        "What is the onboarding checklist for a new inspector?"
+      ],
+      "businessOutcome": "Reduce time spent searching for procedures and help new team members follow company standards more consistently.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-inspector-work"
+      ]
+    },
+    {
+      "name": "Agent and partner communication support",
+      "problem": "In a fragmented market, inspection firms compete on responsiveness, clarity, and trust with real estate partners.",
+      "agentWorkflow": "DocsBot can answer partner questions from approved service pages, pricing guidance, sample report resources, scheduling policies, and referral FAQs, then draft concise follow-up emails or create tasks through configured workflows.",
+      "liveContextOrTools": "AI Actions can route partner requests, notify a team channel, create a task, or update approved fields in connected systems. MCP Connectors can be used where a team exposes approved tools through remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "Can you send our buyer a preparation checklist?",
+        "Do you have a sample report I can share?",
+        "Who should I contact for a last-minute reschedule?"
+      ],
+      "businessOutcome": "Make it easier for agents and partners to get reliable information without interrupting inspectors in the field.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-ibisworld-fragmented"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for better client education",
+      "problem": "The same unanswered questions can keep reappearing across calls, emails, web chats, and post-report follow-ups.",
+      "agentWorkflow": "DocsBot logs conversations, reports topic trends, supports conversation review, and helps identify gaps in your website, FAQs, report guide, or onboarding materials.",
+      "liveContextOrTools": "Teams can review satisfaction and resolution patterns, then update source documents so future answers improve from approved content rather than ad hoc explanations.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are clients asking before booking?",
+        "What report terms confuse first-time buyers most?",
+        "Which add-on services need clearer website copy?"
+      ],
+      "businessOutcome": "Turn client questions into better documentation, fewer repeated explanations, and clearer expectations.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI agent for buyers, sellers, and real estate partners",
+    "intro": "Put DocsBot on your website or client resource center so visitors can ask practical inspection questions and receive answers grounded in your approved services, policies, and education materials. The agent can collect details, qualify requests, and hand off sensitive issues to your team.",
+    "requests": [
+      {
+        "request": "“What happens during a home inspection?”",
+        "agentResponseStrategy": "Explain your inspection process, typical duration, client attendance policy, preparation steps, report delivery timing, and limits using your approved service content.",
+        "sourceTypes": [
+          "Website service pages",
+          "FAQs",
+          "Client preparation guides",
+          "Sample report notes"
+        ],
+        "optionalAction": "Offer to collect the property address and preferred inspection window for a follow-up.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Do I need an inspection contingency?”",
+        "agentResponseStrategy": "Provide general educational information from approved buyer resources and route legal or contract-specific advice to the buyer’s real estate or legal professional.",
+        "sourceTypes": [
+          "Client education content",
+          "NAR-style buyer resources",
+          "Company disclaimers"
+        ],
+        "optionalAction": "Create a handoff note for staff if the buyer needs help scheduling within a contract deadline.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-nar-consumer-guide"
+        ]
+      },
+      {
+        "request": "“Can you explain this phrase in my report?”",
+        "agentResponseStrategy": "Define common report terms from your glossary and report guide, clarify that the agent is not replacing the inspector, and escalate item-specific interpretation when needed.",
+        "sourceTypes": [
+          "Report glossary",
+          "Sample reports",
+          "Follow-up policy",
+          "Inspector escalation rules"
+        ],
+        "optionalAction": "Collect the report section, client contact details, and preferred callback time for review by the inspector.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you offer add-on inspections?”",
+        "agentResponseStrategy": "Answer from your approved list of ancillary services, eligibility notes, pricing guidance if published, and preparation requirements.",
+        "sourceTypes": [
+          "Service catalog",
+          "Pricing guidance",
+          "Add-on service FAQs"
+        ],
+        "optionalAction": "Route add-on interest to scheduling or create an internal task through an approved workflow.",
+        "icon": "PuzzlePieceIcon"
+      },
+      {
+        "request": "“Can you send a sample report?”",
+        "agentResponseStrategy": "Point the visitor to approved sample materials and explain how your reports are organized without exposing private client data.",
+        "sourceTypes": [
+          "Sample reports",
+          "Public resources",
+          "Website knowledge base"
+        ],
+        "optionalAction": "Collect lead details before sending a resource or forwarding the request to your office team.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "request": "“Do you speak Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answer capability to help clients understand your prepared content in their preferred language, while preserving your source-grounded message.",
+        "sourceTypes": [
+          "Translated or source-grounded FAQs",
+          "Service pages",
+          "Preparation checklists"
+        ],
+        "optionalAction": "Flag the preferred language in the handoff so your team can follow up appropriately.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for inspectors, coordinators, and owners",
+    "intro": "Use DocsBot internally to make SOPs, training, report templates, checklists, and policies searchable. Staff can ask questions in natural language and receive source-grounded answers from the documents your company approves.",
+    "workflows": [
+      {
+        "name": "Inspector onboarding assistant",
+        "problem": "BLS projects about 14,800 annual openings for construction and building inspectors, making knowledge transfer and onboarding important for firms that need consistent field practices.",
+        "agentWorkflow": "Train DocsBot on onboarding plans, ride-along checklists, reporting standards, safety procedures, tools, and sample language so new inspectors can ask procedural questions without waiting for a manager.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Checklists",
+          "Template comments"
+        ],
+        "optionalAction": "Generate a summary of topics a trainee asked about for manager review.",
+        "outcome": "Shorten the path from training materials to consistent field execution.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-openings"
+        ]
+      },
+      {
+        "name": "Office operations knowledge base",
+        "problem": "Coordinators answer questions about scheduling, reschedules, payment, access, agent communication, and report delivery all day.",
+        "agentWorkflow": "DocsBot can retrieve answers from office policies, scripts, service descriptions, refund rules, and communication templates, then help draft replies for human review.",
+        "sourceTypes": [
+          "Office SOPs",
+          "Email templates",
+          "Service policies",
+          "FAQs"
+        ],
+        "optionalAction": "Create a task, route a ticket, or notify a team channel through customer-configured AI Actions.",
+        "outcome": "Give staff consistent answers and reduce dependency on one experienced coordinator.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Report language and limitation lookup",
+        "problem": "Inspection firms need consistent explanations for inaccessible systems, observational limits, and next-step recommendations.",
+        "agentWorkflow": "The internal agent retrieves approved template language, limitation notes, and report-writing guidance from your documents so inspectors can stay consistent without memorizing every phrase.",
+        "sourceTypes": [
+          "Report templates",
+          "Inspection standards notes",
+          "Company style guide",
+          "Sample reports"
+        ],
+        "optionalAction": "Summarize a draft note for review, while leaving final report language to the inspector.",
+        "outcome": "Support clearer reports while keeping professional responsibility with licensed or qualified staff.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Owner dashboard for recurring questions",
+        "problem": "Repeated questions reveal where your website, agreements, and report guide may be unclear.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, and knowledge-gap discovery to review what clients and employees ask most often.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap reports",
+          "Reviewed transcripts"
+        ],
+        "optionalAction": "Create content update tasks for FAQs, preparation guides, or report explanations.",
+        "outcome": "Improve education materials based on real questions from buyers, agents, and staff.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agent",
+      "mainLandingPageContext": "DocsBot agents answer from approved knowledge sources such as websites, documents, PDFs, help content, and internal materials.",
+      "industryApplication": "Answer buyer and agent questions about inspection scope, scheduling, add-on services, report delivery, and preparation using your firm’s approved language.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Embeddable website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can support public customer experiences and private internal knowledge access.",
+      "industryApplication": "Place the agent on your inspection website for prospects, and use a private version for inspectors, office staff, and owners.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot agents can take bounded actions through customer-configured Skills, APIs, connectors, and approved workflows.",
+      "industryApplication": "Collect intake details, create follow-up tasks, route report questions, notify staff, or trigger booking handoffs without promising unmanaged automation.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, and insight into unanswered or repeated questions.",
+      "industryApplication": "Find the inspection topics buyers misunderstand most, then improve FAQs, report guides, and staff scripts.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and customer-defined Skill boundaries.",
+      "industryApplication": "Protect private inspection workflows by limiting which sources, reports, or actions each agent and staff group can access.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from configured knowledge sources.",
+      "industryApplication": "Help multilingual buyers and agents understand preparation steps, service scope, and next steps while staying grounded in your approved content.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own inspection content instead of relying on generic answers.",
+      "Support high-volume customer questions while preserving human escalation for complex issues.",
+      "Improve communication with clients, partners, and internal teams from a shared knowledge base."
+    ],
+    "whyTheseReviewsFit": "Home inspection buyers value clear communication, trustworthy answers, and fast follow-up during time-sensitive transactions. DocsBot’s customer proof shows how teams use owned content, embedded support, and internal knowledge access to improve communication without replacing expert judgment.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for home inspection companies",
+    "audience": [
+      "Home inspection company owners",
+      "Independent home inspectors",
+      "Inspection office managers",
+      "Real estate client service teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "real-estate-agent",
+    "property-management",
+    "mortgage-company",
+    "home-staging",
+    "landlord-services",
+    "real-estate-housing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "home-inspection",
+    "webSearchQueries": [
+      "home inspection industry market size United States IBISWorld home inspectors",
+      "ASHI home inspection standards of practice report home inspection",
+      "Bureau of Labor Statistics construction and building inspectors employment outlook",
+      "NAR home inspection buyer survey home inspection contingency"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/construction-and-extraction/construction-and-building-inspectors.htm",
+      "https://www.nar.realtor/the-facts/consumer-guide-home-inspections",
+      "https://ashiwebstorage.blob.core.windows.net/files/SOPs/ASHI%20SOP%20and%20Rationale%202nd%20Public%20Comment%20Version.pdf",
+      "https://www.ibisworld.com/united-states/market-research-reports/building-inspectors-industry/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40537,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 19801,
+        "outputTokens": 7363,
+        "reasoningOutputTokens": 99,
+        "totalTokens": 47900,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.165132,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.175132
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21708,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6220,
+          "outputTokens": 4814,
+          "reasoningOutputTokens": 99,
+          "totalTokens": 26522,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.091632,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.101632
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18829,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13581,
+          "outputTokens": 2549,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21378,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.0735,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.0735
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDIwMjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Home Inspection background image",
+    "source": "legacy-industry",
+    "query": "Home Inspection"
+  },
+  "faq": [
+    {
+      "question": "Can the AI answer buyer and agent questions without giving legal advice or repair negotiation guidance?",
+      "answer": "Yes. You can train DocsBot on your approved service scope, report guide, FAQs, disclaimers, and escalation rules. The agent can answer general education questions, then route contract-specific, legal, repair negotiation, code, or safety-critical questions to a human. That matters because inspection contingencies can affect whether a transaction continues.",
+      "role": "Owners and office managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nar-consumer-guide"
+      ]
+    },
+    {
+      "question": "How would this help us respond faster during short contingency windows?",
+      "answer": "DocsBot can answer common pre-inspection questions instantly, collect property address, square footage, property type, preferred times, buyer contact details, and add-on interests, then prepare a structured handoff for your office team or approved booking workflow. It does not need to finalize exceptions, pricing, or availability unless you configure a bounded workflow for that.",
+      "role": "Owners and office managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot explain what is and is not included in our inspection?",
+      "answer": "Yes. The agent can be trained on your standards references, service agreement, sample report language, limitation notes, and FAQs so it explains scope consistently. ASHI’s Standard of Practice defines minimum requirements for residential home inspections and report expectations, making approved scope language important for client education.",
+      "role": "Client service and agent relations teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-ashi-sop"
+      ]
+    },
+    {
+      "question": "Will the agent make up answers if our website does not cover a topic?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved content. For missing or uncertain topics, you can configure the agent to say it does not have enough information, collect the client’s question, and route it to staff. Conversation logs and knowledge-gap reporting then show which pages, FAQs, or SOPs need improvement.",
+      "role": "Owners and office managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use one AI agent for clients and another private one for inspectors and office staff?",
+      "answer": "Yes. Many inspection firms would separate a public website agent from a private internal knowledge agent. The public agent can answer buyer and real estate partner questions, while the internal agent can search SOPs, report templates, equipment checklists, onboarding materials, and office policies with role-based access controls.",
+      "role": "Owners and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot fit with our inspection software, CRM, forms, or scheduling process?",
+      "answer": "DocsBot can collect intake details and pass summaries into customer-configured workflows using Skills, APIs, connectors, forms, webhooks, or approved automation tools. It should be scoped to your process: creating a task, forwarding a lead, notifying the office, or preparing a booking handoff, while humans remain responsible for final commitments.",
+      "role": "Owners and office managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the AI handle post-report questions without replacing the inspector?",
+      "answer": "Yes, if you set clear boundaries. DocsBot can define report terms, explain how to navigate the report, summarize your non-advisory next steps, and collect the report section or callback request. Item-specific interpretation, urgency, repair recommendations, or transaction advice should be escalated to the inspector or another qualified person.",
+      "role": "Inspectors and field teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kind of content do we need before launching a useful inspection AI agent?",
+      "answer": "Start with service pages, FAQs, pricing or quote guidance, add-on descriptions, preparation checklists, sample report explanations, report glossary, scheduling policies, cancellation rules, and escalation instructions. For internal use, add SOPs, template comments, onboarding checklists, safety notes, and office scripts. The better the source material, the more reliable the answers.",
+      "role": "Owners and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help reduce evening report-writing friction for inspectors?",
+      "answer": "DocsBot can act as a private lookup tool for approved template language, limitation wording, photo requirements, add-on checklists, and report-writing conventions. BLS notes that inspectors document findings in writing and that home inspectors often inspect during the day and write reports in the evening, so faster access to approved language can reduce searching.",
+      "role": "Inspectors and field teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-inspector-work"
+      ]
+    },
+    {
+      "question": "How do we measure ROI if we are a small inspection firm?",
+      "answer": "Track high-intent inquiries captured, after-hours questions answered, scheduling handoffs created, repeated calls reduced, staff time saved, post-report escalations routed, and unanswered topics converted into better content. For many firms, the business case is less about replacing people and more about faster response, consistency, and fewer interruptions during fieldwork.",
+      "role": "Owners and office managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will clients trust an AI agent when they are anxious about a home purchase?",
+      "answer": "Trust depends on positioning and boundaries. The agent should identify itself, answer from your approved materials, show clear next steps, and escalate sensitive questions. In home inspection, buyers often need reassurance and clarity under deadline pressure, so a well-scoped agent should support communication rather than pretend to be the inspector.",
+      "role": "Client service and agent relations teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can the agent answer questions in Spanish or other languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from configured knowledge sources. For inspection firms, this can help multilingual buyers and agents understand preparation steps, attendance policies, report delivery, and add-on services. For complex report interpretation or legal questions, the agent should still route to a qualified human.",
+      "role": "Client service and agent relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much control do we have over what the agent is allowed to say or do?",
+      "answer": "You control the knowledge sources, instructions, escalation rules, and Skill boundaries. DocsBot also supports granular access controls, role-based permissions, logs, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and customer-defined controls for Skills so sensitive actions and sources stay scoped.",
+      "role": "Owners and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Could this help new coordinators or inspectors get up to speed faster?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions from your training manuals, SOPs, ride-along checklists, office policies, and report templates. BLS projects about 14,800 annual openings for construction and building inspectors from 2024 to 2034, which highlights the importance of knowledge transfer and repeatable training.",
+      "role": "Inspectors and field teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-openings"
+      ]
+    },
+    {
+      "question": "What happens when a buyer asks if a defect is a deal-breaker?",
+      "answer": "The agent should not make that judgment. It can explain your general report terminology, recommend reviewing the relevant report section, and offer to route the question to the inspector. If the question involves negotiation, contract rights, repair demands, or legal consequences, the agent should direct the client to the appropriate human professional.",
+      "role": "Client service and agent relations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us compete when clients contact multiple inspectors at once?",
+      "answer": "Yes. DocsBot can respond immediately to website visitors, answer scope and add-on questions, collect quote details, and hand off a complete inquiry to your team. In a fragmented market where IBISWorld reports no large market-share leader in the U.S. Building Inspectors industry, responsiveness and clarity can be meaningful differentiators.",
+      "role": "Owners and office managers",
+      "category": "Competitive comparisons",
+      "sourceIds": [
+        "src-ibisworld-fragmented"
+      ]
+    },
+    {
+      "question": "Can the agent send sample reports or preparation checklists to agents and buyers?",
+      "answer": "DocsBot can point visitors to approved sample reports, preparation pages, or public resources. With customer-configured Skills, APIs, connectors, or workflows, it can also collect lead details, create a follow-up task, or route the request to staff. It should never expose private client reports unless you intentionally configure secure, permissioned access.",
+      "role": "Client service and agent relations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the AI from giving outdated pricing or availability?",
+      "answer": "Keep time-sensitive information in approved, maintainable sources and use escalation rules for exceptions. If you configure live context through Skills, APIs, connectors, or a workflow, the agent can look up approved data or pass the request to scheduling. Final availability, rush fees, special properties, and unusual add-ons should remain human-reviewed.",
+      "role": "Owners and office managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations to see what buyers and agents are asking most?",
+      "answer": "Yes. DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For inspection firms, those insights can reveal unclear service pages, confusing report language, missing add-on explanations, or repeated scheduling questions that should become better website or onboarding content.",
+      "role": "Owners and office managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this only useful for larger multi-inspector companies?",
+      "answer": "No. Solo inspectors and small firms can use DocsBot to answer after-hours questions, qualify leads, explain scope, and reduce repetitive calls. Larger firms may add internal SOP search, office workflows, team permissions, and analytics. The implementation can start with a narrow public FAQ agent and expand as the process matures.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should our office manager be responsible for after launch?",
+      "answer": "An office manager typically owns answer review, source updates, escalation rules, recurring-question analysis, and workflow tuning. They should check transcripts, identify gaps, update FAQs or policies, and confirm that sensitive questions are routed properly. DocsBot helps expose the issues, but your team still governs the content and service commitments.",
+      "role": "Owners and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field inspectors use it from Slack, Microsoft Teams, or private chat?",
+      "answer": "Yes. DocsBot can support private team chat experiences, including Slack, Microsoft Teams, and customer-configured workflows. Inspectors can ask for approved SOP language, checklist reminders, template comments, or onboarding guidance without exposing internal materials to the public website agent.",
+      "role": "Inspectors and field teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot on our website?",
+      "answer": "Compare whether the tool can train on your own inspection content, provide source-grounded answers, support private internal knowledge use, escalate sensitive questions, collect structured intake, connect through scoped workflows, and report knowledge gaps. For inspection firms, the risk is not just answering quickly; it is answering within your approved scope and boundaries.",
+      "role": "Owners and office managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support ancillary service questions like radon, sewer scope, mold, or pool inspections?",
+      "answer": "Yes, if you train it on your approved add-on service descriptions, eligibility notes, pricing guidance if published, preparation requirements, and scheduling policies. The agent can explain availability and collect interest, then route the request. If licensing, lab results, health risk, or property-specific interpretation is involved, it should escalate.",
+      "role": "Client service and agent relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What will procurement or ownership want to know before approving this?",
+      "answer": "Expect questions about source control, data handling, access permissions, SOC 2 Type II certification, GDPR-ready governance, encryption, whether customer data trains public models, implementation effort, escalation rules, and measurable outcomes. Owners will also want to know who maintains content and how the agent reduces missed leads or repetitive staff work.",
+      "role": "Owners and office managers",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

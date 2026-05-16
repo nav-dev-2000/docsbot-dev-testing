@@ -1,0 +1,742 @@
+{
+  "slug": "air-transportation",
+  "business": "Air Transportation",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Air Transportation Support Automation",
+    "description": "DocsBot helps air transportation teams answer passenger questions, route cases, and surface policy guidance from approved airline knowledge sources.",
+    "canonicalPath": "/industry/air-transportation"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for passenger-focused air operations",
+    "headline": "Keep passengers and airline teams moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps air transportation businesses create source-grounded AI agents trained on approved policies, help articles, operating procedures, ticket history, and internal knowledge. Give passengers faster answers while giving support, airport, loyalty, and operations teams a private assistant for the information they need every day.",
+    "proofBullets": [
+      {
+        "text": "Answer fare rules, baggage policies, accessibility guidance, loyalty FAQs, and disruption procedures from your approved content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect missing details, summarize passenger issues, route requests, and prepare human handoffs through configured workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support multilingual travelers through website widgets, helpdesk-connected workflows, private team chat, Slack, Teams, or API experiences.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "text": "Use analytics, logs, and knowledge-gap reporting to see which passenger and employee questions need better documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an air travel AI agent",
+    "secondaryCta": "Explore DocsBot for airline teams"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents that answer from the air transportation knowledge you approve: passenger FAQs, baggage policies, fare conditions, disruption playbooks, accessibility procedures, crew or station SOPs, training files, and internal wikis. With configured AI Actions, Skills, APIs, connectors, MCP servers, or workflow automations, agents can look up live context, create tasks, route cases, summarize conversations, and escalate when a human needs to decide.",
+    "whoItHelps": [
+      {
+        "role": "Passenger support and contact center leaders",
+        "roleContext": "Give agents and passengers a consistent first place to find policy-backed answers before a call, email, or social message becomes a long case.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions about bags, refunds, schedule changes, seat assignments, and check-in rules with source-grounded answers.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Draft ticket replies, summarize passenger context, and route sensitive cases to the right queue when connected to helpdesk workflows.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use conversation analytics to identify unclear policy pages, repeated disruption questions, and new support content to create.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Airport, station, and ground operations teams",
+        "roleContext": "Make SOPs, escalation paths, irregular-operations notes, and passenger service procedures easier to retrieve during busy airport workflows.",
+        "bullets": [
+          {
+            "text": "Ask a private knowledge agent for station procedures, baggage exception steps, gate-service guidance, or disruption playbooks.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Summarize handoff notes between airport teams so supervisors can see what has been tried and what still needs attention.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Keep high-impact, accessibility, safety, and compensation decisions inside customer-defined review boundaries.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "MapPinIcon"
+      },
+      {
+        "role": "Digital, loyalty, and ecommerce teams",
+        "roleContext": "Improve self-service across web and app journeys where travelers expect fast digital answers but still need accurate policy interpretation.",
+        "bullets": [
+          {
+            "text": "IATA’s 2024 survey found 71% of passengers prefer online or app-based booking, making reliable digital assistance central to the travel journey.",
+            "icon": "DevicePhoneMobileIcon",
+            "sourceIds": [
+              "src-iata-passenger-digital"
+            ]
+          },
+          {
+            "text": "Qualify partner, group travel, cargo-adjacent, or corporate inquiries with structured intake forms and route them to the right sales or service team.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Give loyalty members clearer explanations of benefits, tier rules, mileage policies, and service channels from approved program materials.",
+            "icon": "StarIcon"
+          }
+        ],
+        "roleIcon": "GlobeAltIcon",
+        "sourceIds": [
+          "src-iata-passenger-digital"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-faa-forecast-growth",
+      "metric": "FAA FY 2025–2045 forecast",
+      "claim": "The FAA publishes long-range forecasts for U.S. airline traffic, capacity, and related aviation activity, showing continued planning pressure for air transportation systems.",
+      "sourceTitle": "FAA Aerospace Forecasts",
+      "sourceUrl": "https://www.faa.gov/data_research/aviation/aerospace_forecasts/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "traffic growth",
+        "capacity planning",
+        "operational scale"
+      ]
+    },
+    {
+      "id": "src-bts-consumer-report-2024",
+      "metric": "2024 Air Travel Consumer Report coverage",
+      "claim": "DOT’s 2024 Air Travel Consumer Reports cover flight delays, mishandled baggage, wheelchairs and scooters, oversales, consumer complaints, animals, and TSA customer service reports.",
+      "sourceTitle": "Air Travel Consumer Reports for 2024",
+      "sourceUrl": "https://www.transportation.gov/resources/individuals/aviation-consumer-protection/air-travel-consumer-reports-2024",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "support workload",
+        "baggage issues",
+        "consumer complaints",
+        "accessibility service pressure"
+      ]
+    },
+    {
+      "id": "src-bts-december-2024",
+      "metric": "December 2024 and full-year 2024 ATCR release",
+      "claim": "BTS reported that the 2024 ATCR includes airline operational data for on-time performance, mishandled baggage, mishandled wheelchairs and scooters, and oversales.",
+      "sourceTitle": "Air Travel Consumer Report: December 2024, Full Year 2024 Numbers",
+      "sourceUrl": "https://www.bts.gov/newsroom/air-travel-consumer-report-december-2024-full-year-2024-numbers",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "service reliability",
+        "complaint drivers",
+        "support automation priorities"
+      ]
+    },
+    {
+      "id": "src-iata-passenger-digital",
+      "metric": "71% prefer online or app-based booking",
+      "claim": "IATA’s 2024 Global Passenger Survey reported that 71% of passengers prefer online or app-based booking, with 53% preferring airline websites or apps.",
+      "sourceTitle": "Passengers Want Convenience and Technology to Improve Processes, Regional Preferences Diverging",
+      "sourceUrl": "https://www.iata.org/en/pressroom/2024-releases/2024-10-30-01/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "digital passenger expectations",
+        "self-service demand",
+        "mobile-first journeys"
+      ]
+    },
+    {
+      "id": "src-dot-disability-complaints",
+      "metric": "Annual disability-related complaint reporting",
+      "claim": "DOT requires U.S. and foreign airlines to submit annual reports on the number and type of disability-related complaints they receive.",
+      "sourceTitle": "Reports and Data on Disability-Related Air Travel Complaints",
+      "sourceUrl": "https://www.transportation.gov/airconsumer/annual-report-disability-related-air-travel-complaints",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "accessibility workflows",
+        "regulated support",
+        "complaint handling"
+      ]
+    },
+    {
+      "id": "src-dot-wheelchair-rule",
+      "metric": "More than 1 in 100 wheelchairs and scooters mishandled",
+      "claim": "In DOT rulemaking materials, reporting showed that more than one in every 100 wheelchairs and scooters transported in domestic flight cargo compartments were mishandled.",
+      "sourceTitle": "Ensuring Safe Accommodations for Air Travelers With Disabilities Using Wheelchairs",
+      "sourceUrl": "https://www.federalregister.gov/documents/2024/03/12/2024-04729/ensuring-safe-accommodations-for-air-travelers-with-disabilities-using-wheelchairs",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "accessibility risk",
+        "assistive-device handling",
+        "service recovery"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Passenger policy and disruption support agent",
+      "problem": "Travelers ask urgent, repetitive questions about delays, cancellations, rebooking, refunds, baggage rules, and check-in requirements. In disruption periods, inconsistent answers create more contacts and frustration.",
+      "agentWorkflow": "Train a DocsBot support agent on approved passenger policies, help center pages, disruption playbooks, baggage rules, refund guidance, and escalation instructions. The agent answers in the airline’s voice, asks clarifying questions, summarizes the issue, and prepares a handoff when the passenger needs a person.",
+      "liveContextOrTools": "With configured Skills, APIs, or approved workflow access, the agent can look up allowed reservation or case context, create a task, route the conversation, or notify a support queue while respecting customer-defined boundaries.",
+      "exampleQuestionsOrRequests": [
+        "What are my options if my flight was canceled today?",
+        "Can I bring this sports equipment, and what fees apply?",
+        "Summarize this passenger’s issue and route it to the refund team."
+      ],
+      "businessOutcome": "Reduce repetitive support volume, improve answer consistency, and help human agents focus on complex, emotional, or high-value cases.",
+      "icon": "BellIcon"
+    },
+    {
+      "name": "Baggage, accessibility, and assistive-device guidance",
+      "problem": "Baggage and accessibility issues require precise, policy-backed communication. DOT consumer reporting covers mishandled baggage, wheelchairs and scooters, oversales, delays, and complaints, making these topics visible to regulators and passengers.",
+      "agentWorkflow": "Create a source-grounded agent trained on baggage rules, special-item guidance, accessibility procedures, disability complaint paths, station checklists, and service recovery scripts. The agent can guide passengers and employees to the right next step, collect details, and escalate sensitive cases.",
+      "liveContextOrTools": "Configured actions can create a baggage or accessibility follow-up task, summarize incident details, route to a specialist queue, or attach approved metadata to a case for review.",
+      "exampleQuestionsOrRequests": [
+        "My wheelchair was damaged. What information should I provide?",
+        "What is the process for delayed baggage at this airport?",
+        "Create a handoff summary for an accessibility support specialist."
+      ],
+      "businessOutcome": "Give teams a consistent way to handle high-sensitivity baggage and accessibility workflows while keeping final decisions and regulated responses under human control.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-bts-consumer-report-2024",
+        "src-dot-disability-complaints"
+      ]
+    },
+    {
+      "name": "Airport station knowledge assistant",
+      "problem": "Airport and ground teams need fast access to station-specific SOPs, gate procedures, irregular-operations notes, vendor contacts, and escalation paths while passenger lines and operational pressure build.",
+      "agentWorkflow": "Deploy a private DocsBot internal knowledge agent trained on station manuals, airport maps, local SOPs, operational memos, training PDFs, and internal wikis. Employees can ask natural-language questions and receive source-grounded answers with links back to approved materials.",
+      "liveContextOrTools": "When configured with internal systems or MCP connectors, the agent can retrieve approved live context, generate shift summaries, create operational tasks, or notify teams through authorized workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is the local escalation path for an unaccompanied minor connection issue?",
+        "Where is the current station procedure for delayed inbound bags?",
+        "Summarize the handoff notes for the next gate supervisor."
+      ],
+      "businessOutcome": "Reduce time spent searching static manuals, improve station consistency, and support faster team handoffs during busy travel windows.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Loyalty, sales, and partner inquiry agent",
+      "problem": "Air transportation teams field repeated loyalty, corporate travel, group booking, partner, and service-fit questions that can be answered from approved program and sales materials before a human takes over.",
+      "agentWorkflow": "Train a DocsBot presales or service agent on loyalty rules, corporate travel FAQs, group booking forms, service catalogs, route or product information, and sales enablement materials. The agent answers fit questions, collects structured intake details, applies qualification instructions, and forwards context to the right team.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, or scheduling workflows, DocsBot can submit a lead form, create or update a CRM-style record, draft follow-up, or request a meeting without making contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Do you support managed group travel for 40 passengers?",
+        "Which loyalty benefits apply to this fare type?",
+        "Collect my company details and send a summary to corporate sales."
+      ],
+      "businessOutcome": "Capture qualified demand earlier, keep customer-facing answers aligned with current materials, and give sales or partner teams cleaner handoffs.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap reporting for passenger self-service",
+      "problem": "Digital journeys are now central to air travel: IATA reported that 71% of passengers prefer online or app-based booking. If self-service content is unclear, support teams see repeated questions across chat, tickets, and airport channels.",
+      "agentWorkflow": "Use DocsBot analytics, logs, reports, topic management, and conversation review to identify questions the agent could not answer, policies that confuse travelers, and content gaps in help centers or internal knowledge bases.",
+      "liveContextOrTools": "Teams can export insights, create documentation tasks, or route recurring themes to support, ecommerce, policy, or operations owners through configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which baggage questions were not answered last week?",
+        "Show repeated refund topics that need better help articles.",
+        "Summarize passenger confusion around same-day changes."
+      ],
+      "businessOutcome": "Improve self-service content over time and reduce preventable support contacts caused by unclear policies or missing documentation.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-iata-passenger-digital"
+      ]
+    },
+    {
+      "name": "Multilingual travel document and policy assistant",
+      "problem": "Passengers and frontline teams often need clear explanations of travel requirements, document guidance, service restrictions, and airline policies across languages, regions, and routes.",
+      "agentWorkflow": "Train a DocsBot agent on approved airline policy pages, travel-preparation articles, internal guidance, airport service notes, and customer communications. The agent can answer in more than 100 languages and cite the relevant source so users know where the answer came from.",
+      "liveContextOrTools": "For high-impact or changing requirements, the agent can route users to a human, collect missing details, or trigger a review workflow rather than presenting uncertain guidance as final advice.",
+      "exampleQuestionsOrRequests": [
+        "Explain the pet travel policy in Spanish.",
+        "What documents should I review before an international connection?",
+        "Escalate this uncertain travel-requirement question to an agent."
+      ],
+      "businessOutcome": "Make approved information easier to access for global travelers while maintaining review paths for sensitive or fast-changing policy topics.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give travelers a source-grounded first stop before they call, queue, or file a case",
+    "intro": "A DocsBot passenger support agent can live in a website or product chat widget, connect to helpdesk-style workflows, and answer from the content your airline approves. It can resolve straightforward questions, collect structured details, and escalate complex, emotional, regulated, or account-specific issues to a person.",
+    "requests": [
+      {
+        "request": "“What happens if my connection is missed because the first flight was delayed?”",
+        "agentResponseStrategy": "Ask for non-sensitive context, explain approved policy options, cite the relevant help article, and prepare a handoff if the passenger needs itinerary-specific support.",
+        "sourceTypes": [
+          "Disruption policy",
+          "Refund and rebooking FAQ",
+          "Help center articles"
+        ],
+        "optionalAction": "Create a support task or route the conversation to the rebooking queue through an approved workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“My bag has not arrived. What should I do at this airport?”",
+        "agentResponseStrategy": "Provide station-specific baggage instructions from approved sources, collect claim details, and summarize the passenger’s next step without inventing tracking data.",
+        "sourceTypes": [
+          "Baggage policy",
+          "Airport station procedures",
+          "Service recovery scripts"
+        ],
+        "optionalAction": "Open a baggage follow-up task or attach a structured summary to an existing case when configured.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“I need wheelchair assistance and have concerns about my device.”",
+        "agentResponseStrategy": "Explain approved accessibility procedures, collect key details for a specialist, and escalate promptly because assistive-device and disability-related support requires careful handling.",
+        "sourceTypes": [
+          "Accessibility policy",
+          "Disability assistance procedures",
+          "DOT complaint guidance"
+        ],
+        "optionalAction": "Route to an accessibility specialist queue with a concise summary and conversation log.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can you explain my loyalty benefits for this fare?”",
+        "agentResponseStrategy": "Answer from loyalty program rules and fare guidance, clarify what is general information, and escalate account-specific or exception requests.",
+        "sourceTypes": [
+          "Loyalty program terms",
+          "Fare rule summaries",
+          "Member FAQs"
+        ],
+        "optionalAction": "Collect member intent and create a human follow-up request through a configured workflow.",
+        "icon": "StarIcon"
+      },
+      {
+        "request": "“Do you offer group or corporate travel support?”",
+        "agentResponseStrategy": "Answer service-fit questions from approved sales materials, collect organization details, qualify the inquiry using customer-defined rules, and prepare a concise handoff.",
+        "sourceTypes": [
+          "Corporate travel materials",
+          "Group booking FAQs",
+          "Sales enablement content"
+        ],
+        "optionalAction": "Submit a structured lead form, forward the summary to sales, or request a meeting through an approved scheduling workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Can you answer this in French?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to provide the same source-grounded answer in the passenger’s preferred language, while preserving citations and escalation instructions.",
+        "sourceTypes": [
+          "Help center content",
+          "Policy pages",
+          "Passenger communications"
+        ],
+        "optionalAction": "Route unresolved multilingual conversations to the correct language-capable support team when configured.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give airline employees a private knowledge agent for policies, SOPs, and handoffs",
+    "intro": "DocsBot can also serve internal teams that need fast, reliable answers from private operating procedures, station manuals, HR policies, training materials, support macros, and team knowledge. Employees ask in natural language and get source-grounded answers with the context they need to act.",
+    "workflows": [
+      {
+        "name": "Frontline support answer assistant",
+        "problem": "Human agents spend time searching policies, copying macros, and reconstructing passenger context before they can respond.",
+        "agentWorkflow": "Train DocsBot on help center articles, support macros, internal policy notes, and historical ticket exports when approved. The agent suggests an answer, cites sources, and summarizes the case for review.",
+        "sourceTypes": [
+          "Help center",
+          "Support macros",
+          "Ticket exports",
+          "Policy notes"
+        ],
+        "optionalAction": "Draft a helpdesk response, tag the case, or route it to a specialist queue through customer-configured helpdesk access.",
+        "outcome": "Shorter research time for agents and more consistent responses across phone, email, chat, and social support.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Station SOP retrieval",
+        "problem": "Station teams may need local procedures, escalation paths, airport-specific notes, and vendor instructions quickly during irregular operations.",
+        "agentWorkflow": "Index SOPs, PDFs, internal wikis, airport guides, training notes, and operational memos so supervisors and frontline employees can ask precise questions instead of searching folders.",
+        "sourceTypes": [
+          "Station manuals",
+          "Airport guides",
+          "Operational memos",
+          "Training PDFs"
+        ],
+        "optionalAction": "Generate a shift handoff summary or create a task for an operations owner when configured.",
+        "outcome": "Faster retrieval of approved procedures and cleaner continuity between shifts and teams.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "name": "Accessibility service support review",
+        "problem": "Disability-related service and assistive-device cases are sensitive and often require precise documentation, prompt escalation, and careful human review.",
+        "agentWorkflow": "Use DocsBot to retrieve accessibility procedures, summarize the passenger’s reported issue, list required follow-up details, and route the case without making a final regulated judgment.",
+        "sourceTypes": [
+          "Accessibility procedures",
+          "Complaint handling guidance",
+          "Special assistance training"
+        ],
+        "optionalAction": "Create a reviewed handoff package for an accessibility specialist with source links and conversation history.",
+        "outcome": "More complete internal handoffs for sensitive passenger support while keeping decisions inside defined review paths.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales and account preparation",
+        "problem": "Corporate travel, airport services, partnership, and loyalty account teams need fast access to product details, objections, case studies, proposal language, and account context.",
+        "agentWorkflow": "Train a sales enablement agent on service catalogs, route or product information, pricing guidance, approved proposal templates, objection handling, and customer-facing FAQs. When configured with web search and approved tools, the agent can summarize public account context for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Proposal templates",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft follow-up emails, create CRM-style tasks, or prepare meeting briefs through approved workflows, leaving final outreach and commitments to the team.",
+        "outcome": "Better-prepared sales and partner teams with less time spent searching scattered internal materials.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Content-gap and quality review",
+        "problem": "Repeated passenger and employee questions often reveal missing help articles, unclear policy pages, or outdated internal guidance.",
+        "agentWorkflow": "Use DocsBot analytics, logs, conversation review, satisfaction and resolution analysis, topic management, and reports to find unanswered questions and repeated themes.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base reports",
+          "Help center analytics"
+        ],
+        "optionalAction": "Create documentation tasks or notify policy owners through configured workflow triggers.",
+        "outcome": "Continuous improvement for self-service content, internal knowledge, and frontline support training.",
+        "icon": "MagnifyingGlassIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved airline knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on company knowledge sources such as help centers, websites, internal documents, PDFs, wikis, team conversations, and other configured sources.",
+      "industryApplication": "Train agents on passenger FAQs, fare and baggage policies, station procedures, loyalty rules, disruption playbooks, accessibility guidance, and internal operating notes.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers in customer-facing and private channels",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers grounded in configured sources, with deployment options including website widgets, private team chat, API use, Slack, Microsoft Teams, and helpdesk-connected workflows.",
+      "industryApplication": "Answer traveler questions on the airline site while giving contact center, station, and loyalty teams a private assistant for approved internal guidance.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded customer-configured lookups, record updates, task creation, summaries, workflow triggers, and handoffs through approved access.",
+      "industryApplication": "Look up allowed case context, route baggage or accessibility issues, create follow-up tasks, trigger team notifications, or connect to approved tools including remote Model Context Protocol servers when configured.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation and customer-defined controls for complex, sensitive, regulated, financial, medical, legal, identity, safety, or high-impact workflows.",
+      "industryApplication": "Escalate fare exceptions, refunds, disability-related issues, safety-sensitive topics, identity concerns, and account-specific decisions to trained employees.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and insight into documentation gaps.",
+      "industryApplication": "See which disruption, baggage, loyalty, accessibility, and airport procedure questions are recurring so content owners can improve passenger and employee self-service.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private operational knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private SOPs, policy notes, ticket context, and operational documents while giving the right teams access to the knowledge they are allowed to use.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "sanchay-indned-ebike-support",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where consistent first answers and human escalation both matter.",
+      "Trains on owned content libraries, manuals, help centers, and websites so answers stay grounded in approved sources.",
+      "Supports multilingual, always-available self-service for travelers and distributed teams.",
+      "Analytics and reports help teams improve documentation as passenger questions change."
+    ],
+    "whyTheseReviewsFit": "Air transportation teams need reliable self-service at scale, fast internal knowledge access, multilingual support, and measurable insight into recurring questions. DocsBot proof spans high-volume inquiry handling, travel-industry training, and support built from owned manuals, websites, and knowledge bases.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "DocumentTextIcon",
+      "LanguageIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for air transportation teams",
+    "audience": [
+      "Airline customer support leaders",
+      "Airport and station operations teams",
+      "Passenger experience and digital teams",
+      "Loyalty, corporate travel, and sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PaperAirplaneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "transportation",
+    "cargo-airlines",
+    "freight-forwarding",
+    "intermodal-transport",
+    "last-mile-delivery",
+    "fleet-telematics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "air-transportation",
+    "webSearchQueries": [
+      "FAA aerospace forecasts airline passenger traffic 2024 2025 U.S. passengers",
+      "Bureau of Transportation Statistics 2024 airline mishandled baggage complaints tarmac delays",
+      "IATA 2024 passenger survey digital travel disruption information",
+      "U.S. DOT Air Travel Consumer Report 2024 complaints disability baggage"
+    ],
+    "sourceUrls": [
+      "https://www.faa.gov/data_research/aviation/aerospace_forecasts/",
+      "https://www.transportation.gov/resources/individuals/aviation-consumer-protection/air-travel-consumer-reports-2024",
+      "https://www.bts.gov/newsroom/air-travel-consumer-report-december-2024-full-year-2024-numbers",
+      "https://www.iata.org/en/pressroom/2024-releases/2024-10-30-01/",
+      "https://www.transportation.gov/airconsumer/annual-report-disability-related-air-travel-complaints",
+      "https://www.federalregister.gov/documents/2024/03/12/2024-04729/ensuring-safe-accommodations-for-air-travelers-with-disabilities-using-wheelchairs"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42211,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 21987,
+        "outputTokens": 8359,
+        "reasoningOutputTokens": 133,
+        "totalTokens": 50570,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.185409,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.195409
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21524,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6548,
+          "outputTokens": 5723,
+          "reasoningOutputTokens": 133,
+          "totalTokens": 27247,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.105959,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.115959
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20687,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15439,
+          "outputTokens": 2636,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23323,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07945,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07945
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1602190276434-4cd5500bc6fb?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDM1NTJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Air Transportation background image",
+    "source": "legacy-industry",
+    "query": "Air Transportation"
+  },
+  "faq": [
+    {
+      "question": "How would DocsBot reduce passenger contacts during delays, cancellations, and schedule changes without giving the wrong policy answer?",
+      "answer": "DocsBot answers from the airline-approved disruption playbooks, fare rules, refund guidance, and help articles you provide. It can ask clarifying questions, explain general policy options, cite the relevant source, and escalate itinerary-specific, emotional, or exception-based cases to a human instead of guessing.",
+      "role": "Passenger support and contact center leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can we use DocsBot for baggage and accessibility questions, or are those too sensitive for automation?",
+      "answer": "Yes, but with boundaries. DocsBot can retrieve approved baggage, special-item, accessibility, disability complaint, and service recovery guidance, collect required details, and create a clear handoff for specialists. DOT consumer reporting covers mishandled baggage, wheelchairs and scooters, oversales, delays, and complaints, so these workflows need careful documentation and review.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-bts-consumer-report-2024"
+      ]
+    },
+    {
+      "question": "Will the agent be able to answer from our airline’s actual policies instead of generic travel advice?",
+      "answer": "Yes. DocsBot is trained on the sources you approve, such as passenger FAQs, baggage rules, fare conditions, loyalty terms, airport procedures, disruption playbooks, support macros, PDFs, and internal wikis. That keeps answers grounded in your airline’s current materials rather than broad public travel information.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle cases where a passenger needs a live reservation lookup or case status?",
+      "answer": "DocsBot can use approved Skills, APIs, connectors, MCP servers, or customer-configured workflows to retrieve allowed live context when you authorize it. Many teams start with policy answers and handoffs, then add scoped lookups such as case status, reservation context, task creation, or routing once permissions and review rules are defined.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot fit into our existing helpdesk or contact center workflow?",
+      "answer": "DocsBot can support helpdesk-connected workflows when you provide the right Skills, APIs, connectors, exported ticket sources, or approved workflow access. It can summarize conversations, draft replies, route requests, tag cases, create follow-up tasks, or prepare handoffs without claiming ownership of final decisions that require trained agents.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we automate first if our support volume spikes during irregular operations?",
+      "answer": "Start with high-volume, policy-backed questions: baggage allowance, refund eligibility basics, check-in rules, schedule-change guidance, missed-connection next steps, loyalty FAQs, and airport-specific baggage instructions. Keep refunds, compensation exceptions, accessibility incidents, safety-sensitive topics, and account-specific decisions routed to humans until governance is proven.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent the AI agent from promising compensation, refunds, upgrades, or exceptions?",
+      "answer": "DocsBot can be configured with customer-defined instructions, approved sources, escalation rules, and bounded actions. For high-impact areas, the agent can explain general policy, collect facts, cite the source, and route the case to a human reviewer rather than making a final commitment.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can airport station teams use DocsBot internally for SOPs and shift handoffs?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on station manuals, airport guides, local SOPs, operational memos, vendor notes, training PDFs, and internal wikis. Teams can ask natural-language questions, retrieve source-grounded procedures, summarize handoff notes, and create tasks when configured.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot help with wheelchair assistance and assistive-device incidents?",
+      "answer": "DocsBot can surface approved accessibility procedures, collect incident details, summarize the passenger’s report, and route the case to a specialist queue. DOT requires U.S. and foreign airlines to submit annual reports on disability-related complaint types, so teams should keep these workflows documented, reviewable, and human-controlled.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-dot-disability-complaints"
+      ]
+    },
+    {
+      "question": "Can DocsBot support multilingual passengers without creating inconsistent translations of policy?",
+      "answer": "DocsBot can answer in more than 100 languages while grounding responses in the same approved policy sources. For complex travel-document, accessibility, or disruption questions, the agent can cite the relevant material and route the conversation to a language-capable human team when configured.",
+      "role": "Digital, loyalty, and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What metrics should we use to judge whether an air travel AI agent is working?",
+      "answer": "Useful metrics include deflection of repetitive contacts, resolved conversations, handoff quality, time saved for agents, escalation accuracy, unanswered-question rate, CSAT or satisfaction trends, topic trends, and documentation gaps. For airlines, also monitor sensitive categories such as disruption, baggage, loyalty, accessibility, and station procedure questions.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot tell us which help center articles or internal SOPs are causing confusion?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review unanswered questions, repeated themes, and low-confidence areas, then create documentation tasks for support, ecommerce, policy, or operations owners.",
+      "role": "Digital, loyalty, and ecommerce teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is passenger self-service important enough to justify investment beyond a basic FAQ page?",
+      "answer": "For many airlines, yes. IATA’s 2024 Global Passenger Survey reported that 71% of passengers prefer online or app-based booking, with 53% preferring airline websites or apps. A source-grounded agent can make those digital journeys more useful by answering policy questions, collecting details, and escalating when self-service is not enough.",
+      "role": "Digital, loyalty, and ecommerce teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-iata-passenger-digital"
+      ]
+    },
+    {
+      "question": "How do we keep answers current when policies change quickly during weather events or operational disruptions?",
+      "answer": "DocsBot should be connected to approved, actively maintained sources and governed by clear content ownership. Teams can update disruption playbooks, help articles, station notes, or internal policy files, then use logs and knowledge-gap reporting to see where passengers still receive unclear or incomplete answers.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source material is incomplete?",
+      "answer": "DocsBot should be configured to avoid unsupported answers. It can say it does not have enough approved information, ask for missing context, show the closest relevant source, or escalate to a human. Analytics then help content owners identify the missing article, SOP, macro, or policy note.",
+      "role": "Passenger support and contact center leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support loyalty program and fare-rule questions without exposing account-specific details?",
+      "answer": "Yes. DocsBot can answer general loyalty, tier, benefit, fare-condition, and service-channel questions from approved program materials. Account-specific, exception, refund, upgrade, or compensation requests can be routed to a human or handled only through scoped, authorized live lookups if your team configures them.",
+      "role": "Digital, loyalty, and ecommerce teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much internal work is needed before implementation?",
+      "answer": "The main work is deciding which knowledge sources are authoritative, cleaning up outdated policy content, defining escalation rules, and choosing the first workflows. Many teams begin with public help center and support-policy coverage, then add internal SOPs, ticket summaries, and live actions after governance is in place.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will our private SOPs, ticket exports, and operational documents be protected?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we deploy different agents for passengers, contact center agents, and station employees?",
+      "answer": "Yes. Air transportation teams often need separate experiences: a passenger-facing support agent for policies and intake, an internal contact center assistant for macros and case summaries, and a private station knowledge agent for SOPs. Each can be trained on different approved sources with different permissions and escalation paths.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we think about human review for regulated or high-impact travel workflows?",
+      "answer": "Use DocsBot to retrieve policy, structure the intake, summarize the issue, and route the case. Keep human review for disability-related issues, safety-sensitive topics, identity concerns, fare exceptions, refunds, compensation, legal complaints, and account-specific commitments. That lets automation reduce search and intake work without replacing accountable decisions.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help our corporate travel, group booking, or partner sales teams?",
+      "answer": "Yes. A DocsBot presales or service agent can answer from approved sales materials, group booking FAQs, service catalogs, loyalty rules, and proposal templates. It can collect structured intake details, qualify requests using your rules, and forward summaries to sales systems through configured Skills, APIs, forms, or workflows.",
+      "role": "Digital, loyalty, and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we compare DocsBot with building our own airline RAG assistant?",
+      "answer": "DocsBot is a fit when you want a governed AI agent platform for source-grounded answers, website widgets, private team chat, analytics, logs, knowledge-gap reporting, role-based access, and bounded workflow actions. Building internally may offer deep customization, but usually requires ongoing work for ingestion, permissions, monitoring, evaluation, and support workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent scale across multiple airports, stations, brands, or regions?",
+      "answer": "Yes, if your knowledge architecture supports it. DocsBot can be trained on shared airline policies plus station-specific manuals, local SOPs, airport guides, and region-specific communications. Access controls and separate agents or source sets can help teams keep local guidance available only to the right users.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement and IT ask before approving DocsBot for airline operations?",
+      "answer": "Ask which sources will be indexed, who owns updates, what data the agent can access, which actions are allowed, how escalations work, how logs are reviewed, and which teams need role-based access. Also confirm security requirements, retention expectations, integration scope, and whether sensitive workflows require human approval.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us prepare for passenger growth and higher support expectations?",
+      "answer": "DocsBot can help teams scale self-service and internal knowledge access as traffic and service complexity grow. The FAA publishes long-range forecasts for U.S. airline traffic, capacity, and related aviation activity, which reinforces the need for scalable support, documentation, and operational knowledge systems.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-faa-forecast-growth"
+      ]
+    },
+    {
+      "question": "How do frontline employees learn to trust the agent instead of ignoring it?",
+      "answer": "Trust improves when answers cite approved sources, managers define what the agent can and cannot decide, and employees see useful workflows such as policy retrieval, response drafts, case summaries, and shift handoffs. Start with review mode, gather feedback, improve content gaps, and expand permissions only after teams see consistent behavior.",
+      "role": "Airport, station, and ground operations teams",
+      "category": "Training and onboarding"
+    }
+  ]
+}

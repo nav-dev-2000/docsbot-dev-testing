@@ -1,0 +1,696 @@
+{
+  "slug": "private-investigator",
+  "business": "Private Investigator",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Private Investigator Case Work",
+    "description": "DocsBot helps private investigators automate intake, retrieve case SOPs, summarize notes, and route sensitive requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/private-investigator"
+  },
+  "hero": {
+    "eyebrow": "AI workflow support for sensitive investigative services",
+    "headline": "DocsBot AI agents keep private investigation work organized",
+    "subheadline": "Train a DocsBot agent on your intake forms, service guides, SOPs, report templates, public FAQs, and internal policies so clients get clear next steps and investigators can retrieve case procedures, summarize notes, and trigger bounded handoffs without exposing sensitive work to a generic assistant.",
+    "proofBullets": [
+      {
+        "text": "Answer service, retainer, process, and evidence-handling questions from your approved knowledge base.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details and route urgent, out-of-scope, or attorney-referred matters to the right person.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Summarize case notes, calls, source lists, and document packets for review before they enter a final report.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give investigators private access to SOPs, jurisdiction notes, templates, and training materials from one secure interface.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build your investigator AI agent",
+    "secondaryCta": "Explore secure case workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps private investigation firms create AI agents trained on their own documents, websites, policies, service descriptions, report templates, and internal procedures. The agent can answer client questions, support intake, summarize context, identify documentation gaps, and take scoped actions through customer-configured Skills, APIs, connectors, or review workflows while keeping sensitive decisions with humans.",
+    "whoItHelps": [
+      {
+        "role": "Solo investigators and agency owners",
+        "roleContext": "Handle new leads, recurring client questions, and documentation without letting intake interrupt surveillance, interviews, research, or court deadlines.",
+        "bullets": [
+          {
+            "text": "Collect case type, location, timeline, known parties, budget range, and preferred contact method before a consultation.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Route domestic, insurance, fraud, missing-person, attorney, or corporate matters using your firm’s own qualification rules.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics to find repeated intake questions and update service pages, FAQs, and retainer guidance.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Case managers and operations staff",
+        "roleContext": "Keep case handling consistent across investigators, subcontractors, administrative assistants, and client communication workflows.",
+        "bullets": [
+          {
+            "text": "Retrieve SOPs for evidence logs, file naming, source documentation, field updates, and client status boundaries.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Generate internal summaries from approved notes and documents so a human can review before client delivery.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Create tasks, tickets, or handoffs through customer-configured workflows when a case needs follow-up.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Legal, insurance, and corporate investigation teams",
+        "roleContext": "Support higher-volume matters where documentation, defensible process, and controlled access to sensitive information are critical.",
+        "bullets": [
+          {
+            "text": "BLS projects private detective and investigator employment to grow 6% from 2024 to 2034, faster than the average for all occupations.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-private-investigators"
+            ]
+          },
+          {
+            "text": "Search internal policy, chain-of-custody guidance, client requirements, and report templates from one private assistant.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Escalate legal, regulated, or high-impact judgment calls to licensed professionals instead of automating final decisions.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon",
+        "sourceIds": [
+          "src-bls-private-investigators"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-private-investigators",
+      "metric": "6% projected employment growth from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of private detectives and investigators to grow 6% from 2024 to 2034, faster than the average for all occupations.",
+      "sourceTitle": "Private Detectives and Investigators: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/protective-service/private-detectives-and-investigators.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "market demand",
+        "operations workload"
+      ]
+    },
+    {
+      "id": "src-ftc-2024-fraud-losses",
+      "metric": "$12.5 billion in reported fraud losses in 2024",
+      "claim": "The FTC reported that consumers lost $12.5 billion to fraud in 2024 and that Consumer Sentinel received 6.5 million reports.",
+      "sourceTitle": "New FTC Data Show a Big Jump in Reported Losses to Fraud to $12.5 Billion in 2024",
+      "sourceUrl": "https://www.ftc.gov/node/87602",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fraud investigation demand",
+        "consumer risk",
+        "intake complexity"
+      ]
+    },
+    {
+      "id": "src-ftc-consumer-sentinel-2024",
+      "metric": "More than 6.47 million Consumer Sentinel reports in 2024",
+      "claim": "The FTC Consumer Sentinel Network Data Book aggregates fraud, identity theft, and consumer protection reports from consumers and partner organizations.",
+      "sourceTitle": "Consumer Sentinel Network Data Book 2024",
+      "sourceUrl": "https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2024",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "identity theft workload",
+        "fraud trends",
+        "public-reporting context"
+      ]
+    },
+    {
+      "id": "src-nali-code-ethics",
+      "metric": "Professional ethics emphasized for legal investigators",
+      "claim": "The National Association of Legal Investigators states that its mission includes endorsing, promoting, and safeguarding high professional ethics in legal investigation.",
+      "sourceTitle": "NALI Certified Legal Investigator Program Code of Ethics",
+      "sourceUrl": "https://nalionline.org/CLI/code-of-ethics/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "professional ethics",
+        "confidentiality expectations",
+        "legal investigation standards"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Structured client intake and consultation routing",
+      "problem": "Prospective clients often arrive with emotionally charged, incomplete, or legally sensitive details. Staff still need enough information to decide whether the matter is a fit.",
+      "agentWorkflow": "A DocsBot agent answers service questions from your website and intake materials, asks for structured details, flags missing information, and prepares a consultation summary. With configured AI Actions, it can create a task, submit a lead form, notify staff, or request a booking through an approved scheduling workflow.",
+      "liveContextOrTools": "Use customer-configured forms, APIs, scheduling Skills, CRM or ticketing workflows, and human review for sensitive matters.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle infidelity investigations in my county?",
+        "What information should I gather before a consultation?",
+        "Can I schedule a call and send the investigator a case summary?"
+      ],
+      "businessOutcome": "Fewer interrupted calls, better-qualified consultations, and a clearer handoff from first inquiry to human investigator.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Fraud and identity theft case triage",
+      "problem": "Fraud victims may bring police reports, FTC reports, credit letters, screenshots, messages, and account timelines that are hard to organize before investigation starts.",
+      "agentWorkflow": "Train the agent on your fraud intake checklist, evidence request templates, and client next-step guidance. It can explain what documents your firm needs, summarize submitted context, and route the matter to the right investigator for review without deciding legal liability.",
+      "liveContextOrTools": "Customer-configured secure upload workflows, ticket creation, document summaries, and internal notifications can support the intake path.",
+      "exampleQuestionsOrRequests": [
+        "What documents do you need for an identity theft investigation?",
+        "Summarize this client’s fraud timeline for investigator review.",
+        "Create a follow-up task for missing bank letters and police report numbers."
+      ],
+      "businessOutcome": "Makes fraud cases easier to scope while preserving human oversight for legal, financial, and investigative judgment. The FTC reported $12.5 billion in consumer fraud losses in 2024, showing why organized intake matters.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-2024-fraud-losses"
+      ]
+    },
+    {
+      "name": "Case file and report-drafting assistant",
+      "problem": "Investigators spend time turning notes, call logs, public-record references, photos, and field observations into consistent internal summaries and client-ready report drafts.",
+      "agentWorkflow": "DocsBot can retrieve your report templates, style rules, and documentation standards, then draft summaries from approved notes for a human to verify. It can also identify missing fields, inconsistent terminology, and repeated documentation gaps.",
+      "liveContextOrTools": "Use approved document sources, private team chat, logs, and review workflows. Final reports remain under investigator control.",
+      "exampleQuestionsOrRequests": [
+        "Draft a neutral surveillance summary from these approved notes.",
+        "Which required fields are missing from this case update?",
+        "Find our standard language for source limitations and client disclaimers."
+      ],
+      "businessOutcome": "Improves consistency across reports and reduces time spent searching templates or reformatting case notes.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Internal SOP and compliance knowledge agent",
+      "problem": "Licensing rules, client boundaries, evidence handling, subcontractor procedures, and attorney-directed work can be difficult to keep consistent across a growing team.",
+      "agentWorkflow": "DocsBot acts as a private knowledge agent trained on SOPs, policies, training PDFs, engagement rules, and internal checklists. Investigators can ask procedural questions in a secure team interface and receive source-grounded answers with links back to the approved material.",
+      "liveContextOrTools": "Deploy in private chat, Slack, Microsoft Teams, or via API. Customer-configured Skills and MCP connectors can retrieve approved live context from systems your team authorizes.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for preserving screenshots?",
+        "Which status updates can staff send without investigator review?",
+        "Find the onboarding checklist for a subcontracted field investigator."
+      ],
+      "businessOutcome": "Keeps procedures searchable and consistent, especially when sensitive investigation work requires professional ethics and careful documentation.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-nali-code-ethics"
+      ]
+    },
+    {
+      "name": "Attorney and corporate client support",
+      "problem": "Law firms and corporate clients need clear updates, but investigators must avoid oversharing, unauthorized conclusions, or premature disclosure.",
+      "agentWorkflow": "A DocsBot agent can answer approved process questions, summarize case status from authorized notes, draft update language, and escalate requests that require investigator or attorney review. It can also route follow-up requests to the right case manager.",
+      "liveContextOrTools": "Use role-based permissions, approved knowledge sources, customer-configured case lookups, ticketing workflows, and human escalation for privileged or high-impact matters.",
+      "exampleQuestionsOrRequests": [
+        "What documents are still pending for this assignment?",
+        "Draft a concise status update for attorney review.",
+        "Route this subpoena-related question to the investigator in charge."
+      ],
+      "businessOutcome": "Improves client responsiveness while keeping sensitive conclusions and legal strategy in human hands.",
+      "icon": "ScaleIcon"
+    },
+    {
+      "name": "Training and field procedure support",
+      "problem": "New investigators and subcontractors need fast access to firm-specific procedures while working across surveillance, interviews, background research, and documentation tasks.",
+      "agentWorkflow": "DocsBot can answer training questions from your SOPs, templates, checklists, onboarding guides, and internal lessons learned. Analytics show which procedures create the most questions so managers can improve training content.",
+      "liveContextOrTools": "Use private sources, conversation review, topic reporting, and knowledge-gap discovery.",
+      "exampleQuestionsOrRequests": [
+        "What should I include in a field activity log?",
+        "Show the checklist for a pre-surveillance briefing.",
+        "Which photos are acceptable for the client report template?"
+      ],
+      "businessOutcome": "Accelerates onboarding and makes field procedures easier to follow without interrupting senior investigators.",
+      "icon": "AcademicCapIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients fast answers without letting the agent make investigative judgments",
+    "intro": "A DocsBot customer-facing agent can sit on your website or client portal to explain services, collect intake details, answer process questions, and prepare handoffs. Sensitive recommendations, legal questions, pricing exceptions, surveillance strategy, and final findings can be escalated to a human.",
+    "requests": [
+      {
+        "request": "“Do you handle this type of investigation?”",
+        "agentResponseStrategy": "Answer from your service pages, explain what the firm can and cannot discuss before a consultation, collect location and case type, then route qualified inquiries.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Intake forms",
+          "Retainer guidance"
+        ],
+        "optionalAction": "Submit a structured lead form or create a follow-up task through a customer-configured workflow.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What should I prepare before hiring a PI?”",
+        "agentResponseStrategy": "Provide a source-grounded checklist from your approved materials, such as timelines, contact information, known facts, documents, and communication preferences.",
+        "sourceTypes": [
+          "Preparation checklists",
+          "Client onboarding guides",
+          "Website content"
+        ],
+        "optionalAction": "Email or display a preparation summary and ask whether the client wants to request a consultation.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you update me on my case?”",
+        "agentResponseStrategy": "Use only authorized status language and approved case context when configured, then escalate anything involving conclusions, strategy, or restricted details.",
+        "sourceTypes": [
+          "Case status policy",
+          "Client communication rules",
+          "Approved case notes"
+        ],
+        "optionalAction": "Create a status-request ticket, notify the assigned investigator, or draft an update for review.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“I think I’m a fraud victim—what evidence do you need?”",
+        "agentResponseStrategy": "Guide the client through your intake checklist and document categories, while avoiding legal or financial advice. The FTC received more than 6.47 million Consumer Sentinel reports in 2024, including fraud and identity-theft reports.",
+        "sourceTypes": [
+          "Fraud intake checklist",
+          "Evidence request templates",
+          "Client FAQs"
+        ],
+        "optionalAction": "Collect missing document types and route the summary to a fraud investigator for review.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-consumer-sentinel-2024"
+        ]
+      },
+      {
+        "request": "“Can I book a confidential consultation?”",
+        "agentResponseStrategy": "Collect scheduling intent, preferred contact method, and basic fit criteria without asking for secrets or credentials in chat.",
+        "sourceTypes": [
+          "Scheduling policy",
+          "Consultation rules",
+          "Lead qualification instructions"
+        ],
+        "optionalAction": "Use an approved scheduling Skill or handoff workflow to request a meeting time.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you work with attorneys or insurance carriers?”",
+        "agentResponseStrategy": "Answer from approved service descriptions and qualification rules, then gather organization type, matter category, jurisdiction, deadline, and desired deliverable.",
+        "sourceTypes": [
+          "Corporate service pages",
+          "Legal investigation FAQs",
+          "Engagement rules"
+        ],
+        "optionalAction": "Forward a qualified inquiry and conversation summary to the designated intake owner.",
+        "icon": "BuildingLibraryIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make investigation procedures, templates, and case knowledge easier to retrieve",
+    "intro": "DocsBot can work as a private internal knowledge agent for investigators, administrators, case managers, and agency owners. Train it on your SOPs, templates, policies, wikis, PDFs, Word documents, and internal knowledge so staff can find answers quickly with source-grounded citations.",
+    "workflows": [
+      {
+        "name": "Case preparation checklist retrieval",
+        "problem": "Teams waste time hunting through folders for the right checklist, client question list, or jurisdiction-specific preparation note.",
+        "agentWorkflow": "An investigator asks the internal agent for the right checklist. DocsBot retrieves the approved source, summarizes the steps, and links back to the policy or template for review.",
+        "sourceTypes": [
+          "SOPs",
+          "Checklists",
+          "Wikis",
+          "PDF manuals"
+        ],
+        "optionalAction": "Create a task list or case-prep ticket through a configured workflow.",
+        "outcome": "Less time searching and more consistent pre-case preparation.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Evidence handling and documentation support",
+        "problem": "Inconsistent file naming, screenshot capture, photo notes, and source records can weaken internal review and client reporting.",
+        "agentWorkflow": "DocsBot answers from your evidence documentation policy, reminds staff of required metadata, and drafts a neutral documentation summary from approved notes for human review.",
+        "sourceTypes": [
+          "Evidence policies",
+          "Report templates",
+          "Field note standards"
+        ],
+        "optionalAction": "Trigger a missing-information request or update an approved field when configured.",
+        "outcome": "Cleaner case files and fewer avoidable documentation gaps.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Client communication drafting",
+        "problem": "Staff need to respond quickly but must avoid disclosing sensitive strategy, unsupported conclusions, or information that requires investigator approval.",
+        "agentWorkflow": "The agent drafts replies from your communication policy, approved service language, and case-status boundaries. A human reviews before sending when the message is sensitive.",
+        "sourceTypes": [
+          "Communication policies",
+          "Email templates",
+          "Client-status rules"
+        ],
+        "optionalAction": "Draft a helpdesk response, route for approval, or notify the assigned investigator.",
+        "outcome": "Faster responses with clearer boundaries around sensitive case information.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Training and knowledge-gap reporting",
+        "problem": "New hires and subcontractors ask the same questions, but managers may not know which procedures need better documentation.",
+        "agentWorkflow": "DocsBot answers onboarding questions and uses analytics, logs, topic management, and conversation review to reveal repeated questions and missing content.",
+        "sourceTypes": [
+          "Training manuals",
+          "Onboarding guides",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Create a documentation improvement task for unanswered or repeated questions.",
+        "outcome": "Better onboarding and a clearer roadmap for improving internal SOPs.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents",
+      "mainLandingPageContext": "DocsBot agents are trained on approved company knowledge and answer from those sources instead of acting like a generic assistant.",
+      "industryApplication": "Give clients and staff answers from your service descriptions, intake checklists, report templates, SOPs, policies, and training materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record creation, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect intake details, create follow-up tasks, draft status summaries, notify a case manager, or route sensitive requests to human review.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can support employees with instant answers from internal documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other approved sources.",
+      "industryApplication": "Help investigators retrieve field procedures, documentation rules, communication boundaries, onboarding materials, and case-management SOPs without searching shared drives.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which case types, evidence questions, pricing concerns, and client-preparation topics repeatedly appear so your firm can improve intake materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer-data training of public models.",
+      "industryApplication": "Support sensitive investigative knowledge with role-based access, scoped Skills, logs, customer-defined boundaries, and review paths for high-impact actions.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual website and team access",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be used through website widgets, APIs, private chat, Slack, Microsoft Teams, and configured workflows.",
+      "industryApplication": "Help prospective clients understand your intake process in their preferred language while giving staff access to the same approved knowledge internally.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for sensitive knowledge workflows where source-grounded answers, review paths, and internal decision support matter.",
+      "Train agents on your own content library so private investigation answers stay aligned with your firm’s procedures.",
+      "Support both website intake and human team assistance through configured chat, helpdesk, and workflow connections."
+    ],
+    "whyTheseReviewsFit": "Private investigation firms need more than a public chat widget. DocsBot proof spans internal decision support, owned-content training, and human support assistance—exactly the mix needed for confidential intake, case operations, and procedure-driven investigative work.",
+    "trustClaimIcons": [
+      "ShieldCheckIcon",
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for private investigation intake, case operations, and internal knowledge support",
+    "audience": [
+      "Private investigators",
+      "Investigation agency owners",
+      "Case managers",
+      "Legal investigation teams",
+      "Fraud investigation teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MagnifyingGlassIcon"
+  },
+  "relatedIndustrySlugs": [
+    "private-security",
+    "attorney-services",
+    "bail-bonds",
+    "compliance-consulting",
+    "court-reporter",
+    "cybersecurity"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "private-investigator",
+    "webSearchQueries": [
+      "BLS private detectives and investigators occupational outlook handbook 2024",
+      "FTC fraud losses 2024 Consumer Sentinel Network Data Book",
+      "National Association of Legal Investigators code of ethics private investigator confidentiality"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/protective-service/private-detectives-and-investigators.htm",
+      "https://www.ftc.gov/node/87602",
+      "https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2024",
+      "https://nalionline.org/CLI/code-of-ethics/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40378,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27834,
+        "outputTokens": 7327,
+        "reasoningOutputTokens": 110,
+        "totalTokens": 47705,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.182626,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.192626
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21708,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14412,
+          "outputTokens": 4739,
+          "reasoningOutputTokens": 110,
+          "totalTokens": 26447,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.108939,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.118939
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18670,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13422,
+          "outputTokens": 2588,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21258,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.073687,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.073687
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1565018968331-61145555526b?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDMxMjl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Private Investigator background image",
+    "source": "legacy-industry",
+    "query": "Private Investigator"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify a sensitive new inquiry without asking the client to reveal too much in chat?",
+      "answer": "Yes. You can train the agent on your intake rules so it collects only fit-for-consultation details such as case type, jurisdiction, timeline, preferred contact method, and urgency. It can avoid credentials, secrets, or strategy questions, then prepare a structured summary for a licensed investigator to review.",
+      "role": "Solo investigators and agency owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep an AI agent from giving legal advice, investigative conclusions, or surveillance strategy?",
+      "answer": "DocsBot should be configured around approved source material, explicit refusal rules, and escalation paths. It can answer process questions, explain what information your firm needs, and draft neutral summaries, while routing legal questions, regulated decisions, strategy, pricing exceptions, and final findings to a human.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will DocsBot help reduce phone interruptions while investigators are in the field?",
+      "answer": "That is a strong fit. A website or portal agent can answer common questions about services, retainers, process, evidence preparation, and consultation steps, then collect structured intake details. The goal is not to replace the investigator, but to reduce low-value interruptions and make callbacks better prepared.",
+      "role": "Solo investigators and agency owners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent handle fraud and identity theft inquiries differently from domestic, insurance, or corporate cases?",
+      "answer": "Yes. You can train DocsBot on separate intake checklists and routing rules for fraud, identity theft, domestic, insurance, missing-person, attorney-directed, and corporate matters. That matters because the FTC reported $12.5 billion in consumer fraud losses in 2024, creating complex intake needs for fraud-related investigations.",
+      "role": "Case managers and operations staff",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ftc-2024-fraud-losses"
+      ]
+    },
+    {
+      "question": "How would DocsBot support attorney-referred or corporate investigations without exposing privileged or sensitive information?",
+      "answer": "Use role-based permissions, approved knowledge sources, and customer-defined case-status boundaries. DocsBot can draft update language, summarize authorized notes, and create handoff tasks, but privileged strategy, legal conclusions, subpoena questions, and high-impact client communications should be routed for investigator or attorney review.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot work as an internal SOP assistant for investigators and subcontractors?",
+      "answer": "Yes. DocsBot can be trained on SOPs, checklists, onboarding guides, report templates, evidence procedures, communication policies, PDFs, wikis, and internal documents. Staff can ask procedural questions and receive source-grounded answers with links back to approved material instead of searching shared folders.",
+      "role": "Case managers and operations staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What kinds of case documentation can DocsBot summarize?",
+      "answer": "DocsBot can summarize approved notes, call logs, document packets, source lists, field updates, and draft report content when those materials are provided through configured sources or workflows. For investigation work, the safest pattern is to use the summary as an internal draft that a human verifies before it enters a final report.",
+      "role": "Case managers and operations staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent hallucinated facts from appearing in client updates or reports?",
+      "answer": "Use source-grounded answers, narrow instructions, approved templates, and human review for anything client-facing or evidentiary. DocsBot can link answers back to source material, identify missing fields, and draft neutral language, but investigators should verify facts, dates, observations, and conclusions before sending final updates or reports.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent collect enough information to decide whether a lead is worth a consultation?",
+      "answer": "Yes. DocsBot can ask for firm-defined qualification fields such as matter type, location, parties involved, timeline, desired deliverable, deadline, budget range, and preferred follow-up channel. With configured AI Actions or workflows, it can submit a lead form, create a task, notify staff, or request scheduling.",
+      "role": "Solo investigators and agency owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation look like for a small PI firm with documents spread across PDFs, Word files, and a website?",
+      "answer": "Start with public service pages, intake forms, FAQs, retainer guidance, report templates, SOPs, and a few high-volume checklists. DocsBot can train on websites, PDFs, Word documents, text files, internal documents, and other approved sources. Most firms should pilot one intake or SOP workflow before expanding into case summaries and actions.",
+      "role": "Solo investigators and agency owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot connect to our case management, CRM, scheduling, or ticketing workflows?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, MCP connectors, forms, webhooks, and workflow automations for approved lookups, task creation, routing, notifications, summaries, and handoffs. Avoid assuming an agent has broad access; each action should be scoped to what your firm authorizes.",
+      "role": "Case managers and operations staff",
+      "category": "Integrations"
+    },
+    {
+      "question": "How should we measure ROI if our work is mostly custom and case-based?",
+      "answer": "Track reduced intake interruptions, faster lead response, better consultation readiness, fewer missing documents, less time searching SOPs, shorter report-prep cycles, and fewer repeated admin questions. For owner-led firms, even small reductions in missed calls and administrative rework can matter because billable investigative time is the constraint.",
+      "role": "Solo investigators and agency owners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help standardize evidence-handling instructions across investigators?",
+      "answer": "Yes. Train it on your evidence documentation policies, file naming rules, screenshot procedures, metadata expectations, photo note standards, and report templates. The agent can answer procedural questions and flag missing documentation fields, while final evidence judgments and chain-of-custody decisions stay with trained personnel.",
+      "role": "Case managers and operations staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is DocsBot appropriate for firms that handle legal investigations and professional ethics obligations?",
+      "answer": "DocsBot can support ethics-sensitive workflows when configured as a controlled knowledge and handoff layer, not a decision-maker. The National Association of Legal Investigators states that its mission includes endorsing, promoting, and safeguarding high professional ethics in legal investigation, so review paths and approved-source boundaries are important.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nali-code-ethics"
+      ]
+    },
+    {
+      "question": "What security controls matter most for private investigation use cases?",
+      "answer": "Buyers should look for controls around access, data handling, logging, and model training. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer-data training of public models.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use one agent for both public website intake and private investigator procedures?",
+      "answer": "You can support both use cases, but they should have different access rules and source sets. A public agent can answer service and intake questions, while an internal agent can access SOPs, templates, and training materials. Sensitive case knowledge should be limited by role-based permissions and scoped workflows.",
+      "role": "Case managers and operations staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle multilingual inquiries from prospective clients?",
+      "answer": "DocsBot agents can answer in more than 100 languages, which can help prospective clients understand services, preparation steps, and consultation requirements. For sensitive investigations, multilingual answers should still come from approved firm content and escalate when the client asks for legal advice, strategy, or case-specific conclusions.",
+      "role": "Solo investigators and agency owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help us see which intake questions or case types are creating bottlenecks?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. A PI firm can use those insights to improve FAQs, intake scripts, retainer explanations, evidence checklists, and staff training materials.",
+      "role": "Solo investigators and agency owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will DocsBot replace our receptionist, case manager, or investigator?",
+      "answer": "No. It is better positioned as a support layer for repetitive questions, structured intake, document summaries, SOP retrieval, and workflow handoffs. Humans should remain responsible for client trust, investigative judgment, legal boundaries, field decisions, final reports, and sensitive communications.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can an agency owner control what the agent is allowed to do?",
+      "answer": "DocsBot can be configured with approved sources, instructions, role-based permissions, scoped Skills, secrets management, metadata bindings, network policy, logging, and customer-defined controls. For PI work, actions should be limited to safe tasks such as creating a follow-up, drafting a summary, or routing a request for review.",
+      "role": "Solo investigators and agency owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot support a higher-volume legal, insurance, or corporate investigation team?",
+      "answer": "Yes, especially where consistent documentation and controlled access matter. BLS projects private detective and investigator employment to grow 6% from 2024 to 2034, faster than the average for all occupations, so scalable intake, SOP retrieval, and report-prep support can help teams manage growing workload.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-private-investigators"
+      ]
+    },
+    {
+      "question": "What should we prepare before launching a DocsBot agent for private investigation workflows?",
+      "answer": "Gather your service descriptions, intake forms, retainer language, escalation rules, communication boundaries, report templates, evidence checklists, SOPs, and training materials. Also decide which questions the agent must refuse, which workflows need approval, who owns content updates, and which metrics will define a successful pilot.",
+      "role": "Case managers and operations staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with a generic AI assistant or public chatbot?",
+      "answer": "A generic assistant is not enough for confidential investigative workflows. DocsBot is designed around agents trained on your approved company knowledge, source-grounded answers, controlled actions, analytics, access controls, and human escalation. That makes it better suited for firm-specific intake, SOP retrieval, and reviewed case support.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot draft client messages without accidentally overpromising results?",
+      "answer": "Yes, if you train it on approved communication templates, service descriptions, and status boundaries. The agent can draft neutral language for human review, avoid guarantees, and route sensitive messages to the assigned investigator. Final client communications should remain under staff control when facts, expectations, or legal implications are involved.",
+      "role": "Case managers and operations staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What procurement concerns should a PI firm raise before approving AI for case work?",
+      "answer": "Ask how data is protected, whether customer data trains public models, how access is controlled, what logs are available, which actions the agent can take, and how human review works. Also confirm ownership for source updates, retention expectations, vendor security review, and boundaries for confidential or attorney-directed matters.",
+      "role": "Legal, insurance, and corporate investigation teams",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help with onboarding new investigators or subcontracted field staff?",
+      "answer": "Yes. Train an internal agent on onboarding guides, field activity log standards, pre-surveillance checklists, photo rules, client communication policies, and report examples. New investigators can ask practical procedural questions, while managers use knowledge-gap reporting to identify training content that needs improvement.",
+      "role": "Case managers and operations staff",
+      "category": "Training and onboarding"
+    }
+  ]
+}

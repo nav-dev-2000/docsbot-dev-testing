@@ -1,0 +1,722 @@
+{
+  "slug": "private-security",
+  "business": "Private Security Firm",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Private Security Operations",
+    "description": "DocsBot helps private security firms automate client answers, SOP retrieval, shift handoffs, and lead intake with governed AI agents.",
+    "canonicalPath": "/industry/private-security"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for private security teams",
+    "headline": "Run sharper security operations with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your post orders, client requirements, training materials, incident procedures, service catalog, and FAQs so guards, supervisors, dispatchers, and clients can get source-grounded answers, structured summaries, and routed handoffs without digging through binders or message threads.",
+    "proofBullets": [
+      {
+        "text": "Answer client and prospect questions from approved service pages, FAQs, contracts, and site-specific guidance.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Give supervisors and guards quick access to post orders, escalation steps, equipment checklists, and training materials.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Summarize incident context, collect missing details, create handoff notes, or route requests through configured AI Actions.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use permissions, logs, and customer-defined boundaries for sensitive operational, contractual, or safety-related workflows.",
+        "icon": "LockClosedIcon"
+      }
+    ],
+    "primaryCta": "Build a security operations agent",
+    "secondaryCta": "Explore DocsBot for your firm"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps private security firms create AI agents trained on their own knowledge sources. Agents can support clients through a website widget, assist internal teams in private chat, retrieve SOPs and post orders, draft summaries, qualify service inquiries, surface documentation gaps, and trigger scoped workflows when configured through Skills, APIs, connectors, or approved automation paths.",
+    "whoItHelps": [
+      {
+        "role": "Operations managers and field supervisors",
+        "roleContext": "Keep site instructions, patrol procedures, incident escalation rules, and client-specific requirements consistent across dispersed teams and changing shifts.",
+        "bullets": [
+          {
+            "text": "Find the latest post order, visitor procedure, access-control step, or emergency escalation path from approved internal sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Turn incident notes or dispatcher messages into structured summaries for supervisor review and client follow-up.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics to identify repeated guard questions and gaps in training material or site documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Client service and dispatch teams",
+        "roleContext": "Respond faster to routine questions while reserving human attention for urgent incidents, contract changes, and client-sensitive decisions.",
+        "bullets": [
+          {
+            "text": "Answer common questions about service coverage, reporting expectations, invoices, and account procedures from approved documentation.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect missing details for non-emergency requests, then route the handoff to the right manager or ticket workflow.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Escalate complex, sensitive, or safety-critical questions to a human with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Sales leaders and account managers",
+        "roleContext": "Private security buyers often compare service fit, coverage, response expectations, and qualifications before requesting a proposal or site walk.",
+        "bullets": [
+          {
+            "text": "Qualify inbound leads by region, service type, urgency, property type, headcount, budget range, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Prepare proposal and renewal answers from service catalogs, insurance language, training summaries, and account-specific notes.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect scheduling intent for consultations or site assessments and pass it into a customer-configured booking workflow.",
+            "icon": "CalendarIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      },
+      {
+        "role": "Compliance, training, and safety coordinators",
+        "roleContext": "Security guard work combines public-facing judgment, workplace violence exposure, site policies, and documentation discipline.",
+        "bullets": [
+          {
+            "text": "OSHA identifies workplace violence risk as a concern employers should evaluate and control, especially in high-risk industries.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-osha-workplace-violence"
+            ]
+          },
+          {
+            "text": "Make policies, training guides, onboarding content, and client-specific guard instructions searchable from one governed agent.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Review conversation logs and unanswered questions to improve documentation, refreshers, and supervisor coaching.",
+            "icon": "EyeIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-workplace-violence"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-security-employment",
+      "metric": "Security guard employment outlook",
+      "claim": "BLS projects little or no employment change for security guards and gambling surveillance officers from 2024 to 2034, keeping operational efficiency and knowledge consistency important for firms managing large distributed workforces.",
+      "sourceTitle": "Security Guards and Gambling Surveillance Officers, Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "workforce planning",
+        "operations consistency"
+      ]
+    },
+    {
+      "id": "src-osha-workplace-violence",
+      "metric": "Workplace violence prevention guidance",
+      "claim": "OSHA describes workplace violence as a recognized occupational concern and encourages employers to evaluate and control violence risks, with additional methods for high-risk industries.",
+      "sourceTitle": "Workplace Violence - Overview",
+      "sourceUrl": "https://www.osha.gov/workplace-violence",
+      "sourceDate": "Current OSHA guidance",
+      "bestUsedFor": [
+        "safety risk",
+        "training pressure",
+        "incident prevention"
+      ]
+    },
+    {
+      "id": "src-fbi-active-shooter-2024",
+      "metric": "24 active shooter incidents in 2024",
+      "claim": "The FBI designated 24 shootings in 2024 as active shooter incidents in the United States, reinforcing the need for clear preparedness materials and rapid access to response guidance.",
+      "sourceTitle": "FBI Releases 2024 Active Shooter Incidents in the United States Report",
+      "sourceUrl": "https://www.fbi.gov/news/press-releases/fbi-releases-2024-active-shooter-incidents-in-the-united-states-report",
+      "sourceDate": "June 2025",
+      "bestUsedFor": [
+        "emergency preparedness",
+        "response guidance",
+        "client risk conversations"
+      ]
+    },
+    {
+      "id": "src-dol-workplace-violence-program",
+      "metric": "Workplace violence response procedures",
+      "claim": "The U.S. Department of Labor workplace violence program advises employees to notify appropriate security offices or police about suspicious or unauthorized individuals and to call 911 or emergency contacts when immediate response is required.",
+      "sourceTitle": "DOL Workplace Violence Program",
+      "sourceUrl": "https://www.dol.gov/agencies/oasam/centers-offices/human-resources-center/policies/workplace-violence-program",
+      "sourceDate": "Current DOL guidance",
+      "bestUsedFor": [
+        "incident escalation",
+        "emergency contacts",
+        "security procedure documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Site-specific post order assistant",
+      "problem": "Guards and supervisors may need quick answers across many client sites, each with different access rules, patrol routes, reporting expectations, and emergency contacts.",
+      "agentWorkflow": "Train a DocsBot internal knowledge agent on post orders, site binders, SOPs, client instructions, equipment guides, and training PDFs. Staff ask natural-language questions and receive source-grounded answers with references back to the approved material.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up the site, role, shift, or client metadata before returning the correct instruction set.",
+      "exampleQuestionsOrRequests": [
+        "What is the after-hours visitor process for the North Dock post?",
+        "Who gets notified if a fire panel alarm is active after midnight?",
+        "Summarize the patrol checklist for the warehouse weekend shift."
+      ],
+      "businessOutcome": "Reduce time spent searching through binders, shared drives, and message threads while keeping site instructions consistent across shifts.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Incident summary and handoff agent",
+      "problem": "Security incidents often involve fragmented details from calls, emails, forms, guard notes, camera references, and supervisor follow-up.",
+      "agentWorkflow": "A DocsBot agent can collect missing details, summarize the event, draft a structured handoff, and route it to a supervisor, client service team, or ticket workflow for review. Humans remain responsible for final incident judgments and official reports.",
+      "liveContextOrTools": "AI Actions can create a task or ticket, notify a team, update approved fields, or attach a generated summary when the customer has configured the right workflow access.",
+      "exampleQuestionsOrRequests": [
+        "Create a supervisor handoff from these guard notes and flag missing details.",
+        "Summarize this trespass incident for client review without adding unsupported facts.",
+        "Route this maintenance-related security concern to the facilities contact."
+      ],
+      "businessOutcome": "Standardize handoffs, reduce duplicate follow-up, and give managers cleaner context before client communication.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Client self-service support agent",
+      "problem": "Clients frequently ask about schedules, reporting cadence, service scope, emergency contacts, billing workflows, and how to request extra coverage.",
+      "agentWorkflow": "Deploy a DocsBot AI support agent on your website or client portal trained on FAQs, account procedures, service pages, onboarding packets, and approved client documents. The agent answers routine questions and escalates sensitive or account-specific issues with context.",
+      "liveContextOrTools": "Configured workflows can collect account name, site, urgency, requested service date, and contact details before routing the request to dispatch, account management, or helpdesk software.",
+      "exampleQuestionsOrRequests": [
+        "How do I request an extra guard for an event next Friday?",
+        "Where can I find our monthly incident summary?",
+        "Who should our facilities director contact for an access-control issue?"
+      ],
+      "businessOutcome": "Give clients faster answers while protecting staff time for urgent operations, contract changes, and relationship management.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Preparedness and escalation guide",
+      "problem": "Emergency response guidance must be easy to find, especially when teams are under pressure and procedures vary by client site.",
+      "agentWorkflow": "Train DocsBot on emergency response checklists, workplace violence procedures, fire alarm steps, evacuation guidance, client notification trees, and supervisor instructions. The agent retrieves the relevant procedure and prompts users to follow established escalation rules.",
+      "liveContextOrTools": "For high-impact situations, configure the agent to provide guidance from approved procedures, remind users to contact emergency services where required, and route summaries to human supervisors.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a credible workplace violence threat?",
+        "Show the emergency contacts for this site’s weekend shift.",
+        "Which client contacts are notified after a forced-entry alarm?"
+      ],
+      "businessOutcome": "Support faster access to approved procedures while keeping safety-critical decisions and emergency response in human hands. The FBI designated 24 U.S. active shooter incidents in 2024.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-fbi-active-shooter-2024"
+      ]
+    },
+    {
+      "name": "Service inquiry qualification agent",
+      "problem": "New buyers may need answers about guard coverage, event security, mobile patrols, response expectations, licensing, training, and proposal next steps before they speak to sales.",
+      "agentWorkflow": "A DocsBot presales agent answers from your service catalog, FAQs, proposal templates, insurance summaries, and qualification rules. It can collect project details, assess fit, and prepare a structured handoff for sales or operations.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, forms, webhooks, or MCP Connectors for approved tools, the agent can forward qualified lead summaries to CRM, email, ticketing, or scheduling workflows.",
+      "exampleQuestionsOrRequests": [
+        "Do you provide overnight construction site security in Dallas?",
+        "What details do you need for a retail loss-prevention proposal?",
+        "Can I book a site assessment for a 200,000-square-foot warehouse?"
+      ],
+      "businessOutcome": "Capture better-qualified inquiries and help sales teams respond with complete context instead of starting every conversation from scratch.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Training and onboarding knowledge agent",
+      "problem": "New guards, dispatchers, and supervisors need fast access to policies and site-specific knowledge, but training content often lives across documents, videos, PDFs, and wikis.",
+      "agentWorkflow": "DocsBot can train on onboarding guides, training materials, policies, SOPs, role expectations, HR references, and safety materials. Employees ask questions in private chat and get consistent, source-grounded answers.",
+      "liveContextOrTools": "Admins can review logs, identify repeated onboarding questions, and update source material where the agent reveals knowledge gaps.",
+      "exampleQuestionsOrRequests": [
+        "What uniform standards apply to armed posts?",
+        "Explain the radio code policy for a new dispatcher.",
+        "What should I review before my first shift at a healthcare facility?"
+      ],
+      "businessOutcome": "Help employees ramp faster and reduce repeat supervisor interruptions without replacing required training, licensing, or human coaching.",
+      "icon": "AcademicCapIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give security clients a reliable front door for routine answers",
+    "intro": "DocsBot can power a client-facing AI support agent trained on your approved service information, account procedures, reporting policies, and FAQs. It helps clients self-serve routine questions while routing urgent, sensitive, or contractual issues to the right human team.",
+    "requests": [
+      {
+        "request": "Request extra coverage for an event, construction site, or high-risk shift.",
+        "agentResponseStrategy": "Collect dates, location, hours, guard type, estimated attendance, risk notes, and preferred contact method, then prepare a routed handoff for scheduling or sales review.",
+        "sourceTypes": [
+          "Service catalog",
+          "Coverage request forms",
+          "Qualification rules",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Create a task, send a notification, or submit a lead form through a customer-configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "Ask about incident reports, billing, service scope, or account procedures.",
+        "agentResponseStrategy": "Answer from approved FAQs and client-facing policies, then escalate account-specific or contractual questions with conversation context attached.",
+        "sourceTypes": [
+          "Client FAQ",
+          "Account procedures",
+          "Contract summaries",
+          "Helpdesk exports"
+        ],
+        "optionalAction": "Route the request to account management, support, or billing software when configured.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "Find emergency contacts or the correct escalation path.",
+        "agentResponseStrategy": "Retrieve the approved contact tree or procedure for the user’s site and remind the requester to follow emergency-service requirements for immediate danger.",
+        "sourceTypes": [
+          "Emergency contact lists",
+          "Post orders",
+          "Escalation procedures",
+          "Client onboarding packets"
+        ],
+        "optionalAction": "Notify the appropriate internal team or create a supervisor review task through approved AI Actions.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "Evaluate whether your firm is a fit for a new property or event.",
+        "agentResponseStrategy": "Answer service-fit questions from your approved materials and collect structured qualification details before handing the opportunity to a human seller.",
+        "sourceTypes": [
+          "Service pages",
+          "Proposal templates",
+          "Insurance summaries",
+          "Sales enablement notes"
+        ],
+        "optionalAction": "Forward qualified lead details to CRM, email, helpdesk software, or a booking workflow configured by the customer.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "Ask for preparedness resources or workplace violence planning references.",
+        "agentResponseStrategy": "Provide approved firm materials and avoid improvising legal, law-enforcement, or emergency instructions beyond the content the firm has authorized.",
+        "sourceTypes": [
+          "Preparedness guides",
+          "Training PDFs",
+          "Client safety materials",
+          "Emergency procedures"
+        ],
+        "optionalAction": "Escalate sensitive preparedness questions to a security consultant or operations leader for review.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "Check how to report suspicious activity at a client site.",
+        "agentResponseStrategy": "Return the approved reporting steps and escalation contacts for that site. DOL guidance emphasizes notifying appropriate security offices or police for suspicious or unauthorized individuals and using emergency contacts for immediate response.",
+        "sourceTypes": [
+          "Site procedures",
+          "Security office contacts",
+          "Emergency response policies",
+          "Client post orders"
+        ],
+        "optionalAction": "Create a non-emergency report task or notify dispatch when the customer has configured the workflow.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-dol-workplace-violence-program"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put SOPs, post orders, and training knowledge where your teams already work",
+    "intro": "DocsBot can operate as a private internal knowledge agent for supervisors, dispatchers, sales, HR, training, compliance, and field leadership. It answers from approved sources, supports summaries and handoffs, and helps managers see where documentation needs improvement.",
+    "workflows": [
+      {
+        "name": "Guard and supervisor SOP lookup",
+        "problem": "Field teams need the right instruction for the right site, shift, client, and incident type without relying on memory or scattered files.",
+        "agentWorkflow": "Train DocsBot on SOPs, post orders, maps, equipment guides, visitor policies, key-control procedures, and escalation matrices. The agent returns source-grounded answers and cites the relevant internal material.",
+        "sourceTypes": [
+          "Post orders",
+          "SOP binders",
+          "PDFs",
+          "Google Drive",
+          "Confluence or Notion"
+        ],
+        "optionalAction": "Use configured metadata or Skills to narrow answers by site, role, or account before responding.",
+        "outcome": "Improve consistency across posts and reduce time supervisors spend answering repeat procedural questions.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Dispatch and incident triage support",
+        "problem": "Dispatchers need to quickly classify requests, capture missing facts, and alert the right person without losing context.",
+        "agentWorkflow": "DocsBot can guide structured intake, summarize notes, identify missing fields, and prepare a human-readable handoff for review.",
+        "sourceTypes": [
+          "Dispatch scripts",
+          "Incident categories",
+          "Escalation rules",
+          "Client contact trees"
+        ],
+        "optionalAction": "Create a ticket, send a team notification, or route a summary through customer-configured AI Actions.",
+        "outcome": "Cleaner intake and faster routing while preserving human review for urgent or safety-critical decisions.",
+        "icon": "SignalIcon"
+      },
+      {
+        "name": "Training content and policy assistant",
+        "problem": "Policies, licensing reminders, uniform standards, conduct rules, and site instructions change over time, creating repeated questions from new and rotating staff.",
+        "agentWorkflow": "DocsBot answers from onboarding guides, policy documents, internal wikis, training PDFs, and role-based procedures, then logs questions that may indicate content gaps.",
+        "sourceTypes": [
+          "Training manuals",
+          "HR policies",
+          "Licensing reminders",
+          "Role checklists"
+        ],
+        "optionalAction": "Generate a weekly report of repeated questions or unanswered topics for training coordinators.",
+        "outcome": "Support consistent onboarding and make documentation gaps visible before they become operational friction.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales and proposal enablement",
+        "problem": "Account managers need accurate service language, requirements, differentiators, and client-ready answers during fast-moving RFP or renewal cycles.",
+        "agentWorkflow": "Train a DocsBot sales enablement agent on proposal templates, service descriptions, objection handling, insurance summaries, approved claims, and case notes. Reps can ask for drafts, summaries, and source-backed talking points.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Case notes",
+          "Approved sales FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or prepare a meeting brief through configured workflows, with humans approving final outreach and terms.",
+        "outcome": "Help sales teams respond faster while keeping pricing, legal terms, and contractual commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from firm knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on websites, documentation, internal content, PDFs, Word documents, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Private security firms can centralize post orders, SOPs, training materials, client FAQs, service catalogs, and escalation procedures into searchable AI assistance.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and client support workflows",
+      "mainLandingPageContext": "DocsBot support agents can answer customer questions in a website or product chat widget and support helpdesk-connected workflows when configured.",
+      "industryApplication": "Clients and prospects can ask about coverage, reporting, account procedures, or service fit while the agent routes sensitive or account-specific issues to staff.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, record updates, workflow triggers, summaries, task creation, and handoffs.",
+      "industryApplication": "Security teams can configure live lookups, incident summaries, lead handoffs, booking requests, team notifications, and approved task creation around their own systems.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Internal knowledge access for dispersed teams",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant for operations, HR, sales, compliance, finance, legal, and support teams.",
+      "industryApplication": "Guards, dispatchers, supervisors, and account managers can find policies and procedures without waiting for a manager or searching shared drives.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Managers can see recurring client and employee questions, then update training, FAQs, post orders, and service documentation where confusion appears.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Private security firms can deploy agents around sensitive client, site, and operational materials with governed access and customer-defined workflow boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Create agents trained on your own operational content instead of generic security advice.",
+      "Support internal decision-making with searchable, source-grounded knowledge.",
+      "Extend support workflows with human handoff, review, and configured actions."
+    ],
+    "whyTheseReviewsFit": "Private security firms need dependable knowledge access, controlled escalation, and faster answers for both clients and internal teams. DocsBot proof spans owned-content training, internal decision support, and support workflows that assist human teams instead of bypassing them.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ShieldCheckIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for private security firms",
+    "audience": [
+      "Private security firm owners",
+      "Security operations managers",
+      "Dispatch and client service teams",
+      "Training and compliance coordinators",
+      "Security sales and account managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "security-guard",
+    "security-system-services",
+    "security-system-installation",
+    "private-investigator",
+    "emergency-management",
+    "compliance-consulting",
+    "cybersecurity",
+    "safety-security-legal"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "private-security",
+    "webSearchQueries": [
+      "BLS security guards employment private security United States 2024",
+      "OSHA security guards workplace violence risks guidance",
+      "FBI 2024 active shooter incidents report 24 active shooter incidents",
+      "DOL Workplace Violence Program security suspicious unauthorized individuals"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "https://www.osha.gov/workplace-violence",
+      "https://www.fbi.gov/news/press-releases/fbi-releases-2024-active-shooter-incidents-in-the-united-states-report",
+      "https://www.dol.gov/agencies/oasam/centers-offices/human-resources-center/policies/workplace-violence-program"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47200,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 26464,
+        "outputTokens": 7891,
+        "reasoningOutputTokens": 229,
+        "totalTokens": 55091,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.18971,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.20971
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27809,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 12321,
+          "outputTokens": 5169,
+          "reasoningOutputTokens": 214,
+          "totalTokens": 32978,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.11221,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.13221
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19391,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14143,
+          "outputTokens": 2722,
+          "reasoningOutputTokens": 15,
+          "totalTokens": 22113,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.0775,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.0775
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1496368077930-c1e31b4e5b44?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzZWN1cml0eXxlbnwwfDB8fHwxNzE0ODc4MDcxfDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Private Security Firm background image",
+    "source": "legacy-industry",
+    "query": "Private Security Firm"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle different post orders for every client site without giving a guard the wrong procedure?",
+      "answer": "Yes, if your source content is organized and access rules are configured carefully. DocsBot can be trained on site-specific post orders, SOPs, maps, escalation matrices, and client instructions, then use permissions, metadata, or configured Skills to narrow answers by site, role, shift, or account. Buyers should plan a content cleanup step so outdated binders and duplicate PDFs do not compete with the approved procedure.",
+      "role": "Operations managers and field supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the AI from improvising during emergencies or safety-sensitive incidents?",
+      "answer": "DocsBot should be configured to retrieve approved emergency procedures, escalation paths, and contact trees rather than generate new instructions. For high-impact situations, the agent can remind users to follow established emergency-service requirements and route a summary to a human supervisor. OSHA treats workplace violence as an occupational concern employers should evaluate and control, so governance matters when exposing any response guidance.",
+      "role": "Compliance, training, and safety coordinators",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-workplace-violence"
+      ]
+    },
+    {
+      "question": "Can this help dispatchers capture better incident details before a supervisor gets involved?",
+      "answer": "Yes. A DocsBot agent can guide structured intake, ask for missing fields, summarize guard notes, and prepare a handoff for supervisor review. It is best used to improve completeness and routing, not to make final incident judgments. For example, it can turn fragmented calls, messages, or form notes into a cleaner timeline while flagging unsupported details for human review.",
+      "role": "Client service and dispatch teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will clients be able to ask the agent about billing, extra coverage, schedules, and reports without exposing internal instructions?",
+      "answer": "Yes, if you separate client-facing knowledge from internal operating content. A website or portal agent can answer from approved FAQs, account procedures, service pages, reporting policies, and request forms, while internal post orders and sensitive escalation details remain limited by role-based permissions and customer-defined boundaries.",
+      "role": "Client service and dispatch teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What would implementation look like for a firm with hundreds of sites and inconsistent post order formats?",
+      "answer": "Start with a high-value pilot: a few representative sites, the latest post orders, escalation contacts, training PDFs, and common dispatcher questions. Use the pilot to identify duplicate or stale documents, then expand by region, client type, or supervisor portfolio. DocsBot’s logs and unanswered questions can help show which procedures need rewriting before broad rollout.",
+      "role": "Operations managers and field supervisors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot integrate with our dispatch, scheduling, ticketing, CRM, or team messaging tools?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and approved automation paths. Typical examples include creating a task, routing a client request, forwarding a qualified lead, notifying a team, or attaching a summary to a ticket. You should scope each action so the agent only accesses approved systems and fields.",
+      "role": "Client service and dispatch teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if this does not replace guards or supervisors?",
+      "answer": "Measure reduced supervisor interruptions, faster SOP lookup, cleaner incident handoffs, fewer repeated client-service questions, better lead intake completeness, and shorter onboarding support cycles. Private security operations often depend on consistent knowledge across distributed teams; BLS projects little or no employment change for security guards and gambling surveillance officers from 2024 to 2034, making efficiency and consistency important even without workforce expansion.",
+      "role": "Operations managers and field supervisors",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-security-employment"
+      ]
+    },
+    {
+      "question": "Can the agent qualify new service inquiries before sales or operations spends time on them?",
+      "answer": "Yes. A DocsBot presales agent can answer from your service catalog, FAQs, proposal templates, insurance summaries, and qualification rules. It can collect region, site type, dates, hours, guard type, urgency, budget range, risk notes, and preferred follow-up channel, then prepare a structured handoff for sales or operations review.",
+      "role": "Sales leaders and account managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from making pricing, contract, or liability commitments?",
+      "answer": "Use clear instructions and bounded actions. DocsBot can answer from approved materials, collect requirements, draft responses, and route requests, but pricing exceptions, contract terms, regulated advice, and liability-sensitive commitments should stay with authorized humans. Conversation logs also give managers a review trail for how sensitive questions were handled.",
+      "role": "Sales leaders and account managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can supervisors see what guards are asking so we can improve training?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For security firms, that can reveal repeated questions about visitor procedures, key control, uniforms, report writing, emergency contacts, or client-specific expectations so training coordinators can update source materials.",
+      "role": "Compliance, training, and safety coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a guard asks about an outdated procedure that still exists in an old PDF?",
+      "answer": "DocsBot answers from the sources you provide, so document governance is part of implementation. Before launch, identify the authoritative location for each post order, remove superseded files where possible, and use naming, metadata, permissions, and update workflows to reduce conflicts. Conversation review can also surface confusing or contradictory materials after launch.",
+      "role": "Operations managers and field supervisors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use it for workplace violence preparedness materials without creating legal or law-enforcement risk?",
+      "answer": "Yes, but keep the agent grounded in your approved preparedness guides, training documents, and escalation procedures. It should not improvise legal, tactical, or law-enforcement guidance. OSHA identifies workplace violence as a recognized occupational concern, and the FBI designated 24 U.S. shootings in 2024 as active shooter incidents, so buyers should pair fast knowledge access with human oversight and approved response protocols.",
+      "role": "Compliance, training, and safety coordinators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-workplace-violence",
+        "src-fbi-active-shooter-2024"
+      ]
+    },
+    {
+      "question": "Can DocsBot support multilingual guards or clients?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help dispersed teams and clients access approved information more easily. For safety-critical procedures, firms should still validate translations, keep source documents current, and define when the agent should escalate to a supervisor instead of continuing an ambiguous exchange.",
+      "role": "Operations managers and field supervisors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will this work for both armed and unarmed posts with different policies?",
+      "answer": "Yes, as long as your source materials and permissions reflect those differences. DocsBot can be trained on role-specific procedures, licensing reminders, equipment checklists, uniform standards, and escalation rules. Buyers should define which users can access armed-post materials and ensure the agent cites the applicable source instead of blending procedures across post types.",
+      "role": "Compliance, training, and safety coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can a client-facing agent route urgent or suspicious-activity reports correctly?",
+      "answer": "It can retrieve approved reporting steps, collect basic context, and route a non-emergency handoff when configured. For immediate danger, the agent should direct users to follow your emergency procedures and contact emergency services where required. The U.S. Department of Labor workplace violence program advises notifying appropriate security offices or police about suspicious or unauthorized individuals and using emergency contacts for immediate response.",
+      "role": "Client service and dispatch teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-dol-workplace-violence-program"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "The main difference is operational grounding. DocsBot is designed to create AI agents trained on your approved knowledge sources, such as post orders, FAQs, service catalogs, training materials, and client procedures. It can also support governed handoffs and bounded actions, rather than only answering generic website questions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can account managers use DocsBot during renewals or RFP responses?",
+      "answer": "Yes. A sales enablement agent can be trained on proposal templates, service descriptions, approved claims, insurance summaries, case notes, FAQs, and objection handling. Account managers can ask for source-backed talking points, draft follow-ups, or renewal summaries, while humans remain responsible for final pricing, terms, and contractual commitments.",
+      "role": "Sales leaders and account managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we protect client site information, contact trees, and incident details?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer-defined workflow boundaries. It also does not use customer data to train public models. For private security firms, the buying committee should map which roles can access post orders, client contacts, incident summaries, and billing information before launch.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep humans in the loop for incident reports and client communications?",
+      "answer": "Yes. DocsBot can summarize notes, collect missing details, draft handoffs, and prepare client-facing language, but official incident judgments, sensitive communications, and final reports can remain subject to supervisor or account-manager review. This is especially important where facts are incomplete, liability is possible, or client expectations are contract-specific.",
+      "role": "Operations managers and field supervisors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What data should we prepare before a pilot?",
+      "answer": "Prepare current post orders, SOPs, escalation matrices, emergency contacts, training materials, client FAQs, service catalog content, dispatch scripts, proposal templates, and examples of common questions. Also identify restricted content, stale documents, and the workflows you want to test first, such as SOP lookup, incident summary, lead qualification, or client request routing.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support guards who are mobile, offsite, or working overnight?",
+      "answer": "Yes. DocsBot can act as an always-available internal knowledge agent, giving authorized users source-grounded answers when supervisors or office staff are not immediately available. The most useful rollout usually focuses on questions that happen during shifts: access-control steps, visitor procedures, patrol checklists, equipment issues, emergency contacts, and reporting requirements.",
+      "role": "Operations managers and field supervisors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do procurement and IT teams evaluate whether this is safe enough for security operations?",
+      "answer": "They should review data handling, access controls, role permissions, auditability, source governance, escalation rules, and limits on AI Actions. DocsBot offers SOC 2 Type II certification, encryption in transit and at rest, GDPR-ready governance, granular access controls, and does not use customer data to train public models, but each firm should still define exactly what the agent can see and do.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we use DocsBot without replacing our existing guard management platform?",
+      "answer": "Yes. DocsBot is not positioned as a replacement for your scheduling, dispatch, payroll, incident reporting, or guard tour system. It can sit alongside existing tools as a knowledge and workflow layer, answering from approved documents and using customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors for scoped lookups and handoffs where authorized.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What if the agent cannot answer a question confidently?",
+      "answer": "Configure it to say it does not have enough information, cite what it did find, and escalate to a human with the conversation context attached. That is preferable to guessing, especially for site procedures, emergency escalation, licensing, billing, or contract-specific questions. Unanswered questions can also become a documentation backlog for operations or training teams.",
+      "role": "Client service and dispatch teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How can training leaders use DocsBot beyond answering one-off employee questions?",
+      "answer": "Training leaders can review logs to see recurring confusion, update onboarding content, create refreshers around weak spots, and standardize answers across supervisors. For example, repeated questions about report writing, radio codes, key control, or site-specific visitor rules can reveal where training materials or post orders need improvement.",
+      "role": "Compliance, training, and safety coordinators",
+      "category": "Training and onboarding"
+    }
+  ]
+}

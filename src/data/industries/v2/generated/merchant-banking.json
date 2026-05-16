@@ -1,0 +1,727 @@
+{
+  "slug": "merchant-banking",
+  "business": "Merchant Banking",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Merchant Banking Workflows",
+    "description": "DocsBot helps merchant banking teams answer client questions, retrieve deal knowledge, and route sensitive requests with governed AI agents.",
+    "canonicalPath": "/industry/merchant-banking"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for deal, client, and compliance teams",
+    "headline": "Merchant banking AI agents for faster client and deal support",
+    "subheadline": "DocsBot helps merchant banking teams turn approved pitch materials, policies, onboarding checklists, FAQs, data-room guidance, and internal procedures into governed AI agents that answer questions, summarize context, qualify inquiries, and route sensitive work to the right human reviewers.",
+    "proofBullets": [
+      {
+        "text": "Answer prospective client and investor questions from approved service descriptions, fund materials, FAQs, and disclosure-ready content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give bankers, analysts, and operations teams instant access to internal policies, playbooks, checklists, and prior knowledge sources.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect intake details, summarize requests, create tasks, route handoffs, or trigger review workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support governance with role-based permissions, encryption, conversation review, logs, human escalation, SOC 2 Type II, and GDPR-ready controls.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a merchant banking AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your merchant banking team approves: deal process documentation, onboarding guides, investor relations FAQs, compliance notes, research libraries, policies, templates, and internal SOPs. Agents provide source-grounded answers, summarize context, expose knowledge gaps, and take bounded actions through configured Skills, APIs, connectors, or workflows while humans remain responsible for regulated advice, commitments, and final approvals.",
+    "whoItHelps": [
+      {
+        "role": "Managing directors and relationship leaders",
+        "roleContext": "Senior bankers need consistent answers for complex client conversations without turning every routine eligibility, process, or document question into a manual follow-up.",
+        "bullets": [
+          {
+            "text": "Equip client-facing teams with approved explanations of services, transaction processes, diligence requirements, and next steps.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect inquiry details through structured intake flows and route qualified opportunities to the right banker or coverage team.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Escalate pricing, legal, suitability, and regulated recommendation questions to humans instead of allowing the agent to overreach.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Deal execution, analyst, and operations teams",
+        "roleContext": "Execution teams work across checklists, templates, data rooms, reporting cycles, and internal procedures where time is lost searching for the latest approved answer.",
+        "bullets": [
+          {
+            "text": "Search internal SOPs, templates, FAQs, and transaction playbooks through a private knowledge agent trained on approved sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize prior conversations, document requests, diligence notes, or ticket context before a banker or operations lead reviews them.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "FINRA reported 3,298 FINRA-registered broker-dealer firms and 148,718 branches at year-end 2023, showing the scale of regulated securities operations that depend on consistent process knowledge.",
+            "icon": "BuildingOffice2Icon",
+            "sourceIds": [
+              "src-finra-industry-snapshot"
+            ]
+          }
+        ],
+        "roleIcon": "CalculatorIcon"
+      },
+      {
+        "role": "Compliance, legal, and supervision teams",
+        "roleContext": "Merchant banking workflows often touch broker-dealer obligations, AML controls, customer communications, conflicts, and review procedures that require clear boundaries.",
+        "bullets": [
+          {
+            "text": "Make approved compliance procedures searchable while keeping sensitive recommendations, disclosures, and exceptions on human review paths.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Use conversation logs, analytics, and knowledge-gap reports to see recurring policy questions and improve internal guidance.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "FINRA describes broker-dealer AML obligations that include AML programs, CIPs, suspicious activity reporting, customer due diligence, and ongoing personnel training.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-finra-aml"
+            ]
+          }
+        ],
+        "roleIcon": "LockClosedIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-finra-industry-snapshot",
+      "metric": "3,298 FINRA-registered broker-dealer firms in 2023",
+      "claim": "FINRA’s 2024 Industry Snapshot reported 3,298 FINRA-registered broker-dealer firms and 148,718 branches at year-end 2023.",
+      "sourceTitle": "FINRA Industry Snapshot 2024",
+      "sourceUrl": "https://www.finra.org/sites/default/files/2024-07/2024-Industry-Snapshot.pdf",
+      "sourceDate": "July 2024",
+      "bestUsedFor": [
+        "regulated market scale",
+        "branch and firm complexity",
+        "operations consistency"
+      ]
+    },
+    {
+      "id": "src-finra-aml",
+      "metric": "Broker-dealers must maintain AML programs and CIPs",
+      "claim": "FINRA explains that BSA implementing regulations require broker-dealers to maintain AML programs and Customer Identification Programs, file suspicious activity reports, perform CDD, and train personnel.",
+      "sourceTitle": "FINRA Anti-Money Laundering: Regulatory Obligations and Related Considerations",
+      "sourceUrl": "https://www.finra.org/rules-guidance/guidance/reports/2022-finras-examination-and-risk-monitoring-program/aml",
+      "sourceDate": "2022 report, accessed 2026",
+      "bestUsedFor": [
+        "AML compliance pressure",
+        "customer onboarding controls",
+        "training and procedure workflows"
+      ]
+    },
+    {
+      "id": "src-sec-reg-bi",
+      "metric": "Broker-dealers must act in retail customers’ best interest when making recommendations",
+      "claim": "The SEC’s Regulation Best Interest guidance states that broker-dealers making recommendations to retail customers must act in the customer’s best interest and address disclosure, care, conflicts, and compliance obligations.",
+      "sourceTitle": "SEC Small Entity Compliance Guide: Regulation Best Interest",
+      "sourceUrl": "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/regulation-best-interest",
+      "sourceDate": "September 2019, accessed 2026",
+      "bestUsedFor": [
+        "regulated recommendations",
+        "human review boundaries",
+        "disclosure and conflict workflows"
+      ]
+    },
+    {
+      "id": "src-sec-exam-priorities",
+      "metric": "SEC examinations cover broker-dealers and information security risks",
+      "claim": "The SEC Division of Examinations’ 2024 priorities covered broker-dealers and highlighted information security, operational resiliency, crypto assets, emerging financial technology, and AML among examination areas.",
+      "sourceTitle": "SEC 2024 Examination Priorities",
+      "sourceUrl": "https://www.sec.gov/about/reports-publications/2024-examination-priorities",
+      "sourceDate": "October 16, 2023",
+      "bestUsedFor": [
+        "compliance priorities",
+        "security expectations",
+        "operational resilience"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client inquiry and opportunity intake agent",
+      "problem": "Prospective clients, sponsors, founders, and investors often ask about services, fit, process, timelines, required information, and next steps before a banker has enough context to prioritize the request.",
+      "agentWorkflow": "A DocsBot agent answers from approved merchant banking pages, service descriptions, FAQs, eligibility notes, and intake instructions. It can collect company, role, transaction type, geography, timeline, financing need, and preferred follow-up channel, then summarize the inquiry for a human banker.",
+      "liveContextOrTools": "With approved AI Actions, Skills, APIs, forms, or workflow automations, the agent can forward qualified inquiries, create a task, notify a coverage team, or request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you advise lower-middle-market companies seeking growth capital?",
+        "What information should I prepare before an initial conversation?",
+        "Can you route this recapitalization inquiry to the right coverage banker?"
+      ],
+      "businessOutcome": "Bankers receive cleaner intake summaries, prospects get faster answers from approved material, and sensitive transaction or suitability discussions move to human follow-up.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Deal execution knowledge assistant",
+      "problem": "Analysts and associates need quick access to the latest templates, diligence request lists, closing checklists, valuation process notes, and internal procedures across fast-moving transactions.",
+      "agentWorkflow": "DocsBot trains on approved internal playbooks, SOPs, PDFs, Word documents, wikis, shared-drive materials, and templates so team members can ask procedural questions and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "A configured Skill can retrieve approved deal metadata, summarize a document request, draft a checklist, or create a follow-up task while preserving permissions around confidential transaction data.",
+      "exampleQuestionsOrRequests": [
+        "Which diligence checklist applies to a minority growth investment?",
+        "Summarize the internal approval steps before sending this client-ready package.",
+        "Create a task for operations to review missing onboarding documents."
+      ],
+      "businessOutcome": "Execution teams spend less time hunting for internal knowledge and more time preparing accurate, review-ready work products.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Compliance policy and supervision assistant",
+      "problem": "Regulated teams need consistent access to policies on communications, conflicts, AML, customer identification, privacy, records, and escalation, but the final judgment must stay with compliance and legal reviewers.",
+      "agentWorkflow": "A private DocsBot agent answers employee questions from approved compliance manuals, training materials, supervisory procedures, and policy memos. It can identify when a request involves regulated advice, disclosure language, exception handling, or client-impacting decisions and route the matter to the right reviewer.",
+      "liveContextOrTools": "Through customer-configured workflows, the agent can prepare a policy summary, capture missing facts, create a compliance review ticket, or notify the supervision team. Review logs and analytics help identify recurring policy gaps.",
+      "exampleQuestionsOrRequests": [
+        "What is our escalation path for a potential conflict of interest?",
+        "Which AML onboarding steps apply to a legal entity customer?",
+        "Summarize this question for compliance review without making a recommendation."
+      ],
+      "businessOutcome": "Employees get faster policy guidance while compliance teams keep control of sensitive determinations and see where training materials need improvement.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-finra-aml",
+        "src-sec-reg-bi"
+      ]
+    },
+    {
+      "name": "Investor relations and portfolio support agent",
+      "problem": "Merchant banks that maintain investor, portfolio company, or stakeholder portals need consistent answers about reporting calendars, document access, operational contacts, and non-advisory process questions.",
+      "agentWorkflow": "DocsBot can power a website, portal, or private chat agent trained on approved investor FAQs, reporting instructions, portfolio support guides, contact directories, and document-access procedures. It answers routine questions and escalates anything involving investment advice, confidential account details, or contractual interpretation.",
+      "liveContextOrTools": "When configured with approved APIs or connectors, including MCP Connectors to remote Model Context Protocol servers where appropriate, the agent can look up permitted status fields, create a support ticket, or route a secure handoff.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the quarterly reporting calendar?",
+        "Who should receive this portfolio company operations request?",
+        "Please summarize this investor portal issue for the support team."
+      ],
+      "businessOutcome": "Stakeholders receive quicker process answers, support teams get structured handoffs, and confidential or high-impact questions remain bounded by permissions and escalation rules.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for banking operations",
+      "problem": "Recurring employee and client questions reveal unclear documentation, outdated FAQs, or process bottlenecks, but those patterns are hard to see across chat, email, ticket, and document workflows.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review unanswered topics and update source content so future answers improve from approved knowledge.",
+      "liveContextOrTools": "Configured helpdesk or ticketing workflows can summarize repeated questions, route documentation fixes to owners, or create tasks for operations, compliance, or client service teams.",
+      "exampleQuestionsOrRequests": [
+        "Which onboarding questions came up most often this month?",
+        "Show unresolved topics related to investor reporting access.",
+        "Create a documentation task for the recurring data-room permission question."
+      ],
+      "businessOutcome": "Merchant banking teams improve the source material behind the agent instead of repeatedly answering the same operational questions by hand.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Secure multilingual support for global stakeholders",
+      "problem": "Cross-border investors, sponsors, and operating teams may ask process questions in different languages, while banking teams still need answers grounded in approved English-language or multilingual materials.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from approved knowledge sources, helping global stakeholders understand process, document, and support guidance while routing nuanced legal, tax, investment, or contractual questions to humans.",
+      "liveContextOrTools": "The agent can collect missing details in the user’s language, summarize them for an internal team, and trigger a configured handoff to the appropriate relationship, operations, or compliance contact.",
+      "exampleQuestionsOrRequests": [
+        "Explain the onboarding document list in Spanish.",
+        "Route this German-language portal access issue to investor support.",
+        "Summarize this French inquiry for the coverage team."
+      ],
+      "businessOutcome": "Global stakeholders get more accessible first-line support while merchant banking teams preserve consistency and review boundaries.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Client-facing AI support that stays inside approved merchant banking content",
+    "intro": "Use DocsBot on a website, portal, or controlled chat experience to answer routine questions about services, process, document requirements, reporting access, and next steps. The agent can collect context and prepare handoffs, while regulated advice, pricing, legal terms, and commitments remain with your team.",
+    "requests": [
+      {
+        "request": "“Do you support founder-owned companies considering a minority investment?”",
+        "agentResponseStrategy": "Answer from approved service descriptions and qualification guidance, ask for structured intake details, and route the inquiry to a banker when the prospect appears to fit configured criteria.",
+        "sourceTypes": [
+          "Service pages",
+          "Eligibility notes",
+          "FAQs",
+          "Intake forms"
+        ],
+        "optionalAction": "Submit a lead form, create a task, or forward a summarized inquiry to a configured sales or relationship workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“What documents are needed before diligence begins?”",
+        "agentResponseStrategy": "Provide a source-grounded checklist from approved onboarding and diligence materials, clarify that requirements may vary by transaction, and offer to send the request to the deal team.",
+        "sourceTypes": [
+          "Diligence checklists",
+          "Onboarding guides",
+          "Process FAQs"
+        ],
+        "optionalAction": "Create a document-request summary or notify the responsible operations team through an approved workflow.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you explain this investment recommendation?”",
+        "agentResponseStrategy": "Avoid making regulated recommendations or interpreting client-specific investment advice. The agent can provide general process information from approved sources and escalate the request to a licensed or authorized human reviewer.",
+        "sourceTypes": [
+          "Disclosure guidance",
+          "Compliance policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Prepare a compliance-safe handoff summary with the user’s question, context, and source references for human review.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-sec-reg-bi"
+        ]
+      },
+      {
+        "request": "“I cannot access a reporting document in the investor portal.”",
+        "agentResponseStrategy": "Troubleshoot from approved portal instructions, collect non-sensitive issue details, and route account-specific or permission-related requests to the correct support channel.",
+        "sourceTypes": [
+          "Portal help docs",
+          "Investor FAQs",
+          "Access procedures"
+        ],
+        "optionalAction": "Open a support ticket or notify investor relations if the customer has configured the required connector or workflow.",
+        "icon": "KeyIcon"
+      },
+      {
+        "request": "“Who should receive my AML onboarding update?”",
+        "agentResponseStrategy": "Answer from approved onboarding instructions, explain the general routing path, and escalate any identity, beneficial ownership, or suspicious activity question to compliance.",
+        "sourceTypes": [
+          "AML procedures",
+          "Onboarding checklists",
+          "Compliance contacts"
+        ],
+        "optionalAction": "Collect missing facts and route the summary to compliance or operations through an approved workflow.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-finra-aml"
+        ]
+      },
+      {
+        "request": "“Can I schedule a conversation with the right banker?”",
+        "agentResponseStrategy": "Collect scheduling intent, transaction type, company details, and preferred contact method before handing the request to a human or configured scheduling flow.",
+        "sourceTypes": [
+          "Coverage maps",
+          "Sales playbooks",
+          "Scheduling rules"
+        ],
+        "optionalAction": "Request or book a meeting through an approved scheduling integration when your team has configured that workflow.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private knowledge agents for bankers, analysts, compliance, and operations",
+    "intro": "DocsBot helps internal merchant banking teams get source-grounded answers from approved documents, policies, SOPs, training materials, and shared knowledge bases. Teams can use private chat, Slack, Microsoft Teams, APIs, or configured workflows to reduce searching and prepare review-ready work.",
+    "workflows": [
+      {
+        "name": "Internal policy search",
+        "problem": "Employees need fast answers from compliance manuals, supervisory procedures, onboarding rules, information-security policies, and communications guidance.",
+        "agentWorkflow": "Train a private DocsBot agent on approved policies and procedures so employees can ask questions in plain language and receive source-grounded answers with escalation when a matter requires compliance or legal judgment.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "SOPs",
+          "Training materials",
+          "Policy memos"
+        ],
+        "optionalAction": "Create a review task or route a summarized question to compliance through a customer-configured workflow.",
+        "outcome": "Employees get consistent guidance while sensitive decisions remain in controlled review paths.",
+        "icon": "BookOpenIcon",
+        "sourceIds": [
+          "src-sec-exam-priorities"
+        ]
+      },
+      {
+        "name": "Deal-room and checklist support",
+        "problem": "Teams lose time locating the right checklist, template, naming convention, or approval step during execution.",
+        "agentWorkflow": "DocsBot can answer from shared-drive folders, PDFs, Word documents, wikis, and internal transaction playbooks, helping analysts identify the right source before preparing deliverables.",
+        "sourceTypes": [
+          "Deal playbooks",
+          "Templates",
+          "Shared drives",
+          "Approval checklists"
+        ],
+        "optionalAction": "Generate a checklist summary or create a follow-up task for operations when configured.",
+        "outcome": "Faster execution support with answers grounded in the latest approved internal material.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Sales enablement and coverage preparation",
+        "problem": "Coverage bankers need quick access to positioning, objection handling, prior case studies, service descriptions, and approved language before client meetings.",
+        "agentWorkflow": "A DocsBot sales enablement agent can retrieve approved sales materials, summarize relevant internal guidance, draft follow-up language for human review, and help teams prepare consistent responses.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Case studies",
+          "Proposal templates",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or route a prospect summary through approved Skills, APIs, or workflows.",
+        "outcome": "Relationship teams prepare faster while humans retain control over outreach, pricing, legal terms, and commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Operations ticket summarization",
+        "problem": "Onboarding, portal access, reporting, and document requests can arrive through multiple systems with incomplete context.",
+        "agentWorkflow": "When connected through customer-configured helpdesk, ticketing, exported ticket sources, APIs, or connectors, DocsBot can summarize tickets, draft responses from approved sources, route requests, and identify missing information.",
+        "sourceTypes": [
+          "Ticket history",
+          "Helpdesk exports",
+          "Operations FAQs",
+          "Portal guides"
+        ],
+        "optionalAction": "Route the ticket, prepare a draft response, or notify a responsible team member through an approved workflow.",
+        "outcome": "Operations teams spend less time triaging routine requests and more time resolving exceptions.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New analysts, associates, and operations staff need to learn procedures, tools, compliance boundaries, and internal terminology without interrupting senior team members for every question.",
+        "agentWorkflow": "DocsBot can train on onboarding materials, training decks, internal wikis, SOPs, finance policies, and tool guides so new hires can ask practical questions and receive consistent answers.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training decks",
+          "Tool documentation",
+          "Internal wikis"
+        ],
+        "optionalAction": "Log recurring onboarding questions and create documentation improvement tasks for knowledge owners.",
+        "outcome": "New team members become productive faster while managers see where training content needs clarification.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Information-security guidance lookup",
+        "problem": "Financial teams handle confidential transaction, client, investor, and employee information and need clear access to approved security procedures.",
+        "agentWorkflow": "A DocsBot internal agent can answer security and privacy procedure questions from approved policies and escalate incidents or exceptions to designated teams.",
+        "sourceTypes": [
+          "Security policies",
+          "Privacy procedures",
+          "Incident response guides",
+          "Access-control rules"
+        ],
+        "optionalAction": "Notify security, create an incident task, or route an access request through configured permissions and workflows.",
+        "outcome": "Teams can find security guidance quickly while maintaining defined boundaries for sensitive information.",
+        "icon": "LockClosedIcon",
+        "sourceIds": [
+          "src-sec-exam-priorities"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded agents trained on approved knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on your own documentation, websites, policies, help content, internal documents, and other configured knowledge sources.",
+      "industryApplication": "Train agents on merchant banking service descriptions, onboarding checklists, diligence playbooks, compliance procedures, investor FAQs, and internal SOPs so answers stay grounded in approved materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use scoped actions to collect client intake, summarize diligence questions, create operations tasks, route compliance reviews, or trigger handoffs without allowing the agent to make regulated commitments.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, answering from internal documents, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and team knowledge.",
+      "industryApplication": "Give bankers, analysts, investor relations, compliance, and operations teams a controlled way to search internal knowledge across deal, client, and policy workflows.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Website and portal support widget",
+      "mainLandingPageContext": "DocsBot agents can work in an embeddable website or product chat widget and support customer-facing answer experiences from approved sources.",
+      "industryApplication": "Deploy a controlled support interface for service questions, onboarding guidance, reporting access, investor FAQs, and structured handoffs to merchant banking teams.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated onboarding, diligence, reporting, and compliance questions so knowledge owners can update materials and reduce repeat support work.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support financial-sector expectations for confidential documents, client information, restricted internal sources, permissioned workflows, and auditable AI assistance.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "musa-40k-traders-self-service",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own approved content library so answers reflect your firm’s source material.",
+      "Support high-volume question answering while preserving handoffs for complex or sensitive work.",
+      "Give internal teams faster access to institutional knowledge without building a custom RAG stack from scratch."
+    ],
+    "whyTheseReviewsFit": "Merchant banking buyers need AI that is grounded in private knowledge, practical to deploy, and useful for both client-facing and internal teams. DocsBot proof spans owned-content training, self-service support, high-volume inquiry handling, and internal decision support—patterns that map directly to banking knowledge, operations, and governed service workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for merchant banking client support, internal knowledge, intake, and governed operations",
+    "audience": [
+      "Merchant banking firms",
+      "Broker-dealer operations teams",
+      "Investment banking and private capital teams",
+      "Compliance and supervision leaders",
+      "Investor relations and client service teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingLibraryIcon"
+  },
+  "relatedIndustrySlugs": [
+    "financial-consulting",
+    "investment-advisory",
+    "bank-credit-union",
+    "auditing-finance-insurance",
+    "finance-insurance",
+    "investor"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "merchant-banking",
+    "webSearchQueries": [
+      "SEC Regulation Best Interest broker-dealer obligations retail customers disclosure care conflict compliance",
+      "FINRA 2024 industry snapshot broker dealer statistics firms registered representatives",
+      "SEC 2024 examination priorities broker dealers investment advisers information security operational resiliency",
+      "FINRA anti money laundering compliance program broker dealers requirements"
+    ],
+    "sourceUrls": [
+      "https://www.finra.org/sites/default/files/2024-07/2024-Industry-Snapshot.pdf",
+      "https://www.finra.org/rules-guidance/guidance/reports/2022-finras-examination-and-risk-monitoring-program/aml",
+      "https://www.sec.gov/resources-small-businesses/small-business-compliance-guides/regulation-best-interest",
+      "https://www.sec.gov/about/reports-publications/2024-examination-priorities"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 48096,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 27872,
+        "outputTokens": 8145,
+        "reasoningOutputTokens": 211,
+        "totalTokens": 56241,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.196912,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.216912
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27817,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12841,
+          "outputTokens": 5637,
+          "reasoningOutputTokens": 190,
+          "totalTokens": 33454,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.120402,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.140402
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20279,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15031,
+          "outputTokens": 2508,
+          "reasoningOutputTokens": 21,
+          "totalTokens": 22787,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07651,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07651
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1523839699072-5ec088b61a21?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUyNjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Merchant Banking background image",
+    "source": "legacy-industry",
+    "query": "Merchant Banking"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from giving transaction advice, pricing guidance, or legal interpretations to a client?",
+      "answer": "DocsBot should be configured around approved source content, explicit instructions, and human escalation rules. For merchant banking, the agent can answer process questions, collect context, and summarize the request, but route regulated recommendations, pricing, legal terms, suitability, conflicts, and exceptions to authorized bankers, compliance, or counsel.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support our initial prospect intake without creating compliance risk?",
+      "answer": "Yes. A DocsBot agent can ask structured intake questions such as company profile, transaction type, geography, timeline, financing need, and preferred follow-up channel. It can summarize the inquiry and route it to the right coverage team while avoiding commitments, recommendations, or eligibility decisions that require human review.",
+      "role": "Managing directors and relationship leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of merchant banking content should we train the agent on first?",
+      "answer": "Start with low-risk, high-volume knowledge: service descriptions, approved FAQs, diligence checklists, onboarding guides, investor portal instructions, compliance escalation procedures, internal SOPs, and template libraries. Then expand into deal execution playbooks, sales enablement content, and policy material once owners and review cycles are clear.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can analysts use it to find the right checklist, template, or approval step during a live deal?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on approved playbooks, SOPs, PDFs, Word documents, wikis, shared drives, and templates. Analysts can ask procedural questions and get source-grounded answers with links back to the underlying material, reducing time spent searching across folders and prior deal knowledge.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit with our existing CRM, ticketing, portal, or workflow tools?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, and, where appropriate, MCP Connectors to perform approved actions. Typical examples include creating a task, forwarding an intake summary, opening a support ticket, notifying a team, or looking up permitted status fields. DocsBot should not be positioned as a native integration with a named system unless your team has configured that connection.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer investor or portfolio company questions in a portal without exposing confidential information?",
+      "answer": "DocsBot can support portal or website guidance from approved investor FAQs, reporting calendars, document-access instructions, and support procedures. For confidential account details, permissions, contractual interpretation, or investment advice, the agent should collect non-sensitive context and route the matter to an authorized human or secure workflow.",
+      "role": "Managing directors and relationship leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prove to compliance that conversations are reviewable?",
+      "answer": "DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Compliance and supervision teams can review recurring questions, unanswered topics, escalation patterns, and the source material behind answers to improve policies and training over time.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Does DocsBot support broker-dealer AML and onboarding workflows?",
+      "answer": "DocsBot can make approved AML procedures, onboarding checklists, escalation paths, and compliance contacts easier to find. It should not decide whether activity is suspicious or complete regulated reviews. FINRA describes broker-dealer AML obligations as including AML programs, Customer Identification Programs, suspicious activity reporting, customer due diligence, and personnel training.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-finra-aml"
+      ]
+    },
+    {
+      "question": "Can we use it for client-facing Reg BI or recommendation-related questions?",
+      "answer": "Use the agent cautiously. It can provide general process information from approved sources and escalate client-specific recommendation, disclosure, care, conflict, or compliance questions to a qualified human. The SEC’s Regulation Best Interest guidance states that broker-dealers making recommendations to retail customers must act in the customer’s best interest and address disclosure, care, conflicts, and compliance obligations.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-sec-reg-bi"
+      ]
+    },
+    {
+      "question": "What security controls matter most for a merchant banking AI agent?",
+      "answer": "Buyers should look for encryption in transit and at rest, role-based permissions, granular access controls, clear source governance, conversation review, logging, and boundaries around what actions the agent can take. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption, access controls, and does not use customer data to train public models.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we measure ROI beyond generic support deflection?",
+      "answer": "Track time saved finding internal policies and templates, faster qualified intake, fewer repeated operations questions, reduced analyst interruptions, shorter onboarding for new team members, fewer incomplete ticket handoffs, and improved documentation gaps. For client-facing use, measure qualified inquiries routed, escalation quality, response speed, and unanswered topic reduction.",
+      "role": "Managing directors and relationship leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will bankers actually trust the answers, or will they still go back to the original folders?",
+      "answer": "Trust depends on source grounding and content ownership. DocsBot answers from approved materials and can link back to underlying sources, so bankers can verify the basis of an answer. Adoption is strongest when each knowledge area has an owner, stale documents are removed, and the agent is positioned as a faster route to approved knowledge—not an independent decision-maker.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How do we keep the agent from using outdated pitch decks, old policies, or superseded checklists?",
+      "answer": "Define source owners, approved repositories, update cadence, and retirement rules before launch. DocsBot should be trained on controlled content libraries rather than random files. Analytics and knowledge-gap reports can then show recurring confusion, while governance processes keep policies, templates, FAQs, and deal playbooks current.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with branch, registered representative, or multi-office consistency?",
+      "answer": "Yes, it can provide a consistent internal knowledge layer for approved procedures, escalation paths, onboarding steps, and client-service guidance across teams and locations. FINRA’s 2024 Industry Snapshot reported 3,298 FINRA-registered broker-dealer firms and 148,718 branches at year-end 2023, underscoring the scale of regulated operations that depend on consistent process knowledge.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-finra-industry-snapshot"
+      ]
+    },
+    {
+      "question": "What should be handled by the AI agent versus a banker, compliance officer, or legal reviewer?",
+      "answer": "The agent is best for approved explanations, source retrieval, structured intake, summaries, checklist guidance, routing, and draft responses for review. Humans should retain control over regulated advice, client-specific recommendations, pricing, conflicts, disclosures, legal interpretation, exceptions, transaction commitments, and final approvals.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How long does implementation usually take for a first merchant banking use case?",
+      "answer": "A practical first deployment can start with a narrow use case such as internal policy search, investor FAQ support, or prospect intake. The timeline depends less on AI setup and more on content readiness, permissions, source cleanup, stakeholder review, escalation design, and whether workflow actions require API or connector configuration.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we deploy separate agents for bankers, analysts, investor relations, and compliance?",
+      "answer": "Yes. Many firms will want separate or permissioned experiences for different audiences. A client-facing agent may answer service and onboarding questions, while private internal agents support deal execution, compliance policy lookup, sales enablement, operations tickets, or training. Role-based permissions help keep restricted sources available only to appropriate users.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What reporting will show whether the agent is improving our operations?",
+      "answer": "DocsBot analytics can show recurring questions, unresolved topics, knowledge gaps, conversation logs, satisfaction and resolution patterns, and reviewable exchanges. For merchant banking teams, these reports can inform which onboarding docs, data-room instructions, investor FAQs, or compliance procedures need improvement.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help onboard new analysts and operations staff without replacing senior judgment?",
+      "answer": "Yes. DocsBot can train on onboarding guides, training decks, internal wikis, SOPs, tool documentation, compliance boundaries, and finance policies. New hires can ask procedural questions while senior staff retain control over judgment-heavy work such as client strategy, valuation conclusions, exception handling, and regulated communications.",
+      "role": "Deal execution, analyst, and operations teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot compare with building our own internal RAG system?",
+      "answer": "A custom RAG build may offer deep control, but it usually requires engineering time for ingestion, retrieval tuning, permissions, evaluation, hosting, UI, analytics, and maintenance. DocsBot is better suited when the business wants a governed, source-grounded agent for approved knowledge and bounded workflows without starting from a full internal build.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent support multilingual investors, sponsors, or cross-border portfolio teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from approved knowledge sources. For global merchant banking workflows, it can explain process guidance, collect missing details in the user’s language, summarize the issue for internal teams, and escalate legal, tax, investment, or contractual questions to humans.",
+      "role": "Managing directors and relationship leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source material is incomplete?",
+      "answer": "DocsBot should be configured to avoid guessing, cite approved sources where available, ask clarifying questions, and escalate when the answer is missing or sensitive. Knowledge-gap analytics can reveal repeated unanswered questions so operations, compliance, investor relations, or deal teams can update the underlying content.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it summarize a client or investor request before routing it to the right team?",
+      "answer": "Yes. With approved workflows, DocsBot can collect missing details, summarize the conversation, classify the request, and route it to a banker, operations lead, investor relations contact, or compliance reviewer. This is especially useful for incomplete emails, portal issues, onboarding questions, and early-stage transaction inquiries.",
+      "role": "Managing directors and relationship leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will using AI increase our examination or supervision burden?",
+      "answer": "Any financial-services AI workflow should be governed, documented, and reviewable. DocsBot can support that by keeping answers grounded in approved content, preserving logs, enabling conversation review, and routing sensitive matters to humans. The SEC’s 2024 examination priorities included broker-dealers and highlighted information security, operational resiliency, emerging financial technology, and AML among examination areas.",
+      "role": "Compliance, legal, and supervision teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-sec-exam-priorities"
+      ]
+    }
+  ]
+}

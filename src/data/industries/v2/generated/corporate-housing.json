@@ -1,0 +1,711 @@
+{
+  "slug": "corporate-housing",
+  "business": "Corporate Housing",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Corporate Housing Operations",
+    "description": "DocsBot helps corporate housing teams automate guest answers, lease guidance, maintenance routing, and sales handoffs from approved property knowledge.",
+    "canonicalPath": "/industry/corporate-housing"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for furnished temporary housing",
+    "headline": "Keep every corporate housing guest and coordinator informed",
+    "subheadline": "DocsBot turns your property guides, FAQs, lease policies, onboarding steps, inventory notes, and support procedures into AI agents that answer quickly, qualify inquiries, route issues, summarize handoffs, and help staff find the right information without searching scattered files.",
+    "proofBullets": [
+      {
+        "text": "Answer guest, relocation manager, and insurer questions from approved property, amenity, policy, and move-in content.",
+        "icon": "HomeModernIcon"
+      },
+      {
+        "text": "Collect lead, stay, location, pet, parking, accessibility, and budget details before routing qualified housing inquiries.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Create scoped handoffs for maintenance, housekeeping, billing, or account teams when requests need human follow-up.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give internal teams fast answers from SOPs, lease templates, vendor notes, onboarding checklists, and support history.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build a housing support agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps corporate housing providers create AI agents trained on their own knowledge sources. Your agents can answer customer and employee questions, retrieve approved policy and property details, summarize conversations, identify repeated knowledge gaps, and take bounded actions such as routing a request, creating a task, forwarding a lead, or preparing a human handoff when configured through Skills, APIs, connectors, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Guest experience and reservations teams",
+        "roleContext": "Support teams can use DocsBot to answer common questions before arrival, during move-in, and throughout the stay without forcing guests to wait for office hours.",
+        "bullets": [
+          {
+            "text": "Explain check-in steps, parking, Wi-Fi, amenities, house rules, pet policies, and local instructions from approved guides.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect missing stay details and route complex pricing, extension, or lease questions to the right account owner.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Surface repeated guest questions so teams can improve welcome packets, FAQs, and property pages.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Relocation, insurance, and client account managers",
+        "roleContext": "Account teams need fast, consistent answers for furnished apartment options, eligibility, stay extensions, billing processes, and service expectations.",
+        "bullets": [
+          {
+            "text": "Summarize inquiry context for human follow-up, including destination, dates, household size, budget, accessibility, pets, and employer or insurer details.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Help staff retrieve approved policy guidance for extensions, deposits, notices, reimbursements, and special accommodations.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Support a market shaped by business travel demand; GBTA projected global business travel spending of $1.565 trillion for 2025.",
+            "icon": "GlobeAltIcon",
+            "sourceIds": [
+              "src-gbta-2025-spend"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Operations, maintenance, and housekeeping coordinators",
+        "roleContext": "Operations teams can use an internal knowledge agent to standardize responses, triage incoming issues, and keep property-specific procedures easy to find.",
+        "bullets": [
+          {
+            "text": "Turn maintenance descriptions into structured summaries for dispatch, vendor follow-up, or ticket creation when configured.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Answer internal questions about cleaning standards, inventory replacement, access instructions, inspection steps, and escalation paths.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Keep sensitive actions bounded with permissions, logs, and human review for lease, payment, identity, or safety-sensitive requests.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-gbta-2025-spend",
+      "metric": "$1.565 trillion in projected global business travel spending for 2025",
+      "claim": "GBTA’s 2025 Business Travel Index executive summary projected total global business travel spending of $1.565 trillion in 2025, with the United States at $395.4 billion.",
+      "sourceTitle": "GBTA Business Travel Index 2025 Executive Summary",
+      "sourceUrl": "https://gbta.org/wp-content/uploads/GBTA-BTI-Report_2025_Executive-Summary-FINAL.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Business travel demand",
+        "corporate housing market context",
+        "relocation and project-stay volume"
+      ]
+    },
+    {
+      "id": "src-fema-temporary-housing",
+      "metric": "FEMA includes short-term lodging and direct temporary housing among disaster assistance options",
+      "claim": "FEMA explains that disaster survivors may be eligible for lodging expense reimbursement, Transitional Sheltering Assistance, or Direct Temporary Housing Assistance depending on the disaster and approval status.",
+      "sourceTitle": "Possible Sheltering and Housing Assistance for Disaster Survivors",
+      "sourceUrl": "https://www.fema.gov/assistance/individual/sheltering-housing-options",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "insurance housing",
+        "displacement support",
+        "temporary lodging workflows"
+      ]
+    },
+    {
+      "id": "src-chpa-use-cases",
+      "metric": "Corporate housing serves business travelers, relocating families, insurance housing, and medical lodging",
+      "claim": "CHPA describes corporate housing as a flexible lodging alternative for business travelers, relocating families, insurance-related temporary housing, and long-term medical care lodging.",
+      "sourceTitle": "Corporate Housing Industry Adapts to Changing Economy",
+      "sourceUrl": "https://www.chpaonline.org/new-report-corporate-housing-industry-adapts-to-changing-economy/",
+      "sourceDate": "2009",
+      "bestUsedFor": [
+        "customer segments",
+        "temporary housing use cases",
+        "industry definition"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Guest arrival and stay support agent",
+      "problem": "Guests often need the same answers about access, parking, Wi-Fi, pets, amenities, utilities, package delivery, appliance use, and checkout across many properties.",
+      "agentWorkflow": "DocsBot trains on welcome guides, property pages, PDFs, FAQs, and policy documents, then gives source-grounded answers through a website or guest-facing widget. If the question is complex or outside approved content, the agent collects context and escalates to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up a reservation or property record, add missing details to a handoff, notify the right team, or create a support task.",
+      "exampleQuestionsOrRequests": [
+        "How do I get into the apartment after hours?",
+        "Is parking included at this property?",
+        "What should I do if the Wi-Fi is not working?",
+        "Can I extend my stay for two more weeks?"
+      ],
+      "businessOutcome": "Guests get faster, more consistent answers while support teams spend less time repeating move-in and property basics.",
+      "icon": "HomeIcon"
+    },
+    {
+      "name": "Corporate inquiry qualification and handoff",
+      "problem": "Relocation managers, HR teams, insurers, and project coordinators may submit incomplete requests that require back-and-forth before a quote or placement can happen.",
+      "agentWorkflow": "DocsBot answers service-fit questions from approved sales content, collects structured intake details, applies customer-defined qualification rules, and prepares a summary for sales or account staff.",
+      "liveContextOrTools": "When configured, AI Actions can forward qualified leads to a CRM, email inbox, helpdesk, form workflow, Slack, Microsoft Teams, or scheduling flow. Humans remain responsible for final pricing, contract terms, and inventory commitments.",
+      "exampleQuestionsOrRequests": [
+        "We need furnished housing for 12 consultants near Austin for 90 days.",
+        "Do you handle insurance displacement housing after a fire?",
+        "Can you support pet-friendly housing near a hospital?",
+        "Book time with our relocation coordinator."
+      ],
+      "businessOutcome": "Sales and account teams receive cleaner inquiries, better context, and fewer manual intake steps before follow-up.",
+      "icon": "RocketLaunchIcon",
+      "sourceIds": [
+        "src-chpa-use-cases"
+      ]
+    },
+    {
+      "name": "Maintenance and service request triage",
+      "problem": "Corporate housing operators coordinate guests, buildings, vendors, housekeeping, and internal teams, often from short descriptions that lack urgency, location, or access details.",
+      "agentWorkflow": "DocsBot asks clarifying questions, summarizes the issue, references troubleshooting steps from approved SOPs, and routes the request to the correct team when human work is needed.",
+      "liveContextOrTools": "Configured Skills can create a task, update approved fields, trigger a vendor workflow, or attach a conversation summary to a ticketing system.",
+      "exampleQuestionsOrRequests": [
+        "The dishwasher is leaking under the sink.",
+        "The HVAC is not cooling and I arrive tonight.",
+        "Please send housekeeping before the next guest checks in.",
+        "The building fob stopped working."
+      ],
+      "businessOutcome": "Operations teams get more complete requests, clearer triage notes, and faster handoffs for property issues.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Internal policy and lease knowledge assistant",
+      "problem": "Staff need quick answers about lease terms, notice periods, deposits, billing, reimbursements, furnishings, inspections, and client-specific procedures spread across documents.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, lease templates, client playbooks, finance policies, vendor instructions, and internal documentation. It answers with grounding and helps reveal documentation gaps through analytics.",
+      "liveContextOrTools": "Teams can access the agent in private chat, Slack, Microsoft Teams, or configured internal workflows. Sensitive lease, billing, and legal questions can be escalated for review.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for early departure requests?",
+        "Which checklist applies before returning a security deposit?",
+        "How do we handle a client-specific extension request?",
+        "Where is the furniture replacement policy?"
+      ],
+      "businessOutcome": "Employees spend less time searching and give more consistent answers across offices, markets, and account teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Insurance and displacement housing support",
+      "problem": "Temporary housing after a loss can involve urgent requests, eligibility documents, changing dates, family needs, pets, accessibility, and coordination with adjusters or case managers.",
+      "agentWorkflow": "DocsBot can answer approved process questions, collect intake details, summarize the household’s needs, and route the case to a housing specialist for review.",
+      "liveContextOrTools": "With customer-approved actions, the agent can prepare a case summary, trigger a follow-up workflow, or send the request to the right team while keeping coverage, eligibility, and payment decisions with humans.",
+      "exampleQuestionsOrRequests": [
+        "Our home is unlivable after a flood; what information do you need?",
+        "Can you help with temporary housing near my child’s school?",
+        "How do extensions work if repairs take longer?",
+        "What documents should I send my adjuster?"
+      ],
+      "businessOutcome": "Urgent housing requests arrive with better context while sensitive eligibility and financial decisions stay in human-controlled workflows.",
+      "icon": "HandRaisedIcon",
+      "sourceIds": [
+        "src-fema-temporary-housing"
+      ]
+    },
+    {
+      "name": "Knowledge-gap reporting for property content",
+      "problem": "If guests repeatedly ask questions that are missing from welcome packets or property pages, staff may not see the pattern until support volume rises.",
+      "agentWorkflow": "DocsBot conversation review, logs, analytics, topic management, and reports help teams identify unanswered topics, confusing instructions, and documentation gaps.",
+      "liveContextOrTools": "Teams can use findings to update FAQs, property guides, onboarding emails, internal SOPs, and account playbooks.",
+      "exampleQuestionsOrRequests": [
+        "Which move-in topics generate the most questions?",
+        "What questions did guests ask that our guide could not answer?",
+        "Which properties have repeated Wi-Fi or parking confusion?",
+        "What content should we add to reduce support tickets?"
+      ],
+      "businessOutcome": "Housing teams improve self-service content based on real guest and employee questions.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest and client support agent that knows your housing program",
+    "intro": "Use DocsBot on your site or guest portal to answer from your approved content, guide people through intake, and prepare clean handoffs when a person needs to step in. The experience can support more than 100 languages for relocating employees, traveling staff, and displaced households.",
+    "requests": [
+      {
+        "request": "“Do you have furnished apartments for a 60-day project in Dallas?”",
+        "agentResponseStrategy": "Answer service-fit questions, collect dates, location, household size, budget range, pet needs, parking, and company details, then route the qualified inquiry to sales or account management.",
+        "sourceTypes": [
+          "Service pages",
+          "Market pages",
+          "FAQs",
+          "Sales intake rules"
+        ],
+        "optionalAction": "Forward the summary to a customer-configured CRM, email workflow, helpdesk, or scheduling flow.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“Where do I park and how do I get into the apartment?”",
+        "agentResponseStrategy": "Retrieve the correct property instructions from approved arrival guides and respond in the company’s voice with clear next steps.",
+        "sourceTypes": [
+          "Welcome packets",
+          "Property guides",
+          "House rules",
+          "Parking instructions"
+        ],
+        "optionalAction": "Escalate to a live team if the guest reports a failed access code, lockout, or missing credential.",
+        "icon": "KeyIcon"
+      },
+      {
+        "request": "“The washer is broken. Can someone fix it?”",
+        "agentResponseStrategy": "Ask for property, unit, appliance details, urgency, photos if appropriate, and access preferences, then summarize the issue for operations.",
+        "sourceTypes": [
+          "Maintenance SOPs",
+          "Troubleshooting articles",
+          "Vendor routing rules",
+          "Guest policies"
+        ],
+        "optionalAction": "Create a task or ticket through approved Skills, APIs, connectors, or workflow automation.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“How does temporary housing work after an insurance claim?”",
+        "agentResponseStrategy": "Explain only approved process guidance, collect basic intake information, and escalate coverage, eligibility, and payment questions to a human specialist.",
+        "sourceTypes": [
+          "Insurance housing FAQs",
+          "Intake checklists",
+          "Escalation rules",
+          "Policy documents"
+        ],
+        "optionalAction": "Prepare a case summary and notify the appropriate displacement housing team.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fema-temporary-housing"
+        ]
+      },
+      {
+        "request": "“Can I extend my stay or change my checkout date?”",
+        "agentResponseStrategy": "Explain the provider’s approved extension process, collect requested dates and reason, and route the request for inventory, pricing, lease, or client approval.",
+        "sourceTypes": [
+          "Extension policies",
+          "Lease guidance",
+          "Account playbooks",
+          "Guest FAQs"
+        ],
+        "optionalAction": "Update approved request fields or trigger a review workflow when connected to the customer’s systems.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you support relocating families, business travelers, insurance housing, or medical lodging?”",
+        "agentResponseStrategy": "Answer from service pages and approved FAQs, then guide the visitor to the right intake path for their stay type.",
+        "sourceTypes": [
+          "Service pages",
+          "Client segment pages",
+          "FAQs",
+          "Qualification rules"
+        ],
+        "optionalAction": "Route the inquiry to relocation, insurance, medical, or project-housing specialists based on customer-defined rules.",
+        "icon": "UserGroupIcon",
+        "sourceIds": [
+          "src-chpa-use-cases"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for housing operations, sales, and account teams",
+    "intro": "DocsBot can give employees a private assistant trained on the procedures, documents, playbooks, and property knowledge they already use. Staff can ask natural-language questions, receive source-grounded answers, and hand off work through scoped actions when configured.",
+    "workflows": [
+      {
+        "name": "Reservation and account playbook lookup",
+        "problem": "Team members may need to confirm client-specific rules, extension steps, deposit procedures, or billing instructions while responding to a guest or coordinator.",
+        "agentWorkflow": "The agent retrieves the right internal policy, playbook, or template and provides a concise answer with source context.",
+        "sourceTypes": [
+          "Client playbooks",
+          "Lease templates",
+          "Finance policies",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Draft a reply or prepare a human-reviewed summary for the account manager.",
+        "outcome": "Faster, more consistent responses across markets and account teams.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Sales enablement for furnished housing inquiries",
+        "problem": "Sales teams need quick access to service positioning, qualification rules, objection handling, proposal language, and handoff requirements.",
+        "agentWorkflow": "DocsBot answers internal sales questions, summarizes approved content, and helps prepare follow-up notes from the conversation context.",
+        "sourceTypes": [
+          "Sales enablement docs",
+          "Service catalogs",
+          "Pricing guidance",
+          "Proposal templates"
+        ],
+        "optionalAction": "With approved Skills, the agent can create a task, draft a follow-up email, or forward a qualified lead summary to sales systems.",
+        "outcome": "Reps move from inquiry to informed follow-up with less manual searching.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Operations SOP assistant",
+        "problem": "Housekeeping, inspection, access, furniture, vendor, and emergency procedures can vary by property, city, client, or building.",
+        "agentWorkflow": "The agent answers internal questions from SOPs, PDFs, checklists, and vendor instructions, then escalates uncertain or high-impact issues.",
+        "sourceTypes": [
+          "Operations SOPs",
+          "Inspection checklists",
+          "Vendor notes",
+          "Building instructions"
+        ],
+        "optionalAction": "Trigger a task, notification, or review workflow through customer-configured connectors or MCP servers where authorized.",
+        "outcome": "Operations teams can follow consistent procedures without hunting through shared drives or old messages.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Support conversation review",
+        "problem": "Managers need to understand what guests and staff are asking, which topics are unresolved, and where documentation is missing.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery help teams improve support content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Helpdesk exports",
+          "FAQs",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Use findings to update property guides, internal articles, or escalation macros.",
+        "outcome": "Support content improves based on real demand instead of assumptions.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved websites, help centers, product documentation, internal files, PDFs, team content, and other configured knowledge sources.",
+      "industryApplication": "Corporate housing teams can answer guest, relocation manager, insurer, and employee questions from property guides, lease policies, onboarding documents, and FAQs.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as live lookups, record updates, task creation, routing, summaries, and workflow triggers when configured.",
+      "industryApplication": "Use scoped actions to collect intake details, create maintenance tasks, route extension requests, prepare case summaries, or notify the right account team.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Presales and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect structured lead details, apply customer-defined qualification instructions, and forward summaries to sales or support systems through approved workflows.",
+      "industryApplication": "Qualify requests by market, dates, stay length, employer, household size, pets, accessibility, budget range, insurance status, or project urgency before human follow-up.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private employee assistant trained on SOPs, policies, wikis, files, and internal documentation.",
+      "industryApplication": "Give reservations, operations, finance, sales, and account managers fast answers about procedures, contracts, billing steps, vendor rules, and client-specific playbooks.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which move-in, parking, Wi-Fi, extension, maintenance, billing, or insurance housing topics need better documentation.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Protect private client, guest, lease, and operations knowledge while setting boundaries for sensitive billing, identity, legal, and contract-related workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions and first-line support workflows.",
+      "Ground answers in your own content library, not generic housing guesses.",
+      "Support internal teams and customer-facing experiences from the same knowledge foundation."
+    ],
+    "whyTheseReviewsFit": "Corporate housing teams need dependable communication across guests, clients, partners, and staff. DocsBot proof spans real estate communication, website assistants, support email workflows, and high-volume customer inquiry handling, giving operators confidence that AI agents can support both public-facing service and internal knowledge access.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for corporate housing providers",
+    "audience": [
+      "Corporate housing providers",
+      "Relocation housing teams",
+      "Insurance housing coordinators",
+      "Furnished apartment operators",
+      "Property operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "property-management",
+    "commercial-leasing",
+    "landlord-services",
+    "real-estate-housing",
+    "manufactured-housing",
+    "real-estate-agent"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "corporate-housing",
+    "webSearchQueries": [
+      "corporate housing market report business travel relocation extended stay statistics",
+      "GBTA business travel spending forecast 2025 corporate travel",
+      "CHPA corporate housing industry report relocation temporary housing",
+      "FEMA lodging temporary housing extended stay disaster workforce housing"
+    ],
+    "sourceUrls": [
+      "https://gbta.org/wp-content/uploads/GBTA-BTI-Report_2025_Executive-Summary-FINAL.pdf",
+      "https://www.fema.gov/assistance/individual/sheltering-housing-options",
+      "https://www.chpaonline.org/new-report-corporate-housing-industry-adapts-to-changing-economy/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 66287,
+        "cachedInputTokens": 28032,
+        "billableInputTokens": 38255,
+        "outputTokens": 19551,
+        "reasoningOutputTokens": 274,
+        "totalTokens": 85838,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.395911,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.425911
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27823,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20527,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 177,
+          "totalTokens": 39823,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.233142,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.253142
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19684,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 4196,
+          "outputTokens": 4808,
+          "reasoningOutputTokens": 97,
+          "totalTokens": 24492,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.086482,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.096482
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18780,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13532,
+          "outputTokens": 2743,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21523,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076287,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076287
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1516156008625-3a9d6067fab5?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxob3VzaW5nfGVufDB8MHx8fDE3MTQ4NzgwNzB8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Corporate Housing background image",
+    "source": "legacy-industry",
+    "query": "Corporate Housing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer property-specific move-in questions without giving guests the wrong instructions?",
+      "answer": "Yes. DocsBot is trained on your approved property guides, welcome packets, FAQs, house rules, and policy documents, so answers come from your content instead of generic housing knowledge. If a question depends on a reservation record, lock code, building exception, or missing source material, the agent can collect context and escalate to a person rather than guessing.",
+      "role": "Guest experience and reservations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this reduce after-hours calls during check-in and move-in?",
+      "answer": "A guest-facing DocsBot agent can answer common after-hours questions about access, parking, Wi-Fi, packages, amenities, utilities, appliance use, pets, and checkout from approved arrival guides. For lockouts, failed access codes, safety issues, or anything outside the knowledge base, it can prepare a handoff with the property, unit, issue, urgency, and contact details for the right team.",
+      "role": "Guest experience and reservations teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent qualify corporate housing inquiries before sales or reservations gets involved?",
+      "answer": "Yes. DocsBot can ask for location, dates, stay length, household size, employer or insurer, budget range, pets, parking, accessibility needs, and urgency, then summarize the request for human follow-up. This is especially useful for a market shaped by business travel demand; GBTA projected $1.565 trillion in global business travel spending for 2025.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-gbta-2025-spend"
+      ]
+    },
+    {
+      "question": "Will DocsBot handle final pricing, lease terms, or inventory commitments automatically?",
+      "answer": "It should not be positioned that way. DocsBot can answer approved service-fit questions, collect missing details, explain your published process, and route the request, but humans should remain responsible for final pricing, availability commitments, lease language, exceptions, and client-specific terms.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it support insurance displacement housing without creating coverage or eligibility risk?",
+      "answer": "Yes, if configured with the right boundaries. DocsBot can explain your approved intake process, collect household needs, dates, pets, accessibility requirements, school or work proximity, and adjuster details, then route the case to a specialist. Coverage, eligibility, payment, and policy decisions should remain with humans. FEMA describes short-term lodging and direct temporary housing as possible disaster assistance options depending on eligibility and approval status.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fema-temporary-housing"
+      ]
+    },
+    {
+      "question": "How does DocsBot route maintenance issues when guests submit vague requests?",
+      "answer": "The agent can ask clarifying questions such as property, unit, appliance or system affected, urgency, photos if appropriate, access preferences, and whether the issue affects safety or occupancy. It can then summarize the request and, when configured through Skills, APIs, connectors, or workflows, create a task or forward the handoff to maintenance, housekeeping, a vendor workflow, or a ticketing system.",
+      "role": "Operations, maintenance, and housekeeping coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it internally for lease policies, extensions, deposits, and account playbooks?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, lease templates, finance policies, client playbooks, vendor notes, inspection checklists, and onboarding documents. Staff can ask natural-language questions and receive source-grounded answers, with sensitive lease, billing, or legal questions routed for human review.",
+      "role": "Operations, maintenance, and housekeeping coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect to for handoffs and workflow automation?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, and MCP Connectors to support approved actions such as record lookups, task creation, field updates, notifications, summaries, routing, and lead handoffs. You should scope each connection around the exact data the agent can access and the actions it is allowed to take.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need clean documentation before launching an AI support agent?",
+      "answer": "You need enough approved content for the workflows you want to automate first. Many teams start with move-in guides, property FAQs, extension policies, maintenance SOPs, and sales intake rules. DocsBot analytics and knowledge-gap reporting can then show which guest or employee questions are unanswered so your team can improve documentation over time.",
+      "role": "Guest experience and reservations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent the agent from exposing private guest, client, lease, or billing information?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. For connected actions, teams can define permissions, secrets, metadata bindings, network policy, logging, and review paths so the agent only accesses approved systems and data.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help multilingual guests or relocating employees?",
+      "answer": "Yes. DocsBot can support more than 100 languages, which can help guests, relocating employees, traveling staff, and displaced households understand approved move-in, property, maintenance, and intake instructions. For sensitive topics such as legal terms, billing, insurance eligibility, or safety, the agent can escalate to staff instead of acting as the final authority.",
+      "role": "Guest experience and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would we measure ROI beyond saying support is faster?",
+      "answer": "Common measures include reduced repetitive move-in questions, fewer incomplete sales inquiries, faster maintenance triage, lower after-hours escalation volume, shorter staff search time, improved first-response consistency, and fewer documentation gaps. DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to help track those patterns.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent distinguish between relocation, project housing, insurance housing, and medical lodging inquiries?",
+      "answer": "Yes. You can train DocsBot on service pages, market pages, FAQs, and qualification rules, then have it guide each visitor through the right intake path. CHPA describes corporate housing as serving business travelers, relocating families, insurance-related temporary housing, and long-term medical care lodging, so routing by stay type is a practical fit for this market.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-chpa-use-cases"
+      ]
+    },
+    {
+      "question": "What happens when inventory, rates, or property rules change frequently?",
+      "answer": "DocsBot should be connected to the most reliable approved sources for each answer type. Static content like house rules and SOPs can come from documents or knowledge bases, while dynamic details such as reservation status, availability, or approved fields can be handled through scoped live lookups when you configure the right Skill, API, connector, or workflow. If live data is not available, the agent should route to a person.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can operations managers see what guests are repeatedly confused about?",
+      "answer": "Yes. DocsBot’s logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can reveal repeated questions about parking, Wi-Fi, building access, amenities, checkout, extensions, billing, or maintenance. Teams can use that insight to update welcome packets, property pages, SOPs, and account playbooks.",
+      "role": "Operations, maintenance, and housekeeping coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much human review should we keep in the process?",
+      "answer": "Most corporate housing teams should keep human review for pricing, lease interpretation, client exceptions, payment issues, identity-sensitive requests, coverage or eligibility questions, safety concerns, and final inventory commitments. DocsBot is best used to answer approved questions, collect context, summarize the situation, and route work so humans make the high-impact decisions with better information.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support both guests and employees from the same knowledge foundation?",
+      "answer": "Yes, but with different access rules. A public or guest-facing agent can use approved FAQs, property guides, service pages, and arrival instructions, while a private internal agent can use SOPs, client playbooks, lease templates, finance policies, and vendor notes. Role-based permissions help keep internal-only content out of guest-facing experiences.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this work for a portfolio with many properties, markets, and client-specific rules?",
+      "answer": "DocsBot is designed for knowledge-heavy environments where answers vary by source, policy, property, or audience. You can organize approved content by property, market, department, client playbook, or workflow, then use instructions and routing rules to keep responses specific. For dynamic or high-risk cases, the agent can ask for context and escalate rather than forcing a universal answer.",
+      "role": "Operations, maintenance, and housekeeping coordinators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or contact form?",
+      "answer": "A basic chatbot or form usually collects a message and sends it to staff. DocsBot can answer from approved housing knowledge, ask follow-up questions, summarize context, qualify inquiries, identify documentation gaps, and trigger bounded actions when configured. That makes it more useful for operational workflows like move-in support, maintenance triage, sales intake, and internal SOP lookup.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can it draft replies for reservations, account managers, or support teams?",
+      "answer": "Yes. DocsBot can draft responses using approved content and conversation context, helping staff respond consistently to questions about arrival instructions, extensions, policies, amenities, billing processes, or service fit. For sensitive or contractual topics, the draft can be treated as a human-reviewed starting point rather than an automatic final message.",
+      "role": "Guest experience and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we include in the first implementation phase?",
+      "answer": "Start with high-volume, lower-risk workflows: arrival instructions, parking, Wi-Fi, amenities, package delivery, pet rules, checkout, common maintenance intake, sales qualification, and internal SOP lookup. Keep pricing, lease exceptions, insurance eligibility, payments, and safety escalations in human review until the content, permissions, and workflow boundaries are proven.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help during surge periods like large projects, relocations, storms, or disaster displacement?",
+      "answer": "Yes. DocsBot can absorb repetitive questions, collect structured intake details, and prepare handoffs when demand spikes. For disaster or displacement workflows, it can keep urgent requests organized while humans handle eligibility, coverage, payment, and placement decisions. FEMA notes that disaster survivors may qualify for different sheltering or temporary housing options depending on the disaster and approval status.",
+      "role": "Relocation, insurance, and client account managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-fema-temporary-housing"
+      ]
+    },
+    {
+      "question": "What will procurement and IT care about before approving DocsBot?",
+      "answer": "They will usually ask about data handling, access control, auditability, permissions, model training, connected-system scope, and implementation ownership. DocsBot addresses these concerns with SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logging, and a commitment that customer data is not used to train public models.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How do we onboard reservations, operations, and account teams so they actually use it?",
+      "answer": "Roll it out around the questions teams already answer every day. Train the agent on current guides, SOPs, playbooks, and policies; give each team clear examples; define when to trust, edit, or escalate an answer; and review conversation logs weekly at first. Adoption is strongest when staff see the agent saving search time and reducing repetitive handoffs, not adding another inbox.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if the agent cannot find a confident answer in our content?",
+      "answer": "It can be configured to say it does not have enough approved information, ask for missing context, and route the question to a human with a concise summary. That behavior is important in corporate housing because a wrong answer about access, deposits, extensions, insurance, or lease obligations can create operational and client risk.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

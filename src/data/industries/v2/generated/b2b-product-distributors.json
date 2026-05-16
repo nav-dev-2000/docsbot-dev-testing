@@ -1,0 +1,710 @@
+{
+  "slug": "b2b-product-distributors",
+  "business": "B2B Product Distributors",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for B2B Product Distributor Support",
+    "description": "DocsBot helps B2B product distributors answer product, order, and sales questions faster with AI agents grounded in your catalogs and docs.",
+    "canonicalPath": "/industry/b2b-product-distributors"
+  },
+  "hero": {
+    "eyebrow": "AI automation for catalogs, quotes, orders, and distributor support",
+    "headline": "Help B2B buyers find the right product faster with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your catalogs, spec sheets, manuals, policies, FAQs, and sales playbooks so customers and employees can get source-grounded answers, qualify requests, summarize context, and route complex orders to the right team.",
+    "proofBullets": [
+      {
+        "text": "Answer compatibility, specification, availability, shipping, warranty, and substitution questions from approved distributor knowledge.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "text": "Collect RFQ details, project requirements, account context, and preferred follow-up channels before handing qualified opportunities to sales.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give inside sales, customer service, and branch teams a private knowledge agent for product lines, SOPs, and account-facing responses.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use configured AI Actions to look up status, create tasks or tickets, trigger handoffs, and summarize conversations within your rules.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a distributor AI agent",
+    "secondaryCta": "Explore AI support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps B2B product distributors create AI agents trained on their own product data, documentation, policies, and operational knowledge. Agents can answer customer questions, support employees, surface knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and inside sales teams",
+        "roleContext": "Support reps can search across product lines, order policies, service notes, PDFs, and internal playbooks without relying on tribal knowledge or long email chains.",
+        "bullets": [
+          {
+            "text": "Draft consistent answers for recurring product, warranty, freight, return, and account questions.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize customer requests before escalation so specialists receive the part numbers, requirements, and missing details they need.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Expose repeated unanswered questions so teams can improve catalog pages, FAQs, and sales enablement content.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "E-commerce and digital branch leaders",
+        "roleContext": "Digital teams can give buyers a guided way to search complex catalogs, understand fit, and ask self-service questions before calling a rep.",
+        "bullets": [
+          {
+            "text": "McKinsey reports that 54% of B2B buyers likely to switch suppliers cite poor-quality digital experiences as a reason to go elsewhere.",
+            "icon": "GlobeAltIcon",
+            "sourceIds": [
+              "src-mckinsey-b2b-pulse"
+            ]
+          },
+          {
+            "text": "Support logged-in portal, website, and product-page experiences with source-grounded answers from approved product content.",
+            "icon": "ComputerDesktopIcon"
+          },
+          {
+            "text": "Route unclear fit, pricing, or account-specific questions to a human with conversation history attached.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Product, operations, and branch managers",
+        "roleContext": "Managers can make operational knowledge easier to access across locations, brands, product categories, and customer-facing teams.",
+        "bullets": [
+          {
+            "text": "Make SOPs, supplier notes, substitution rules, training materials, and internal policies easier to retrieve.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot content gaps across product categories and service workflows.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Help new hires answer common questions from approved sources instead of waiting for senior staff.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-census-wholesale-sales",
+      "metric": "U.S. merchant wholesalers reported $11.382 trillion in 2022 sales.",
+      "claim": "The U.S. Census Bureau’s Annual Wholesale Trade Survey estimated merchant wholesaler sales at $11,382.3 billion in 2022, up 17.4% from 2021.",
+      "sourceTitle": "U.S. Census Bureau Annual Wholesale Trade Survey",
+      "sourceUrl": "https://www.census.gov/programs-surveys/awts.html",
+      "sourceDate": "January 2024",
+      "bestUsedFor": [
+        "market scale",
+        "distribution complexity",
+        "economic importance"
+      ]
+    },
+    {
+      "id": "src-mckinsey-b2b-pulse",
+      "metric": "54% cite poor digital experience as a supplier-switching reason.",
+      "claim": "McKinsey’s 2024 B2B Pulse found that 54% of buyers likely to switch suppliers cite poor-quality digital customer experiences as a reason to go elsewhere.",
+      "sourceTitle": "Five fundamental truths: How B2B winners keep growing",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/five-fundamental-truths-how-b2b-winners-keep-growing",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "buyer expectations",
+        "digital self-service pressure",
+        "customer retention"
+      ]
+    },
+    {
+      "id": "src-gartner-rep-free",
+      "metric": "61% of B2B buyers prefer a rep-free buying experience.",
+      "claim": "Gartner reported in 2025 that 61% of surveyed B2B buyers prefer a buying experience that does not involve a sales representative.",
+      "sourceTitle": "Gartner Sales Survey Finds 61% of B2B Buyers Prefer a Rep-Free Buying Experience",
+      "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience",
+      "sourceDate": "June 25, 2025",
+      "bestUsedFor": [
+        "self-service buying",
+        "presales automation",
+        "digital commerce"
+      ]
+    },
+    {
+      "id": "src-mckinsey-omnichannel",
+      "metric": "B2B customers use an even mix of in-person, remote, and self-service channels.",
+      "claim": "McKinsey described a B2B omnichannel “rule of thirds,” with buyers using traditional sales, remote interactions, and self-service across the sales process.",
+      "sourceTitle": "B2B sales: Omnichannel everywhere, every time",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-sales-omnichannel-everywhere-every-time",
+      "sourceDate": "December 2021",
+      "bestUsedFor": [
+        "omnichannel support",
+        "sales and digital alignment",
+        "buyer behavior"
+      ]
+    },
+    {
+      "id": "src-deloitte-b2b-commerce",
+      "metric": "B2B commerce teams face pressure to digitize complex customer experiences.",
+      "claim": "Deloitte Digital’s B2B commerce research highlights pressure on suppliers to digitize diverse customer experiences, buyer stakeholders, channels, and technology expectations.",
+      "sourceTitle": "2026 B2B commerce research",
+      "sourceUrl": "https://www.deloittedigital.com/us/en/insights/research/b2b-commerce-trends.html",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "commerce modernization",
+        "digital complexity",
+        "operations priorities"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product finder and compatibility guidance",
+      "problem": "Distributor buyers often search across thousands of SKUs, supplier PDFs, technical attributes, and accessories before they know which product fits their application.",
+      "agentWorkflow": "A DocsBot agent answers from approved catalogs, spec sheets, manuals, comparison tables, and FAQs. It can ask clarifying questions about use case, dimensions, materials, voltage, certifications, quantity, or installation constraints, then provide source-grounded options and flag when a specialist should review.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can use live context such as inventory status, account region, or product metadata when your systems expose it.",
+      "exampleQuestionsOrRequests": [
+        "Which replacement part works with this discontinued model?",
+        "Show me stainless options rated for outdoor use.",
+        "What accessories are required for this product family?"
+      ],
+      "businessOutcome": "Reduce repetitive catalog support while helping buyers reach a confident shortlist faster.",
+      "icon": "CubeIcon"
+    },
+    {
+      "name": "RFQ intake and qualified sales handoff",
+      "problem": "Sales teams lose time chasing incomplete quote requests that omit quantities, delivery needs, application details, drawings, or account information.",
+      "agentWorkflow": "The agent collects structured RFQ details through a guided intake flow, applies your qualification instructions, summarizes the opportunity, and prepares a handoff for sales or customer service. For complex pricing, contract terms, or engineered applications, the agent keeps a human in control.",
+      "liveContextOrTools": "Customer-configured AI Actions can submit a lead form, create a CRM or ticket record, notify a channel, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "I need a quote for 250 units delivered to three job sites.",
+        "Can someone price this bill of materials?",
+        "We are replacing a competitor part and need equivalent options."
+      ],
+      "businessOutcome": "Improve RFQ completeness and give reps cleaner context before follow-up.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Order status and service request automation",
+      "problem": "Customer service teams handle high volumes of routine questions about order status, shipment timing, returns, documentation, and next steps.",
+      "agentWorkflow": "A DocsBot support agent answers policy and process questions from your help center, customer service scripts, shipping policies, and return instructions. When configured for live lookup, it can collect identifying details, retrieve approved status context, summarize the request, and route exceptions to a person.",
+      "liveContextOrTools": "Configured Skills, APIs, connectors, or helpdesk workflows can support order lookup, task creation, ticket routing, field updates, and escalation logs within defined permissions.",
+      "exampleQuestionsOrRequests": [
+        "Where is my purchase order shipment?",
+        "How do I start a return for the wrong item?",
+        "Can you send my request to the branch handling this account?"
+      ],
+      "businessOutcome": "Deflect routine service volume while preserving human escalation for exceptions, disputes, and account-specific judgment.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Internal product and policy knowledge agent",
+      "problem": "Branch, counter, sales, and support employees often need answers spread across supplier portals, SOPs, PDFs, wikis, training docs, and past support guidance.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on approved company knowledge. Employees ask natural-language questions and receive grounded answers with the underlying source context, helping them respond consistently across locations and teams.",
+      "liveContextOrTools": "The agent can run in private team chat experiences and use configured sources such as Google Drive, Notion, Confluence, PDFs, Word documents, and other internal knowledge repositories.",
+      "exampleQuestionsOrRequests": [
+        "What is the warranty process for this manufacturer?",
+        "Which supplier substitution rules apply to this category?",
+        "How should I handle a rush freight exception?"
+      ],
+      "businessOutcome": "Make distributor know-how easier to access, especially for new hires and multi-branch teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Digital commerce answer layer",
+      "problem": "B2B buyers increasingly expect self-service, but distributor portals often still leave gaps around product fit, availability, account-specific policies, and who to contact.",
+      "agentWorkflow": "Embed a DocsBot agent on product pages, resource centers, or customer portals so buyers can ask questions while they browse. The agent can answer from approved content, collect missing context, and hand off complex requests with a concise summary.",
+      "liveContextOrTools": "The agent can combine static product knowledge with approved live context when connected through customer-configured APIs, connectors, Skills, or MCP servers.",
+      "exampleQuestionsOrRequests": [
+        "Is this item compatible with our existing system?",
+        "What is the difference between these two SKUs?",
+        "Who should I contact for volume pricing?"
+      ],
+      "businessOutcome": "Support self-service buying while keeping sales involved when the buyer needs contextual expertise.",
+      "icon": "ShoppingCartIcon",
+      "sourceIds": [
+        "src-gartner-rep-free"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for product content",
+      "problem": "Distributors often do not know which catalog, documentation, or policy gaps are causing buyers and reps to ask the same questions repeatedly.",
+      "agentWorkflow": "DocsBot conversation logs, reports, topic management, and review workflows help teams see unanswered questions, recurring themes, and content that needs improvement. Product, e-commerce, and support leaders can prioritize better documentation based on actual questions.",
+      "liveContextOrTools": "Teams can review conversations, measure satisfaction or resolution trends, and use findings to update product pages, FAQs, manuals, and internal playbooks.",
+      "exampleQuestionsOrRequests": [
+        "Which product categories generate the most unanswered questions?",
+        "What do buyers ask before requesting a quote?",
+        "Which internal policies are unclear to new support reps?"
+      ],
+      "businessOutcome": "Turn support and presales questions into a roadmap for better content and fewer repeat escalations.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers a guided self-service path without hiding your sales team",
+    "intro": "DocsBot can support a customer-facing AI agent on your website, portal, or product resource pages. Buyers get quick answers from your approved catalog and policy sources, while complex fit, pricing, contract, or account questions can be summarized and escalated.",
+    "requests": [
+      {
+        "request": "“I need an equivalent for this discontinued part.”",
+        "agentResponseStrategy": "Ask for model, use case, required dimensions, materials, certifications, and quantity, then answer from approved cross-reference content or route the request to a specialist when fit is uncertain.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Spec sheets",
+          "Cross-reference guides",
+          "Supplier manuals"
+        ],
+        "optionalAction": "Create a sales task or ticket with the requested part, replacement criteria, and conversation summary.",
+        "icon": "PuzzlePieceIcon"
+      },
+      {
+        "request": "“Can I get pricing and lead time for this quantity?”",
+        "agentResponseStrategy": "Explain available public pricing policy or account process from approved sources, collect quantity, location, deadline, and account details, and route account-specific pricing to the right sales workflow.",
+        "sourceTypes": [
+          "Pricing policy pages",
+          "RFQ forms",
+          "Account procedures",
+          "Shipping policies"
+        ],
+        "optionalAction": "Forward the qualified request to CRM, helpdesk, email, or a configured sales queue.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“Where is my order?”",
+        "agentResponseStrategy": "Answer general order-tracking steps from policy content and, when connected to approved systems, collect identifiers and perform a scoped status lookup or prepare a service handoff.",
+        "sourceTypes": [
+          "Order policies",
+          "Help center articles",
+          "Shipping FAQs",
+          "Customer service scripts"
+        ],
+        "optionalAction": "Look up approved status context, create a support ticket, or notify the responsible team.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Which documentation applies to this product?”",
+        "agentResponseStrategy": "Retrieve the right manual, safety document, installation guide, warranty note, or maintenance PDF from approved knowledge sources and cite the source for buyer confidence.",
+        "sourceTypes": [
+          "Manuals",
+          "PDF libraries",
+          "Warranty documents",
+          "Installation guides"
+        ],
+        "optionalAction": "Summarize the document and offer escalation if the customer needs application-specific advice.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Who can help with a complex project order?”",
+        "agentResponseStrategy": "Collect project scope, industry, product category, timeline, and region, then identify the right next-step path based on your routing rules.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Branch routing rules",
+          "Product category maps",
+          "Lead forms"
+        ],
+        "optionalAction": "Request a meeting through a configured scheduling workflow or send a structured handoff to sales.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you have documentation in my language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answer capabilities to help buyers understand approved documentation and point them to the original source when precision matters.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website pages",
+          "Help articles",
+          "Product FAQs"
+        ],
+        "optionalAction": "Escalate to a human for high-impact contractual, safety, or compliance interpretations.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put distributor product knowledge where employees already work",
+    "intro": "DocsBot can serve as a private internal knowledge agent for support, branch, operations, e-commerce, and sales teams. Employees ask questions in natural language and get consistent answers from approved company sources instead of searching through scattered files and conversations.",
+    "workflows": [
+      {
+        "name": "Inside sales response assistant",
+        "problem": "Reps need quick answers about product fit, objections, substitutions, lead times, and approved talking points while handling calls and emails.",
+        "agentWorkflow": "Train the agent on product docs, sales playbooks, case studies, FAQs, proposal templates, and implementation notes. Reps can ask for answer drafts, comparison notes, and follow-up summaries while humans own final outreach and pricing commitments.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Proposal templates",
+          "Objection handling"
+        ],
+        "optionalAction": "Draft a follow-up email or create a task in a customer-configured sales workflow.",
+        "outcome": "Help reps respond faster with more consistent product and policy context.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Branch and counter support knowledge",
+        "problem": "Frontline teams may depend on senior employees for policy, supplier, substitution, and warranty answers that are not easy to find.",
+        "agentWorkflow": "DocsBot answers from SOPs, supplier notes, training materials, policy documents, and internal FAQs. It can cite sources and show where the answer came from so employees can verify details before advising a customer.",
+        "sourceTypes": [
+          "SOPs",
+          "Supplier notes",
+          "Training docs",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Log unresolved questions for documentation review or route them to a product owner.",
+        "outcome": "Reduce knowledge bottlenecks across branches and shifts.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "name": "Support ticket summarization and routing",
+        "problem": "Service teams need to triage recurring order, return, warranty, and product questions without losing context between channels.",
+        "agentWorkflow": "With customer-configured helpdesk access, DocsBot can summarize ticket history, draft responses from approved sources, suggest categories, and route issues based on rules. Sensitive or disputed issues can be escalated for human review.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Helpdesk workflows",
+          "Policies",
+          "Customer service scripts"
+        ],
+        "optionalAction": "Create or update a ticket, route to the right queue, or notify a team channel.",
+        "outcome": "Make ticket handling more consistent while keeping humans involved in exceptions.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Content improvement loop",
+        "problem": "Catalog and documentation teams may not see which product details customers and reps fail to find.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to identify missing answers, confusing product pages, and repeated support topics. Teams can update source content and retrain agents on better materials.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Reports",
+          "Catalog pages",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Create internal tasks for content owners when repeated gaps appear.",
+        "outcome": "Improve the product information foundation behind support, sales, and self-service commerce.",
+        "icon": "LightBulbIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from distributor knowledge",
+      "mainLandingPageContext": "DocsBot agents train on company-approved knowledge sources and answer in the company’s voice with grounded context.",
+      "industryApplication": "Use catalogs, spec sheets, supplier manuals, warranty policies, freight rules, return procedures, and sales playbooks to answer buyer and employee questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take configured next steps such as lookups, summaries, record updates, routing, and workflow triggers.",
+      "industryApplication": "Support RFQ intake, order-status lookup, ticket creation, branch routing, CRM handoffs, sales notifications, and meeting requests when your team authorizes the connection.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Presales qualification and lead capture",
+      "mainLandingPageContext": "DocsBot can collect lead details, apply qualification instructions, and forward qualified summaries through configured workflows.",
+      "industryApplication": "Capture quantity, SKU, application, location, delivery deadline, budget range, account type, and technical requirements before a rep spends time on the opportunity.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can support employees with instant answers from internal documents, SOPs, policies, wikis, and team knowledge sources.",
+      "industryApplication": "Give branch, counter, inside sales, product, and operations teams fast access to approved answers across product categories and locations.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which SKUs, policies, product categories, and service processes create repeated questions so content teams can improve the source material.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private product, pricing, account, and operational knowledge while giving teams controlled access to approved answers and actions.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train AI agents on owned manuals, websites, and knowledge libraries instead of generic answers.",
+      "Support high-volume customer questions with source-grounded self-service and human handoff paths.",
+      "Assist support teams behind the scenes with helpdesk-style workflows and response drafting."
+    ],
+    "whyTheseReviewsFit": "B2B distributors need trusted answers from catalogs, manuals, and internal knowledge—not generic AI guesses. DocsBot proof spans scalable customer support, owned-content training, embedded website support, and support-team assistance, aligning with the way distributors serve buyers across digital and human channels.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "SignalIcon",
+      "EnvelopeIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for B2B product distributors",
+    "audience": [
+      "B2B distributors",
+      "Wholesale operations teams",
+      "Inside sales teams",
+      "Customer service leaders",
+      "Digital commerce managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CubeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "industrial-parts-distribution",
+    "industrial-supplies",
+    "electrical-supply-distribution",
+    "electronics-component-distribution",
+    "building-materials-suppliers",
+    "fastener-suppliers"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "b2b-product-distributors",
+    "webSearchQueries": [
+      "B2B distribution industry digital buyers self service product information statistics",
+      "NAW wholesale distribution economic impact sales 2024",
+      "Deloitte B2B buyers product information digital commerce distribution report",
+      "U.S. Census merchant wholesalers annual sales 2022 2023"
+    ],
+    "sourceUrls": [
+      "https://www.census.gov/programs-surveys/awts.html",
+      "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/five-fundamental-truths-how-b2b-winners-keep-growing",
+      "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience",
+      "https://www.mckinsey.com/capabilities/growth-marketing-and-sales/our-insights/b2b-sales-omnichannel-everywhere-every-time",
+      "https://www.deloittedigital.com/us/en/insights/research/b2b-commerce-trends.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40172,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 20460,
+        "outputTokens": 7739,
+        "reasoningOutputTokens": 112,
+        "totalTokens": 47911,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.172164,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.182164
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20643,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 6179,
+          "outputTokens": 5131,
+          "reasoningOutputTokens": 112,
+          "totalTokens": 25774,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.096029,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.106029
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19529,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14281,
+          "outputTokens": 2608,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22137,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076135,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076135
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1631856954913-c751a44490ec?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxCMkIlMjBQcm9kdWN0JTIwRGlzdHJpYnV0b3JzfGVufDB8MHx8fDE3Nzg4MjI5NDh8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a store shelf filled with lots of different items",
+    "source": "unsplash-search",
+    "query": "B2B Product Distributors"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer product-fit questions without making unsafe or unsupported recommendations?",
+      "answer": "Yes, when it is trained on your approved catalogs, spec sheets, manuals, cross-reference guides, and policies. The agent can ask clarifying questions, cite the source material behind an answer, and route uncertain compatibility, safety, engineered, or application-specific decisions to a specialist instead of guessing.",
+      "role": "Customer service and inside sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our inside sales team if pricing and availability still live in our ERP?",
+      "answer": "DocsBot can handle the front-end work: answer policy and product questions, collect SKU, quantity, location, account, deadline, and application details, then prepare a structured handoff. If your team authorizes Skills, APIs, connectors, MCP servers, or workflow automations, the agent can use approved live context such as status or inventory lookups within your rules.",
+      "role": "Customer service and inside sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it on our e-commerce site without replacing our sales reps?",
+      "answer": "Yes. DocsBot is useful as a self-service answer layer on product pages, portals, and resource centers while still escalating pricing, contract, fit, and complex project questions to sales with the conversation summary attached. That matters because Gartner reported that 61% of surveyed B2B buyers prefer a buying experience without a sales representative.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-gartner-rep-free"
+      ]
+    },
+    {
+      "question": "What kind of content do we need before launching an AI agent for distributor support?",
+      "answer": "Start with the materials your team already trusts: product catalogs, spec sheets, manuals, warranty documents, return policies, freight rules, order-status instructions, SOPs, supplier notes, FAQs, and sales playbooks. DocsBot can expose unanswered questions and recurring topics so content owners can improve gaps after launch.",
+      "role": "Product, operations, and branch managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will the agent work for both customers and employees, or do we need separate systems?",
+      "answer": "You can use DocsBot for both patterns. A customer-facing agent can answer website, portal, RFQ, order, and documentation questions from approved content. A private internal knowledge agent can help branch, counter, inside sales, support, and operations teams retrieve SOPs, supplier notes, policies, and response guidance.",
+      "role": "Product, operations, and branch managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot prevent reps from using outdated catalog or policy information?",
+      "answer": "DocsBot should be trained on approved source repositories and governed like any other knowledge process. Teams can update the underlying docs, review conversation logs, monitor unresolved questions, and use knowledge-gap reporting to identify stale catalog pages, confusing policies, or missing supplier details that need revision.",
+      "role": "Product, operations, and branch managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help with RFQs that arrive incomplete?",
+      "answer": "Yes. DocsBot can guide RFQ intake by collecting quantity, part numbers, application details, delivery location, deadline, drawings or specifications, account context, and preferred follow-up channel. It can then summarize the request and route it to sales, customer service, or a configured workflow while leaving complex pricing and contract commitments to humans.",
+      "role": "Customer service and inside sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should we look for in a distributor AI agent pilot?",
+      "answer": "Track deflected repetitive questions, faster RFQ completion, fewer back-and-forth emails, reduced time searching for product or policy answers, improved first-response speed, and content gaps discovered. For digital commerce leaders, also watch whether buyers engage more with product pages and reach sales with clearer requirements.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support customers across branches, regions, and product categories with different rules?",
+      "answer": "Yes, if your source content and routing logic are structured for those differences. DocsBot can answer from approved knowledge, use configured instructions, and route requests based on branch, product family, region, account type, or issue type when your team defines the rules and approved workflows.",
+      "role": "Product, operations, and branch managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we handle account-specific pricing, contract terms, and negotiated exceptions?",
+      "answer": "Use DocsBot to explain general policy, collect context, and route the request rather than making unauthorized commitments. With approved live connections, it can retrieve or pass along scoped account context, but humans should remain responsible for pricing exceptions, contract terms, margin decisions, and high-impact commitments.",
+      "role": "Customer service and inside sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can this reduce pressure on our customer service team during order-status and returns spikes?",
+      "answer": "DocsBot can answer routine order-tracking instructions, return steps, warranty processes, documentation requests, and shipping-policy questions from approved content. When connected through customer-configured Skills, APIs, connectors, or helpdesk workflows, it can collect identifiers, prepare a status handoff, create or update a ticket, and escalate exceptions.",
+      "role": "Customer service and inside sales teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does DocsBot fit with a B2B buyer journey that spans web, email, phone, and branch interactions?",
+      "answer": "DocsBot can support the self-service and assisted parts of the journey: website answers, product-page guidance, RFQ intake, internal rep assistance, and service handoffs. McKinsey describes B2B omnichannel behavior as a “rule of thirds,” with buyers using in-person, remote, and self-service channels across the sales process.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-mckinsey-omnichannel"
+      ]
+    },
+    {
+      "question": "What if our product data is messy across PDFs, supplier portals, spreadsheets, and an ERP?",
+      "answer": "DocsBot can start with the approved documents and knowledge sources you can control, then expand as your data improves. Many distributors begin with high-volume product lines, FAQs, manuals, SOPs, and policy pages, then use analytics to identify which catalog attributes, substitutions, or policy details need cleanup first.",
+      "role": "Product, operations, and branch managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent show where an answer came from so our team can verify it?",
+      "answer": "Yes. DocsBot is designed for source-grounded answers from your approved knowledge. That is important for distributor workflows where reps may need to verify a manual, warranty note, substitution rule, installation document, or supplier policy before giving a customer-facing answer.",
+      "role": "Customer service and inside sales teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How should we control what the agent is allowed to access or do?",
+      "answer": "Use role-based permissions, granular access controls, scoped Skills, approved APIs, secrets management, logs, and customer-defined workflow boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "Product, operations, and branch managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this help new branch or counter employees ramp faster?",
+      "answer": "Yes. A private internal knowledge agent can answer questions from SOPs, training docs, supplier notes, warranty rules, substitution guidance, and internal FAQs. New employees can ask natural-language questions and see source-backed context instead of waiting for senior staff or searching across scattered folders.",
+      "role": "Product, operations, and branch managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot identify which product pages or documents are causing support volume?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Product, e-commerce, and support leaders can use those insights to find recurring unanswered questions by SKU, category, policy, or workflow.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we measure whether buyers trust the agent instead of abandoning to phone or email?",
+      "answer": "Review answer resolution, satisfaction signals, escalation rate, repeated unanswered topics, RFQ completion quality, and whether conversations end with a clear next step. You can also compare support volume and sales handoff quality before and after launch for the same product categories or customer segments.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What makes this different from adding generic chat to our distributor website?",
+      "answer": "DocsBot is positioned around agents trained on your owned catalogs, manuals, policies, FAQs, and sales playbooks, not generic answers. It can provide source-grounded responses, collect structured details, summarize context, surface content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle multilingual customers who need product documentation?",
+      "answer": "DocsBot can answer in more than 100 languages and help buyers understand approved documentation while pointing them back to the original source. For safety, legal, contractual, or compliance-sensitive interpretations, the workflow should escalate to a qualified human reviewer.",
+      "role": "Customer service and inside sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep AI from creating liability around safety documents or regulated product claims?",
+      "answer": "Limit the agent to approved manuals, safety documents, warranty terms, and policy sources; require source-grounded answers; and define escalation rules for safety-critical, compliance, engineered, or application-specific questions. The agent can retrieve and summarize relevant documents, but your team should decide where human review is mandatory.",
+      "role": "Product, operations, and branch managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we pilot this without integrating every back-office system first?",
+      "answer": "Yes. Many distributor use cases can start with static or regularly updated knowledge: catalogs, PDFs, help articles, SOPs, manuals, and policies. Live ERP, CRM, helpdesk, inventory, or order-status connections can be added later through approved Skills, APIs, connectors, MCP servers, or workflow automations when the pilot proves value.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "What will procurement and IT want to review before approving DocsBot?",
+      "answer": "They will likely review data handling, access controls, security posture, role permissions, retention needs, system connections, implementation effort, and who owns source content. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Why should digital leaders prioritize this now if buyers can still call a rep?",
+      "answer": "Phone support still matters, but poor digital experiences can put supplier relationships at risk. McKinsey’s 2024 B2B Pulse found that 54% of B2B buyers likely to switch suppliers cite poor-quality digital customer experiences as a reason to go elsewhere.",
+      "role": "E-commerce and digital branch leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-b2b-pulse"
+      ]
+    },
+    {
+      "question": "Can DocsBot support a large distributor with thousands of SKUs and many supplier documents?",
+      "answer": "Yes, the strongest fit is when the agent is scoped around approved knowledge sources, product categories, and workflows. You can launch by segment, such as top product lines or high-volume support topics, then expand across more catalogs, manuals, policies, branches, and internal teams as governance matures.",
+      "role": "Product, operations, and branch managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we avoid frustrating sales teams who worry AI will bypass their customer relationships?",
+      "answer": "Position the agent as a qualification and support layer, not a replacement for relationship selling. It can answer repetitive questions, collect missing RFQ details, summarize buyer context, and route qualified requests to the right rep so sellers spend more time on complex fit, pricing, project, and account conversations.",
+      "role": "Customer service and inside sales teams",
+      "category": "Human oversight"
+    }
+  ]
+}

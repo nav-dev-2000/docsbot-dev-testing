@@ -1,0 +1,697 @@
+{
+  "slug": "security-guard",
+  "business": "Security Guard",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Security Guard Operations",
+    "description": "DocsBot helps security guard companies give teams instant SOP answers, client-site guidance, lead intake, and safer escalation workflows.",
+    "canonicalPath": "/industry/security-guard"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for security operations teams",
+    "headline": "DocsBot AI agents keep guard teams aligned at every post",
+    "subheadline": "Train DocsBot on your post orders, SOPs, client instructions, incident templates, training materials, and service policies so guards, supervisors, dispatchers, and prospects can get fast answers with clear escalation paths when judgment or authorization is required.",
+    "proofBullets": [
+      {
+        "text": "Answer guard questions from approved post orders, emergency procedures, escalation rules, and client-site instructions.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Summarize incident details, shift notes, and handoff context for supervisors through customer-configured workflows.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect prospect requirements for new security coverage and route qualified inquiries to sales or operations.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use scoped AI Actions for approved lookups, ticket creation, notifications, and handoffs when your systems are connected.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a security operations agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps security guard companies create AI agents trained on their own operating knowledge. A private internal agent can help guards and supervisors retrieve SOPs, post orders, training guidance, and escalation steps, while a customer-facing agent can answer service questions, collect lead details, and route requests to the right human team.",
+    "whoItHelps": [
+      {
+        "role": "Security operations managers",
+        "roleContext": "Give distributed posts a consistent source of truth without relying on memory, binders, or long message threads when policies change.",
+        "bullets": [
+          {
+            "text": "Make post orders, incident procedures, equipment rules, and client-specific instructions searchable from approved sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use conversation logs and repeated questions to spot training gaps, unclear procedures, or sites that need updated documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route sensitive, urgent, or ambiguous issues to a supervisor instead of letting an agent make safety-critical judgments.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Field supervisors and dispatch teams",
+        "roleContext": "Support guards during nights, weekends, special events, and multi-site coverage with faster access to the exact guidance they need.",
+        "bullets": [
+          {
+            "text": "Retrieve escalation trees, emergency contacts, access-control procedures, and site-specific instructions during live operations.",
+            "icon": "PhoneIcon"
+          },
+          {
+            "text": "Create summaries for shift handoffs, incident follow-up, or client updates when configured with approved Skills or workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "The BLS describes security guards as workers who guard, patrol, or monitor premises to prevent theft, violence, or rule infractions.",
+            "icon": "EyeIcon",
+            "sourceIds": [
+              "src-bls-oes-security-guards"
+            ]
+          }
+        ],
+        "roleIcon": "MapPinIcon"
+      },
+      {
+        "role": "Sales and client service teams",
+        "roleContext": "Help property managers, event organizers, retailers, and corporate buyers understand services before they talk to a manager.",
+        "bullets": [
+          {
+            "text": "Answer questions about service types, coverage options, onboarding steps, and proposal requirements from approved sales materials.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect site type, hours, risk concerns, location, timeline, budget range, and preferred follow-up channel through a structured intake flow.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Forward qualified leads, summaries, and conversation context to a CRM, helpdesk, inbox, or scheduling workflow when configured by the customer.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-ooh-security-guards",
+      "metric": "Little or no projected employment change from 2024 to 2034",
+      "claim": "BLS projects overall employment of security guards and gambling surveillance officers to show little or no change from 2024 to 2034, keeping operational efficiency and training consistency important for guard firms.",
+      "sourceTitle": "Security Guards and Gambling Surveillance Officers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "operations planning",
+        "training consistency"
+      ]
+    },
+    {
+      "id": "src-bls-oes-security-guards",
+      "metric": "1,202,940 U.S. security guard jobs in May 2023",
+      "claim": "BLS occupational wage data reported 1,202,940 U.S. security guard jobs in May 2023, with guards responsible for patrolling or monitoring premises to prevent theft, violence, or rule infractions.",
+      "sourceTitle": "Occupational Employment and Wages, May 2023: Security Guards",
+      "sourceUrl": "https://www.bls.gov/oes/2023/may/oes339032.htm",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "labor scale",
+        "frontline work context",
+        "distributed workforce"
+      ]
+    },
+    {
+      "id": "src-bls-fatality-security-guards",
+      "metric": "64 fatal work injuries and 7.7 fatality rate for selected security roles",
+      "claim": "BLS fatal injury charts list security guards and gambling surveillance officers with 64 fatal work injuries and a 7.7 fatal work injury rate per 100,000 full-time equivalent workers in the selected data table.",
+      "sourceTitle": "Rate and number of fatal work injuries in selected occupations",
+      "sourceUrl": "https://www.bls.gov/charts/census-of-fatal-occupational-injuries/rate-and-number-of-fatal-work-injuries-in-selected-occupations.htm",
+      "sourceDate": "2024 data table",
+      "bestUsedFor": [
+        "safety risk",
+        "human escalation",
+        "incident procedures"
+      ]
+    },
+    {
+      "id": "src-osha-workplace-violence",
+      "metric": "OSHA workplace violence prevention recommendations",
+      "claim": "OSHA publishes recommendations for workplace violence prevention programs in late-night retail establishments, including guidance that can inform training, reporting, and security measure checklists.",
+      "sourceTitle": "Workplace Violence: OSHA Publications by Topic",
+      "sourceUrl": "https://www.osha.gov/publications/bytopic/workplace-violence",
+      "sourceDate": "Current OSHA publication page",
+      "bestUsedFor": [
+        "workplace violence",
+        "training procedures",
+        "reporting checklists"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Post order and SOP answer agent",
+      "problem": "Guards may work alone or across multiple client sites, where procedures, contacts, and escalation rules can vary by post.",
+      "agentWorkflow": "DocsBot trains on approved post orders, SOPs, client instructions, emergency procedures, equipment checklists, and training materials. Guards ask plain-language questions and receive source-grounded answers with citations back to the relevant internal materials.",
+      "liveContextOrTools": "With customer-configured Skills, the agent can look up approved site metadata, retrieve the current post assignment, or route unresolved questions to a supervisor channel.",
+      "exampleQuestionsOrRequests": [
+        "What is the after-hours access procedure for this building?",
+        "Who do I call if the fire panel shows a trouble alarm?",
+        "What should I include in the end-of-shift handoff for this post?"
+      ],
+      "businessOutcome": "More consistent procedures across sites, faster onboarding for new guards, and fewer repeated calls to supervisors for routine policy questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Incident intake and supervisor handoff assistant",
+      "problem": "Incident notes can be incomplete, inconsistent, or delayed when guards are under pressure and supervisors need follow-up context.",
+      "agentWorkflow": "A DocsBot agent can guide guards through a structured incident narrative, summarize the facts provided, suggest missing fields from your templates, and prepare a handoff for supervisor review without deciding liability or severity.",
+      "liveContextOrTools": "AI Actions can create a task or draft a report record, notify the proper team, or attach a summary to a ticketing workflow when the customer authorizes those actions.",
+      "exampleQuestionsOrRequests": [
+        "Help me summarize this trespass incident for supervisor review.",
+        "What fields are required before I submit an incident report?",
+        "Create a handoff note for the morning operations manager."
+      ],
+      "businessOutcome": "Cleaner handoffs, faster review, and a repeatable documentation process while keeping safety, legal, and disciplinary decisions with humans.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-bls-fatality-security-guards"
+      ]
+    },
+    {
+      "name": "Training and certification knowledge assistant",
+      "problem": "Security firms need guards to understand site rules, de-escalation expectations, reporting procedures, and company policy updates without waiting for a trainer.",
+      "agentWorkflow": "DocsBot can train on onboarding guides, training decks, policy PDFs, FAQs, certification reminders, and client-specific procedures. Employees can ask questions before or during shifts and supervisors can review analytics to see which topics create confusion.",
+      "liveContextOrTools": "The agent can surface repeated training questions and documentation gaps so operations leaders know which guides need clarification.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy on using force?",
+        "Where is the refresher material for radio procedure?",
+        "What changed in the latest visitor badge process?"
+      ],
+      "businessOutcome": "Faster new-hire ramp, more consistent answers, and better visibility into training topics that need reinforcement.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Client and prospect service agent",
+      "problem": "Prospective clients often ask about coverage options, industries served, quoting steps, and onboarding requirements before a sales or operations manager is available.",
+      "agentWorkflow": "DocsBot answers from approved service pages, FAQs, proposal materials, insurance or licensing notes you choose to provide, and client onboarding documents. It can collect structured lead information and prepare a concise summary for follow-up.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or MCP servers, DocsBot can forward qualified inquiries to sales systems, trigger a scheduling workflow, or create a follow-up task.",
+      "exampleQuestionsOrRequests": [
+        "Do you provide overnight lobby security for commercial buildings?",
+        "What information do you need to quote an event security job?",
+        "Can someone call me about coverage starting next month?"
+      ],
+      "businessOutcome": "More complete inbound inquiries, faster first response, and better sales handoffs without making pricing or contract commitments automatically.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Workplace violence and emergency procedure lookup",
+      "problem": "Guards may need fast access to workplace violence, evacuation, police contact, or emergency reporting guidance while the situation is still developing.",
+      "agentWorkflow": "DocsBot can make approved emergency procedure documents searchable and return concise, source-grounded steps. For high-risk situations, the agent can emphasize the organization’s escalation path and direct the user to emergency contacts rather than improvising advice.",
+      "liveContextOrTools": "Customer-defined workflows can notify dispatch, create a record, or escalate to a supervisor when a guard selects an approved emergency or workplace violence category.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a workplace violence threat?",
+        "Where is the evacuation assembly area for this site?",
+        "What details should I record before police arrive?"
+      ],
+      "businessOutcome": "Faster retrieval of approved procedures and clearer escalation during high-pressure incidents.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-osha-workplace-violence"
+      ]
+    },
+    {
+      "name": "Operations analytics and knowledge-gap reporting",
+      "problem": "Recurring questions from guards, clients, and dispatchers often reveal outdated post orders or unclear policies, but those patterns can be hard to see.",
+      "agentWorkflow": "DocsBot logs conversations, reports on topics, supports conversation review, and helps teams identify unanswered questions or weak documentation. Managers can update source documents and retrain the agent around the issues guards actually ask about.",
+      "liveContextOrTools": "Reports and topic analysis can inform SOP cleanup, onboarding improvements, client-site documentation reviews, and support process updates.",
+      "exampleQuestionsOrRequests": [
+        "Which post-order topics are guards asking about most this month?",
+        "Show unanswered questions related to access control.",
+        "What client sites need clearer incident reporting instructions?"
+      ],
+      "businessOutcome": "A practical feedback loop for improving documentation, training, and client-site instructions over time.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and prospects a faster path to the right security service",
+    "intro": "A DocsBot customer-facing agent can answer routine service questions from approved content, collect lead details, and prepare handoffs for your sales or operations team. It helps buyers get clarity quickly while leaving final quotes, legal terms, and security plans to your people.",
+    "requests": [
+      {
+        "request": "“Can you provide armed or unarmed guards for a warehouse?”",
+        "agentResponseStrategy": "Answer from approved service descriptions, ask for location, coverage hours, site type, desired start date, and risk concerns, then route the summary for human follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales FAQs",
+          "Coverage intake forms",
+          "Qualification rules"
+        ],
+        "optionalAction": "Submit a structured lead form or create a sales follow-up task through an approved workflow.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“What do you need to quote a one-night event?”",
+        "agentResponseStrategy": "Explain the intake requirements your company documents, such as event size, hours, venue, alcohol service, access points, and special concerns, without generating a binding quote.",
+        "sourceTypes": [
+          "Proposal checklists",
+          "Event security FAQs",
+          "Pricing guidance for internal use"
+        ],
+        "optionalAction": "Collect scheduling intent and pass the request to a configured booking or sales workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do I report a concern about a guard on-site?”",
+        "agentResponseStrategy": "Provide the approved complaint or client-support path, collect non-sensitive details, and escalate to the right manager when the issue needs review.",
+        "sourceTypes": [
+          "Client support policies",
+          "Escalation procedures",
+          "Helpdesk workflows"
+        ],
+        "optionalAction": "Create a ticket or notify the account manager through customer-configured helpdesk or messaging workflows.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Do you cover late-night retail locations?”",
+        "agentResponseStrategy": "Answer from approved vertical-market content and explain the company’s intake process for assessing post orders, incident history, and coverage needs.",
+        "sourceTypes": [
+          "Industry service pages",
+          "Retail security FAQs",
+          "Client onboarding guides"
+        ],
+        "optionalAction": "Route high-priority requests to operations for review before committing staffing or procedures.",
+        "icon": "BuildingStorefrontIcon",
+        "sourceIds": [
+          "src-osha-workplace-violence"
+        ]
+      },
+      {
+        "request": "“Can I get the visitor policy for my building?”",
+        "agentResponseStrategy": "If the client has approved public or tenant-facing guidance, provide the correct policy text; otherwise collect the request and route it to the account team.",
+        "sourceTypes": [
+          "Client-approved building FAQs",
+          "Visitor procedures",
+          "Account-specific documentation"
+        ],
+        "optionalAction": "Create a request for the account manager when the policy is private or site-specific.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Can you send me your onboarding requirements?”",
+        "agentResponseStrategy": "Provide approved onboarding steps, documents needed, implementation timeline ranges, and a human handoff for contract, staffing, or site-survey details.",
+        "sourceTypes": [
+          "Client onboarding docs",
+          "Implementation checklists",
+          "Sales enablement materials"
+        ],
+        "optionalAction": "Forward the request and conversation context to sales or operations for next steps.",
+        "icon": "PaperAirplaneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for guards, supervisors, and dispatchers",
+    "intro": "Use DocsBot internally to make operating knowledge available in a secure team experience. Train it on the materials your staff already use, connect approved workflows where appropriate, and give employees faster answers with logs, permissions, and escalation boundaries.",
+    "workflows": [
+      {
+        "name": "Shift handoff preparation",
+        "problem": "Supervisors often need concise summaries of incidents, unresolved tasks, and site conditions across multiple posts.",
+        "agentWorkflow": "Guards or dispatchers provide shift notes, and DocsBot summarizes the key events, open items, follow-up needs, and client-facing details based on your handoff format.",
+        "sourceTypes": [
+          "Shift templates",
+          "Incident report formats",
+          "Post orders",
+          "Supervisor instructions"
+        ],
+        "optionalAction": "Send a summary to a configured inbox, team channel, or task workflow after review.",
+        "outcome": "Less manual rewriting and clearer continuity between shifts.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Access-control procedure lookup",
+        "problem": "A visitor, contractor, vendor, or employee exception can require quick recall of site-specific access rules.",
+        "agentWorkflow": "The agent retrieves approved instructions for badge issuance, visitor logs, contractor access, denied-entry handling, and escalation contacts.",
+        "sourceTypes": [
+          "Client post orders",
+          "Visitor policies",
+          "Access-control SOPs",
+          "Emergency contact lists"
+        ],
+        "optionalAction": "Route exception questions to the supervisor or client contact when the procedure requires authorization.",
+        "outcome": "More consistent handling of access questions without exposing private rules to the wrong audience.",
+        "icon": "KeyIcon"
+      },
+      {
+        "name": "Training gap review",
+        "problem": "Repeated guard questions can show that SOPs are confusing, outdated, or missing from onboarding materials.",
+        "agentWorkflow": "DocsBot analytics and conversation review help managers identify high-volume topics, unanswered questions, and documentation gaps, then update the source material.",
+        "sourceTypes": [
+          "Training guides",
+          "Policy PDFs",
+          "Conversation logs",
+          "Knowledge-gap reports"
+        ],
+        "optionalAction": "Create documentation update tasks through an approved workflow.",
+        "outcome": "Training content improves based on actual frontline questions.",
+        "icon": "LightBulbIcon"
+      },
+      {
+        "name": "Policy-controlled support for sensitive situations",
+        "problem": "Security work includes safety-sensitive decisions where an AI agent should not replace human judgment, emergency services, or legal review.",
+        "agentWorkflow": "DocsBot can answer from approved procedures, highlight escalation steps, and decline to decide issues that require supervisor, law enforcement, HR, legal, or client authorization.",
+        "sourceTypes": [
+          "Use-of-force policies",
+          "Emergency procedures",
+          "Escalation matrices",
+          "HR and legal guidelines"
+        ],
+        "optionalAction": "Notify dispatch or create an escalation record when the user selects an approved high-priority category.",
+        "outcome": "Employees get faster procedural guidance while high-impact decisions stay with accountable humans.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-bls-fatality-security-guards"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from company knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on approved websites, documents, help centers, PDFs, wikis, team content, and other configured knowledge sources.",
+      "industryApplication": "Security firms can centralize post orders, SOPs, client instructions, training content, emergency procedures, and service FAQs so teams receive consistent answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, record creation, record updates, workflow triggers, and handoffs inside customer-defined rules.",
+      "industryApplication": "A security operations agent can create follow-up tasks, route incident summaries, notify supervisors, or pass qualified sales inquiries to connected systems when the firm authorizes the workflow.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Managers can see recurring guard questions, confusing site instructions, common prospect objections, and documentation gaps that affect training or client service.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation for complex or sensitive requests",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "For emergencies, discipline, use-of-force questions, contract commitments, or client-specific authorization, the agent can route the request instead of making the decision.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Secure private knowledge experiences",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Security companies can deploy private internal agents for guard operations, supervisor support, client service, and sales enablement with permissions and boundaries around sensitive knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health",
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for teams that need source-grounded answers from their own operational knowledge.",
+      "Proven in high-volume support environments where fast, consistent responses matter.",
+      "Useful for internal decision support when teams need less manual back-and-forth."
+    ],
+    "whyTheseReviewsFit": "Security operations depend on reliable procedures, fast handoffs, and a clear source of truth. DocsBot proof spans internal decision support, owned-content training, and high-volume support automation, giving guard companies confidence that AI agents can assist without replacing accountable human judgment.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for security guard operations",
+    "audience": [
+      "Security guard company owners",
+      "Security operations managers",
+      "Field supervisors",
+      "Dispatch teams",
+      "Client service and sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "private-security",
+    "safety-security-legal",
+    "security-system-services",
+    "security-system-installation",
+    "emergency-management",
+    "compliance-consulting"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "security-guard",
+    "webSearchQueries": [
+      "BLS security guards employment occupational outlook security guards 2024",
+      "OSHA security and workplace violence late night retail guidance security guards",
+      "BLS security guards workplace injuries fatalities security guards data"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "https://www.bls.gov/oes/2023/may/oes339032.htm",
+      "https://www.bls.gov/charts/census-of-fatal-occupational-injuries/rate-and-number-of-fatal-work-injuries-in-selected-occupations.htm",
+      "https://www.osha.gov/publications/bytopic/workplace-violence"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 38296,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 17560,
+        "outputTokens": 7364,
+        "reasoningOutputTokens": 109,
+        "totalTokens": 45660,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.159545,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.169545
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19629,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 4141,
+          "outputTokens": 4720,
+          "reasoningOutputTokens": 92,
+          "totalTokens": 24349,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.085025,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.095025
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18667,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13419,
+          "outputTokens": 2644,
+          "reasoningOutputTokens": 17,
+          "totalTokens": 21311,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07452,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07452
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1485230405346-71acb9518d9c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDMzMDZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Security Guard background image",
+    "source": "legacy-industry",
+    "query": "Security Guard"
+  },
+  "faq": [
+    {
+      "question": "Can guards trust the agent for post orders without it making unsafe judgment calls?",
+      "answer": "DocsBot is best used as a source-grounded procedure assistant, not a replacement for command judgment. It can answer from approved post orders, emergency procedures, and escalation matrices, while routing urgent, ambiguous, or safety-critical situations to a supervisor, dispatch, law enforcement, HR, legal, or the client contact according to your rules.",
+      "role": "Security operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help a guard working alone at a night or weekend post?",
+      "answer": "A private DocsBot agent can give the guard quick access to the exact post order, access-control steps, emergency contacts, incident-report fields, and client-specific instructions approved for that site. That matters in a distributed workforce where BLS describes guards as workers who patrol or monitor premises to prevent theft, violence, or rule infractions.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-oes-security-guards"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our supervisors or dispatchers?",
+      "answer": "No. DocsBot should reduce routine lookups and repetitive clarification calls, while supervisors and dispatchers remain accountable for exceptions, prioritization, emergency decisions, disciplinary matters, client commitments, and judgment calls. The agent can prepare summaries, surface policy guidance, and escalate when the request falls outside approved boundaries.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What materials do we need before launching an internal security operations agent?",
+      "answer": "Most firms start with post orders, SOPs, emergency procedures, incident templates, training guides, visitor policies, access-control rules, escalation matrices, client instructions, and service FAQs. The best launch candidates are high-volume questions where there is already an approved answer and where the agent can clearly cite the source or escalate.",
+      "role": "Security operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent handle different instructions for each client site?",
+      "answer": "Yes, if your source materials and permissions are organized that way. DocsBot can be trained on client-specific post orders and site procedures, and a customer-configured Skill or metadata binding can help retrieve approved site context. Sensitive site rules should be permissioned so guards, supervisors, and customer-facing users only see what they are allowed to see.",
+      "role": "Security operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent outdated post orders from being repeated by the AI agent?",
+      "answer": "Treat DocsBot as part of your document-control process. Keep a clear source of truth, remove superseded files, use versioned post orders where possible, and review logs for confusing or unanswered questions. DocsBot analytics and conversation review can reveal which sites or procedures need cleanup before outdated guidance becomes an operations problem.",
+      "role": "Security operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with incident reports without creating legal or liability risk?",
+      "answer": "DocsBot can guide a guard through required fields, summarize the facts provided, and prepare a handoff for supervisor review. It should not determine fault, liability, severity, discipline, or legal language. This is especially important because security work can involve serious safety risk; one BLS table lists 64 fatal work injuries for selected security guard and gambling surveillance roles.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-bls-fatality-security-guards"
+      ]
+    },
+    {
+      "question": "Can the agent support workplace violence or emergency response procedures?",
+      "answer": "Yes, with strict boundaries. DocsBot can retrieve approved emergency steps, escalation paths, reporting checklists, and workplace violence procedures. For active threats or uncertain situations, the agent should direct the user to emergency contacts and supervisor escalation rather than improvising advice. OSHA publishes workplace violence prevention recommendations that can inform training and reporting checklists.",
+      "role": "Security operations managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-workplace-violence"
+      ]
+    },
+    {
+      "question": "How does DocsBot fit with guard tour, dispatch, incident management, or ticketing software we already use?",
+      "answer": "DocsBot can stand alone as a knowledge agent or connect to existing systems through customer-configured Skills, APIs, connectors, MCP servers, webhooks, or approved workflows. Common scoped actions include creating a task, forwarding an incident summary, notifying a supervisor, looking up approved site metadata, or routing a lead—without claiming control over your core operations platform.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it for client-facing lead intake without giving automatic quotes?",
+      "answer": "Yes. A customer-facing DocsBot agent can answer from approved service pages and sales materials, collect site type, location, hours, risk concerns, timeline, budget range, and contact preference, then route the summary to sales or operations. It should avoid binding pricing, staffing promises, contract terms, or security-plan commitments unless a human approves them.",
+      "role": "Sales and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should a security guard company expect from an AI operations agent?",
+      "answer": "The clearest ROI usually comes from fewer repetitive supervisor calls, faster guard onboarding, cleaner incident handoffs, better lead qualification, and less time searching through binders, PDFs, and message threads. BLS projects little or no employment change for security guards and gambling surveillance officers from 2024 to 2034, so efficiency and consistency remain important levers.",
+      "role": "Security operations managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-ooh-security-guards"
+      ]
+    },
+    {
+      "question": "How will we measure whether the agent is actually improving operations?",
+      "answer": "Track repeated question volume, unresolved questions, escalation rate, time to find procedures, supervisor interruptions, incident-report completeness, guard onboarding questions, customer inquiry conversion, and documentation gaps by site. DocsBot logs, analytics, reports, topic management, conversation review, and satisfaction or resolution analysis can support those operating reviews.",
+      "role": "Security operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can supervisors see what guards are asking the agent?",
+      "answer": "Yes. DocsBot supports logs, analytics, reports, topic management, and conversation review. Operations leaders can use those records to identify unclear post orders, recurring access-control exceptions, training gaps, unanswered questions, and sites where the written procedure does not match what guards encounter during shifts.",
+      "role": "Security operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we make sure guards do not expose private client information in the agent?",
+      "answer": "Use DocsBot’s private knowledge experiences with granular access controls, role-based permissions, encryption in transit and at rest, and clear policies on what guards should enter. Skills can be configured with customer-defined controls, logging, secrets handling, and boundaries so credentials stay out of chats and the agent only accesses authorized systems.",
+      "role": "Security operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot use our post orders, incident notes, or client documents to train public models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions, which are important when your knowledge base includes client-site procedures, escalation contacts, and internal policies.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens if the AI gives an answer that conflicts with a supervisor’s instruction?",
+      "answer": "Your operating rule should be clear: supervisors, dispatch, client authorization, emergency services, and written command procedures take precedence. DocsBot can cite the source it used, which helps the supervisor identify whether the source document is outdated, incomplete, or wrong. Those conflicts become useful inputs for post-order updates and retraining.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help new guards ramp faster across multiple posts?",
+      "answer": "Yes. Train it on onboarding guides, training decks, company policies, radio procedures, incident templates, and client-specific instructions. New guards can ask plain-language questions before or during shifts, while supervisors use repeated questions to see which training topics need reinforcement or which post orders are hard to interpret.",
+      "role": "Security operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent answer questions in multiple languages for a diverse guard workforce?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help distributed teams understand approved procedures more quickly. For safety-critical topics, buyers should still review translated source materials, define escalation language carefully, and test common shift scenarios before relying on multilingual answers in live operations.",
+      "role": "Security operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much cleanup do our post orders need before implementation?",
+      "answer": "You do not need perfect documentation, but you do need a trusted starting set. Remove duplicates, mark current versions, separate client-facing and internal materials, identify sensitive documents, and define escalation rules. DocsBot can also help reveal gaps after launch by showing unanswered questions and recurring topics that need clearer source material.",
+      "role": "Security operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both internal guard operations and our public website?",
+      "answer": "Yes, but they should usually be separate experiences with different sources and permissions. An internal agent can answer guard, supervisor, dispatch, and training questions from private materials. A customer-facing agent can answer service questions, collect qualified lead details, and route requests without exposing post orders, client procedures, or internal escalation details.",
+      "role": "Sales and client service teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent create tickets, tasks, or notifications from a guard’s conversation?",
+      "answer": "Yes, when configured through approved DocsBot AI Actions, Skills, APIs, connectors, or workflows. Practical actions include creating a follow-up task, drafting an incident record, notifying dispatch, sending a handoff summary, or routing an unresolved question. Buyers should scope these actions carefully and keep sensitive or high-impact decisions under human review.",
+      "role": "Field supervisors and dispatch teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does this compare with just putting PDFs in a shared drive or messaging supervisors?",
+      "answer": "Shared drives and chat threads still require guards to know where to look, which version to trust, and who to ask. DocsBot turns approved materials into a searchable, source-grounded agent that can answer in plain language, cite the relevant source, summarize handoffs, escalate exceptions, and show managers which procedures are confusing in practice.",
+      "role": "Security operations managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will clients be comfortable with an AI agent answering questions about security services?",
+      "answer": "Usually, if the boundaries are clear. The agent should answer routine questions from approved public materials, collect intake details, and route complex requests to a human. It should not reveal private security procedures, design a security plan, make staffing guarantees, quote final pricing, or commit to contract terms automatically.",
+      "role": "Sales and client service teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help us standardize service quality across branches or regions?",
+      "answer": "Yes. Multi-site and multi-branch firms can centralize approved SOPs, training materials, escalation standards, service FAQs, and reporting templates while still separating client- or region-specific content. Analytics can then show recurring questions by topic or location, helping leaders see where documentation, training, or local procedures need attention.",
+      "role": "Security operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who should own DocsBot internally after launch?",
+      "answer": "Most security firms should assign an operations owner, a documentation owner, and a technical or systems contact. Operations defines escalation rules and acceptable use. Documentation keeps post orders and SOPs current. The systems owner manages permissions, connected workflows, and any Skills, APIs, connectors, or notification paths.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What procurement and risk questions should we ask before buying?",
+      "answer": "Ask where your data is stored, how access controls work, whether customer data trains public models, how logs are reviewed, how permissions are enforced, what actions the agent can take, how escalation is configured, and who maintains source documents. For security operations, the buying decision should include operations, IT, compliance, and field leadership.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

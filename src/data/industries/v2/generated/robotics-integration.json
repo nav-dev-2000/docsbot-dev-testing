@@ -1,0 +1,741 @@
+{
+  "slug": "robotics-integration",
+  "business": "Robotics Integration",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Robotics Integration Support",
+    "description": "DocsBot helps robotics integration teams answer technical questions, qualify projects, and reduce documentation bottlenecks with grounded AI agents.",
+    "canonicalPath": "/industry/robotics-integration"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded automation for robotics integrators",
+    "headline": "DocsBot AI agents for faster robotics integration support",
+    "subheadline": "Turn robot manuals, PLC notes, commissioning checklists, service SOPs, proposals, and support history into AI agents that help customers, field technicians, sales engineers, and project teams find the right answer before work stalls.",
+    "proofBullets": [
+      {
+        "text": "Answer customer and technician questions from approved robot manuals, cell documentation, FAQs, safety notes, and internal procedures.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "text": "Collect project requirements, qualify automation-fit conversations, and route qualified opportunities to sales or engineering workflows.",
+        "icon": "ArrowTrendingUpIcon"
+      },
+      {
+        "text": "Use configured AI Actions to summarize tickets, create handoff notes, look up approved record status, or trigger follow-up workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Surface recurring unanswered questions so integration teams can improve manuals, training content, and customer onboarding resources.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a robotics support agent",
+    "secondaryCta": "Explore DocsBot automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps robotics integration companies create AI agents trained on their own technical knowledge. Agents can answer source-grounded questions, support presales and service teams, summarize context, identify documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP options, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Service and support leaders",
+        "roleContext": "Support teams handle recurring questions about robot operation, alarms, preventative maintenance, spare parts, documentation, and escalation paths. DocsBot gives them a first-line AI support agent grounded in approved sources.",
+        "bullets": [
+          {
+            "text": "Draft and summarize helpdesk responses from manuals, troubleshooting guides, previous ticket exports, and internal SOPs.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route high-impact, warranty, safety, or site-specific issues to a human with a concise conversation summary and collected details.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot repeated gaps in manuals, commissioning docs, and support articles.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Applications and controls engineers",
+        "roleContext": "Engineering teams need fast access to robot specs, end-effector notes, PLC conventions, IO maps, risk-assessment references, and integration lessons from earlier projects.",
+        "bullets": [
+          {
+            "text": "Ask private technical questions across PDFs, Word documents, wikis, Confluence pages, Google Drive folders, and internal notes.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Retrieve consistent answers about procedures, tool choices, internal standards, and project documentation without searching file shares.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Keep safety-critical judgments with engineers while using AI to find approved references, summarize context, and prepare review notes.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Sales engineers and automation consultants",
+        "roleContext": "Robotics buyers often arrive with incomplete requirements, facility constraints, production targets, and compatibility questions. DocsBot can help presales teams collect the right context before a human designs the solution.",
+        "bullets": [
+          {
+            "text": "Answer fit, specification, service, pricing-policy, implementation, and timeline questions from approved sales enablement materials.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect lead details such as application, payload, cycle-time target, facility constraints, budget range, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to CRM, email, forms, or team notifications through approved customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "Operations and training managers",
+        "roleContext": "As more robots are deployed, integrators must keep field teams, new hires, and customers aligned on changing procedures and documentation.",
+        "bullets": [
+          {
+            "text": "IFR reported 542,000 industrial robot installations worldwide in 2024, more than double the annual count from ten years earlier.",
+            "icon": "GlobeAltIcon",
+            "sourceIds": [
+              "src-ifr-2025-global"
+            ]
+          },
+          {
+            "text": "Create always-available onboarding and training support from internal playbooks, commissioning guides, checklists, and customer handover materials.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Review employee and customer questions to identify where training content is unclear, missing, or outdated.",
+            "icon": "EyeIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon",
+        "sourceIds": [
+          "src-ifr-2025-global"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ifr-2025-global",
+      "metric": "542,000 industrial robots installed worldwide in 2024",
+      "claim": "The International Federation of Robotics reported that global industrial robot installations reached 542,000 units in 2024, more than double the count from ten years earlier.",
+      "sourceTitle": "World Robotics 2025 report – INDUSTRIAL ROBOTS – released by IFR",
+      "sourceUrl": "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years%20%20%20",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Automation adoption",
+        "robotics market scale",
+        "documentation and support demand"
+      ]
+    },
+    {
+      "id": "src-ifr-2025-us",
+      "metric": "393,700 industrial robots working in U.S. factories",
+      "claim": "IFR reported 393,700 industrial robots working in U.S. factories in 2024, with annual U.S. installations reaching 34,200 units.",
+      "sourceTitle": "U.S. Lags China in Factory Robot Deployment by 5 to 1 Ratio",
+      "sourceUrl": "https://ifr.org/downloads/press_docs/2025-09-25-IFR_press_release_Americas_in_English.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "U.S. automation demand",
+        "installed base support needs",
+        "field service scale"
+      ]
+    },
+    {
+      "id": "src-osha-robotics-overview",
+      "metric": "Workers may enter a robot working envelope during operations",
+      "claim": "OSHA notes that workers may temporarily be inside a robot working envelope during some operations, where unintended operations can result in injuries.",
+      "sourceTitle": "Robotics - Overview | Occupational Safety and Health Administration",
+      "sourceUrl": "https://www.osha.gov/robotics",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "Safety risk",
+        "human escalation boundaries",
+        "robot cell procedures"
+      ]
+    },
+    {
+      "id": "src-osha-otm-robot-safety",
+      "metric": "Integrators and nearby workers need to understand robot hazards and safeguards",
+      "claim": "OSHA’s Technical Manual states that integrators, operators, maintenance workers, and others working near robot applications need to understand the nature and severity of hazards and how safeguards address them.",
+      "sourceTitle": "OSHA Technical Manual, Section IV, Chapter 4: Industrial Robot Systems and Industrial Robot System Safety",
+      "sourceUrl": "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "Training requirements",
+        "field documentation",
+        "safety procedure access"
+      ]
+    },
+    {
+      "id": "src-a3-industry-statistics",
+      "metric": "North American robot orders and adoption trends are tracked by A3",
+      "claim": "The Association for Advancing Automation tracks North American robot order trends and reported increased adoption by non-automotive companies in its industry statistics coverage.",
+      "sourceTitle": "Robotics Industry Statistics - Association for Advancing Automation",
+      "sourceUrl": "https://www.automate.org/robotics/industry-statistics",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Buyer demand",
+        "non-automotive adoption",
+        "presales qualification"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Technical support agent for installed robot cells",
+      "problem": "Customers and field technicians ask repetitive but high-detail questions about alarms, maintenance intervals, startup steps, tooling, spare parts, and documentation locations.",
+      "agentWorkflow": "DocsBot answers from approved manuals, commissioning packages, service SOPs, knowledge bases, and ticket exports. When the answer needs a person, the agent collects robot model, cell ID, alarm code, operating context, and attempted fixes, then prepares a handoff summary.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved case status, create a support ticket, route a request, notify a team, or attach a conversation summary to a workflow.",
+      "exampleQuestionsOrRequests": [
+        "What does this alarm code mean on the palletizing cell?",
+        "Where is the preventative maintenance checklist for the EOAT vacuum system?",
+        "Create a support handoff for this downtime issue with the details I entered."
+      ],
+      "businessOutcome": "Reduce repetitive support effort while giving customers and technicians faster access to the documentation your team already trusts.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Presales qualification for automation projects",
+      "problem": "Prospects often ask whether a robot can handle a product, payload, takt time, floor-space constraint, vision requirement, or integration budget before a sales engineer can scope the opportunity.",
+      "agentWorkflow": "A DocsBot presales agent answers from service pages, case studies, specification sheets, proposal templates, FAQs, and sales playbooks. It can collect structured requirements and apply customer-defined qualification rules for fit, urgency, region, budget, and project readiness.",
+      "liveContextOrTools": "Approved workflows can forward qualified lead summaries to CRM, email, forms, scheduling tools, or a sales-engineering queue. Humans remain responsible for final pricing, feasibility, and contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Can you automate case packing for mixed SKUs?",
+        "What information do you need before quoting a cobot tending project?",
+        "Book a discovery call and include my payload, cycle time, and available floor space."
+      ],
+      "businessOutcome": "Help sales teams prioritize better-scoped opportunities and reduce back-and-forth before the first engineering conversation.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-a3-industry-statistics"
+      ]
+    },
+    {
+      "name": "Internal commissioning and SOP knowledge agent",
+      "problem": "Commissioning teams lose time searching through file shares, prior project folders, vendor PDFs, PLC notes, and internal procedures when they need fast answers on-site.",
+      "agentWorkflow": "DocsBot trains on private internal knowledge sources such as SOPs, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and text files. Engineers can ask questions in private chat and receive source-grounded answers with links back to approved references.",
+      "liveContextOrTools": "If configured, Skills can retrieve approved project metadata, summarize the latest handover notes, create a task, or trigger a review workflow for missing documentation.",
+      "exampleQuestionsOrRequests": [
+        "What is our standard FAT checklist for an integrated robot cell?",
+        "Summarize the handoff notes for this packaging-line project.",
+        "Where do we document customer acceptance exceptions?"
+      ],
+      "businessOutcome": "Help field and engineering teams reuse institutional knowledge without relying on the one person who remembers where a file lives.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Safety documentation and training assistant",
+      "problem": "Robotics integration work involves hazard analysis, safeguarding, lockout procedures, teach-mode restrictions, and customer-specific cell documentation that must be easy to find and follow.",
+      "agentWorkflow": "DocsBot can answer from approved safety procedures, training materials, OSHA references saved in your knowledge base, project-specific checklists, and internal review notes. For safety-critical questions, it can provide references and route to a qualified human instead of making the decision.",
+      "liveContextOrTools": "Customer-defined boundaries can limit the agent to retrieval, summaries, checklist navigation, and escalation for safety-sensitive workflows, with logs and role-based permissions supporting review.",
+      "exampleQuestionsOrRequests": [
+        "Where is the risk-assessment template for this robot cell?",
+        "Which training document explains entering the robot work envelope?",
+        "Summarize the safety documentation gaps before customer handover."
+      ],
+      "businessOutcome": "Make safety and training references easier to access while keeping final safety judgments with qualified people.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-robotics-overview",
+        "src-osha-otm-robot-safety"
+      ]
+    },
+    {
+      "name": "Documentation gap analytics for manuals and handovers",
+      "problem": "Robotics integrators produce large documentation sets, but customer questions reveal where manuals, training guides, and support pages still fail to answer real-world needs.",
+      "agentWorkflow": "DocsBot logs conversations, topics, reports, satisfaction signals, resolution analysis, and unanswered questions. Teams can review recurring themes and update manuals, FAQs, onboarding content, and service knowledge bases accordingly.",
+      "liveContextOrTools": "Configured workflows can create documentation tasks, route content gaps to technical writers or engineers, and summarize trends for support or operations meetings.",
+      "exampleQuestionsOrRequests": [
+        "What questions did customers ask most after the last deployment?",
+        "Which topics had low confidence or required human escalation?",
+        "Create a task to improve the gripper troubleshooting guide."
+      ],
+      "businessOutcome": "Turn support conversations into a practical improvement loop for documentation, training, and customer onboarding.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Sales enablement for complex integration proposals",
+      "problem": "Account teams need fast, consistent answers about previous applications, proposal language, implementation constraints, service options, and objection handling.",
+      "agentWorkflow": "DocsBot can train on sales playbooks, service catalogs, proposal templates, case studies, implementation notes, pricing guidance, contract language, and customer FAQs. Reps can ask for grounded answers and draft follow-ups for human review.",
+      "liveContextOrTools": "With approved web search and Skills, agents can research public account context, summarize likely pain points, draft a follow-up email, or create an approved task in a sales workflow.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up explaining our approach to machine tending ROI.",
+        "What objections should I prepare for a food-processing automation buyer?",
+        "Summarize the prospect’s public manufacturing footprint for my call notes."
+      ],
+      "businessOutcome": "Help sales teams respond faster while keeping commercial terms, legal language, and final outreach under human control.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers and prospects a robotics support agent that knows your documentation",
+    "intro": "A DocsBot customer-facing agent can live on your website, documentation center, portal, or product support experience. It answers from approved content, collects missing details, supports multilingual questions, and escalates when the request needs an engineer, technician, or account owner.",
+    "requests": [
+      {
+        "request": "“What robot payload and reach do I need for this application?”",
+        "agentResponseStrategy": "Answer from approved product, service, and qualification materials; ask clarifying questions about part weight, tooling, cycle time, reach, environment, and production goal; then route qualified opportunities to sales engineering.",
+        "sourceTypes": [
+          "Service pages",
+          "Specification sheets",
+          "Qualification forms",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Submit a structured lead form or forward a qualified summary to a CRM, inbox, or sales queue through a configured workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“The system is stopped with an alarm. What should I check first?”",
+        "agentResponseStrategy": "Provide source-grounded troubleshooting guidance from the relevant manual or support article, ask for model and alarm details, and escalate urgent, site-specific, or safety-sensitive issues to human support.",
+        "sourceTypes": [
+          "Robot manuals",
+          "Support articles",
+          "Service SOPs",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Create a support ticket, summarize attempted steps, and notify the support team when the customer has configured the action.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Where can I find the commissioning handover package?”",
+        "agentResponseStrategy": "Retrieve approved handover documents, training links, maintenance schedules, and customer onboarding resources from the documentation sources connected to the agent.",
+        "sourceTypes": [
+          "Customer handover PDFs",
+          "Training guides",
+          "Maintenance schedules",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Collect the project or cell identifier and route the request to the correct account or service team if the document is restricted.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "request": "“Can you support our plant in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual response capabilities to answer from the same approved knowledge base while preserving the company’s preferred support voice and escalation rules.",
+        "sourceTypes": [
+          "Website FAQs",
+          "Product docs",
+          "User manuals",
+          "Support policies"
+        ],
+        "optionalAction": "Route language-specific leads or support requests to the right regional team through customer-configured workflows.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What safety documents should our operators review before using the cell?”",
+        "agentResponseStrategy": "Point to approved operator training, risk-assessment summaries, guarding procedures, and customer handover documents while avoiding unsupported safety judgments.",
+        "sourceTypes": [
+          "Safety procedures",
+          "Training materials",
+          "Handover checklists",
+          "Approved reference links"
+        ],
+        "optionalAction": "Escalate site-specific safety questions to a qualified human and attach the conversation history for review.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-robotics-overview"
+        ]
+      },
+      {
+        "request": "“Can I schedule a discovery call for a new automation project?”",
+        "agentResponseStrategy": "Collect scheduling intent and project basics such as application, production volume, facility location, timeline, and preferred follow-up channel.",
+        "sourceTypes": [
+          "Lead forms",
+          "Service catalog",
+          "Qualification rules",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Use an approved scheduling workflow, such as Calendly, Cal.com, TidyCal, or a similar configured tool, to request or book a meeting.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give robotics teams a private knowledge agent for engineering, service, and sales",
+    "intro": "DocsBot can operate as an internal knowledge assistant for robotics integrators, trained on private documents, SOPs, wikis, support notes, playbooks, project templates, and approved operational sources. Teams get fast, source-grounded answers while permissions, logs, and boundaries keep sensitive workflows controlled.",
+    "workflows": [
+      {
+        "name": "Field service troubleshooting",
+        "problem": "Technicians need answers while they are in front of a robot cell, not after they search old folders or call a senior engineer.",
+        "agentWorkflow": "The internal agent retrieves troubleshooting steps, alarm explanations, maintenance procedures, spare-part notes, and escalation rules from connected service knowledge.",
+        "sourceTypes": [
+          "Service SOPs",
+          "Manuals",
+          "Ticket exports",
+          "Maintenance procedures"
+        ],
+        "optionalAction": "Create a ticket, summarize the issue, or notify a service queue through approved Skills, APIs, connectors, or workflow automations.",
+        "outcome": "Faster field response with better handoff context when the issue needs expert intervention.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Project delivery playbook access",
+        "problem": "Project managers and engineers need consistent access to checklists, acceptance templates, change-order language, and commissioning processes.",
+        "agentWorkflow": "DocsBot answers questions from internal playbooks, project templates, handover checklists, risk registers, and training materials, then points users back to the source documents.",
+        "sourceTypes": [
+          "Project templates",
+          "Commissioning checklists",
+          "Change-order guidance",
+          "Internal wikis"
+        ],
+        "optionalAction": "Generate a summary, prepare a task, or route a missing-documentation request to the project owner when configured.",
+        "outcome": "More consistent delivery processes across teams, sites, and repeatable applications.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Safety and training reference desk",
+        "problem": "OSHA says integrators, operators, maintenance workers, and others near robot applications need to understand hazards and safeguards, making searchable training references important.",
+        "agentWorkflow": "The agent helps employees locate approved training procedures, safeguarding references, lockout guidance, teach-mode notes, and internal safety review materials without replacing qualified safety review.",
+        "sourceTypes": [
+          "Training materials",
+          "Safety SOPs",
+          "Risk-assessment templates",
+          "Approved standards references"
+        ],
+        "optionalAction": "Escalate unresolved safety questions to the designated reviewer and include source links and the employee’s question history.",
+        "outcome": "Make safety documentation more accessible while preserving human review for high-impact decisions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-otm-robot-safety"
+        ]
+      },
+      {
+        "name": "Sales and proposal enablement",
+        "problem": "Sales engineers need to respond quickly while staying aligned with approved service scope, standard proposal language, case studies, and implementation assumptions.",
+        "agentWorkflow": "DocsBot answers rep questions from proposal templates, playbooks, case studies, customer FAQs, implementation notes, pricing guidance, and objection-handling content.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Case studies",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize account research, or create a sales task through approved workflows for human review.",
+        "outcome": "Shorter response cycles for complex opportunities without letting AI finalize pricing, legal terms, or commitments.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents train on company-controlled knowledge sources and provide answers grounded in approved content rather than generic web assumptions.",
+      "industryApplication": "Robotics integrators can answer questions from robot manuals, support articles, commissioning packages, service procedures, customer onboarding docs, and technical FAQs.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can provide private employee answers from internal documents, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company sources.",
+      "industryApplication": "Engineering, service, sales, and operations teams can retrieve SOPs, project templates, handover notes, troubleshooting procedures, and sales playbook guidance.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, ticket or task creation, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "A robotics support agent can collect cell details, summarize downtime, create a support ticket, route a qualified lead, or trigger a documentation task when the customer has configured those workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Presales qualification and booking flows",
+      "mainLandingPageContext": "DocsBot can collect lead details, apply customer-defined qualification rules, forward summaries, and support scheduling workflows through approved customer configuration.",
+      "industryApplication": "Prospects can share application type, payload, cycle-time goals, site constraints, timeline, and budget range before a robotics sales engineer enters the conversation.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Support and documentation teams can see what customers, technicians, and sales reps keep asking, then improve manuals, training, FAQs, and onboarding assets.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Robotics integrators can keep proprietary cell designs, customer documents, project notes, and internal procedures in controlled knowledge experiences with role-based access.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support, including over 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for teams that need AI answers grounded in their own technical content library.",
+      "Practical for technical organizations that want RAG-style knowledge access without building the stack themselves."
+    ],
+    "whyTheseReviewsFit": "Robotics integration buyers need credible AI that can handle technical volume, respect approved documentation, and help skilled teams move faster. DocsBot proof spans high-volume support, owned-content training, and technical teams choosing a managed knowledge-agent approach instead of maintaining custom RAG infrastructure.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for robotics integration support, presales, documentation, and internal knowledge",
+    "audience": [
+      "Robotics integration firms",
+      "Automation consultants",
+      "Industrial robot service teams",
+      "Sales engineering teams",
+      "Field service organizations"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "3d-printing-services",
+    "ai-automation-agency",
+    "ai-consulting",
+    "augmented-reality-solutions",
+    "building-construction",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "robotics-integration",
+    "webSearchQueries": [
+      "IFR World Robotics 2025 industrial robots 2024 installations operational stock official",
+      "OSHA robotics safety industrial robots hazards guidance",
+      "Association for Advancing Automation robot orders North America 2024 statistics"
+    ],
+    "sourceUrls": [
+      "https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years%20%20%20",
+      "https://ifr.org/downloads/press_docs/2025-09-25-IFR_press_release_Americas_in_English.pdf",
+      "https://www.osha.gov/robotics",
+      "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+      "https://www.automate.org/robotics/industry-statistics"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45753,
+        "cachedInputTokens": 8960,
+        "billableInputTokens": 36793,
+        "outputTokens": 8331,
+        "reasoningOutputTokens": 175,
+        "totalTokens": 54084,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.219188,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.239188
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25584,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 21872,
+          "outputTokens": 5507,
+          "reasoningOutputTokens": 175,
+          "totalTokens": 31091,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.138213,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.158213
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20169,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14921,
+          "outputTokens": 2824,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22993,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080975,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080975
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1663057270471-8653f9a57f18?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ5Mjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Robotics Integration background image",
+    "source": "legacy-industry",
+    "query": "Robotics Integration"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer robot alarm and troubleshooting questions without giving unsafe advice?",
+      "answer": "Yes. DocsBot can answer from approved manuals, service SOPs, troubleshooting guides, and support articles, then escalate safety-sensitive, site-specific, warranty, or high-impact issues to a human. Many teams configure the agent to collect robot model, cell ID, alarm code, operating context, and attempted fixes before handoff instead of improvising beyond approved sources.",
+      "role": "Service and support leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the AI from mixing up procedures across different robot brands, cells, or customer sites?",
+      "answer": "The key is knowledge design and permissions. DocsBot can be trained on controlled source sets such as OEM manuals, commissioning packages, customer handover files, PLC notes, and SOPs. Teams can separate internal and customer-facing agents, restrict access with role-based permissions, and point answers back to the relevant source so users can verify which procedure, site, or document the answer came from.",
+      "role": "Applications and controls engineers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can this help our field technicians when they are standing in front of a down robot cell?",
+      "answer": "DocsBot can serve as a private field-service knowledge agent for fast retrieval of alarm explanations, maintenance steps, spare-part notes, escalation rules, and commissioning history. If configured with approved Skills or APIs, it can also summarize the issue, create a support ticket, notify a service queue, or attach a handoff summary so senior engineers do not start from a blank page.",
+      "role": "Service and support leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of robotics documents can we train the agent on?",
+      "answer": "Common sources include robot manuals, EOAT notes, PLC conventions, IO maps, FAT and SAT checklists, risk-assessment templates, maintenance schedules, service SOPs, proposal templates, sales playbooks, case studies, customer FAQs, ticket exports, PDFs, Word documents, wikis, Google Drive folders, Notion, Confluence, and text files. The strongest deployments start with the documents teams already trust.",
+      "role": "Operations and training managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot qualify new automation opportunities before sales engineering gets involved?",
+      "answer": "Yes. A presales agent can answer from approved service pages, case studies, specification sheets, FAQs, proposal templates, and sales playbooks, then collect structured details such as application, payload, reach, cycle-time target, product variation, facility constraints, timeline, budget range, and preferred follow-up channel. Qualified summaries can be routed to your CRM, inbox, form, or sales-engineering queue through customer-configured workflows.",
+      "role": "Sales engineers and automation consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent calculate feasibility, ROI, or final pricing for a robot integration project?",
+      "answer": "DocsBot can help collect inputs, explain approved ROI assumptions, retrieve past proposal language, and draft follow-up notes for review. It should not be positioned as the final authority on feasibility, pricing, contractual terms, risk assessment, or guarantees. Robotics projects still need human sales engineers and applications engineers to validate payload, cycle time, tooling, safety, facility constraints, and commercial scope.",
+      "role": "Sales engineers and automation consultants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would we measure ROI for a robotics support AI agent?",
+      "answer": "Most integrators evaluate ROI through reduced repetitive support questions, faster first response, fewer interruptions to senior engineers, improved lead qualification, shorter time spent searching documentation, better handoff quality, and fewer documentation gaps after deployment. DocsBot analytics, logs, satisfaction and resolution analysis, and unanswered-question reporting help teams compare before-and-after support volume and knowledge gaps.",
+      "role": "Service and support leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us scale support as more robots are installed in the field?",
+      "answer": "Yes. As installed robot fleets grow, support teams face more questions about alarms, maintenance, handover documents, spare parts, and training. IFR reported 542,000 industrial robot installations worldwide in 2024, more than double the annual count from ten years earlier. DocsBot helps teams turn approved documentation into an always-available support layer while keeping escalations available for complex issues.",
+      "role": "Operations and training managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-ifr-2025-global"
+      ]
+    },
+    {
+      "question": "Can customers use the agent on our website or portal without seeing internal project notes?",
+      "answer": "Yes. Customer-facing and internal agents should be separated by source selection and permissions. A public or portal agent can answer from approved customer documentation, FAQs, service pages, training guides, and handover materials, while private agents can use internal SOPs, ticket exports, proposal language, and engineering notes. Role-based access controls help keep proprietary and customer-specific information restricted.",
+      "role": "Service and support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle safety documentation for robot cells?",
+      "answer": "DocsBot can make approved safety procedures, training materials, risk-assessment templates, guarding references, lockout guidance, and handover checklists easier to find. It should provide references and route unresolved or site-specific safety questions to qualified personnel. OSHA notes that workers may enter a robot working envelope during some operations, where unintended operations can result in injuries, so human review boundaries matter.",
+      "role": "Operations and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-robotics-overview"
+      ]
+    },
+    {
+      "question": "Can the agent support operator training and onboarding after a cell handover?",
+      "answer": "Yes. DocsBot can answer from customer handover packages, operator training guides, maintenance schedules, FAQs, and approved safety materials. It can help customers find the right document, clarify where procedures live, and route restricted or site-specific requests to the right account or service team. Conversation analytics can also reveal where onboarding content is unclear or missing.",
+      "role": "Operations and training managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if our documentation is incomplete, outdated, or scattered across project folders?",
+      "answer": "DocsBot works best when trained on approved sources, but it can also expose where documentation needs improvement. Its logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can show repeated unanswered questions. Teams can use those insights to update manuals, commissioning packages, support articles, training guides, and FAQs over time.",
+      "role": "Operations and training managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use DocsBot internally for commissioning checklists and project delivery playbooks?",
+      "answer": "Yes. Internal teams can ask a private DocsBot agent about FAT and SAT checklists, commissioning steps, customer acceptance exceptions, change-order guidance, project templates, risk registers, and handover processes. The agent can point back to source documents and, when configured, create a task or route a missing-documentation request to the project owner.",
+      "role": "Applications and controls engineers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit with our ticketing, CRM, scheduling, or workflow tools?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, and MCP Connectors to support approved actions such as creating tickets, routing requests, forwarding lead summaries, looking up record status, booking or requesting meetings, updating approved fields, or notifying teams. DocsBot should be connected only to scoped actions your team authorizes.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot train public AI models on our robot cell designs, customer files, or internal procedures?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions, which are important for integrators handling proprietary cell designs, customer documentation, support history, and internal engineering practices.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer in languages used by our customers or regional service teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved knowledge base. Robotics integrators can use this for customer portals, field support, operator training, and regional lead intake while preserving escalation rules and company-approved support language.",
+      "role": "Service and support leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much human review should we keep in the workflow?",
+      "answer": "Keep humans in the loop for safety judgments, feasibility, pricing, contractual commitments, warranty decisions, site-specific troubleshooting, and anything that could affect equipment, people, or production. DocsBot is strongest as a retrieval, intake, drafting, summarization, and handoff layer: it gives teams better context faster while preserving expert control over high-impact decisions.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help sales engineers respond to complex proposal questions faster?",
+      "answer": "Yes. A sales enablement agent can answer from approved proposal templates, service catalogs, pricing guidance, case studies, implementation notes, objection-handling content, contract language, and customer FAQs. Reps can use it to draft follow-ups or prepare talking points, while humans remain responsible for final outreach, commercial terms, legal language, and technical commitments.",
+      "role": "Sales engineers and automation consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can this reduce interruptions to our senior controls engineers?",
+      "answer": "That is a common goal. DocsBot can answer repeat questions from SOPs, PLC notes, IO maps, commissioning guides, troubleshooting procedures, and prior project documentation so engineers are not constantly asked where something lives. When the question does require a senior engineer, the agent can collect details and summarize context before escalation.",
+      "role": "Applications and controls engineers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What reports would leadership get after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Leadership can review what customers, technicians, sales reps, or new hires ask most often; which topics trigger escalation; where confidence is low; and which manuals, FAQs, or training materials need improvement.",
+      "role": "Operations and training managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent the agent from answering questions outside our approved service scope?",
+      "answer": "You can constrain the agent with approved knowledge sources, instructions, role-based access, escalation rules, and customer-defined workflow boundaries. For example, it can answer standard maintenance and documentation questions, but route custom programming, safety validation, warranty disputes, or unsupported robot models to a human with a clear handoff summary.",
+      "role": "Service and support leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is this a replacement for our helpdesk or knowledge base?",
+      "answer": "No. DocsBot is better viewed as an AI agent layer over your approved knowledge and workflows. It can answer from documentation, draft and summarize support responses, collect missing details, route escalations, and reveal knowledge gaps. Your helpdesk, knowledge base, CRM, file repositories, and human experts still remain the systems of record and decision makers.",
+      "role": "Service and support leaders",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How difficult is implementation if our documents live in multiple systems?",
+      "answer": "Implementation usually starts by choosing the highest-value use case, then connecting or uploading the approved content needed for that agent. DocsBot can train on sources such as PDFs, Word documents, wikis, Google Drive, Notion, Confluence, text files, websites, and internal documents. Teams can phase rollout by starting with a support, presales, or internal knowledge agent before adding actions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with compliance and training expectations around robot hazards?",
+      "answer": "DocsBot can help employees and customers find approved training references, safeguarding procedures, lockout guidance, risk-assessment templates, and internal safety review materials. OSHA’s Technical Manual states that integrators, operators, maintenance workers, and others near robot applications need to understand robot hazards and how safeguards address them, so searchable, current training content is valuable.",
+      "role": "Operations and training managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-osha-otm-robot-safety"
+      ]
+    },
+    {
+      "question": "Why use DocsBot instead of building our own RAG system?",
+      "answer": "Many robotics integrators have the technical talent to build custom retrieval, but maintaining ingestion, permissions, prompts, analytics, evaluations, escalations, actions, and user interfaces can distract from billable engineering work. DocsBot gives teams a managed way to create source-grounded agents, use analytics, configure actions, and deploy internal or customer-facing experiences without owning the whole AI infrastructure stack.",
+      "role": "Applications and controls engineers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should we launch first: customer support, internal engineering knowledge, or presales qualification?",
+      "answer": "Start where the same questions repeat and the source material is already trusted. Support is strong when manuals and SOPs are mature. Internal engineering knowledge is strong when teams waste time searching project folders. Presales is strong when website leads arrive with incomplete requirements. Many integrators begin with one focused agent, review analytics, then expand.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

@@ -1,0 +1,735 @@
+{
+  "slug": "interior-design",
+  "business": "Interior Design",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Interior Design Client Workflows",
+    "description": "DocsBot helps interior design firms answer client questions, qualify projects, and surface approved specs from your own design knowledge.",
+    "canonicalPath": "/industry/interior-design"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for design studios",
+    "headline": "DocsBot AI agents keep interior design clients and teams aligned",
+    "subheadline": "Train DocsBot on your portfolio, service guides, FAQs, product notes, vendor documents, proposal language, care instructions, and internal SOPs so clients get fast, source-grounded answers while your team protects time for design work.",
+    "proofBullets": [
+      {
+        "text": "Answer service, process, materials, timeline, pricing-policy, and care questions from approved studio content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect project scope, style preferences, budget range, location, timeline, and contact details before a consultation.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Retrieve internal specs, vendor notes, installation guidance, handoff details, and brand standards for your team.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Route complex design, procurement, budget, or contract questions to the right human with a clear conversation summary.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build your design studio agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps interior design firms create AI agents trained on their own knowledge. A customer-facing agent can answer prospect and client questions through a website widget, while a private internal agent helps designers, project coordinators, procurement teams, and sales staff find the right answer from studio-approved sources.",
+    "whoItHelps": [
+      {
+        "role": "Studio owners and principals",
+        "roleContext": "Keep inquiries moving without turning every first-touch question into a manual email thread. DocsBot can explain your process, collect project-fit details, and prepare a handoff for a human designer when the prospect is ready.",
+        "bullets": [
+          {
+            "text": "Qualify leads by project type, timeline, location, budget range, room count, and preferred follow-up channel.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Answer repeat questions about consultation fees, deliverables, purchasing policies, communication cadence, and next steps.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Surface unanswered topics in analytics so your team can improve FAQs, service pages, and onboarding documents.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Designers and project managers",
+        "roleContext": "Give the team one place to ask about approved vendor notes, client-facing wording, project procedures, installation guidance, and handoff details without digging through folders or past messages.",
+        "bullets": [
+          {
+            "text": "Retrieve studio SOPs, product-care notes, finish rules, procurement steps, and client communication templates.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize project intake conversations so designers start with clearer context before the first paid consultation.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Escalate sensitive budget, contract, or design-judgment decisions to humans while keeping routine answers consistent.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "Client experience and sales teams",
+        "roleContext": "Respond faster to prospective clients, homeowners, developers, and real estate partners while keeping answers aligned with your studio’s service scope and brand voice.",
+        "bullets": [
+          {
+            "text": "Interior designers are projected to have about 7,800 U.S. openings each year from 2024 to 2034, making repeatable knowledge access useful as teams hire, replace, or train staff.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-bls-interior-designers"
+            ]
+          },
+          {
+            "text": "Send qualified inquiry summaries to customer-configured CRM, helpdesk, forms, inbox, Slack, Microsoft Teams, or other approved workflows.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Support multilingual client questions when your studio serves relocation buyers, international homeowners, or hospitality clients.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon",
+        "sourceIds": [
+          "src-bls-interior-designers"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-interior-designers",
+      "metric": "7,800 projected annual openings",
+      "claim": "The U.S. Bureau of Labor Statistics projects about 7,800 openings for interior designers each year on average from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Interior Designers",
+      "sourceUrl": "https://www.bls.gov/ooh/arts-and-design/interior-designers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "training needs",
+        "internal knowledge access"
+      ]
+    },
+    {
+      "id": "src-houzz-2024-state",
+      "metric": "47% of interior designers expected improved product and material availability",
+      "claim": "Houzz reported that interior designers were the most optimistic group about product and material availability improving in 2024, at 47%.",
+      "sourceTitle": "2024 U.S. Houzz State of the Industry",
+      "sourceUrl": "https://www.houzz.com/magazine/2024-u-s-houzz-state-of-the-industry-stsetivw-vs~173885342",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "material availability",
+        "client expectation pressure",
+        "procurement communication"
+      ]
+    },
+    {
+      "id": "src-nkba-2025-kb",
+      "metric": "$235 billion projected U.S. kitchen and bath spending in 2025",
+      "claim": "NKBA reported projected U.S. residential kitchen and bath spending of $235 billion in 2025, up from $233 billion the prior year.",
+      "sourceTitle": "Key Demographic Trends Drive Expected K&B Remodeling Growth",
+      "sourceUrl": "https://nkba.org/research/kitchen-bath-market-outlook/key-demographic-trends-drive-expected-kb-remodeling-growth/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "remodeling demand",
+        "kitchen and bath opportunity",
+        "client inquiry volume"
+      ]
+    },
+    {
+      "id": "src-asid-2024-outlook",
+      "metric": "Interior design profession growth over the last decade",
+      "claim": "ASID’s 2024 outlook describes a decade of growth and increasing diversity in the interior design community.",
+      "sourceTitle": "2024 ASID State of Interior Design Outlook Report",
+      "sourceUrl": "https://www.asid.org/resources/resources/view/resource-center/373",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "industry growth",
+        "professionalization",
+        "workforce context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Project-fit intake agent",
+      "problem": "Prospects often ask broad questions about pricing, availability, process, and whether the studio handles their type of project before they are ready for a consultation.",
+      "agentWorkflow": "DocsBot answers from approved service pages, FAQs, proposal language, portfolio descriptions, and consultation policies. It collects scope, property type, rooms, style preferences, timeline, budget range, location, and contact details, then prepares a concise handoff for the design or sales team.",
+      "liveContextOrTools": "With approved AI Actions, Skills, APIs, connectors, or workflow automations, the agent can submit a lead form, create a task, notify the team, or request a meeting through a configured scheduling tool.",
+      "exampleQuestionsOrRequests": [
+        "Do you take full-home furnishing projects in my area?",
+        "What should I prepare before booking a design consultation?",
+        "Can you help with a kitchen refresh if I already have a contractor?"
+      ],
+      "businessOutcome": "Fewer unqualified back-and-forth emails and clearer first consultations because the team receives structured context before responding.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Material and product knowledge assistant",
+      "problem": "Clients and team members ask repeat questions about finishes, fabrics, product care, lead times, vendor policies, substitutions, and installation constraints.",
+      "agentWorkflow": "DocsBot retrieves answers from vendor PDFs, product notes, internal specification documents, care guides, and approved client-facing explanations. If the question affects pricing, warranties, availability, or final selection, it can route the request to a human with the relevant source context.",
+      "liveContextOrTools": "When connected to approved live systems, the agent can look up current status, summarize a vendor note, draft a client update, or create a follow-up task. Interior designers were the most optimistic Houzz group about improved product and material availability in 2024, at 47%, but availability still requires clear communication when choices change.",
+      "exampleQuestionsOrRequests": [
+        "What is the care guidance for this performance fabric?",
+        "Which countertop options did we approve for the lake house project?",
+        "Can you summarize the vendor’s installation restrictions for this fixture?"
+      ],
+      "businessOutcome": "More consistent product answers and faster internal lookup without relying on one coordinator to remember every vendor detail.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-houzz-2024-state"
+      ]
+    },
+    {
+      "name": "Client onboarding and project-status explainer",
+      "problem": "New clients may not understand deliverables, revision limits, purchasing steps, procurement timelines, approvals, or how decisions move from concept to installation.",
+      "agentWorkflow": "DocsBot answers onboarding questions from welcome packets, contract summaries, project guides, milestone documents, and communication policies. It can explain what happens next, what the client needs to provide, and when a human should step in for a decision or exception.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can retrieve approved project metadata, create a task for missing information, or route a client question to the project manager. Sensitive budget, contract, and change-order decisions should remain human-reviewed.",
+      "exampleQuestionsOrRequests": [
+        "What happens after the concept presentation?",
+        "Where do I upload inspiration images and measurements?",
+        "Who approves furniture purchases before ordering?"
+      ],
+      "businessOutcome": "Clients feel guided through the process while project managers spend less time repeating the same procedural explanations.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "name": "Portfolio and style discovery agent",
+      "problem": "Prospects browse past work but still need help connecting services, design style, project type, budget expectations, and next steps.",
+      "agentWorkflow": "DocsBot uses your portfolio copy, case studies, room descriptions, service pages, and FAQs to explain project examples and guide visitors toward the right inquiry path. It can ask clarifying questions and collect inspiration preferences without pretending to replace the designer’s creative judgment.",
+      "liveContextOrTools": "The agent can use structured intake forms and customer-configured routing rules to separate residential, commercial, staging, furnishing, renovation, and consulting requests.",
+      "exampleQuestionsOrRequests": [
+        "Which of your projects is closest to a warm minimalist family room?",
+        "Do you handle furnishings only, or do you work with contractors too?",
+        "Can you explain the difference between your design consultation and full-service package?"
+      ],
+      "businessOutcome": "Better self-education before the call and more informed inquiries from people who understand the studio’s scope.",
+      "icon": "PhotoIcon"
+    },
+    {
+      "name": "Internal SOP and brand-voice agent",
+      "problem": "As studios grow, team members need quick access to standards for client emails, proposal language, procurement, install days, vendor communication, and brand voice.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, templates, onboarding guides, policies, wikis, PDFs, and approved examples. Staff can ask practical questions and get source-grounded answers that reflect how the studio actually works.",
+      "liveContextOrTools": "Private access can be delivered through internal chat experiences, Slack, Microsoft Teams, or API-based workflows when configured. MCP Connectors can also connect agents to remote Model Context Protocol servers that expose tools your team already uses.",
+      "exampleQuestionsOrRequests": [
+        "What is our client update format after a site visit?",
+        "How do we document a backorder and alternative recommendation?",
+        "Where is the checklist for installation day?"
+      ],
+      "businessOutcome": "Faster onboarding, fewer process inconsistencies, and less time spent searching shared drives or asking senior staff repeat questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Kitchen and bath inquiry triage",
+      "problem": "Kitchen and bath projects involve high homeowner investment, many material decisions, and frequent questions about scope, timelines, and professional fit.",
+      "agentWorkflow": "DocsBot answers from kitchen and bath service pages, remodeling FAQs, design packages, qualification rules, and project planning guides. It can collect project details, flag whether the prospect needs a designer, contractor, or both, and route the inquiry to the right team member.",
+      "liveContextOrTools": "With approved workflow actions, the agent can create an intake record, notify a specialist, request photos or measurements, and send a scheduling handoff. NKBA reported projected U.S. residential kitchen and bath spending of $235 billion in 2025.",
+      "exampleQuestionsOrRequests": [
+        "Can you help us select finishes if our contractor is already hired?",
+        "What information do you need before a kitchen design consultation?",
+        "Do you work on primary bathroom remodels with aging-in-place features?"
+      ],
+      "businessOutcome": "Higher-quality remodeling conversations and fewer mismatched inquiries for teams that specialize in kitchens, baths, or renovation design.",
+      "icon": "HomeModernIcon",
+      "sourceIds": [
+        "src-nkba-2025-kb"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI agent that sounds like your studio",
+    "intro": "Place DocsBot on your website or client portal to answer routine questions from your approved knowledge. It can help prospects understand your services, help active clients find process answers, and escalate nuanced design or commercial decisions to your team.",
+    "requests": [
+      {
+        "request": "“What does your full-service interior design process include?”",
+        "agentResponseStrategy": "Answer from service pages, consultation guides, FAQs, and onboarding documents, then ask whether the visitor wants to share project scope and timeline.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Welcome packets",
+          "Proposal language"
+        ],
+        "optionalAction": "Collect project-fit details and forward a structured inquiry through a customer-configured lead workflow.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can you help me choose between two material options?”",
+        "agentResponseStrategy": "Provide source-grounded care, durability, style, or maintenance context from approved material notes, then make clear that final design recommendations are handled by the studio.",
+        "sourceTypes": [
+          "Material guides",
+          "Vendor PDFs",
+          "Care instructions",
+          "Studio selection notes"
+        ],
+        "optionalAction": "Create a follow-up task or route the question to the assigned designer with the conversation summary.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“How much does a project like this usually cost?”",
+        "agentResponseStrategy": "Explain published pricing models, consultation fees, budget ranges, or qualification guidance only from approved studio content, while routing custom estimates to a human.",
+        "sourceTypes": [
+          "Pricing-policy pages",
+          "Proposal templates",
+          "Client FAQs",
+          "Contract summaries"
+        ],
+        "optionalAction": "Collect budget range, room count, property type, and timeline before handing the inquiry to the right person.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“What is the status of my selections or order?”",
+        "agentResponseStrategy": "If connected to approved live context, look up permitted status information or explain the standard procurement process from onboarding materials.",
+        "sourceTypes": [
+          "Project guides",
+          "Procurement SOPs",
+          "Approved project metadata",
+          "Client communications"
+        ],
+        "optionalAction": "Trigger a notification, create a ticket, or prepare a human handoff when status is missing or requires review.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you work with clients who speak another language?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answer capabilities to respond from the same approved studio sources while preserving consistent policy and service information.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Client onboarding guides",
+          "Portfolio descriptions"
+        ],
+        "optionalAction": "Route the conversation to a bilingual team member or preferred follow-up channel when configured.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I see examples similar to my home?”",
+        "agentResponseStrategy": "Point visitors to relevant portfolio examples, room types, project descriptions, and service fit content without inventing projects or visual claims.",
+        "sourceTypes": [
+          "Portfolio pages",
+          "Case studies",
+          "Room descriptions",
+          "Design package pages"
+        ],
+        "optionalAction": "Ask for style preferences and project type, then attach the summary to a consultation request.",
+        "icon": "PhotoIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for design, procurement, and operations",
+    "intro": "DocsBot can serve as an internal assistant trained on the documents your team already relies on: SOPs, vendor notes, templates, policies, project playbooks, brand standards, and onboarding material.",
+    "workflows": [
+      {
+        "name": "Procurement answer desk",
+        "problem": "Teams lose time hunting for vendor rules, order procedures, installation notes, and client-facing explanations for delays or substitutions.",
+        "agentWorkflow": "The internal agent retrieves approved procurement SOPs, vendor PDFs, order checklists, and care guidance. It can summarize the answer and cite the underlying source so staff know where the instruction came from.",
+        "sourceTypes": [
+          "Vendor PDFs",
+          "Procurement SOPs",
+          "Care guides",
+          "Order checklists"
+        ],
+        "optionalAction": "Create a task, draft a client update, or route a flagged issue to procurement through customer-configured workflows.",
+        "outcome": "Faster and more consistent answers for materials, orders, care guidance, and follow-ups.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "name": "New-hire studio onboarding",
+        "problem": "New designers and coordinators need to learn how the studio communicates, documents selections, handles revisions, and prepares client deliverables.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training materials, templates, SOPs, internal wikis, and approved examples. Analytics can reveal which topics confuse new hires most often.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Brand standards",
+          "Templates",
+          "Internal wikis"
+        ],
+        "optionalAction": "Send repeated unanswered questions to the operations lead for documentation updates.",
+        "outcome": "Reduced dependency on senior staff for repeat training and a more consistent client experience.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-interior-designers"
+        ]
+      },
+      {
+        "name": "Proposal and sales enablement support",
+        "problem": "Sales or studio leads need quick access to service definitions, proposal language, objection handling, project examples, and qualification rules before responding to a prospect.",
+        "agentWorkflow": "The agent retrieves approved proposal wording, service package details, portfolio context, FAQs, and pricing-policy language. It can draft a response for human review without making commitments outside approved content.",
+        "sourceTypes": [
+          "Proposal templates",
+          "Sales playbooks",
+          "Portfolio notes",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or summarize account context when the customer has configured approved Skills, APIs, or connectors.",
+        "outcome": "More consistent presales responses while keeping humans responsible for custom pricing, contracts, and final scope.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Project handoff summaries",
+        "problem": "Important details can be scattered across intake forms, emails, meeting notes, client preferences, and internal documents.",
+        "agentWorkflow": "DocsBot can summarize configured sources and conversations into a structured handoff: goals, rooms, constraints, budget signals, timeline, open questions, and next actions.",
+        "sourceTypes": [
+          "Intake forms",
+          "Meeting notes",
+          "Client emails",
+          "Project briefs"
+        ],
+        "optionalAction": "Post the summary to an approved team channel, create a task, or attach it to a project record through customer-configured automation.",
+        "outcome": "Cleaner handoffs between sales, design, procurement, and project management.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your own design knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on configured company sources such as websites, documents, help content, PDFs, internal files, and knowledge bases.",
+      "industryApplication": "Use approved service pages, portfolio copy, material notes, FAQs, vendor PDFs, proposal language, and onboarding guides so clients and staff receive answers tied to your studio’s actual process.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot agents can appear in customer-facing chat experiences and private internal team workflows, including Slack, Microsoft Teams, API, and configured helpdesk-style flows.",
+      "industryApplication": "Place a client-facing agent on your studio website for inquiries, and give staff a private knowledge agent for SOPs, procurement questions, brand voice, and project procedures.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, notifications, and workflow triggers when configured by the customer.",
+      "industryApplication": "Collect lead details, create a consultation task, request missing photos, summarize intake, route an order-status question, or notify the right team member through approved studio workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which design-process, pricing, deliverable, material, and timeline questions keep repeating so your studio can improve FAQs, onboarding guides, and service pages.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private client, vendor, pricing, and project knowledge while giving the right team members access to the sources they need.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Human escalation for nuanced decisions",
+      "mainLandingPageContext": "DocsBot can escalate when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Let the agent handle routine answers while routing custom design recommendations, contract issues, budget exceptions, procurement disputes, and final approvals to your team.",
+      "icon": "HandRaisedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers stay aligned with your studio knowledge.",
+      "Support customer and stakeholder communication with consistent, source-grounded responses.",
+      "Use DocsBot for both client-facing support and private internal knowledge workflows."
+    ],
+    "whyTheseReviewsFit": "Interior design firms win trust through clear communication, consistent process, and fast access to the right details. DocsBot proof across real estate communication, owned-content training, customer support, and internal decision workflows shows how teams can reduce repetitive questions without losing control of the client experience.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for interior design firms",
+    "audience": [
+      "Interior design studio owners",
+      "Residential interior designers",
+      "Commercial interior design teams",
+      "Design project managers",
+      "Client experience teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "home-staging",
+    "property-management",
+    "real-estate-agent",
+    "home-inspection",
+    "commercial-leasing",
+    "real-estate-housing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "interior-design",
+    "webSearchQueries": [
+      "ASID interior design industry outlook 2024 report client demand design services",
+      "U.S. Bureau Labor Statistics interior designers occupational outlook employment",
+      "Houzz State of the Industry 2024 interior design renovation professionals client expectations",
+      "NKBA 2025 kitchen bath market outlook report homeowners spending"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/arts-and-design/interior-designers.htm",
+      "https://www.houzz.com/magazine/2024-u-s-houzz-state-of-the-industry-stsetivw-vs~173885342",
+      "https://nkba.org/research/kitchen-bath-market-outlook/key-demographic-trends-drive-expected-kb-remodeling-growth/",
+      "https://www.asid.org/resources/resources/view/resource-center/373"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 68903,
+        "cachedInputTokens": 28032,
+        "billableInputTokens": 40871,
+        "outputTokens": 19782,
+        "reasoningOutputTokens": 314,
+        "totalTokens": 88685,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.405916,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.435916
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27743,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 12255,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 174,
+          "totalTokens": 39743,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.21451,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.23451
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21760,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14464,
+          "outputTokens": 5104,
+          "reasoningOutputTokens": 124,
+          "totalTokens": 26864,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114544,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124544
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19400,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14152,
+          "outputTokens": 2678,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 22078,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076862,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076862
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDIxMTB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Interior Design background image",
+    "source": "legacy-industry",
+    "query": "Interior Design"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify interior design inquiries before they reach our principal designer?",
+      "answer": "Yes. DocsBot can ask structured intake questions about project type, rooms, location, timeline, budget range, style preferences, contractor status, and preferred follow-up channel. It can then summarize the conversation for your team so a human can decide whether the inquiry fits your service model and availability.",
+      "role": "Studio owners and principals",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent give design advice that conflicts with our creative direction?",
+      "answer": "DocsBot should be trained to answer from approved studio content and to avoid pretending it is the designer. It can explain your process, portfolio, material notes, care guidance, and service options, while routing subjective recommendations, final selections, budget exceptions, and contract decisions to a human.",
+      "role": "Designers and project managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use it for both website leads and internal studio questions?",
+      "answer": "Yes. A customer-facing DocsBot agent can live on your website to answer prospect and client questions, while a private internal agent can help staff find SOPs, vendor notes, procurement steps, proposal language, install-day checklists, and brand-voice guidance from approved sources.",
+      "role": "Studio owners and principals",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help if most of our knowledge is scattered across PDFs, Google Drive, proposals, care guides, and old onboarding docs?",
+      "answer": "DocsBot is designed for source-grounded answers from your configured knowledge sources. Interior design firms can train agents on service pages, portfolio descriptions, vendor PDFs, product-care documents, proposal templates, client welcome packets, SOPs, and internal files so staff and clients get answers tied to studio-approved material.",
+      "role": "Designers and project managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent explain our pricing without creating unrealistic expectations?",
+      "answer": "Yes, if your source content defines what can be shared. DocsBot can explain published consultation fees, package descriptions, billing policies, budget ranges, or qualification guidance from approved content, then escalate custom estimates, scope changes, discounts, or contract questions to your team.",
+      "role": "Studio owners and principals",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot reduce back-and-forth during first consultations?",
+      "answer": "It can help by collecting context before the call: property type, rooms, goals, existing contractor involvement, decision makers, budget signals, timeline, inspiration preferences, and open questions. The handoff gives designers a cleaner starting point instead of spending the first meeting reconstructing basic details.",
+      "role": "Client experience and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if a client asks about order status, backorders, substitutions, or procurement timing?",
+      "answer": "DocsBot can answer standard procurement-process questions from onboarding guides and SOPs. If you configure approved live context through Skills, APIs, connectors, or workflows, it can look up permitted status information, create a task, notify the right person, or prepare a human handoff when the answer needs review.",
+      "role": "Designers and project managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it help our team keep material and product answers consistent?",
+      "answer": "Yes. DocsBot can retrieve approved care instructions, vendor notes, specification documents, installation constraints, finish rules, and substitution guidance. That is useful because product and material availability can still require careful communication; Houzz reported that 47% of interior designers expected improved product and material availability in 2024.",
+      "role": "Designers and project managers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-houzz-2024-state"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from inventing vendor policies or product specs?",
+      "answer": "Train it on approved sources and set instructions to answer only from those materials when accuracy matters. For missing, outdated, or conflicting vendor information, the agent should say it does not have enough approved context and route the question to procurement or the assigned designer with the conversation summary.",
+      "role": "Designers and project managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support kitchen and bath remodeling inquiries separately from furnishing-only leads?",
+      "answer": "Yes. You can define intake rules that ask whether the prospect needs design, contractor coordination, finish selection, cabinetry guidance, or furnishings only. That matters for a large category: NKBA reported projected U.S. residential kitchen and bath spending of $235 billion in 2025.",
+      "role": "Studio owners and principals",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nkba-2025-kb"
+      ]
+    },
+    {
+      "question": "Will clients feel like we are replacing the personal studio experience with automation?",
+      "answer": "The best fit is not replacing designers; it is giving clients faster answers to routine questions and clearer paths to a human. DocsBot can reflect your brand voice, explain your process, collect context, and escalate nuanced design, budget, procurement, or relationship-sensitive issues to the right person.",
+      "role": "Client experience and sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot work with our CRM, forms, scheduling tools, Slack, Microsoft Teams, or project workflows?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, forms, webhooks, and approved automations. That can include forwarding qualified leads, creating tasks, notifying a team channel, requesting a meeting, or attaching intake summaries, without claiming a one-size-fits-all native integration.",
+      "role": "Client experience and sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What information should we have ready before implementing an interior design AI agent?",
+      "answer": "Start with your service pages, FAQ, consultation policy, pricing-policy language, proposal templates, client onboarding guides, portfolio descriptions, procurement SOPs, product-care notes, vendor PDFs, and escalation rules. The cleaner your approved source content is, the more useful and consistent the agent will be.",
+      "role": "Studio owners and principals",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long will our team need to maintain the knowledge base?",
+      "answer": "Plan for light ongoing ownership. Someone should update pricing policies, service scope, vendor notes, lead-time language, care instructions, and onboarding documents as they change. DocsBot analytics and conversation review can show repeated unanswered questions, helping your operations lead decide which documents need improvement.",
+      "role": "Designers and project managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help onboard new designers, procurement coordinators, or client experience staff?",
+      "answer": "Yes. A private internal agent can answer questions from SOPs, templates, onboarding guides, brand standards, and internal wikis. That is relevant for firms that hire or replace staff over time; BLS projects about 7,800 U.S. interior designer openings each year on average from 2024 to 2034.",
+      "role": "Studio owners and principals",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-interior-designers"
+      ]
+    },
+    {
+      "question": "How do we measure whether this is paying off?",
+      "answer": "Track fewer repetitive inquiry emails, faster lead response, higher-quality consultation handoffs, reduced time searching for vendor or SOP details, fewer repeated client-process questions, and improved content based on analytics. For internal use, compare how often staff find answers without interrupting a principal or project manager.",
+      "role": "Studio owners and principals",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we see what clients and staff are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a design studio, those insights can reveal confusing service pages, repeated pricing objections, unclear procurement steps, missing care guidance, or training gaps.",
+      "role": "Studio owners and principals",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a prospect is not a fit for our studio?",
+      "answer": "DocsBot can explain your published service scope and collect enough information to identify likely mismatches based on your rules, such as location, project size, timeline, budget range, or service type. It can then route the inquiry, suggest the right next step from approved content, or prepare a polite human-reviewed response.",
+      "role": "Client experience and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent answer in our brand voice rather than sounding generic?",
+      "answer": "Yes. DocsBot can be trained on your website copy, portfolio descriptions, proposal language, email templates, FAQs, and brand standards so responses match your approved tone. For sensitive situations, it can draft language for human review instead of sending a final commitment automatically.",
+      "role": "Client experience and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle client privacy, vendor pricing, and internal project information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. You can separate client-facing knowledge from private internal sources so visitors do not see staff-only information.",
+      "role": "Studio owners and principals",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we restrict who can ask about internal SOPs, vendor terms, or pricing guidance?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. A studio can make general service information available to website visitors while limiting vendor notes, procurement SOPs, proposal language, internal pricing guidance, and project documents to authorized team members.",
+      "role": "Designers and project managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What if our design firm works with international homeowners or relocation clients?",
+      "answer": "DocsBot can answer in more than 100 languages while still drawing from the same approved studio sources. That can help prospects understand your services, onboarding steps, and communication policies, while routing nuanced cultural, contractual, or project-specific questions to the right human.",
+      "role": "Client experience and sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How is this different from adding a basic chatbot to our website?",
+      "answer": "DocsBot is better positioned as an AI agent trained on your own knowledge, not a generic scripted chatbot. It can provide source-grounded answers, summarize intake, surface knowledge gaps, support internal team questions, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help with commercial, hospitality, or developer clients as well as residential work?",
+      "answer": "Yes, if your approved content covers those workflows. You can train separate or segmented knowledge around residential design, commercial interiors, hospitality packages, model units, developer partnerships, procurement rules, and handoff requirements so the agent routes each inquiry appropriately.",
+      "role": "Studio owners and principals",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will we still control final proposals, contracts, budgets, and purchasing decisions?",
+      "answer": "Yes. DocsBot can explain approved policies, collect context, draft summaries, and route questions, but your team should remain responsible for final scope, pricing, contracts, procurement commitments, substitutions, and creative recommendations. Escalation rules help keep high-impact decisions human-reviewed.",
+      "role": "Studio owners and principals",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support a growing studio without forcing us into a heavy enterprise implementation?",
+      "answer": "Yes. Many firms can start with a focused website intake agent or a private SOP assistant, then expand into procurement lookups, onboarding support, client-status explanations, and workflow actions as their content and processes mature. The practical path is to automate repeatable questions before sensitive decisions.",
+      "role": "Studio owners and principals",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should procurement or operations ask during vendor evaluation?",
+      "answer": "Ask whether the agent can cite approved sources, separate public and private knowledge, log conversations, support human escalation, connect through customer-approved APIs or workflows, handle permissions, and avoid taking unauthorized actions. Also test edge cases like outdated vendor PDFs, conflicting care instructions, and missing order data.",
+      "role": "Designers and project managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help us improve our website and onboarding materials over time?",
+      "answer": "Yes. Conversation analytics can show which topics prospects and clients ask about repeatedly, such as deliverables, fees, timelines, revision limits, purchasing rules, or care instructions. Those patterns help your team update FAQs, service pages, welcome packets, and internal SOPs based on real questions.",
+      "role": "Client experience and sales teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

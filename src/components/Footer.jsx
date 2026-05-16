@@ -8,6 +8,7 @@ import { ALTERNATIVES } from '@/constants/alternatives.constants'
 import { INDUSTRIES } from '@/constants/industries.constants'
 import { freeTools } from '@/constants/freeTools.constants'
 import EmailSubscribe from '@/components/EmailSubscribe'
+import { getIndustryCategoryPath } from '@/lib/industryCategoryPaths.mjs'
 
 const comparisons = ALTERNATIVES.map((item) => ({
   name: `${item.name} Alternative`,
@@ -17,10 +18,10 @@ const comparisons = ALTERNATIVES.map((item) => ({
 const industries = Object.entries(INDUSTRIES.reduce((acc, item) => {
   acc[item.industry] = [...(acc[item.industry] || []), item];
   return acc;
-}, {})).map(([industry, items], industryIndex) => (
+}, {})).map(([industry]) => (
   {
     name: `${industry}`,
-    href: `/industry/${items[0].slug}`,
+    href: getIndustryCategoryPath(industry),
   }))
 
 // Flatten NAVIGATION to include children in pages section

@@ -1,0 +1,713 @@
+{
+  "slug": "manufactured-housing",
+  "business": "Manufactured Housing",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Manufactured Housing Sales & Support",
+    "description": "DocsBot helps manufactured housing teams answer buyer questions, qualify leads, and support residents with source-grounded AI agents.",
+    "canonicalPath": "/industry/manufactured-housing"
+  },
+  "hero": {
+    "eyebrow": "AI automation for manufactured home builders, retailers, and communities",
+    "headline": "DocsBot AI agents help manufactured housing teams sell and support faster",
+    "subheadline": "Train DocsBot on model specs, floor plans, community rules, setup guides, financing FAQs, warranties, and service policies so prospects, residents, sales reps, and support teams get source-grounded answers with clear handoffs when a human should step in.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about home models, options, delivery steps, warranties, community guidelines, and ownership resources from approved sources.",
+        "icon": "HomeModernIcon"
+      },
+      {
+        "text": "Collect lead details, project needs, location, timeline, budget range, and preferred follow-up channel before routing a qualified summary to your team.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Use AI Actions to look up approved status details, create tasks or tickets, summarize conversations, and trigger customer-configured handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Support buyers and residents in more than 100 languages while keeping responses grounded in your policies, manuals, and sales content.",
+        "icon": "LanguageIcon"
+      }
+    ],
+    "primaryCta": "Build a manufactured housing AI agent",
+    "secondaryCta": "Explore source-grounded automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps manufactured housing organizations create AI agents trained on their own websites, PDFs, manuals, FAQs, SOPs, community documents, sales materials, and support history. Agents can answer customer questions, assist employees, summarize context, route requests, identify knowledge gaps, and take bounded actions when configured through Skills, APIs, connectors, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Retailers and sales centers",
+        "roleContext": "Give shoppers fast, consistent answers while capturing the details your sales team needs before a call, model center visit, or financing discussion.",
+        "bullets": [
+          {
+            "text": "Explain floor plans, upgrade packages, delivery timelines, site-prep basics, warranty steps, and comparison points from approved sales content.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Qualify interest by collecting location, household needs, land status, budget range, timeline, and preferred appointment window.",
+            "icon": "UserCircleIcon"
+          },
+          {
+            "text": "Forward a structured lead summary to sales, CRM, email, forms, or scheduling workflows when your team configures the connection.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Manufacturers and service teams",
+        "roleContext": "Make product knowledge easier to find across dealer support, warranty teams, customer care, and field service coordination.",
+        "bullets": [
+          {
+            "text": "Answer recurring questions from installation instructions, owner manuals, warranty policies, troubleshooting articles, and service bulletins.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize service conversations, draft ticket responses, route issues by topic, and escalate complex warranty or safety questions to people.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot repeated documentation gaps in manuals, policies, setup guidance, or dealer training materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Community operators and resident support",
+        "roleContext": "Help residents and prospects find community-specific answers without making staff repeat the same policy explanations all day.",
+        "bullets": [
+          {
+            "text": "Answer questions about amenities, community rules, resident processes, maintenance request steps, office hours, and move-in resources.",
+            "icon": "HomeIcon"
+          },
+          {
+            "text": "Collect the right details for a maintenance, leasing, rules, or account request before creating a task or preparing a human handoff.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Keep sensitive requests bounded by permissions, logs, and human review paths when the workflow affects contracts, payments, or resident status.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-hud-omhp",
+      "metric": "HUD regulates construction, installation, dispute resolution, and certification labels.",
+      "claim": "HUD’s Office of Manufactured Housing Programs enforces federal construction and safety standards, regulates installation, administers dispute resolution, and authorizes certification labels for compliant homes.",
+      "sourceTitle": "HUD Office of Manufactured Housing Programs",
+      "sourceUrl": "https://www.hud.gov/hud-partners/manufactured-home",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "regulatory complexity",
+        "installation and warranty questions",
+        "buyer education"
+      ]
+    },
+    {
+      "id": "src-cfpb-finance-2021",
+      "metric": "Only 27% of manufactured home loan applications resulted in originations.",
+      "claim": "The CFPB reported that only 27 percent of manufactured home loan applications resulted in originations and that about 42 percent of manufactured housing loans were chattel loans.",
+      "sourceTitle": "Manufactured Housing Finance: New Insights from the Home Mortgage Disclosure Act Data",
+      "sourceUrl": "https://www.consumerfinance.gov/documents/9806/cfpb_manufactured-housing-finance-new-insights-hmda_report_2021-05.pdf",
+      "sourceDate": "May 2021",
+      "bestUsedFor": [
+        "financing complexity",
+        "buyer qualification",
+        "sales handoffs"
+      ]
+    },
+    {
+      "id": "src-cfpb-2014",
+      "metric": "68% of 2012 manufactured housing purchase loans were higher-priced.",
+      "claim": "The CFPB found that about 68 percent of 2012 manufactured-housing purchase loans were higher-priced mortgage loans, compared with 3 percent of site-built home loans.",
+      "sourceTitle": "CFPB Finds Majority of Manufactured-Housing Borrowers Have Expensive Loans",
+      "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-finds-majority-of-manufactured-housing-borrowers-have-expensive-loans/",
+      "sourceDate": "September 2014",
+      "bestUsedFor": [
+        "consumer education",
+        "financing risk",
+        "buyer support"
+      ]
+    },
+    {
+      "id": "src-lincoln-benchmark-2024",
+      "metric": "2024 benchmark report covers manufactured housing industry, financing programs, and policy conditions.",
+      "claim": "The Lincoln Institute’s 2024 I’m HOME benchmark report reviews manufactured housing industry conditions, including financing programs available for higher-quality and energy-efficient homes.",
+      "sourceTitle": "I’m HOME Manufactured Housing Industry Benchmark Report 2024",
+      "sourceUrl": "https://www.lincolninst.edu/publications/working-papers/im-home-manufactured-housing-industry-benchmark-report-2024/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market context",
+        "financing programs",
+        "affordable housing demand"
+      ]
+    },
+    {
+      "id": "src-census-mhs-release",
+      "metric": "Census Bureau publishes monthly Manufactured Housing Survey shipment and price releases.",
+      "claim": "The U.S. Census Bureau’s Manufactured Housing Survey publishes monthly release schedules for total shipments and average sales price/unit status data.",
+      "sourceTitle": "Manufactured Housing Survey Release Dates",
+      "sourceUrl": "https://www2.census.gov/programs-surveys/mhs/mhs-monthly-release-dates-jan-2026.pdf",
+      "sourceDate": "2026 release schedule",
+      "bestUsedFor": [
+        "market reporting",
+        "shipment data",
+        "pricing data"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Model, option, and floor-plan advisor",
+      "problem": "Shoppers often compare multiple models, communities, upgrades, delivery constraints, and setup requirements before they are ready to talk to sales.",
+      "agentWorkflow": "A DocsBot agent answers from model pages, brochures, spec sheets, photos, FAQs, pricing guidance, and sales policies. It can explain differences between floor plans, summarize available options, ask clarifying questions, and escalate to sales when the buyer asks for pricing, availability, contracts, or financing specifics.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up current inventory metadata, capture project details, create a lead record, or trigger a scheduling workflow for a model-center visit.",
+      "exampleQuestionsOrRequests": [
+        "Which double-section models have three bedrooms and a covered porch option?",
+        "Can you compare these two floor plans for a family of five?",
+        "What should I know before choosing land-home versus community placement?"
+      ],
+      "businessOutcome": "Helps prospects self-educate earlier while giving sales teams better context before the first conversation.",
+      "icon": "HomeModernIcon"
+    },
+    {
+      "name": "Financing and affordability intake assistant",
+      "problem": "Manufactured housing buyers face specialized financing paths, and the CFPB reported that only 27% of manufactured home loan applications resulted in originations.",
+      "agentWorkflow": "A DocsBot agent explains your approved financing FAQs, document checklists, lender-neutral education, land-status considerations, and next-step guidance. It collects non-sensitive intake details, identifies whether a buyer needs a human financing conversation, and avoids making lending decisions or quoting unapproved terms.",
+      "liveContextOrTools": "AI Actions can route a summarized inquiry to the right sales or finance contact, create a follow-up task, or send the buyer to approved application or appointment workflows.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I gather before discussing financing?",
+        "What is the difference between financing the home only and financing land plus home?",
+        "Can someone contact me about options for a home in my county?"
+      ],
+      "businessOutcome": "Improves buyer readiness while keeping lending, eligibility, and contract decisions with qualified staff.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-cfpb-finance-2021"
+      ]
+    },
+    {
+      "name": "Installation, warranty, and owner-manual support",
+      "problem": "Customers, dealers, and residents need accurate answers about setup, installation instructions, maintenance, warranty coverage, and dispute steps.",
+      "agentWorkflow": "DocsBot trains on installation manuals, warranty policies, owner guides, service procedures, approved FAQs, and dealer support documentation. It provides source-grounded answers, asks for missing context, drafts service replies, and escalates safety, legal, warranty denial, or dispute questions.",
+      "liveContextOrTools": "When configured, Skills can create service tickets, update approved fields, attach conversation summaries, or notify the right service queue while preserving review paths for high-impact issues.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the recommended maintenance schedule for my home?",
+        "What information do you need before opening a warranty service request?",
+        "Who handles an installation concern after delivery?"
+      ],
+      "businessOutcome": "Reduces repetitive support while helping teams respond consistently from the latest manuals and policies.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-hud-omhp"
+      ]
+    },
+    {
+      "name": "Community rules and resident operations agent",
+      "problem": "Community staff answer recurring questions about move-in steps, amenities, resident responsibilities, maintenance procedures, and policy details.",
+      "agentWorkflow": "A DocsBot agent answers from community handbooks, resident portals, rules, maintenance instructions, notices, and office policies. It can distinguish prospect questions from resident requests, collect the right details, and route complex or sensitive issues to staff.",
+      "liveContextOrTools": "Approved live lookups can check request status, create a task, prepare a handoff, or trigger a workflow through Skills, APIs, connectors, or a Model Context Protocol server exposed by a system the operator already uses.",
+      "exampleQuestionsOrRequests": [
+        "How do I submit a maintenance request for my lot?",
+        "What are the community rules for exterior additions?",
+        "What amenities are included and when is the office open?"
+      ],
+      "businessOutcome": "Gives residents faster self-service while helping community teams focus on exceptions and relationship work.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Dealer and employee knowledge assistant",
+      "problem": "Sales, service, operations, and dealer-support teams lose time searching across manuals, PDFs, SOPs, policy updates, and product documentation.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, product specs, training content, service bulletins, pricing guidance, escalation rules, and onboarding materials. Employees ask natural-language questions and receive source-grounded answers with links back to approved content.",
+      "liveContextOrTools": "The agent can be deployed in private chat experiences, Slack, Microsoft Teams, or internal workflows when configured, with analytics showing repeated questions and missing documentation.",
+      "exampleQuestionsOrRequests": [
+        "What is our escalation path for a delivery damage claim?",
+        "Which models support this option package?",
+        "Where is the latest dealer onboarding checklist?"
+      ],
+      "businessOutcome": "Creates a more consistent knowledge layer for sales, support, operations, and dealer enablement.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Market and content-gap intelligence",
+      "problem": "Manufactured housing teams need to know which buyer questions are repeated, confusing, unanswered, or better handled by updated content.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, satisfaction analysis, and knowledge-gap discovery show what prospects, residents, and employees are asking. Teams can use those insights to improve FAQs, manuals, model pages, onboarding content, and support scripts.",
+      "liveContextOrTools": "Reports can guide documentation updates, sales enablement priorities, and workflow changes without requiring the agent to make business-critical decisions.",
+      "exampleQuestionsOrRequests": [
+        "Which questions about delivery and setup are most common this month?",
+        "What topics are triggering human escalation?",
+        "Which articles should we improve before the next model launch?"
+      ],
+      "businessOutcome": "Turns real conversations into a practical roadmap for clearer content and better support operations.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give manufactured home buyers and residents an always-available answer source",
+    "intro": "DocsBot can power a website or product chat widget that answers from your approved content, collects structured context, and hands off when a buyer, resident, or dealer needs a person. It is especially useful where model details, financing education, warranty steps, and community policies create repeated questions.",
+    "requests": [
+      {
+        "request": "“Which homes fit my budget, location, and bedroom needs?”",
+        "agentResponseStrategy": "Ask qualifying questions, explain matching models from approved content, summarize fit criteria, and route the lead to sales or a scheduling workflow when the buyer is ready.",
+        "sourceTypes": [
+          "model pages",
+          "brochures",
+          "sales FAQs",
+          "lead intake rules"
+        ],
+        "optionalAction": "Submit a custom lead form or send a structured summary to CRM, email, helpdesk software, or a scheduling flow configured by the customer.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What should I understand before financing a manufactured home?”",
+        "agentResponseStrategy": "Provide lender-neutral education from approved FAQs, explain document checklists and next steps, and escalate to a human for lending advice, rates, eligibility, or commitments.",
+        "sourceTypes": [
+          "financing FAQs",
+          "buyer guides",
+          "disclosure checklists",
+          "sales policies"
+        ],
+        "optionalAction": "Collect preferred contact information and route the request to the designated finance or sales contact for follow-up.",
+        "icon": "BanknotesIcon",
+        "sourceIds": [
+          "src-cfpb-2014"
+        ]
+      },
+      {
+        "request": "“How do I start a warranty or service request?”",
+        "agentResponseStrategy": "Ask for the home model, issue type, location, photos or notes if your workflow allows, and explain the next steps from warranty and service documentation.",
+        "sourceTypes": [
+          "warranty policy",
+          "owner manuals",
+          "service SOPs",
+          "ticket history"
+        ],
+        "optionalAction": "Create a support ticket, draft a service summary, route by issue type, or escalate safety-related concerns to staff when configured.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“What are the rules in this community?”",
+        "agentResponseStrategy": "Answer from the specific community handbook or resident policy source, clarify whether the user is a prospect or resident, and hand off sensitive disputes to the office.",
+        "sourceTypes": [
+          "community rules",
+          "resident handbook",
+          "amenity pages",
+          "move-in guides"
+        ],
+        "optionalAction": "Create a resident support task, notify the office, or provide the right contact path for policy exceptions.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“Can I get this information in another language?”",
+        "agentResponseStrategy": "Respond in the user’s preferred language while staying grounded in the same approved source material and escalating when nuance or legal wording requires review.",
+        "sourceTypes": [
+          "multilingual manuals",
+          "website content",
+          "FAQs",
+          "support policies"
+        ],
+        "optionalAction": "Prepare a translated conversation summary for staff follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this home built to federal manufactured housing standards?”",
+        "agentResponseStrategy": "Explain your approved compliance, certification-label, and documentation language without making legal conclusions outside the source material.",
+        "sourceTypes": [
+          "HUD compliance FAQs",
+          "manufacturer documentation",
+          "certification guidance",
+          "owner resources"
+        ],
+        "optionalAction": "Route detailed compliance or dispute questions to a qualified internal contact.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-hud-omhp"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put specs, SOPs, service rules, and sales knowledge where your team works",
+    "intro": "DocsBot can serve as a private knowledge agent for manufactured housing teams that need fast answers across manuals, dealer materials, warranty processes, community policies, sales playbooks, and operational procedures.",
+    "workflows": [
+      {
+        "name": "Sales and dealer enablement",
+        "problem": "Sales reps and dealer-support staff need quick answers about models, options, objections, qualification steps, and approved follow-up language.",
+        "agentWorkflow": "Train DocsBot on sales playbooks, product catalogs, model sheets, FAQs, proposal templates, competitive notes, and approved objection handling. Reps can ask questions, draft follow-up emails, and prepare meeting notes for human review.",
+        "sourceTypes": [
+          "sales playbooks",
+          "model specs",
+          "proposal templates",
+          "pricing guidance"
+        ],
+        "optionalAction": "Create tasks, draft follow-up messages, or attach a conversation summary to a customer-configured sales workflow.",
+        "outcome": "Helps teams respond with consistent, approved information while leaving pricing, legal terms, and commitments to people.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Warranty and service triage",
+        "problem": "Support teams must interpret recurring questions from manuals, warranties, installation documents, and service procedures.",
+        "agentWorkflow": "The internal agent retrieves relevant policy language, summarizes prior context if connected to support exports or tickets, drafts a response, and recommends routing based on customer-defined rules.",
+        "sourceTypes": [
+          "warranty documents",
+          "owner manuals",
+          "service SOPs",
+          "support tickets"
+        ],
+        "optionalAction": "Route a request, create a ticket, update approved fields, or notify a service team through configured Skills, APIs, or connectors.",
+        "outcome": "Speeds up first response and reduces inconsistent explanations across service channels.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Operations and community staff assistant",
+        "problem": "Office, leasing, resident-support, and operations staff often answer the same process questions from different policy documents.",
+        "agentWorkflow": "DocsBot answers from internal SOPs, resident policies, maintenance procedures, onboarding guides, office scripts, and escalation paths so staff can find the right answer without searching folders.",
+        "sourceTypes": [
+          "SOPs",
+          "community policies",
+          "maintenance procedures",
+          "onboarding guides"
+        ],
+        "optionalAction": "Prepare handoff summaries, create internal tasks, or trigger approved notifications for follow-up.",
+        "outcome": "Makes local policies easier to apply consistently across communities and teams.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Compliance-aware knowledge retrieval",
+        "problem": "Manufactured housing work includes federal construction, installation, certification, and dispute-resolution concepts that staff must handle carefully.",
+        "agentWorkflow": "DocsBot retrieves approved compliance references and internal procedures, cites the source, and directs staff to human review for legal, safety, dispute, or certification decisions.",
+        "sourceTypes": [
+          "HUD references",
+          "compliance notes",
+          "installation guidance",
+          "review procedures"
+        ],
+        "optionalAction": "Log the question, route to a compliance owner, or generate a review-ready summary when configured.",
+        "outcome": "Supports faster research while keeping high-impact judgments inside defined review boundaries.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-hud-omhp"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents from configured knowledge sources such as websites, help centers, PDFs, Word documents, wikis, internal files, and other approved content.",
+      "industryApplication": "Train an agent on model pages, floor-plan PDFs, warranty documents, community rules, installation guides, service procedures, and dealer training materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Presales lead qualification and handoff",
+      "mainLandingPageContext": "DocsBot can collect structured intake details, apply customer-defined qualification instructions, and forward summaries through approved forms, APIs, connectors, or workflows.",
+      "industryApplication": "Capture buyer location, land status, home requirements, budget range, timeline, and preferred follow-up so sales teams receive a concise, actionable inquiry.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform scoped lookups, record updates, workflow triggers, summaries, and handoffs inside customer-defined controls.",
+      "industryApplication": "Use approved live context for inventory metadata, request status, task creation, ticket routing, meeting requests, resident support handoffs, or dealer-support workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private team assistant for policies, SOPs, onboarding, troubleshooting, sales playbooks, compliance guidance, and operational knowledge.",
+      "industryApplication": "Help sales, service, community, dealer-support, and operations teams retrieve the right spec, process, script, or escalation path without searching across folders.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation review, topic management, satisfaction and resolution analysis, reports, logs, and knowledge-gap discovery.",
+      "industryApplication": "See which financing, delivery, model, warranty, resident, or installation questions need better content, escalation rules, or sales enablement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls.",
+      "industryApplication": "Protect internal SOPs, resident processes, dealer materials, support history, and business documents while controlling what agents can access or do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume, source-grounded support across customer and stakeholder communication.",
+      "Trains on the content your team already owns, from public pages to private operating knowledge.",
+      "Flexible enough for website self-service, employee knowledge access, and workflow handoffs."
+    ],
+    "whyTheseReviewsFit": "Manufactured housing teams need dependable answers across buyers, residents, dealers, and internal staff. DocsBot’s proof shows practical value for real estate communication, owned-content training, and scalable customer support—exactly the foundation needed for model guidance, policy lookup, and service triage.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for manufactured housing sales, resident support, dealer enablement, and internal knowledge",
+    "audience": [
+      "Manufactured home retailers",
+      "Manufactured housing manufacturers",
+      "Community operators",
+      "Dealer support teams",
+      "Resident service teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "real-estate-housing",
+    "property-management",
+    "real-estate-agent",
+    "mortgage-company",
+    "home-inspection",
+    "land-development"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "manufactured-housing",
+    "webSearchQueries": [
+      "Manufactured Housing Institute industry overview shipments 2024 manufactured homes source",
+      "U.S. Census manufactured housing shipments 2024 average sales price",
+      "HUD Manufactured Home Construction and Safety Standards program",
+      "Consumer Financial Protection Bureau manufactured housing finance report chattel loans"
+    ],
+    "sourceUrls": [
+      "https://www.hud.gov/hud-partners/manufactured-home",
+      "https://www.consumerfinance.gov/documents/9806/cfpb_manufactured-housing-finance-new-insights-hmda_report_2021-05.pdf",
+      "https://www.consumerfinance.gov/about-us/newsroom/cfpb-finds-majority-of-manufactured-housing-borrowers-have-expensive-loans/",
+      "https://www.lincolninst.edu/publications/working-papers/im-home-manufactured-housing-industry-benchmark-report-2024/",
+      "https://www2.census.gov/programs-surveys/mhs/mhs-monthly-release-dates-jan-2026.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41259,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28715,
+        "outputTokens": 7862,
+        "reasoningOutputTokens": 105,
+        "totalTokens": 49121,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192854,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202854
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21562,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14266,
+          "outputTokens": 5217,
+          "reasoningOutputTokens": 105,
+          "totalTokens": 26779,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115744,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125744
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19697,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14449,
+          "outputTokens": 2645,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22342,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07711,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07711
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1630437683041-d1b3e19a7c5c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDIxOTR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Manufactured Housing background image",
+    "source": "legacy-industry",
+    "query": "Manufactured Housing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer model, floor-plan, and option questions without giving shoppers outdated or unsupported information?",
+      "answer": "Yes. DocsBot is trained on the sources you approve, such as model pages, spec sheets, brochures, option guides, pricing guidance, and sales policies. The agent can cite or ground answers in those materials, ask clarifying questions, and hand off to sales when the shopper needs current availability, final pricing, contracts, or financing specifics.",
+      "role": "Retailers and sales centers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help our sales team qualify manufactured home shoppers before a phone call or model-center visit?",
+      "answer": "A DocsBot agent can collect structured details such as location, land status, desired bedrooms, budget range, timeline, placement plans, preferred community, and follow-up channel. It can then summarize the conversation and route the lead through your configured CRM, form, email, scheduling, or sales workflow so reps start with context instead of a blank inquiry.",
+      "role": "Retailers and sales centers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent explain financing basics without crossing into lending advice or quoting terms?",
+      "answer": "Yes. DocsBot can answer from your approved financing FAQs and buyer education materials, while routing rate, eligibility, approval, and commitment questions to qualified staff. That boundary matters because manufactured housing finance is complex: the CFPB reported that only 27% of manufactured home loan applications resulted in originations, and about 42% of manufactured housing loans were chattel loans.",
+      "role": "Retailers and sales centers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-cfpb-finance-2021"
+      ]
+    },
+    {
+      "question": "Will DocsBot work for both home-only buyers and land-home buyers?",
+      "answer": "Yes, if your content covers both paths. The agent can ask whether the buyer owns land, is shopping for land, plans to place the home in a community, or needs general education. It can then explain your approved next steps, documents to gather, site-prep considerations, and when a human sales or financing conversation is needed.",
+      "role": "Retailers and sales centers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use one agent across multiple sales centers, communities, or brands without mixing up local policies?",
+      "answer": "DocsBot can be configured around approved sources, instructions, permissions, and routing rules. Many teams structure knowledge by location, community, brand, or department so the agent answers from the right handbook, model catalog, office policy, or escalation path. Sensitive exceptions can be handed to staff rather than answered generically.",
+      "role": "Community operators and resident support",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help community staff who spend all day answering resident rule and maintenance questions?",
+      "answer": "DocsBot can answer recurring questions from community handbooks, resident policies, amenity pages, move-in guides, office procedures, and maintenance instructions. It can collect the right details for a maintenance, leasing, rules, or account request, then create a task or prepare a handoff when you configure the workflow.",
+      "role": "Community operators and resident support",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support warranty and service triage without making warranty decisions?",
+      "answer": "Yes. The agent can retrieve relevant warranty policies, owner manual guidance, service SOPs, and installation instructions; ask for missing information; draft a service summary; and route the case. It should escalate safety issues, legal questions, warranty denials, dispute questions, and final coverage decisions to your designated team.",
+      "role": "Manufacturers and service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer questions about HUD standards, certification labels, installation, and dispute processes?",
+      "answer": "DocsBot can answer from your approved compliance references and manufacturer documentation, while avoiding legal conclusions beyond those sources. HUD’s Office of Manufactured Housing Programs enforces federal construction and safety standards, regulates installation, administers dispute resolution, and authorizes certification labels for compliant homes, so escalation rules should be defined for high-impact questions.",
+      "role": "Manufacturers and service teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hud-omhp"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect to for leads, tickets, tasks, or live status lookups?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, or MCP connectivity to perform scoped actions such as creating a lead, routing a ticket, looking up an approved status, updating approved fields, notifying a team, or triggering a scheduling workflow. Specific integrations depend on what your team authorizes and configures.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from promising pricing, delivery dates, financing approval, or contract terms?",
+      "answer": "You can define source boundaries, instructions, escalation rules, and human review paths. A typical setup lets DocsBot explain approved public guidance, collect intake details, and route the conversation when the shopper asks for final price, current inventory, delivery commitment, financing eligibility, legal terms, or exceptions to policy.",
+      "role": "Retailers and sales centers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How hard is implementation if our content is scattered across PDFs, websites, manuals, SOPs, and community documents?",
+      "answer": "DocsBot is designed for owned knowledge spread across websites, PDFs, Word documents, internal files, wikis, SOPs, manuals, and other approved sources. A practical rollout usually starts with a narrow use case, such as buyer FAQs or service triage, then adds more departments, sources, actions, and escalation rules after reviewing real conversations.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help our dealer support team find the latest specs, service bulletins, and escalation rules?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on product specs, dealer materials, service bulletins, SOPs, training content, pricing guidance, and escalation paths. Dealer support staff can ask natural-language questions and get source-grounded answers instead of searching across folders or asking the same internal experts repeatedly.",
+      "role": "Manufacturers and service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does success look like beyond just reducing call volume?",
+      "answer": "Success can include faster first response, more complete lead intake, better appointment readiness, fewer repetitive resident questions, shorter service triage, more consistent policy answers, higher self-service resolution, and fewer documentation gaps. DocsBot analytics, logs, reports, satisfaction and resolution analysis, topic management, and knowledge-gap discovery help track what buyers, residents, and employees are asking.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we see which floor-plan, financing, delivery, warranty, or community topics are confusing buyers most?",
+      "answer": "Yes. DocsBot provides conversation review, topic management, logs, reports, satisfaction and resolution analysis, and knowledge-gap discovery. Manufactured housing teams can use those insights to improve model pages, financing FAQs, delivery explanations, owner manuals, warranty instructions, resident handbooks, and sales scripts.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot handle multilingual shoppers or residents?",
+      "answer": "DocsBot can support buyers and residents in more than 100 languages while staying grounded in the same approved source content. For nuanced legal, financing, contract, warranty, or resident-status issues, the agent can prepare a translated summary and route the conversation to a person for review.",
+      "role": "Community operators and resident support",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is this secure enough for internal SOPs, dealer materials, resident processes, and support history?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Customer data is not used to train public models, and Skills can be governed with secrets, metadata bindings, network policy, logging, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep public shoppers from accessing internal documents or dealer-only information?",
+      "answer": "Yes. DocsBot can be configured with separate agents, sources, permissions, and instructions for public, internal, dealer, service, or community use cases. That lets a website agent answer from approved public materials while an internal agent uses SOPs, dealer guides, pricing guidance, or service documentation behind role-based access controls.",
+      "role": "Manufacturers and service teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would DocsBot compare with adding more live chat staff or outsourcing first-line support?",
+      "answer": "DocsBot is not a replacement for every human conversation. It is best for repetitive, source-grounded questions, structured intake, summaries, routing, and after-hours self-service. Humans should still handle exceptions, relationship-sensitive issues, pricing commitments, financing advice, warranty decisions, complaints, legal questions, and complex resident situations.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent create service tickets or maintenance tasks from a resident or homeowner conversation?",
+      "answer": "Yes, when you configure the approved workflow. DocsBot can collect issue type, location, contact details, model or community information, photos or notes if your process allows, and urgency signals. With Skills, APIs, connectors, or workflow automation, it can create a task or ticket, route it, and attach a conversation summary.",
+      "role": "Community operators and resident support",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the knowledge current when model availability, option packages, policies, or community rules change?",
+      "answer": "The agent should be connected to maintained source content rather than one-off scripts. Teams can update model pages, PDFs, SOPs, handbooks, and policy documents, then use conversation review and knowledge-gap reports to identify stale or missing information. For live availability or status, use approved lookups rather than static answers.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will our sales reps trust the answers enough to use this internally?",
+      "answer": "Adoption usually improves when the agent points back to approved sources, avoids unsupported claims, and is trained on the materials reps already use: specs, sales playbooks, objection handling, pricing guidance, proposal templates, and FAQs. Conversation logs and feedback loops also help managers fix missing content instead of blaming the tool.",
+      "role": "Retailers and sales centers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support procurement and legal review for a multi-location manufactured housing organization?",
+      "answer": "DocsBot supports governance features procurement teams commonly ask about, including SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls. For multi-location rollouts, buyers should also review source ownership, escalation rules, action permissions, audit needs, and who approves public-facing answers.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How can we use DocsBot without exposing sensitive buyer, resident, or financing information in the chat?",
+      "answer": "Configure the agent to collect only the details needed for intake and to avoid requesting sensitive credentials or unnecessary financial information. High-impact workflows can use scoped permissions, logs, review paths, and handoffs. For financing, the agent can explain approved education and route the buyer to qualified staff rather than collecting or deciding eligibility.",
+      "role": "Retailers and sales centers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot help with buyer education in a market where affordability and loan complexity are major concerns?",
+      "answer": "Yes. DocsBot can provide lender-neutral education from your approved materials, explain document checklists, clarify home-only versus land-home paths, and route buyers to staff for advice. This is useful because the CFPB found that about 68% of 2012 manufactured-housing purchase loans were higher-priced mortgage loans, compared with 3% of site-built home loans.",
+      "role": "Retailers and sales centers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cfpb-2014"
+      ]
+    },
+    {
+      "question": "Can we start with one use case and expand later?",
+      "answer": "Yes. Many manufactured housing teams would start with a focused agent for shopper FAQs, financing intake, service triage, resident rules, or internal knowledge retrieval. After reviewing analytics and handoffs, you can add more sources, departments, languages, Skills, APIs, connectors, and approved actions without trying to automate everything at once.",
+      "role": "General buyer",
+      "category": "Scalability"
+    }
+  ]
+}

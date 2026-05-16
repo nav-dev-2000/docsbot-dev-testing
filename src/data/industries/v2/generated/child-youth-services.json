@@ -1,0 +1,714 @@
+{
+  "slug": "child-youth-services",
+  "business": "Child & Youth Services",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Child & Youth Service Teams",
+    "description": "DocsBot helps child and youth services deliver source-grounded family guidance, staff answers, and routed intake workflows with safer handoffs.",
+    "canonicalPath": "/industry/child-youth-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for youth-serving organizations",
+    "headline": "Give child and youth teams faster answers from approved resources",
+    "subheadline": "DocsBot helps child and youth service organizations create AI agents trained on their own program guides, intake instructions, family FAQs, policies, referral directories, and staff knowledge so families and employees can find clear next steps without searching across disconnected documents.",
+    "proofBullets": [
+      {
+        "text": "Answer parent, caregiver, youth, and community partner questions from approved service pages, FAQs, eligibility guides, and referral resources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Route complex, sensitive, or safety-related requests to staff with conversation summaries and collected context for follow-up.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "text": "Give case managers and program staff a private knowledge agent for SOPs, program rules, onboarding, and internal procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to create tasks, draft handoffs, trigger workflows, or look up approved live status fields when authorized.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a youth services AI agent",
+    "secondaryCta": "See how DocsBot handles sensitive support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your approved knowledge into AI agents for public-facing support, staff knowledge access, and bounded workflow automation. Agents can answer from your service content, summarize conversations, identify gaps in your resources, support multilingual access, and escalate when a person should review the request.",
+    "whoItHelps": [
+      {
+        "role": "Intake and family navigation teams",
+        "roleContext": "Teams that field repeated questions about eligibility, documentation, program fit, appointments, and referrals can use DocsBot to make official guidance easier to access before staff intervene.",
+        "bullets": [
+          {
+            "text": "Help families understand service options, required documents, hours, locations, and next steps from approved content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect structured intake details and prepare a staff handoff without letting the agent make eligibility or care decisions.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support families in more than 100 languages while keeping answers grounded in your own published materials.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Program directors and operations leaders",
+        "roleContext": "Leaders responsible for service consistency, reporting, and staff capacity can use DocsBot to reduce repeated searching and reveal where documentation needs improvement.",
+        "bullets": [
+          {
+            "text": "Review analytics, logs, and unresolved topics to spot unclear policies, missing FAQs, and recurring service-access questions.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Standardize answers across sites, programs, and outreach teams with source-grounded responses from controlled knowledge sources.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "The CDC reported that 40% of high school students had persistent feelings of sadness or hopelessness in 2023, underscoring demand for clear youth support pathways.",
+            "icon": "HeartIcon",
+            "sourceIds": [
+              "src-cdc-yrbs-2023"
+            ]
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "Case managers, clinicians, educators, and youth workers",
+        "roleContext": "Frontline staff need quick access to policy, program, referral, training, and crisis-protocol information while staying focused on youth and families.",
+        "bullets": [
+          {
+            "text": "Search internal SOPs, care coordination notes, training PDFs, referral criteria, and program manuals through a private team agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft summaries, task notes, and referral handoff language for human review through configured Skills and workflows.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "HRSA’s 2023 data found 61.0% of adolescents with a current diagnosis who needed mental health treatment had difficulty getting it, making navigation support especially important.",
+            "icon": "MapPinIcon",
+            "sourceIds": [
+              "src-hrsa-nsch-2023"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cdc-yrbs-2023",
+      "metric": "40% of high school students reported persistent sadness or hopelessness in 2023.",
+      "claim": "CDC’s 2023 Youth Risk Behavior Survey shows persistent youth mental health needs and highlights protective roles for schools, families, and communities.",
+      "sourceTitle": "2023 Youth Risk Behavior Survey Results",
+      "sourceUrl": "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+      "sourceDate": "September 29, 2024",
+      "bestUsedFor": [
+        "youth mental health demand",
+        "family and community support needs",
+        "school and community connection"
+      ]
+    },
+    {
+      "id": "src-hrsa-nsch-2023",
+      "metric": "More than 5.3 million adolescents ages 12–17 had a current diagnosed mental or behavioral health condition in 2023.",
+      "claim": "HRSA’s National Survey of Children’s Health brief reports rising adolescent mental and behavioral health needs and difficulty accessing treatment.",
+      "sourceTitle": "Adolescent Mental and Behavioral Health, 2023",
+      "sourceUrl": "https://www.ncbi.nlm.nih.gov/books/NBK608531/",
+      "sourceDate": "October 2024",
+      "bestUsedFor": [
+        "service navigation pressure",
+        "mental health access barriers",
+        "caregiver information needs"
+      ]
+    },
+    {
+      "id": "src-acf-child-welfare-workforce",
+      "metric": "ACF studied child welfare caseworker turnover from 2021 to 2022.",
+      "claim": "ACF’s OPRE workforce study focuses on child welfare caseworker turnover, a major operational concern for agencies responsible for continuity and institutional knowledge.",
+      "sourceTitle": "National Survey of Child and Adolescent Well-Being III Workforce Study: Reasons for Child Welfare Caseworker Turnover from 2021 to 2022",
+      "sourceUrl": "https://acf.gov/opre/report/national-survey-child-and-adolescent-well-being-iii-workforce-study-reasons-child",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce continuity",
+        "onboarding pressure",
+        "knowledge retention"
+      ]
+    },
+    {
+      "id": "src-samhsa-nsduh-2023",
+      "metric": "SAMHSA’s 2023 NSDUH reports substance use and mental health indicators for youths ages 12–17.",
+      "claim": "SAMHSA’s annual NSDUH report provides national indicators for adolescent mental health, suicidality, substance use, and treatment patterns.",
+      "sourceTitle": "Key Substance Use and Mental Health Indicators in the United States: Results from the 2023 National Survey on Drug Use and Health",
+      "sourceUrl": "https://www.samhsa.gov/data/report/2023-nsduh-annual-national-report",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "behavioral health context",
+        "substance use service navigation",
+        "youth treatment demand"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Family service navigation agent",
+      "problem": "Families often need to understand program fit, documents, hours, referral steps, and waitlist language before they can take action, but the information may be spread across web pages, PDFs, and intake packets.",
+      "agentWorkflow": "Train a DocsBot agent on program pages, eligibility guides, FAQs, referral directories, parent handbooks, and policy-approved explanations. The agent answers questions, asks clarifying nonclinical intake questions, collects contact preferences, and escalates sensitive or case-specific requests to staff with a summary.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or forms, the agent can submit an intake request, create a task, notify a team inbox, or request a scheduling workflow while keeping staff responsible for final eligibility and service decisions.",
+      "exampleQuestionsOrRequests": [
+        "What youth mentoring programs are available for a 14-year-old?",
+        "What documents should I bring to intake?",
+        "Can someone call me about parenting support after school hours?"
+      ],
+      "businessOutcome": "Families get clearer next steps sooner, and staff receive better-organized handoffs instead of incomplete emails, voicemails, and repeated basic questions.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Crisis and safety resource triage",
+      "problem": "Youth-serving organizations must make crisis resources easy to find while avoiding unsafe automation for diagnosis, emergency judgment, or high-impact care decisions.",
+      "agentWorkflow": "Create a tightly scoped support agent trained on approved crisis language, emergency disclaimers, safety-plan resource pages, mandatory reporting guidance, and local referral instructions. The agent can recognize urgent language, provide approved emergency directions, and escalate to a human or crisis pathway.",
+      "liveContextOrTools": "AI Actions can trigger a configured alert, create a reviewed follow-up task, or route the conversation to a designated staff queue according to organization-defined rules and permissions.",
+      "exampleQuestionsOrRequests": [
+        "I need help now and do not know who to call.",
+        "What should I do if a youth says they may hurt themselves?",
+        "Where are your after-hours crisis resources?"
+      ],
+      "businessOutcome": "Critical information stays visible around the clock while the organization preserves human review for safety-sensitive support.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-cdc-yrbs-2023"
+      ]
+    },
+    {
+      "name": "Internal policy and procedure assistant",
+      "problem": "Case managers, youth workers, supervisors, and volunteers lose time searching through SOPs, training decks, shared drives, and program manuals, especially when policies vary by service line or funding source.",
+      "agentWorkflow": "DocsBot can train a private internal knowledge agent on SOPs, onboarding materials, policy manuals, grant requirements, referral workflows, approved scripts, and internal FAQs. Staff ask questions in private chat, Slack, Microsoft Teams, or another configured experience and receive source-grounded answers.",
+      "liveContextOrTools": "A configured Skill can retrieve approved live context, generate a case-note draft, summarize a policy section, or create a supervisor-review task. MCP Connectors can also connect to remote Model Context Protocol servers when teams expose approved tools.",
+      "exampleQuestionsOrRequests": [
+        "What is our protocol for a missed home visit?",
+        "Which referral form do I use for family counseling?",
+        "Summarize the transportation assistance policy for a new staff member."
+      ],
+      "businessOutcome": "Staff get more consistent procedural answers and new hires can ramp faster without depending on one overextended supervisor for every policy question.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-acf-child-welfare-workforce"
+      ]
+    },
+    {
+      "name": "Program enrollment and appointment support",
+      "problem": "Families may abandon enrollment when they cannot quickly confirm program requirements, appointment options, language access, or what happens after a referral.",
+      "agentWorkflow": "A DocsBot agent answers enrollment questions from approved service catalogs and intake instructions, gathers scheduling intent, confirms preferred contact channel, and prepares a structured handoff for intake staff.",
+      "liveContextOrTools": "When authorized, AI Actions can use customer-configured scheduling workflows, forms, webhooks, or ticketing systems to request an appointment, create a record, update approved fields, or send the next step to staff.",
+      "exampleQuestionsOrRequests": [
+        "Can I schedule a parent education orientation?",
+        "What happens after my school counselor submits a referral?",
+        "Do you offer evening appointments or virtual intake?"
+      ],
+      "businessOutcome": "Enrollment conversations become easier to complete, and staff receive cleaner context before the first call or appointment.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Resource library and education assistant",
+      "problem": "Youth programs often maintain large libraries of parenting guides, life-skills materials, homework support, behavior health resources, and community partner information that are hard for families and staff to browse.",
+      "agentWorkflow": "Train DocsBot on approved guides, handouts, curricula, videos summaries, FAQs, and resource directories. The agent can answer practical questions, point to relevant materials, and show where source information came from.",
+      "liveContextOrTools": "Analytics and conversation review reveal repeated questions, confusing materials, and resource gaps so teams can improve public content and staff training.",
+      "exampleQuestionsOrRequests": [
+        "Do you have a guide for helping a teen manage school stress?",
+        "What life-skills resources are available for youth aging out of care?",
+        "Which parenting workshop covers conflict at home?"
+      ],
+      "businessOutcome": "Owned educational content becomes easier to use, and leaders can see what families and staff are trying to learn most often.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-hrsa-nsch-2023"
+      ]
+    },
+    {
+      "name": "Partner and referral coordination assistant",
+      "problem": "Schools, nonprofits, clinics, courts, and community partners need fast answers about referral criteria, service boundaries, and status expectations, but staff may not be available immediately.",
+      "agentWorkflow": "A DocsBot agent trained on partner-facing referral guides, release instructions, program descriptions, and service boundary documents can answer routine partner questions and collect missing referral information before routing to staff.",
+      "liveContextOrTools": "With approved connectors or APIs, the agent can look up allowed referral-status fields, create a ticket, send a notification, or draft a partner response for review.",
+      "exampleQuestionsOrRequests": [
+        "Which youth are eligible for this diversion program?",
+        "What information is missing from this referral?",
+        "Who should receive a school-based counseling referral?"
+      ],
+      "businessOutcome": "Partners get clearer instructions, and internal teams spend less time correcting incomplete referrals or repeating service criteria.",
+      "icon": "ArrowPathRoundedSquareIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Public support that guides families without replacing your professionals",
+    "intro": "DocsBot can power a website or program portal agent that answers from your approved service information, explains next steps in plain language, and escalates sensitive situations to staff. It is best used for navigation, education, and structured handoff—not diagnosis, emergency decision-making, or final eligibility determinations.",
+    "requests": [
+      {
+        "request": "A caregiver asks which program is right for their child.",
+        "agentResponseStrategy": "Ask simple clarifying questions, explain program differences from approved materials, state when staff review is required, and offer a contact or intake handoff.",
+        "sourceTypes": [
+          "Program pages",
+          "Eligibility guides",
+          "Family FAQs",
+          "Intake forms"
+        ],
+        "optionalAction": "Create a structured intake request or route the conversation to the family navigation team through an approved workflow.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "A youth asks for help outside office hours.",
+        "agentResponseStrategy": "Provide approved after-hours, crisis, and emergency resource language; avoid clinical judgment; and escalate or trigger the configured safety workflow when the request indicates urgency.",
+        "sourceTypes": [
+          "Crisis resource pages",
+          "Safety protocols",
+          "After-hours instructions",
+          "Local referral directories"
+        ],
+        "optionalAction": "Trigger a staff notification or reviewed follow-up task according to the organization’s boundaries and permissions.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "A community partner asks how to submit a referral.",
+        "agentResponseStrategy": "Explain referral criteria, required documents, release requirements, and next steps from partner-facing documentation, then collect missing details for human review.",
+        "sourceTypes": [
+          "Referral guides",
+          "Partner FAQs",
+          "Release instructions",
+          "Service directories"
+        ],
+        "optionalAction": "Create a referral task, draft a partner response, or send the completed intake summary to the assigned queue.",
+        "icon": "LinkIcon"
+      },
+      {
+        "request": "A parent asks for resources in another language.",
+        "agentResponseStrategy": "Answer in the user’s language when appropriate, keep the response grounded in approved content, and provide source-based next steps or handoff options.",
+        "sourceTypes": [
+          "Translated materials",
+          "Public web pages",
+          "Family handbooks",
+          "Workshop descriptions"
+        ],
+        "optionalAction": "Route the request to a bilingual staff workflow or collect preferred language for follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "A family wants to schedule an orientation or intake call.",
+        "agentResponseStrategy": "Confirm the type of service, collect scheduling intent and contact preferences, and explain what staff will confirm before the appointment is final.",
+        "sourceTypes": [
+          "Service calendars",
+          "Orientation FAQs",
+          "Intake instructions",
+          "Contact policies"
+        ],
+        "optionalAction": "Use a customer-configured scheduling workflow, form, or webhook to request an appointment or notify intake staff.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "A caregiver asks about treatment access or waitlists.",
+        "agentResponseStrategy": "Explain your organization’s published process, alternative resources, and escalation options while avoiding promises about availability or outcomes.",
+        "sourceTypes": [
+          "Waitlist policies",
+          "Referral directories",
+          "Care navigation FAQs",
+          "Community resource lists"
+        ],
+        "optionalAction": "Create a reviewed follow-up task for a navigator when the family requests direct assistance.",
+        "icon": "ClockIcon",
+        "sourceIds": [
+          "src-hrsa-nsch-2023"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for staff, supervisors, and program teams",
+    "intro": "DocsBot helps youth-serving organizations preserve institutional knowledge and give staff fast answers from controlled internal sources. Teams can use it for onboarding, policy lookup, program coordination, reporting preparation, and reviewed workflow actions.",
+    "workflows": [
+      {
+        "name": "Caseworker onboarding and policy lookup",
+        "problem": "Turnover and role changes make it hard to keep staff aligned on policies, documentation expectations, and program-specific procedures.",
+        "agentWorkflow": "Train a private agent on onboarding guides, SOPs, supervision materials, templates, and approved policy manuals. Staff can ask procedural questions and see source-grounded answers with links back to the underlying material.",
+        "sourceTypes": [
+          "SOPs",
+          "Policy manuals",
+          "Training decks",
+          "Templates"
+        ],
+        "optionalAction": "Generate a training checklist, summarize a policy section, or create a supervisor-review task through a configured Skill.",
+        "outcome": "New and existing staff spend less time searching and more time applying the correct procedure with supervisor oversight when needed.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-acf-child-welfare-workforce"
+        ]
+      },
+      {
+        "name": "Program coordination and reporting prep",
+        "problem": "Leaders often need to assemble program updates, recurring questions, and service-access themes from many conversations and documents.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, and reports to review what families, partners, and staff ask most often. The internal agent can summarize themes and point teams toward documentation gaps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Program FAQs",
+          "Service documentation",
+          "Reports"
+        ],
+        "optionalAction": "Draft a weekly issue summary, create documentation tasks, or route repeated unanswered questions to the right owner.",
+        "outcome": "Operations teams can improve materials and staff guidance based on the real questions people are asking.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Referral and resource directory lookup",
+        "problem": "Staff need to quickly match families with approved community resources while considering location, program type, eligibility notes, and contact steps.",
+        "agentWorkflow": "Train DocsBot on resource directories, partner descriptions, eligibility notes, and internal referral guidance. Staff ask natural-language questions and receive source-grounded options with caveats from the approved sources.",
+        "sourceTypes": [
+          "Referral directories",
+          "Partner guides",
+          "Eligibility notes",
+          "Community resource lists"
+        ],
+        "optionalAction": "Draft a referral handoff note, prepare a family-facing resource summary, or create a task in a configured workflow.",
+        "outcome": "Resource navigation becomes more consistent while staff remain responsible for judgment, consent, and case-specific decisions.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "name": "Internal helpdesk for tools and procedures",
+        "problem": "Program staff often need quick answers about forms, portals, data entry rules, and internal tools while serving families.",
+        "agentWorkflow": "A private DocsBot agent can train on internal tool guides, data entry procedures, finance policies, HR policies, and IT troubleshooting articles so employees can get immediate procedural answers.",
+        "sourceTypes": [
+          "Internal wikis",
+          "Tool guides",
+          "HR policies",
+          "IT procedures"
+        ],
+        "optionalAction": "Route unresolved issues to IT, HR, operations, or compliance queues with a concise summary.",
+        "outcome": "Common internal questions are answered consistently, and specialists receive better-context handoffs for exceptions.",
+        "icon": "ComputerDesktopIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents train on your websites, help centers, documents, PDFs, wikis, and internal knowledge sources to answer from the information you provide.",
+      "industryApplication": "For child and youth services, this means families, staff, and partners can get answers from approved program guides, eligibility criteria, family handbooks, referral directories, and safety language.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, task creation, record updates, and workflow triggers when configured by the customer.",
+      "industryApplication": "Use scoped actions for intake requests, referral handoffs, scheduling intent, staff notifications, resource summaries, or approved status lookups while keeping sensitive decisions with humans.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation and review paths",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person rather than an automated answer.",
+      "industryApplication": "Youth-serving organizations can route safety concerns, eligibility decisions, case-specific advice, complaints, or mandated reporting questions to trained staff with a conversation summary.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees across operations, HR, compliance, support, and field teams using internal documents and team knowledge.",
+      "industryApplication": "Case managers, supervisors, volunteers, and program staff can search SOPs, training, referral rules, and onboarding materials without digging through shared drives.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, conversation review, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Program leaders can see repeated family questions, confusing referral steps, missing translations, unclear policy language, and content that needs review.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Organizations handling family, youth, staff, and partner information can use permissions, boundaries, logs, and controlled sources to manage what agents can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare and education teams use DocsBot to make owned knowledge easier to access and act on.",
+      "Source-grounded answers help staff and families rely on approved materials instead of scattered documents.",
+      "Internal agents can reduce repeated human lookups while preserving review paths for sensitive decisions."
+    ],
+    "whyTheseReviewsFit": "Child and youth service teams need dependable answers, clear handoffs, and fast access to trusted knowledge. DocsBot proof from healthcare communications, education, and content-library use shows how organizations apply owned materials to support decision-making, learning, and service communication.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for child and youth services",
+    "audience": [
+      "Child and youth service organizations",
+      "Family navigation and intake teams",
+      "Case managers and youth workers",
+      "Program directors and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "UserGroupIcon"
+  },
+  "relatedIndustrySlugs": [
+    "substance-abuse-services",
+    "telehealth-services",
+    "home-health-services",
+    "emergency-medical-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "child-youth-services",
+    "webSearchQueries": [
+      "SAMHSA youth mental health statistics 2023 adolescents major depressive episode",
+      "ACF child welfare workforce caseload turnover report 2024",
+      "CDC Youth Risk Behavior Survey mental health 2023 high school students persistent sadness",
+      "National Center for Education Statistics youth services afterschool participation statistics"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/yrbs/results/2023-yrbs-results.html",
+      "https://www.ncbi.nlm.nih.gov/books/NBK608531/",
+      "https://acf.gov/opre/report/national-survey-child-and-adolescent-well-being-iii-workforce-study-reasons-child",
+      "https://www.samhsa.gov/data/report/2023-nsduh-annual-national-report"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47359,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 34815,
+        "outputTokens": 8086,
+        "reasoningOutputTokens": 194,
+        "totalTokens": 55445,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.211464,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.231464
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27853,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20557,
+          "outputTokens": 5303,
+          "reasoningOutputTokens": 194,
+          "totalTokens": 33156,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.132762,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.152762
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19506,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14258,
+          "outputTokens": 2783,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22289,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078702,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078702
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1584921466621-d3a283cd3744?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU5NTV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Child & Youth Services background image",
+    "source": "legacy-industry",
+    "query": "Child & Youth Services"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent for family navigation without letting it decide eligibility or clinical fit?",
+      "answer": "Yes. DocsBot is strongest when it explains approved program information, asks basic nonclinical clarifying questions, collects contact preferences, and prepares a handoff for staff. You can position the agent as navigation and intake support while keeping final eligibility, service placement, diagnosis, risk assessment, and care decisions with trained professionals.",
+      "role": "Intake and family navigation teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot handle a youth or caregiver who mentions self-harm, abuse, or another safety concern?",
+      "answer": "You can train the agent on approved crisis language, emergency instructions, mandated reporting guidance, and local escalation paths. It should not diagnose, assess risk, or replace a crisis worker. Instead, it can surface urgent resources, avoid unsafe advice, and route the conversation to a defined staff or crisis workflow with a summary.",
+      "role": "Program directors and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What content would we need before launching a family-facing youth services agent?",
+      "answer": "Most teams start with public program pages, eligibility guides, family FAQs, intake instructions, service directories, crisis resource language, appointment information, and translated materials if available. Internal launch readiness improves when owners review outdated PDFs, conflicting program descriptions, and gaps that staff currently answer from memory.",
+      "role": "Intake and family navigation teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer in languages our staff do not speak fluently?",
+      "answer": "DocsBot can support families in more than 100 languages while grounding answers in your approved content. For sensitive, legal, clinical, or case-specific issues, the safer pattern is to provide source-based next steps and collect preferred language for a human follow-up, rather than relying on automation for interpretation-heavy decisions.",
+      "role": "Intake and family navigation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated program, location, or waitlist information?",
+      "answer": "Use controlled knowledge sources, assign content owners, and review analytics for unresolved or repeated questions. For live details such as appointment availability, referral status, or waitlist fields, DocsBot can use customer-configured Skills, APIs, connectors, or workflows when authorized, while avoiding promises the underlying system cannot support.",
+      "role": "Program directors and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help our case managers find SOPs and referral rules faster?",
+      "answer": "Yes. A private internal knowledge agent can be trained on SOPs, policy manuals, training decks, referral criteria, templates, and onboarding materials. Staff can ask procedural questions in natural language and get source-grounded answers, while supervisors remain responsible for judgment calls, exceptions, and policy interpretation where needed.",
+      "role": "Case managers, clinicians, educators, and youth workers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this support onboarding when we have turnover across caseworker and program roles?",
+      "answer": "DocsBot can preserve institutional knowledge by making onboarding guides, supervision materials, workflows, and policy manuals searchable through a private staff agent. That matters because ACF’s OPRE workforce study specifically examined child welfare caseworker turnover from 2021 to 2022, highlighting continuity and knowledge retention as operational concerns.",
+      "role": "Program directors and operations leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-acf-child-welfare-workforce"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot to reduce incomplete referrals from schools, courts, clinics, or community partners?",
+      "answer": "Yes. A partner-facing agent can answer referral criteria, release requirements, required documentation, service boundaries, and next-step questions from approved partner guides. With configured workflows, it can collect missing details, draft a referral handoff, create a task, or route the request to the right queue for staff review.",
+      "role": "Intake and family navigation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we measure to know whether the AI agent is actually helping families and staff?",
+      "answer": "Useful measures include repeated question volume, successful self-service conversations, escalation reasons, incomplete intake reduction, unanswered topics, time to first response, staff search reduction, language access requests, and content gaps. DocsBot analytics, logs, reports, topic management, satisfaction and resolution analysis can help leaders review these patterns.",
+      "role": "Program directors and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot connect to our case management, referral, scheduling, or ticketing systems?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, forms, webhooks, ticketing workflows, and MCP Connectors where your team authorizes the access. The safest youth-services pattern is scoped action: look up approved fields, create a task, submit an intake request, notify staff, or draft a handoff rather than automate sensitive decisions.",
+      "role": "Program directors and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will families know where an answer came from, or is the agent just generating text?",
+      "answer": "DocsBot agents are designed to answer from approved knowledge sources such as program guides, eligibility pages, family handbooks, FAQs, policies, and referral directories. Source-grounded responses help staff and families rely on controlled materials instead of scattered documents, while conversation review helps identify where source content needs improvement.",
+      "role": "Intake and family navigation teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How do we keep public answers separate from internal policies or staff-only guidance?",
+      "answer": "Create separate agents or permissioned knowledge sets for public, partner, and internal use cases. DocsBot supports granular access controls and role-based permissions, so a family-facing agent can use approved public resources while a private staff agent can access SOPs, onboarding guides, internal forms, and procedural documents.",
+      "role": "Program directors and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter for youth-serving organizations evaluating an AI agent?",
+      "answer": "Buyers should look for controlled data access, encryption, auditability, role-based permissions, clear escalation paths, and limits on what the agent can do. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Program directors and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review conversations before expanding the agent to more programs or locations?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Many teams start with one program or intake workflow, review escalations and unanswered topics, update source content, and then expand to more service lines or locations with better controls.",
+      "role": "Program directors and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot avoid replacing the professional judgment of clinicians, educators, or youth workers?",
+      "answer": "DocsBot should be configured around navigation, education, procedural lookup, summarization, and structured handoff. It can explain approved materials and prepare context, but staff remain responsible for diagnosis, treatment decisions, safety assessment, mandated reporting judgment, eligibility determinations, consent handling, and case-specific recommendations.",
+      "role": "Case managers, clinicians, educators, and youth workers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can an AI agent help when demand is high outside business hours?",
+      "answer": "Yes, as long as boundaries are clear. DocsBot can provide always-available answers from approved program, intake, referral, and after-hours resource content, then escalate urgent or case-specific requests. The CDC reported that 40% of high school students had persistent feelings of sadness or hopelessness in 2023, underscoring the need for visible support pathways.",
+      "role": "Program directors and operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-cdc-yrbs-2023"
+      ]
+    },
+    {
+      "question": "What kinds of intake details can the agent collect before a staff member follows up?",
+      "answer": "It can collect structured, nonclinical details such as service interest, youth age range, location, preferred language, contact method, appointment intent, referral source, and missing documents. For sensitive disclosures or eligibility questions, the safer design is to summarize context and route to staff rather than make the decision automatically.",
+      "role": "Intake and family navigation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help families understand waitlists and access barriers without overpromising availability?",
+      "answer": "Yes. The agent can explain your published waitlist process, what happens after referral, alternative resources, and how to request follow-up. This is important in a high-demand environment: HRSA’s 2023 data found 61.0% of adolescents with a current diagnosis who needed mental health treatment had difficulty getting it.",
+      "role": "Intake and family navigation teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-hrsa-nsch-2023"
+      ]
+    },
+    {
+      "question": "How should we involve compliance, clinical leadership, and program staff before launch?",
+      "answer": "Have each stakeholder define boundaries: approved sources, prohibited advice, escalation triggers, retention expectations, review cadence, language for safety concerns, and which workflows require human approval. Program staff should test real questions, compliance should review risk language, and leadership should decide which metrics define a safe pilot.",
+      "role": "Program directors and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if our information is spread across PDFs, shared drives, web pages, and old training decks?",
+      "answer": "That is a common starting point. DocsBot can train on websites, documents, PDFs, wikis, Google Drive, Notion, Confluence, Word documents, text files, and other configured knowledge sources. Implementation is also a chance to identify conflicting instructions, outdated handbooks, and missing family-facing explanations.",
+      "role": "Case managers, clinicians, educators, and youth workers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How can we compare DocsBot with a generic chatbot or custom AI build?",
+      "answer": "For youth services, the key comparison is not just chat quality. Buyers should evaluate source grounding, permission controls, conversation review, escalation paths, analytics, knowledge-gap discovery, multilingual support, and bounded workflow actions. DocsBot is designed around approved knowledge and operational handoffs rather than an open-ended chatbot experience.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent summarize a family conversation for staff without storing sensitive details in the wrong place?",
+      "answer": "DocsBot can generate conversation summaries and handoffs through configured workflows, but your team should define what is collected, where it is routed, who can access it, and what should be excluded. Scoped permissions, logs, secrets management for Skills, and role-based access help keep sensitive workflow design under organizational control.",
+      "role": "Intake and family navigation teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What ROI should we expect if our team is already stretched thin?",
+      "answer": "The business case usually comes from fewer repeated basic questions, cleaner intake handoffs, faster staff policy lookup, reduced supervisor interruptions, better partner referral instructions, and fewer content gaps. For a pilot, compare pre- and post-launch volumes for calls, voicemails, incomplete referrals, escalations, unanswered topics, and time spent searching.",
+      "role": "Program directors and operations leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support both a public website agent and a private staff assistant?",
+      "answer": "Yes. Many youth-serving organizations need both: a public agent for families and partners, and a private internal knowledge agent for staff. Each can use different sources, permissions, instructions, and escalation paths so public users receive approved service guidance while employees can access internal SOPs and procedures.",
+      "role": "Program directors and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much staff training is needed before frontline teams trust the agent?",
+      "answer": "Training should focus on what the agent is for, what it must not decide, how to check sources, how to escalate, and how to report bad or missing answers. Staff confidence improves when they test real scenarios, see source links, understand review workflows, and know supervisors can update the knowledge base.",
+      "role": "Case managers, clinicians, educators, and youth workers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help us identify confusing policies or missing family resources?",
+      "answer": "Yes. DocsBot analytics and conversation review can show repeated questions, unresolved topics, low-satisfaction conversations, and knowledge gaps. Program leaders can use those patterns to rewrite eligibility pages, add translated materials, clarify referral instructions, update FAQs, and prioritize staff training content based on actual demand.",
+      "role": "Program directors and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should procurement ask before approving an AI agent for child and youth services?",
+      "answer": "Procurement should ask about data use, security controls, access permissions, source management, escalation design, audit logs, implementation effort, pricing model, support, and who owns workflow configuration. For DocsBot specifically, verify which knowledge sources, Skills, APIs, connectors, and review paths are needed for your first use case.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

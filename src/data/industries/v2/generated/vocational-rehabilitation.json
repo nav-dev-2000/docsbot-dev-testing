@@ -1,0 +1,765 @@
+{
+  "slug": "vocational-rehabilitation",
+  "business": "Vocational Rehabilitation",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Vocational Rehabilitation Teams",
+    "description": "DocsBot helps vocational rehabilitation teams deliver source-grounded client answers, faster intake guidance, and staff access to policies and service resources.",
+    "canonicalPath": "/industry/vocational-rehabilitation"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for employment-focused disability services",
+    "headline": "Help clients and counselors move through vocational rehabilitation faster",
+    "subheadline": "DocsBot lets vocational rehabilitation programs create AI agents trained on your approved service guides, intake instructions, workplace accommodation resources, referral pathways, employer materials, and internal procedures so clients and staff can get consistent answers without searching across scattered documents.",
+    "proofBullets": [
+      {
+        "text": "Answer client questions about eligibility steps, intake documents, service options, referrals, and next actions from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give counselors and job developers a private knowledge agent for policies, procedures, templates, employer talking points, and training materials.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect structured details, summarize needs, route requests, create tasks, or prepare human handoffs through customer-configured AI Actions.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support multilingual access with answers in more than 100 languages while escalating sensitive or high-impact decisions to staff.",
+        "icon": "LanguageIcon"
+      }
+    ],
+    "primaryCta": "Build a VR knowledge agent",
+    "secondaryCta": "Explore support automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps vocational rehabilitation organizations turn their service manuals, public FAQs, client handbooks, referral instructions, policy documents, training files, PDFs, websites, and internal knowledge bases into AI agents. Those agents can answer from approved sources, summarize conversations, identify documentation gaps, and take bounded actions when configured through Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Client services and intake teams",
+        "roleContext": "Front-desk, intake, and referral staff often repeat the same explanations about eligibility, documents, appointments, and next steps. DocsBot can provide consistent first-line answers while preparing clear handoffs when a person needs staff review.",
+        "bullets": [
+          {
+            "text": "Explain intake steps, required documents, service timelines, appointment preparation, and referral options from approved program materials.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect missing details in a structured flow and route the request to the right counselor, office, or queue when configured.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Provide always-available multilingual guidance for clients, families, schools, employers, and referring partners.",
+            "icon": "GlobeAltIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Vocational rehabilitation counselors",
+        "roleContext": "Counselors balance individualized planning with policy, documentation, and coordination demands. A private DocsBot agent can make internal guidance easier to retrieve without replacing professional judgment.",
+        "bullets": [
+          {
+            "text": "Search policies, SOPs, plan templates, eligibility guidance, vendor instructions, and service definitions from one source-grounded interface.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft summaries of client conversations, service questions, or next-step notes for staff review before they enter official records.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep complex eligibility, medical, benefits, legal, and employment-plan decisions with qualified staff while using AI for retrieval and preparation.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Job developers and employer engagement teams",
+        "roleContext": "Employer-facing staff need fast access to service descriptions, accommodation resources, placement talking points, follow-up templates, and approved program language.",
+        "bullets": [
+          {
+            "text": "Retrieve employer FAQs, accommodation talking points, referral instructions, and service brochures during outreach or follow-up.",
+            "icon": "BuildingOffice2Icon"
+          },
+          {
+            "text": "Draft employer emails, meeting summaries, and placement follow-up notes using your approved materials and human review paths.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Qualify employer inquiries by role type, location, hiring need, timeline, and preferred follow-up channel through configured intake forms.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Program leaders and compliance managers",
+        "roleContext": "VR programs need consistent service communication and visibility into recurring questions across clients, families, staff, and partners. DocsBot analytics can reveal knowledge gaps and repeated topics for content improvement.",
+        "bullets": [
+          {
+            "text": "Review conversation logs, topics, unanswered questions, and satisfaction signals to improve FAQs, handbooks, and staff resources.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Use role-based permissions, encryption, SOC 2 Type II controls, and GDPR-ready governance for private program knowledge.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Support standardized communication across offices, vendors, and partner-facing teams without giving the agent authority over high-impact decisions.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-disability-labor-force-2025",
+      "metric": "About 75% of people with a disability were not in the labor force in 2025.",
+      "claim": "BLS reported that labor force participation remains substantially lower for people with disabilities, underscoring the employment access challenge VR programs work to address.",
+      "sourceTitle": "Persons with a Disability: Labor Force Characteristics — 2025",
+      "sourceUrl": "https://www.bls.gov/news.release/disabl.nr0.htm?ana=e_tno",
+      "sourceDate": "February 2026",
+      "bestUsedFor": [
+        "Employment access gap",
+        "Client need",
+        "Public workforce context"
+      ]
+    },
+    {
+      "id": "src-bls-disability-education-2025",
+      "metric": "In 2025, about 24% of people with a disability age 25 and older had a bachelor’s degree or higher, compared with about 42% of people without a disability.",
+      "claim": "BLS data shows educational attainment gaps that can affect employment pathways, training needs, and career planning conversations.",
+      "sourceTitle": "Persons with a Disability: Labor Force Characteristics — 2025",
+      "sourceUrl": "https://www.bls.gov/news.release/disabl.nr0.htm?ana=e_tno",
+      "sourceDate": "February 2026",
+      "bestUsedFor": [
+        "Training pathways",
+        "Career planning",
+        "Client education needs"
+      ]
+    },
+    {
+      "id": "src-rsa-data-driven-decisions",
+      "metric": "RSA emphasizes that data-driven decisions lead to better outcomes for individuals with disabilities served by VR programs.",
+      "claim": "The Rehabilitation Services Administration publishes VR data resources and frames data use as part of improving outcomes for people served by these programs.",
+      "sourceTitle": "View Data | Rehabilitation Services Administration",
+      "sourceUrl": "https://rsa.ed.gov/data/view-data",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Reporting pressure",
+        "Program improvement",
+        "Analytics"
+      ]
+    },
+    {
+      "id": "src-rsa-functional-statement",
+      "metric": "RSA provides leadership and fiscal resources to assist state and other agencies delivering VR and related services to individuals with disabilities.",
+      "claim": "Federal VR programs operate within a structured public service environment where consistent policy interpretation and documentation matter.",
+      "sourceTitle": "OSERS Functional Statements — Rehabilitation Services Administration",
+      "sourceUrl": "https://www.ed.gov/about/ed-organization/functional-statements/osers-functional-statements/osers-functional-statements-rehabilitation-services-administration-ehr",
+      "sourceDate": "January 2026",
+      "bestUsedFor": [
+        "Program structure",
+        "Policy consistency",
+        "Public service context"
+      ]
+    },
+    {
+      "id": "src-ecfr-eligibility-priority",
+      "metric": "Federal regulations at 34 CFR § 361.42 describe assessment requirements for determining eligibility and priority for VR services.",
+      "claim": "Eligibility and priority decisions are regulated workflows, making source-grounded information retrieval and human review boundaries important for AI-assisted VR operations.",
+      "sourceTitle": "34 CFR § 361.42 — Assessment for determining eligibility and priority for services",
+      "sourceUrl": "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-361/subpart-B/section-361.42",
+      "sourceDate": "Current regulation",
+      "bestUsedFor": [
+        "Eligibility complexity",
+        "Compliance pressure",
+        "Human review boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client intake and eligibility guidance agent",
+      "problem": "Clients, families, schools, and referral partners often need plain-language answers before staff can review an application or service request.",
+      "agentWorkflow": "Train a DocsBot support agent on your public service pages, intake packet, FAQs, referral instructions, appointment preparation guides, and contact rules. The agent answers common questions, asks for missing context, summarizes the request, and routes the handoff to the right team when configured.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or workflow automations, the agent can create an intake task, send a structured summary, or trigger a secure follow-up path while leaving eligibility decisions to staff.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I bring to my first appointment?",
+        "Can a school counselor refer a student for pre-employment transition services?",
+        "I missed a call from my counselor. What is the next step?",
+        "Which office should I contact based on my county or service area?"
+      ],
+      "businessOutcome": "Reduces repetitive intake questions, improves consistency, and gives staff cleaner handoff summaries before they contact the client.",
+      "icon": "IdentificationIcon",
+      "sourceIds": [
+        "src-ecfr-eligibility-priority"
+      ]
+    },
+    {
+      "name": "Counselor policy and procedure knowledge agent",
+      "problem": "Counselors need fast, accurate access to policy, service definitions, templates, vendor rules, and internal procedures while protecting professional review for individualized decisions.",
+      "agentWorkflow": "Create a private DocsBot internal knowledge agent trained on SOPs, policy manuals, training files, PDFs, plan templates, vendor guidance, and internal wikis. Counselors can ask natural-language questions and receive source-grounded answers with references to approved materials.",
+      "liveContextOrTools": "If configured, the agent can summarize a policy question, draft a note for review, create a task, or route a documentation gap to program leadership.",
+      "exampleQuestionsOrRequests": [
+        "Where is our current procedure for closing a case after successful employment?",
+        "What template should I use for a vendor authorization request?",
+        "Summarize our internal guidance on supported employment referrals.",
+        "Which staff resource explains transportation support procedures?"
+      ],
+      "businessOutcome": "Cuts time spent searching across documents and supports more consistent application of internal procedures across offices.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-rsa-functional-statement"
+      ]
+    },
+    {
+      "name": "Employment plan preparation support",
+      "problem": "Planning conversations can involve goals, barriers, training resources, accommodation questions, timelines, and follow-up tasks that must be documented carefully.",
+      "agentWorkflow": "Use DocsBot to retrieve approved career planning resources, training program descriptions, accommodation guidance, and internal plan-writing instructions. The agent can help staff prepare outlines, summarize discussions, and identify missing information for human review.",
+      "liveContextOrTools": "Customer-configured AI Actions can create follow-up tasks, notify a counselor, or generate a draft summary from approved conversation context. Sensitive employment-plan decisions remain with qualified staff.",
+      "exampleQuestionsOrRequests": [
+        "Draft a staff-reviewed summary of this client’s stated job goal and follow-up items.",
+        "What internal resource explains training sponsorship documentation?",
+        "Which approved accommodation resources should I share with this employer?",
+        "Create a task to request missing documentation before the next meeting."
+      ],
+      "businessOutcome": "Helps counselors prepare clearer documentation and follow-up steps without giving the agent authority over individualized service decisions.",
+      "icon": "PencilIcon",
+      "sourceIds": [
+        "src-bls-disability-education-2025"
+      ]
+    },
+    {
+      "name": "Employer and partner response assistant",
+      "problem": "Employers, schools, workforce boards, healthcare partners, and community organizations need consistent explanations of VR services and referral paths.",
+      "agentWorkflow": "Train a customer-facing or staff-facing DocsBot agent on employer FAQs, partner guides, program brochures, approved outreach scripts, and referral instructions. The agent answers routine questions and prepares staff-ready summaries for partnership follow-up.",
+      "liveContextOrTools": "With approved forms, webhooks, APIs, or scheduling workflows, the agent can collect employer interest, qualify by hiring need, location, role type, and timeline, then forward a summary to the appropriate team.",
+      "exampleQuestionsOrRequests": [
+        "How can our company partner with your VR program?",
+        "What should an employer know about workplace accommodations?",
+        "Can you send our hiring needs to the right job developer?",
+        "Collect our contact details and request a partnership call."
+      ],
+      "businessOutcome": "Improves partner responsiveness and gives employer engagement staff structured context before outreach.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Client self-service resource navigator",
+      "problem": "Clients may struggle to find transportation information, benefit-related referrals, appointment instructions, assistive technology resources, or job-readiness materials across many pages and PDFs.",
+      "agentWorkflow": "Embed a DocsBot chat widget on your website or client portal so visitors can ask plain-language questions. The agent answers from approved content, links to source materials, and escalates sensitive, urgent, or individualized requests to staff.",
+      "liveContextOrTools": "Configured Skills can look up non-sensitive public service-area information, route contact requests, or trigger a human handoff. The agent can also answer in more than 100 languages.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find your job-readiness workshop schedule?",
+        "What should I do if I need an interpreter?",
+        "Do you have resources for transportation to interviews?",
+        "Who should I contact if I moved to a new county?"
+      ],
+      "businessOutcome": "Makes service information easier to access after hours while keeping high-impact guidance inside staff-controlled boundaries.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-bls-disability-labor-force-2025"
+      ]
+    },
+    {
+      "name": "Program analytics and knowledge-gap discovery",
+      "problem": "Leaders need to understand what clients, staff, and partners repeatedly ask so they can improve service materials and training.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Program teams can identify unanswered questions and update source materials to improve future answers.",
+      "liveContextOrTools": "When configured with review workflows, repeated unanswered topics can become documentation tasks or content improvement requests for the right owner.",
+      "exampleQuestionsOrRequests": [
+        "What questions are clients asking most often about intake?",
+        "Which staff policy topics are producing unanswered questions?",
+        "Summarize this month’s repeated employer questions.",
+        "Create a documentation task for the missing referral guidance."
+      ],
+      "businessOutcome": "Turns recurring questions into practical improvements for FAQs, client handbooks, staff training, and partner materials.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-rsa-data-driven-decisions"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI agent that explains services without making eligibility decisions",
+    "intro": "DocsBot can power a website or portal agent trained on your approved vocational rehabilitation content. It can answer routine questions, guide clients to the right resources, collect structured details, and escalate to staff when a request is sensitive, individualized, or outside the knowledge base.",
+    "requests": [
+      {
+        "request": "“Am I eligible for vocational rehabilitation services?”",
+        "agentResponseStrategy": "Explain the general application and assessment process from approved materials, list documents or contact steps, and make clear that staff determine eligibility and priority under program rules.",
+        "sourceTypes": [
+          "Public eligibility pages",
+          "Client handbook",
+          "Application instructions",
+          "Contact rules"
+        ],
+        "optionalAction": "Create a staff follow-up task or route the request to the intake team when the client shares contact details through an approved form.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-ecfr-eligibility-priority"
+        ]
+      },
+      {
+        "request": "“What happens after I submit my application?”",
+        "agentResponseStrategy": "Provide a step-by-step explanation from the program’s intake guide, including appointment preparation, expected communications, and where to ask for accommodations or language access.",
+        "sourceTypes": [
+          "Intake packet",
+          "Appointment checklist",
+          "Accessibility policy",
+          "FAQ pages"
+        ],
+        "optionalAction": "Send a structured summary to intake staff or trigger a scheduling workflow when the organization has configured that action.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I’m an employer interested in hiring candidates through your program.”",
+        "agentResponseStrategy": "Answer from employer-facing materials, collect the organization’s hiring needs, location, role types, timeline, and preferred contact method, then prepare a concise handoff.",
+        "sourceTypes": [
+          "Employer FAQ",
+          "Program brochures",
+          "Partnership guide",
+          "Lead intake form"
+        ],
+        "optionalAction": "Forward the qualified employer inquiry to CRM, helpdesk software, email, Slack, Microsoft Teams, or another customer-configured workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Can you explain workplace accommodations in simple language?”",
+        "agentResponseStrategy": "Use approved education materials to explain general accommodation concepts, link to source resources, and route legal, medical, or individualized accommodation decisions to qualified staff.",
+        "sourceTypes": [
+          "Accommodation guides",
+          "Approved resource pages",
+          "Employer materials",
+          "Staff escalation policy"
+        ],
+        "optionalAction": "Offer to collect the question and send it to a counselor or employer engagement specialist for review.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“I need help in another language.”",
+        "agentResponseStrategy": "Respond in the client’s preferred language when possible and direct the client to the program’s official language access or interpreter process from approved materials.",
+        "sourceTypes": [
+          "Language access policy",
+          "Client services guide",
+          "Public contact page"
+        ],
+        "optionalAction": "Route a language access request to staff through a configured handoff or ticket workflow.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where can I find job-readiness resources?”",
+        "agentResponseStrategy": "Retrieve approved workshops, guides, videos, PDFs, or partner resources and explain which materials fit the client’s stated goal without replacing counselor guidance.",
+        "sourceTypes": [
+          "Workshop pages",
+          "Training materials",
+          "Client resource library",
+          "Partner directory"
+        ],
+        "optionalAction": "Create a reminder or follow-up task for staff if the client asks for personalized planning support.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give counselors, supervisors, and job developers a private VR knowledge workspace",
+    "intro": "DocsBot can act as an internal knowledge agent for vocational rehabilitation teams, trained on controlled sources such as SOPs, policies, training manuals, service catalogs, vendor guidance, forms, templates, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other approved files.",
+    "workflows": [
+      {
+        "name": "Policy retrieval for counselors",
+        "problem": "Counselors may need to search across multiple manuals and updates to answer procedural questions consistently.",
+        "agentWorkflow": "The internal agent answers from approved policies and cites the source material so staff can verify the guidance before applying it to a client situation.",
+        "sourceTypes": [
+          "Policy manuals",
+          "SOPs",
+          "Training guides",
+          "Service definitions"
+        ],
+        "optionalAction": "Route confusing or outdated answers to a policy owner as a documentation-gap task.",
+        "outcome": "Faster retrieval, fewer conflicting interpretations, and better visibility into which policies need clarification.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Case note and meeting summary preparation",
+        "problem": "Staff spend time turning conversations, emails, and meeting details into concise internal summaries.",
+        "agentWorkflow": "A DocsBot agent can summarize provided context, draft next-step notes, and prepare handoff language for staff review before anything becomes an official record.",
+        "sourceTypes": [
+          "Meeting notes",
+          "Approved templates",
+          "Internal documentation standards",
+          "Conversation context"
+        ],
+        "optionalAction": "Create a review task, notify a supervisor, or send a draft summary into a customer-configured workflow.",
+        "outcome": "Cleaner documentation preparation while keeping humans responsible for official case records and decisions.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Vendor and partner guidance lookup",
+        "problem": "Teams often need current instructions for vendors, community rehabilitation providers, schools, employers, and workforce partners.",
+        "agentWorkflow": "Train the agent on partner instructions, vendor procedures, service descriptions, and contact rules so staff can retrieve the right guidance during coordination.",
+        "sourceTypes": [
+          "Vendor manuals",
+          "Partner guides",
+          "Referral procedures",
+          "Contact directories"
+        ],
+        "optionalAction": "Use approved APIs, connectors, or MCP Connectors for remote Model Context Protocol servers when your team wants the agent to access live tools under defined permissions.",
+        "outcome": "Improves coordination and reduces time spent hunting for the correct partner process.",
+        "icon": "LinkIcon"
+      },
+      {
+        "name": "Onboarding and staff training support",
+        "problem": "New counselors, support staff, and job developers need to learn program language, workflows, forms, and escalation rules quickly.",
+        "agentWorkflow": "DocsBot can answer onboarding questions from training materials, internal wikis, SOPs, and recorded or written learning resources, helping new staff find answers while they build confidence.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training files",
+          "Internal wiki",
+          "Procedure checklists"
+        ],
+        "optionalAction": "Use analytics to identify onboarding questions that need clearer training content.",
+        "outcome": "Makes institutional knowledge easier to preserve and reduces repeated questions to supervisors.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Leadership reporting and content improvement",
+        "problem": "Program leaders need to know where clients and staff get stuck, but those signals are often buried in conversations and documents.",
+        "agentWorkflow": "DocsBot analytics and conversation review can show repeated topics, unresolved questions, satisfaction patterns, and missing knowledge areas.",
+        "sourceTypes": [
+          "Agent logs",
+          "Topic reports",
+          "Knowledge-gap analytics",
+          "Reviewed conversations"
+        ],
+        "optionalAction": "Create content update tasks for FAQs, staff guides, client handbooks, or partner materials.",
+        "outcome": "Turns support demand into a practical backlog for improving communication and program resources.",
+        "icon": "ChartPieIcon",
+        "sourceIds": [
+          "src-rsa-data-driven-decisions"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved VR content",
+      "mainLandingPageContext": "DocsBot agents are trained on a business’s own content and can answer in the organization’s voice from configured knowledge sources.",
+      "industryApplication": "Use your client handbook, service pages, eligibility explanations, referral instructions, employer materials, policy manuals, and staff training files as the answer base for consistent VR communication.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can appear in embedded website widgets and private team chat experiences, depending on how the organization deploys it.",
+      "industryApplication": "Offer client self-service on your website while giving counselors and supervisors a private internal agent for policy and procedure lookup.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, task creation, record updates, routing, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect intake details, summarize employer inquiries, create follow-up tasks, route language access requests, or notify the right team through approved workflows and permissions.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or workflows to learn from, summarize, route, answer, or draft responses.",
+      "industryApplication": "Use ticket history and support conversations to improve answers about appointment logistics, referral steps, employer questions, and partner follow-up while escalating complex issues.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which intake, eligibility, accommodation, training, employer, or policy questions are repeated and update the underlying VR materials to make answers clearer.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect internal policies and staff knowledge while defining boundaries for sensitive client, medical, benefits, legal, identity, or high-impact employment workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from the knowledge your organization approves.",
+      "Proven in health services and education-style knowledge environments where clarity and consistency matter.",
+      "Supports internal decision support, client self-service, analytics, and human escalation paths."
+    ],
+    "whyTheseReviewsFit": "Vocational rehabilitation teams need trusted answers from their own materials, not generic AI responses. DocsBot proof across healthcare communications, education, and content-library workflows shows how organizations use owned knowledge to support people, reduce repetitive interactions, and improve internal access to information.",
+    "trustClaimIcons": [
+      "ShieldCheckIcon",
+      "AcademicCapIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for vocational rehabilitation organizations",
+    "audience": [
+      "Vocational rehabilitation program leaders",
+      "Client services and intake teams",
+      "VR counselors and supervisors",
+      "Employer engagement and job development teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "child-youth-services",
+    "health-coaching",
+    "healthcare-revenue-cycle-management",
+    "emergency-medical-services",
+    "hearing-aid-dealers"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "vocational-rehabilitation",
+    "webSearchQueries": [
+      "vocational rehabilitation statistics employment disabilities RSA annual report 2024",
+      "BLS persons with a disability labor force employment 2025",
+      "Rehabilitation Services Administration vocational rehabilitation program eligible individuals services data"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/news.release/disabl.nr0.htm?ana=e_tno",
+      "https://rsa.ed.gov/data/view-data",
+      "https://www.ed.gov/about/ed-organization/functional-statements/osers-functional-statements/osers-functional-statements-rehabilitation-services-administration-ehr",
+      "https://www.ecfr.gov/current/title-34/subtitle-B/chapter-III/part-361/subpart-B/section-361.42"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41876,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 29332,
+        "outputTokens": 8225,
+        "reasoningOutputTokens": 121,
+        "totalTokens": 50101,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.199841,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.209841
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21584,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14288,
+          "outputTokens": 5479,
+          "reasoningOutputTokens": 105,
+          "totalTokens": 27063,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.119729,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.129729
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20292,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15044,
+          "outputTokens": 2746,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 23038,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080112,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080112
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1645005513713-9e2b92a687d3?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzkwMzl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Vocational Rehabilitation background image",
+    "source": "legacy-industry",
+    "query": "Vocational Rehabilitation"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer “am I eligible?” without creating compliance risk?",
+      "answer": "Yes, if it is configured as a guidance and handoff tool rather than a decision-maker. DocsBot can explain your published application steps, required documents, assessment process, and contact paths, while clearly stating that qualified staff determine eligibility and priority. That boundary matters because federal rules describe assessment requirements for determining eligibility and priority for VR services.",
+      "role": "Program leaders and compliance managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ecfr-eligibility-priority"
+      ]
+    },
+    {
+      "question": "How would this reduce repetitive intake calls without frustrating clients who need a person?",
+      "answer": "DocsBot can answer routine questions about intake packets, appointment preparation, documents, locations, language access, and referral steps from your approved materials. For questions that are sensitive, individualized, urgent, or outside the knowledge base, it can collect context and prepare a structured handoff so intake staff start with cleaner information instead of a blank callback.",
+      "role": "Client services and intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use one agent for clients and another private agent for counselors?",
+      "answer": "Yes. Many VR teams would separate a public-facing website or portal agent from a private internal knowledge agent. The client agent can use approved public service content, while the staff agent can be trained on SOPs, policy manuals, templates, vendor guidance, and training files with role-based permissions controlling who can access internal knowledge.",
+      "role": "Program leaders and compliance managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What kinds of VR content should we train the agent on first?",
+      "answer": "Start with high-volume, low-risk content: public FAQs, client handbooks, intake instructions, appointment checklists, service descriptions, office contact rules, referral pathways, employer brochures, and language access instructions. For an internal rollout, add SOPs, policy manuals, plan templates, vendor instructions, training files, and escalation rules after content owners review them.",
+      "role": "Program leaders and compliance managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will counselors trust the answers if policies are spread across PDFs, shared drives, and old manuals?",
+      "answer": "Trust depends on source control. DocsBot is strongest when the team curates approved sources, removes outdated documents, and asks the agent to cite or reference the material behind its answer. That lets counselors verify policy guidance before applying it to a client situation and helps leaders spot documents that need revision.",
+      "role": "Vocational rehabilitation counselors",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help counselors prepare notes without becoming part of the official case record?",
+      "answer": "DocsBot can draft summaries, next-step notes, or handoff language from provided context and approved templates, but staff should review before anything is entered into an official record. This is a practical fit for meeting preparation, follow-up lists, policy lookup, and documentation drafts—not autonomous eligibility, service authorization, or plan decisions.",
+      "role": "Vocational rehabilitation counselors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the AI from giving medical, legal, benefits, or individualized employment-plan advice?",
+      "answer": "Set clear instructions, source boundaries, and escalation rules. The agent can provide general information from approved materials, ask clarifying questions, and route the person to staff when the request involves medical details, legal rights, benefits implications, individualized accommodations, eligibility, priority, or service authorization. Logs and review workflows help monitor whether those boundaries are working.",
+      "role": "Program leaders and compliance managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support clients, families, schools, employers, and referral partners in different languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, using your approved service content as the source. For VR programs, the safest pattern is to combine multilingual self-service with a clear path to your official interpreter or language access process when a client needs formal assistance, case-specific help, or staff follow-up.",
+      "role": "Client services and intake teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What would success look like in the first 60 to 90 days?",
+      "answer": "Early success usually means fewer repetitive intake questions, faster staff access to policy answers, better handoff summaries, and clear analytics on unanswered questions. Track topics asked, resolution or satisfaction signals, escalation rates, knowledge gaps, and staff feedback. Because RSA emphasizes data-driven decisions to improve outcomes for people served by VR programs, analytics can also support continuous program improvement.",
+      "role": "Program leaders and compliance managers",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-rsa-data-driven-decisions"
+      ]
+    },
+    {
+      "question": "Can DocsBot route an intake request to the right office, counselor, or queue?",
+      "answer": "Yes, when your team configures the needed Skills, APIs, connectors, forms, or workflow rules. The agent can collect structured details such as county, preferred contact method, referral source, requested service, language need, and urgency, then create a task, ticket, notification, or handoff summary through an approved workflow.",
+      "role": "Client services and intake teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Does this replace our case management system?",
+      "answer": "No. DocsBot should sit alongside your case management and communication tools as an AI knowledge and workflow layer. It can answer from approved content, summarize conversations, prepare handoffs, and trigger bounded actions when configured, but your system of record should remain the place for official case notes, determinations, authorizations, and reporting.",
+      "role": "Program leaders and compliance managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we connect it to helpdesk, CRM, forms, email, Slack, or Microsoft Teams?",
+      "answer": "DocsBot can support customer-configured connections through Skills, APIs, connectors, webhooks, exports, or workflow automations. For VR teams, common patterns include sending employer inquiries to a CRM-style process, creating intake tasks, routing language access requests, notifying a team channel, or drafting helpdesk responses for human review.",
+      "role": "Program leaders and compliance managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does this help job developers working with employers?",
+      "answer": "A staff-facing or employer-facing agent can retrieve approved employer FAQs, service descriptions, accommodation talking points, referral instructions, outreach templates, and follow-up language. It can also collect employer hiring needs, location, role type, timeline, and preferred contact method, then prepare a structured handoff for the right job developer.",
+      "role": "Job developers and employer engagement teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for workplace accommodation questions without overstepping?",
+      "answer": "Yes, if it stays educational and source-grounded. The agent can explain general accommodation concepts from approved materials, point employers or clients to your resources, and collect questions for staff review. It should escalate legal, medical, ADA-specific, or individualized accommodation decisions to qualified staff rather than presenting itself as an authority.",
+      "role": "Job developers and employer engagement teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI when our goal is service access, not just ticket deflection?",
+      "answer": "Measure both operational and mission-aligned outcomes: reduction in repetitive calls, faster intake handoffs, fewer staff searches for policy, improved after-hours access, clearer employer inquiries, fewer unanswered content gaps, and better consistency across offices. The broader context is significant: BLS reported that about 75% of people with a disability were not in the labor force in 2025, so easier access to VR information can support the front end of employment services.",
+      "role": "Program leaders and compliance managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-disability-labor-force-2025"
+      ]
+    },
+    {
+      "question": "What security controls matter for internal VR policies and sensitive client-adjacent workflows?",
+      "answer": "Look for source permissions, role-based access, encryption in transit and at rest, audit-friendly logs, controlled Skills, secret handling, and clear data-use commitments. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, granular access controls, role-based permissions, encryption, and does not use customer data to train public models.",
+      "role": "Program leaders and compliance managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can supervisors see what clients and staff are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Program leaders can use those signals to update FAQs, clarify policy manuals, improve onboarding materials, and identify recurring questions that should become better public or internal content.",
+      "role": "Program leaders and compliance managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent outdated policies from producing wrong answers?",
+      "answer": "Treat implementation as a content governance project, not just a software launch. Assign owners for public pages, policy manuals, forms, and templates; remove obsolete sources; review high-risk answer categories; and use knowledge-gap analytics to find confusing or stale areas. Staff should also have a way to flag an answer for correction.",
+      "role": "Program leaders and compliance managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this help onboard new counselors, support staff, and job developers?",
+      "answer": "Yes. A private internal agent can answer onboarding questions from training guides, SOPs, service catalogs, forms, templates, and internal wikis. New staff can ask where to find a procedure, which template to use, how a referral path works, or what escalation rule applies, while supervisors retain responsibility for coaching and final interpretation.",
+      "role": "Vocational rehabilitation counselors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much staff time will implementation require?",
+      "answer": "The main work is selecting sources, defining answer boundaries, setting escalation rules, testing real questions, and assigning content owners. A practical pilot can start with one audience—such as intake staff or counselors—then expand after reviewing answer quality, unresolved topics, and staff confidence. Complex live actions or system connections require more planning.",
+      "role": "Program leaders and compliance managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with Pre-ETS, school referrals, and partner questions?",
+      "answer": "Yes, if your approved content covers those workflows. DocsBot can explain referral steps, required forms, contact paths, partner responsibilities, appointment preparation, and next steps in plain language. When a student-specific, consent-related, or eligibility-related question comes up, the agent should route to staff instead of deciding what services apply.",
+      "role": "Client services and intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work across multiple offices with different local procedures?",
+      "answer": "Yes, but the content model matters. You can organize sources by office, county, service area, program, or role, then instruct the agent to ask for location or context before answering. For internal use, role-based permissions can help ensure staff see the right procedures and do not rely on guidance meant for another team.",
+      "role": "Program leaders and compliance managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or general-purpose AI tool?",
+      "answer": "The key difference is controlled knowledge and workflow fit. DocsBot is designed for source-grounded answers from your approved content, private internal knowledge use, analytics, human escalation, and bounded actions through configured Skills, APIs, connectors, or workflows. A generic AI tool may not provide the same source governance, role controls, or VR-specific implementation boundaries.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent identify gaps in our client handbook or website content?",
+      "answer": "Yes. DocsBot analytics and conversation review can show repeated questions, unanswered topics, confusing areas, and satisfaction patterns. If many clients ask the same question about intake documents, transportation, interpreter requests, employer referrals, or appointment timing, the team can update the source materials so future answers improve.",
+      "role": "Program leaders and compliance managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should we avoid automating in a VR program?",
+      "answer": "Avoid automating eligibility determinations, priority decisions, individualized service approvals, medical or legal advice, benefits counseling conclusions, and final employment-plan commitments. Use AI for retrieval, explanation, summarization, intake preparation, routing, and staff-reviewed drafts. That approach fits the regulated nature of VR eligibility and priority workflows.",
+      "role": "Program leaders and compliance managers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-ecfr-eligibility-priority"
+      ]
+    },
+    {
+      "question": "Can DocsBot help clients find training and career resources without replacing counselor guidance?",
+      "answer": "Yes. The agent can retrieve approved job-readiness workshops, training descriptions, accommodation resources, partner links, and appointment preparation materials. It should frame information as general guidance and encourage counselor follow-up for individualized planning, especially because BLS reported educational attainment gaps for people with disabilities that can affect training and career pathway discussions.",
+      "role": "Vocational rehabilitation counselors",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-disability-education-2025"
+      ]
+    }
+  ]
+}

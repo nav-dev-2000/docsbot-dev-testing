@@ -1,0 +1,711 @@
+{
+  "slug": "caterer",
+  "business": "Caterer",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Catering Leads, Menus, and Event Ops",
+    "description": "DocsBot helps caterers answer menu questions, qualify event inquiries, and route logistics faster with AI agents trained on your own materials.",
+    "canonicalPath": "/industry/caterer"
+  },
+  "hero": {
+    "eyebrow": "AI automation for catering sales, service, and event operations",
+    "headline": "Give every catering inquiry a source-grounded AI agent",
+    "subheadline": "DocsBot helps catering teams turn menus, packages, allergen notes, venue checklists, staffing SOPs, proposal guidance, and FAQs into AI agents that answer prospects, support staff, qualify leads, summarize requests, and route the next step through approved workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer menu, package, dietary, service-style, rental, staffing, and event logistics questions from your approved catering content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect event date, guest count, venue, budget range, service preferences, dietary needs, and follow-up details before a salesperson responds.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to route quote requests, create tasks, trigger handoffs, or summarize conversations for your team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support crews with private answers from setup sheets, delivery instructions, SOPs, policies, and approved venue notes.",
+        "icon": "UserGroupIcon"
+      }
+    ],
+    "primaryCta": "Build a catering AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the catering knowledge you already rely on: menus, seasonal packages, service-area pages, event policies, bar packages, staffing guides, delivery instructions, PDFs, website content, and internal SOPs. The agent gives source-grounded answers, collects structured details, summarizes requests, and can take bounded actions when you configure Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and catering sales managers",
+        "roleContext": "Win more qualified conversations without making prospects wait for basic answers about menus, availability, event types, service styles, and next steps.",
+        "bullets": [
+          {
+            "text": "Pre-qualify wedding, corporate, nonprofit, and private-party inquiries with a structured intake flow before a human builds the quote.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Give consistent package and policy answers across the website, follow-up emails, and private team chat.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Spot repeated unanswered questions in analytics so sales pages, menus, and proposal templates keep improving.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Event coordinators and operations leads",
+        "roleContext": "Keep event details, venue instructions, staffing notes, and change requests easier to find while your team juggles multiple events at different stages.",
+        "bullets": [
+          {
+            "text": "Summarize client conversations, dietary notes, timeline changes, and outstanding questions into a handoff for production or sales.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Retrieve setup instructions, packing lists, delivery windows, and venue notes from approved internal sources.",
+            "icon": "TruckIcon"
+          },
+          {
+            "text": "Route urgent or ambiguous requests to a human when pricing, contract terms, or event commitments need review.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Culinary, staffing, and front-of-house teams",
+        "roleContext": "Give staff a private knowledge agent for SOPs, service standards, allergen handling notes, equipment checklists, and event-day procedures.",
+        "bullets": [
+          {
+            "text": "Make prep sheets, recipes, plating standards, service scripts, and cleanup instructions searchable from one assistant.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Help new or temporary staff get consistent answers during onboarding and event preparation.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Keep food-safety reminders tied to your approved training materials and escalate questions that require a manager’s judgment.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-catering-market-size",
+      "metric": "$14.4 billion U.S. caterers market in 2025",
+      "claim": "IBISWorld reports that the Caterers industry in the United States has a 2025 market size of $14.4 billion.",
+      "sourceTitle": "Caterers in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/caterers/1682/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "competitive pressure",
+        "sales inquiry volume"
+      ]
+    },
+    {
+      "id": "src-food-service-manager-growth",
+      "metric": "6% projected food service manager employment growth",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of food service managers to grow 6% from 2024 to 2034, faster than the average for all occupations.",
+      "sourceTitle": "Food Service Managers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/management/food-service-managers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "management workload",
+        "operations staffing pressure"
+      ]
+    },
+    {
+      "id": "src-fda-food-code",
+      "metric": "FDA Food Code is a model for food safety rules",
+      "claim": "The FDA says local, state, tribal, and federal regulators use the Food Code as a model for developing or updating food safety rules.",
+      "sourceTitle": "FDA Food Code",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "food safety compliance pressure",
+        "SOP importance",
+        "training documentation"
+      ]
+    },
+    {
+      "id": "src-off-premises-expectations",
+      "metric": "Nearly 75% of restaurant traffic occurs off-premises",
+      "claim": "National Restaurant Association research says nearly 75% of restaurant traffic occurs off-premises and customers expect food quality, effective packaging, temperature protection, spill prevention, and tamper protection.",
+      "sourceTitle": "Value is a big piece of off-premises dining’s popularity play",
+      "sourceUrl": "https://restaurant.org/education-and-resources/resource-library/value-is-a-big-piece-of-off-premises-dinings-popularity-play/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "delivery expectations",
+        "packaging and transport questions",
+        "customer service expectations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Event inquiry qualification and quote intake",
+      "problem": "Catering leads often arrive with missing details: date, venue, headcount, budget, service style, dietary needs, rental needs, and timeline. Sales teams lose time chasing basics before they can estimate fit.",
+      "agentWorkflow": "A DocsBot agent answers package and menu questions from approved content, asks for required intake fields, applies your qualification instructions, and summarizes the request for a human salesperson. When configured, AI Actions can submit a lead form, create a CRM or helpdesk record, notify the team, or request a meeting through an approved scheduling workflow.",
+      "liveContextOrTools": "Use customer-configured forms, APIs, connectors, scheduling workflows, CRM or helpdesk handoffs, and scoped Skills for live lead routing.",
+      "exampleQuestionsOrRequests": [
+        "Can you cater a 120-person wedding next September with passed appetizers and a buffet?",
+        "Do you offer vegan and gluten-free menu options for a corporate lunch?",
+        "Here are my event details. Can someone send a quote?"
+      ],
+      "businessOutcome": "Sales teams receive cleaner, better-scoped inquiries and can focus human time on proposals, tasting coordination, and high-value client conversations.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Menu, allergen, and dietary answer agent",
+      "problem": "Prospects and clients ask repeated questions about menu substitutions, allergens, dietary accommodations, service styles, beverage packages, minimums, and seasonal availability.",
+      "agentWorkflow": "Train DocsBot on menus, allergen notes, package PDFs, website pages, FAQs, and policy documents. The agent responds in your brand voice with source-grounded answers, explains what is available, gathers follow-up details, and escalates sensitive allergen or custom-menu decisions to a human when needed.",
+      "liveContextOrTools": "Use approved knowledge sources, website widget deployment, private team chat, multilingual answers, and human escalation for complex dietary or safety-sensitive questions.",
+      "exampleQuestionsOrRequests": [
+        "Which hors d’oeuvres can be made dairy-free?",
+        "What is the difference between buffet, plated, and family-style service?",
+        "Can I swap chicken for salmon in the classic package?"
+      ],
+      "businessOutcome": "Clients get faster, more consistent answers while culinary and sales teams spend less time retyping the same information.",
+      "icon": "CakeIcon"
+    },
+    {
+      "name": "Event-day operations knowledge assistant",
+      "problem": "Catering events depend on details scattered across BEOs, setup notes, venue instructions, staffing schedules, delivery sheets, rental lists, and SOPs.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent helps coordinators, captains, and staff retrieve approved instructions, summarize event details, and identify what is still missing. Teams can ask natural-language questions instead of searching folders during prep or shift briefings.",
+      "liveContextOrTools": "Connect approved internal documents, PDFs, Google Drive, Notion, Confluence, Word files, and other company knowledge sources. Customer-configured Skills can create tasks or route missing-item alerts.",
+      "exampleQuestionsOrRequests": [
+        "What time does the captain arrive for the Johnson event?",
+        "What is our standard buffet setup checklist for a hotel ballroom?",
+        "Summarize the rental items and open questions for Saturday’s gala."
+      ],
+      "businessOutcome": "Operations teams spend less time hunting for information and more time preparing the event correctly.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Food-safety and SOP retrieval for staff",
+      "problem": "Caterers need consistent access to approved prep, holding, transport, service, cleaning, and allergen procedures. The FDA Food Code is widely used as a model for food safety rules, making documented procedures and training important for foodservice teams.",
+      "agentWorkflow": "DocsBot can answer staff questions from your own food-safety manuals, SOPs, training guides, checklists, and policy documents. It can surface the relevant source, explain the internal procedure, and instruct staff to escalate when a manager, local code requirement, or food-safety lead must decide.",
+      "liveContextOrTools": "Use private team chat, role-based permissions, approved source libraries, logs, conversation review, and scoped escalation rules for safety-sensitive topics.",
+      "exampleQuestionsOrRequests": [
+        "Where is our hot-holding checklist for offsite buffets?",
+        "What is our procedure for labeling allergen-free meals?",
+        "Who approves a change to the transport plan?"
+      ],
+      "businessOutcome": "Staff get faster access to approved procedures while managers keep boundaries around safety-critical judgment.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-food-code"
+      ]
+    },
+    {
+      "name": "Post-event follow-up and knowledge-gap reporting",
+      "problem": "After busy events, feedback, unanswered questions, complaints, and change requests can stay buried in emails or chat threads instead of improving future proposals and operations.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review help teams identify repeated questions and content gaps. With approved workflows, an agent can summarize client conversations, draft follow-up responses, create internal tasks, or route feedback to sales, culinary, or operations.",
+      "liveContextOrTools": "Use conversation logs, satisfaction or resolution analysis, reports, helpdesk-style workflows, Slack or Microsoft Teams handoffs, and customer-configured AI Actions.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this client’s post-event feedback for the sales manager.",
+        "What questions did prospects ask most often this month?",
+        "Create a task to update the buffet package FAQ."
+      ],
+      "businessOutcome": "Your catering knowledge base improves over time, and recurring service questions become easier to answer before they slow the team down.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Off-premises delivery and packaging support",
+      "problem": "Catering customers expect food quality to hold up away from the kitchen. National Restaurant Association research says nearly 75% of restaurant traffic occurs off-premises and that customers care about packaging that maintains temperature, prevents spills, and protects against tampering.",
+      "agentWorkflow": "A DocsBot agent can answer delivery, packaging, setup, drop-off, and service-window questions from approved policies. Internal staff can ask for transport checklists or packaging notes, while customer-facing flows can explain delivery boundaries, setup responsibilities, and what details the team needs.",
+      "liveContextOrTools": "Use website widget answers, internal SOP retrieval, approved delivery policy sources, task creation, and customer-configured routing for exceptions.",
+      "exampleQuestionsOrRequests": [
+        "Do you provide chafing dishes for drop-off catering?",
+        "How will boxed lunches be packaged for a conference?",
+        "What delivery details do you need from the venue?"
+      ],
+      "businessOutcome": "Customers understand logistics earlier, and operations teams receive clearer transport and setup requirements before event day.",
+      "icon": "ShoppingBagIcon",
+      "sourceIds": [
+        "src-off-premises-expectations"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A catering sales assistant that answers first and hands off cleanly",
+    "intro": "Embed a DocsBot agent on your catering website so prospects can ask about menus, packages, minimums, availability, dietary options, venues, service areas, and next steps. The agent responds from approved content, collects structured event details, and prepares a clear handoff when a human should take over.",
+    "requests": [
+      {
+        "request": "“Can you cater a 200-person corporate reception next month?”",
+        "agentResponseStrategy": "Ask for date, venue, guest count, service style, budget range, dietary needs, and contact details, then summarize the lead for sales or trigger an approved routing workflow.",
+        "sourceTypes": [
+          "Menus",
+          "Package pages",
+          "Lead intake rules",
+          "Service-area content"
+        ],
+        "optionalAction": "Submit a custom lead form, create a task or record, notify the sales team, or request a consultation through a configured scheduling workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“What menu options work for vegan, gluten-free, and nut-free guests?”",
+        "agentResponseStrategy": "Answer from approved menu and allergen materials, explain available options and limitations, gather guest counts, and route complex allergen decisions to a staff member.",
+        "sourceTypes": [
+          "Menu PDFs",
+          "Allergen notes",
+          "FAQ pages",
+          "Culinary policies"
+        ],
+        "optionalAction": "Create a follow-up item for the culinary or sales team with the dietary requirements summarized.",
+        "icon": "CakeIcon"
+      },
+      {
+        "request": "“Do you deliver, set up, and provide servers?”",
+        "agentResponseStrategy": "Explain delivery, setup, staffing, rental, and service-style policies using the caterer’s own documents and ask for venue details if the answer depends on location or event type.",
+        "sourceTypes": [
+          "Service policies",
+          "Venue notes",
+          "Staffing guides",
+          "Rental lists"
+        ],
+        "optionalAction": "Route the conversation to operations or sales if the event requires custom staffing, rentals, or venue coordination.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can I talk to someone about a tasting or proposal?”",
+        "agentResponseStrategy": "Collect contact information, event context, timeline, and scheduling intent, then hand off the conversation with a concise summary.",
+        "sourceTypes": [
+          "Sales scripts",
+          "Proposal FAQs",
+          "Scheduling rules",
+          "Qualification criteria"
+        ],
+        "optionalAction": "Use a customer-configured scheduling Skill, form, or workflow to request a meeting while keeping final pricing and commitments with your team.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish for my family?”",
+        "agentResponseStrategy": "Provide source-grounded answers in the user’s preferred language when configured, while keeping the underlying knowledge tied to the same approved catering materials.",
+        "sourceTypes": [
+          "Website pages",
+          "Menus",
+          "FAQs",
+          "Policies"
+        ],
+        "optionalAction": "Include language preference in the lead summary for the sales team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What is included in your wedding package?”",
+        "agentResponseStrategy": "Compare package inclusions, explain service options, clarify common exclusions, and ask enough context to guide the prospect toward the right follow-up.",
+        "sourceTypes": [
+          "Wedding package PDFs",
+          "Pricing guidance",
+          "FAQ content",
+          "Service descriptions"
+        ],
+        "optionalAction": "Forward a package-fit summary to the assigned salesperson or create a proposal-prep task through approved workflows.",
+        "icon": "HeartIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for catering teams behind the scenes",
+    "intro": "DocsBot helps employees find the right answer from your private catering knowledge: SOPs, BEO templates, venue notes, recipes, training manuals, HR policies, sales playbooks, brand standards, and post-event procedures. Use it in private chat, Slack, Microsoft Teams, or other approved team experiences when configured.",
+    "workflows": [
+      {
+        "name": "BEO and event file lookup",
+        "problem": "Event details change quickly, and coordinators need a faster way to find the latest approved instructions without digging through folders.",
+        "agentWorkflow": "Train the internal agent on BEO templates, event folders, setup sheets, venue notes, and delivery instructions. Staff can ask natural-language questions and receive source-grounded answers with links back to the underlying material.",
+        "sourceTypes": [
+          "BEOs",
+          "Venue notes",
+          "Setup sheets",
+          "Delivery instructions"
+        ],
+        "optionalAction": "Create a missing-information task or route a summary to the event owner through a configured workflow.",
+        "outcome": "Event teams can find operational details faster and reduce avoidable back-and-forth before service.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Sales playbook and proposal support",
+        "problem": "New reps and busy owners need fast access to approved package language, objection handling, proposal examples, service-area rules, and policy explanations.",
+        "agentWorkflow": "Use DocsBot as a sales enablement agent trained on pricing guidance, proposal templates, service descriptions, testimonials, FAQs, and handoff rules. Reps can draft follow-up responses, summarize prospect context, or prepare proposal talking points for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Package guides",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM note, or prepare a proposal summary through customer-configured Skills, APIs, connectors, or MCP Connectors to approved systems.",
+        "outcome": "Sales responses become more consistent while humans remain responsible for final pricing, contracts, and custom commitments.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "Caterers often rely on seasonal, part-time, or event-based staff who need quick answers about service standards, uniforms, safety procedures, and event-day expectations.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, role checklists, SOPs, service scripts, cleanup procedures, and HR policies. Staff can ask private questions and get consistent answers from approved materials.",
+        "sourceTypes": [
+          "Training manuals",
+          "Employee handbooks",
+          "Service SOPs",
+          "Role checklists"
+        ],
+        "optionalAction": "Log repeated onboarding questions so managers know where training documents need improvement.",
+        "outcome": "New staff ramp faster and managers repeat fewer basic explanations during busy event weeks.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Operational issue routing",
+        "problem": "Questions about last-minute guest count changes, missing rentals, venue constraints, or dietary updates can land in the wrong inbox or group chat.",
+        "agentWorkflow": "A DocsBot agent can classify the request, summarize the context, collect missing details, and route the issue to sales, culinary, staffing, or operations using approved workflows.",
+        "sourceTypes": [
+          "Routing rules",
+          "Department responsibilities",
+          "Event policies",
+          "Communication templates"
+        ],
+        "optionalAction": "Create a ticket or task, notify the right channel, or update an approved field when the customer has configured the action and permissions.",
+        "outcome": "Teams get cleaner handoffs and fewer ambiguous messages during pre-event coordination.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the sources you approve and answer in your company’s voice instead of relying on generic web knowledge.",
+      "industryApplication": "Turn catering menus, package PDFs, FAQs, service policies, and event pages into reliable answers for prospects and clients.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Structured lead collection and qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and qualify using customer-defined rules.",
+      "industryApplication": "Gather event date, guest count, venue, budget range, dietary needs, service style, and follow-up preferences before sales steps in.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions let agents take bounded steps such as lookups, summaries, routing, task creation, record updates, and workflow triggers when configured.",
+      "industryApplication": "Route quote requests, create proposal tasks, notify event owners, summarize client changes, or trigger approved scheduling and handoff workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees using internal docs, SOPs, policies, wikis, PDFs, and other company knowledge sources.",
+      "industryApplication": "Give coordinators, kitchen leads, captains, and sales staff quick answers from BEOs, venue instructions, training guides, and service procedures.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, conversation review, satisfaction or resolution analysis, and insight into unanswered questions.",
+      "industryApplication": "See which menu, pricing, service-area, dietary, and logistics questions prospects ask most so your sales materials keep improving.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and private data handling.",
+      "industryApplication": "Protect client, staff, and event operations knowledge while controlling what agents can access, answer, and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own menus, policies, training materials, and event knowledge.",
+      "Deploy support on your website while also assisting the human team behind the scenes.",
+      "Use proven AI support patterns for high-volume inquiry handling and source-grounded answers."
+    ],
+    "whyTheseReviewsFit": "Catering teams need fast public answers and dependable internal knowledge during high-pressure event cycles. DocsBot proof spans owned-content training, booking-oriented hospitality workflows, embedded website assistance, and support-team augmentation—patterns that map naturally to catering sales, menu questions, and event coordination.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ComputerDesktopIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for catering sales, customer support, and internal event operations",
+    "audience": [
+      "Catering company owners",
+      "Catering sales managers",
+      "Event coordinators",
+      "Operations managers",
+      "Foodservice teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CakeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "catering-equipment-rental",
+    "bakery",
+    "food-trucks",
+    "fine-dining",
+    "hotel-resort",
+    "food-hospitality"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "caterer",
+    "webSearchQueries": [
+      "IBISWorld catering services industry United States market size 2024 catering businesses",
+      "BLS Occupational Outlook food service managers employment caterers events catering",
+      "National Restaurant Association off premises catering trends events 2024",
+      "FDA Food Code catering food safety time temperature control"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/industry/caterers/1682/",
+      "https://www.bls.gov/ooh/management/food-service-managers.htm",
+      "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "https://restaurant.org/education-and-resources/resource-library/value-is-a-big-piece-of-off-premises-dinings-popularity-play/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40984,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28440,
+        "outputTokens": 8027,
+        "reasoningOutputTokens": 118,
+        "totalTokens": 49011,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.194641,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.204641
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21585,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14289,
+          "outputTokens": 5195,
+          "reasoningOutputTokens": 118,
+          "totalTokens": 26780,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115471,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125471
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19399,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14151,
+          "outputTokens": 2832,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22231,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07917,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07917
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU0OTV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Caterer background image",
+    "source": "legacy-industry",
+    "query": "Caterer"
+  },
+  "faq": [
+    {
+      "question": "Can an AI agent qualify catering leads without promising a date, menu, or final price we have not approved yet?",
+      "answer": "Yes. DocsBot can collect the details your sales team needs—event date, guest count, venue, service style, budget range, dietary needs, rentals, and follow-up preferences—then summarize the inquiry for a human. You can keep final availability, pricing, substitutions, contract terms, and custom commitments behind human review.",
+      "role": "Owners and catering sales managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help when a prospect asks menu, package, and dietary questions before filling out our quote form?",
+      "answer": "DocsBot can answer from your approved menus, package PDFs, allergen notes, FAQs, and service policies first, then guide the prospect into a structured intake flow. That means the buyer gets useful answers immediately while your team receives a cleaner lead with the context needed for a proposal or consultation.",
+      "role": "Owners and catering sales managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use DocsBot for weddings, corporate catering, drop-off orders, and private events without mixing up the rules?",
+      "answer": "Yes. You can train the agent on different source sets and instructions for event types, packages, minimums, service styles, delivery policies, and escalation rules. For example, it can ask different intake questions for a plated wedding, boxed-lunch delivery, nonprofit gala, or corporate reception.",
+      "role": "Owners and catering sales managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a guest asks about allergens or a high-risk dietary accommodation?",
+      "answer": "DocsBot can answer from your approved allergen and menu materials, but you can instruct it to avoid making safety guarantees and escalate complex allergen, cross-contact, or custom-menu decisions to a manager or culinary lead. That keeps the answer helpful while preserving human judgment for food-safety-sensitive situations.",
+      "role": "Culinary, staffing, and front-of-house teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help our team find BEO details, venue notes, setup instructions, or delivery checklists?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on BEO templates, setup sheets, delivery instructions, venue notes, SOPs, and event folders. Coordinators, captains, and kitchen leads can ask natural-language questions and get source-grounded answers with references back to approved materials.",
+      "role": "Event coordinators and operations leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot integrate with the systems we already use for leads, scheduling, tasks, or team notifications?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, forms, webhooks, and approved AI Actions. That can include submitting lead details, creating a task or record, notifying a sales or operations channel, or requesting a meeting through a configured scheduling workflow. Specific connections depend on what you authorize and configure.",
+      "role": "Owners and catering sales managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we connect DocsBot to Google Drive, PDFs, Word documents, Notion, Confluence, or internal SOP folders?",
+      "answer": "Yes. DocsBot can train on internal documents, PDFs, Word files, Google Drive, Notion, Confluence, website pages, and other configured knowledge sources. For caterers, that usually means menus, package sheets, sales playbooks, staffing guides, training materials, food-safety procedures, and event operations documents.",
+      "role": "Event coordinators and operations leads",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the AI agent from using old menus, outdated pricing, or retired packages?",
+      "answer": "The best implementation pattern is to train DocsBot on approved source libraries, remove outdated files, and assign ownership for menu, pricing-guidance, package, and policy updates. DocsBot’s source-grounded answers and conversation review help you see where content needs cleanup rather than letting the agent rely on generic web knowledge.",
+      "role": "Owners and catering sales managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with after-hours inquiries when our sales team is busy with events?",
+      "answer": "Yes. A website agent can answer common questions, collect required event details, and prepare a handoff outside business hours. The value is not just instant response—it is that the next salesperson sees a concise summary instead of an incomplete message like “Do you cater weddings?”",
+      "role": "Owners and catering sales managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What ROI should a catering company look for beyond fewer phone calls?",
+      "answer": "Look for cleaner inquiry qualification, faster first response, fewer repeated menu and policy explanations, less time searching for operations documents, better handoffs between sales and production, and fewer missed details before event day. In a $14.4 billion U.S. caterers market, speed and consistency can matter when prospects compare multiple vendors.",
+      "role": "Owners and catering sales managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-catering-market-size"
+      ]
+    },
+    {
+      "question": "Can DocsBot help reduce management workload for foodservice leaders and event operations teams?",
+      "answer": "DocsBot can reduce repetitive explanation work by answering from SOPs, onboarding guides, service standards, venue notes, and sales materials. That is especially relevant as the Bureau of Labor Statistics projects food service manager employment to grow 6% from 2024 to 2034, reflecting continued management demand in foodservice operations.",
+      "role": "Event coordinators and operations leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-food-service-manager-growth"
+      ]
+    },
+    {
+      "question": "Can we use the agent for food-safety SOP retrieval without treating it like a compliance officer?",
+      "answer": "Yes. DocsBot can surface your approved prep, holding, transport, cleaning, labeling, and allergen procedures while making clear when staff should escalate to a manager or local requirement. That matters because the FDA describes the Food Code as a model used by regulators for developing or updating food-safety rules.",
+      "role": "Culinary, staffing, and front-of-house teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-food-code"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle delivery, packaging, drop-off, and setup questions?",
+      "answer": "DocsBot can answer from your delivery policies, packaging notes, setup responsibilities, service-window rules, and venue requirements. That is useful because National Restaurant Association research says nearly 75% of restaurant traffic occurs off-premises and customers care about packaging that protects temperature, spills, and tampering.",
+      "role": "Event coordinators and operations leads",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-off-premises-expectations"
+      ]
+    },
+    {
+      "question": "Can the agent support part-time, seasonal, or event-based staff who do not know all our procedures yet?",
+      "answer": "Yes. You can train an internal DocsBot agent on onboarding guides, role checklists, uniforms, service scripts, cleanup procedures, HR policies, and event-day SOPs. New or temporary staff can ask private questions, while managers can review repeated questions to identify where training materials need improvement.",
+      "role": "Culinary, staffing, and front-of-house teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much work is required before launch if our catering knowledge is scattered across PDFs, menus, folders, and old documents?",
+      "answer": "Implementation usually starts by selecting the highest-value approved sources: current menus, packages, FAQs, service policies, intake rules, and top internal SOPs. You do not need to perfect every document on day one. Launch a focused agent, review conversations, then expand sources and workflows as gaps become visible.",
+      "role": "Owners and catering sales managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we test DocsBot internally before putting it on our website for customers?",
+      "answer": "Yes. Many teams would start with a private internal agent for sales, operations, or training content. That lets your team validate answer quality, source coverage, escalation rules, and content gaps before using a customer-facing website widget for live inquiries.",
+      "role": "Event coordinators and operations leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should humans still own after we deploy an AI agent?",
+      "answer": "Humans should continue to own final pricing, contract terms, availability commitments, custom menu approval, allergy-sensitive decisions, complaint resolution, and unusual event logistics. DocsBot is best used to answer from approved materials, collect missing details, summarize context, and route the next step to the right person.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for families, planners, or corporate clients?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured, while grounding responses in the same approved catering sources. It can also include the prospect’s language preference in the lead summary so your sales team knows how to follow up appropriately.",
+      "role": "Owners and catering sales managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep private event files, staff procedures, and client details from being exposed to website visitors?",
+      "answer": "DocsBot supports separate source access patterns, granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and private data handling. Customer-facing agents should be trained only on approved public or sales-safe materials, while internal agents can use restricted content.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot use our menus, client conversations, or SOPs to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. Your team controls the knowledge sources, permissions, Skills, and workflows the agent can access, and sensitive actions can be bounded with secrets management, metadata bindings, logging, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What reporting will show whether the agent is actually helping our catering business?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. For caterers, useful reporting often includes repeated menu questions, unanswered dietary or pricing questions, lead-intake completion, after-hours inquiry themes, and internal SOP search patterns.",
+      "role": "Owners and catering sales managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent create tasks or alerts when a client mentions a guest-count change, missing rental, or dietary update?",
+      "answer": "Yes, when you configure the appropriate AI Actions, Skills, APIs, connectors, or workflows. DocsBot can classify the request, collect missing context, summarize it, and route it to sales, culinary, staffing, or operations. You decide which actions are allowed and which require human review.",
+      "role": "Event coordinators and operations leads",
+      "category": "Integrations"
+    },
+    {
+      "question": "How is DocsBot different from a basic website chatbot or FAQ widget?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not a static FAQ list. It can answer nuanced questions, collect structured lead details, summarize conversations, support internal teams, surface knowledge gaps, and take bounded workflow actions when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help us compare or explain catering packages without discounting or negotiating?",
+      "answer": "Yes. You can train DocsBot on package descriptions, inclusions, exclusions, service styles, proposal FAQs, and approved pricing guidance. The agent can explain differences and ask fit questions, while escalation rules keep discounts, negotiations, and final proposal language with your sales team.",
+      "role": "Owners and catering sales managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What if a prospect asks something the agent cannot answer from our documents?",
+      "answer": "DocsBot can be configured to acknowledge that it does not have enough approved information, ask clarifying questions, and route the conversation to a human. Those unanswered or low-confidence themes can appear in analytics so your team knows which menus, FAQs, or policies need improvement.",
+      "role": "Owners and catering sales managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot across multiple locations, brands, or service areas?",
+      "answer": "Yes. DocsBot can be structured around approved sources, instructions, and permissions for different brands, locations, regions, or service lines. That helps prevent a prospect in one market from receiving the wrong delivery boundary, package rule, minimum, or venue-specific instruction.",
+      "role": "Owners and catering sales managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who should be involved in evaluating DocsBot for a catering company?",
+      "answer": "A realistic buying group includes the owner or GM, catering sales manager, event operations lead, culinary or food-safety lead, and whoever manages website, CRM, or workflow tools. Sales cares about lead quality, operations cares about accurate handoffs, culinary cares about safe boundaries, and leadership cares about time saved and risk control.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How should we roll this out without disrupting our sales and event process during busy season?",
+      "answer": "Start with one focused workflow, such as website inquiry qualification or internal SOP lookup. Use approved sources, conservative escalation rules, and conversation review. After the team trusts answer quality, add actions like lead summaries, task creation, notifications, or scheduling requests through customer-configured workflows.",
+      "role": "Event coordinators and operations leads",
+      "category": "Implementation"
+    }
+  ]
+}

@@ -1,0 +1,1028 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocsBot Industry V2 Agent Page",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "business",
+    "industryCategory",
+    "backgroundImage",
+    "pageMeta",
+    "hero",
+    "businessClarity",
+    "evidenceSources",
+    "agentUseCases",
+    "customerFacingAgent",
+    "internalAgent",
+    "docsbotFeatureMapping",
+    "trustAndProof",
+    "faq",
+    "schemaHints",
+    "relatedIndustrySlugs",
+    "generationMeta"
+  ],
+  "properties": {
+    "slug": {
+      "type": "string",
+      "minLength": 2
+    },
+    "business": {
+      "type": "string",
+      "minLength": 2
+    },
+    "industryCategory": {
+      "type": "string",
+      "minLength": 2
+    },
+    "backgroundImage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "alt",
+        "source",
+        "query"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 8,
+          "description": "Hero background image URL, normally copied from the legacy industry Unsplash image."
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 8,
+          "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "legacy-industry",
+            "unsplash-search",
+            "default-docsbot"
+          ]
+        },
+        "query": {
+          "type": "string",
+          "minLength": 2,
+          "description": "Suggested maximum: about 120 characters; use natural complete phrasing over hard truncation."
+        }
+      }
+    },
+    "pageMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "title",
+        "description",
+        "canonicalPath"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 35,
+          "description": "Dynamic SEO title. Aim for 45-65 characters. Must mention AI agents or AI automation and the industry/use-case intent. Must not follow a fixed 'AI Chatbots for X' pattern. Suggested maximum: about 90 characters; use natural complete phrasing over hard truncation."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 110,
+          "description": "Dynamic SEO description. Aim for 135-165 characters. Must mention DocsBot, the industry, and one concrete outcome. Suggested maximum: about 190 characters; use natural complete phrasing over hard truncation."
+        },
+        "canonicalPath": {
+          "type": "string",
+          "pattern": "^/industry/[a-z0-9-]+$"
+        }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eyebrow",
+        "headline",
+        "subheadline",
+        "proofBullets",
+        "primaryCta",
+        "secondaryCta"
+      ],
+      "properties": {
+        "eyebrow": {
+          "type": "string",
+          "minLength": 4,
+          "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+        },
+        "headline": {
+          "type": "string",
+          "minLength": 35,
+          "description": "Dynamic H1. Aim for 45-85 characters. Position DocsBot around AI agents or automation for this industry, not primarily chatbots. Suggested maximum: about 110 characters; use natural complete phrasing over hard truncation."
+        },
+        "subheadline": {
+          "type": "string",
+          "minLength": 120,
+          "description": "Suggested maximum: about 360 characters; use natural complete phrasing over hard truncation."
+        },
+        "proofBullets": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "icon"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 30,
+                "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+              },
+              "icon": {
+                "$ref": "#/$defs/heroIconName"
+              }
+            }
+          }
+        },
+        "primaryCta": {
+          "type": "string",
+          "minLength": 8,
+          "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+        },
+        "secondaryCta": {
+          "type": "string",
+          "minLength": 8,
+          "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+        }
+      }
+    },
+    "businessClarity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "whatDocsBotDoes",
+        "whoItHelps"
+      ],
+      "properties": {
+        "whatDocsBotDoes": {
+          "type": "string",
+          "minLength": 140,
+          "description": "Suggested maximum: about 520 characters; use natural complete phrasing over hard truncation."
+        },
+        "whoItHelps": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "role",
+              "roleContext",
+              "bullets",
+              "roleIcon"
+            ],
+            "properties": {
+              "role": {
+                "type": "string",
+                "minLength": 4,
+                "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+              },
+              "roleContext": {
+                "type": "string",
+                "minLength": 70,
+                "description": "Suggested maximum: about 320 characters; use natural complete phrasing over hard truncation."
+              },
+              "bullets": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 5,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "text",
+                    "icon"
+                  ],
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "minLength": 30,
+                      "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+                    },
+                    "icon": {
+                      "$ref": "#/$defs/heroIconName"
+                    },
+                    "sourceIds": {
+                      "$ref": "#/$defs/sourceIds"
+                    }
+                  }
+                }
+              },
+              "roleIcon": {
+                "$ref": "#/$defs/heroIconName"
+              },
+              "sourceIds": {
+                "$ref": "#/$defs/sourceIds"
+              }
+            }
+          }
+        }
+      }
+    },
+    "evidenceSources": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 8,
+      "description": "Authoritative external proof points used as optional inline citations across the page. Do not render as a generic industry research section; render the sources list at the bottom and superscript sourceIds where referenced.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "metric",
+          "claim",
+          "sourceTitle",
+          "sourceUrl",
+          "sourceDate",
+          "bestUsedFor"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$",
+            "description": "Stable source identifier referenced by sourceIds arrays, for example src-landscaping-employment."
+          },
+          "metric": {
+            "type": "string",
+            "minLength": 4,
+            "description": "Suggested maximum: about 120 characters; use natural complete phrasing over hard truncation."
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 35,
+            "description": "Suggested maximum: about 280 characters; use natural complete phrasing over hard truncation."
+          },
+          "sourceTitle": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+          },
+          "sourceUrl": {
+            "type": "string",
+            "minLength": 8
+          },
+          "sourceDate": {
+            "type": "string",
+            "description": "Suggested maximum: about 40 characters; use natural complete phrasing over hard truncation."
+          },
+          "bestUsedFor": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 5,
+            "description": "Page claims this source can support, such as labor scale, safety risk, customer expectations, compliance pressure, or workflow bottlenecks.",
+            "items": {
+              "type": "string",
+              "minLength": 4,
+              "description": "Suggested maximum: about 100 characters; use natural complete phrasing over hard truncation."
+            }
+          }
+        }
+      }
+    },
+    "agentUseCases": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "problem",
+          "agentWorkflow",
+          "liveContextOrTools",
+          "exampleQuestionsOrRequests",
+          "businessOutcome",
+          "icon"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 4,
+            "description": "Suggested maximum: about 90 characters; use natural complete phrasing over hard truncation."
+          },
+          "problem": {
+            "type": "string",
+            "minLength": 50,
+            "description": "Suggested maximum: about 300 characters; use natural complete phrasing over hard truncation."
+          },
+          "agentWorkflow": {
+            "type": "string",
+            "minLength": 80,
+            "description": "Suggested maximum: about 420 characters; use natural complete phrasing over hard truncation."
+          },
+          "liveContextOrTools": {
+            "type": "string",
+            "minLength": 0,
+            "description": "Suggested maximum: about 320 characters; use natural complete phrasing over hard truncation."
+          },
+          "exampleQuestionsOrRequests": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "minLength": 8,
+              "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+            }
+          },
+          "businessOutcome": {
+            "type": "string",
+            "minLength": 45,
+            "description": "Suggested maximum: about 260 characters; use natural complete phrasing over hard truncation."
+          },
+          "icon": {
+            "$ref": "#/$defs/heroIconName"
+          },
+          "sourceIds": {
+            "$ref": "#/$defs/sourceIds"
+          }
+        }
+      }
+    },
+    "customerFacingAgent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "headline",
+        "intro",
+        "requests"
+      ],
+      "properties": {
+        "headline": {
+          "type": "string",
+          "minLength": 12,
+          "description": "Suggested maximum: about 110 characters; use natural complete phrasing over hard truncation."
+        },
+        "intro": {
+          "type": "string",
+          "minLength": 80,
+          "description": "Suggested maximum: about 360 characters; use natural complete phrasing over hard truncation."
+        },
+        "requests": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 10,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "request",
+              "agentResponseStrategy",
+              "sourceTypes",
+              "optionalAction",
+              "icon"
+            ],
+            "properties": {
+              "request": {
+                "type": "string",
+                "minLength": 10,
+                "description": "Suggested maximum: about 180 characters; use natural complete phrasing over hard truncation."
+              },
+              "agentResponseStrategy": {
+                "type": "string",
+                "minLength": 50,
+                "description": "Suggested maximum: about 300 characters; use natural complete phrasing over hard truncation."
+              },
+              "sourceTypes": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 6,
+                "items": {
+                  "type": "string",
+                  "minLength": 2,
+                  "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+                }
+              },
+              "optionalAction": {
+                "type": "string",
+                "minLength": 0,
+                "description": "Suggested maximum: about 220 characters; use natural complete phrasing over hard truncation."
+              },
+              "icon": {
+                "$ref": "#/$defs/heroIconName"
+              },
+              "sourceIds": {
+                "$ref": "#/$defs/sourceIds"
+              }
+            }
+          }
+        }
+      }
+    },
+    "internalAgent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "headline",
+        "intro",
+        "workflows"
+      ],
+      "properties": {
+        "headline": {
+          "type": "string",
+          "minLength": 12,
+          "description": "Suggested maximum: about 110 characters; use natural complete phrasing over hard truncation."
+        },
+        "intro": {
+          "type": "string",
+          "minLength": 80,
+          "description": "Suggested maximum: about 360 characters; use natural complete phrasing over hard truncation."
+        },
+        "workflows": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 8,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "problem",
+              "agentWorkflow",
+              "sourceTypes",
+              "optionalAction",
+              "outcome",
+              "icon"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 4,
+                "description": "Suggested maximum: about 90 characters; use natural complete phrasing over hard truncation."
+              },
+              "problem": {
+                "type": "string",
+                "minLength": 45,
+                "description": "Suggested maximum: about 260 characters; use natural complete phrasing over hard truncation."
+              },
+              "agentWorkflow": {
+                "type": "string",
+                "minLength": 70,
+                "description": "Suggested maximum: about 360 characters; use natural complete phrasing over hard truncation."
+              },
+              "sourceTypes": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 6,
+                "items": {
+                  "type": "string",
+                  "minLength": 2,
+                  "description": "Suggested maximum: about 80 characters; use natural complete phrasing over hard truncation."
+                }
+              },
+              "optionalAction": {
+                "type": "string",
+                "minLength": 0,
+                "description": "Suggested maximum: about 220 characters; use natural complete phrasing over hard truncation."
+              },
+              "outcome": {
+                "type": "string",
+                "minLength": 45,
+                "description": "Suggested maximum: about 260 characters; use natural complete phrasing over hard truncation."
+              },
+              "icon": {
+                "$ref": "#/$defs/heroIconName"
+              },
+              "sourceIds": {
+                "$ref": "#/$defs/sourceIds"
+              }
+            }
+          }
+        }
+      }
+    },
+    "docsbotFeatureMapping": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature",
+          "mainLandingPageContext",
+          "industryApplication",
+          "icon"
+        ],
+        "properties": {
+          "feature": {
+            "type": "string",
+            "minLength": 4,
+            "description": "Suggested maximum: about 100 characters; use natural complete phrasing over hard truncation."
+          },
+          "mainLandingPageContext": {
+            "type": "string",
+            "minLength": 50,
+            "description": "Suggested maximum: about 280 characters; use natural complete phrasing over hard truncation."
+          },
+          "industryApplication": {
+            "type": "string",
+            "minLength": 60,
+            "description": "Suggested maximum: about 320 characters; use natural complete phrasing over hard truncation."
+          },
+          "icon": {
+            "$ref": "#/$defs/heroIconName"
+          },
+          "sourceIds": {
+            "$ref": "#/$defs/sourceIds"
+          }
+        }
+      }
+    },
+    "trustAndProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Public-facing proof section copy for the landing page. Write authoritatively to the industry buyer as the audience. Do not explain why a testimonial was selected, describe proof as 'relevant', or use internal strategy language.",
+      "required": [
+        "selectedReviewIds",
+        "selectedCaseStudyIds",
+        "trustClaims",
+        "whyTheseReviewsFit",
+        "trustClaimIcons"
+      ],
+      "properties": {
+        "selectedReviewIds": {
+          "type": "array",
+          "description": "Review IDs selected from the provided review enum. The rendered page will use the testimonial text from the local review library.",
+          "minItems": 1,
+          "maxItems": 3,
+          "items": {
+            "type": "string"
+          }
+        },
+        "selectedCaseStudyIds": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 2,
+          "items": {
+            "type": "string",
+            "enum": [
+              "sony-nuro",
+              "jpa-health"
+            ]
+          }
+        },
+        "trustClaims": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "minLength": 8,
+            "description": "A concise, buyer-facing proof claim for this industry. Write as authoritative page copy, not selection rationale. Avoid phrases like 'relevant proof point', 'teams evaluating whether', or 'this review shows'. Suggested maximum: about 160 characters; use natural complete phrasing over hard truncation."
+          }
+        },
+        "whyTheseReviewsFit": {
+          "type": "string",
+          "minLength": 60,
+          "description": "One public-facing paragraph that frames DocsBot proof for the industry buyer. Speak directly to the industry audience and connect the testimonials to credible outcomes, such as high-volume support, source-grounded answers, internal knowledge access, or workflow automation. Do not say a review is 'relevant', 'contextually appropriate', 'selected', or useful for 'teams evaluating whether'. Suggested maximum: about 360 characters; use natural complete phrasing over hard truncation."
+        },
+        "trustClaimIcons": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/heroIconName"
+          },
+          "description": "One Heroicon name for each trustClaims item, in the same order."
+        }
+      }
+    },
+    "faq": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "question",
+          "answer",
+          "role",
+          "category"
+        ],
+        "properties": {
+          "question": {
+            "type": "string",
+            "minLength": 35,
+            "description": "Suggested maximum: about 220 characters; use natural complete phrasing over hard truncation."
+          },
+          "answer": {
+            "type": "string",
+            "minLength": 90,
+            "description": "Suggested maximum: about 560 characters; use natural complete phrasing over hard truncation."
+          },
+          "role": {
+            "type": "string",
+            "minLength": 4,
+            "description": "A buyer or stakeholder role from businessClarity.whoItHelps.role when relevant; otherwise use General buyer. Suggested maximum: about 100 characters; use natural complete phrasing over hard truncation."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "ROI and business impact",
+              "Workflow fit",
+              "Integrations",
+              "Implementation",
+              "Security and compliance",
+              "Human oversight",
+              "Reporting and analytics",
+              "Scalability",
+              "Training and onboarding",
+              "Vendor trust",
+              "Pricing and procurement",
+              "Competitive comparisons",
+              "Edge cases and reliability"
+            ]
+          },
+          "sourceIds": {
+            "$ref": "#/$defs/sourceIds"
+          }
+        }
+      }
+    },
+    "schemaHints": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "serviceType",
+        "audience",
+        "applicationCategory",
+        "icon"
+      ],
+      "properties": {
+        "serviceType": {
+          "type": "string",
+          "minLength": 12,
+          "description": "Suggested maximum: about 140 characters; use natural complete phrasing over hard truncation."
+        },
+        "audience": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 3,
+            "description": "Suggested maximum: about 90 characters; use natural complete phrasing over hard truncation."
+          }
+        },
+        "applicationCategory": {
+          "type": "string",
+          "enum": [
+            "BusinessApplication"
+          ]
+        },
+        "icon": {
+          "$ref": "#/$defs/heroIconName"
+        }
+      }
+    },
+    "relatedIndustrySlugs": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
+    },
+    "generationMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "generatedAt",
+        "sourceIndustrySlug",
+        "webSearchQueries",
+        "sourceUrls"
+      ],
+      "properties": {
+        "model": {
+          "type": "string",
+          "minLength": 2
+        },
+        "generatedAt": {
+          "type": "string",
+          "minLength": 10
+        },
+        "sourceIndustrySlug": {
+          "type": "string",
+          "minLength": 2
+        },
+        "webSearchQueries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "minLength": 8,
+            "description": "Suggested maximum: about 220 characters; use natural complete phrasing over hard truncation."
+          }
+        },
+        "sourceUrls": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 12,
+          "items": {
+            "type": "string",
+            "minLength": 8
+          }
+        },
+        "apiUsage": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "total",
+            "attempts"
+          ],
+          "properties": {
+            "total": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "inputTokens",
+                "cachedInputTokens",
+                "billableInputTokens",
+                "outputTokens",
+                "reasoningOutputTokens",
+                "totalTokens",
+                "webSearchCalls",
+                "estimatedTokenCostUsd",
+                "estimatedWebSearchCostUsd",
+                "estimatedTotalCostUsd"
+              ],
+              "properties": {
+                "inputTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "cachedInputTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "billableInputTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "outputTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "reasoningOutputTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "totalTokens": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "webSearchCalls": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "estimatedTokenCostUsd": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "estimatedWebSearchCostUsd": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "estimatedTotalCostUsd": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              }
+            },
+            "attempts": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "attempt",
+                  "model",
+                  "serviceTier",
+                  "reasoningEffort",
+                  "inputTokens",
+                  "cachedInputTokens",
+                  "billableInputTokens",
+                  "outputTokens",
+                  "reasoningOutputTokens",
+                  "totalTokens",
+                  "webSearchCalls",
+                  "estimatedTokenCostUsd",
+                  "estimatedWebSearchCostUsd",
+                  "estimatedTotalCostUsd",
+                  "step"
+                ],
+                "properties": {
+                  "attempt": {
+                    "type": "number",
+                    "minimum": 1
+                  },
+                  "model": {
+                    "type": "string",
+                    "minLength": 2
+                  },
+                  "serviceTier": {
+                    "type": "string",
+                    "enum": [
+                      "flex"
+                    ]
+                  },
+                  "reasoningEffort": {
+                    "type": "string",
+                    "enum": [
+                      "low"
+                    ]
+                  },
+                  "inputTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "cachedInputTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "billableInputTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "outputTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "reasoningOutputTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "totalTokens": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "webSearchCalls": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "estimatedTokenCostUsd": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "estimatedWebSearchCostUsd": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "estimatedTotalCostUsd": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "step": {
+                    "type": "string",
+                    "enum": [
+                      "main-content",
+                      "faq"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sourceIds": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 3,
+      "description": "Optional evidenceSources ids to render as superscript citations after the associated copy. Use only when the visible text itself includes the sourced statistic, quote, or concrete external claim; do not cite generic workflow ideas or product recommendations.",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "heroIconName": {
+      "type": "string",
+      "enum": [
+        "AcademicCapIcon",
+        "AdjustmentsHorizontalIcon",
+        "ArchiveBoxIcon",
+        "ArrowTrendingUpIcon",
+        "ArrowPathRoundedSquareIcon",
+        "AtSymbolIcon",
+        "BanknotesIcon",
+        "BeakerIcon",
+        "BoltIcon",
+        "BellIcon",
+        "BookOpenIcon",
+        "BookmarkIcon",
+        "BriefcaseIcon",
+        "BuildingLibraryIcon",
+        "BuildingOffice2Icon",
+        "BuildingStorefrontIcon",
+        "BugAntIcon",
+        "CakeIcon",
+        "CalculatorIcon",
+        "CalendarIcon",
+        "CameraIcon",
+        "ChartBarIcon",
+        "ChartPieIcon",
+        "ChatBubbleLeftIcon",
+        "CheckCircleIcon",
+        "CloudIcon",
+        "ClockIcon",
+        "CodeBracketIcon",
+        "CogIcon",
+        "CommandLineIcon",
+        "ComputerDesktopIcon",
+        "CpuChipIcon",
+        "CreditCardIcon",
+        "CubeIcon",
+        "DevicePhoneMobileIcon",
+        "DocumentTextIcon",
+        "EnvelopeIcon",
+        "ExclamationCircleIcon",
+        "EyeIcon",
+        "FaceSmileIcon",
+        "FilmIcon",
+        "FingerPrintIcon",
+        "FireIcon",
+        "FlagIcon",
+        "FolderIcon",
+        "GiftIcon",
+        "GlobeAltIcon",
+        "GlobeAsiaAustraliaIcon",
+        "HandRaisedIcon",
+        "HashtagIcon",
+        "HeartIcon",
+        "HomeIcon",
+        "HomeModernIcon",
+        "IdentificationIcon",
+        "InformationCircleIcon",
+        "KeyIcon",
+        "LanguageIcon",
+        "LightBulbIcon",
+        "LinkIcon",
+        "ListBulletIcon",
+        "LockClosedIcon",
+        "MagnifyingGlassIcon",
+        "MapPinIcon",
+        "MegaphoneIcon",
+        "MicrophoneIcon",
+        "MoonIcon",
+        "NewspaperIcon",
+        "PaintBrushIcon",
+        "PaperAirplaneIcon",
+        "PencilIcon",
+        "PhoneIcon",
+        "PhotoIcon",
+        "PlayIcon",
+        "PresentationChartBarIcon",
+        "PrinterIcon",
+        "PuzzlePieceIcon",
+        "RadioIcon",
+        "RectangleGroupIcon",
+        "RocketLaunchIcon",
+        "ScaleIcon",
+        "ScissorsIcon",
+        "ServerIcon",
+        "ShieldCheckIcon",
+        "ShoppingBagIcon",
+        "ShoppingCartIcon",
+        "SignalIcon",
+        "SparklesIcon",
+        "SpeakerWaveIcon",
+        "StarIcon",
+        "SunIcon",
+        "TicketIcon",
+        "TrashIcon",
+        "TrophyIcon",
+        "TruckIcon",
+        "TvIcon",
+        "UserCircleIcon",
+        "UserGroupIcon",
+        "VideoCameraIcon",
+        "WalletIcon",
+        "WifiIcon",
+        "WrenchIcon"
+      ]
+    }
+  }
+}

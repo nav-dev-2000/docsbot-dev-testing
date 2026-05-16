@@ -1,0 +1,715 @@
+{
+  "slug": "industrial-manufacturing",
+  "business": "Industrial Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Industrial Manufacturing Operations",
+    "description": "DocsBot helps industrial manufacturing teams answer spec, service, and SOP questions faster with source-grounded AI agents and workflow routing.",
+    "canonicalPath": "/industry/industrial-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "AI agents for plant, product, sales, and support knowledge",
+    "headline": "Keep industrial manufacturing knowledge moving with DocsBot AI agents",
+    "subheadline": "DocsBot turns manuals, SOPs, service bulletins, product catalogs, policies, PDFs, wikis, and support history into source-grounded AI agents that help customers, distributors, sales teams, engineers, and frontline employees get the right answer or handoff faster.",
+    "proofBullets": [
+      {
+        "text": "Answer product, compatibility, installation, maintenance, warranty, and troubleshooting questions from approved manufacturing documentation.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Give employees a private knowledge agent for SOPs, quality procedures, onboarding, safety guidance, and internal policies.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect request details, route issues, summarize tickets, create tasks, or trigger approved workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support global dealer, distributor, and field teams with source-grounded answers in more than 100 languages.",
+        "icon": "GlobeAltIcon"
+      }
+    ],
+    "primaryCta": "Build a manufacturing AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps industrial manufacturers create AI agents trained on the knowledge they already trust: product manuals, engineering notes, service guides, specification sheets, SOPs, help centers, internal wikis, ticket exports, and sales enablement content. Agents answer with sources, identify gaps, escalate when needed, and can take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and service teams",
+        "roleContext": "Support groups can reduce repeated questions about equipment operation, maintenance intervals, replacement parts, documentation, and warranty steps while keeping complex or safety-sensitive cases available for human review.",
+        "bullets": [
+          {
+            "text": "Draft source-grounded responses from manuals, help articles, service bulletins, and prior ticket content when connected through approved workflows.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize incoming cases, collect serial numbers or model details, and route requests to the right service queue or specialist.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Expose repeated unanswered questions so documentation and product teams can improve manuals and support content.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Operations, quality, and plant leaders",
+        "roleContext": "Manufacturing leaders need consistent access to procedures across shifts, sites, equipment families, and changing teams. DocsBot gives employees a governed place to ask operational questions without searching through folders or outdated copies.",
+        "bullets": [
+          {
+            "text": "Make approved SOPs, quality procedures, training materials, and internal policies searchable through a private team AI agent.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Help supervisors onboard new employees by answering procedural questions from controlled internal documentation.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Use logs and analytics to see where employees need clearer instructions or updated process documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Sales, distributors, and account teams",
+        "roleContext": "Industrial sales often depends on accurate product fit, technical specifications, lead qualification, and timely handoffs. DocsBot helps teams find the right collateral and prepare next steps without overpromising on pricing, contracts, or custom engineering.",
+        "bullets": [
+          {
+            "text": "Answer approved product, compatibility, feature, application, and implementation questions from catalogs, datasheets, FAQs, and sales playbooks.",
+            "icon": "CubeIcon"
+          },
+          {
+            "text": "Collect project details, region, timeline, equipment requirements, and preferred follow-up channel through structured intake flows.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified opportunities, summaries, and conversation context to customer-configured CRM, email, helpdesk, or team workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nam-economic-scale",
+      "metric": "Manufacturers contributed over $2.96 trillion to the U.S. economy at an annual rate in Q4 2025.",
+      "claim": "Industrial manufacturing buyers operate in a large, economically significant sector where small improvements in support, training, and knowledge access can affect many teams and workflows.",
+      "sourceTitle": "National Association of Manufacturers: Facts About Manufacturing",
+      "sourceUrl": "https://nam.org/mfgdata/facts-about-manufacturing-expanded/",
+      "sourceDate": "Q4 2025",
+      "bestUsedFor": [
+        "economic scale",
+        "manufacturing importance",
+        "operations impact"
+      ]
+    },
+    {
+      "id": "src-nam-employment",
+      "metric": "NAM reports more than 13 million people make things in America.",
+      "claim": "Manufacturing knowledge systems must support large and distributed workforces across plants, suppliers, support teams, and commercial teams.",
+      "sourceTitle": "National Association of Manufacturers: Manufacturing in the United States",
+      "sourceUrl": "https://nam.org/mfgdata/regions/united-states/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "labor scale",
+        "distributed workforce",
+        "employee enablement"
+      ]
+    },
+    {
+      "id": "src-deloitte-talent",
+      "metric": "Deloitte cites a 2024 manufacturing study estimating as many as 3.8 million net new employees may be required by 2033.",
+      "claim": "Talent pressure increases the value of faster onboarding, better knowledge retention, and easier access to standard procedures.",
+      "sourceTitle": "Deloitte Insights: 2025 Smart Manufacturing and Operations Survey",
+      "sourceUrl": "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/2025-smart-manufacturing-survey.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "talent shortage",
+        "onboarding pressure",
+        "workforce development"
+      ]
+    },
+    {
+      "id": "src-bls-injuries",
+      "metric": "BLS reported 2.5 million nonfatal workplace injuries and illnesses among private industry employers in 2024.",
+      "claim": "Manufacturing teams need controlled, source-grounded access to approved safety, process, and escalation information, while keeping safety-critical judgment with trained personnel.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Employer-Reported Workplace Injuries and Illnesses, 2024",
+      "sourceUrl": "https://www.bls.gov/news.release/pdf/osh.pdf",
+      "sourceDate": "January 22, 2026",
+      "bestUsedFor": [
+        "safety risk",
+        "procedural consistency",
+        "governed guidance"
+      ]
+    },
+    {
+      "id": "src-deloitte-smart-manufacturing",
+      "metric": "Deloitte surveyed 600 executives from large manufacturing companies for its 2025 smart manufacturing research.",
+      "claim": "Manufacturers are investing in smarter operations and need the workforce knowledge layer to make digital initiatives usable across teams.",
+      "sourceTitle": "Deloitte Insights: 2025 Smart Manufacturing and Operations Survey",
+      "sourceUrl": "https://www2.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "smart manufacturing",
+        "digital operations",
+        "workforce adoption"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product specification and application support agent",
+      "problem": "Customers, distributors, and reps often ask the same technical questions about product fit, compatible components, operating limits, installation conditions, and documentation location.",
+      "agentWorkflow": "DocsBot answers from approved catalogs, datasheets, manuals, FAQs, and sales enablement content. If the request needs engineering review, the agent collects model numbers, application details, required standards, and urgency before routing a summarized handoff.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved product metadata, attach relevant documents, create a task, or forward the request to sales or engineering workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which pump model fits this duty cycle and fluid temperature range?",
+        "Send the installation guide for the 480V controller.",
+        "Can this component replace our discontinued part number?"
+      ],
+      "businessOutcome": "Faster presales and distributor support with fewer inconsistent answers and cleaner escalation context.",
+      "icon": "CubeIcon"
+    },
+    {
+      "name": "Maintenance and troubleshooting knowledge agent",
+      "problem": "Service teams and customers need quick access to maintenance steps, fault-code explanations, spare-part references, and troubleshooting trees, especially when manuals are long or spread across systems.",
+      "agentWorkflow": "DocsBot retrieves relevant manual sections, service bulletins, warranty notes, and troubleshooting content, then provides a source-grounded answer. For unresolved issues, it can summarize symptoms and recommended next steps for a human technician.",
+      "liveContextOrTools": "Configured AI Actions can collect serial numbers, equipment location, fault codes, photos or notes, then create a service ticket or route the issue to a configured helpdesk or field-service workflow.",
+      "exampleQuestionsOrRequests": [
+        "What does fault code E-47 mean on this controller?",
+        "What preventive maintenance is required after 2,000 operating hours?",
+        "Create a service handoff with the symptoms and manual sections already checked."
+      ],
+      "businessOutcome": "Reduces repetitive service questions and gives technicians better context before they take over.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Internal SOP and quality procedure assistant",
+      "problem": "Manufacturers need consistent execution across shifts and sites, but SOPs, inspection criteria, training materials, and change notices can be difficult to find or interpret consistently.",
+      "agentWorkflow": "A private DocsBot agent answers employee questions from approved SOPs, quality manuals, work instructions, onboarding documents, and policy repositories. It cites sources and can escalate ambiguous or high-impact process questions to a supervisor.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved procedure metadata, generate shift handoff summaries, notify a team channel, or create a documentation update request when the answer is missing.",
+      "exampleQuestionsOrRequests": [
+        "What is the inspection procedure for this lot hold?",
+        "Where is the latest setup checklist for Line 4?",
+        "Summarize the change notice for the night shift supervisor."
+      ],
+      "businessOutcome": "Improves consistency, onboarding, and knowledge retention across a workforce NAM describes as more than 13 million people in the U.S. manufacturing economy.",
+      "icon": "CheckCircleIcon",
+      "sourceIds": [
+        "src-nam-employment"
+      ]
+    },
+    {
+      "name": "Safety and compliance guidance access",
+      "problem": "Industrial teams need approved guidance on lockout procedures, PPE, incident reporting, chemical handling, and escalation paths, but safety-critical decisions should remain within company rules and trained supervision.",
+      "agentWorkflow": "DocsBot can answer from approved safety manuals, policies, SDS repositories, compliance notes, and training documents while clearly routing urgent, ambiguous, or high-risk situations to a human supervisor or safety team.",
+      "liveContextOrTools": "Customer-defined boundaries can limit the agent to information retrieval, checklist generation, incident-summary drafting, and escalation. Logs and permissions help administrators review usage.",
+      "exampleQuestionsOrRequests": [
+        "Where is the approved lockout procedure for this press?",
+        "Summarize the incident report details before I send them to EHS.",
+        "What PPE does the SOP require for this cleaning process?"
+      ],
+      "businessOutcome": "Gives employees faster access to approved procedures while respecting the risk environment reflected in BLS workplace injury reporting.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-bls-injuries"
+      ]
+    },
+    {
+      "name": "Dealer, distributor, and multilingual field enablement",
+      "problem": "Industrial manufacturers often support regional distributors, service partners, and field teams that need current documentation, part references, and customer-facing answers in different languages.",
+      "agentWorkflow": "DocsBot trains on approved manuals, catalogs, partner FAQs, policies, and service content, then answers in more than 100 languages. It can tailor responses to the permitted knowledge base while escalating special pricing, contract, or engineering exceptions.",
+      "liveContextOrTools": "Configured workflows can collect partner details, summarize a question, notify account owners, or route quote and availability requests to the proper commercial system.",
+      "exampleQuestionsOrRequests": [
+        "Explain this maintenance procedure in Spanish for our dealer technician.",
+        "Which documents should I send with this replacement-part recommendation?",
+        "Route this distributor question to the regional account manager."
+      ],
+      "businessOutcome": "Supports distributed partner networks with more consistent product and service knowledge.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "name": "Smart manufacturing knowledge adoption agent",
+      "problem": "Digital manufacturing programs can stall when operators, supervisors, and engineers cannot quickly understand new systems, dashboards, or changed procedures.",
+      "agentWorkflow": "DocsBot can train on implementation guides, internal playbooks, vendor documentation, training content, and rollout FAQs so teams can ask practical questions while learning new processes and tools.",
+      "liveContextOrTools": "With approved connectors or MCP-based tool access, a DocsBot agent can retrieve live context from authorized systems, summarize a workflow, or create a training follow-up task.",
+      "exampleQuestionsOrRequests": [
+        "How do I interpret this OEE dashboard metric?",
+        "What changed in the new digital work instruction process?",
+        "Create a documentation-gap request for the missing sensor-calibration steps."
+      ],
+      "businessOutcome": "Helps digital operations programs become usable across the workforce, a need reinforced by Deloitte’s smart manufacturing research with 600 executives.",
+      "icon": "CpuChipIcon",
+      "sourceIds": [
+        "src-deloitte-smart-manufacturing"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers and distributors instant answers from approved industrial documentation",
+    "intro": "A DocsBot customer-facing agent can live in a website or product chat widget and answer from your manuals, FAQs, product pages, service guides, warranty policies, and technical documents. It can qualify requests, collect details, and prepare a clean handoff when the question needs a person.",
+    "requests": [
+      {
+        "request": "“Which model is compatible with our existing line?”",
+        "agentResponseStrategy": "Ask for application details, compare the request against approved catalog and specification content, explain fit considerations with citations, and route uncertain cases to sales or engineering.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Datasheets",
+          "Application guides",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Submit a qualified lead or application-review request through a customer-configured form, CRM, email, or ticketing workflow.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“I need the manual and maintenance interval for this serial number.”",
+        "agentResponseStrategy": "Provide the relevant manual section, summarize the maintenance schedule, and ask for missing model or serial information when needed.",
+        "sourceTypes": [
+          "Manuals",
+          "Service bulletins",
+          "Maintenance guides",
+          "Warranty policies"
+        ],
+        "optionalAction": "Create a service request or attach a summary to a configured helpdesk workflow when the issue is unresolved.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you help me choose replacement parts?”",
+        "agentResponseStrategy": "Use approved parts references and compatibility notes, explain source-backed options, and avoid final engineering approval when the manufacturer requires expert review.",
+        "sourceTypes": [
+          "Parts catalogs",
+          "Compatibility matrices",
+          "Replacement guides",
+          "Policy documents"
+        ],
+        "optionalAction": "Route the request to inside sales, technical support, or a distributor team with the conversation summary included.",
+        "icon": "PuzzlePieceIcon"
+      },
+      {
+        "request": "“Do you support our region and language?”",
+        "agentResponseStrategy": "Answer from region-specific service policies and approved partner documentation, using multilingual support when the content is available.",
+        "sourceTypes": [
+          "Regional policies",
+          "Partner FAQs",
+          "Dealer documentation",
+          "Service terms"
+        ],
+        "optionalAction": "Collect preferred language, region, company, and contact details before handing off to the right team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I book a product demo or application consultation?”",
+        "agentResponseStrategy": "Collect timeline, facility type, use case, product interest, and contact details before handing the request to sales or an approved scheduling workflow.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Demo criteria",
+          "Product pages",
+          "Qualification rules"
+        ],
+        "optionalAction": "Use a customer-configured scheduling Skill or workflow for Calendly, Cal.com, TidyCal, or a similar booking tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is there a safety procedure for this operation?”",
+        "agentResponseStrategy": "Retrieve only approved safety and procedure content, show sources, and escalate urgent or high-risk situations to the manufacturer’s defined safety contact or supervisor path.",
+        "sourceTypes": [
+          "Safety manuals",
+          "SOPs",
+          "SDS documents",
+          "Training content"
+        ],
+        "optionalAction": "Prepare an incident or escalation summary without replacing trained safety judgment.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put manufacturing know-how where every authorized employee can ask for it",
+    "intro": "DocsBot can act as a private internal knowledge agent for production, quality, service, sales, HR, IT, and operations teams. It answers from approved internal sources, respects access controls, and helps leaders find documentation gaps from employee questions.",
+    "workflows": [
+      {
+        "name": "Shift and site procedure lookup",
+        "problem": "Employees waste time searching shared drives, binders, wikis, and messages for the latest approved process.",
+        "agentWorkflow": "Train DocsBot on SOPs, work instructions, policies, PDFs, Word documents, Google Drive, Notion, Confluence, and other controlled sources so workers can ask plain-language questions and receive cited answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Work instructions",
+          "Internal wikis",
+          "Policy libraries"
+        ],
+        "optionalAction": "Create a documentation update task when employees repeatedly ask questions with missing or unclear answers.",
+        "outcome": "More consistent procedure access across shifts, plants, and roles.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Quality issue summarization",
+        "problem": "Quality and engineering teams need concise context when a nonconformance, deviation, or recurring defect moves between people and systems.",
+        "agentWorkflow": "DocsBot can summarize employee notes, relevant procedures, inspection criteria, and prior support context, then prepare a handoff for the responsible team.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Inspection procedures",
+          "Ticket exports",
+          "Change notices"
+        ],
+        "optionalAction": "Trigger a configured task, ticket, or team notification with the summary and source references.",
+        "outcome": "Cleaner handoffs and less time reconstructing what happened.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "New-hire and cross-training assistant",
+        "problem": "Talent pressure and retirement risk make it harder to transfer procedural knowledge quickly. Deloitte cites a 2024 study estimating up to 3.8 million net new manufacturing employees may be required by 2033.",
+        "agentWorkflow": "A DocsBot internal agent answers onboarding, tool, policy, equipment, and process questions from approved training materials while analytics show where new employees need better documentation.",
+        "sourceTypes": [
+          "Training manuals",
+          "Onboarding guides",
+          "HR policies",
+          "Equipment guides"
+        ],
+        "optionalAction": "Generate onboarding summaries, quiz-style practice prompts, or a manager handoff for unanswered questions.",
+        "outcome": "Faster ramp-up and better preservation of institutional knowledge.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-deloitte-talent"
+        ]
+      },
+      {
+        "name": "Sales and account preparation",
+        "problem": "Reps need accurate product information, objection handling, application context, and customer history before contacting an industrial buyer.",
+        "agentWorkflow": "DocsBot can answer from sales playbooks, catalogs, proposal templates, product documentation, implementation notes, case studies, and FAQs. When configured with web search and approved Skills, it can summarize public account research for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Proposal templates",
+          "Public prospect sources"
+        ],
+        "optionalAction": "Draft follow-up emails, prepare account notes, or create tasks through customer-configured sales workflows while humans approve outreach and commitments.",
+        "outcome": "Better prepared sales conversations without relying on scattered tribal knowledge.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded manufacturing answers",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s own approved content and provide answers grounded in those sources.",
+      "industryApplication": "Use manuals, datasheets, SOPs, warranty policies, service bulletins, and product catalogs to answer customer, distributor, technician, and employee questions with citations.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record updates, task creation, and workflow triggers when configured.",
+      "industryApplication": "Collect model numbers, create service requests, route application-review questions, notify quality teams, or forward qualified leads through customer-approved manufacturing workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can power private assistants for employees using internal documents, wikis, policies, PDFs, and operational knowledge.",
+      "industryApplication": "Give operations, quality, service, sales, HR, and plant teams a governed place to ask SOP, onboarding, troubleshooting, and policy questions.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot includes analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which product questions, support issues, SOP gaps, or partner requests repeat most often so documentation owners can improve the knowledge base.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Protect private product, process, customer, and operational knowledge while giving authorized teams access to the information they need.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual deployment options",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be deployed through website widgets, private chat, Slack, Microsoft Teams, APIs, and configured workflows.",
+      "industryApplication": "Support global distributors, dealers, service partners, and manufacturing employees with consistent documentation access across language and location barriers.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on owned manuals, websites, and product knowledge instead of generic web answers.",
+      "Deploy scalable first-line support for customers who need help outside business hours.",
+      "Use proven high-volume support patterns for repetitive product and service questions."
+    ],
+    "whyTheseReviewsFit": "Industrial manufacturers need accurate answers from manuals, product content, and service documentation. DocsBot proof spans multilingual product manuals, owned content libraries, and high-volume customer inquiry handling, giving manufacturing teams a practical path from knowledge base to governed AI support.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "ClockIcon",
+      "ArrowTrendingUpIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for industrial manufacturing support, operations, documentation, and sales enablement",
+    "audience": [
+      "Industrial manufacturing executives",
+      "Customer support leaders",
+      "Operations and quality leaders",
+      "Sales and distributor enablement teams",
+      "Service and field support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CogIcon"
+  },
+  "relatedIndustrySlugs": [
+    "manufacturing",
+    "industrial-automation",
+    "industrial-parts-distribution",
+    "contract-manufacturing",
+    "robotics-manufacturing",
+    "aerospace-parts-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "industrial-manufacturing",
+    "webSearchQueries": [
+      "industrial manufacturing sector employment GDP shipments United States NAM facts 2024",
+      "BLS manufacturing injuries nonfatal private industry 2023 2024",
+      "Deloitte 2025 manufacturing industry outlook skilled labor shortage manufacturing"
+    ],
+    "sourceUrls": [
+      "https://nam.org/mfgdata/facts-about-manufacturing-expanded/",
+      "https://nam.org/mfgdata/regions/united-states/",
+      "https://www.deloitte.com/us/en/insights/industry/manufacturing-industrial-products/2025-smart-manufacturing-survey.html",
+      "https://www.bls.gov/news.release/pdf/osh.pdf",
+      "https://www2.deloitte.com/us/en/insights/industry/manufacturing/2025-smart-manufacturing-survey.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40154,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 20442,
+        "outputTokens": 7925,
+        "reasoningOutputTokens": 100,
+        "totalTokens": 48079,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.174908,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.184908
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20678,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 6214,
+          "outputTokens": 5086,
+          "reasoningOutputTokens": 100,
+          "totalTokens": 25764,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.095441,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.105441
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19476,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14228,
+          "outputTokens": 2839,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22315,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079467,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079467
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1717386255773-1e3037c81788?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxJbmR1c3RyaWFsJTIwTWFudWZhY3R1cmluZ3xlbnwwfDB8fHwxNzc4ODIyODQzfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a large machine in a large building",
+    "source": "unsplash-search",
+    "query": "Industrial Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer technical product questions without inventing specs or compatibility claims?",
+      "answer": "DocsBot is designed to answer from the manufacturing content you approve: catalogs, datasheets, manuals, application guides, service bulletins, FAQs, and sales playbooks. Responses can include source references so customers, distributors, or reps can see where the answer came from. If the request involves custom engineering, safety limits, or unclear fit, the agent can collect details and route a summarized handoff instead of making a final call.",
+      "role": "Sales, distributors, and account teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would we use this for service calls where the customer only knows a fault code or serial number?",
+      "answer": "A DocsBot service agent can ask for missing model, serial number, site, fault code, symptoms, and prior steps, then retrieve relevant troubleshooting, warranty, maintenance, or service bulletin content. With customer-configured Skills, APIs, or workflow automations, it can create a service ticket or route the case with a summary of what was checked and which manual sections were referenced.",
+      "role": "Customer support and service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we limit answers to approved SOPs and current work instructions instead of old PDFs in shared drives?",
+      "answer": "Yes. DocsBot should be trained on controlled, approved sources such as current SOP libraries, quality procedures, onboarding materials, and policy repositories. Teams can exclude obsolete content, update indexed sources as procedures change, and use analytics to spot repeated questions where documentation is missing, unclear, or being interpreted inconsistently.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What ROI should we measure first: ticket deflection, faster onboarding, or less time searching for procedures?",
+      "answer": "For most industrial manufacturers, start with one measurable workflow: repetitive product support questions, service ticket triage, distributor enablement, or internal SOP lookup. Track baseline volume, time-to-answer, escalation rate, agent resolution, handoff quality, and documentation gaps. The upside can scale across a large workforce: NAM reports that more than 13 million people make things in America.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nam-employment"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle safety-sensitive questions like lockout, PPE, or incident reporting?",
+      "answer": "DocsBot can retrieve approved safety manuals, SOPs, SDS content, training documents, and escalation instructions, but it should be configured not to replace trained safety judgment. For urgent, ambiguous, or high-risk situations, the agent can direct employees to the defined supervisor or EHS path and prepare an incident or handoff summary. BLS reported 2.5 million nonfatal workplace injuries and illnesses among private industry employers in 2024, so governance matters.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-bls-injuries"
+      ]
+    },
+    {
+      "question": "Will this work for distributors and dealers who need answers in different languages?",
+      "answer": "DocsBot can answer in more than 100 languages when the underlying approved content supports the request. Manufacturers can use it to help distributors find manuals, part references, installation guidance, warranty policies, and regional service information. For pricing exceptions, contract terms, region-specific commitments, or engineering review, the agent can collect context and route the request to the right account or support owner.",
+      "role": "Sales, distributors, and account teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent connect to our CRM, helpdesk, or field-service workflow?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and MCP Connectors where your team authorizes access. Common patterns include collecting model numbers, creating a ticket or task, forwarding a qualified lead, notifying a team channel, or attaching a summary to a configured helpdesk-style workflow. DocsBot should not be positioned as taking unrestricted action inside operational systems.",
+      "role": "Customer support and service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What content do we need before launching a manufacturing AI agent?",
+      "answer": "The strongest launch set is usually manuals, datasheets, installation guides, parts references, warranty policies, service bulletins, SOPs, quality procedures, FAQs, and escalation rules. Start with the content that supports one high-volume workflow, clean up outdated files, define what the agent should refuse or escalate, and assign owners for ongoing documentation updates.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep plant employees from getting answers they are not authorized to see?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, so manufacturers can separate public customer content, distributor content, and private employee knowledge. Sensitive process, customer, pricing, HR, or engineering information should be scoped by role and source. For connected Skills, teams can also define environment values, secrets, metadata bindings, network policy, logging, and action boundaries.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help reduce tribal knowledge risk as experienced technicians retire or move roles?",
+      "answer": "Yes. A private internal knowledge agent can make approved troubleshooting guides, setup checklists, training documents, SOPs, and policy content easier to access for new hires and cross-trained workers. This matters because Deloitte cites a 2024 manufacturing study estimating that as many as 3.8 million net new manufacturing employees may be required by 2033.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-deloitte-talent"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving different answers than engineering, quality, or legal would approve?",
+      "answer": "Treat DocsBot as a governed retrieval and workflow layer, not an independent authority for high-impact decisions. Train it on approved source material, provide answer instructions, set escalation rules for ambiguous or regulated topics, review logs, and assign owners for content updates. For engineering fit, custom applications, warranties, safety, and contractual commitments, the agent can collect details and hand off to a person.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can support agents use DocsBot internally to draft replies rather than expose it directly to customers?",
+      "answer": "Yes. Many manufacturers may prefer an internal-first rollout where service reps use DocsBot to retrieve manual sections, summarize issues, draft source-grounded responses, and prepare escalations. This gives teams a controlled way to test answer quality, identify missing documentation, and build trust before offering a customer-facing website or product chat widget.",
+      "role": "Customer support and service teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "What reporting will show whether the agent is actually improving support and operations?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Manufacturing teams can review repeated product questions, unresolved topics, escalation reasons, missing manual sections, SOP confusion, and distributor request patterns. Those insights help support, quality, product, and documentation teams decide what to fix next.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent help qualify industrial leads without overpromising pricing or engineering feasibility?",
+      "answer": "Yes. DocsBot can ask for company, region, application, equipment requirements, timeline, product interest, standards, and preferred follow-up channel. It can apply your qualification rules and forward a summary to a customer-configured CRM, email, form, helpdesk, or team workflow. Final pricing, legal terms, custom engineering, and commercial commitments should remain with your sales and technical teams.",
+      "role": "Sales, distributors, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit with smart manufacturing or digital operations programs?",
+      "answer": "DocsBot can act as the knowledge layer around new dashboards, digital work instructions, rollout FAQs, training guides, vendor documentation, and internal playbooks. Operators, supervisors, and engineers can ask practical questions while analytics reveal where adoption is blocked by unclear instructions. Deloitte’s 2025 smart manufacturing research surveyed 600 executives from large manufacturing companies, reflecting how active this transformation area is.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-deloitte-smart-manufacturing"
+      ]
+    },
+    {
+      "question": "What happens when a manual contradicts a service bulletin or a newer change notice?",
+      "answer": "During implementation, content owners should define source priority, remove obsolete documents, and keep change notices and service bulletins current. DocsBot can cite the sources used in an answer, which makes conflicts easier to detect during review. When contradictions appear, the safest pattern is to instruct the agent to flag uncertainty and escalate instead of resolving the conflict on its own.",
+      "role": "Customer support and service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we deploy separate agents for customers, distributors, and employees?",
+      "answer": "Yes. Manufacturers can separate experiences by audience: a public support agent for customers, a partner or distributor agent for approved product and policy content, and private internal agents for SOPs, quality, HR, IT, sales, and operations. This helps keep access, tone, escalation paths, and source libraries aligned with each user group’s needs.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much IT involvement is usually required to start?",
+      "answer": "A narrow first deployment can begin with approved documents and a defined use case, such as product FAQs, service manuals, or SOP lookup. IT becomes more involved when you need SSO-style access planning, source permissions, private team deployment, APIs, Skills, MCP servers, helpdesk workflows, CRM routing, or live system lookups. The practical approach is to pilot on static knowledge first, then add actions after governance is clear.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support quality teams with nonconformance or deviation handoffs?",
+      "answer": "DocsBot can help summarize notes, retrieve inspection criteria, cite relevant quality procedures, and prepare context for the responsible engineer, supervisor, or quality owner. With configured workflows, it can create a task, notify a team, or route a summary. It should support documentation and handoff quality, while humans remain responsible for disposition, root cause, corrective action, and final quality decisions.",
+      "role": "Operations, quality, and plant leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with employees just using a general-purpose AI tool?",
+      "answer": "General-purpose AI tools are not enough for controlled manufacturing knowledge because they may not know your current manuals, SOPs, warranty rules, product limits, or escalation paths. DocsBot is trained on your approved sources, can cite answers, respects access controls, supports review and analytics, and can be configured for bounded workflow actions instead of open-ended responses.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will our customer or manufacturing data be used to train public AI models?",
+      "answer": "DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. For manufacturers handling product IP, customer records, process documentation, or supplier details, those controls are central to the buying conversation.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use DocsBot outside business hours without creating risky unattended commitments?",
+      "answer": "Yes. A customer-facing agent can provide always-available answers from approved manuals, FAQs, warranty policies, and service documents, while escalation rules keep sensitive issues with humans. For example, it can help customers find maintenance intervals or collect service details after hours, then route a complete summary for review during the next support window.",
+      "role": "Customer support and service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we know if our documentation is good enough for an AI agent?",
+      "answer": "A pilot will quickly reveal that. DocsBot analytics and conversation review can show unanswered topics, confusing SOPs, missing model information, outdated part references, and recurring distributor questions. Many teams use the agent both as a support tool and as a documentation improvement loop, prioritizing fixes based on real questions instead of guessing what users need.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can sales teams use DocsBot for account prep and technical objection handling?",
+      "answer": "Yes. Sales and account teams can use DocsBot internally to search product docs, sales playbooks, proposal templates, case studies, implementation notes, FAQs, and competitive guidance. When configured with web search and approved Skills, it can summarize public account research for a human seller. Reps should still own outreach, pricing, legal language, and commitments.",
+      "role": "Sales, distributors, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What makes this relevant for a large multi-site manufacturer rather than just a small support team?",
+      "answer": "Industrial manufacturing knowledge spans plants, shifts, product lines, service teams, distributors, and commercial teams. DocsBot can provide separate but governed agents for those audiences, all grounded in approved documentation. The scale is meaningful: manufacturers contributed over $2.96 trillion to the U.S. economy at an annual rate in Q4 2025, so even small knowledge-access improvements can affect many workflows.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nam-economic-scale"
+      ]
+    }
+  ]
+}

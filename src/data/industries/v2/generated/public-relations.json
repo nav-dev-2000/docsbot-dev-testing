@@ -1,0 +1,743 @@
+{
+  "slug": "public-relations",
+  "business": "Public Relations",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Public Relations Workflow Automation",
+    "description": "DocsBot helps public relations teams answer client, media, and internal questions faster with source-grounded AI agents trained on approved PR knowledge.",
+    "canonicalPath": "/industry/public-relations"
+  },
+  "hero": {
+    "eyebrow": "AI agents for agencies, comms teams, and media relations desks",
+    "headline": "Make PR knowledge instantly usable across clients, campaigns, and crises",
+    "subheadline": "DocsBot helps public relations teams create AI agents trained on approved press materials, client briefs, messaging guides, FAQs, coverage reports, campaign plans, SOPs, and internal playbooks. Give clients, account teams, and media-facing staff fast, source-grounded answers while routing sensitive or high-stakes requests to the right human reviewer.",
+    "proofBullets": [
+      {
+        "text": "Answer client and stakeholder questions from approved PR briefs, brand guidelines, campaign calendars, FAQs, and reporting notes.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Summarize media inquiries, draft response handoffs, and route complex or sensitive issues to the right account lead.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Help teams retrieve crisis protocols, spokesperson guidance, boilerplates, launch details, and reporting definitions without digging through folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, and workflows for bounded actions such as task creation, lead intake, routing, and live status lookups.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a PR knowledge agent",
+    "secondaryCta": "Explore AI Actions for comms teams"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your public relations knowledge into AI agents that can answer, summarize, retrieve, draft, qualify, route, and escalate from the sources you approve. Agencies and in-house comms teams can deploy agents in a website widget, private team chat, Slack, Microsoft Teams, API-powered workflows, or helpdesk-style experiences while keeping sensitive client context governed by permissions and customer-defined boundaries.",
+    "whoItHelps": [
+      {
+        "role": "Account teams and client service leads",
+        "roleContext": "Keep client-specific positioning, deliverables, contacts, approval rules, and campaign history easy to retrieve before calls, reporting deadlines, and fast-moving media moments.",
+        "bullets": [
+          {
+            "text": "Ask for approved boilerplate, campaign scope, launch timing, spokesperson notes, and stakeholder-specific talking points.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize client questions and prepare structured handoffs when an issue needs an account director or legal review.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Find repeated client questions and documentation gaps through conversation logs, topic reporting, and analytics.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Media relations and newsroom response teams",
+        "roleContext": "Respond consistently when journalists ask for background, assets, product details, executive bios, data, or clarification while preserving human judgment for quotes and sensitive commitments.",
+        "bullets": [
+          {
+            "text": "Retrieve press releases, media kits, fact sheets, embargo notes, image links, and approved background from source-grounded knowledge.",
+            "icon": "NewspaperIcon"
+          },
+          {
+            "text": "Collect missing inquiry details, summarize reporter context, and route the request to the right spokesperson or account owner.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "BLS reports that public relations specialists held about 315,900 U.S. jobs in 2024, making scalable knowledge access important for a large communications workforce.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-bls-pr-specialists"
+            ]
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      },
+      {
+        "role": "Agency operations, new business, and growth teams",
+        "roleContext": "Use approved service catalogs, case studies, proposal templates, intake forms, and qualification rules to support faster discovery and sales follow-up without inventing pricing or contractual commitments.",
+        "bullets": [
+          {
+            "text": "Qualify inbound prospects using customer-defined rules such as company size, sector, urgency, service need, region, and timeline.",
+            "icon": "FingerPrintIcon"
+          },
+          {
+            "text": "Draft internal summaries for follow-up, proposal planning, or CRM updates through approved Skills, APIs, connectors, or workflows.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "IBISWorld lists 57,777 U.S. public relations firms in 2025, so agencies need efficient ways to differentiate service quality and responsiveness.",
+            "icon": "BuildingOffice2Icon",
+            "sourceIds": [
+              "src-ibisworld-pr-firms"
+            ]
+          }
+        ],
+        "roleIcon": "RocketLaunchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-pr-specialists",
+      "metric": "315,900 U.S. public relations specialist jobs in 2024",
+      "claim": "The U.S. Bureau of Labor Statistics reports that public relations specialists held about 315,900 jobs in 2024 and projects 5% employment growth from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Public Relations Specialists Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/media-and-communication/public-relations-specialists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "communications workforce demand",
+        "internal knowledge needs"
+      ]
+    },
+    {
+      "id": "src-ibisworld-pr-firms",
+      "metric": "57,777 U.S. public relations firms in 2025",
+      "claim": "IBISWorld reports 57,777 businesses in the U.S. Public Relations Firms industry and says the industry grew at a 4.4% CAGR between 2020 and 2025.",
+      "sourceTitle": "IBISWorld: Public Relations Firms in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/public-relations-firms/1434/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market competition",
+        "agency differentiation",
+        "business scale"
+      ]
+    },
+    {
+      "id": "src-muck-rack-state-pr-ai",
+      "metric": "Three out of four communicators use generative AI at work",
+      "claim": "Axios reported Muck Rack survey findings that three out of four communicators use generative AI at work, nearly three times more than in March 2023.",
+      "sourceTitle": "Axios: PR professionals have tripled AI use since 2023",
+      "sourceUrl": "https://www.axios.com/2025/01/16/ai-communications-workflow-pr-professionals",
+      "sourceDate": "2025-01-16",
+      "bestUsedFor": [
+        "AI adoption",
+        "workflow modernization",
+        "buyer urgency"
+      ]
+    },
+    {
+      "id": "src-muck-rack-burnout",
+      "metric": "Half of PR professionals considered quitting due to burnout",
+      "claim": "Axios reported Muck Rack survey findings that half of PR professionals had considered quitting due to burnout, with workload, always-on expectations, and tight deadlines cited as pressures.",
+      "sourceTitle": "Axios: PR professionals grapple with burnout, new report shows",
+      "sourceUrl": "https://www.axios.com/2024/08/20/pr-burnout-muck-rack",
+      "sourceDate": "2024-08-20",
+      "bestUsedFor": [
+        "workload pressure",
+        "always-on communications",
+        "operational efficiency"
+      ]
+    },
+    {
+      "id": "src-muck-rack-journalism-relevance",
+      "metric": "73% of journalists reject pitches because they are not relevant",
+      "claim": "Muck Rack’s State of Journalism 2024 webinar recap reported that 73% of journalists reject pitches because they are not relevant to what they cover.",
+      "sourceTitle": "Muck Rack Blog: Pitching preferences, AI and more",
+      "sourceUrl": "https://muckrack.com/blog/2024/05/06/state-of-journalism-2024-webinar-recap/",
+      "sourceDate": "2024-05-06",
+      "bestUsedFor": [
+        "media relations quality",
+        "pitch relevance",
+        "journalist expectations"
+      ]
+    },
+    {
+      "id": "src-cision-state-media",
+      "metric": "Journalists want targeted, well-researched, relevant stories",
+      "claim": "Cision’s 2024 State of the Media release says PR teams can improve media outcomes by providing journalists targeted, well-researched stories relevant to their audiences.",
+      "sourceTitle": "Cision: 2024 State of the Media Report press release",
+      "sourceUrl": "https://www.cision.com/about/press-releases/2024-press-releases/cisions-2024-state-of-the-media-report-journalists-battle-misinformation-embrace-data-and-seek-pr-partnership-302137052/",
+      "sourceDate": "2024-05-14",
+      "bestUsedFor": [
+        "journalist expectations",
+        "pitch quality",
+        "media relations workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client knowledge concierge for always-on account support",
+      "problem": "PR teams field recurring client questions about campaign status, coverage definitions, approvals, assets, reporting cadence, deliverables, and who owns the next step.",
+      "agentWorkflow": "Train a DocsBot agent on client-approved briefs, campaign plans, FAQs, coverage reports, status notes, brand guidelines, and SOPs. The agent answers routine questions in the agency’s voice, cites approved source material, summarizes open issues, and escalates sensitive questions to the account lead.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or workflows, the agent can look up an approved project status, create an internal task, notify a channel, or prepare a handoff summary for a human reviewer.",
+      "exampleQuestionsOrRequests": [
+        "What boilerplate are we approved to use for this product launch?",
+        "Summarize the open client questions from this week’s campaign status thread.",
+        "Which deliverables are due before the analyst briefing next Tuesday?"
+      ],
+      "businessOutcome": "Reduce repeated account-team interruptions while giving clients and internal stakeholders consistent answers from approved materials.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Media inquiry triage and response preparation",
+      "problem": "Journalists often need fast clarification, assets, data, quotes, or background, but PR teams must avoid sending unapproved claims or routing requests to the wrong spokesperson.",
+      "agentWorkflow": "DocsBot can collect inquiry details, search approved press releases, media kits, fact sheets, bios, FAQs, and quote guidance, then summarize the request for the right media relations owner. It can draft a response outline while keeping final quote approval with the human team.",
+      "liveContextOrTools": "Customer-configured actions can create a ticket or task, route by client or beat, add missing fields, send an internal notification, or connect to approved live context where the team authorizes access.",
+      "exampleQuestionsOrRequests": [
+        "Find the latest approved background for this funding announcement.",
+        "Create a handoff summary for a reporter asking about executive availability.",
+        "Which spokesperson should review this request about product safety claims?"
+      ],
+      "businessOutcome": "Improve response consistency and reduce missed context during time-sensitive media interactions.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "name": "Pitch relevance and message review assistant",
+      "problem": "Muck Rack reported that 73% of journalists reject pitches because they are not relevant to what they cover, making audience fit and message accuracy central to media relations work.",
+      "agentWorkflow": "Train DocsBot on media strategy notes, target audience definitions, prior successful pitches, approved messaging, client proof points, and campaign goals. The agent helps teams compare a draft pitch against approved story angles, flag missing context, and retrieve supporting evidence before human review.",
+      "liveContextOrTools": "When configured with web search and approved Skills, the agent can research public prospect or journalist context for a human PR professional, summarize findings, and prepare talking points without sending outreach automatically.",
+      "exampleQuestionsOrRequests": [
+        "Check this pitch against our approved messaging and audience criteria.",
+        "What proof points can support this healthcare trade publication angle?",
+        "Summarize public background on this outlet before I personalize the note."
+      ],
+      "businessOutcome": "Help teams prepare more targeted, better-supported pitches while keeping final outreach in human hands.",
+      "icon": "MagnifyingGlassIcon",
+      "sourceIds": [
+        "src-muck-rack-journalism-relevance"
+      ]
+    },
+    {
+      "name": "Crisis playbook and escalation agent",
+      "problem": "In a crisis, teams need fast access to approved holding statements, escalation trees, spokesperson rules, client contacts, legal review steps, and channel-specific guidance.",
+      "agentWorkflow": "DocsBot can serve as a private crisis knowledge agent trained on crisis manuals, scenario playbooks, escalation matrices, approval flows, messaging guardrails, and incident postmortems. It retrieves the right protocol, summarizes the situation, and routes the next step to the appropriate owner.",
+      "liveContextOrTools": "AI Actions can trigger bounded workflows such as creating an incident task, notifying a review channel, collecting missing facts, or preparing a structured escalation packet. Sensitive statements, legal commitments, and public responses should remain under human approval.",
+      "exampleQuestionsOrRequests": [
+        "Which holding statement is approved for a data incident scenario?",
+        "Who must review a public response involving a regulatory investigation?",
+        "Create a concise internal brief from these facts and identify missing details."
+      ],
+      "businessOutcome": "Give teams rapid access to the right process while maintaining review boundaries for high-impact communications.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "New business intake and proposal enablement",
+      "problem": "Agencies need to respond quickly to inbound opportunities while qualifying fit, collecting requirements, and preparing proposal context without overpromising services or pricing.",
+      "agentWorkflow": "A DocsBot presales agent can answer service questions from approved capability decks, case studies, FAQs, pricing guidance, process docs, and onboarding materials. It can collect lead details, apply customer-defined qualification rules, and draft a follow-up summary for business development.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, webhooks, or MCP Connectors for remote Model Context Protocol servers, the agent can forward qualified leads, create CRM-style records, request meetings, or notify the right owner.",
+      "exampleQuestionsOrRequests": [
+        "Do you support crisis communications for venture-backed technology companies?",
+        "Collect our PR needs and send a summary to the new business team.",
+        "Prepare a discovery-call brief from this prospect’s answers."
+      ],
+      "businessOutcome": "Speed up inbound response and make discovery handoffs more complete while keeping humans responsible for final scope, pricing, and contract terms.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Coverage reporting and internal insight retrieval",
+      "problem": "Coverage reports, campaign retrospectives, and client updates often live across documents, dashboards, emails, and spreadsheets, making it hard to reuse lessons from prior campaigns.",
+      "agentWorkflow": "DocsBot can train on reporting templates, coverage summaries, client recaps, campaign notes, FAQs, and internal playbooks. Teams can ask for definitions, retrieve examples, summarize narratives, and identify recurring questions that should become better documentation.",
+      "liveContextOrTools": "With customer-approved workflow access, the agent can generate a draft summary, create a task for missing data, or route unresolved questions to an analyst or account owner.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the key coverage themes from this campaign recap.",
+        "Where do we define share of voice in our client reports?",
+        "What questions are clients repeatedly asking about our measurement process?"
+      ],
+      "businessOutcome": "Make reporting knowledge reusable and reduce manual searching during client updates and post-campaign reviews.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and prospects a source-grounded PR assistant, not another generic contact form",
+    "intro": "DocsBot can power public or private AI support agents that answer from your approved services, campaign documentation, FAQs, media kits, onboarding materials, and support content. Use the website widget for prospects, private access for clients, and escalation rules for anything requiring strategic judgment.",
+    "requests": [
+      {
+        "request": "“What PR services do you offer for a Series B software launch?”",
+        "agentResponseStrategy": "Answer from approved service pages, positioning documents, package descriptions, and FAQs, then collect company, timeline, audience, region, and goals for a qualified handoff.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales enablement docs",
+          "Client intake forms",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Forward a qualified lead summary to the business development workflow or request a meeting through an approved scheduling flow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Where can I find the press kit, executive bio, and approved product description?”",
+        "agentResponseStrategy": "Retrieve the latest approved media assets and source-grounded descriptions, clarify embargo or usage limits, and route unusual requests to the media relations owner.",
+        "sourceTypes": [
+          "Media kits",
+          "Press releases",
+          "Executive bios",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Create an internal request if the asset is missing or needs approval before release.",
+        "icon": "NewspaperIcon"
+      },
+      {
+        "request": "“Can you summarize our campaign status and what is due next?”",
+        "agentResponseStrategy": "Use approved client status documents and campaign plans to summarize milestones, open tasks, deliverables, and known blockers without inventing timelines.",
+        "sourceTypes": [
+          "Campaign plans",
+          "Status reports",
+          "SOPs",
+          "Client FAQs"
+        ],
+        "optionalAction": "Create a follow-up task or send a structured handoff to the assigned account lead through a configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is this statement approved for public use?”",
+        "agentResponseStrategy": "Check approved messaging, quote guidance, and escalation rules. If the request touches sensitive claims, crisis response, legal language, or regulated industries, route it for human review.",
+        "sourceTypes": [
+          "Messaging guides",
+          "Approval matrices",
+          "Crisis playbooks",
+          "Legal review notes"
+        ],
+        "optionalAction": "Prepare a review packet with the draft statement, source references, risk notes, and missing facts.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Can you help me understand whether your agency is a fit for our communications needs?”",
+        "agentResponseStrategy": "Ask structured intake questions, compare answers with customer-defined qualification criteria, and explain relevant services from approved content.",
+        "sourceTypes": [
+          "Capability decks",
+          "Case studies",
+          "Service catalogs",
+          "Qualification rules"
+        ],
+        "optionalAction": "Send a summarized lead profile to the configured sales or CRM workflow for human follow-up.",
+        "icon": "FingerPrintIcon"
+      },
+      {
+        "request": "“Can you respond in my preferred language?”",
+        "agentResponseStrategy": "DocsBot agents can answer in more than 100 languages while staying grounded in your approved sources and escalation rules.",
+        "sourceTypes": [
+          "Approved multilingual content",
+          "FAQs",
+          "Onboarding docs",
+          "Website pages"
+        ],
+        "optionalAction": "Route language-specific or market-specific requests to the appropriate regional owner when needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Equip every PR team member with the account knowledge they need before the deadline hits",
+    "intro": "DocsBot can act as a private internal knowledge agent for account teams, media relations, executives, analysts, and operations. Train it on internal SOPs, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, text files, policies, and approved client materials so teams can find reliable answers quickly.",
+    "workflows": [
+      {
+        "name": "Account onboarding and client context retrieval",
+        "problem": "New team members need to learn client background, scope, positioning, approval rules, contacts, reporting cadence, and campaign history without interrupting senior staff.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, client briefs, kickoff notes, contracts, account plans, approved messaging, and internal SOPs. The agent answers source-grounded questions and surfaces missing documentation through analytics.",
+        "sourceTypes": [
+          "Client briefs",
+          "Onboarding guides",
+          "Contracts",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Create a documentation gap task when repeated questions reveal missing or outdated account knowledge.",
+        "outcome": "Ramp new team members faster and reduce repeated knowledge handoffs from account leads.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Executive briefing preparation",
+        "problem": "Senior leaders need concise, accurate context before media interviews, client calls, crisis reviews, and new business meetings.",
+        "agentWorkflow": "DocsBot can summarize approved background, campaign history, media coverage notes, stakeholder context, FAQs, and prior decisions into a brief for human review.",
+        "sourceTypes": [
+          "Briefing docs",
+          "Coverage summaries",
+          "Stakeholder maps",
+          "Messaging guides"
+        ],
+        "optionalAction": "Generate a draft briefing document or notify the account owner to approve the final version.",
+        "outcome": "Create more consistent briefing prep while keeping final judgment with the communications team.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Policy, compliance, and approval lookup",
+        "problem": "PR work may involve financial, healthcare, legal, HR, or public affairs claims where teams must follow client-specific review paths and language restrictions.",
+        "agentWorkflow": "A DocsBot internal agent retrieves approval matrices, compliance notes, escalation rules, source citations, and client-specific restrictions, then identifies when a response must be escalated.",
+        "sourceTypes": [
+          "Approval matrices",
+          "Compliance notes",
+          "Review policies",
+          "Messaging restrictions"
+        ],
+        "optionalAction": "Prepare a review packet with source references, unresolved questions, and recommended reviewer routing.",
+        "outcome": "Reduce accidental use of outdated or unapproved language in sensitive communications.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Team knowledge analytics",
+        "problem": "Agencies often do not know which client questions, SOP gaps, or campaign process issues are slowing teams down until deadlines are already at risk.",
+        "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to show what teams keep asking.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge sources",
+          "Internal documentation"
+        ],
+        "optionalAction": "Create a backlog item for new documentation, FAQ updates, or source cleanup after review.",
+        "outcome": "Turn repeated questions into better documentation and more scalable account operations.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on approved PR content",
+      "mainLandingPageContext": "DocsBot helps businesses create AI agents trained on their own knowledge, including websites, help centers, documents, internal content, and other configured sources.",
+      "industryApplication": "Train agents on press releases, media kits, client briefs, crisis playbooks, campaign plans, brand guidelines, reporting notes, and agency SOPs so answers stay aligned with approved communications.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and scoped workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, field updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Route media inquiries, create follow-up tasks, collect prospect details, forward lead summaries, trigger internal notifications, or prepare approval handoffs without giving the agent open-ended authority.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for PR teams",
+      "mainLandingPageContext": "DocsBot can serve as a private internal knowledge assistant for employees across HR, IT, marketing, sales, operations, compliance, finance, legal, and other teams.",
+      "industryApplication": "Give account coordinators, media strategists, executives, and operations teams fast access to client history, messaging rules, approval processes, onboarding guides, and reporting definitions.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Website widget, private team chat, Slack, Teams, and API access",
+      "mainLandingPageContext": "DocsBot agents can be deployed through website or product widgets, private chat experiences, Slack, Microsoft Teams, APIs, helpdesk-style workflows, and customer-configured connectors.",
+      "industryApplication": "Offer a public agency assistant for prospects, a private client-support experience for retained accounts, and an internal team assistant for time-sensitive comms work.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Multilingual answers from approved sources",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages while using the knowledge sources and instructions configured by the business.",
+      "industryApplication": "Support international clients, regional media teams, and multilingual stakeholder requests while routing market-specific or approval-sensitive responses to the correct human owner.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which client questions, pitch-process gaps, reporting definitions, crisis protocols, or onboarding topics need clearer documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive communications knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect client materials, embargoed announcements, executive briefing notes, crisis plans, and internal strategy documents with governed access and customer-defined controls.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for teams that need answers grounded in their own content library, not generic internet responses.",
+      "Useful across public-facing support and internal team assistance, including helpdesk-style workflows and embedded website experiences."
+    ],
+    "whyTheseReviewsFit": "Public relations teams need speed, source control, and dependable handoffs across clients, media, and internal stakeholders. DocsBot’s customer proof shows agents handling high-volume inquiry flows, learning from owned content libraries, and supporting both customer-facing and team-assist workflows.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for public relations, media relations, client service, and internal communications knowledge",
+    "audience": [
+      "Public relations agencies",
+      "In-house communications teams",
+      "Media relations teams",
+      "Client service and account teams",
+      "Agency operations and new business teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MegaphoneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "ai-automation-agency",
+    "ai-consulting",
+    "business-information",
+    "big-data-analytics",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "public-relations",
+    "webSearchQueries": [
+      "Public relations agencies industry revenue United States IBISWorld 2024 public relations firms",
+      "US Bureau of Labor Statistics public relations specialists employment outlook 2024",
+      "Muck Rack State of PR 2024 journalists PR pitches response time",
+      "Cision State of the Media Report 2024 public relations journalists"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/media-and-communication/public-relations-specialists.htm",
+      "https://www.ibisworld.com/united-states/industry/public-relations-firms/1434/",
+      "https://www.axios.com/2025/01/16/ai-communications-workflow-pr-professionals",
+      "https://www.axios.com/2024/08/20/pr-burnout-muck-rack",
+      "https://muckrack.com/blog/2024/05/06/state-of-journalism-2024-webinar-recap/",
+      "https://www.cision.com/about/press-releases/2024-press-releases/cisions-2024-state-of-the-media-report-journalists-battle-misinformation-embrace-data-and-seek-pr-partnership-302137052/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42312,
+        "cachedInputTokens": 8960,
+        "billableInputTokens": 33352,
+        "outputTokens": 8712,
+        "reasoningOutputTokens": 126,
+        "totalTokens": 51024,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.2163,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.2263
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21615,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 17903,
+          "outputTokens": 5753,
+          "reasoningOutputTokens": 126,
+          "totalTokens": 27368,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.131981,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.141981
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20697,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15449,
+          "outputTokens": 2959,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23656,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.084319,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.084319
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1550071593-fd1bdaf1f93c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ0ODN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Public Relations background image",
+    "source": "legacy-industry",
+    "query": "Public Relations"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from using old boilerplate, unapproved messaging, or a draft statement that should never leave the account team?",
+      "answer": "DocsBot is designed around approved knowledge sources, permissions, and escalation rules. You can train the agent on current press materials, messaging guides, approval matrices, crisis playbooks, and client-specific SOPs, then instruct it to cite sources and route sensitive claims, quotes, legal language, or regulated topics to a human reviewer instead of treating them as self-serve answers.",
+      "role": "Account teams and client service leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use this for client-facing support without giving clients access to every internal note or strategy document?",
+      "answer": "Yes. A common PR setup is to separate public, client-facing, and internal knowledge sources. DocsBot supports granular access controls and role-based permissions, so a client assistant can answer from approved FAQs, status notes, media kits, and onboarding materials while internal strategy, pricing guidance, escalation notes, and executive briefing documents stay private.",
+      "role": "Account teams and client service leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this actually reduce account-team interruptions, or will it become another tool people ignore?",
+      "answer": "The strongest use cases are recurring, high-friction questions: approved boilerplate, campaign status, reporting definitions, deliverable ownership, contacts, review paths, and asset locations. PR teams are already under workload pressure; Axios reported Muck Rack findings that half of PR professionals had considered quitting because of burnout, with workload, always-on expectations, and tight deadlines among the pressures.",
+      "role": "Account teams and client service leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-muck-rack-burnout"
+      ]
+    },
+    {
+      "question": "How would DocsBot fit into our media inquiry process when speed matters but quotes still need approval?",
+      "answer": "DocsBot can collect inquiry details, retrieve approved background, summarize the reporter request, identify missing facts, and route the handoff to the right media relations owner or spokesperson. It can draft an internal response outline, but final quotes, commitments, crisis statements, and sensitive claims should remain under human approval.",
+      "role": "Media relations and newsroom response teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent help our team personalize pitches without automatically sending outreach?",
+      "answer": "Yes. DocsBot can review a draft against approved messaging, audience criteria, prior pitch examples, campaign goals, and proof points. If configured with web search and approved Skills, it can summarize public context about an outlet or journalist for a human PR professional. Final pitch judgment and sending should stay with the media relations team.",
+      "role": "Media relations and newsroom response teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Why should pitch relevance be part of an AI-agent evaluation, not just response speed?",
+      "answer": "For media relations, faster is not enough if the answer or angle is poorly targeted. Muck Rack reported that 73% of journalists reject pitches because they are not relevant to what they cover, and Cision says journalists want targeted, well-researched stories relevant to their audiences. A useful PR agent should help retrieve the right proof points and audience fit before outreach.",
+      "role": "Media relations and newsroom response teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-muck-rack-journalism-relevance",
+        "src-cision-state-media"
+      ]
+    },
+    {
+      "question": "Can DocsBot support crisis communications without creating new risk during a live incident?",
+      "answer": "DocsBot is best used as a controlled crisis knowledge and escalation agent: retrieve approved holding statements, escalation trees, spokesperson rules, legal review steps, and channel guidance; summarize known facts; identify missing details; and prepare a review packet. It should not publish public responses or make legal, financial, safety, or regulatory commitments without human approval.",
+      "role": "Account teams and client service leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we handle different clients with different approval rules, embargoes, spokespeople, and regulated-language restrictions?",
+      "answer": "You can structure knowledge by client, account, campaign, or permission group, then use instructions that reflect each client’s approval path. For higher-risk sectors such as healthcare, finance, HR, public affairs, or litigation-related work, the agent can be told to retrieve the governing source and escalate rather than improvise language.",
+      "role": "Account teams and client service leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can new account coordinators use this to ramp faster without constantly interrupting senior staff?",
+      "answer": "Yes. DocsBot can serve as a private internal knowledge agent trained on onboarding guides, client briefs, kickoff notes, contracts, account plans, campaign history, reporting definitions, and SOPs. New team members can ask source-grounded questions, while analytics reveal repeated gaps that should become better onboarding documentation.",
+      "role": "Account teams and client service leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What systems can DocsBot connect with in a PR agency workflow?",
+      "answer": "DocsBot can be deployed through a website widget, private chat, Slack, Microsoft Teams, API-powered workflows, and customer-configured connectors. With approved Skills, APIs, webhooks, or MCP Connectors, teams can support scoped actions such as creating tasks, routing media requests, forwarding qualified leads, looking up approved status, notifying a channel, or preparing handoff summaries.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it qualify new-business inquiries without overpromising pricing, timelines, or services?",
+      "answer": "Yes. A DocsBot presales agent can answer from approved capability decks, service pages, case studies, FAQs, process docs, and pricing guidance. It can collect structured intake details, apply customer-defined qualification rules, and send a summarized lead profile to the right workflow, while keeping final scope, pricing, contracts, and strategic recommendations with humans.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the PR agent is worth the investment?",
+      "answer": "Useful metrics include repeated questions deflected, time saved finding approved materials, faster media-inquiry triage, fewer incomplete handoffs, reduced onboarding interruptions, lead-intake completion, documentation gaps resolved, and client satisfaction with self-serve answers. In a competitive market with 57,777 U.S. public relations firms in 2025, responsiveness and consistency can become operational differentiators.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ibisworld-pr-firms"
+      ]
+    },
+    {
+      "question": "Can clients ask about campaign status, deliverables, or coverage definitions through the agent?",
+      "answer": "Yes, if those sources are approved for that client experience. DocsBot can answer from campaign plans, status reports, reporting notes, coverage summaries, FAQs, and SOPs. For live project status, a customer-configured Skill, API, connector, or workflow can look up approved context or create a follow-up task when the question requires human input.",
+      "role": "Account teams and client service leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the source material is missing, conflicting, or outdated?",
+      "answer": "The agent should be configured to avoid guessing, cite the source it used, and escalate uncertainty. DocsBot analytics, logs, topic reporting, conversation review, and knowledge-gap discovery can show where people keep asking questions that the knowledge base cannot answer cleanly, so teams can update briefs, FAQs, SOPs, or approval matrices.",
+      "role": "Account teams and client service leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with coverage reports and campaign recaps, or is it only for Q&A?",
+      "answer": "DocsBot can retrieve reporting definitions, summarize approved campaign notes, find prior recap examples, draft internal summaries, and identify recurring client questions about measurement. It is not a substitute for final analyst judgment, but it can make coverage-report knowledge reusable across account teams and reduce time spent searching through folders, spreadsheets, and status documents.",
+      "role": "Account teams and client service leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we evaluate AI accuracy for public relations work where wording and context matter?",
+      "answer": "Look for source-grounded answers, visible citations, permission boundaries, escalation behavior, testing against real account questions, and the ability to say when it does not know. In PR, accuracy is not just factual correctness; it includes whether language is approved, current, client-specific, audience-appropriate, and routed through the right review path.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot across multiple clients and practice groups without mixing confidential information?",
+      "answer": "Yes, DocsBot can support governed internal and client-facing experiences when sources, permissions, and access rules are designed carefully. Agencies should separate client workspaces or knowledge scopes, limit who can access sensitive materials, use role-based permissions, and review logs for quality and governance.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What security posture can we show procurement, legal, or enterprise clients?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For PR buyers, that matters when the knowledge base contains embargoed announcements, executive briefing notes, crisis plans, strategy documents, or confidential client materials.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent work for both external prospects and internal teams, or do we need separate tools?",
+      "answer": "DocsBot can support both, but the experiences should usually be separated. A website agent might answer service-fit questions and collect qualified leads, while an internal agent handles client context, approvals, SOPs, reporting definitions, and crisis playbooks. Different source sets, instructions, and permissions keep the workflows cleaner and safer.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much content cleanup do we need before launching a PR knowledge agent?",
+      "answer": "You do not need a perfect knowledge base, but you do need trusted starting sources: current service pages, approved messaging, account briefs, FAQs, SOPs, media kits, approval rules, and escalation paths. A practical rollout starts with one team or client, tests common questions, removes obsolete documents, and uses analytics to prioritize cleanup.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support multilingual clients, regional media teams, or international stakeholders?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages while staying grounded in the approved sources and instructions you provide. For regional legal, cultural, market, or spokesperson differences, the agent should route market-specific or approval-sensitive requests to the appropriate human owner.",
+      "role": "Media relations and newsroom response teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep humans in control when the agent can take actions through APIs or workflows?",
+      "answer": "DocsBot actions are customer-configured and bounded. Teams can limit actions to approved tasks such as collecting missing fields, creating a ticket, notifying a channel, preparing a handoff, updating approved fields, or triggering a workflow. Sensitive actions should use permissions, logs, secrets management, network controls, and human review checkpoints.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does this compare with using a general-purpose AI tool for PR work?",
+      "answer": "General-purpose AI tools can help draft, but they are not automatically grounded in your current client briefs, approval matrices, media kits, campaign plans, or crisis playbooks. DocsBot is positioned for source-grounded PR knowledge, governed access, analytics, and scoped workflows, so teams can retrieve approved context and escalate instead of relying on unsourced, one-off prompts.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Is AI adoption in PR mature enough that clients and employees will accept this?",
+      "answer": "AI is already common in communications workflows. Axios reported Muck Rack survey findings that three out of four communicators use generative AI at work, nearly three times more than in March 2023. Adoption is not the main issue; buyers should focus on governance, source control, review boundaries, and whether the agent fits real PR workflows.",
+      "role": "General buyer",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-muck-rack-state-pr-ai"
+      ]
+    },
+    {
+      "question": "What should be included in a pilot before we roll this out across the agency?",
+      "answer": "A strong pilot uses one high-value workflow, such as client Q&A, media inquiry triage, onboarding, or new-business intake. Define approved sources, top questions, escalation rules, success metrics, reviewer owners, and a feedback loop. After testing answer quality and adoption, expand to more clients, practice groups, or external-facing experiences.",
+      "role": "Agency operations, new business, and growth teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us understand what clients and staff keep asking about?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. PR teams can use that data to find repeated questions about deliverables, reporting definitions, approval paths, campaign status, media assets, onboarding gaps, and crisis procedures.",
+      "role": "Account teams and client service leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this replace account managers, media strategists, or crisis leads?",
+      "answer": "No. The best fit is reducing repetitive searching, summarizing, routing, intake, and first-pass drafting so senior PR staff spend more time on judgment-heavy work. Strategy, client counsel, journalist relationships, quote approval, crisis response, regulated claims, and final public messaging should remain human-led.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    }
+  ]
+}

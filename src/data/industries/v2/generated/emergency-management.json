@@ -1,0 +1,701 @@
+{
+  "slug": "emergency-management",
+  "business": "Emergency Management",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Emergency Management Operations",
+    "description": "DocsBot helps emergency management teams retrieve SOPs, answer public questions, and route incident workflows from approved response knowledge.",
+    "canonicalPath": "/industry/emergency-management"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for preparedness, response, and recovery",
+    "headline": "DocsBot AI agents keep emergency knowledge ready when time matters",
+    "subheadline": "Train DocsBot on your emergency plans, SOPs, public guidance, call-center scripts, resource documents, after-action reports, and internal playbooks so staff and residents can get fast, consistent answers with escalation paths for safety-critical decisions.",
+    "proofBullets": [
+      {
+        "text": "Answer responder and staff questions from approved emergency plans, policies, SOPs, PDFs, wikis, and shared drives.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Summarize incident context, intake notes, reports, and recurring questions so teams can see what needs follow-up.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "text": "Route public inquiries, volunteer offers, damage reports, or recovery requests into customer-configured forms, tickets, or workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Keep sensitive or high-impact actions bounded with permissions, logs, and human review where your team requires it.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build an emergency knowledge agent",
+    "secondaryCta": "See how DocsBot handles SOPs"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps emergency management organizations create AI agents trained on their own response knowledge. Agents can answer from approved sources, support public self-service, assist staff in private chat, summarize context, surface knowledge gaps, and trigger bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Emergency management directors",
+        "roleContext": "Give EOC staff, public information officers, and partner agencies a consistent way to find current procedures without searching through folders during a time-sensitive event.",
+        "bullets": [
+          {
+            "text": "Make emergency operations plans, annexes, checklists, and continuity procedures searchable through a private AI agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to identify repeated staff questions and missing documentation before the next exercise.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support controlled handoffs for sensitive decisions, mutual-aid requests, or public safety determinations that need human authority.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Public information and communications teams",
+        "roleContext": "During emergencies, residents ask repetitive, urgent questions about shelters, road closures, safety guidance, aid, and eligibility. DocsBot can help answer from approved public content and route unresolved requests.",
+        "bullets": [
+          {
+            "text": "Respond from approved FAQs, press releases, preparedness guides, shelter instructions, and recovery program pages.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Collect missing details before forwarding a resident inquiry to the right department or helpdesk workflow.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support multilingual public communication in more than 100 languages when your approved source material is available.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "SpeakerWaveIcon"
+      },
+      {
+        "role": "Operations, planning, and training staff",
+        "roleContext": "Preparedness work depends on plans, job aids, exercise documents, resource lists, and after-action improvements staying findable and current.",
+        "bullets": [
+          {
+            "text": "Use a private knowledge agent to retrieve ICS role guidance, planning templates, situation report examples, and training references.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize exercise notes or incident debriefs into draft follow-up items for review.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Turn recurring questions into documentation backlog items so plans and public guidance improve over time.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-noaa-billion-disasters-2024",
+      "metric": "27 U.S. billion-dollar weather and climate disasters in 2024",
+      "claim": "NOAA reported 27 U.S. weather and climate disasters in 2024 with damages of at least $1 billion each, the second-highest annual count in the 45-year record.",
+      "sourceTitle": "Assessing the U.S. Climate in 2024",
+      "sourceUrl": "https://www.ncei.noaa.gov/news/national-climate-202413",
+      "sourceDate": "January 2025",
+      "bestUsedFor": [
+        "disaster frequency",
+        "public inquiry volume",
+        "preparedness pressure"
+      ]
+    },
+    {
+      "id": "src-fema-2023-preparedness-report",
+      "metric": "60 billion-dollar climate-related disasters from January 2020 through December 2022",
+      "claim": "FEMA’s 2023 National Preparedness Report says 60 climate-related disasters from January 2020 through December 2022 caused 1,460 fatalities and 2,939 injuries.",
+      "sourceTitle": "2023 National Preparedness Report",
+      "sourceUrl": "https://www.fema.gov/sites/default/files/documents/fema_2023-npr.pdf",
+      "sourceDate": "December 2023",
+      "bestUsedFor": [
+        "incident severity",
+        "preparedness challenges",
+        "cross-agency pressure"
+      ]
+    },
+    {
+      "id": "src-fema-nims-command-coordination",
+      "metric": "EOCs support coordination, resource acquisition, information gathering, analysis, and sharing",
+      "claim": "FEMA’s NIMS command and coordination guidance describes EOCs as supporting operational and strategic coordination, resource acquisition, information gathering, analysis, and information sharing.",
+      "sourceTitle": "NIMS Can Help: Command and Coordination",
+      "sourceUrl": "https://www.usfa.fema.gov/a-z/nims/command-and-coordination.html",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "EOC workflows",
+        "coordination",
+        "information management"
+      ]
+    },
+    {
+      "id": "src-fema-nims-components",
+      "metric": "NIMS provides guidance and tools for resource management, command and coordination, and communications",
+      "claim": "FEMA’s NIMS components guidance covers resource management, command and coordination, communications and information management, and supporting tools for emergency managers.",
+      "sourceTitle": "NIMS Components - Guidance and Tools",
+      "sourceUrl": "https://www.fema.gov/emergency-managers/nims/components",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "resource workflows",
+        "standardized response",
+        "communications"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "EOC procedure and checklist assistant",
+      "problem": "Emergency operations centers depend on fast access to current plans, annexes, contact protocols, forms, and role-specific procedures while multiple teams coordinate the response.",
+      "agentWorkflow": "Train a private DocsBot agent on emergency operations plans, ICS job aids, continuity plans, hazard annexes, PDFs, and shared drive content. Staff ask role-specific questions and get source-grounded answers with links back to the approved source.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can retrieve live status fields, draft a shift handoff summary, create a task, or route an unresolved question to a planning lead for review.",
+      "exampleQuestionsOrRequests": [
+        "What is the checklist for opening the EOC at Level 2 activation?",
+        "Summarize the latest shift notes into an operations briefing draft.",
+        "Where is the current debris management procedure?"
+      ],
+      "businessOutcome": "Reduce time spent searching through plans and help staff follow the same approved procedures across shifts, departments, and partner agencies.",
+      "icon": "CommandLineIcon",
+      "sourceIds": [
+        "src-fema-nims-command-coordination"
+      ]
+    },
+    {
+      "name": "Public information and resident self-service",
+      "problem": "When disasters occur, residents repeatedly ask about shelters, evacuation guidance, safety instructions, assistance programs, and recovery steps. NOAA reported 27 U.S. billion-dollar weather and climate disasters in 2024.",
+      "agentWorkflow": "Deploy a DocsBot support agent on a public website or emergency information portal. It answers from approved FAQs, preparedness pages, public alerts, eligibility guidance, and recovery resources, then escalates complex or sensitive cases.",
+      "liveContextOrTools": "Customer-configured actions can collect contact details, incident location, request type, and urgency before forwarding a summary to a ticketing system, form, email inbox, or response workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which shelter accepts pets tonight?",
+        "What should I do if my home has flood damage?",
+        "Can you send my debris pickup question to the right department?"
+      ],
+      "businessOutcome": "Give residents faster, more consistent answers while reducing repetitive inquiries for public information staff and call-center teams.",
+      "icon": "ChatBubbleLeftIcon",
+      "sourceIds": [
+        "src-noaa-billion-disasters-2024"
+      ]
+    },
+    {
+      "name": "Resource request and partner handoff routing",
+      "problem": "Emergency managers coordinate requests across agencies, vendors, volunteers, NGOs, and internal departments, and FEMA describes EOCs as supporting resource acquisition and information sharing.",
+      "agentWorkflow": "DocsBot can guide authorized users through approved resource request steps, answer policy questions from mutual-aid documents, and prepare structured handoff summaries for the appropriate coordinator.",
+      "liveContextOrTools": "Through scoped Skills, APIs, connectors, or MCP-enabled tool access, the agent can look up approved record status, create a task, update permitted fields, or notify a team channel when a request is ready for review.",
+      "exampleQuestionsOrRequests": [
+        "What information is required before submitting a generator request?",
+        "Create a draft handoff summary for this volunteer donation offer.",
+        "Check whether this request has already been routed."
+      ],
+      "businessOutcome": "Improve intake consistency and reduce duplicate back-and-forth while keeping final resource allocation decisions with authorized personnel.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-fema-nims-command-coordination"
+      ]
+    },
+    {
+      "name": "Exercise, training, and after-action knowledge capture",
+      "problem": "Preparedness programs generate training materials, exercise injects, improvement plans, and lessons learned that are often hard to reuse across departments and planning cycles.",
+      "agentWorkflow": "Train DocsBot on training manuals, exercise documents, after-action reports, improvement plans, and policy updates. Staff can ask what changed, find prior lessons, or generate draft summaries for review.",
+      "liveContextOrTools": "Configured workflows can turn recurring questions into documentation-gap reports or create follow-up tasks for plan owners after an exercise.",
+      "exampleQuestionsOrRequests": [
+        "What did the last after-action report say about public alerting delays?",
+        "List open improvement items related to shelter coordination.",
+        "Draft a training recap from these notes."
+      ],
+      "businessOutcome": "Preserve institutional knowledge, speed onboarding, and make lessons learned easier to apply before the next incident or exercise.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Recovery program guidance and eligibility triage",
+      "problem": "After an incident, residents and businesses need clear guidance on forms, documentation, deadlines, inspections, assistance programs, and next steps.",
+      "agentWorkflow": "A DocsBot agent can answer from approved recovery pages, forms, program guidance, checklists, and call scripts. It can collect structured details and prepare a handoff when a case requires staff review.",
+      "liveContextOrTools": "With approved workflows, the agent can create a ticket, attach a conversation summary, route by program type, or ask for missing information before escalation.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need before applying for assistance?",
+        "Which office handles small business recovery questions?",
+        "Summarize this resident’s issue for a caseworker."
+      ],
+      "businessOutcome": "Make recovery guidance easier to understand while improving intake quality for staff handling complex or sensitive cases.",
+      "icon": "HomeModernIcon"
+    },
+    {
+      "name": "Documentation gap and inquiry trend analysis",
+      "problem": "FEMA’s 2023 National Preparedness Report identified persistent preparedness challenges as disasters increased in frequency, severity, and cost, which makes clear, updated guidance more important.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review help teams see which questions the agent could not answer, what residents ask most, and where SOPs or FAQs need updates.",
+      "liveContextOrTools": "Reports can inform content reviews, plan maintenance meetings, website updates, training priorities, and public information improvements.",
+      "exampleQuestionsOrRequests": [
+        "Which evacuation questions were unanswered this month?",
+        "Show repeated staff questions about situation reports.",
+        "What public guidance should we update before wildfire season?"
+      ],
+      "businessOutcome": "Use real inquiry patterns to improve plans, public FAQs, training materials, and internal knowledge before the next activation.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-fema-2023-preparedness-report"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give the public clear answers from approved emergency guidance",
+    "intro": "DocsBot can power a public-facing AI support agent for preparedness, incident updates, recovery guidance, and routine emergency management questions. The agent responds from sources your team approves and escalates when a person needs to decide, verify, or intervene.",
+    "requests": [
+      {
+        "request": "“Where do I go if I need shelter, transportation, or pet-friendly options?”",
+        "agentResponseStrategy": "Answer from approved shelter FAQs and public guidance, ask clarifying questions when configured, and direct the resident to official next steps instead of improvising advice.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Shelter guidance",
+          "Preparedness pages",
+          "Press releases"
+        ],
+        "optionalAction": "Collect contact details or location and route the request to a configured form, ticket, or human responder when required.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“What should I do after flooding, fire, power outage, or storm damage?”",
+        "agentResponseStrategy": "Retrieve safety and recovery guidance from approved emergency management pages, checklists, and program instructions, with clear escalation for urgent danger or case-specific decisions.",
+        "sourceTypes": [
+          "Recovery guides",
+          "Safety checklists",
+          "Damage reporting instructions",
+          "Program pages"
+        ],
+        "optionalAction": "Create a summarized intake record or forward the conversation to the right recovery team through a customer-configured workflow.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I volunteer, donate supplies, or offer services?”",
+        "agentResponseStrategy": "Use approved volunteer and donation policies to explain what is accepted, what information is needed, and which organization or department handles the offer.",
+        "sourceTypes": [
+          "Volunteer guidance",
+          "Donation policies",
+          "Partner directories",
+          "Public contact pages"
+        ],
+        "optionalAction": "Route structured offers to the correct team with a summary, contact information, and requested follow-up channel.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Is this alert real, and where can I find the official update?”",
+        "agentResponseStrategy": "Point users to official public information sources and answer from approved messages, reducing confusion from outdated or unofficial content.",
+        "sourceTypes": [
+          "Official alerts",
+          "Press releases",
+          "Emergency portal pages",
+          "Public safety FAQs"
+        ],
+        "optionalAction": "Escalate misinformation reports or unresolved questions to public information staff for review.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“I need this information in another language.”",
+        "agentResponseStrategy": "Provide answers in more than 100 languages when the agent has approved source content to draw from, helping residents understand core instructions more quickly.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Public guidance",
+          "Preparedness materials",
+          "Recovery instructions"
+        ],
+        "optionalAction": "Route translation-sensitive or legally significant communications to staff review when your policies require it.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What documents do I need before submitting a recovery request?”",
+        "agentResponseStrategy": "Answer from approved eligibility guidance and checklists, then identify missing information before a resident submits an incomplete request.",
+        "sourceTypes": [
+          "Assistance program guides",
+          "Eligibility FAQs",
+          "Form instructions",
+          "Call-center scripts"
+        ],
+        "optionalAction": "Prepare a handoff summary for staff without making final eligibility decisions.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put response plans, SOPs, and lessons learned in one searchable AI workspace",
+    "intro": "Emergency management staff can use DocsBot as a private internal knowledge agent trained on plans, policies, training materials, reports, and operational documents. It gives source-grounded answers while keeping high-impact decisions under team-defined controls.",
+    "workflows": [
+      {
+        "name": "Activation and shift-change support",
+        "problem": "EOC teams need to move quickly between activation levels, briefings, operational periods, and handoffs without losing important context.",
+        "agentWorkflow": "Staff ask DocsBot for activation checklists, briefing templates, staffing guidance, and prior shift notes. The agent can summarize context and cite the source documents used.",
+        "sourceTypes": [
+          "Emergency operations plans",
+          "Activation checklists",
+          "Shift logs",
+          "Situation report templates"
+        ],
+        "optionalAction": "Create a draft handoff or task list for review by the operations lead.",
+        "outcome": "More consistent shift transitions and faster access to the right procedure during activation.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Policy and compliance lookup",
+        "problem": "Teams need to follow procurement, documentation, privacy, accessibility, and public communication rules while moving quickly.",
+        "agentWorkflow": "DocsBot answers policy questions from approved internal documents and points staff back to the controlling source for verification.",
+        "sourceTypes": [
+          "Internal policies",
+          "Procurement guidance",
+          "Accessibility standards",
+          "Communications approvals"
+        ],
+        "optionalAction": "Route high-impact or uncertain questions to legal, finance, compliance, or leadership review.",
+        "outcome": "Staff can find policy guidance faster while preserving human review for sensitive calls.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New staff, reservists, volunteers, and cross-trained personnel often need quick explanations of local procedures and role expectations.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, role guides, training slides, videos summaries, and exercise documentation so users can ask questions in plain language.",
+        "sourceTypes": [
+          "Training manuals",
+          "Role guides",
+          "Exercise packets",
+          "After-action reports"
+        ],
+        "optionalAction": "Surface repeated onboarding questions as knowledge gaps for the training team.",
+        "outcome": "Accelerate readiness and reduce repeated explanations from experienced staff.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Plan maintenance and knowledge-gap review",
+        "problem": "Emergency plans become less useful when common questions, changed procedures, or after-action findings do not make it back into the documentation.",
+        "agentWorkflow": "DocsBot reports on unresolved questions, repeated topics, and low-confidence areas so plan owners can prioritize updates.",
+        "sourceTypes": [
+          "Conversation logs",
+          "SOP libraries",
+          "Plan annexes",
+          "Public FAQs"
+        ],
+        "optionalAction": "Generate draft content-update tickets or documentation backlog items through approved workflows.",
+        "outcome": "Keep internal and public guidance aligned with what staff and residents actually ask.",
+        "icon": "WrenchIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on your configured knowledge sources and can provide instant answers with context from those sources.",
+      "industryApplication": "Emergency management teams can train agents on emergency operations plans, annexes, SOPs, public FAQs, shelter guidance, recovery documents, and training materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can be used by employees in private team experiences to retrieve procedures, policies, troubleshooting steps, and operational knowledge.",
+      "industryApplication": "EOC staff, planners, public information officers, and support teams can ask operational questions without searching through scattered folders during an activation.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, routing, ticket creation, record updates, and workflow triggers when configured.",
+      "industryApplication": "Emergency teams can configure actions to route resident inquiries, summarize reports, create tasks, look up approved status fields, or notify a team while preserving permission boundaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation and scoped boundaries",
+      "mainLandingPageContext": "DocsBot supports human escalation for complex, sensitive, or high-impact questions and can operate within customer-defined controls.",
+      "industryApplication": "Safety-critical, eligibility, legal, or resource-allocation decisions can be routed to authorized staff instead of being decided by an AI agent.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Emergency managers can see which public questions repeat, which SOPs are unclear, and what training or plan content should be updated before the next incident.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Agencies and contractors can keep internal plans, policies, and operational documents in governed AI experiences with access controls aligned to their role structure.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health",
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your own approved content library.",
+      "Proven in high-volume support environments where consistent self-service matters.",
+      "Useful for internal decision support when teams need faster access to trusted knowledge."
+    ],
+    "whyTheseReviewsFit": "Emergency management buyers need dependable knowledge access, clear escalation, and proof that AI can support both public-facing and internal workflows. DocsBot’s customer proof shows owned-content training, high-volume inquiry handling, and internal decision support without replacing human authority.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "SignalIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for emergency management knowledge, public self-service, and EOC operations",
+    "audience": [
+      "Emergency management agencies",
+      "Public safety departments",
+      "EOC operations teams",
+      "Public information officers",
+      "Disaster recovery teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "private-security",
+    "cybersecurity",
+    "compliance-consulting",
+    "safety-security-legal",
+    "attorney-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "emergency-management",
+    "webSearchQueries": [
+      "FEMA National Preparedness Report emergency management challenges 2023 2024",
+      "NOAA billion dollar weather climate disasters 2024 United States",
+      "FEMA National Incident Management System resource management communications coordination"
+    ],
+    "sourceUrls": [
+      "https://www.ncei.noaa.gov/news/national-climate-202413",
+      "https://www.fema.gov/sites/default/files/documents/fema_2023-npr.pdf",
+      "https://www.usfa.fema.gov/a-z/nims/command-and-coordination.html",
+      "https://www.fema.gov/emergency-managers/nims/components"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 38301,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 17565,
+        "outputTokens": 7417,
+        "reasoningOutputTokens": 97,
+        "totalTokens": 45718,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.160352,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.170352
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19506,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 4018,
+          "outputTokens": 4786,
+          "reasoningOutputTokens": 97,
+          "totalTokens": 24292,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.085707,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.095707
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18795,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13547,
+          "outputTokens": 2631,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21426,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074645,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074645
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1552879890-3a06dd3a06c2?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzYWZldHl8ZW58MHwwfHx8MTcxNDg3ODA3MXww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Emergency Management background image",
+    "source": "legacy-industry",
+    "query": "Emergency Management"
+  },
+  "faq": [
+    {
+      "question": "How would DocsBot help during an EOC activation without staff searching through binders, shared drives, and old plan versions?",
+      "answer": "DocsBot can be trained on your approved emergency operations plans, hazard annexes, activation checklists, SOPs, ICS job aids, PDFs, and shared-drive content. Staff can ask plain-language questions and receive source-grounded answers with references back to the controlling document, helping each shift work from the same approved guidance.",
+      "role": "Emergency management directors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use DocsBot for public questions without letting AI make safety-critical decisions?",
+      "answer": "Yes. A public-facing DocsBot agent can answer from approved preparedness pages, alerts, FAQs, recovery guidance, shelter instructions, and call-center scripts. For urgent danger, legal issues, eligibility decisions, or ambiguous cases, the agent can be configured to escalate, collect structured details, and hand the case to a person instead of deciding on its own.",
+      "role": "Public information and communications teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kinds of emergency management documents should we train the agent on first?",
+      "answer": "Most teams should start with high-use, high-confidence content: emergency operations plans, activation checklists, public FAQs, shelter guidance, evacuation pages, recovery program instructions, resource request procedures, call scripts, and after-action improvement items. Starting with approved sources keeps the first deployment focused, easier to review, and safer to expand.",
+      "role": "Operations, planning, and training staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot handle resource requests, mutual-aid questions, or volunteer offers?",
+      "answer": "DocsBot can explain approved intake steps, ask for missing details, summarize the request, and route it into a customer-configured form, ticket, inbox, task, or workflow. Final allocation, approval, prioritization, and public safety decisions should remain with authorized personnel, with the agent supporting consistent intake and handoff quality.",
+      "role": "Emergency management directors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent support NIMS-style coordination and information sharing workflows?",
+      "answer": "DocsBot is a fit for knowledge retrieval, intake, summaries, and routing around EOC coordination. FEMA describes EOCs as supporting operational and strategic coordination, resource acquisition, information gathering, analysis, and sharing; DocsBot can help teams find and structure that information from approved sources while keeping command decisions human-led.",
+      "role": "Emergency management directors",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fema-nims-command-coordination"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated evacuation, shelter, or road-closure information?",
+      "answer": "DocsBot should be connected only to the sources your team designates as authoritative, with clear content owners and update procedures. For live or fast-changing information, teams can configure approved Skills, APIs, connectors, or workflows to retrieve status fields, or have the agent point users to official update channels and escalate when information is uncertain.",
+      "role": "Public information and communications teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot answer resident questions in multiple languages during a disaster?",
+      "answer": "DocsBot can provide answers in more than 100 languages when it has approved source content to draw from. For emergency instructions, accessibility requirements, legal notices, or translation-sensitive communications, many teams use the agent for first-pass support while routing high-impact or uncertain language needs to trained staff for review.",
+      "role": "Public information and communications teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation look like if our plans are spread across PDFs, Word files, wikis, and shared drives?",
+      "answer": "Implementation usually starts by identifying authoritative sources, removing obsolete versions, grouping content by audience, and defining escalation rules. DocsBot can train on PDFs, Word documents, text files, wikis, Google Drive, Notion, Confluence, and other configured knowledge sources, then be tested with real EOC, PIO, training, and recovery scenarios before launch.",
+      "role": "Operations, planning, and training staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will staff trust the answers if they need to verify a procedure during an incident?",
+      "answer": "DocsBot is designed for source-grounded answers from approved content, so users can see where an answer came from and check the underlying procedure. For emergency management, that matters because the agent should not replace plan ownership, command authority, or professional judgment; it should make the controlling guidance faster to find.",
+      "role": "Emergency management directors",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we separate internal EOC knowledge from public-facing resident guidance?",
+      "answer": "Yes. You can use private internal knowledge agents for staff-only plans, SOPs, contact protocols, shift notes, and policies, while deploying a separate public agent trained only on approved public guidance. Role-based permissions and access controls help keep sensitive operational content out of public experiences.",
+      "role": "Emergency management directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter for emergency management use cases?",
+      "answer": "Buyers should look for access controls, logging, encryption, data-use commitments, and boundaries on what the agent can see or do. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot integrate with our ticketing, forms, call-center, or team notification workflows?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and MCP-enabled tool access. Depending on what your team authorizes, the agent can collect missing details, create a task or ticket, route an inquiry, look up approved status fields, notify a team, or prepare a handoff summary.",
+      "role": "Public information and communications teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if the goal is readiness and consistency, not just ticket deflection?",
+      "answer": "Measure time saved finding procedures, reduction in repeated staff questions, faster intake completion, fewer incomplete handoffs, public self-service volume, unresolved-question trends, and documentation gaps closed before exercises or activations. For emergency management, ROI is often a mix of efficiency, consistency, preparedness, and reduced operational friction.",
+      "role": "Emergency management directors",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us handle spikes in resident questions after storms, wildfires, floods, or other disasters?",
+      "answer": "Yes. A public agent can answer repetitive questions from approved public guidance and route unresolved cases to staff. This matters because NOAA reported 27 U.S. billion-dollar weather and climate disasters in 2024, creating repeated pressure on public information, call-center, and recovery teams during high-volume events.",
+      "role": "Public information and communications teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-noaa-billion-disasters-2024"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from exposing sensitive plans, contact lists, or operational details?",
+      "answer": "Use separate agents or content collections for public and internal audiences, apply role-based permissions, exclude sensitive sources from public deployments, and limit Skills to approved actions. DocsBot supports granular access controls, logs, and customer-defined boundaries so teams can decide what information is searchable, who can access it, and what actions are allowed.",
+      "role": "Emergency management directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent summarize shift notes, situation updates, and incident context for handoffs?",
+      "answer": "DocsBot can summarize incident notes, reports, recurring questions, and operational context into draft handoffs or briefings for review. The best practice is to treat summaries as staff-assistive drafts: a lead or authorized user should verify facts, priorities, and sensitive details before they are used in an operational briefing.",
+      "role": "Operations, planning, and training staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How can DocsBot help with after-action reports and improvement planning?",
+      "answer": "Train the agent on after-action reports, improvement plans, exercise packets, training materials, and policy updates. Staff can ask what changed, find prior lessons, identify open improvement themes, and turn recurring unanswered questions into documentation backlog items or follow-up tasks through approved workflows.",
+      "role": "Operations, planning, and training staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review what residents or staff asked the agent after an incident?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Emergency management teams can use those insights to see repeated questions, unclear SOPs, missing public guidance, and content that should be updated before the next exercise or activation.",
+      "role": "Operations, planning, and training staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot support recovery program intake without making eligibility decisions?",
+      "answer": "DocsBot can answer from approved recovery pages, form instructions, checklists, and call scripts; ask for missing information; and prepare a summarized handoff for staff. It should not make final eligibility, benefit, inspection, legal, or case-specific determinations unless your authorized process explicitly defines a reviewed, bounded workflow.",
+      "role": "Public information and communications teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or finds conflicting guidance?",
+      "answer": "The agent should be configured to avoid guessing, show the sources it used, and escalate unresolved or conflicting questions to the right person or workflow. DocsBot analytics can also surface these failures as knowledge gaps so plan owners can fix outdated, missing, or inconsistent documentation.",
+      "role": "Emergency management directors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can this help train new staff, reservists, volunteers, or cross-trained personnel before an activation?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding and role-specific questions from training manuals, role guides, exercise documents, SOPs, and after-action reports. New or temporary personnel can ask practical questions in plain language while trainers use repeated questions to improve materials.",
+      "role": "Operations, planning, and training staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would procurement compare DocsBot with a generic chatbot or custom-built RAG project?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent platform for approved knowledge, internal support, public self-service, analytics, and bounded workflow actions. Compared with a generic chatbot, buyers should evaluate source control, permissions, escalation, logs, content maintenance, implementation speed, and whether staff can manage the agent without a long custom development cycle.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we deploy slowly, for example internal-only before making anything public?",
+      "answer": "Yes. Many emergency management teams would start with an internal knowledge agent for SOP lookup, training, plan maintenance, or EOC checklists. After testing source quality, escalation rules, and staff adoption, they can expand to public FAQs, recovery guidance, resident intake, or multilingual self-service.",
+      "role": "Emergency management directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "What internal stakeholders should be involved before launch?",
+      "answer": "Include emergency management leadership, public information, operations or planning, IT/security, legal or compliance, accessibility or language-access leads, call-center or helpdesk owners, and any department responsible for public content. The buying committee should agree on approved sources, escalation paths, data handling, launch scope, and success metrics.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support standardized resource management and communications processes?",
+      "answer": "DocsBot can help staff find resource request procedures, communications guidance, forms, and handoff requirements from approved materials. FEMA’s NIMS components cover resource management, command and coordination, communications and information management, and supporting tools, making source control and consistent retrieval important for emergency teams.",
+      "role": "Emergency management directors",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fema-nims-components"
+      ]
+    },
+    {
+      "question": "How should we think about AI risk in a high-consequence public safety environment?",
+      "answer": "Treat the agent as a controlled knowledge and workflow assistant, not an autonomous incident commander. Limit it to approved sources, separate public and internal content, define escalation triggers, log conversations, restrict actions through permissions, and require human review for safety-critical, legal, eligibility, resource-allocation, or public-warning decisions.",
+      "role": "Emergency management directors",
+      "category": "Human oversight"
+    }
+  ]
+}

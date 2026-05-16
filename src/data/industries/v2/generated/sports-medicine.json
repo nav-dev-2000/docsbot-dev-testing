@@ -1,0 +1,713 @@
+{
+  "slug": "sports-medicine",
+  "business": "Sports Medicine",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Sports Medicine Patient Support",
+    "description": "DocsBot helps sports medicine teams answer patient questions, surface rehab guidance, and route intake requests from approved clinical content.",
+    "canonicalPath": "/industry/sports-medicine"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for sports medicine teams",
+    "headline": "DocsBot AI agents keep athletes informed between visits",
+    "subheadline": "Train DocsBot on your clinic’s care guides, service pages, recovery instructions, policies, and internal procedures so patients and staff get fast, consistent answers while sensitive clinical decisions stay with your care team.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions about services, visit preparation, rehab instructions, insurance-facing policies, and follow-up steps from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details, route requests, and prepare handoffs for scheduling, billing, clinical, or athletic training staff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give clinicians and front-desk teams a private knowledge agent for protocols, forms, SOPs, referral rules, and patient education materials.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated questions, missing education content, and confusing recovery instructions.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a sports medicine AI agent",
+    "secondaryCta": "Explore patient support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps sports medicine practices create AI agents trained on their own knowledge sources. A patient-facing agent can answer from approved service pages, FAQs, post-visit instructions, and recovery resources, while an internal agent helps staff retrieve protocols, forms, policies, and team procedures. With configured AI Actions, Skills, APIs, connectors, or workflows, agents can collect details, summarize context, route requests, create tasks, and escalate when a human should review.",
+    "whoItHelps": [
+      {
+        "role": "Clinic owners and operations leaders",
+        "roleContext": "Sports medicine clinics balance patient access, provider time, follow-up education, and front-office throughput. DocsBot gives teams a governed way to make approved information easier to find before and after appointments.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive service, location, preparation, and recovery-resource questions without asking staff to rewrite the same answer.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Route appointment, billing, records, and clinical follow-up requests to the right team with a summary of what the patient needs.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Review recurring questions to improve FAQs, discharge instructions, rehab handouts, and website content.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Sports medicine physicians, PTs, and athletic trainers",
+        "roleContext": "Care teams need quick access to current instructions, return-to-activity resources, and clinic workflows while protecting clinical judgment and patient safety.",
+        "bullets": [
+          {
+            "text": "Search approved rehab education, brace guidance, visit-prep instructions, and internal protocols from one private assistant.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Keep diagnosis, treatment changes, return-to-play clearance, and urgent symptom decisions routed to licensed professionals.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support growing demand for athletic training services; BLS projects athletic trainer employment to grow 11% from 2024 to 2034.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-athletic-trainers"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Patient access, scheduling, and front-desk teams",
+        "roleContext": "Front-office staff often handle the same questions about appointments, paperwork, referrals, insurance documents, and what patients should bring to a visit.",
+        "bullets": [
+          {
+            "text": "Let patients self-serve answers about preparation, forms, parking, accepted documentation, and follow-up steps from clinic-approved content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect scheduling intent and missing details before handing off to a person or an approved scheduling workflow.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Provide multilingual answers in more than 100 languages when your source content and agent instructions support the experience.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cdc-tbi-sports",
+      "metric": "About 7 in 10 sports- and recreation-related TBI and concussion ED visits are among children 17 and under.",
+      "claim": "CDC reports that children and teens account for most emergency department visits for sports- and recreation-related TBIs and concussions, underscoring the need for clear education and escalation guidance.",
+      "sourceTitle": "CDC HEADS UP: Data on Sports and Recreation Activities",
+      "sourceUrl": "https://www.cdc.gov/heads-up/data/index.html",
+      "sourceDate": "January 27, 2026",
+      "bestUsedFor": [
+        "concussion education demand",
+        "youth sports risk",
+        "patient safety escalation"
+      ]
+    },
+    {
+      "id": "src-cdc-sports-injuries-5-24",
+      "metric": "Sports and recreation injuries are a common type of emergency department injury visit among people ages 5–24.",
+      "claim": "CDC/NCHS analyzed emergency department visits for injuries sustained during sports and recreational activities by patients ages 5–24 from 2010 to 2016.",
+      "sourceTitle": "CDC Stacks: Emergency Department Visits for Injuries Sustained During Sports and Recreational Activities by Patients Aged 5–24 Years, 2010–2016",
+      "sourceUrl": "https://stacks.cdc.gov/view/cdc/82627",
+      "sourceDate": "November 2019",
+      "bestUsedFor": [
+        "injury volume",
+        "youth and young adult demand",
+        "follow-up education"
+      ]
+    },
+    {
+      "id": "src-bls-athletic-trainers",
+      "metric": "Athletic trainer employment is projected to grow 11% from 2024 to 2034.",
+      "claim": "BLS says demand is driven by sports participation, college athletics, and physically active middle-aged and older adults who may need injury prevention and recovery support.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Athletic Trainers",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/athletic-trainers.htm",
+      "sourceDate": "December 3, 2025",
+      "bestUsedFor": [
+        "labor demand",
+        "sports medicine workforce growth",
+        "operational scale"
+      ]
+    },
+    {
+      "id": "src-amssm-patient-education",
+      "metric": "AMSSM maintains patient education resources for sports medicine topics.",
+      "claim": "The American Medical Society for Sports Medicine provides patient education materials, illustrating the importance of clear, accessible sports medicine information.",
+      "sourceTitle": "American Medical Society for Sports Medicine: Patient Education",
+      "sourceUrl": "https://www.amssm.org/PatientEducation.php",
+      "sourceDate": "Accessed May 15, 2026",
+      "bestUsedFor": [
+        "patient education",
+        "sports medicine content needs",
+        "approved education resources"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient education and visit preparation agent",
+      "problem": "Patients often need the same pre-visit, post-visit, and recovery-resource answers, but sports medicine staff must avoid replacing clinician judgment with generic advice.",
+      "agentWorkflow": "Train DocsBot on your clinic’s service pages, FAQs, intake instructions, recovery handouts, brace or equipment guidance, and post-visit education. The agent answers only from approved sources, cites the relevant material, asks clarifying non-diagnostic questions when needed, and escalates urgent, complex, or personalized care questions to a human.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can collect appointment intent, create a task, or forward a summarized handoff to scheduling or clinical staff.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first sports medicine appointment?",
+        "Where can I find the post-visit instructions for an ankle sprain?",
+        "Can I get help understanding the difference between physical therapy and a physician visit?"
+      ],
+      "businessOutcome": "Patients get clearer next steps while staff spend less time repeating basic instructions and more time on care-specific follow-up.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Concussion and return-to-activity information triage",
+      "problem": "Concussion questions are high-stakes, especially in youth sports; CDC reports about 7 in 10 sports- and recreation-related TBI and concussion ED visits are among children ages 17 and under.",
+      "agentWorkflow": "DocsBot can answer from clinic-approved concussion education, school or team policy pages, red-flag guidance, referral instructions, and return-to-activity resources. It can avoid diagnosis or clearance, present safety boundaries, and direct patients, parents, coaches, or athletes to urgent care or the clinic’s defined escalation path when needed.",
+      "liveContextOrTools": "Configured AI Actions can route concussion-related requests, generate a concise handoff, notify the appropriate team, or create a review task inside an approved workflow.",
+      "exampleQuestionsOrRequests": [
+        "My child hit their head during a game. What does your clinic say we should do next?",
+        "Where are your concussion return-to-play forms?",
+        "Can you send my question to the sports medicine nurse or athletic trainer?"
+      ],
+      "businessOutcome": "The practice provides consistent education while keeping clinical decisions, emergency guidance, and return-to-play clearance in human hands.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-cdc-tbi-sports"
+      ]
+    },
+    {
+      "name": "Rehab instruction finder for follow-up support",
+      "problem": "Recovery instructions can be spread across PDFs, after-visit summaries, exercise sheets, and web pages, making it harder for patients to follow the plan they were given.",
+      "agentWorkflow": "Train a DocsBot agent on approved rehabilitation handouts, care-plan explainers, exercise descriptions, equipment instructions, and follow-up FAQs. The agent can retrieve the right document, summarize the relevant section, and remind patients to follow their clinician’s personalized plan rather than giving new treatment advice.",
+      "liveContextOrTools": "When connected to approved systems or metadata, the agent can ask for non-sensitive context such as visit type or body area and route requests for missing or conflicting instructions.",
+      "exampleQuestionsOrRequests": [
+        "Where are the knee strengthening exercises my PT mentioned?",
+        "How do I know when I should schedule my follow-up?",
+        "I lost my post-op sports medicine handout. Can you point me to the clinic version?"
+      ],
+      "businessOutcome": "Patients find approved instructions faster, and staff can identify which handouts or recovery topics generate the most confusion.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Internal protocol and coverage assistant",
+      "problem": "Sports medicine teams work across clinics, events, schools, teams, and rehab settings, so staff need quick access to procedures without searching drives and binders.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent can answer from SOPs, event coverage checklists, referral rules, emergency action plans, documentation templates, onboarding content, and policy documents. Staff can ask natural-language questions and receive source-grounded answers with links back to the original files.",
+      "liveContextOrTools": "Skills, APIs, connectors, or MCP-enabled tools can be configured for approved lookups, task creation, workflow triggers, or notifications when a protocol needs follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What is our sideline coverage checklist for high school football?",
+        "Which form do we use for outside imaging referrals?",
+        "What is the escalation path for an after-hours athlete injury report?"
+      ],
+      "businessOutcome": "Employees spend less time searching and more time applying the right procedure consistently across locations and coverage settings.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Lead qualification for cash-pay and performance services",
+      "problem": "Many sports medicine practices offer evaluations, performance programs, injury prevention services, or specialty clinics that prospective patients want to understand before booking.",
+      "agentWorkflow": "DocsBot can answer questions from service pages, eligibility requirements, pricing guidance where approved, FAQs, staff bios, and program descriptions. It can collect lead details such as sport, injury concern, timeline, location, and preferred follow-up channel, then qualify and route the inquiry by customer-defined rules.",
+      "liveContextOrTools": "With approved scheduling or CRM-style workflows, the agent can request a consultation, forward a lead summary, create a task, or hand off complex medical and payment questions to staff.",
+      "exampleQuestionsOrRequests": [
+        "Do you see recreational runners with recurring knee pain?",
+        "Which program is best for ACL injury prevention?",
+        "Can someone call me about a performance evaluation?"
+      ],
+      "businessOutcome": "Prospects get faster answers, and staff receive more complete context before follow-up.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for patient content",
+      "problem": "Sports medicine teams may not know which recovery instructions, service pages, or policy explanations are creating the most patient confusion.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, and review workflows help teams see repeated questions, low-confidence answers, unresolved topics, and missing source material. Managers can use those insights to update FAQs, handouts, web pages, and internal playbooks.",
+      "liveContextOrTools": "Reports and review processes can guide content updates before the agent is retrained on revised materials.",
+      "exampleQuestionsOrRequests": [
+        "Which post-visit topics are patients asking about most?",
+        "What questions did the agent escalate this month?",
+        "Which rehab handouts need clearer wording?"
+      ],
+      "businessOutcome": "The practice improves patient education based on real questions instead of guessing where communication breaks down.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give athletes, parents, and patients a safer front door to your approved answers",
+    "intro": "A DocsBot patient-facing agent can live on your website or patient support experience to answer from approved sports medicine content, collect structured details, and escalate when the request needs staff, a clinician, or urgent review.",
+    "requests": [
+      {
+        "request": "“What services do you offer for shoulder injuries?”",
+        "agentResponseStrategy": "Answer from service pages and provider-approved FAQs, explain which clinic pathways are available, and invite the patient to request scheduling help without diagnosing the injury.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Provider bios",
+          "Clinic policies"
+        ],
+        "optionalAction": "Collect sport, concern, location, and preferred contact method, then route a summary to scheduling through an approved workflow.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“What should I do before my first appointment?”",
+        "agentResponseStrategy": "Retrieve preparation steps, forms, imaging or referral reminders, arrival instructions, and what to wear from approved clinic content.",
+        "sourceTypes": [
+          "Visit preparation pages",
+          "Forms",
+          "Location pages",
+          "Intake instructions"
+        ],
+        "optionalAction": "Create a front-desk task if the patient says they are missing paperwork or need accessibility help.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is this symptom urgent?”",
+        "agentResponseStrategy": "Avoid diagnosis, provide only clinic-approved red-flag and escalation language, and direct the patient to emergency services or a human care team according to the practice’s instructions.",
+        "sourceTypes": [
+          "Escalation policies",
+          "Urgent symptom guidance",
+          "After-hours instructions"
+        ],
+        "optionalAction": "Offer a human handoff or route the conversation to the appropriate team when the workflow is configured.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I get my rehab instructions in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer in the patient’s language when the source content and clinic instructions allow it, while preserving the approved meaning.",
+        "sourceTypes": [
+          "Rehab handouts",
+          "Patient education PDFs",
+          "Follow-up FAQs"
+        ],
+        "optionalAction": "Flag missing translated content as a knowledge gap for staff review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where can I learn about sports nutrition or injury prevention?”",
+        "agentResponseStrategy": "Point to clinic-approved education libraries and external resources your team has chosen to include; AMSSM maintains patient education materials for sports medicine topics.",
+        "sourceTypes": [
+          "Patient education libraries",
+          "Clinic blog posts",
+          "Approved external resources"
+        ],
+        "optionalAction": "Summarize the topic and provide a source link without replacing individualized medical advice.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-amssm-patient-education"
+        ]
+      },
+      {
+        "request": "“Do you work with youth athletes?”",
+        "agentResponseStrategy": "Answer from youth sports service pages, policy content, and clinic FAQs. Sports and recreation injuries are a common emergency department injury category among patients ages 5–24, so clear access information matters for families.",
+        "sourceTypes": [
+          "Youth sports pages",
+          "Clinic FAQs",
+          "Parent resources"
+        ],
+        "optionalAction": "Collect parent or guardian contact preferences and route the request for scheduling review.",
+        "icon": "UserGroupIcon",
+        "sourceIds": [
+          "src-cdc-sports-injuries-5-24"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make protocols, handouts, and operational knowledge easier for staff to use",
+    "intro": "A private DocsBot internal knowledge agent helps physicians, PTs, athletic trainers, administrators, and front-desk staff retrieve the right document or procedure from approved internal sources without digging through folders.",
+    "workflows": [
+      {
+        "name": "Clinical operations Q&A",
+        "problem": "Staff need quick answers about referral routing, follow-up timing, forms, imaging instructions, and documentation steps.",
+        "agentWorkflow": "Train DocsBot on internal SOPs, templates, policies, and care-team instructions. The agent returns source-grounded answers and links back to the original document so staff can verify details.",
+        "sourceTypes": [
+          "SOPs",
+          "Referral policies",
+          "Documentation templates",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a task or route a question to an operations owner when the answer is missing or outdated.",
+        "outcome": "More consistent front-office and care-team execution across locations.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Event and team coverage support",
+        "problem": "Athletic trainers and sports medicine staff may cover practices, games, tournaments, or outreach events where procedures need to be accessible fast.",
+        "agentWorkflow": "Load coverage checklists, emergency action plans, equipment lists, communication trees, and event-specific notes. Staff can ask the private agent for the right checklist or escalation path in natural language.",
+        "sourceTypes": [
+          "Event checklists",
+          "Emergency action plans",
+          "Coverage schedules",
+          "Policy PDFs"
+        ],
+        "optionalAction": "Trigger a notification, generate an incident summary draft, or prepare a handoff when the configured workflow allows it.",
+        "outcome": "Teams can retrieve the right operational guidance without relying on memory or scattered documents.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Onboarding and staff training assistant",
+        "problem": "New schedulers, aides, athletic trainers, and clinicians need to learn local processes, service lines, and documentation standards.",
+        "agentWorkflow": "DocsBot can answer from onboarding guides, training videos or summaries, policy documents, and internal FAQs. Managers can review frequent questions to improve training materials.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training materials",
+          "Internal FAQs",
+          "Policy documents"
+        ],
+        "optionalAction": "Flag unanswered questions for documentation owners and assign content updates through an approved task workflow.",
+        "outcome": "New hires get faster self-service answers while managers see where training content needs work.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Patient communication drafting",
+        "problem": "Staff often need to respond to recurring questions while keeping language consistent and within clinic boundaries.",
+        "agentWorkflow": "A DocsBot agent can draft replies from approved templates, service explanations, billing-facing policies, and post-visit instructions. Humans review sensitive, clinical, financial, or identity-related responses before sending.",
+        "sourceTypes": [
+          "Response templates",
+          "Patient education content",
+          "Policies",
+          "FAQ pages"
+        ],
+        "optionalAction": "Draft a ticket or email response and attach source references for staff review.",
+        "outcome": "Staff can respond faster while keeping final control over patient communication.",
+        "icon": "PencilIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your sports medicine knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, documents, PDFs, wikis, and internal content selected by the customer.",
+      "industryApplication": "Train an agent on clinic FAQs, service pages, rehab handouts, forms, protocols, and event coverage materials so answers stay grounded in your approved sports medicine content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can support customer-facing chat experiences and private internal team assistants.",
+      "industryApplication": "Offer patients a front-door support agent on your site while giving staff a private assistant for SOPs, policies, and internal clinical operations content.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot agents can take bounded actions such as lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect intake context, route a concussion question, create a scheduling task, summarize a patient request, or notify the right team through approved workflows and permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, reports, conversation review, topic management, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which injury topics, appointment questions, recovery instructions, and policy pages create repeated confusion so your team can improve content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive health workflows",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls.",
+      "industryApplication": "Use permissions, logs, scoped Skills, and human escalation for sensitive medical, identity, records, payment, and safety-related workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making and reduce unnecessary manual back-and-forth.",
+      "DocsBot is built for source-grounded answers from your own training materials, documents, and approved content libraries.",
+      "Patient and staff workflows can combine self-service answers with human escalation for sensitive or complex requests."
+    ],
+    "whyTheseReviewsFit": "Sports medicine teams need more than a generic chat interface: they need source-grounded answers, internal knowledge access, and governed workflows that support healthcare communication. DocsBot proof from healthcare, education, and content-library users shows how owned knowledge can become practical assistance for patients and staff.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for sports medicine practices",
+    "audience": [
+      "Sports medicine clinics",
+      "Orthopedic and rehab practices",
+      "Athletic training teams",
+      "Patient access leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "athletic-trainer",
+    "chiropractic-office",
+    "health-coaching",
+    "emergency-medical-services",
+    "healthcare-revenue-cycle-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "sports-medicine",
+    "webSearchQueries": [
+      "sports medicine physical therapy injury rehabilitation statistics patient education adherence authoritative",
+      "CDC sports recreation related injuries emergency department statistics",
+      "BLS athletic trainers employment sports medicine outlook",
+      "American Medical Society for Sports Medicine sports medicine care team patient education"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/heads-up/data/index.html",
+      "https://stacks.cdc.gov/view/cdc/82627",
+      "https://www.bls.gov/ooh/healthcare/athletic-trainers.htm",
+      "https://www.amssm.org/PatientEducation.php"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 66411,
+        "cachedInputTokens": 36224,
+        "billableInputTokens": 30187,
+        "outputTokens": 19755,
+        "reasoningOutputTokens": 268,
+        "totalTokens": 86166,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.38085,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.41085
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25621,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10133,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 168,
+          "totalTokens": 37621,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.209205,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.229205
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21655,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6167,
+          "outputTokens": 4999,
+          "reasoningOutputTokens": 100,
+          "totalTokens": 26654,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.094275,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.104275
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19135,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13887,
+          "outputTokens": 2756,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21891,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07737,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07737
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1627483298606-cf54c61779a9?ixid=M3w1OTc2MjN8MXwxfHNlYXJjaHwxfHxmaXRuZXNzfGVufDB8MHx8fDE3MTQ4NzgwNTd8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Sports Medicine background image",
+    "source": "legacy-industry",
+    "query": "Sports Medicine"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for patient questions without letting it give medical advice or return-to-play clearance?",
+      "answer": "Yes. Configure the agent to answer only from approved clinic content, use safety language for urgent or personalized questions, and escalate diagnosis, treatment changes, return-to-play decisions, and symptom triage to licensed staff. This is especially important for concussion workflows, where CDC reports that about 7 in 10 sports- and recreation-related TBI and concussion ED visits are among children 17 and under.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-cdc-tbi-sports"
+      ]
+    },
+    {
+      "question": "What kinds of sports medicine questions are realistic to automate first?",
+      "answer": "Good first workflows include visit preparation, what to bring, forms, parking, service-line explanations, post-visit handout lookup, brace or equipment instructions, referral process questions, and follow-up routing. The agent should avoid creating new care plans and instead point patients to the instructions your clinicians already approved.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot reduce front-desk interruptions without frustrating patients who need a person?",
+      "answer": "DocsBot can answer repetitive questions from your site, FAQs, forms, and policies, then collect structured details before handing off. For example, it can summarize appointment intent, body area, sport, location, paperwork issue, or preferred contact method so scheduling or billing staff start with context instead of another blank intake conversation.",
+      "role": "Patient access, scheduling, and front-desk teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help parents and coaches with concussion information safely?",
+      "answer": "It can share clinic-approved concussion education, red-flag instructions, school or team policy links, referral steps, and return-to-activity resources, while clearly stating that it does not diagnose, clear athletes, or replace urgent care. For youth sports medicine, clear escalation matters because CDC says children and teens make up most sports- and recreation-related TBI and concussion ED visits.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-cdc-tbi-sports"
+      ]
+    },
+    {
+      "question": "Will DocsBot work for both our website patients and our internal care team?",
+      "answer": "Yes. Many clinics would use one patient-facing agent for approved public information and a separate private internal knowledge agent for SOPs, protocols, referral rules, event coverage checklists, documentation templates, and onboarding materials. Permissions and source selection help keep internal procedures separate from public patient answers.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep answers consistent across physicians, PTs, athletic trainers, and front-office staff?",
+      "answer": "Train DocsBot on the same approved source set your team agrees to use: service pages, rehab handouts, post-visit instructions, escalation policies, SOPs, and templates. The agent gives source-grounded answers with references back to the underlying content, so staff can verify the answer and identify which document needs updating when guidance changes.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help us find which rehab instructions are confusing patients?",
+      "answer": "Yes. DocsBot analytics, conversation logs, topic management, reports, and review workflows can show repeated questions, low-confidence answers, escalations, and missing source material. Sports and recreation injuries are a common emergency department injury category for people ages 5–24, so improving follow-up education can be especially valuable for families and young athletes.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-cdc-sports-injuries-5-24"
+      ]
+    },
+    {
+      "question": "What would implementation look like if our instructions are spread across PDFs, website pages, shared drives, and SOP documents?",
+      "answer": "Start by selecting the content you already trust: service pages, intake instructions, recovery PDFs, forms, policies, and internal SOPs. DocsBot can be trained on websites, documents, PDFs, wikis, Google Drive-style folders, Notion, Confluence, Word documents, and other configured knowledge sources. Then review test conversations, adjust instructions, and launch with clear escalation rules.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we connect DocsBot to scheduling, ticketing, or internal workflow tools?",
+      "answer": "DocsBot can support approved handoffs through AI Actions, Skills, APIs, connectors, webhooks, MCP Connectors, or customer-configured workflows. A sports medicine agent might collect scheduling intent, create a task, notify a team, route a billing question, or prepare a clinical handoff. Avoid assuming a named integration unless your team has configured and authorized it.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from using outdated protocols or old handouts?",
+      "answer": "Treat the agent like a governed knowledge layer. Assign owners for concussion guidance, return-to-activity resources, post-op instructions, referral rules, and policies. Remove outdated files from the training set, retrain after content updates, and use conversation review to find answers that need clinical or operational review before expanding use.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support athletic trainers covering schools, games, tournaments, or outreach events?",
+      "answer": "Yes, as an internal knowledge agent. You can load coverage checklists, emergency action plans, communication trees, equipment lists, documentation procedures, and escalation paths. Staff can ask for the right protocol in natural language, and configured workflows can prepare summaries, create tasks, or notify the appropriate team when follow-up is needed.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should we measure beyond “chat volume”?",
+      "answer": "Measure repetitive questions answered, staff handoffs avoided, scheduling requests completed with sufficient context, time to first response, unresolved topics, content gaps closed, after-hours questions handled, and reductions in calls about forms, visit preparation, or rehab instructions. For internal use, track staff adoption, repeated SOP questions, and onboarding documentation gaps.",
+      "role": "Clinic owners and operations leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does DocsBot handle sensitive health, identity, billing, or records-related workflows?",
+      "answer": "Use scoped permissions, human escalation, logs, and customer-defined boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and controls around what Skills can access or do. Sensitive workflows should route to staff rather than letting the agent make clinical, financial, or identity-related decisions.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we offer answers in Spanish or other languages for rehab and visit-prep questions?",
+      "answer": "DocsBot can answer in more than 100 languages when your source content and agent instructions support that experience. For sports medicine, many buyers start with visit preparation, clinic policies, and approved rehab handouts, then use analytics to identify which materials need formal translation or clinician review.",
+      "role": "Patient access, scheduling, and front-desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our clinicians have to write a large knowledge base before we can launch?",
+      "answer": "Not necessarily. Most clinics begin with existing content: service pages, FAQs, intake instructions, post-visit PDFs, forms, escalation language, and SOPs. The first launch can be narrow, such as appointment preparation and rehab handout retrieval, then analytics can show which missing answers deserve new content.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help qualify cash-pay, performance, or injury-prevention leads without acting like a medical screener?",
+      "answer": "Yes. The agent can answer from approved service pages, program descriptions, eligibility guidance, pricing language where approved, and FAQs. It can collect non-diagnostic details such as sport, goal, timeline, location, and preferred follow-up channel, then route the inquiry to staff using your qualification rules.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic website chatbot?",
+      "answer": "The key difference is governed, source-grounded workflow support. DocsBot is not just a scripted chat box; it can answer from your approved content, support private internal knowledge use, surface knowledge gaps, provide conversation analytics, and take bounded actions through configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can front-desk staff use DocsBot to draft responses without sending unreviewed medical messages?",
+      "answer": "Yes. A private agent can draft responses from approved templates, policies, service explanations, and post-visit instructions, while humans review before sending. This is useful for repeated questions about paperwork, visit preparation, referrals, billing-facing policies, and where to find recovery resources.",
+      "role": "Patient access, scheduling, and front-desk teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What happens when the patient asks a question that is not in our approved content?",
+      "answer": "The agent should be configured to say it does not have enough approved information, avoid guessing, and offer the next safe step: link to a relevant page, collect context for staff, create a task, or escalate to the appropriate team. Conversation logs then show where your education materials or policies need improvement.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support multiple locations, providers, service lines, and school or team contracts?",
+      "answer": "Yes, if your source content is organized accordingly. You can separate public patient content from internal protocols, include location-specific instructions, and use permissions for private materials. For complex organizations, launch by service line or location, then expand once content ownership and escalation paths are clear.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How can we use DocsBot for onboarding new schedulers, aides, athletic trainers, or clinic staff?",
+      "answer": "Train a private internal agent on onboarding guides, internal FAQs, SOPs, referral rules, documentation steps, coverage procedures, and policy documents. New staff can ask natural-language questions instead of searching folders or interrupting senior employees, while managers review repeated questions to improve training materials.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Does DocsBot replace our patient portal, EHR, or practice management system?",
+      "answer": "No. DocsBot is best positioned as an AI knowledge and workflow layer around approved content and configured actions. It can collect details, summarize context, route requests, or trigger approved workflows when connected through Skills, APIs, connectors, or customer-defined automations, but it does not replace systems of record or clinical judgment.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What kind of buyer committee usually needs to be involved?",
+      "answer": "Expect operations, clinical leadership, patient access, compliance or privacy, IT, and sometimes marketing to review the rollout. Operations cares about call volume and throughput, clinicians care about safety boundaries, IT and compliance care about access controls, and marketing may care about service-line conversion and patient experience.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot use trusted sports medicine education resources, not just our own website?",
+      "answer": "Yes, if your team chooses to include approved external resources in the knowledge base. For example, AMSSM maintains patient education materials for sports medicine topics, but your clinicians should decide which external content is appropriate and how the agent should frame it alongside your clinic’s own guidance.",
+      "role": "Sports medicine physicians, PTs, and athletic trainers",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-amssm-patient-education"
+      ]
+    },
+    {
+      "question": "How do we know if the agent is helping rather than creating more staff review work?",
+      "answer": "Define success thresholds before launch: answer quality, escalation appropriateness, percentage of conversations resolved without staff intervention, number of incomplete handoffs, repeated unresolved topics, and staff time spent reviewing logs. Start with low-risk questions, tune the source content, then expand to more complex workflows after review.",
+      "role": "Clinic owners and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why would sports medicine teams consider automation now?",
+      "answer": "Demand for sports medicine support spans injury prevention, rehab, athletic training, and active adults. BLS projects athletic trainer employment to grow 11% from 2024 to 2034, driven by sports participation, college athletics, and physically active middle-aged and older adults, which makes scalable education and internal knowledge access more important.",
+      "role": "Clinic owners and operations leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-athletic-trainers"
+      ]
+    }
+  ]
+}

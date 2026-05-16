@@ -1,0 +1,719 @@
+{
+  "slug": "non-profit-organization",
+  "business": "Non Profit Organization",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Nonprofit Support and Operations",
+    "description": "DocsBot helps nonprofit organizations answer donor, volunteer, and program questions faster while routing follow-up work to the right team.",
+    "canonicalPath": "/industry/non-profit-organization"
+  },
+  "hero": {
+    "eyebrow": "Mission-ready AI support for lean nonprofit teams",
+    "headline": "DocsBot AI agents help nonprofits serve donors, volunteers, and communities",
+    "subheadline": "Train DocsBot on your program pages, FAQs, policies, volunteer materials, event details, and internal SOPs so supporters and staff get source-grounded answers, clear next steps, and human handoffs when a request needs personal attention.",
+    "proofBullets": [
+      {
+        "text": "Answer donor, volunteer, beneficiary, and event questions from approved nonprofit knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, summarize requests, and route follow-ups through customer-configured workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give staff and volunteers a private knowledge agent for policies, scripts, onboarding, and program procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated questions, content gaps, and confusing supporter journeys.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a nonprofit AI agent",
+    "secondaryCta": "Explore DocsBot for your mission"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps nonprofit organizations create AI agents trained on their own trusted content. Your agent can answer website visitors, assist donors and volunteers, support staff in private chat, summarize conversations, reveal documentation gaps, and trigger bounded actions when you configure Skills, APIs, connectors, MCP servers, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Development and fundraising teams",
+        "roleContext": "Fundraising teams can use DocsBot to make campaign details, giving options, tax receipt guidance, sponsorship information, and impact stories easier to access without rewriting the same answers all day.",
+        "bullets": [
+          {
+            "text": "Answer recurring donor questions about where gifts go, accepted donation methods, recurring giving, and receipt timing.",
+            "icon": "GiftIcon"
+          },
+          {
+            "text": "Collect donor intent and preferred follow-up details through structured intake before routing to a staff member.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Surface repeated donor objections or missing campaign content through conversation logs and analytics.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      },
+      {
+        "role": "Volunteer coordinators",
+        "roleContext": "Volunteer managers can give prospective and active volunteers one place to ask about roles, requirements, training, event shifts, waivers, and orientation materials.",
+        "bullets": [
+          {
+            "text": "Independent Sector estimated the national value of a volunteer hour at $34.79 in 2024, making better volunteer coordination operationally meaningful.",
+            "icon": "ClockIcon",
+            "sourceIds": [
+              "src-volunteer-value"
+            ]
+          },
+          {
+            "text": "Provide source-grounded answers from volunteer handbooks, shift instructions, FAQs, and training documents.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route availability, onboarding questions, and missing-information follow-ups through approved workflows.",
+            "icon": "CalendarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Program, operations, and community engagement leaders",
+        "roleContext": "Program teams can use DocsBot to keep service details, eligibility notes, referral instructions, event updates, and internal procedures consistent across staff, volunteers, and community-facing channels.",
+        "bullets": [
+          {
+            "text": "The National Council of Nonprofits reported that 28.1% of surveyed nonprofits had longer waiting lists for services in 2023.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-workforce-shortage"
+            ]
+          },
+          {
+            "text": "Help constituents understand program requirements, locations, hours, documents to bring, and escalation paths.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Give internal teams quick access to SOPs, grant reporting notes, outreach scripts, and crisis communication procedures.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-giving-usa-2025",
+      "metric": "U.S. charitable giving reached $592.50 billion in 2024.",
+      "claim": "Giving USA reported that charitable giving in the United States grew to $592.50 billion in 2024, showing the scale and competitiveness of donor engagement.",
+      "sourceTitle": "Giving USA 2025: U.S. charitable giving grew to $592.50 billion in 2024",
+      "sourceUrl": "https://givingusa.org/giving-usa-2025-u-s-charitable-giving-grew-to-592-50-billion-in-2024-lifted-by-stock-market-gains/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fundraising scale",
+        "donor engagement pressure",
+        "nonprofit growth context"
+      ]
+    },
+    {
+      "id": "src-volunteer-value",
+      "metric": "Independent Sector valued a volunteer hour at $34.79 in 2024.",
+      "claim": "Independent Sector and the Do Good Institute estimated the national value of a volunteer hour at $34.79 for 2024.",
+      "sourceTitle": "Value of Volunteer Time",
+      "sourceUrl": "https://independentsector.org/resource/value-of-volunteer-time/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "volunteer coordination value",
+        "operations efficiency",
+        "staff capacity"
+      ]
+    },
+    {
+      "id": "src-workforce-shortage",
+      "metric": "51.7% of nonprofits reported more vacancies than before COVID-19.",
+      "claim": "The National Council of Nonprofits 2023 workforce survey found that 51.7% of nonprofits had more vacancies than before the pandemic and 28.1% had longer waiting lists for services.",
+      "sourceTitle": "The Nonprofit Workforce Shortage Crisis",
+      "sourceUrl": "https://www.councilofnonprofits.org/nonprofit-workforce-shortage-crisis",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "staffing pressure",
+        "service demand",
+        "operational bottlenecks"
+      ]
+    },
+    {
+      "id": "src-online-fundraising",
+      "metric": "45% of online donations were made on mobile in 2024.",
+      "claim": "Nonprofit Tech for Good reported that 45% of online donations were made on a mobile device in 2024, highlighting the importance of clear digital supporter journeys.",
+      "sourceTitle": "2026 Online Fundraising Statistics for Nonprofits",
+      "sourceUrl": "https://www.nptechforgood.com/2025/10/12/2024-online-fundraising-statistics-for-nonprofits/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "mobile donation experience",
+        "website conversion",
+        "digital fundraising"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Donor question answering and gift-intent routing",
+      "problem": "Donors often need quick answers about campaign goals, gift restrictions, receipts, employer matching, monthly giving, or program impact before they complete a donation.",
+      "agentWorkflow": "DocsBot answers from approved campaign pages, FAQs, donation policies, impact reports, and receipt guidance. When a donor needs a person, the agent can collect contact details, summarize the conversation, and route the handoff to the development team through a customer-configured workflow.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up campaign-specific content, submit a lead or donor-interest form, create a follow-up task, or notify staff in the systems the nonprofit authorizes.",
+      "exampleQuestionsOrRequests": [
+        "Can I restrict my donation to the youth program?",
+        "Where can I get a receipt for my recurring gift?",
+        "I represent a company and want to discuss sponsorship."
+      ],
+      "businessOutcome": "Reduces repetitive fundraising questions while giving development staff cleaner context for high-value donor conversations.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Volunteer onboarding and shift support",
+      "problem": "Volunteer coordinators lose time answering the same questions about roles, training, schedules, background checks, dress codes, parking, and event-day instructions.",
+      "agentWorkflow": "DocsBot provides source-grounded answers from volunteer handbooks, orientation materials, event briefings, waiver instructions, and internal procedures. It can collect missing details and prepare a handoff when a volunteer needs schedule changes or staff approval.",
+      "liveContextOrTools": "Customer-configured actions can route availability updates, create a task for a coordinator, or trigger an onboarding checklist when the organization has authorized those workflows.",
+      "exampleQuestionsOrRequests": [
+        "What training do I need before my first food pantry shift?",
+        "Where should volunteers park for Saturday’s event?",
+        "I need to change my shift; who should I contact?"
+      ],
+      "businessOutcome": "Protects coordinator time and helps volunteers arrive prepared, which is valuable when volunteer time is itself a measurable organizational asset.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-volunteer-value"
+      ]
+    },
+    {
+      "name": "Program eligibility and service navigation",
+      "problem": "Community members may need help understanding eligibility, required documents, locations, hours, referral steps, or whether a program is right for them.",
+      "agentWorkflow": "DocsBot answers from approved program descriptions, eligibility notes, intake instructions, referral lists, and service FAQs. For sensitive or high-impact requests, it can guide people to human support instead of making determinations beyond the organization’s rules.",
+      "liveContextOrTools": "When configured, the agent can collect intake context, prepare a summary, create a ticket or task, and route the request to the right program team for review.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I bring to apply?",
+        "Do you serve people outside this county?",
+        "I need urgent help; what is the fastest way to reach someone?"
+      ],
+      "businessOutcome": "Improves consistency in front-door service information while keeping staff responsible for eligibility decisions and sensitive support.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Event communications and attendee support",
+      "problem": "Fundraisers, community events, trainings, and volunteer days generate waves of questions about timing, tickets, accessibility, parking, cancellations, and follow-up resources.",
+      "agentWorkflow": "DocsBot answers from event pages, agendas, registration instructions, speaker notes, location details, and post-event materials. It can summarize unresolved questions so event teams know what to update before the next campaign or gathering.",
+      "liveContextOrTools": "Approved workflows can capture attendee intent, route accessibility requests, create event follow-up tasks, or notify staff when an urgent issue appears.",
+      "exampleQuestionsOrRequests": [
+        "Is the gala venue accessible?",
+        "Can I transfer my event ticket to someone else?",
+        "Where do I find the training slides after the webinar?"
+      ],
+      "businessOutcome": "Keeps event communication responsive without forcing staff to monitor every repeated question manually.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Internal policy, grant, and SOP assistant",
+      "problem": "Nonprofit staff often work across programs, grants, committees, and volunteer teams, which makes it hard to find current policies, reporting instructions, brand language, and operating procedures.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, HR policies, grant deliverables, board materials, communications guidelines, finance procedures, and program documentation. Staff can ask plain-language questions and receive answers grounded in approved internal sources.",
+      "liveContextOrTools": "The agent can be available in private team chat and, when configured, can summarize source material or route documentation gaps to the owner of the relevant process.",
+      "exampleQuestionsOrRequests": [
+        "What language should we use for this grant-funded program?",
+        "What is the reimbursement process for mileage?",
+        "Where is the latest crisis communications procedure?"
+      ],
+      "businessOutcome": "Reduces internal searching and helps lean teams work from the same current information.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for website and supporter content",
+      "problem": "Nonprofits may not know which donor, volunteer, or program questions are missing from public pages until staff are already answering them repeatedly.",
+      "agentWorkflow": "DocsBot logs conversations, reports common topics, supports conversation review, and helps teams identify unanswered questions or confusing content. Teams can use those insights to improve FAQs, program pages, campaign copy, and training materials.",
+      "liveContextOrTools": "Analytics and review workflows can inform content updates, internal documentation improvements, and escalation rules for questions the agent should not answer alone.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are donors asking before they give?",
+        "What volunteer topics are missing from our handbook?",
+        "Which program pages are creating the most confusion?"
+      ],
+      "businessOutcome": "Turns supporter questions into a practical roadmap for clearer content and more efficient support.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A nonprofit support agent for donors, volunteers, and community members",
+    "intro": "Embed a DocsBot agent on your website or program pages so visitors can ask natural questions and get answers grounded in your own approved materials. The agent can collect details, summarize needs, and escalate to staff when the request is sensitive, complex, or relationship-driven.",
+    "requests": [
+      {
+        "request": "“How will my donation be used, and can I give monthly?”",
+        "agentResponseStrategy": "Answer from campaign pages, impact reports, recurring giving guidance, and donation FAQs, then offer a human follow-up path for major gifts or restricted-gift conversations.",
+        "sourceTypes": [
+          "Donation FAQs",
+          "Impact reports",
+          "Campaign pages",
+          "Gift policies"
+        ],
+        "optionalAction": "Collect donor intent and preferred contact details for a development-team handoff.",
+        "icon": "BanknotesIcon",
+        "sourceIds": [
+          "src-giving-usa-2025"
+        ]
+      },
+      {
+        "request": "“What volunteer roles are available this weekend?”",
+        "agentResponseStrategy": "Explain roles, requirements, training steps, and preparation guidance from volunteer materials while routing schedule-specific requests through the nonprofit’s approved workflow.",
+        "sourceTypes": [
+          "Volunteer handbook",
+          "Event briefs",
+          "Training materials",
+          "Role descriptions"
+        ],
+        "optionalAction": "Create a coordinator follow-up task or send a structured availability summary when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do I qualify for this program?”",
+        "agentResponseStrategy": "Share published eligibility criteria and required next steps without making final determinations. Escalate urgent, sensitive, or ambiguous situations to the appropriate staff path.",
+        "sourceTypes": [
+          "Program pages",
+          "Eligibility FAQs",
+          "Intake instructions",
+          "Referral resources"
+        ],
+        "optionalAction": "Collect non-sensitive intake context and prepare a summary for the program team.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Is your donation page mobile-friendly, and where do I start?”",
+        "agentResponseStrategy": "Guide visitors to the right giving page, explain available donation options, and answer practical questions from approved web content.",
+        "sourceTypes": [
+          "Website pages",
+          "Donation instructions",
+          "Campaign FAQs"
+        ],
+        "optionalAction": "Route unresolved giving questions to development staff with a conversation summary.",
+        "icon": "DevicePhoneMobileIcon",
+        "sourceIds": [
+          "src-online-fundraising"
+        ]
+      },
+      {
+        "request": "“Who should I contact about a partnership or sponsorship?”",
+        "agentResponseStrategy": "Use approved partnership information and sponsorship materials to qualify intent, collect relevant details, and connect the request to the right staff member.",
+        "sourceTypes": [
+          "Sponsorship packets",
+          "Partnership FAQs",
+          "Contact policies"
+        ],
+        "optionalAction": "Forward a structured lead summary to CRM, email, forms, or helpdesk software through configured workflows.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Where can I find resources from the event I attended?”",
+        "agentResponseStrategy": "Answer from event pages, post-event resources, training documents, and follow-up emails so attendees can find materials without waiting for staff.",
+        "sourceTypes": [
+          "Event pages",
+          "Training PDFs",
+          "Email templates",
+          "Resource libraries"
+        ],
+        "optionalAction": "Create a follow-up task when requested materials are missing or out of date.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for staff, volunteers, and board operations",
+    "intro": "DocsBot can also work behind the scenes as an internal knowledge agent for nonprofit teams. Train it on internal documents, SOPs, policies, grant notes, and training materials so staff and volunteers can find trusted answers without interrupting program leaders.",
+    "workflows": [
+      {
+        "name": "Staff onboarding and policy lookup",
+        "problem": "New employees and volunteers need fast answers about tools, procedures, expense rules, privacy expectations, and who owns each process.",
+        "agentWorkflow": "DocsBot answers from HR policies, onboarding docs, SOPs, org charts, tool guides, and internal FAQs. It can point people to source material and identify topics where documentation is missing.",
+        "sourceTypes": [
+          "HR policies",
+          "Onboarding guides",
+          "SOPs",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Route a documentation gap or unanswered policy question to the right internal owner.",
+        "outcome": "Shortens ramp time and reduces repeated questions for managers and operations staff.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Grant reporting and program knowledge retrieval",
+        "problem": "Grant-funded teams need consistent access to reporting language, deliverables, deadlines, program definitions, and approved outcome descriptions.",
+        "agentWorkflow": "DocsBot retrieves answers from grant agreements, reporting calendars, program notes, board materials, and approved narratives so staff can draft with the right source context.",
+        "sourceTypes": [
+          "Grant documents",
+          "Reporting calendars",
+          "Program plans",
+          "Board materials"
+        ],
+        "optionalAction": "Summarize relevant source context for a human-reviewed report draft or task.",
+        "outcome": "Helps teams preserve institutional knowledge and avoid reinventing approved language.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Crisis and rapid-response communications",
+        "problem": "During weather events, funding disruptions, service interruptions, or community emergencies, staff need consistent instructions and public-facing language quickly.",
+        "agentWorkflow": "DocsBot answers from crisis communication plans, escalation trees, location updates, approved statements, and program continuity procedures. It can route high-priority questions to staff instead of improvising sensitive responses.",
+        "sourceTypes": [
+          "Crisis plans",
+          "Escalation lists",
+          "Approved statements",
+          "Continuity procedures"
+        ],
+        "optionalAction": "Notify a team channel or create a task for communications review through configured actions.",
+        "outcome": "Keeps messaging consistent while preserving human control over urgent and sensitive decisions.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "name": "Board and leadership knowledge access",
+        "problem": "Board members and executives may need quick context on policies, strategic plans, committee materials, meeting notes, or program performance without searching multiple drives.",
+        "agentWorkflow": "DocsBot provides private, permission-aware answers from approved board packets, policies, plans, and leadership documents, using access controls and role-based permissions where configured.",
+        "sourceTypes": [
+          "Board packets",
+          "Strategic plans",
+          "Policies",
+          "Meeting notes"
+        ],
+        "optionalAction": "Summarize a topic or prepare a source-grounded briefing for human review.",
+        "outcome": "Improves leadership self-service while keeping sensitive internal knowledge governed.",
+        "icon": "BuildingLibraryIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on nonprofit knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on the sources an organization approves, including websites, documents, PDFs, internal content, help articles, and knowledge bases.",
+      "industryApplication": "Train a nonprofit agent on program pages, donor FAQs, volunteer handbooks, event details, impact reports, grant notes, and SOPs so answers reflect your mission and current policies.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can support customer-facing chat experiences as well as private internal team use cases.",
+      "industryApplication": "Use the website widget for donors, volunteers, and community members, while giving staff a private assistant for internal procedures and source-grounded operational answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, summaries, record creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "A nonprofit can configure actions to collect intake details, route donor or volunteer follow-ups, create staff tasks, notify teams, or connect to approved systems through APIs, connectors, or Model Context Protocol servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, reports, logs, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which donor, volunteer, event, and program questions repeat most often, then improve FAQs, campaign pages, orientation materials, and internal SOPs.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive nonprofit information",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use permissions and customer-defined boundaries when internal policies, beneficiary information, board documents, financial procedures, or high-impact service requests require extra care.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Multilingual answers from approved content",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages when configured with the right source content and instructions.",
+      "industryApplication": "Help multilingual communities, volunteers, and supporters understand program basics, event instructions, and donation FAQs while escalating nuanced or sensitive requests to staff.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "anders-boligsiden-communication"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for high-volume question answering when small teams cannot scale every conversation manually.",
+      "Trained on your own content library so answers stay grounded in the materials your organization approves.",
+      "Useful for both public communication and internal decision support across distributed teams."
+    ],
+    "whyTheseReviewsFit": "Nonprofit teams need dependable support across public inquiries, stakeholder communication, and internal knowledge. DocsBot proof spans high-volume support, source-grounded answers from owned content, improved stakeholder communication, and internal decision workflows that help mission-driven teams preserve staff capacity.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agent and internal knowledge automation for nonprofit organizations",
+    "audience": [
+      "Nonprofit executive directors",
+      "Development and fundraising teams",
+      "Volunteer coordinators",
+      "Program operations leaders",
+      "Community engagement teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "business-information",
+    "colleges-universities",
+    "child-care-services",
+    "ai-automation-agency"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "non-profit-organization",
+    "webSearchQueries": [
+      "Independent Sector value volunteer time 2024 nonprofit volunteers",
+      "Nonprofit Tech for Good online donation statistics nonprofit website mobile 2024",
+      "Giving USA 2025 charitable giving 2024 amount",
+      "National Council of Nonprofits nonprofit workforce shortage survey 2023"
+    ],
+    "sourceUrls": [
+      "https://givingusa.org/giving-usa-2025-u-s-charitable-giving-grew-to-592-50-billion-in-2024-lifted-by-stock-market-gains/",
+      "https://independentsector.org/resource/value-of-volunteer-time/",
+      "https://www.councilofnonprofits.org/nonprofit-workforce-shortage-crisis",
+      "https://www.nptechforgood.com/2025/10/12/2024-online-fundraising-statistics-for-nonprofits/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 60242,
+        "cachedInputTokens": 19840,
+        "billableInputTokens": 40402,
+        "outputTokens": 19545,
+        "reasoningOutputTokens": 216,
+        "totalTokens": 79787,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.399141,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.419141
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21608,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14312,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 85,
+          "totalTokens": 33608,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217604,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227604
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19689,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12393,
+          "outputTokens": 4893,
+          "reasoningOutputTokens": 112,
+          "totalTokens": 24582,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.106202,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.116202
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18945,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13697,
+          "outputTokens": 2652,
+          "reasoningOutputTokens": 19,
+          "totalTokens": 21597,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075335,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075335
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1641568724816-b75104379513?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDYwNjl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Non Profit Organization background image",
+    "source": "legacy-industry",
+    "query": "Non Profit Organization"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without making donors feel like we are replacing personal stewardship?",
+      "answer": "Yes. A good nonprofit rollout should separate routine information from relationship-driven conversations. DocsBot can answer recurring questions about campaign details, receipts, recurring giving, event logistics, and impact content, then collect context and route major-gift, restricted-gift, sponsorship, or sensitive conversations to your development team for human follow-up.",
+      "role": "Development and fundraising teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help our fundraising team during a campaign launch or giving day?",
+      "answer": "DocsBot can be trained on campaign pages, donation FAQs, impact reports, gift policies, sponsorship materials, and receipt guidance so supporters get quick answers before they give. It can also collect donor intent, summarize the conversation, and route follow-up to staff when someone asks about a larger gift, corporate partnership, or restricted donation.",
+      "role": "Development and fundraising teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should an executive director expect from an AI agent in a nonprofit setting?",
+      "answer": "Most nonprofits should evaluate ROI in staff capacity, faster supporter responses, better volunteer readiness, fewer repeated questions, and cleaner handoffs—not just headcount reduction. That matters in a sector where 51.7% of surveyed nonprofits reported more vacancies than before COVID-19 and 28.1% reported longer waiting lists for services.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-workforce-shortage"
+      ]
+    },
+    {
+      "question": "Can DocsBot support volunteers before their first shift without creating scheduling chaos?",
+      "answer": "Yes. DocsBot can answer from volunteer handbooks, orientation materials, waivers, training guides, dress-code instructions, parking notes, and event briefs. For schedule changes or approvals, it should not act independently unless configured to do so; it can collect availability details and route a structured summary to the volunteer coordinator.",
+      "role": "Volunteer coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving the wrong answer about program eligibility?",
+      "answer": "Train the agent only on approved eligibility pages, intake instructions, referral guides, and program FAQs, then set clear instructions for sensitive or ambiguous cases. DocsBot can explain published criteria and next steps, but final eligibility decisions, crisis requests, exceptions, and case-specific judgments should be escalated to a person.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent handle questions from donors, volunteers, and program participants in the same website experience?",
+      "answer": "Yes, but the knowledge base and routing rules should be designed carefully. DocsBot can answer across donor FAQs, volunteer materials, event information, and program pages while using instructions to identify intent and route unresolved questions to the right team. Many nonprofits start with one public agent and add internal or program-specific agents later.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kinds of nonprofit content should we train the agent on first?",
+      "answer": "Start with high-confidence, frequently used content: donation FAQs, campaign pages, impact reports, volunteer handbooks, event pages, program eligibility criteria, intake instructions, contact policies, and internal SOPs. Avoid loading outdated files or informal drafts until someone owns review and cleanup, because the agent is only as useful as the approved knowledge it can rely on.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us find gaps in our website, volunteer handbook, or donor FAQ?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery. Teams can review repeated unanswered questions, confusing topics, and escalation patterns, then improve campaign pages, volunteer instructions, program FAQs, training materials, and internal SOPs.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we measure success after launching a nonprofit AI agent?",
+      "answer": "Useful metrics include repeated questions answered, handoffs created, donor or volunteer inquiries routed, unresolved topics, response satisfaction, staff time saved, content gaps closed, and reduction in basic email volume. For fundraising teams, also watch whether more supporters reach the right giving, sponsorship, or recurring-donation path without waiting for a staff reply.",
+      "role": "Development and fundraising teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will DocsBot connect with our CRM, helpdesk, forms, or volunteer management system?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and MCP options where your team authorizes the connection. Use cases can include submitting a lead form, creating a task, routing an intake summary, notifying a team, or updating approved fields. You should scope each action around permissions and review needs.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot help with mobile donation journeys?",
+      "answer": "Yes. DocsBot can guide supporters to the right giving page, explain accepted donation methods, answer recurring-giving and receipt questions, and escalate complex donor intent. That matters because Nonprofit Tech for Good reported that 45% of online donations were made on a mobile device in 2024, making clear digital guidance important for donor experience.",
+      "role": "Development and fundraising teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-online-fundraising"
+      ]
+    },
+    {
+      "question": "How much staff time does implementation usually require from a lean nonprofit team?",
+      "answer": "Plan for a focused content and workflow review rather than a massive transformation project. The main work is choosing approved sources, removing outdated materials, writing escalation rules, deciding which questions the agent should not answer, testing common donor and program scenarios, and assigning an owner for ongoing review.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot internally for staff, board members, and volunteers, not just website visitors?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, HR policies, onboarding guides, board materials, grant documents, finance procedures, communications guidance, and program documentation. Role-based permissions and access controls help keep internal answers limited to the right audiences when configured.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we protect beneficiary, donor, board, or HR information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a commitment not to use customer data to train public models. Nonprofits should still define what content is public, internal, restricted, or never appropriate for AI handling.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer in multiple languages for the communities we serve?",
+      "answer": "DocsBot can answer in more than 100 languages when configured with the right source content and instructions. For nonprofits, the safest approach is to use the agent for program basics, event instructions, donation FAQs, and navigation, while escalating nuanced, legal, medical, crisis, or eligibility-specific questions to trained staff.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the AI agent does not know the answer or the source content is missing?",
+      "answer": "DocsBot should be configured to say when it does not have enough approved information, offer the best next step, and escalate to a human where appropriate. Conversation logs and knowledge-gap reporting then help your team identify missing FAQs, unclear program pages, outdated volunteer instructions, or donor content that needs improvement.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How can a volunteer coordinator justify budget for AI automation?",
+      "answer": "Frame the case around coordinator capacity, volunteer preparedness, reduced repetitive email, and fewer missed details before events or shifts. Independent Sector and the Do Good Institute estimated the national value of a volunteer hour at $34.79 for 2024, so helping volunteers arrive informed and ready can have real operational value.",
+      "role": "Volunteer coordinators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-volunteer-value"
+      ]
+    },
+    {
+      "question": "Can DocsBot support event communications for galas, trainings, volunteer days, and community meetings?",
+      "answer": "Yes. Train DocsBot on event pages, agendas, ticket or registration instructions, accessibility notes, parking details, speaker materials, cancellation policies, and post-event resources. It can answer recurring attendee questions, collect accessibility or follow-up requests, and route unresolved issues to the event team through configured workflows.",
+      "role": "Development and fundraising teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our staff be able to review what the agent is saying to supporters?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That review process helps managers spot incorrect assumptions, identify sensitive topics that need escalation, and improve the source content the agent relies on.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is DocsBot different from putting a generic chatbot on our website?",
+      "answer": "DocsBot is positioned as an AI agent trained on your approved nonprofit knowledge, not a generic scripted bot. It can provide source-grounded answers, support public and private use cases, summarize context, identify documentation gaps, and trigger bounded customer-configured actions such as routing, task creation, notifications, or handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help preserve institutional knowledge when staff turnover is high?",
+      "answer": "Yes. Train an internal agent on SOPs, grant reporting notes, program definitions, outreach scripts, board materials, HR policies, and finance procedures so new staff can find current answers without interrupting program leads. This is especially relevant when nonprofit staffing gaps make institutional knowledge harder to preserve.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we keep the agent from using outdated program hours, event dates, or grant language?",
+      "answer": "Assign content ownership before launch. DocsBot should be trained on approved, current sources, and your team should remove obsolete PDFs, expired event pages, and duplicate policy files. Use conversation review and knowledge-gap analytics to spot stale answers, then refresh the source material and retest priority questions.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent qualify sponsorship, partnership, or major-donor inquiries before staff follow up?",
+      "answer": "Yes. DocsBot can ask structured intake questions based on your rules, such as organization name, contact details, interest area, giving or sponsorship intent, timeline, region, and preferred follow-up channel. It can then summarize the conversation and route it to development staff or an approved CRM, form, email, or task workflow.",
+      "role": "Development and fundraising teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should our procurement or board committee ask before approving an AI agent?",
+      "answer": "Ask what data the agent can access, whether customer data trains public models, how permissions work, how human escalation is handled, which systems can be connected, what logs are available, who owns content updates, and which use cases are out of scope. For nonprofits, governance and clarity matter as much as automation speed.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot scale across multiple programs, chapters, locations, or campaigns?",
+      "answer": "Yes, if the knowledge structure is intentional. A nonprofit can organize content by program, location, campaign, audience, or internal team, then use instructions and permissions to keep answers relevant. Larger organizations may use separate agents or segmented sources so local hours, eligibility rules, and staff handoffs stay accurate.",
+      "role": "Program, operations, and community engagement leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Where should we avoid using an AI agent in nonprofit operations?",
+      "answer": "Avoid letting the agent make final eligibility decisions, provide legal or medical advice, handle crisis intervention alone, approve exceptions, negotiate donor restrictions, or access sensitive records without scoped permissions. DocsBot is best used for source-grounded answers, structured intake, summaries, routing, and staff-assisted workflows.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    }
+  ]
+}

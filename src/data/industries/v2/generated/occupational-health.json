@@ -1,0 +1,707 @@
+{
+  "slug": "occupational-health",
+  "business": "Occupational Health",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Occupational Health Operations",
+    "description": "DocsBot helps occupational health teams answer employer questions, retrieve policy guidance, and route sensitive cases with source-grounded AI agents.",
+    "canonicalPath": "/industry/occupational-health"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for employer health programs",
+    "headline": "Give occupational health teams faster answers with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your clinic protocols, employer service guides, FAQs, return-to-work procedures, training materials, and approved compliance references so employees, employers, and internal staff can find the right next step without digging through scattered documents.",
+    "proofBullets": [
+      {
+        "text": "Answer employer and employee questions from approved occupational health policies, service pages, intake instructions, and SOPs.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Summarize appointment requests, case notes, or ticket context for a clinician, case manager, or account team before handoff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured AI Actions to route requests, create tasks, collect missing details, or trigger approved workflow handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Keep sensitive workflows bounded with role-based permissions, logs, human escalation, and customer-defined controls.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build an occupational health agent",
+    "secondaryCta": "See how DocsBot answers from your content"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps occupational health providers create AI agents trained on the knowledge they already trust: service catalogs, employer onboarding guides, clinic workflows, FAQs, policy documents, PDFs, internal SOPs, and approved safety references. Agents can answer questions, retrieve source-grounded guidance, summarize context, identify content gaps, and take scoped actions when configured through Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Occupational health clinic leaders",
+        "roleContext": "Give employer clients and clinic teams a consistent front door for service questions, intake requirements, appointment preparation, and routing without replacing clinical judgment.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive calls about drug testing, physicals, immunizations, forms, hours, accepted paperwork, and scheduling expectations.",
+            "icon": "PhoneIcon"
+          },
+          {
+            "text": "Keep human review in place for diagnosis, fitness-for-duty decisions, workers’ compensation strategy, and safety-critical questions.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use analytics to see which employer questions repeat and where service guides, forms, or portal instructions need improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Case managers and care coordinators",
+        "roleContext": "Help staff quickly locate approved return-to-work instructions, referral steps, documentation requirements, and escalation paths while keeping sensitive cases under defined permissions.",
+        "bullets": [
+          {
+            "text": "Summarize inbound requests and collect missing details before routing to the right coordinator, clinician, or employer services contact.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Retrieve internal procedures for follow-up timing, documentation packets, and handoff notes from approved knowledge sources.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Support multilingual employee questions in more than 100 languages when your approved source content supports the answer.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Employer services and sales teams",
+        "roleContext": "Equip account managers and sales reps with fast answers about service scope, onboarding requirements, pricing guidance, proposal language, and common objections from approved sales enablement content.",
+        "bullets": [
+          {
+            "text": "Qualify employer inquiries with structured intake questions such as location, workforce size, services needed, timeline, and follow-up preference.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft follow-up summaries and route qualified opportunities to CRM, email, or helpdesk workflows when configured by the customer.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Give reps one place to ask about service fit, implementation steps, employer packet requirements, and approved talking points.",
+            "icon": "BriefcaseIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-injuries-2024",
+      "metric": "2.5 million nonfatal workplace injuries and illnesses in 2024",
+      "claim": "BLS reported that private industry employers recorded 2.5 million nonfatal workplace injuries and illnesses in 2024, a 3.1% decrease from 2023.",
+      "sourceTitle": "Employer-Reported Workplace Injuries and Illnesses — 2023-2024",
+      "sourceUrl": "https://www.bls.gov/news.release/osh.toc.htm",
+      "sourceDate": "January 22, 2026",
+      "bestUsedFor": [
+        "workplace injury volume",
+        "employer demand for occupational health workflows",
+        "case intake pressure"
+      ]
+    },
+    {
+      "id": "src-osha-recordkeeping",
+      "metric": "Many employers with more than 10 employees must keep OSHA injury and illness records",
+      "claim": "OSHA states that many employers with more than 10 employees are required to keep records of recordable work-related injuries and illnesses using OSHA Forms 300, 300A, and 301 or equivalents.",
+      "sourceTitle": "Recordkeeping — Occupational Safety and Health Administration",
+      "sourceUrl": "https://www.osha.gov/recordkeeping/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "recordkeeping requirements",
+        "documentation pressure",
+        "compliance workflows"
+      ]
+    },
+    {
+      "id": "src-osha-common-stats",
+      "metric": "5,283 fatal work injuries in 2023",
+      "claim": "OSHA’s commonly used statistics report 5,283 fatal work injuries in 2023, equal to 3.5 fatalities per 100,000 full-time equivalent workers.",
+      "sourceTitle": "Commonly Used Statistics — Occupational Safety and Health Administration",
+      "sourceUrl": "https://www.osha.gov/data/commonstats",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "workplace safety stakes",
+        "need for human escalation",
+        "risk-sensitive workflows"
+      ]
+    },
+    {
+      "id": "src-niosh-about",
+      "metric": "NIOSH focuses on worker safety and health research",
+      "claim": "CDC describes NIOSH as the federal research institute focused on worker safety and health and empowering employers and workers to create safe and healthy workplaces.",
+      "sourceTitle": "About the National Institute for Occupational Safety and Health — CDC",
+      "sourceUrl": "https://www.cdc.gov/niosh/about/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "occupational health mission",
+        "worker safety context",
+        "health program education"
+      ]
+    },
+    {
+      "id": "src-osha-2023-data-release",
+      "metric": "More than 890,000 injury and illness records released for 2023",
+      "claim": "OSHA announced detailed 2023 case data covering more than 890,000 injuries and illnesses at over 91,000 workplaces.",
+      "sourceTitle": "US Department of Labor announces release of detailed 2023 case data — OSHA",
+      "sourceUrl": "https://www.osha.gov/news/newsreleases/osha-national-news-release/20241212",
+      "sourceDate": "December 12, 2024",
+      "bestUsedFor": [
+        "data complexity",
+        "reporting volume",
+        "documentation and analytics burden"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Employer service and intake assistant",
+      "problem": "Employer clients often ask the same operational questions about clinic services, required forms, scheduling rules, drug testing workflows, physical exams, vaccine clinics, and reporting expectations.",
+      "agentWorkflow": "DocsBot answers from approved service pages, employer onboarding PDFs, FAQs, and intake SOPs. If the request needs action, the agent can collect missing details, summarize the request, and route it to employer services, scheduling, or a case management queue through customer-configured Skills or APIs.",
+      "liveContextOrTools": "Optional live context can include location rules, service availability, appointment request status, or account-specific instructions when the customer has configured an authorized lookup.",
+      "exampleQuestionsOrRequests": [
+        "What paperwork should an employee bring for a post-offer physical?",
+        "Can we schedule a respirator clearance and fit test for 20 employees?",
+        "Which clinic handles after-hours injury visits for our account?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, more complete intake, and faster routing for employer clients without asking staff to manually search multiple binders or shared drives.",
+      "icon": "BuildingStorefrontIcon"
+    },
+    {
+      "name": "Return-to-work and case handoff support",
+      "problem": "Return-to-work workflows depend on consistent documentation, restrictions, follow-up timing, and escalation paths, but case managers may need to search across SOPs, templates, and employer-specific instructions.",
+      "agentWorkflow": "An internal DocsBot agent retrieves approved procedures, summarizes case context entered by staff, drafts a handoff note, and points to the source documents behind each answer. Sensitive or clinical decisions can be escalated to the responsible clinician or case manager.",
+      "liveContextOrTools": "AI Actions can create a task, prepare a handoff summary, notify a team channel, or update approved non-clinical fields when connected through scoped customer workflows.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this employer’s modified-duty process for a wrist injury follow-up.",
+        "What documents should be included in the case manager handoff?",
+        "Draft a handoff note for clinician review using this intake summary."
+      ],
+      "businessOutcome": "Case teams can move faster while keeping clinical judgment, employer decisions, and high-impact recommendations under human review.",
+      "icon": "ArrowPathRoundedSquareIcon"
+    },
+    {
+      "name": "OSHA recordkeeping question triage",
+      "problem": "Employers and internal teams frequently ask whether a case, restriction, or follow-up step affects recordkeeping, and OSHA says many employers with more than 10 employees must keep OSHA injury and illness records using Forms 300, 300A, and 301 or equivalents.",
+      "agentWorkflow": "DocsBot can answer operational questions from your approved recordkeeping guidance, internal decision trees, employer education materials, and OSHA reference links you choose to include. The agent can clarify what information is still missing and route edge cases to a human compliance or clinical reviewer.",
+      "liveContextOrTools": "Configured workflows can open a review task, attach a source-grounded summary, and send the question to the right compliance contact without making the final legal or regulatory determination.",
+      "exampleQuestionsOrRequests": [
+        "What information do we need before escalating a recordability question?",
+        "Where is our internal guide for completing an injury report packet?",
+        "Route this recordkeeping question to compliance with a short summary."
+      ],
+      "businessOutcome": "Staff and employer contacts get faster guidance on the process, while sensitive regulatory interpretations remain reviewable and documented.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-osha-recordkeeping"
+      ]
+    },
+    {
+      "name": "Training and policy knowledge agent",
+      "problem": "Occupational health teams handle a broad mix of protocols, employer-specific requirements, safety topics, and onboarding content that can change over time.",
+      "agentWorkflow": "DocsBot trains on your internal training materials, SOPs, PDFs, wikis, and policy libraries so new hires and field-facing teams can ask natural-language questions and receive answers grounded in approved sources.",
+      "liveContextOrTools": "Analytics and conversation review reveal repeated training questions, misunderstood procedures, and content gaps that should be fixed in your knowledge base.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for onsite flu clinic setup?",
+        "How do I explain a respirator medical evaluation to an employer?",
+        "Where is the latest specimen collection chain-of-custody checklist?"
+      ],
+      "businessOutcome": "More consistent onboarding and fewer interruptions to senior staff when employees need procedural answers during busy clinic operations.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Employer lead qualification and proposal support",
+      "problem": "New employer inquiries can arrive with incomplete details, making it hard for sales or account teams to quickly determine service fit and next steps.",
+      "agentWorkflow": "A DocsBot presales agent answers service-fit questions from approved service catalogs, FAQs, pricing guidance, and proposal templates. It can collect structured details, apply your qualification rules, and prepare a concise summary for human follow-up.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, webhooks, or MCP connectors to remote Model Context Protocol servers, DocsBot can forward qualified leads, create tasks, or trigger a scheduling workflow configured by your team.",
+      "exampleQuestionsOrRequests": [
+        "We need pre-employment physicals in three states. Can you support us?",
+        "Collect workforce size, locations, desired services, and launch timeline.",
+        "Draft a follow-up summary for an account manager to review."
+      ],
+      "businessOutcome": "Sales teams spend less time chasing basic details and more time advising employer clients on the right program design.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Workplace injury data education assistant",
+      "problem": "Employers need to understand the scale and patterns of workplace injuries; BLS reported 2.5 million nonfatal workplace injuries and illnesses among private industry employers in 2024.",
+      "agentWorkflow": "DocsBot can make your educational content searchable, including employer newsletters, safety program explainers, clinic guidance, and approved public references. The agent can answer common questions and point readers to the source material used.",
+      "liveContextOrTools": "Teams can review analytics to identify recurring employer education topics and prioritize new resources around injury prevention, reporting, or occupational health program design.",
+      "exampleQuestionsOrRequests": [
+        "What are the most common reasons employers send workers to occupational health?",
+        "Which safety program materials should we share with a new manufacturing client?",
+        "Summarize our employer guide on injury reporting basics."
+      ],
+      "businessOutcome": "Employer-facing education becomes easier to access, helping account teams deliver consistent information without rewriting the same explanations.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-bls-injuries-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give employers and employees a clearer path to occupational health answers",
+    "intro": "A customer-facing DocsBot agent can sit on your website, employer portal, or service page to answer from approved content, collect structured information, and route requests to the right team. It is especially useful for operational questions while preserving human review for medical, regulatory, or account-specific decisions.",
+    "requests": [
+      {
+        "request": "“What do we need to bring for a work injury visit?”",
+        "agentResponseStrategy": "Answer from clinic visit instructions, employer FAQs, forms checklists, and location-specific guidance. If details are missing, ask follow-up questions before routing to scheduling or employer services.",
+        "sourceTypes": [
+          "Service pages",
+          "Employer FAQs",
+          "Clinic instructions",
+          "Form checklists"
+        ],
+        "optionalAction": "Create a request summary or task for the scheduling team through a customer-configured workflow.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can you help us set up onsite occupational health services?”",
+        "agentResponseStrategy": "Explain approved service options, collect company size, locations, requested services, launch timing, and contact details, then qualify the inquiry using customer-defined rules.",
+        "sourceTypes": [
+          "Service catalog",
+          "Sales FAQs",
+          "Onsite program guides",
+          "Proposal templates"
+        ],
+        "optionalAction": "Forward a qualified lead summary to CRM, email, helpdesk, or a scheduling workflow when configured.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Is this an OSHA recordable case?”",
+        "agentResponseStrategy": "Clarify that the agent can explain your process and retrieve approved recordkeeping guidance, but complex or case-specific determinations should go to a qualified human reviewer.",
+        "sourceTypes": [
+          "Internal recordkeeping guide",
+          "Approved OSHA references",
+          "Escalation policy",
+          "Employer education materials"
+        ],
+        "optionalAction": "Open a review task with the employee-provided facts, source references, and missing-information checklist.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“Do you offer instructions in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answering capability to respond in the user’s language when the approved source content supports the answer and escalation is available if clarity is needed.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Translated forms",
+          "Service instructions",
+          "Clinic policies"
+        ],
+        "optionalAction": "Route language-sensitive or unclear requests to a bilingual team member or human support queue.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where should an employee go after an exposure or injury?”",
+        "agentResponseStrategy": "Answer from location, hours, after-hours process, and employer account instructions if those sources are included and authorized for the user.",
+        "sourceTypes": [
+          "Location pages",
+          "After-hours instructions",
+          "Employer account guides",
+          "Incident intake SOPs"
+        ],
+        "optionalAction": "Collect incident timing, employer, location, and callback details before handoff to the appropriate team.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What happens after a fit-for-duty exam?”",
+        "agentResponseStrategy": "Explain the general workflow from approved patient and employer education materials, then direct case-specific questions to the responsible clinician or coordinator.",
+        "sourceTypes": [
+          "Patient education",
+          "Employer FAQs",
+          "Clinic workflow guides",
+          "Handoff templates"
+        ],
+        "optionalAction": "Prepare a human-review summary without making the fitness-for-duty determination.",
+        "icon": "HeartIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help clinic, compliance, and account teams find the right procedure faster",
+    "intro": "DocsBot can also work as a private internal knowledge agent for occupational health staff. Train it on SOPs, policies, service guides, training documents, account playbooks, forms, and internal wikis so teams can retrieve trusted answers without interrupting specialists.",
+    "workflows": [
+      {
+        "name": "Clinic operations SOP lookup",
+        "problem": "Front desk, clinical support, and operations staff need quick answers about visit types, paperwork, specimen handling, referral steps, and clinic-specific procedures.",
+        "agentWorkflow": "The agent searches approved SOPs, PDFs, and internal docs, returns a concise answer with source context, and flags when a question is outside the documented policy.",
+        "sourceTypes": [
+          "SOPs",
+          "Clinic manuals",
+          "PDF packets",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a documentation-gap report when staff repeatedly ask questions that are not covered by current materials.",
+        "outcome": "More consistent execution across locations and fewer interruptions for managers during high-volume clinic days.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Compliance and privacy-aware escalation",
+        "problem": "Occupational health workflows can involve health information, employment decisions, and regulatory questions that require careful boundaries.",
+        "agentWorkflow": "DocsBot can provide source-grounded process guidance while using access controls, role-based permissions, logs, and human escalation for sensitive or high-impact questions.",
+        "sourceTypes": [
+          "Compliance policies",
+          "Privacy procedures",
+          "Escalation rules",
+          "Approved reference materials"
+        ],
+        "optionalAction": "Route flagged requests to compliance, legal, or clinical leadership with a concise source-backed summary.",
+        "outcome": "Teams get useful process support without allowing the AI agent to make regulated, clinical, or employment-impacting decisions on its own.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Employer account playbook assistant",
+        "problem": "Employer-specific rules for reporting, billing contacts, preferred clinics, after-hours steps, and communication preferences may live in different account notes or documents.",
+        "agentWorkflow": "An internal agent answers account-team questions from approved account playbooks and internal service documentation, helping staff prepare for client calls or handle inbound requests.",
+        "sourceTypes": [
+          "Account playbooks",
+          "Service catalogs",
+          "Employer onboarding guides",
+          "Communication templates"
+        ],
+        "optionalAction": "Draft a follow-up email or call summary for human review using customer-configured workflows.",
+        "outcome": "Account teams respond with more consistent information and spend less time hunting for employer-specific instructions.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "Training content gap discovery",
+        "problem": "As services and regulations change, training libraries can fall behind the questions staff and employer clients actually ask.",
+        "agentWorkflow": "DocsBot conversation logs, topic management, reports, and review workflows help identify repeated questions, unresolved topics, and missing training content.",
+        "sourceTypes": [
+          "Training materials",
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Generate a prioritized list of content updates for operations, compliance, or training owners.",
+        "outcome": "Your knowledge base improves over time based on real clinic and employer questions rather than guesswork.",
+        "icon": "MagnifyingGlassIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded occupational health answers",
+      "mainLandingPageContext": "DocsBot agents train on the content you choose and answer from approved sources in your company’s voice.",
+      "industryApplication": "Use your service catalogs, SOPs, employer FAQs, clinic instructions, training materials, and policy documents to answer recurring occupational health questions consistently.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "AI Actions for scoped workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect intake details, summarize employer requests, create tasks, notify the right team, or route sensitive questions to a reviewer while staying within customer-defined permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can work as a private team assistant trained on internal documents, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other knowledge sources.",
+      "industryApplication": "Help clinic, case management, compliance, sales, and employer services staff retrieve procedures, templates, account guidance, and onboarding answers from one secure interface.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap reporting",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which employer service questions, recordkeeping topics, location instructions, or training issues repeat so leaders can improve content and reduce avoidable handoffs.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive operations",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support occupational health workflows with role-based access, audit-friendly logs, escalation paths, and controlled source access for sensitive employee, employer, and clinic knowledge.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to reduce direct human interaction while keeping internal decision support grounded in approved knowledge.",
+      "Training-heavy teams use DocsBot to reinforce complex concepts and help people retrieve the right material faster.",
+      "DocsBot trains on owned content libraries, making it practical for policy, procedure, and service documentation at scale."
+    ],
+    "whyTheseReviewsFit": "Occupational health teams need dependable answers from approved material, not generic AI output. DocsBot proof spans healthcare communications, education and training, and content-library use cases, showing how teams can support internal decision-making, reinforce procedures, and make trusted knowledge easier to access.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "ArchiveBoxIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for occupational health providers",
+    "audience": [
+      "Occupational health clinic leaders",
+      "Employer services teams",
+      "Case managers and care coordinators",
+      "Compliance and operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "home-health-services",
+    "health-coaching",
+    "speech-occupational-therapy",
+    "emergency-medical-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "occupational-health",
+    "webSearchQueries": [
+      "OSHA occupational health workplace injuries illnesses statistics 2023 BLS nonfatal cases",
+      "CDC NIOSH occupational health services workplace safety health programs",
+      "BLS employer reported workplace injuries illnesses 2023 healthcare social assistance",
+      "OSHA recordkeeping occupational injury illness records employers requirements"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/news.release/osh.toc.htm",
+      "https://www.osha.gov/recordkeeping/",
+      "https://www.osha.gov/data/commonstats",
+      "https://www.cdc.gov/niosh/about/",
+      "https://www.osha.gov/news/newsreleases/osha-national-news-release/20241212"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41039,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28495,
+        "outputTokens": 7801,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 48840,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.191389,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.201389
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21660,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14364,
+          "outputTokens": 5090,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 26750,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114084,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124084
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19379,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14131,
+          "outputTokens": 2711,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22090,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077305,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077305
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8MHx8fDE3MTQ4NzgwNTl8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Occupational Health background image",
+    "source": "legacy-industry",
+    "query": "Occupational Health"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer employer questions without giving medical advice or making return-to-work decisions?",
+      "answer": "Yes. DocsBot is best positioned as a source-grounded operational assistant, not a replacement for clinicians or case managers. It can answer from your approved service guides, visit instructions, SOPs, and employer FAQs, then escalate diagnosis, restrictions, fitness-for-duty decisions, workers’ compensation strategy, or unclear clinical scenarios to a human reviewer.",
+      "role": "Occupational health clinic leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce calls and emails from employer clients?",
+      "answer": "Most occupational health teams get repeated questions about drug screens, physicals, forms, locations, hours, injury visit instructions, and scheduling expectations. DocsBot can answer those from approved content, collect missing details, and route requests to employer services, scheduling, or case management so staff spend less time retyping the same instructions.",
+      "role": "Occupational health clinic leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent handle OSHA recordkeeping questions safely?",
+      "answer": "DocsBot can retrieve your approved recordkeeping guidance, explain your documented process, ask what facts are still missing, and route edge cases to compliance. It should not be configured to make final legal or regulatory determinations. OSHA says many employers with more than 10 employees must keep injury and illness records using OSHA Forms 300, 300A, and 301 or equivalents.",
+      "role": "Occupational health clinic leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-recordkeeping"
+      ]
+    },
+    {
+      "question": "What if an employer asks, “Is this case recordable?”",
+      "answer": "The agent can respond with boundaries: it can summarize the question, identify missing details, point to approved guidance, and open a review task for the right compliance or clinical contact. That gives the employer a faster next step while preserving human review for case-specific recordability decisions.",
+      "role": "Case managers and care coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot work for both public employer-facing questions and private internal SOP lookup?",
+      "answer": "Yes. You can use a customer-facing agent on your website, service pages, or employer portal for operational questions, and a private internal agent for clinic staff, case managers, sales, and compliance teams. Access controls and role-based permissions help keep internal SOPs, account playbooks, and sensitive instructions limited to the right users.",
+      "role": "Occupational health clinic leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What content would we need before launching an occupational health AI agent?",
+      "answer": "Good starting sources include service catalogs, employer onboarding packets, visit preparation instructions, clinic location and after-hours guidance, drug testing FAQs, physical exam workflows, return-to-work SOPs, account playbooks, escalation rules, and approved compliance references. The better the source material, the more useful and consistent the agent becomes.",
+      "role": "Occupational health clinic leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support employer-specific rules, like preferred clinics, reporting contacts, or after-hours instructions?",
+      "answer": "Yes, if those rules are included in approved account playbooks or connected through authorized live lookups. DocsBot can answer account-team questions from the right sources and, when configured, use scoped Skills, APIs, connectors, or workflows to retrieve authorized context or route requests to the correct team.",
+      "role": "Employer services and sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from showing one employer another employer’s information?",
+      "answer": "Use separate knowledge sources, granular access controls, role-based permissions, and customer-defined rules for what each audience can access. For sensitive workflows, keep the agent limited to approved sources and require escalation when the request involves account-specific, clinical, employment-impacting, or compliance-sensitive details.",
+      "role": "Occupational health clinic leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot summarize case notes or intake requests for staff handoff?",
+      "answer": "Yes. Staff can use DocsBot to summarize appointment requests, case context, employer instructions, or ticket details into a concise handoff for clinician, case manager, employer services, or compliance review. The human reviewer remains responsible for final clinical, regulatory, employment, or claims-related decisions.",
+      "role": "Case managers and care coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation look like if our knowledge is spread across PDFs, shared drives, wikis, and SOP binders?",
+      "answer": "DocsBot can train on internal documents, PDFs, Word files, wikis, Google Drive, Notion, Confluence, text files, and other configured knowledge sources. Many teams start with a focused use case, such as employer intake FAQs or internal SOP lookup, then expand once source owners clean up outdated documents and review early conversations.",
+      "role": "Occupational health clinic leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help new clinic staff learn procedures without interrupting senior staff all day?",
+      "answer": "Yes. A private internal knowledge agent can answer common onboarding and procedure questions from training materials, SOPs, forms, and clinic manuals. Analytics can show which questions repeat, which answers were not covered well, and where training or documentation needs improvement.",
+      "role": "Case managers and care coordinators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would DocsBot support employer services and sales teams evaluating new employer inquiries?",
+      "answer": "A DocsBot presales agent can answer from approved service catalogs, proposal language, pricing guidance, FAQs, and onboarding materials. It can collect structured details such as workforce size, locations, services needed, timeline, and contact preference, then prepare a qualified summary for human follow-up through customer-configured workflows.",
+      "role": "Employer services and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot connect with our CRM, helpdesk, scheduling tools, or internal workflow systems?",
+      "answer": "DocsBot can support approved workflow connections through Skills, APIs, connectors, webhooks, forms, and customer-configured automations. It can forward summaries, create tasks, route requests, update approved fields, or trigger scheduling workflows when your team has authorized and scoped those actions. It should not be described as a native integration to a specific system unless you configure it.",
+      "role": "Employer services and sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What security controls matter most for occupational health use cases?",
+      "answer": "Buyers usually want source control, role-based permissions, audit-friendly logs, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and assurance that customer data is not used to train public models. Sensitive actions should be bounded with customer-defined permissions, secrets management, network policy, logging, and escalation paths.",
+      "role": "Occupational health clinic leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we measure whether the agent is working?",
+      "answer": "Track repetitive question deflection, complete intake rates, escalation quality, time to route requests, staff search time, unresolved topics, satisfaction signals, and documentation gaps. For employer-facing use, review whether the agent reduces avoidable calls while still escalating medical, legal, compliance, and account-specific questions appropriately.",
+      "role": "Occupational health clinic leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us understand what employers keep asking about?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Operations leaders can use those insights to update FAQs, service pages, forms, onboarding packets, location instructions, and training content based on real employer and staff questions.",
+      "role": "Occupational health clinic leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why does source-grounding matter so much in occupational health?",
+      "answer": "Occupational health questions often involve safety, employment processes, health information, and regulatory concerns. Source-grounding lets the agent answer from approved materials instead of general web knowledge, show where the answer came from, and flag questions that are outside documented guidance or need human review.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot support multilingual employees or supervisors?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when your approved source content supports the answer. For occupational health, multilingual support works best for operational guidance such as visit instructions, forms, location details, and next steps, with escalation available when a translation-sensitive or clinical question needs human review.",
+      "role": "Case managers and care coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this help during high-volume periods like flu clinics, seasonal hiring, or onsite testing events?",
+      "answer": "DocsBot can answer recurring questions about event setup, appointment preparation, required forms, eligibility, location details, and employer instructions. It can also collect missing intake details and route requests. That gives staff a consistent front door when phone volume spikes without changing who owns clinical oversight.",
+      "role": "Occupational health clinic leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent help with workplace injury education for employer clients?",
+      "answer": "Yes. DocsBot can make your employer education materials, safety program explainers, newsletters, and approved public references searchable. That matters because BLS reported 2.5 million nonfatal workplace injuries and illnesses among private industry employers in 2024, creating ongoing demand for clear injury reporting and occupational health guidance.",
+      "role": "Employer services and sales teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-injuries-2024"
+      ]
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source material is outdated?",
+      "answer": "DocsBot should be configured to say when the answer is not covered, avoid guessing, and escalate to the right person. Conversation review and knowledge-gap reporting help identify missing or outdated content so operations, compliance, training, or employer services teams can update the source library.",
+      "role": "Occupational health clinic leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support compliance teams without creating more risk?",
+      "answer": "Yes, if the scope is clear. DocsBot can retrieve approved policies, summarize questions, document source context, and route issues to compliance, legal, or clinical leadership. It should not independently decide regulated, clinical, employment-impacting, or case-specific matters. OSHA’s release of detailed 2023 case data covering more than 890,000 injuries and illnesses shows how documentation-heavy these workflows can become.",
+      "role": "Occupational health clinic leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-2023-data-release"
+      ]
+    },
+    {
+      "question": "How is DocsBot different from putting a generic AI chatbot on our site?",
+      "answer": "DocsBot is designed around your approved knowledge sources, permissions, analytics, and scoped actions. Instead of giving generic answers, it can respond from your service catalog, SOPs, employer packets, policies, and account playbooks, then collect details, summarize context, route requests, or escalate when the question is sensitive.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start small before asking IT and compliance to approve a bigger rollout?",
+      "answer": "Yes. A practical pilot might focus on one public workflow, such as employer intake FAQs, or one internal workflow, such as SOP lookup for clinic staff. Review answer quality, escalations, logs, and documentation gaps before expanding to live lookups, AI Actions, employer-specific playbooks, or additional locations.",
+      "role": "Occupational health clinic leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "What internal stakeholders usually need to approve an occupational health AI agent?",
+      "answer": "Typical stakeholders include clinic operations, employer services, case management, compliance or privacy, IT/security, sales leadership, and sometimes legal. Each group evaluates a different risk: answer accuracy, clinical boundaries, employer experience, system access, data handling, auditability, and whether the workflow improves staff capacity without creating unsafe automation.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us maintain consistency across multiple clinic locations?",
+      "answer": "Yes. DocsBot can centralize approved procedures, service descriptions, forms, location rules, and escalation paths so staff are not relying on memory or informal notes. For multi-location teams, the key is keeping source ownership clear and separating universal policies from clinic-specific or employer-specific instructions.",
+      "role": "Occupational health clinic leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we think about ROI if we cannot fully automate sensitive workflows?",
+      "answer": "ROI does not require fully automating clinical or compliance decisions. Value often comes from reducing repetitive questions, shortening intake, improving handoff quality, helping staff find procedures faster, qualifying employer inquiries, and identifying content gaps. The safest model is automating low-risk information retrieval and routing while keeping high-impact decisions human-led.",
+      "role": "Occupational health clinic leaders",
+      "category": "ROI and business impact"
+    }
+  ]
+}

@@ -1,0 +1,704 @@
+{
+  "slug": "cargo-airlines",
+  "business": "Cargo Airlines",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Cargo Airline Operations",
+    "description": "DocsBot helps cargo airlines automate shipment questions, policy lookup, and internal knowledge access while keeping teams focused on freight movement.",
+    "canonicalPath": "/industry/cargo-airlines"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for air freight teams",
+    "headline": "Keep cargo moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps cargo airlines create AI support and internal knowledge agents trained on their tariffs, booking rules, route guides, cargo acceptance policies, SOPs, manuals, and help content. Give shippers and employees faster answers, route complex cases, and trigger approved workflows with live context when configured.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about booking requirements, cargo acceptance, tracking instructions, cutoffs, surcharges, and documentation from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help operations teams retrieve SOPs, dangerous goods guidance, embargo notes, handling rules, and station procedures without searching across files.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing shipment details, summarize cases, route requests, create tasks, or hand off exceptions to the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review conversation logs, repeated questions, and knowledge gaps so cargo support, sales, and operations can improve content over time.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a cargo airline AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns a cargo airline’s approved knowledge into AI agents that answer questions, retrieve operational context, summarize cases, and take bounded actions through customer-configured Skills, APIs, connectors, or workflow automations. Agents can serve shippers through a website widget or support employees in private team experiences while escalating sensitive or exception-heavy issues to people.",
+    "whoItHelps": [
+      {
+        "role": "Cargo customer service teams",
+        "roleContext": "Support teams handle recurring questions about shipment status, acceptance rules, paperwork, delays, claims, and booking changes across time zones.",
+        "bullets": [
+          {
+            "text": "Give shippers instant answers from current service guides, FAQs, tariffs, route pages, and cargo documentation.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Draft or summarize ticket responses when helpdesk-connected workflows are configured by the airline.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Escalate damaged cargo, claim disputes, restricted goods, or contract-sensitive questions to human agents with the conversation context attached.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Cargo operations and station managers",
+        "roleContext": "Station and ramp teams need consistent access to procedures, acceptance requirements, handling instructions, and irregular-operations playbooks.",
+        "bullets": [
+          {
+            "text": "Make SOPs, manuals, station bulletins, training files, and handling checklists searchable through an internal knowledge agent.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize exception details for handoffs between reservations, warehouse, ramp, revenue management, and customer service.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Keep permission boundaries around safety-critical, regulated, or high-impact workflows while still speeding up information retrieval.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Cargo sales and account teams",
+        "roleContext": "Sales teams need fast answers about service fit, lane availability, special cargo requirements, onboarding materials, and proposal language.",
+        "bullets": [
+          {
+            "text": "Answer shipper fit questions from approved service catalogs, commodity guidance, onboarding docs, and sales enablement materials.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect lead details such as lane, commodity, volume, urgency, region, and follow-up preference through structured intake.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified opportunities, summaries, and context to the airline’s configured CRM, email, helpdesk, or team workflow.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-iata-2024-record-demand",
+      "metric": "Global air cargo demand grew 11.3% in 2024.",
+      "claim": "IATA reported that full-year 2024 air cargo demand, measured in cargo tonne-kilometers, increased 11.3% compared with 2023, with international operations up 12.2%.",
+      "sourceTitle": "IATA: Global Air Cargo Demand Achieves Record Growth in 2024",
+      "sourceUrl": "https://www.iata.org/en/pressroom/2025-releases/2025-01-29-02/",
+      "sourceDate": "2025-01-29",
+      "bestUsedFor": [
+        "market growth",
+        "support volume pressure",
+        "capacity and customer expectations"
+      ]
+    },
+    {
+      "id": "src-faa-dangerous-goods",
+      "metric": "Air dangerous goods require correct classification, packaging, marking, and labeling.",
+      "claim": "The FAA states that before offering dangerous goods to an air carrier, shippers must correctly classify, package, mark, and label the package to identify the hazard.",
+      "sourceTitle": "FAA: How to Ship Dangerous Goods",
+      "sourceUrl": "https://www.faa.gov/hazmat/safecargo/how_to_ship",
+      "sourceDate": "Accessed 2026-05-15",
+      "bestUsedFor": [
+        "compliance pressure",
+        "dangerous goods questions",
+        "shipper education"
+      ]
+    },
+    {
+      "id": "src-faa-dg-regulations",
+      "metric": "FAA enforces hazardous materials requirements for air transportation.",
+      "claim": "The FAA explains that Hazardous Materials Regulations are the minimum requirements for safe transportation of dangerous goods in commerce and that FAA is responsible for compliance in air transportation.",
+      "sourceTitle": "FAA: Dangerous Goods Regulations for Air Transportation",
+      "sourceUrl": "https://www.faa.gov/hazmat/resources/regulations",
+      "sourceDate": "Accessed 2026-05-15",
+      "bestUsedFor": [
+        "regulated workflows",
+        "safety-critical escalation",
+        "cargo acceptance policy"
+      ]
+    },
+    {
+      "id": "src-bts-air-cargo-data",
+      "metric": "BTS publishes U.S. air carrier traffic and freight ton-mile data.",
+      "claim": "The Bureau of Transportation Statistics provides air carrier traffic statistics, including revenue freight ton miles for U.S. air carrier activity.",
+      "sourceTitle": "Bureau of Transportation Statistics: U.S. Air Carrier Traffic Statistics",
+      "sourceUrl": "https://www.transtats.bts.gov/traffic/",
+      "sourceDate": "Accessed 2026-05-15",
+      "bestUsedFor": [
+        "air cargo scale",
+        "operations benchmarking",
+        "transportation data context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Shipment inquiry and booking support agent",
+      "problem": "Cargo customers often ask the same questions about accepted commodities, booking steps, cutoff times, documents, tracking, service levels, and escalation contacts.",
+      "agentWorkflow": "A DocsBot support agent answers from the airline’s approved cargo FAQs, service pages, tariffs, forms, and customer-facing policies. It can collect missing shipment details, summarize the request, and route complex cases to reservations, claims, sales, or operations through configured workflows.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or MCP-enabled tools, the agent can look up approved shipment or booking context and prepare a handoff without exposing unrestricted systems.",
+      "exampleQuestionsOrRequests": [
+        "Can I ship lithium batteries on this route?",
+        "What documents do I need for a temperature-controlled shipment?",
+        "I need to move 600 kg from ORD to FRA this week. Who should review it?",
+        "What is the cutoff for tendering cargo at this station?"
+      ],
+      "businessOutcome": "Reduces repetitive support load, improves response consistency, and helps shippers reach the right cargo team faster.",
+      "icon": "PaperAirplaneIcon"
+    },
+    {
+      "name": "Dangerous goods and special cargo knowledge assistant",
+      "problem": "Dangerous goods, batteries, perishables, live animals, pharmaceuticals, and oversized freight create high-stakes questions that require consistent policy access and human review for exceptions.",
+      "agentWorkflow": "An internal DocsBot agent retrieves airline procedures, training material, acceptance checklists, commodity rules, station notes, and escalation paths. For regulated or safety-critical cases, it can provide source-grounded guidance and route the case to trained personnel instead of making final acceptance decisions.",
+      "liveContextOrTools": "Approved Skills can collect commodity, UN number, packaging, route, and station details, then create a review task or notify the designated dangerous goods desk.",
+      "exampleQuestionsOrRequests": [
+        "Where is our current lithium battery acceptance checklist?",
+        "Summarize the procedure for leaking cargo discovered at acceptance.",
+        "Which team reviews dry ice quantities for this shipment?",
+        "Create a review task for this restricted commodity request."
+      ],
+      "businessOutcome": "Speeds up policy lookup while preserving review boundaries for safety-sensitive cargo decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-faa-dangerous-goods",
+        "src-faa-dg-regulations"
+      ]
+    },
+    {
+      "name": "Irregular operations communication assistant",
+      "problem": "Weather, capacity changes, customs holds, aircraft swaps, warehouse congestion, and missed connections can create a surge of shipper questions and internal coordination work.",
+      "agentWorkflow": "DocsBot can answer general delay and process questions from approved disruption playbooks, summarize open customer conversations, draft update language, and route urgent cases. Internal teams can ask for procedures, customer notification templates, and handoff summaries.",
+      "liveContextOrTools": "When connected to approved systems, an AI Action can retrieve allowed shipment status, create a follow-up task, update approved fields, or notify a station or account team.",
+      "exampleQuestionsOrRequests": [
+        "Summarize all open questions about delayed shipments from yesterday’s flight.",
+        "Draft a customer update using our delay communication template.",
+        "Route this pharma shipment exception to the temperature-control team.",
+        "What is our station playbook for missed export connections?"
+      ],
+      "businessOutcome": "Improves coordination during disruptions and helps teams communicate consistently under time pressure.",
+      "icon": "BellIcon"
+    },
+    {
+      "name": "Cargo sales qualification and service-fit assistant",
+      "problem": "Prospects and forwarders need fast answers about lanes, commodities, minimums, account setup, special handling, and pricing process before a sales representative can qualify the opportunity.",
+      "agentWorkflow": "A DocsBot presales agent answers from approved service catalogs, sales FAQs, onboarding documents, proposal language, and commodity guidance. It can ask structured intake questions, apply airline-defined qualification rules, and forward a summary to sales for human follow-up.",
+      "liveContextOrTools": "Configured workflows can send qualified leads to CRM, email, forms, helpdesk, Slack, Microsoft Teams, or other approved sales systems without making contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Do you support weekly e-commerce consolidation from LAX to NRT?",
+        "I need an account for pharma shipments. What information do you need?",
+        "Qualify this lead based on lane, volume, commodity, and urgency.",
+        "Send this opportunity summary to the regional cargo sales team."
+      ],
+      "businessOutcome": "Helps sales teams prioritize qualified freight opportunities while keeping pricing, contracts, and regulated commitments under human control.",
+      "icon": "BanknotesIcon"
+    },
+    {
+      "name": "Employee training and SOP retrieval agent",
+      "problem": "Cargo airline employees need reliable answers across manuals, SOPs, station procedures, onboarding content, and policy updates that may live in different repositories.",
+      "agentWorkflow": "DocsBot trains on private airline knowledge sources such as PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and internal text files. Employees ask natural-language questions and receive source-grounded answers with references to approved materials.",
+      "liveContextOrTools": "Private team chat, Slack, Microsoft Teams, and customer-configured internal workflows can make the agent available where employees already work.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current acceptance SOP for high-value cargo?",
+        "Explain the onboarding steps for a new cargo reservations agent.",
+        "What changed in the latest station handling bulletin?",
+        "Which document covers claims intake requirements?"
+      ],
+      "businessOutcome": "Reduces time spent searching and helps new and experienced employees follow the same approved procedures.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Knowledge-gap and support trend reporting",
+      "problem": "Cargo leaders need to know which questions customers and employees keep asking, which content is missing, and where policy or process language is unclear.",
+      "agentWorkflow": "DocsBot conversation logs, analytics, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery help teams review repeated questions and unanswered topics. Teams can prioritize new help articles, SOP updates, and training material based on actual demand.",
+      "liveContextOrTools": "Reports can inform content owners, support managers, training teams, and operations leaders without requiring agents to change operational systems.",
+      "exampleQuestionsOrRequests": [
+        "Which cargo acceptance questions were unanswered this month?",
+        "Show the most common customer questions about tracking and cutoffs.",
+        "Which internal SOP topics are employees searching for most?",
+        "What help content should we update before peak season?"
+      ],
+      "businessOutcome": "Turns customer and employee questions into a practical roadmap for better documentation and support coverage.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give shippers faster answers before they open a ticket",
+    "intro": "A customer-facing DocsBot agent can sit on your cargo website or portal and answer from approved airline content. It can support self-service questions, collect shipment context, and escalate exceptions with a clear handoff path.",
+    "requests": [
+      {
+        "request": "“Can I ship this commodity by air?”",
+        "agentResponseStrategy": "Answer from approved cargo acceptance pages, commodity guidance, dangerous goods explainers, and special cargo policies, then route restricted or unclear cases to the right team.",
+        "sourceTypes": [
+          "Cargo acceptance policies",
+          "Dangerous goods guidance",
+          "Special cargo FAQs",
+          "Station contact rules"
+        ],
+        "optionalAction": "Collect commodity, origin, destination, weight, dimensions, and requested service level before creating a review handoff.",
+        "icon": "CubeIcon",
+        "sourceIds": [
+          "src-faa-dangerous-goods"
+        ]
+      },
+      {
+        "request": "“Where is my shipment and what happens next?”",
+        "agentResponseStrategy": "Explain general tracking terminology, milestone meanings, contact paths, and next steps from approved support content. If live lookup is configured, retrieve allowed status context and summarize it for the customer.",
+        "sourceTypes": [
+          "Tracking FAQs",
+          "Customer support articles",
+          "Shipment milestone definitions",
+          "Service policy pages"
+        ],
+        "optionalAction": "Look up an authorized shipment record, summarize current status, and create a follow-up task for exceptions.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What documents do I need for this booking?”",
+        "agentResponseStrategy": "Use approved documentation guides to explain required forms, shipper responsibilities, and when a specialist should review the shipment.",
+        "sourceTypes": [
+          "Booking guides",
+          "Documentation checklists",
+          "Export and import help articles",
+          "Account onboarding materials"
+        ],
+        "optionalAction": "Send a structured intake summary to reservations or cargo sales for human review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I want to move recurring freight on this lane.”",
+        "agentResponseStrategy": "Collect sales qualification details such as lane, commodity, frequency, volume, account status, timeline, and preferred contact method, then summarize the opportunity.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Sales FAQs",
+          "Account setup forms",
+          "Lane and product pages"
+        ],
+        "optionalAction": "Forward the qualified lead summary to the airline’s configured CRM, email, form, or helpdesk workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“How do I file a claim or report damage?”",
+        "agentResponseStrategy": "Explain claim intake steps, evidence requirements, timelines, and support channels from approved content, then escalate disputes or high-value cases.",
+        "sourceTypes": [
+          "Claims policies",
+          "Support FAQs",
+          "Damage reporting forms",
+          "Escalation rules"
+        ],
+        "optionalAction": "Collect claim details and create a ticket or route the summary to the claims team when configured.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can you answer in my customer’s language?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages, using the airline’s approved content as the answer source so global shippers can get consistent help.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Service guides",
+          "Customer support articles",
+          "Approved translated content"
+        ],
+        "optionalAction": "Route language-specific questions to the right regional team when human follow-up is needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give cargo teams one place to ask operational questions",
+    "intro": "A private DocsBot knowledge agent helps reservations, warehouse, ramp, compliance, claims, sales, and station teams retrieve approved procedures without digging through scattered documents. It supports source-grounded answers, summaries, internal handoffs, and knowledge-gap reporting.",
+    "workflows": [
+      {
+        "name": "SOP and station procedure lookup",
+        "problem": "Station teams need current procedures during fast-moving acceptance, build-up, breakdown, and handoff work.",
+        "agentWorkflow": "Train DocsBot on SOPs, station bulletins, manuals, training files, PDFs, and internal knowledge bases. Employees ask natural-language questions and get answers grounded in approved sources.",
+        "sourceTypes": [
+          "SOP libraries",
+          "Station bulletins",
+          "Cargo manuals",
+          "Training materials"
+        ],
+        "optionalAction": "Create a task for the content owner when a procedure appears missing or outdated.",
+        "outcome": "Helps employees follow consistent procedures and reduces time spent searching for the right document.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Exception handoff summaries",
+        "problem": "Cargo exceptions often move between customer service, reservations, operations, and sales, causing context loss and repeated questions.",
+        "agentWorkflow": "DocsBot can summarize conversations, extract shipment details, identify missing fields, and prepare a clear handoff for the next team.",
+        "sourceTypes": [
+          "Support tickets",
+          "Internal notes",
+          "Conversation logs",
+          "Escalation playbooks"
+        ],
+        "optionalAction": "Route the summary to an approved ticketing, email, Slack, Microsoft Teams, or task workflow.",
+        "outcome": "Improves continuity when cases involve delays, claims, special handling, or customer escalations.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Compliance-aware training support",
+        "problem": "Dangerous goods and special cargo workflows require clear training references and careful boundaries around final decisions.",
+        "agentWorkflow": "Use an internal knowledge agent to retrieve approved training content, regulatory references, airline procedures, and escalation paths. For regulated decisions, the agent can support lookup and preparation while trained staff make the final call.",
+        "sourceTypes": [
+          "Training materials",
+          "Dangerous goods procedures",
+          "Acceptance checklists",
+          "Regulatory reference notes"
+        ],
+        "optionalAction": "Create a review request for a designated specialist with the employee’s question and relevant shipment context.",
+        "outcome": "Speeds up training support while keeping regulated cargo acceptance decisions inside airline-defined controls.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-faa-dg-regulations"
+        ]
+      },
+      {
+        "name": "Sales enablement and account research",
+        "problem": "Cargo sales teams need to answer lane, service, commodity, and onboarding questions quickly while preparing accurate follow-up.",
+        "agentWorkflow": "DocsBot can answer from sales playbooks, service catalogs, FAQs, case studies, proposal templates, and onboarding documents. When configured with web search and approved Skills, it can summarize public prospect context for human sellers.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Proposal templates",
+          "Account onboarding docs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or forward a lead summary through customer-configured workflows.",
+        "outcome": "Helps sales representatives respond faster while keeping pricing and contract commitments under human review.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on airline-owned knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, websites, internal content, product documentation, PDFs, Word documents, and other configured sources.",
+      "industryApplication": "Cargo airlines can train agents on tariffs, service guides, acceptance policies, route FAQs, claims procedures, station SOPs, training files, and customer support content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and customer-configured Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record updates, workflow triggers, and handoffs through approved connections.",
+      "industryApplication": "A cargo airline can configure actions for authorized shipment status lookup, lead intake, ticket creation, exception routing, task creation, and review handoffs.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Live context through APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot can use live system context when the customer configures the right Skill, connector, API, metadata binding, or remote Model Context Protocol server.",
+      "industryApplication": "Cargo teams can connect approved operational context so agents can answer with current shipment, case, or account information while respecting scoped permissions.",
+      "icon": "LinkIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, satisfaction and resolution analysis, topic management, and knowledge-gap discovery.",
+      "industryApplication": "Cargo support leaders can see recurring questions about tracking, cutoffs, claims, dangerous goods, special handling, and documentation gaps, then update help content or SOPs.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Cargo airlines can deploy agents over customer-facing and internal knowledge while applying access controls around private procedures, account data, and sensitive workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high support volume, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for source-grounded answers from owned content libraries, manuals, websites, and documentation.",
+      "Suitable for 24/7 customer support experiences that need scalable, multilingual help from approved materials."
+    ],
+    "whyTheseReviewsFit": "Cargo airlines need fast, consistent answers across customer service, documentation, and internal operations. DocsBot proof spans high-volume inquiry handling, training on owned content libraries, and scalable 24/7 support from manuals and websites—patterns that map well to air freight service environments.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "GlobeAltIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for cargo airlines",
+    "audience": [
+      "Cargo airline customer service leaders",
+      "Air freight operations teams",
+      "Cargo sales and account teams",
+      "Compliance and training managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PaperAirplaneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "air-transportation",
+    "freight-forwarding",
+    "third-party-logistics",
+    "cold-chain-logistics",
+    "intermodal-transport",
+    "courier-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "cargo-airlines",
+    "webSearchQueries": [
+      "IATA air cargo demand CTK 2024 2025 report",
+      "FAA air cargo hazardous materials dangerous goods regulations air carriers",
+      "Bureau of Transportation Statistics air cargo revenue ton miles 2024"
+    ],
+    "sourceUrls": [
+      "https://www.iata.org/en/pressroom/2025-releases/2025-01-29-02/",
+      "https://www.faa.gov/hazmat/safecargo/how_to_ship",
+      "https://www.faa.gov/hazmat/resources/regulations",
+      "https://www.transtats.bts.gov/traffic/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 38643,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 26099,
+        "outputTokens": 7822,
+        "reasoningOutputTokens": 97,
+        "totalTokens": 46465,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.185713,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.195713
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19503,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12207,
+          "outputTokens": 5071,
+          "reasoningOutputTokens": 97,
+          "totalTokens": 24574,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.108406,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.118406
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19140,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13892,
+          "outputTokens": 2751,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21891,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077307,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077307
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1601172449745-ec49ac55ae13?ixid=M3w1OTc2MjN8MXwxfHNlYXJjaHwxfHxsb2dpc3RpY3N8ZW58MHwwfHx8MTcxNDg3ODA3M3ww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cargo Airlines background image",
+    "source": "legacy-industry",
+    "query": "Cargo Airlines"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer shipment and booking questions without giving customers the wrong acceptance decision?",
+      "answer": "Yes. A DocsBot agent can answer from your approved cargo acceptance policies, tariffs, service guides, route FAQs, and documentation checklists, then escalate restricted, unclear, or contract-sensitive cases to a person. For dangerous goods, it should support lookup and intake rather than make the final acceptance call, because air shipments require correct classification, packaging, marking, and labeling before tender.",
+      "role": "Cargo customer service teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-faa-dangerous-goods"
+      ]
+    },
+    {
+      "question": "How would this help during peak season or a disruption when our cargo desk is flooded with repetitive questions?",
+      "answer": "DocsBot can deflect repetitive questions about tracking steps, cutoffs, documents, claims, shipment milestones, and service policies while routing exceptions with a summary. That matters when volume pressure rises: IATA reported global air cargo demand grew 11.3% in 2024, which increases the need for scalable, consistent support coverage.",
+      "role": "Cargo customer service teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-iata-2024-record-demand"
+      ]
+    },
+    {
+      "question": "Can the agent look up live shipment status or booking details?",
+      "answer": "It can when you configure the right Skill, API, connector, metadata binding, or MCP-enabled tool. The safer pattern is scoped lookup: the agent retrieves only authorized shipment or case fields, explains allowed status context, and creates a follow-up task or handoff when the shipment needs human review.",
+      "role": "Cargo customer service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot integrate with our cargo management system, CRM, helpdesk, or station workflows?",
+      "answer": "DocsBot supports customer-configured Skills, APIs, connectors, webhooks, and workflow automations. A cargo airline can use those to create tickets, route exceptions, forward qualified leads, notify station teams, or retrieve approved live context. It should be scoped around the systems and permissions your IT and operations teams approve.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot internally for SOPs, station bulletins, manuals, and training files?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, cargo manuals, station bulletins, training materials, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and other approved sources. Employees can ask natural-language questions and receive source-grounded answers instead of searching across folders and portals.",
+      "role": "Cargo operations and station managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep dangerous goods, lithium battery, pharma, live animal, and other special cargo workflows under human control?",
+      "answer": "Use DocsBot for source-grounded retrieval, structured intake, summaries, and routing—not final regulated decisions. The agent can collect commodity, UN number, packaging, route, station, and service details, then create a review task for trained staff. FAA guidance notes hazardous materials regulations are minimum requirements for safe air transportation and that FAA is responsible for air-transport compliance.",
+      "role": "Cargo operations and station managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-faa-dg-regulations"
+      ]
+    },
+    {
+      "question": "What information should we train the agent on first to get value quickly?",
+      "answer": "Start with high-volume, low-risk content: cargo FAQs, tracking help, booking steps, cutoffs, claims intake, documentation checklists, station contacts, service catalogs, and escalation rules. For internal use, add SOPs, station procedures, training guides, disruption playbooks, and special cargo checklists after content owners confirm the latest approved versions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both shipper-facing service questions and private employee questions?",
+      "answer": "Yes. You can deploy a customer-facing agent on your cargo website or portal and a separate private internal knowledge agent for reservations, warehouse, ramp, claims, sales, compliance, and station teams. Each agent should be trained on the right content and governed with the right permissions for that audience.",
+      "role": "General buyer",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI agent from exposing private SOPs, account data, or restricted procedures to customers?",
+      "answer": "Separate public and private knowledge sources, apply granular access controls and role-based permissions, and limit live actions to approved scopes. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent handle multilingual shipper questions across time zones?",
+      "answer": "DocsBot can answer in more than 100 languages using your approved content as the source. For global cargo operations, that can help shippers get consistent answers about documents, tracking, cutoffs, and support paths outside local office hours, while language-specific or high-risk cases can still route to regional teams.",
+      "role": "Cargo customer service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we measure to prove ROI after launch?",
+      "answer": "Track deflected or resolved conversations, response time, ticket volume by topic, escalation rate, unanswered questions, satisfaction or resolution signals, internal search reduction, and time saved on handoffs. For cargo teams, also review repeated questions around cutoffs, acceptance rules, claims, tracking, and documentation gaps.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help cargo sales qualify leads before a rep gets involved?",
+      "answer": "Yes. A presales agent can answer from service catalogs, account setup documents, lane and product pages, special cargo guidance, and sales FAQs. It can collect lane, commodity, volume, frequency, urgency, account status, and follow-up preference, then forward a qualified summary to your configured CRM, email, helpdesk, or sales workflow.",
+      "role": "Cargo sales and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent quote rates, make capacity commitments, or agree to contract terms?",
+      "answer": "Only if you deliberately configure a tightly controlled workflow—and most cargo airlines should not start there. A safer first phase is to explain the pricing process, collect shipment or opportunity details, identify the right sales or reservations team, and route the request for human review before any rate, capacity, or contract commitment is made.",
+      "role": "Cargo sales and account teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot handle damaged cargo, claims, or angry customer escalations?",
+      "answer": "DocsBot can explain claim intake steps from approved policies, collect required details, summarize the conversation, and create or route a ticket when configured. It should escalate disputes, high-value claims, legal threats, damaged cargo exceptions, and sensitive account issues to human agents with the context attached.",
+      "role": "Cargo customer service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review what the agent answered and improve the content over time?",
+      "answer": "Yes. DocsBot provides conversation logs, analytics, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Cargo leaders can see repeated questions about tracking, cutoffs, special cargo, claims, station procedures, and documentation, then prioritize the content updates that reduce future friction.",
+      "role": "Cargo operations and station managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much cleanup do our documents need before implementation?",
+      "answer": "DocsBot can train on many source types, but implementation goes smoother when content owners remove outdated files, identify authoritative versions, label public versus private materials, and define escalation rules. Cargo airlines should pay special attention to station-specific procedures, embargo notes, special cargo rules, and policy language that changes often.",
+      "role": "Cargo operations and station managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we start with a narrow use case instead of a full cargo transformation project?",
+      "answer": "Yes. Many teams should start with one contained workflow, such as website shipment FAQs, claims intake, internal SOP lookup, dangerous goods review routing, or sales lead qualification. A narrow launch makes it easier to validate answer quality, permissions, escalation paths, analytics, and stakeholder confidence before expanding.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant or using a generic chatbot platform?",
+      "answer": "DocsBot is designed for source-grounded agents trained on owned knowledge, with analytics, private knowledge use cases, customer-facing widgets, AI Actions, Skills, and workflow handoffs. Building in-house may offer deep customization, but buyers should account for ingestion, permissions, evaluation, logging, security review, integrations, maintenance, and content operations—not just the model call.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can station managers trust the agent when procedures differ by airport or region?",
+      "answer": "They should configure the agent around authoritative station procedures, metadata, and escalation rules. DocsBot can retrieve from approved SOPs and station bulletins, but the airline needs clear content ownership so answers reflect the correct station, route, commodity, and current policy version. Ambiguous or missing procedures should trigger a human handoff or content-gap review.",
+      "role": "Cargo operations and station managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens when the agent cannot answer confidently from our approved sources?",
+      "answer": "The right behavior is to say it does not have enough approved information, ask for missing details if useful, and route the request to the correct team. DocsBot’s knowledge-gap reporting can then show which unanswered topics need better help content, SOP updates, or clearer escalation instructions.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with handoffs between reservations, warehouse, ramp, customer service, and sales?",
+      "answer": "Yes. DocsBot can summarize conversations, extract shipment details, identify missing fields, and prepare handoffs for approved ticketing, email, Slack, Microsoft Teams, task, or workflow systems when configured. That reduces repeated questions when exceptions move across teams, especially for delays, claims, special handling, and customer escalations.",
+      "role": "Cargo operations and station managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What compliance concerns should our legal, safety, and security teams review before launch?",
+      "answer": "They should review which sources the agent can access, which audiences can use it, what live actions are permitted, how regulated cargo questions escalate, what logs are retained, and how credentials and secrets are managed. For dangerous goods, the agent should not replace trained personnel responsible for acceptance and compliance decisions.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use this for employee onboarding and recurrent training support?",
+      "answer": "Yes. An internal DocsBot agent can help new reservations, warehouse, claims, station, and cargo support employees find onboarding steps, SOPs, handling checklists, escalation paths, and policy references. It is best used as a searchable training companion, with supervisors and certified staff still responsible for formal training signoff and regulated decisions.",
+      "role": "Cargo operations and station managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot work for both all-cargo carriers and passenger airlines with belly cargo operations?",
+      "answer": "Yes. The core pattern is the same: train agents on approved cargo knowledge, answer repetitive shipper and employee questions, and route exceptions. The content model may differ by network, station ownership, aircraft type, products, interline rules, and operational handoffs, but the agent can be scoped to those airline-specific policies.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we position this internally so operations does not see it as replacing cargo expertise?",
+      "answer": "Position DocsBot as a knowledge access and workflow support layer, not a replacement for trained cargo specialists. It helps teams find approved procedures, summarize context, collect missing details, and route work faster. Human experts should remain accountable for regulated cargo, exceptions, pricing, contracts, claims disputes, and safety-critical decisions.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot support reporting for executive reviews or continuous improvement meetings?",
+      "answer": "Yes. DocsBot analytics can show common topics, unresolved questions, satisfaction or resolution signals, and knowledge gaps. For executives, those reports can reveal where support volume, unclear policies, missing station guidance, or documentation issues are creating avoidable work across cargo customer service, sales, and operations.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What procurement and IT questions should we ask before approving an AI agent for cargo operations?",
+      "answer": "Ask about SOC 2 Type II status, data use, encryption, access controls, role-based permissions, logging, source management, environment secrets, workflow scopes, and how live actions are approved. Also confirm who owns content updates and which teams approve escalation rules for safety, claims, sales, and operations.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,732 @@
+{
+  "slug": "commercial-leasing",
+  "business": "Commercial Leasing",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Faster Commercial Leasing Workflows",
+    "description": "DocsBot helps commercial leasing teams answer tenant questions, qualify prospects, and surface lease knowledge from approved property sources.",
+    "canonicalPath": "/industry/commercial-leasing"
+  },
+  "hero": {
+    "eyebrow": "AI leasing support built from your property and policy knowledge",
+    "headline": "Move commercial leasing conversations forward with DocsBot AI agents",
+    "subheadline": "DocsBot helps commercial leasing teams create source-grounded AI agents that answer property questions, retrieve approved lease and building information, qualify prospects, summarize inquiries, route handoffs, and support internal teams without replacing broker judgment on pricing, terms, or legal commitments.",
+    "proofBullets": [
+      {
+        "text": "Answer prospect and tenant questions from approved property pages, leasing FAQs, PDFs, policies, floor plans, and internal knowledge bases.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "text": "Collect inquiry details such as use type, square footage, timing, budget range, location needs, and preferred follow-up channel.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "text": "Route qualified leads, tour requests, maintenance-adjacent questions, and broker handoffs through customer-configured workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give leasing, asset management, and operations teams fast answers from lease abstracts, SOPs, playbooks, and property documentation.",
+        "icon": "DocumentTextIcon"
+      }
+    ],
+    "primaryCta": "Build a commercial leasing agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your commercial leasing knowledge into AI agents for prospects, tenants, brokers, leasing coordinators, and operations teams. Agents can answer from approved sources, collect structured intake details, summarize conversations, identify knowledge gaps, and trigger bounded workflows through configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Leasing teams and brokers",
+        "roleContext": "Support high-intent inquiries without forcing brokers to re-answer every availability, fit, amenities, process, or tour question manually.",
+        "bullets": [
+          {
+            "text": "Use approved property information to explain availability, building features, permitted use notes, parking, access, amenities, and next steps.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Qualify prospects with customer-defined rules before routing the conversation summary to the right broker or leasing coordinator.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Draft follow-up summaries so brokers can see what the prospect asked, what was answered, and what still needs a human response.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Asset and property managers",
+        "roleContext": "Make portfolio knowledge easier to retrieve across lease documents, tenant policies, operations manuals, property contacts, and recurring service procedures.",
+        "bullets": [
+          {
+            "text": "Give teams instant answers from lease abstracts, tenant handbooks, amenity policies, building access procedures, and escalation rules.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Surface recurring unanswered questions so managers can improve leasing packets, FAQ pages, and internal operating documents.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Keep sensitive or high-impact items such as rent concessions, legal terms, and approval decisions in human-controlled workflows.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Marketing and tenant experience teams",
+        "roleContext": "Help prospects and tenants get consistent answers from the same approved source set used across the website, private team chat, and support workflows.",
+        "bullets": [
+          {
+            "text": "Respond to after-hours website questions in the company voice while escalating complex leasing, contract, or site-specific issues.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Support multilingual inquiries in more than 100 languages when your leasing content needs broader accessibility.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Review logs and reports to understand what occupiers ask before tours, renewals, expansions, or move-ins.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-deloitte-cre-tech-spend",
+      "metric": "81% of surveyed CRE respondents prioritized data and technology spending for 2025.",
+      "claim": "Deloitte’s 2025 commercial real estate outlook found that most respondents identified data and technology as the spending area most likely to receive focus in the coming year.",
+      "sourceTitle": "2025 Commercial Real Estate Outlook",
+      "sourceUrl": "https://www2.deloitte.com/us/en/insights/industry/financial-services/commercial-real-estate-outlook.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "technology investment pressure",
+        "AI adoption",
+        "operations modernization"
+      ]
+    },
+    {
+      "id": "src-deloitte-cre-ai-2026",
+      "metric": "Deloitte reports broad CRE interest in AI for operations, client interactions, and decision-making.",
+      "claim": "Deloitte’s 2026 CRE outlook says industry leaders are exploring AI across leasing, underwriting, asset operations, client interactions, and decision-making, while emphasizing curated industry-specific data.",
+      "sourceTitle": "2026 Commercial Real Estate Outlook",
+      "sourceUrl": "https://www.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/commercial-real-estate-outlook.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "AI adoption",
+        "curated real estate data",
+        "leasing workflows"
+      ]
+    },
+    {
+      "id": "src-cbre-office-leasing-2025",
+      "metric": "CBRE expected 5% higher overall U.S. office leasing volume in 2025.",
+      "claim": "CBRE’s 2025 U.S. outlook anticipated a 5% increase in overall office leasing volume and a national office vacancy rate topping out at 19%, with occupiers needing to move quickly for the best quality space.",
+      "sourceTitle": "CBRE’s 2025 U.S. Real Estate Outlook",
+      "sourceUrl": "https://www.cbre.com/press-releases/investment-recovery-to-gain-momentum-despite-interest-rates-remaining-higher-for-longer",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "office leasing demand",
+        "vacancy context",
+        "speed-to-response pressure"
+      ]
+    },
+    {
+      "id": "src-cbre-midyear-prime-vacancy",
+      "metric": "Prime office vacancy was 14.5% in Q2 2025, 4.8 points below non-prime vacancy.",
+      "claim": "CBRE’s 2025 U.S. Real Estate Market Outlook Midyear Review reported that prime office vacancy remained lower than non-prime vacancy, highlighting the split between higher-quality and weaker assets.",
+      "sourceTitle": "2025 U.S. Real Estate Market Outlook Midyear Review",
+      "sourceUrl": "https://www.cbre.com/insights/reports/17592242376",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "asset quality competition",
+        "leasing differentiation",
+        "property information accuracy"
+      ]
+    },
+    {
+      "id": "src-jll-workplace-optimization",
+      "metric": "Portfolio optimization surpassed cost-cutting as a top corporate real estate priority.",
+      "claim": "JLL’s 2025 Occupancy Planning Benchmark Report coverage says corporate real estate priorities shifted toward portfolio optimization, space data accuracy, reporting, and utilization data for space planning.",
+      "sourceTitle": "The evolving workplace prioritizes experience while optimizing space",
+      "sourceUrl": "https://www.jll.com/en-sea/newsroom/the-evolving-workplace-prioritizes-experience-while-optimizing-space",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "occupier decision complexity",
+        "space planning questions",
+        "data accuracy"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Prospect qualification and broker handoff",
+      "problem": "Leasing teams often receive incomplete inquiries that require several manual emails before a broker knows whether the space, timing, and use case are a fit.",
+      "agentWorkflow": "A DocsBot agent answers approved property questions, asks for missing intake details, applies customer-defined qualification instructions, summarizes the conversation, and sends the structured handoff to the right leasing workflow when configured.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, or webhooks, the agent can forward lead details, create a task, notify a team, or request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you have 8,000 to 12,000 square feet available for a medical office in Q3?",
+        "Can I tour the second-floor suite next week?",
+        "Does this property allow light assembly or showroom use?"
+      ],
+      "businessOutcome": "Reduce back-and-forth before broker follow-up and give human leasing specialists better context for qualified conversations.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Availability and property FAQ agent",
+      "problem": "Prospects compare buildings quickly, and slow answers about amenities, access, parking, floor plates, building services, or lease process can weaken momentum.",
+      "agentWorkflow": "DocsBot trains on approved property pages, brochures, leasing FAQs, tenant handbooks, and documents so the agent can answer consistently and cite the source material used for each response.",
+      "liveContextOrTools": "If connected to approved availability data through a Skill, API, connector, or MCP server, the agent can use live context for bounded lookups while keeping pricing and contract commitments in human review.",
+      "exampleQuestionsOrRequests": [
+        "What amenities are included for tenants?",
+        "Is there loading access for deliveries?",
+        "Which suites are built out and which require improvements?"
+      ],
+      "businessOutcome": "Help prospects get quick, consistent property answers while preserving broker control over negotiated terms.",
+      "icon": "BuildingStorefrontIcon",
+      "sourceIds": [
+        "src-cbre-office-leasing-2025"
+      ]
+    },
+    {
+      "name": "Lease and tenant policy knowledge assistant",
+      "problem": "Leasing, property management, and tenant experience teams waste time searching across lease abstracts, policies, handbooks, and operating procedures.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves answers from approved internal documents, PDFs, wikis, SOPs, and lease guidance so staff can find the current procedure or policy without searching multiple folders.",
+      "liveContextOrTools": "Customer-configured Skills can summarize a tenant question, create an internal task, or route an exception request to the correct reviewer when the workflow is approved.",
+      "exampleQuestionsOrRequests": [
+        "What is our standard process for a certificate of insurance update?",
+        "Where is the signage policy for this building?",
+        "Which team handles after-hours access requests for this property?"
+      ],
+      "businessOutcome": "Improve operational consistency and reduce internal search time across leasing and property teams.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Tour and meeting request coordination",
+      "problem": "Tour requests arrive through website forms, emails, and calls, but coordinators still need to collect timing, space needs, company details, and broker availability.",
+      "agentWorkflow": "DocsBot can collect scheduling intent, ask follow-up questions, explain required tour details, and prepare a handoff summary for the leasing coordinator or broker.",
+      "liveContextOrTools": "With a customer-approved scheduling Skill or workflow, the agent can request a meeting slot, trigger a scheduling link, or notify a coordinator without making unsupported commitments.",
+      "exampleQuestionsOrRequests": [
+        "I want to tour the 15,000-square-foot warehouse on Friday.",
+        "Can I speak with someone about a restaurant space?",
+        "Please send my details to the leasing team."
+      ],
+      "businessOutcome": "Give prospects a guided next step and give coordinators cleaner intake before human scheduling begins.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Leasing content gap and demand insight reporting",
+      "problem": "If the same questions keep appearing in chat, email, or ticket conversations, leasing teams may not know which brochure, FAQ, or property page needs improvement.",
+      "agentWorkflow": "DocsBot logs conversations, reports topics, reviews resolution patterns, and identifies unanswered questions so teams can update property pages, tenant materials, and internal knowledge sources.",
+      "liveContextOrTools": "Analytics and conversation review can be combined with customer-defined topic management and approved content workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which unanswered questions came up most often this month?",
+        "Are prospects asking more about parking, HVAC, or expansion options?",
+        "Which properties need better website content?"
+      ],
+      "businessOutcome": "Turn leasing conversations into practical content improvements and better prospect self-service.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-deloitte-cre-tech-spend"
+      ]
+    },
+    {
+      "name": "Occupier requirements research support",
+      "problem": "Office, industrial, and retail occupiers increasingly ask nuanced questions about space efficiency, hybrid work, utilization, and building fit before committing to tours or RFPs.",
+      "agentWorkflow": "A DocsBot sales enablement agent can help brokers retrieve approved talking points, compare prospect requirements against property materials, summarize public account research when web search is configured, and draft human-reviewed follow-up.",
+      "liveContextOrTools": "Approved Skills can pull internal sales notes, create CRM-style tasks through customer-configured workflows, or prepare a broker brief while humans own outreach and negotiation.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this prospect’s likely space planning concerns before my call.",
+        "Which properties match a headquarters user that prioritizes transit and amenity access?",
+        "Draft a follow-up email using our approved leasing language."
+      ],
+      "businessOutcome": "Help brokers prepare faster for consultative conversations without automating final recommendations, pricing, or lease commitments.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-jll-workplace-optimization"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and tenants a faster first answer without losing human leasing control",
+    "intro": "A DocsBot customer-facing agent can sit on your property website or leasing portal, answer from approved sources, collect structured details, and escalate complex questions to your team. It works well for recurring questions while keeping negotiated terms, legal language, credit review, and final approvals with people.",
+    "requests": [
+      {
+        "request": "“Is this suite suitable for a medical office, and what information do you need from me?”",
+        "agentResponseStrategy": "Answer from approved use, building, and leasing materials; collect company, square footage, timing, budget range, intended use, and contact details; then prepare a broker handoff.",
+        "sourceTypes": [
+          "Property pages",
+          "Leasing brochures",
+          "Use guidelines",
+          "Lead intake rules"
+        ],
+        "optionalAction": "Forward the qualified inquiry and conversation summary through a customer-configured form, email, CRM-style workflow, or team notification.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“What amenities, parking, access, and building services are included?”",
+        "agentResponseStrategy": "Retrieve source-grounded answers from property documents and tenant materials, clarify property-specific differences, and suggest a human follow-up when the question involves exceptions.",
+        "sourceTypes": [
+          "Tenant handbook",
+          "Building FAQ",
+          "Amenity sheets",
+          "Parking policies"
+        ],
+        "optionalAction": "Create a support or leasing task when the visitor asks for a callback or needs property-specific confirmation.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can I schedule a tour for next week?”",
+        "agentResponseStrategy": "Collect scheduling intent, preferred times, space requirements, contact details, and any access needs before routing the request to the leasing team.",
+        "sourceTypes": [
+          "Tour instructions",
+          "Scheduling rules",
+          "Property availability notes"
+        ],
+        "optionalAction": "Use an approved scheduling Skill or workflow to trigger a booking request, send a scheduling link, or notify a coordinator.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where can I find move-in forms, COI requirements, or signage rules?”",
+        "agentResponseStrategy": "Provide the approved document or policy answer, explain the next step in plain language, and escalate exceptions or missing documents to the property team.",
+        "sourceTypes": [
+          "Move-in guides",
+          "Tenant forms",
+          "Insurance requirements",
+          "Signage policies"
+        ],
+        "optionalAction": "Route incomplete or exception-based requests to the property management workflow configured by the customer.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“How quickly do I need to act on top-quality office space?”",
+        "agentResponseStrategy": "Answer using your approved market commentary and property-specific guidance, then encourage a broker conversation for availability, pricing, and timing. CBRE anticipated a 5% increase in overall U.S. office leasing volume in 2025 and a 19% national vacancy rate peak, with stronger competition for the best space.",
+        "sourceTypes": [
+          "Market notes",
+          "Broker-approved FAQs",
+          "Property availability pages"
+        ],
+        "optionalAction": "Collect the prospect’s space requirements and route the inquiry to a broker for current availability and negotiated terms.",
+        "icon": "ArrowTrendingUpIcon",
+        "sourceIds": [
+          "src-cbre-office-leasing-2025"
+        ]
+      },
+      {
+        "request": "“Why is this building positioned differently from nearby options?”",
+        "agentResponseStrategy": "Explain approved differentiators such as asset quality, amenities, location, services, floor plates, and tenant experience. CBRE reported Q2 2025 prime office vacancy of 14.5%, 4.8 percentage points below non-prime vacancy, underscoring the need to clearly communicate quality differences.",
+        "sourceTypes": [
+          "Property positioning docs",
+          "Broker talking points",
+          "Amenity sheets",
+          "Market commentary"
+        ],
+        "optionalAction": "Prepare a human-reviewed comparison summary for the leasing team when the visitor requests a deeper market discussion.",
+        "icon": "StarIcon",
+        "sourceIds": [
+          "src-cbre-midyear-prime-vacancy"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make leasing knowledge searchable for brokers, coordinators, and property teams",
+    "intro": "DocsBot can also operate as a private internal knowledge agent for commercial leasing organizations. Train it on approved documents, SOPs, policies, wikis, PDFs, sales playbooks, and operational guidance so employees can retrieve consistent answers and see where documentation is missing.",
+    "workflows": [
+      {
+        "name": "Broker preparation assistant",
+        "problem": "Brokers need accurate property details, approved talking points, objection handling, and account context before calls and tours.",
+        "agentWorkflow": "The agent retrieves relevant property facts, sales enablement material, proposal language, and prospect research notes from approved sources, then drafts a briefing for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Property brochures",
+          "Proposal templates",
+          "Approved market notes"
+        ],
+        "optionalAction": "Create a follow-up task, draft a broker email, or summarize account context through configured sales workflows.",
+        "outcome": "Faster preparation for prospect calls while preserving human control over recommendations and negotiations.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Lease operations Q&A",
+        "problem": "Coordinators and managers must answer procedural questions about certificates of insurance, move-ins, renewals, notices, access, and tenant communications.",
+        "agentWorkflow": "The agent answers from internal SOPs, lease administration guidance, building procedures, and tenant handbooks, with source-grounded responses and escalation for exceptions.",
+        "sourceTypes": [
+          "SOPs",
+          "Lease abstracts",
+          "Tenant handbooks",
+          "Operations manuals"
+        ],
+        "optionalAction": "Route exception requests to legal, asset management, or property operations through approved workflows.",
+        "outcome": "More consistent internal answers and fewer repeated searches across folders and systems.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Content and documentation improvement loop",
+        "problem": "Property pages and leasing packets often fall behind the questions prospects actually ask.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, conversation review, and knowledge-gap discovery show which questions are repeated, unresolved, or missing from approved content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base articles",
+          "Website FAQs"
+        ],
+        "optionalAction": "Generate a content update brief or notify the marketing and leasing operations team when gaps recur.",
+        "outcome": "Improve self-service content based on real prospect and tenant questions.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Governed knowledge access for sensitive documents",
+        "problem": "Commercial leasing teams handle contracts, tenant files, internal approvals, and financial or legal-adjacent materials that require boundaries.",
+        "agentWorkflow": "DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and controls so teams can define what agents can access and do.",
+        "sourceTypes": [
+          "Permissioned folders",
+          "Approved lease guidance",
+          "Internal policies",
+          "Review workflows"
+        ],
+        "optionalAction": "Use scoped Skills, logs, environment values, secrets, and customer-defined controls for approved actions without exposing credentials in chats.",
+        "outcome": "Support AI-assisted leasing workflows while keeping sensitive decisions and access under customer control.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from the company knowledge sources you approve, including websites, help centers, internal content, documents, and other configured sources.",
+      "industryApplication": "Train an agent on property pages, brochures, leasing FAQs, tenant handbooks, and approved process documents so prospects and tenants get consistent leasing answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Presales intake and qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details with custom forms or structured flows, qualify using customer-defined rules, and forward summaries through approved workflows.",
+      "industryApplication": "Ask for use type, square footage, timing, location preference, budget range, company details, and follow-up channel before routing inquiries to brokers or coordinators.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, record creation, updates, workflow triggers, notifications, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved connectors or a Model Context Protocol server for live availability lookups, task creation, broker notifications, scheduling requests, or structured handoffs within defined permissions.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can operate as a private assistant trained on internal documents, SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other knowledge sources.",
+      "industryApplication": "Help leasing coordinators, asset managers, and property teams find lease procedures, move-in rules, tenant policy answers, approval steps, and broker playbook content quickly.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which property questions recur, where availability or amenity content is unclear, and what prospects ask before tours, renewals, or expansion discussions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data.",
+      "industryApplication": "Keep lease, tenant, broker, and operational knowledge inside permissioned workflows while giving teams practical access to approved answers.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from the content your leasing organization approves.",
+      "Supports customer-facing website experiences and private internal knowledge workflows.",
+      "Proven at handling high-volume customer inquiry environments with measurable resolution outcomes."
+    ],
+    "whyTheseReviewsFit": "Commercial leasing depends on accurate communication with prospects, tenants, brokers, owners, and internal stakeholders. DocsBot’s customer proof shows teams using owned content, real estate communication workflows, and high-volume support automation to deliver faster, more consistent answers.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "BuildingOffice2Icon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for commercial leasing teams",
+    "audience": [
+      "Commercial leasing brokers",
+      "Property management teams",
+      "Asset managers",
+      "Leasing coordinators",
+      "Commercial real estate marketers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingOffice2Icon"
+  },
+  "relatedIndustrySlugs": [
+    "property-management",
+    "real-estate-agent",
+    "landlord-services",
+    "corporate-housing",
+    "land-development",
+    "real-estate-housing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "commercial-leasing",
+    "webSearchQueries": [
+      "commercial real estate leasing vacancy rate office retail industrial 2025 CBRE report",
+      "NAR commercial real estate international business trends tenant inquiries report",
+      "Deloitte commercial real estate outlook 2025 artificial intelligence operations",
+      "JLL future of work office leasing tenants expectations 2025"
+    ],
+    "sourceUrls": [
+      "https://www2.deloitte.com/us/en/insights/industry/financial-services/commercial-real-estate-outlook.html",
+      "https://www.deloitte.com/us/en/insights/industry/financial-services/financial-services-industry-outlooks/commercial-real-estate-outlook.html",
+      "https://www.cbre.com/press-releases/investment-recovery-to-gain-momentum-despite-interest-rates-remaining-higher-for-longer",
+      "https://www.cbre.com/insights/reports/17592242376",
+      "https://www.jll.com/en-sea/newsroom/the-evolving-workplace-prioritizes-experience-while-optimizing-space"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41308,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28764,
+        "outputTokens": 8426,
+        "reasoningOutputTokens": 112,
+        "totalTokens": 49734,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.201437,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.211437
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21569,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14273,
+          "outputTokens": 5242,
+          "reasoningOutputTokens": 112,
+          "totalTokens": 26811,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116137,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126137
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19739,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14491,
+          "outputTokens": 3184,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22923,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.0853,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.0853
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxvZmZpY2V8ZW58MHwwfHx8MTcxNDg3ODA2OHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Commercial Leasing background image",
+    "source": "legacy-industry",
+    "query": "Commercial Leasing"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer availability and building-fit questions without making pricing or lease commitments?",
+      "answer": "Yes. DocsBot can answer from approved property pages, brochures, tenant handbooks, leasing FAQs, floor plans, and policy documents, while routing pricing, concessions, legal language, credit review, and final lease terms to a broker or authorized reviewer. If you connect live availability through a customer-approved Skill, API, connector, or MCP server, the lookup can stay bounded to approved fields.",
+      "role": "Leasing teams and brokers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our brokers if most serious prospects still need a human conversation?",
+      "answer": "DocsBot is designed to improve the conversation before the broker gets involved. It can answer recurring property questions, collect square footage, use type, timing, location needs, budget range, and contact preferences, then send a structured summary to the right broker. The broker still owns recommendations, negotiation strategy, pricing, and relationship management.",
+      "role": "Leasing teams and brokers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should we look for in a commercial leasing AI agent pilot?",
+      "answer": "Start with measurable friction: fewer repetitive property questions handled manually, faster response to after-hours inquiries, more complete tour requests, reduced internal search time, and clearer handoffs to brokers. In a competitive leasing market, response quality matters; CBRE expected overall U.S. office leasing volume to rise 5% in 2025 while national office vacancy peaked near 19%, creating pressure to move qualified conversations quickly.",
+      "role": "Leasing teams and brokers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-cbre-office-leasing-2025"
+      ]
+    },
+    {
+      "question": "Can DocsBot qualify a prospect before routing them to a broker?",
+      "answer": "Yes. You can define the intake rules: company, use type, square footage, target move date, budget range, desired submarket, parking or loading needs, preferred follow-up channel, and whether the inquiry is for office, retail, industrial, medical, or another use. DocsBot can ask for missing details, summarize the conversation, and forward the lead through customer-configured forms, webhooks, email, CRM-style workflows, or team notifications.",
+      "role": "Leasing teams and brokers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent work for multiple asset types, or only office leasing?",
+      "answer": "It can support different property types if your source content and routing rules are organized accordingly. For example, an office agent might answer amenity, parking, floor plate, and hybrid-work questions; an industrial agent might focus on clear height, loading, power, yard, access, and permitted use; a retail agent might handle frontage, co-tenancy, signage, foot traffic language, and use restrictions. Humans should still review nuanced fit and deal terms.",
+      "role": "Asset and property managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated availability or suite details?",
+      "answer": "Use approved source governance. Static content such as brochures and FAQs should have an owner and update cadence. For frequently changing fields like availability, status, suite size, or asking-rent guidance, connect DocsBot only to approved live context through a scoped Skill, API, connector, or MCP server, or instruct the agent to collect the request and route it to a broker for current confirmation.",
+      "role": "Asset and property managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it cite where an answer came from so brokers and tenants trust it?",
+      "answer": "Yes. DocsBot is built for source-grounded answers from the knowledge sources you approve. That matters in commercial leasing because small differences in parking policy, building access, permitted use, signage, or service responsibilities can create confusion. The agent can answer from the relevant approved document and keep exceptions or missing information in an escalation path.",
+      "role": "Asset and property managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we use this internally for lease abstracts, SOPs, tenant handbooks, and property procedures?",
+      "answer": "Yes. DocsBot can operate as a private internal knowledge agent trained on approved internal documents, PDFs, wikis, SOPs, lease guidance, tenant handbooks, and operations manuals. Leasing coordinators, property managers, and asset teams can ask procedural questions such as COI requirements, move-in steps, signage rules, after-hours access, escalation contacts, or renewal-process guidance.",
+      "role": "Asset and property managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What information should we train the leasing agent on first?",
+      "answer": "Start with high-confidence, frequently used sources: property pages, leasing brochures, amenity sheets, parking policies, floor plan descriptions, tenant handbooks, move-in guides, COI requirements, tour instructions, and broker-approved FAQs. Add internal SOPs and lease guidance for private employee use. Avoid training a public agent on sensitive tenant files, unapproved concessions, draft legal language, or confidential financial material.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation usually take for a first leasing use case?",
+      "answer": "A practical pilot can start with one portfolio segment, property type, or high-traffic leasing page. The main work is not just adding the widget; it is deciding approved sources, escalation rules, lead fields, tone, forbidden commitments, and who reviews unanswered questions. More advanced workflows—such as live availability lookups, scheduling requests, or CRM-style handoffs—depend on the APIs, connectors, Skills, and approvals your team configures.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot integrate with our leasing CRM, property database, scheduling tools, or team chat?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, webhooks, forms, and MCP options. That can include bounded lookups, lead forwarding, task creation, broker notifications, scheduling requests, or summaries sent to sales or operations systems you authorize. It is best to scope the first integration around one clear action, such as qualified inquiry handoff or tour-request routing.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent book tours automatically?",
+      "answer": "DocsBot can collect scheduling intent, preferred times, property or suite interest, company details, space requirements, and access needs. With an approved scheduling Skill or workflow, it can request a meeting slot, trigger a scheduling link, or notify a coordinator. For complex tours, broker availability, occupied spaces, access constraints, or confidential tenants, keep final confirmation with your leasing team.",
+      "role": "Leasing teams and brokers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot handle questions about zoning, permitted use, exclusives, or legal lease language?",
+      "answer": "Treat those as controlled topics. DocsBot can explain approved general guidance from your documents, identify that the question needs human review, and route the conversation to the correct broker, asset manager, or legal reviewer. It should not make binding determinations on permitted use, exclusives, legal rights, rent obligations, concessions, or lease interpretation unless your approved workflow explicitly limits and reviews the response.",
+      "role": "Asset and property managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we deploy one agent across a portfolio without mixing up property-specific answers?",
+      "answer": "Yes, but the knowledge architecture matters. Organize sources by property, market, asset type, and permission level so the agent can distinguish building-specific policies from portfolio-wide standards. For higher-risk differences—parking ratios, loading access, security procedures, after-hours HVAC, signage, or amenities—use clear source labels and escalation instructions when the answer depends on the specific building or lease.",
+      "role": "Asset and property managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What security controls matter if we use this with lease and tenant documents?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data. For commercial leasing, use those controls to separate public property content from internal lease abstracts, tenant files, approval rules, broker notes, and financial or legal-adjacent materials.",
+      "role": "Asset and property managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different information?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so a public website agent can be limited to approved marketing and leasing content while an internal agent can access permissioned SOPs, lease guidance, or operations documents. Sensitive materials should be segmented by role, property, team, and workflow need rather than placed in one unrestricted knowledge base.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we keep brokers from seeing this as a replacement threat?",
+      "answer": "Position the agent as intake, retrieval, and preparation support—not as a dealmaker. It handles repetitive questions, captures missing details, summarizes conversations, and surfaces approved information so brokers spend more time on strategy, tours, negotiations, owner updates, and relationship-building. Make escalation rules explicit so the agent never owns pricing, recommendations, legal commitments, or final follow-up judgment.",
+      "role": "Leasing teams and brokers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What reporting would leasing leadership get from the agent?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Leasing leaders can review recurring questions by property or topic, see where prospects get stuck, identify missing content, and understand whether inquiries are about availability, parking, amenities, build-out, timing, tours, policies, or tenant-service issues.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent help us improve property pages and leasing collateral?",
+      "answer": "Yes. Conversation logs and knowledge-gap reporting can show which questions prospects repeat and which answers are missing or unclear. That helps marketing and leasing operations update brochures, building FAQs, amenity pages, move-in guides, and broker-approved talking points. Deloitte found that 81% of surveyed CRE respondents prioritized data and technology spending for 2025, which aligns with using inquiry data to modernize leasing operations.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-deloitte-cre-tech-spend"
+      ]
+    },
+    {
+      "question": "How does this support occupiers who ask more complex space-planning questions before a tour?",
+      "answer": "DocsBot can retrieve approved property details, broker talking points, and internal sales enablement content, then help prepare a human-reviewed response. It can also collect requirements such as headcount, square footage, workstyle, timing, transit needs, amenities, and expansion plans. JLL reported that portfolio optimization surpassed cost-cutting as a top corporate real estate priority, so occupiers may expect better answers about fit and space strategy before touring.",
+      "role": "Leasing teams and brokers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-jll-workplace-optimization"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us differentiate prime or higher-quality assets from commodity space?",
+      "answer": "Yes, if you provide approved positioning content. The agent can explain differences in amenities, services, location, access, floor plates, tenant experience, building systems, and market positioning, then route deeper comparisons to a broker. CBRE reported Q2 2025 prime office vacancy of 14.5%, 4.8 percentage points below non-prime vacancy, making accurate quality differentiation especially important.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Competitive comparisons",
+      "sourceIds": [
+        "src-cbre-midyear-prime-vacancy"
+      ]
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "DocsBot can be configured to say it does not have enough approved information, collect the visitor’s details, summarize the unresolved question, and route it to the right person or workflow. Those unanswered questions become useful knowledge-gap signals for marketing, leasing operations, asset management, or property teams to improve the source content.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use it for tenant experience questions as well as new leasing inquiries?",
+      "answer": "Yes, but separate the workflows. A prospect-facing leasing agent might answer availability, amenities, fit, and tour questions. A tenant-facing or internal agent might handle move-in forms, COI requirements, signage rules, building access, parking policies, service procedures, and escalation contacts. Different audiences should have different approved sources, permissions, and handoff paths.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot or form tool?",
+      "answer": "Look beyond whether it can chat. For leasing, the important criteria are source-grounded answers, approved knowledge control, structured prospect intake, human escalation, internal knowledge use, analytics, permissioning, and bounded actions through customer-configured Skills, APIs, connectors, or workflows. A simple form captures data; a leasing AI agent can also answer, clarify, summarize, route, and reveal content gaps.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What internal stakeholders should be involved before launch?",
+      "answer": "Include leasing leadership, brokers, marketing, property management, asset management, IT or security, and anyone responsible for legal or compliance review. Each group owns a different risk: answer accuracy, brand voice, source freshness, lead routing, data access, escalation rules, and prohibited commitments. A small cross-functional review usually prevents the agent from becoming either too risky or too limited to be useful.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support multilingual inquiries from international occupiers or local tenant teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when your approved leasing and property content supports the response. For high-stakes topics such as legal terms, rent obligations, permitted use, insurance requirements, or negotiated deal language, route the conversation to a human reviewer rather than relying on automated translation alone.",
+      "role": "Marketing and tenant experience teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we price or procure this if multiple properties and teams want to use it?",
+      "answer": "Define the buying unit around use cases rather than just page count: public leasing Q&A, prospect qualification, tour-request routing, internal lease operations Q&A, and content-gap reporting. Procurement should ask how many agents, source sets, permission groups, workflows, and review owners are needed. Start with one measurable workflow, then expand once content governance and handoffs are proven.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Where should humans stay firmly in the loop?",
+      "answer": "Keep humans responsible for negotiated rent, concessions, LOIs, lease terms, legal interpretation, credit decisions, exclusives, use approvals, market advice, final property recommendations, and sensitive tenant communications. DocsBot is strongest when it handles source-grounded answers, intake, summaries, routing, internal retrieval, and approved workflow triggers while leaving judgment-heavy leasing decisions to your team.",
+      "role": "Asset and property managers",
+      "category": "Human oversight"
+    }
+  ]
+}

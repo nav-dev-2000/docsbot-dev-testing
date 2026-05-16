@@ -1,0 +1,710 @@
+{
+  "slug": "renewable-energy",
+  "business": "Renewable Energy",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Renewable Energy Operations",
+    "description": "DocsBot helps renewable energy teams answer buyer, customer, and field questions faster with source-grounded AI agents and workflow handoffs.",
+    "canonicalPath": "/industry/renewable-energy"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for clean energy teams",
+    "headline": "DocsBot AI agents for renewable energy growth and support",
+    "subheadline": "Train DocsBot on your project docs, manuals, interconnection guidance, incentive pages, SOPs, and support history so prospects, customers, sales teams, and field employees can get clear answers, summaries, routing, and approved workflow actions without digging through scattered files.",
+    "proofBullets": [
+      {
+        "text": "Answer solar, wind, storage, incentive, maintenance, warranty, and project-status questions from approved renewable energy content.",
+        "icon": "SunIcon"
+      },
+      {
+        "text": "Qualify site inquiries, collect project details, and hand off complete context to sales, support, or operations teams.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "text": "Give field and office teams a private knowledge agent for SOPs, safety reminders, commissioning notes, and customer policies.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for live lookups, ticket creation, summaries, routing, and notifications.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your renewable energy agent",
+    "secondaryCta": "Explore AI workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps renewable energy businesses create AI agents trained on their own knowledge sources. Teams can deploy agents in a website widget, private team chat, helpdesk-style workflow, Slack, Microsoft Teams, or API-connected experience to answer questions, retrieve source-backed information, summarize conversations, discover content gaps, and take bounded actions through customer-configured Skills and workflows.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and service teams",
+        "roleContext": "Support teams field repetitive questions about system monitoring, warranties, maintenance visits, billing, equipment documentation, and expected performance. DocsBot gives them an AI support agent that can answer from approved manuals, FAQs, help articles, and ticket history when connected.",
+        "bullets": [
+          {
+            "text": "Deflect routine questions with instant source-grounded answers while escalating account-specific, safety-sensitive, or unresolved issues to people.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize incoming conversations and draft helpdesk responses when connected to ticketing workflows configured by the customer.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics and logs to spot recurring customer confusion around monitoring apps, production estimates, service scheduling, or warranty coverage.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Sales, development, and community outreach teams",
+        "roleContext": "Renewable energy growth depends on explaining complex project economics, incentives, technical fit, permitting steps, and timelines. DocsBot can support presales agents that answer from approved sales materials, collect lead details, and prepare handoffs for human follow-up.",
+        "bullets": [
+          {
+            "text": "Collect site type, location, utility, project size, timeline, and contact details before routing qualified inquiries to the right team.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Answer approved questions about technology options, implementation steps, FAQs, financing language, and eligibility criteria without inventing terms.",
+            "icon": "LightBulbIcon"
+          },
+          {
+            "text": "Help reps prepare account summaries, objection-handling notes, and follow-up drafts while humans retain control of pricing and contract commitments.",
+            "icon": "BriefcaseIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "Operations, field, and compliance leaders",
+        "roleContext": "Project teams juggle SOPs, inspection notes, commissioning documentation, safety procedures, vendor manuals, and policy changes. DocsBot can make that knowledge searchable for internal teams and provide scoped actions such as creating tasks or routing requests.",
+        "bullets": [
+          {
+            "text": "Give installers, technicians, and project coordinators one private place to ask about SOPs, checklists, product manuals, and escalation paths.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Route missing-document requests, create follow-up tasks, or summarize field notes through approved customer-configured workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Keep access to sensitive internal sources governed with role-based permissions, encryption, SOC 2 Type II controls, and GDPR-ready governance.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-eia-us-renewables-2024",
+      "metric": "Renewables supplied about 23% of U.S. utility-scale electricity in 2024.",
+      "claim": "EIA reported that renewable energy sources generated about 23% of total U.S. utility-scale electricity in 2024, underscoring the scale of customer, project, and operations support needs in the sector.",
+      "sourceTitle": "Electricity in the U.S. - U.S. Energy Information Administration",
+      "sourceUrl": "https://www.eia.gov/energy_in_brief/article/fuel_mix_for_elect_generation.cfm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "renewable energy market scale",
+        "customer demand",
+        "operations volume"
+      ]
+    },
+    {
+      "id": "src-iea-renewables-2030",
+      "metric": "Global renewable electricity share is projected to rise from 32% in 2024 to 43% by 2030.",
+      "claim": "IEA projects renewables’ share of global electricity generation will increase from 32% in 2024 to 43% by 2030, increasing the need for scalable project, customer, and stakeholder communication.",
+      "sourceTitle": "Renewable electricity - Renewables 2025 - International Energy Agency",
+      "sourceUrl": "https://www.iea.org/reports/renewables-2025/renewable-electricity",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market growth",
+        "stakeholder communication pressure",
+        "scaling operations"
+      ]
+    },
+    {
+      "id": "src-nrel-solar-soft-costs",
+      "metric": "Permitting, inspection, and interconnection remain high nonequipment solar soft costs.",
+      "claim": "NREL notes that distributed solar prices have fallen, but nonequipment soft costs such as permitting, inspection, and interconnection remain stubbornly high.",
+      "sourceTitle": "Solar Permitting, Inspection, and Interconnection Timelines - NREL",
+      "sourceUrl": "https://www.nrel.gov/solar/market-research-analysis/permitting-inspection-interconnection-timelines",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "project administration bottlenecks",
+        "permitting documentation",
+        "interconnection workflows"
+      ]
+    },
+    {
+      "id": "src-nrel-evse-soft-costs",
+      "metric": "EV charging deployments face timeline and capital-cost impacts from permitting, interconnection, supply chain, and workforce constraints.",
+      "claim": "NREL’s EV charging soft-cost analysis highlights the importance of understanding permitting, interconnection, schedule delays, supply chain constraints, and workforce constraints for infrastructure deployment.",
+      "sourceTitle": "Electric Vehicle Charging Infrastructure Soft Costs Analysis - NREL",
+      "sourceUrl": "https://www.nrel.gov/transportation/electric-vehicle-charging-soft-costs-analysis",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "infrastructure deployment bottlenecks",
+        "permitting and energization workflows",
+        "project coordination"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Project inquiry and lead qualification agent",
+      "problem": "Prospects ask detailed questions about site fit, incentives, ownership models, timelines, equipment, and next steps before they are ready for a sales call.",
+      "agentWorkflow": "A DocsBot presales agent answers from approved service pages, proposal FAQs, incentive explainers, case studies, and technical documentation. It collects structured intake details such as location, site type, utility, project size, budget range, timeline, and preferred follow-up channel, then summarizes the conversation for a human seller.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, or webhooks, the agent can submit a lead form, create or update a CRM-style record, notify sales, or request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Is our commercial roof a good fit for solar and storage?",
+        "What information do you need before estimating a community solar project?",
+        "Can you send my project details to someone who handles schools and municipalities?"
+      ],
+      "businessOutcome": "More complete inbound inquiries, faster handoffs, and fewer repetitive presales explanations while humans retain control over pricing, financing, and contract terms.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Customer service and warranty support agent",
+      "problem": "Customers often need help with monitoring portals, production questions, service requests, warranties, maintenance guidance, and documentation after installation.",
+      "agentWorkflow": "DocsBot answers from owner manuals, warranty policies, monitoring FAQs, troubleshooting articles, service SOPs, and previous ticket exports when configured. It can clarify the issue, ask for missing details, provide approved next steps, and escalate when the question needs account review or field service.",
+      "liveContextOrTools": "Customer-configured helpdesk connections can let the agent summarize a conversation, draft a response, route the ticket, or create a task for service coordinators.",
+      "exampleQuestionsOrRequests": [
+        "Why does my monitoring app show lower production today?",
+        "What does my inverter warning code mean?",
+        "How do I request a warranty service visit?"
+      ],
+      "businessOutcome": "Customers get faster first responses while support teams receive cleaner context for the cases that still require human review.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "name": "Permitting and interconnection documentation assistant",
+      "problem": "Renewable projects rely on many jurisdiction, utility, engineering, and inspection documents, and NREL identifies permitting, inspection, and interconnection as stubbornly high solar soft-cost areas.",
+      "agentWorkflow": "A DocsBot internal knowledge agent retrieves requirements, checklist items, templates, utility notes, inspection procedures, and project documentation from approved sources. Teams can ask procedural questions, summarize jurisdiction-specific requirements, and find the latest internal guidance without searching folders manually.",
+      "liveContextOrTools": "With scoped Skills or APIs, the agent can create missing-document tasks, route a permitting question to the correct coordinator, or summarize an interconnection packet for review.",
+      "exampleQuestionsOrRequests": [
+        "What documents are required before we submit this interconnection package?",
+        "Find the latest inspection checklist for this jurisdiction.",
+        "Summarize the open permitting items for this project folder."
+      ],
+      "businessOutcome": "Less time spent hunting for administrative details and more consistent project coordination across development, engineering, and operations teams.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-nrel-solar-soft-costs"
+      ]
+    },
+    {
+      "name": "Field operations and maintenance knowledge agent",
+      "problem": "Field teams need quick access to equipment manuals, SOPs, commissioning steps, troubleshooting guidance, safety reminders, and escalation paths while work is moving.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, manufacturer PDFs, maintenance procedures, checklists, training materials, and policy docs. Employees can ask practical questions in private chat, Slack, Microsoft Teams, or another configured experience and receive answers grounded in approved sources.",
+      "liveContextOrTools": "Configured actions can generate a service summary, create a follow-up task, or notify operations when a technician flags missing documentation or repeated equipment issues.",
+      "exampleQuestionsOrRequests": [
+        "What is the commissioning checklist for this inverter model?",
+        "Where is the latest lockout procedure for battery maintenance?",
+        "Summarize these field notes for the operations handoff."
+      ],
+      "businessOutcome": "Field and office teams get more consistent information, faster handoffs, and better visibility into documentation gaps that slow service work.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Stakeholder education and community engagement agent",
+      "problem": "Renewable energy developers and operators must explain project benefits, technology basics, timelines, land use, grid connection, and local impacts to stakeholders with different levels of technical knowledge.",
+      "agentWorkflow": "DocsBot can power a public-facing education agent trained on approved FAQs, project pages, public meeting materials, environmental summaries, and outreach documents. It answers in the organization’s voice, supports more than 100 languages, and escalates sensitive or policy-heavy questions to the right person.",
+      "liveContextOrTools": "When configured, the agent can collect public feedback, route comments by topic, summarize recurring questions, or notify outreach staff of high-priority concerns.",
+      "exampleQuestionsOrRequests": [
+        "How will this project connect to the grid?",
+        "Where can I find the public meeting materials?",
+        "Can I submit a comment about visual impacts?"
+      ],
+      "businessOutcome": "Stakeholders receive clearer self-service information while outreach teams learn which topics need better documentation or human follow-up.",
+      "icon": "MegaphoneIcon",
+      "sourceIds": [
+        "src-iea-renewables-2030"
+      ]
+    },
+    {
+      "name": "Renewable infrastructure rollout coordination agent",
+      "problem": "Infrastructure teams coordinating storage, EV charging, solar, or hybrid projects must track permitting, energization, workforce, supply chain, and site-readiness details across many systems.",
+      "agentWorkflow": "DocsBot retrieves project playbooks, site-readiness checklists, vendor notes, internal SOPs, customer FAQs, and deployment documentation. It can summarize status, answer procedural questions, and help coordinators identify missing information before a handoff.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or MCP servers can expose approved project tools for live status lookups, task creation, notifications, and bounded record updates.",
+      "exampleQuestionsOrRequests": [
+        "What is blocking energization for this site?",
+        "Create a task to collect the missing utility approval document.",
+        "Summarize the rollout risks mentioned in this project thread."
+      ],
+      "businessOutcome": "Fewer missed handoff details and more consistent coordination for complex clean-energy infrastructure deployments.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-nrel-evse-soft-costs"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give renewable energy customers clearer answers before and after installation",
+    "intro": "DocsBot can sit on your website, portal, or product experience as an AI support agent trained on your renewable energy content. It answers from approved sources, collects missing details, supports multilingual conversations, and escalates complex questions to your team.",
+    "requests": [
+      {
+        "request": "“Do I qualify for this program or incentive?”",
+        "agentResponseStrategy": "Answer from approved incentive pages and eligibility FAQs, ask for basic context such as location and customer type, and direct the visitor to a human review when final eligibility depends on account, utility, tax, or contract details.",
+        "sourceTypes": [
+          "Incentive explainers",
+          "Program FAQs",
+          "Service pages",
+          "Lead intake forms"
+        ],
+        "optionalAction": "Submit a structured lead or consultation request through a customer-configured form or workflow.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“My system production looks low. What should I check?”",
+        "agentResponseStrategy": "Provide approved troubleshooting steps from monitoring FAQs and equipment documentation, ask clarifying questions, and escalate to support when the issue may require account access or technician review.",
+        "sourceTypes": [
+          "Monitoring FAQs",
+          "Owner manuals",
+          "Warranty policies",
+          "Support articles"
+        ],
+        "optionalAction": "Create or route a support ticket with the customer’s summary and uploaded context when the workflow is configured.",
+        "icon": "BoltIcon"
+      },
+      {
+        "request": "“Where can I find project updates and community meeting materials?”",
+        "agentResponseStrategy": "Retrieve the latest approved public documents, explain project milestones in plain language, and collect feedback or questions for the outreach team without making unapproved policy commitments.",
+        "sourceTypes": [
+          "Project pages",
+          "Public meeting PDFs",
+          "Community FAQs",
+          "Environmental summaries"
+        ],
+        "optionalAction": "Route stakeholder comments by topic and notify outreach staff through an approved workflow.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“Can you help me schedule a consultation?”",
+        "agentResponseStrategy": "Collect scheduling intent, contact details, project type, location, and preferred timing, then hand off to the configured booking or sales process.",
+        "sourceTypes": [
+          "Service catalog",
+          "Qualification rules",
+          "Scheduling instructions",
+          "Sales handoff notes"
+        ],
+        "optionalAction": "Request or book a meeting through an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar customer-configured tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you explain this maintenance or warranty document?”",
+        "agentResponseStrategy": "Summarize the relevant section of the approved manual or policy, cite the source content, and recommend human escalation for claims, exceptions, or safety-critical instructions.",
+        "sourceTypes": [
+          "Warranty documents",
+          "Maintenance manuals",
+          "Safety policies",
+          "Service SOPs"
+        ],
+        "optionalAction": "Prepare a support handoff with the exact source references and customer question.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you answer in my language?”",
+        "agentResponseStrategy": "Provide source-grounded answers in the visitor’s preferred language while keeping the underlying answer tied to approved company content.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website pages",
+          "FAQs",
+          "Support policies"
+        ],
+        "optionalAction": "Escalate to multilingual staff or route the request to the right regional team when needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make renewable energy knowledge searchable for sales, field, and operations teams",
+    "intro": "Use DocsBot as a private internal knowledge agent trained on SOPs, project documentation, product manuals, compliance notes, sales playbooks, customer policies, and support history. Teams can ask natural-language questions and get source-grounded answers instead of searching across folders and conversations.",
+    "workflows": [
+      {
+        "name": "Sales enablement and proposal support",
+        "problem": "Sales and account teams need fast access to product specs, approved positioning, incentive language, proposal templates, case studies, and implementation details.",
+        "agentWorkflow": "DocsBot retrieves approved answers, summarizes prospect context when configured with web research and approved Skills, drafts follow-up emails, and helps reps prepare for project qualification conversations.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Product specifications",
+          "Case studies",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM-style task through customer-configured workflows, with human review before sending.",
+        "outcome": "Sales teams respond faster and keep customer-facing claims aligned with approved renewable energy documentation.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Project operations knowledge hub",
+        "problem": "Project managers and coordinators need consistent answers about permitting, interconnection, procurement, inspection, commissioning, and closeout requirements.",
+        "agentWorkflow": "DocsBot searches approved project playbooks, templates, SOPs, jurisdiction notes, and internal policies, then returns source-grounded answers and summaries for handoffs or meetings.",
+        "sourceTypes": [
+          "Project playbooks",
+          "Permitting checklists",
+          "Interconnection notes",
+          "Commissioning templates",
+          "Closeout SOPs"
+        ],
+        "optionalAction": "Create a task, notify a coordinator, or route a missing-document request through approved Skills or APIs.",
+        "outcome": "Teams reduce repeated administrative questions and improve consistency across multi-site project execution.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Support intelligence and documentation gaps",
+        "problem": "Recurring customer and employee questions often reveal missing or confusing renewable energy documentation.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams see what people are asking and where source content needs improvement.",
+        "sourceTypes": [
+          "Support tickets",
+          "Conversation logs",
+          "Knowledge base articles",
+          "Manuals",
+          "FAQs"
+        ],
+        "optionalAction": "Generate content-gap reports or route repeated unanswered topics to documentation owners.",
+        "outcome": "Support, product, and operations leaders can prioritize the documents that reduce avoidable questions.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Field service handoff summaries",
+        "problem": "Technicians and coordinators often need concise summaries of field notes, customer history, equipment details, and next actions.",
+        "agentWorkflow": "DocsBot can summarize approved notes and source documents, extract key context, and prepare a structured handoff for operations or support teams.",
+        "sourceTypes": [
+          "Field notes",
+          "Service SOPs",
+          "Equipment manuals",
+          "Customer support history",
+          "Inspection checklists"
+        ],
+        "optionalAction": "Trigger a handoff notification or create a follow-up task when the customer has configured the workflow.",
+        "outcome": "Service teams spend less time reconstructing context and more time resolving the next action.",
+        "icon": "PaperAirplaneIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your renewable energy knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, websites, internal documents, PDFs, Word files, Google Drive, Notion, Confluence, team conversations, and other configured knowledge sources.",
+      "industryApplication": "Train agents on project FAQs, installation guides, product manuals, warranty policies, monitoring documentation, incentive explainers, safety SOPs, sales playbooks, and public outreach materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded support across customer and team channels",
+      "mainLandingPageContext": "DocsBot agents provide instant answers in the company’s voice and can be deployed in website widgets, private team chat, helpdesk-connected workflows, Slack, Microsoft Teams, or API-based experiences.",
+      "industryApplication": "Put approved renewable energy answers where customers, reps, technicians, project managers, and outreach staff already ask questions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, ticket or task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved actions for lead intake, service ticket summaries, project-status lookups, missing-document tasks, stakeholder comment routing, and operations notifications.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Analytics for repeated questions and content gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify recurring confusion around monitoring, incentives, permitting steps, warranty terms, maintenance requirements, or community project information.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "feature": "Governance for private operational knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support internal renewable energy workflows that involve customer records, project documents, vendor information, field procedures, and sensitive operational knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high inquiry volume, including Sony NURO’s 30,000 customer inquiries in one month with about 80% resolution.",
+      "Designed for teams that need answers grounded in their own content library, manuals, documentation, and policies.",
+      "Analytics help teams understand what customers and users are trying to learn from their documentation."
+    ],
+    "whyTheseReviewsFit": "Renewable energy teams need scalable customer support, trustworthy source-grounded answers, and visibility into what prospects, customers, and field teams keep asking. DocsBot proof spans high-volume support, owned-content training, and documentation insight that maps directly to clean-energy growth and operations work.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for renewable energy companies",
+    "audience": [
+      "Renewable energy developers",
+      "Solar and wind operators",
+      "Energy storage providers",
+      "Clean energy customer support teams",
+      "Project operations and field service teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SunIcon"
+  },
+  "relatedIndustrySlugs": [
+    "energy-storage-systems",
+    "solar-energy-installation",
+    "carbon-accounting",
+    "environmental-consultancy",
+    "environmental-monitoring",
+    "ev-charging-infrastructure",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "renewable-energy",
+    "webSearchQueries": [
+      "U.S. Energy Information Administration renewable energy share electricity generation 2024 2025",
+      "IEA Renewables 2025 renewable capacity growth report",
+      "NREL solar permitting interconnection customer acquisition soft costs renewable energy"
+    ],
+    "sourceUrls": [
+      "https://www.eia.gov/energy_in_brief/article/fuel_mix_for_elect_generation.cfm",
+      "https://www.iea.org/reports/renewables-2025/renewable-electricity",
+      "https://www.nrel.gov/solar/market-research-analysis/permitting-inspection-interconnection-timelines",
+      "https://www.nrel.gov/transportation/electric-vehicle-charging-soft-costs-analysis"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41200,
+        "cachedInputTokens": 11008,
+        "billableInputTokens": 30192,
+        "outputTokens": 8212,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 49412,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.201412,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.211412
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21657,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14361,
+          "outputTokens": 5170,
+          "reasoningOutputTokens": 106,
+          "totalTokens": 26827,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115276,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125276
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19543,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 15831,
+          "outputTokens": 3042,
+          "reasoningOutputTokens": 17,
+          "totalTokens": 22585,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.086136,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.086136
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzb2xhcnxlbnwwfDB8fHwxNzE0ODc4MDYyfDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Renewable Energy background image",
+    "source": "legacy-industry",
+    "query": "Renewable Energy"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer incentive, interconnection, and equipment questions without giving unapproved financial or technical advice?",
+      "answer": "Yes. You can train the agent on approved incentive explainers, interconnection guidance, proposal FAQs, manuals, and sales language, then set instructions for when to escalate. DocsBot can answer from source content, ask for context like location or utility, and route tax, eligibility, pricing, engineering, or contract-dependent questions to a human reviewer.",
+      "role": "Sales, development, and community outreach teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our support team handle monitoring, production, and warranty questions after installation?",
+      "answer": "DocsBot can serve as a first-line AI support agent trained on monitoring FAQs, owner manuals, warranty policies, troubleshooting articles, and service SOPs. It can explain approved next steps, collect missing details, summarize the customer’s issue, and escalate cases that require account access, technician review, safety judgment, or warranty approval.",
+      "role": "Customer support and service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use DocsBot for permitting and interconnection work, or is it only for customer support?",
+      "answer": "DocsBot can be used internally as a permitting and interconnection documentation assistant. Teams can ask about required forms, checklist items, jurisdiction notes, inspection steps, and packet status from approved project documents. That matters because NREL identifies permitting, inspection, and interconnection as stubbornly high nonequipment solar soft-cost areas.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nrel-solar-soft-costs"
+      ]
+    },
+    {
+      "question": "What systems would DocsBot need to connect with for a renewable energy rollout workflow?",
+      "answer": "Most teams start with knowledge sources such as project folders, SOPs, PDFs, manuals, public FAQs, sales playbooks, and support history. If you want live actions, customer-configured Skills, APIs, connectors, webhooks, or MCP servers can support approved lookups, task creation, ticket routing, CRM-style updates, notifications, and handoff summaries.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent qualify solar, storage, wind, or community energy leads before sales gets involved?",
+      "answer": "Yes. A DocsBot presales agent can collect structured intake details such as site type, address or region, utility, project size, timeline, budget range, technology interest, and preferred follow-up channel. It can answer approved fit and process questions, then hand off a summarized inquiry to sales through a configured form, workflow, or CRM-style process.",
+      "role": "Sales, development, and community outreach teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from making promises about production estimates, tax credits, timelines, or contract terms?",
+      "answer": "DocsBot should be configured to answer only from approved sources and to escalate high-impact topics. You can define boundaries for production estimates, incentive eligibility, financing, legal language, safety instructions, and project commitments so the agent provides general approved information while humans retain control of pricing, engineering, tax, legal, and contract decisions.",
+      "role": "Sales, development, and community outreach teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What content do we need before launching a renewable energy AI agent?",
+      "answer": "A practical first version usually needs your public FAQs, service pages, incentive explainers, proposal language, owner manuals, warranty policies, monitoring help articles, SOPs, safety procedures, and escalation rules. Internal deployments can add project playbooks, commissioning checklists, interconnection notes, equipment manuals, and field service templates.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field technicians use DocsBot for SOPs, commissioning steps, and equipment manuals?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, manufacturer PDFs, commissioning checklists, maintenance procedures, safety policies, and escalation paths. Field and office teams can ask natural-language questions in a private experience such as team chat, Slack, Microsoft Teams, or an API-connected workflow.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle sensitive project documents, customer records, and internal operating procedures?",
+      "answer": "DocsBot supports SOC 2 Type II controls, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For action workflows, customers define what the agent can access, what it can do, and what must be escalated or reviewed.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we restrict different answers for customers, sales reps, technicians, and project managers?",
+      "answer": "Yes. You can separate public-facing and private internal agents, control which sources each agent can use, and apply role-based permissions for sensitive knowledge. For example, a customer agent might answer warranty and monitoring FAQs, while an internal agent can access SOPs, commissioning notes, sales playbooks, and project handoff documents.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What ROI should we expect if our team already has a help center and shared drive?",
+      "answer": "DocsBot is strongest when the information exists but is hard to find or apply consistently. ROI usually comes from reducing repetitive presales and support questions, improving handoff quality, shortening document search time, deflecting routine tickets, and identifying content gaps that cause repeat confusion around monitoring, warranties, incentives, permitting, or service scheduling.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would we measure whether the AI agent is actually improving renewable energy support operations?",
+      "answer": "Track resolution rate, deflection, escalation quality, average first response time, support backlog, repeated unanswered topics, content gaps, lead completeness, handoff quality, and customer satisfaction. For internal agents, measure reduced document-search time, fewer repeated coordinator questions, faster onboarding, and whether field or project teams can find approved procedures without interrupting specialists.",
+      "role": "Customer support and service teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support community engagement for projects where residents ask about land use, grid connection, meetings, or local impacts?",
+      "answer": "Yes. A public-facing education agent can answer from approved project pages, meeting materials, environmental summaries, FAQs, and outreach documents. It can provide plain-language explanations, support more than 100 languages, collect comments, route sensitive topics, and alert outreach staff when questions need a human response or policy review.",
+      "role": "Sales, development, and community outreach teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot work for companies scaling across many projects, jurisdictions, utilities, and equipment vendors?",
+      "answer": "Yes, if your sources and permissions are structured well. DocsBot can support multiple knowledge areas, retrieve from approved documentation, and use configured workflows for routing, summaries, and task creation. This is valuable as renewable operations scale; IEA projects renewables’ global electricity share to rise from 32% in 2024 to 43% by 2030.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-iea-renewables-2030"
+      ]
+    },
+    {
+      "question": "Can DocsBot create or route service tickets when a customer reports an inverter warning or low production?",
+      "answer": "With customer-configured helpdesk connections, Skills, APIs, or workflows, DocsBot can collect the issue details, summarize the conversation, draft a response, route the case, or create a task for a service coordinator. It should escalate when the issue requires account-specific data, remote diagnostics, warranty judgment, safety review, or technician dispatch.",
+      "role": "Customer support and service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep answers current when incentives, utility requirements, equipment manuals, and SOPs change often?",
+      "answer": "DocsBot depends on the sources you approve and maintain. Teams should assign owners for incentive pages, utility notes, manuals, SOPs, and project templates; review analytics for stale or unanswered topics; and update source documents as policies change. The agent can then answer from the refreshed content instead of relying on outdated tribal knowledge.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent explain complex renewable energy topics to nontechnical customers without oversimplifying?",
+      "answer": "Yes. DocsBot can answer in your organization’s voice using approved source material, making topics like monitoring variance, storage basics, interconnection, maintenance, warranties, and project milestones easier to understand. You can instruct it to cite source content, avoid unsupported claims, and escalate when the customer needs engineering, financial, legal, or safety review.",
+      "role": "Customer support and service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent cannot answer a question from our approved content?",
+      "answer": "DocsBot can be configured to say it does not have enough approved information, ask clarifying questions, escalate to the right team, or create a routed task. Its analytics and logs can also show repeated unanswered questions, helping documentation owners improve FAQs, manuals, support articles, outreach materials, and internal SOPs.",
+      "role": "Customer support and service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with EV charging, storage, or hybrid infrastructure coordination, not just solar?",
+      "answer": "Yes. DocsBot can support renewable infrastructure workflows wherever teams need source-grounded answers, summaries, and handoffs from project playbooks, site-readiness checklists, vendor notes, and SOPs. NREL notes that EV charging deployments face timeline and capital-cost impacts from permitting, interconnection, supply chain, and workforce constraints.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nrel-evse-soft-costs"
+      ]
+    },
+    {
+      "question": "How much implementation work is required before our first AI agent goes live?",
+      "answer": "Implementation depends on scope. A focused website or support agent can start with approved FAQs, manuals, and escalation rules. A broader internal operations agent may require source cleanup, permission planning, workflow design, and testing with sales, support, field, and compliance stakeholders before adding live actions or system updates.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot replace our support team or project coordinators?",
+      "answer": "DocsBot is better positioned as an augmentation layer, not a replacement for human judgment. It can answer routine questions, retrieve documents, summarize context, and prepare handoffs, while people handle exceptions, account-specific decisions, field service approval, permitting judgment, legal terms, safety-sensitive work, pricing, and customer relationship management.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant for renewable energy documents?",
+      "answer": "Building internally can make sense for teams with dedicated AI engineering capacity, but many renewable energy operators need faster deployment, source management, permissions, analytics, chat experiences, and workflow actions without maintaining the full stack. DocsBot gives teams a packaged way to train agents on approved content and add bounded actions through configured Skills and APIs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use conversation data to improve our documentation and customer education materials?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Renewable energy teams can identify repeated confusion around monitoring apps, production expectations, incentive eligibility, warranty terms, permitting milestones, public meeting materials, or maintenance instructions, then prioritize better content.",
+      "role": "Customer support and service teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will multilingual support work for customers, landowners, community stakeholders, or regional teams?",
+      "answer": "DocsBot can answer in more than 100 languages while grounding responses in approved company content. That can help with customer service, stakeholder education, and internal support across regions. For sensitive policy, legal, safety, or contract topics, you can route the conversation to multilingual staff or the appropriate regional team.",
+      "role": "Sales, development, and community outreach teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who needs to be involved in buying and approving a DocsBot deployment?",
+      "answer": "Typical stakeholders include support leaders, sales or development leaders, operations managers, field service owners, IT, security, compliance, and documentation owners. Support cares about response time and ticket quality; operations cares about consistent procedures; sales cares about lead quality; IT and compliance care about permissions, data handling, auditability, and controlled actions.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot handle high inquiry volume during outages, incentive deadlines, project announcements, or seasonal service spikes?",
+      "answer": "DocsBot is designed for scalable self-service and has proof in high-volume support environments, including Sony NURO’s 30,000 customer inquiries in one month with about 80% resolution. For renewable energy teams, that model can help absorb spikes while routing account-specific, safety-sensitive, or unresolved issues to people.",
+      "role": "Customer support and service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we avoid giving technicians outdated or unsafe field guidance?",
+      "answer": "Use DocsBot with approved, version-controlled SOPs, manuals, safety policies, and escalation instructions. Keep safety-critical sources owned by operations or compliance leaders, limit access by role, and require escalation where the agent should not provide final judgment. DocsBot can retrieve source-grounded guidance, but field safety decisions should remain under your procedures and qualified personnel.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us reduce project handoff errors between sales, permitting, engineering, and field operations?",
+      "answer": "Yes. DocsBot can summarize conversations, retrieve project requirements, surface missing details, and create routed tasks through customer-configured workflows. For renewable projects where documents move across sales, permitting, interconnection, procurement, commissioning, and service teams, consistent source-grounded handoffs can reduce information loss and repeated clarification cycles.",
+      "role": "Operations, field, and compliance leaders",
+      "category": "Workflow fit"
+    }
+  ]
+}

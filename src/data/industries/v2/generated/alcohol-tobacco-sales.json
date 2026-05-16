@@ -1,0 +1,760 @@
+{
+  "slug": "alcohol-tobacco-sales",
+  "business": "Alcohol & Tobacco Sales",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Alcohol & Tobacco Sales Operations",
+    "description": "DocsBot helps alcohol and tobacco sales teams answer product, policy, and fulfillment questions while routing sensitive requests for review.",
+    "canonicalPath": "/industry/alcohol-tobacco-sales"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for regulated retail teams",
+    "headline": "Run alcohol and tobacco sales support with governed AI agents",
+    "subheadline": "DocsBot helps alcohol and tobacco retailers, bottle shops, distributors, and delivery teams create AI agents trained on approved product catalogs, store policies, SOPs, compliance notes, and support history so customers and employees get fast, source-grounded answers with clear escalation paths.",
+    "proofBullets": [
+      {
+        "text": "Answer product, availability, store policy, pickup, delivery, and return questions from approved knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give staff quick access to SOPs, age-restricted sales procedures, merchandising notes, and escalation guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect request details, route handoffs, create tasks, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Escalate sensitive, regulated, high-value, or unclear situations to a human with conversation context and logs.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build your sales support agent",
+    "secondaryCta": "Explore governed AI workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your alcohol and tobacco business knowledge: product pages, FAQs, store policies, delivery rules, SOPs, training files, PDFs, websites, and internal notes. Agents can answer in a website widget or private team chat, summarize conversations, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Retail owners and operators",
+        "roleContext": "Keep customer-facing answers consistent across store, web, pickup, and delivery channels while maintaining human control over regulated decisions.",
+        "bullets": [
+          {
+            "text": "Make approved store policies, product categories, pickup windows, delivery rules, and refund guidance searchable for customers and staff.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Route questions about restricted products, unusual orders, account issues, or disputed policies to the right person with a concise summary.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics to see which product, policy, and fulfillment questions are being asked most often and where documentation needs improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Compliance and training managers",
+        "roleContext": "Support frontline teams with consistent access to internal procedures while keeping final compliance decisions inside your company’s review process.",
+        "bullets": [
+          {
+            "text": "The FDA says it is illegal for retailers to sell any tobacco product, including e-cigarettes, to anyone under 21 in the United States.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-fda-tobacco-21"
+            ]
+          },
+          {
+            "text": "Create a private knowledge agent trained on SOPs, state-by-state notes, onboarding materials, checklists, and escalation playbooks.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep sensitive workflows bounded with role-based permissions, source-grounded answers, logs, and human escalation when configured.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Customer support and ecommerce teams",
+        "roleContext": "Help shoppers find product and order information quickly without asking support agents to repeat the same policy answers all day.",
+        "bullets": [
+          {
+            "text": "Answer FAQs about store hours, pickup requirements, delivery availability, product descriptions, promotions, and support handoffs.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Collect structured details for product availability requests, event orders, wholesale inquiries, or customer service follow-up.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Support more than 100 languages so multilingual shoppers and employees can ask questions in the language they prefer.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fda-tobacco-21",
+      "metric": "Federal tobacco sales age is 21",
+      "claim": "FDA states that it is illegal for a retailer to sell any tobacco product, including e-cigarettes, to anyone under 21 in the United States.",
+      "sourceTitle": "Tobacco 21",
+      "sourceUrl": "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/tobacco-21",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "Compliance pressure",
+        "Age-restricted sales training",
+        "Retail policy consistency"
+      ]
+    },
+    {
+      "id": "src-fda-retailer-inspections",
+      "metric": "FDA conducts retailer compliance inspections",
+      "claim": "FDA says it conducts compliance check inspections of brick-and-mortar and online tobacco retailers, including checks related to Tobacco 21 requirements.",
+      "sourceTitle": "Tobacco 21",
+      "sourceUrl": "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/tobacco-21",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "Retailer compliance pressure",
+        "Training workflows",
+        "Audit-readiness messaging"
+      ]
+    },
+    {
+      "id": "src-ttb-labeling-laws",
+      "metric": "Alcohol labeling and advertising are regulated by TTB rules",
+      "claim": "TTB identifies federal alcohol beverage labeling and advertising regulations across wine, distilled spirits, malt beverages, and health warning statement requirements.",
+      "sourceTitle": "Labeling Laws and Regulations",
+      "sourceUrl": "https://www.ttb.gov/regulated-commodities/labeling/laws-and-regulations",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "Alcohol product information governance",
+        "Marketing review",
+        "Product catalog accuracy"
+      ]
+    },
+    {
+      "id": "src-nhtsa-alcohol-vendor-checks",
+      "metric": "Alcohol vendors may face compliance checks",
+      "claim": "NHTSA describes alcohol vendor compliance checks in which underage people attempt purchases and vendors or servers may be cited for MLDA-21 violations if a sale is made.",
+      "sourceTitle": "Alcohol Vendor Compliance Checks",
+      "sourceUrl": "https://www.nhtsa.gov/book/countermeasures-that-work/alcohol-impaired-driving/countermeasures/enforcement/alcohol-vendor",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "Alcohol sales compliance",
+        "Staff training",
+        "Responsible retail operations"
+      ]
+    },
+    {
+      "id": "src-nra-alcohol-to-go",
+      "metric": "Alcohol-to-go programs require ID checks at service or delivery",
+      "claim": "The National Restaurant Association’s ServSafe Alcohol guidance advises checking the customer’s ID before serving or delivering to-go cocktails.",
+      "sourceTitle": "Safe serving tips for alcohol to-go",
+      "sourceUrl": "https://restaurant.org/education-and-resources/resource-library/safe-serving-tips-for-alcohol-to-go/",
+      "sourceDate": "Published 2022",
+      "bestUsedFor": [
+        "Delivery and pickup workflows",
+        "Responsible alcohol service",
+        "Customer-facing policy clarity"
+      ]
+    },
+    {
+      "id": "src-nabca-to-go-dashboard",
+      "metric": "Alcohol pickup and delivery rules vary by state",
+      "claim": "NABCA tracks state-level policy changes affecting alcohol curbside pickup and home delivery through executive orders and state laws.",
+      "sourceTitle": "Alcohol To-Go Dashboard",
+      "sourceUrl": "https://www.nabca.org/alcohol-go-dashboard",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "State-specific policy complexity",
+        "Multi-location operations",
+        "Delivery workflow documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product and policy answering for age-restricted retail",
+      "problem": "Customers ask repetitive questions about inventory, flavor profiles, package sizes, pickup requirements, delivery areas, refunds, promotions, and restricted products across many channels.",
+      "agentWorkflow": "Train a DocsBot support agent on approved product pages, policy documents, FAQs, and website content. The agent answers customer questions in a website widget, cites approved sources where configured, and escalates uncertain, restricted, or account-specific issues to a human.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, or connectors, the agent can look up approved product or order context, collect missing details, create a task, or route a handoff to support.",
+      "exampleQuestionsOrRequests": [
+        "Do you carry this bourbon in a 750 ml bottle?",
+        "What ID do I need for pickup?",
+        "Can I return an unopened vape product?",
+        "Do you deliver wine to my ZIP code?"
+      ],
+      "businessOutcome": "Reduce repetitive support load while keeping regulated, ambiguous, or customer-specific decisions in a human review path.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Frontline compliance knowledge for staff",
+      "problem": "New clerks, delivery drivers, and shift leads need quick access to policy details, but age-restricted retail rules, store procedures, and state-specific instructions can be scattered.",
+      "agentWorkflow": "Create a private internal knowledge agent trained on SOPs, training manuals, local policy notes, onboarding files, and escalation playbooks. Staff can ask operational questions in private chat and receive consistent, source-grounded guidance.",
+      "liveContextOrTools": "The agent can summarize policy changes, surface the relevant SOP, and notify a manager or create a follow-up task when a question signals unclear documentation.",
+      "exampleQuestionsOrRequests": [
+        "What should I do if a customer’s ID is expired?",
+        "Where is the closing checklist for the humidor?",
+        "What’s our procedure for alcohol delivery refusal?",
+        "How do I escalate a suspected straw purchase concern?"
+      ],
+      "businessOutcome": "Help staff find approved procedures faster and expose documentation gaps before they become training problems.",
+      "icon": "IdentificationIcon",
+      "sourceIds": [
+        "src-fda-retailer-inspections",
+        "src-nhtsa-alcohol-vendor-checks"
+      ]
+    },
+    {
+      "name": "Pickup, delivery, and alcohol-to-go request routing",
+      "problem": "Pickup and delivery programs create time-sensitive questions about eligibility, cutoff times, substitutions, driver instructions, and ID requirements.",
+      "agentWorkflow": "Deploy a customer-facing agent that answers from approved pickup and delivery policies, collects structured request details, and routes complex cases to the right store, dispatcher, or support queue with a summary.",
+      "liveContextOrTools": "Using approved AI Actions, the agent can collect order number, location, preferred time, delivery notes, and issue type, then trigger a customer-configured workflow or task for staff follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can I send someone else to pick up my order?",
+        "What happens if the recipient is not home?",
+        "Can you substitute another tequila if this one is out?",
+        "Is alcohol delivery available in my state?"
+      ],
+      "businessOutcome": "Improve customer clarity around delivery and pickup without over-promising on location-specific rules or restricted-product fulfillment.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-nra-alcohol-to-go",
+        "src-nabca-to-go-dashboard"
+      ]
+    },
+    {
+      "name": "Catalog, label, and merchandising knowledge search",
+      "problem": "Alcohol and tobacco teams manage detailed product information, supplier sheets, label notes, promotions, and merchandising instructions that change frequently.",
+      "agentWorkflow": "Train DocsBot on product catalogs, supplier PDFs, approved claims, pricing guidance, merchandising standards, and internal notes so sales and support teams can ask questions instead of searching files manually.",
+      "liveContextOrTools": "When configured, Skills can retrieve live catalog context, summarize supplier notes, prepare an internal answer, or route a catalog correction to the product team.",
+      "exampleQuestionsOrRequests": [
+        "Which cigars are Connecticut shade wrappers?",
+        "What tasting notes are approved for this mezcal?",
+        "Where is the latest shelf talker copy?",
+        "Which products are excluded from this promotion?"
+      ],
+      "businessOutcome": "Keep product answers aligned with approved materials while helping teams catch stale catalog content faster.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-ttb-labeling-laws"
+      ]
+    },
+    {
+      "name": "Wholesale, event, and B2B inquiry qualification",
+      "problem": "Retailers and distributors receive requests for bulk orders, events, tastings, account setup, and recurring deliveries that require structured intake before a salesperson responds.",
+      "agentWorkflow": "Use a DocsBot presales agent to answer from approved service pages, collect lead details through a structured intake flow, apply customer-defined qualification rules, and forward the summary to the right sales or account team.",
+      "liveContextOrTools": "With customer-configured forms, APIs, CRM workflows, or MCP Connectors for approved systems, the agent can submit a lead, create a task, or request a meeting through a scoped scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you supply wine for a 150-person event?",
+        "Do you offer wholesale cigar pricing?",
+        "I need recurring beer delivery for a restaurant.",
+        "Can someone quote a spirits tasting package?"
+      ],
+      "businessOutcome": "Capture higher-quality sales context before handoff while leaving pricing, contracts, and regulated commitments to human sellers.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for regulated support",
+      "problem": "If customers and employees repeatedly ask questions that are missing from your docs, support leaders may not see the pattern until tickets pile up.",
+      "agentWorkflow": "Use DocsBot analytics, logs, conversation review, topic management, and knowledge-gap reporting to identify unanswered topics, confusing policies, stale product pages, and recurring escalation reasons.",
+      "liveContextOrTools": "Teams can review conversations, update source content, and refine agent instructions so future answers stay closer to approved knowledge.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are escalating most often?",
+        "What products are shoppers asking about that are not in our catalog?",
+        "Which policy pages need clearer language?",
+        "What delivery questions are employees asking after onboarding?"
+      ],
+      "businessOutcome": "Turn repeated questions into better documentation, training, and customer self-service content.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give shoppers fast answers without loosening control over restricted sales",
+    "intro": "DocsBot can power a website or product chat experience trained on approved store knowledge. It helps customers understand products, policies, pickup, delivery, and support options while routing sensitive or regulated situations to staff.",
+    "requests": [
+      {
+        "request": "“Do you have this product in stock near me?”",
+        "agentResponseStrategy": "Answer from approved catalog and store policy content, then collect location or product details if a live lookup or staff follow-up is configured.",
+        "sourceTypes": [
+          "Product catalog",
+          "Store pages",
+          "Inventory policy",
+          "FAQs"
+        ],
+        "optionalAction": "Create a product availability task or route the request to a store team through a customer-configured workflow.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What ID do I need for delivery?”",
+        "agentResponseStrategy": "Respond using your approved delivery and pickup policies, avoid making exceptions, and escalate edge cases such as expired IDs, third-party pickup, or disputed refusals.",
+        "sourceTypes": [
+          "Delivery policy",
+          "Pickup SOP",
+          "Customer FAQ",
+          "Compliance notes"
+        ],
+        "optionalAction": "Collect order number and delivery location, then prepare a handoff summary for support or the store manager.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Can you recommend a cigar or bottle for a gift?”",
+        "agentResponseStrategy": "Suggest options only from approved product descriptions, preference questions, and store guidance, while avoiding unsupported health, legal, or restricted-use claims.",
+        "sourceTypes": [
+          "Product descriptions",
+          "Gift guides",
+          "Approved merchandising copy",
+          "Promotion rules"
+        ],
+        "optionalAction": "Capture preferences and route a curated recommendation request to staff if the customer wants human help.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can I place a bulk or event order?”",
+        "agentResponseStrategy": "Answer general service-fit questions, collect structured details, and explain that final availability, pricing, delivery eligibility, and commitments are handled by staff.",
+        "sourceTypes": [
+          "B2B service pages",
+          "Event FAQs",
+          "Sales enablement notes",
+          "Lead forms"
+        ],
+        "optionalAction": "Submit a qualified lead summary to sales, email, CRM, helpdesk, or another approved workflow configured by the customer.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Why was my order refused?”",
+        "agentResponseStrategy": "Use approved policy language to explain common refusal reasons, collect order context, and escalate any disputed, sensitive, or identity-related issue to a human.",
+        "sourceTypes": [
+          "Refund policy",
+          "Delivery policy",
+          "Support macros",
+          "Escalation playbook"
+        ],
+        "optionalAction": "Create a support ticket or handoff summary with the customer’s description and relevant order details when authorized.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Do you ship tobacco or alcohol to my state?”",
+        "agentResponseStrategy": "Answer from approved shipping and delivery rules only, ask clarifying location questions, and escalate when state, carrier, or product restrictions require staff review.",
+        "sourceTypes": [
+          "Shipping policy",
+          "State policy notes",
+          "Carrier rules",
+          "Support FAQ"
+        ],
+        "optionalAction": "Route restricted-location questions to a compliance or operations reviewer with a concise conversation summary.",
+        "icon": "MapPinIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep staff aligned on SOPs, product knowledge, and escalation rules",
+    "intro": "DocsBot can also run as a private internal knowledge agent for store associates, support teams, managers, drivers, sales reps, and operations staff. It answers from approved internal sources and helps teams find the right procedure without digging through folders.",
+    "workflows": [
+      {
+        "name": "Clerk and driver procedure support",
+        "problem": "Frontline employees need quick answers during busy shifts, especially for pickup, delivery, refusal, stocking, and closing procedures.",
+        "agentWorkflow": "Train the agent on SOPs, checklists, onboarding materials, manager notes, and escalation rules so staff can ask operational questions in plain language.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Delivery playbooks",
+          "Closing checklists"
+        ],
+        "optionalAction": "Notify a manager or create a task when a question suggests a missing or unclear procedure.",
+        "outcome": "Faster access to approved operating guidance and fewer repeated manager interruptions.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "Compliance policy retrieval",
+        "problem": "Age-restricted retail depends on consistent procedure access, but employees may not remember where specific rules or checklists live.",
+        "agentWorkflow": "Use DocsBot as a policy retrieval agent that answers from approved compliance notes, store policies, internal FAQs, and training documents, with source-grounded responses and escalation for gray areas.",
+        "sourceTypes": [
+          "Compliance notes",
+          "Internal FAQs",
+          "Training files",
+          "Policy memos"
+        ],
+        "optionalAction": "Prepare a human review summary for sensitive situations rather than allowing the agent to make the final decision.",
+        "outcome": "Staff can find policy references faster while managers retain control over regulated judgments.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales enablement for wholesale and events",
+        "problem": "Sales reps need quick access to product details, account notes, approved talking points, proposal content, and objection handling before responding to B2B prospects.",
+        "agentWorkflow": "Train a DocsBot internal sales agent on product docs, service catalogs, pricing guidance, case studies, testimonials, proposal templates, and approved sales FAQs.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product catalogs",
+          "Proposal templates",
+          "Approved pricing guidance"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare a prospect summary, or create a task in an approved sales workflow for human review.",
+        "outcome": "Sales teams respond faster with consistent information while keeping pricing, contracts, and regulated commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Product and merchandising updates",
+        "problem": "Promotions, limited releases, supplier materials, and merchandising guidance change often, creating mismatches between customer answers and store execution.",
+        "agentWorkflow": "Centralize approved product sheets, promotional rules, shelf talker copy, supplier PDFs, and merchandising standards inside a DocsBot knowledge agent.",
+        "sourceTypes": [
+          "Supplier PDFs",
+          "Promotion rules",
+          "Merchandising guides",
+          "Product sheets"
+        ],
+        "optionalAction": "Route stale or conflicting product information to a catalog owner for correction.",
+        "outcome": "Teams can find approved product language faster and reduce inconsistent answers across stores and support channels.",
+        "icon": "BookmarkIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer support agents",
+      "mainLandingPageContext": "DocsBot trains AI agents on company-approved sources so customer-facing answers reflect your own documentation, policies, product content, and voice.",
+      "industryApplication": "Alcohol and tobacco sellers can answer product, pickup, delivery, return, and store-policy questions from approved sources instead of relying on informal staff memory.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot gives employees instant answers from SOPs, policies, PDFs, wikis, Google Drive, Notion, Confluence, and other configured company knowledge sources.",
+      "industryApplication": "Store associates, drivers, managers, and support teams can search procedures, compliance notes, onboarding materials, and operational checklists in private chat.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs inside customer-defined controls.",
+      "industryApplication": "Use approved workflows to collect order details, create follow-up tasks, route restricted-product questions, submit lead forms, or notify teams when human review is required.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated questions about IDs, delivery areas, restricted products, promotions, out-of-stock items, and unclear policies so teams can improve docs and training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Regulated retail teams can keep private policies and internal procedures behind permissions while using logs and boundaries for sensitive workflows.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual deployment and chat interfaces",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and appear in website widgets, private team chat, helpdesk-connected workflows, Slack, Microsoft Teams, or API-powered experiences when configured.",
+      "industryApplication": "Serve multilingual shoppers online while giving store and support teams a private agent for product, policy, and operations questions.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support where customers expect fast answers from approved business knowledge.",
+      "Train agents on your own content library, manuals, policies, product pages, and support materials.",
+      "Deploy customer-facing and internal assistants while keeping human handoffs available for sensitive requests."
+    ],
+    "whyTheseReviewsFit": "Alcohol and tobacco sales teams need practical AI that can learn their own content, support customers at scale, and assist staff without replacing human judgment. DocsBot proof spans 24/7 customer support, multilingual manuals, embedded website experiences, and helpdesk-assisted workflows.",
+    "trustClaimIcons": [
+      "ArrowTrendingUpIcon",
+      "ArchiveBoxIcon",
+      "HandRaisedIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for alcohol and tobacco sales operations",
+    "audience": [
+      "Alcohol retailers",
+      "Tobacco and vape retailers",
+      "Bottle shops and liquor stores",
+      "Age-restricted ecommerce teams",
+      "Wholesale and event sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "alcoholic-beverage-manufacturing",
+    "grocery-convenience-store",
+    "food-beverage-manufacturing",
+    "food-hospitality",
+    "fine-dining",
+    "caterer"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "alcohol-tobacco-sales",
+    "webSearchQueries": [
+      "FDA tobacco retailer compliance minimum age 21 tobacco products retailers",
+      "TTB alcohol beverage advertising labeling regulations retailer compliance",
+      "FTC alcohol sales age verification online delivery report minors",
+      "National Restaurant Association alcohol sales off premises delivery ID verification"
+    ],
+    "sourceUrls": [
+      "https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/tobacco-21",
+      "https://www.ttb.gov/regulated-commodities/labeling/laws-and-regulations",
+      "https://www.nhtsa.gov/book/countermeasures-that-work/alcohol-impaired-driving/countermeasures/enforcement/alcohol-vendor",
+      "https://restaurant.org/education-and-resources/resource-library/safe-serving-tips-for-alcohol-to-go/",
+      "https://www.nabca.org/alcohol-go-dashboard"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 62720,
+        "cachedInputTokens": 19840,
+        "billableInputTokens": 42880,
+        "outputTokens": 19879,
+        "reasoningOutputTokens": 228,
+        "totalTokens": 82599,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.410345,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.430345
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21494,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14198,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 126,
+          "totalTokens": 33494,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217319,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227319
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21550,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14254,
+          "outputTokens": 5244,
+          "reasoningOutputTokens": 102,
+          "totalTokens": 26794,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116119,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126119
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19676,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14428,
+          "outputTokens": 2635,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22311,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076907,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076907
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1509669803555-fd5edd8d5a41?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU0Mjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Alcohol & Tobacco Sales background image",
+    "source": "legacy-industry",
+    "query": "Alcohol & Tobacco Sales"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without letting it make regulated sales decisions?",
+      "answer": "Yes. DocsBot is best positioned as a governed support and knowledge layer, not the final authority on restricted sales. It can answer from approved policies, collect order or location details, summarize the situation, and escalate age-verification, refusal, disputed order, high-value, or ambiguous cases to staff with conversation context.",
+      "role": "Compliance and training managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help store associates during busy shifts when they are unsure about ID, refusal, or pickup procedures?",
+      "answer": "You can create a private internal knowledge agent trained on SOPs, onboarding files, compliance notes, delivery playbooks, and escalation checklists. Associates can ask plain-language questions and get source-grounded guidance faster, while gray-area decisions can be routed to a manager instead of being improvised at the counter.",
+      "role": "Compliance and training managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent answer tobacco questions safely if federal law requires customers to be 21?",
+      "answer": "DocsBot can be trained to answer only from your approved tobacco policy, product, and age-restricted sales materials, and to escalate anything that needs human verification. This matters because FDA states that retailers may not sell any tobacco product, including e-cigarettes, to anyone under 21 in the United States.",
+      "role": "Compliance and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-tobacco-21"
+      ]
+    },
+    {
+      "question": "Will DocsBot help with alcohol pickup and delivery questions that vary by state or store?",
+      "answer": "Yes, if you maintain approved location-specific delivery, pickup, and shipping rules as source content. The agent can ask for ZIP code, store, order type, or product category, answer from those approved rules, and escalate exceptions. NABCA tracks state-level changes for alcohol curbside pickup and home delivery, so multi-location teams should keep those policies current.",
+      "role": "Retail owners and operators",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nabca-to-go-dashboard"
+      ]
+    },
+    {
+      "question": "Can we prevent the AI from over-promising inventory, delivery eligibility, substitutions, or returns?",
+      "answer": "Yes. Configure the agent to answer from approved catalog and policy sources, use cautious language when live inventory is not connected, and route uncertain cases to staff. With customer-configured Skills, APIs, or connectors, DocsBot can collect the missing details, perform approved lookups, create a task, or hand off the request instead of guessing.",
+      "role": "Retail owners and operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What sources should we train the agent on before launching it to shoppers?",
+      "answer": "Start with customer-facing FAQs, product catalogs, store pages, pickup and delivery policies, return rules, promotion terms, support macros, and escalation language. For regulated categories, separate approved public answers from internal-only SOPs so shoppers receive clear policy guidance while sensitive procedures stay behind role-based permissions.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both ecommerce customers and internal staff without exposing internal procedures?",
+      "answer": "Yes. You can create separate customer-facing and private internal agents with different source sets and permissions. A shopper-facing agent can answer product, pickup, delivery, and support questions, while an internal agent can retrieve SOPs, training materials, merchandising notes, and escalation playbooks for employees only.",
+      "role": "Retail owners and operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle questions about alcohol labels, product claims, or marketing language?",
+      "answer": "Train the agent on approved product descriptions, supplier sheets, shelf talker copy, and marketing review guidance. It can help teams retrieve approved language and route questionable claims for review. TTB identifies federal alcohol beverage labeling and advertising regulations for wine, distilled spirits, malt beverages, and health warning statements.",
+      "role": "Compliance and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ttb-labeling-laws"
+      ]
+    },
+    {
+      "question": "Can the agent qualify wholesale, event, tasting, or recurring delivery inquiries before a salesperson responds?",
+      "answer": "Yes. A DocsBot presales agent can answer from approved service pages, ask structured intake questions, apply customer-defined qualification rules, and forward a summary to sales, email, CRM, helpdesk, or another approved workflow. Final pricing, contracts, availability, and regulated commitments should remain with human sellers.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What would ROI look like for a liquor store, vape retailer, or distributor?",
+      "answer": "Most buyers should measure ROI around repetitive question deflection, faster response times, fewer manager interruptions, better lead intake, reduced policy confusion, and fewer incomplete handoffs. DocsBot analytics can show common topics, escalations, unresolved questions, and documentation gaps so teams can connect automation to support workload and training improvements.",
+      "role": "Retail owners and operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot integrate with our POS, inventory system, ecommerce platform, CRM, or helpdesk?",
+      "answer": "DocsBot can support approved lookups, routing, task creation, summaries, and workflow triggers through customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors where your team authorizes access. It should be scoped carefully so the agent retrieves or updates only approved fields and escalates restricted or high-impact actions.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will the agent work for multi-location stores with different pickup windows, licenses, delivery zones, and promotions?",
+      "answer": "Yes, provided your source content is organized by location, state, policy, and product category. The agent can ask clarifying questions before answering, return location-specific policy language, and escalate when rules conflict or a customer’s request falls outside approved documentation.",
+      "role": "Retail owners and operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep answers current when suppliers change product sheets or promotions change every week?",
+      "answer": "Use DocsBot with a clear content ownership process: identify source systems, assign catalog and policy owners, review knowledge-gap reports, and update stale product sheets or promotion rules. The agent can also surface repeated questions and route suspected catalog conflicts to the right owner for correction.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us prepare for compliance checks or reduce training inconsistency?",
+      "answer": "DocsBot can centralize SOPs, age-restricted sales procedures, refusal playbooks, and onboarding materials so staff can find approved guidance quickly. FDA says it conducts compliance check inspections of brick-and-mortar and online tobacco retailers, including Tobacco 21 checks, which makes consistent training access important.",
+      "role": "Compliance and training managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-fda-retailer-inspections"
+      ]
+    },
+    {
+      "question": "How should we handle alcohol delivery refusal, failed ID checks, or disputed customer complaints?",
+      "answer": "Configure the agent to explain approved policy language, collect order number, delivery location, and customer description, then escalate to support or a manager. ServSafe Alcohol guidance advises checking customer ID before serving or delivering to-go cocktails, so refusal and exception workflows should remain tightly controlled.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nra-alcohol-to-go"
+      ]
+    },
+    {
+      "question": "Can we review what the AI told customers if there is a complaint or audit concern?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Those records help teams inspect sensitive interactions, refine instructions, improve source content, and identify when the agent should escalate earlier.",
+      "role": "Compliance and training managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What guardrails are available for private policies, customer data, and internal compliance documents?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be scoped with customer-defined controls, logging, secrets handling, and approved network access.",
+      "role": "Compliance and training managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer in languages our shoppers and staff actually use?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages, which can help multilingual shoppers ask about store policies, pickup requirements, product information, or support options. For regulated topics, the translated answer should still be grounded in the same approved policy sources and escalation rules.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How long does implementation usually take if our knowledge is spread across PDFs, Google Drive, product pages, and staff notes?",
+      "answer": "Implementation depends less on file format and more on content readiness. DocsBot can train on websites, PDFs, Word documents, text files, internal notes, Google Drive, Notion, Confluence, and other configured sources, but teams should first remove outdated policies, separate internal from public content, and define escalation rules.",
+      "role": "Retail owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we avoid the agent giving health, legal, or product-use advice we do not want associated with our brand?",
+      "answer": "Train it only on approved product and policy content, add instructions that prohibit unsupported health, legal, or restricted-use claims, and escalate those questions to staff. For gift, pairing, cigar, vape, or bottle recommendations, keep responses tied to approved merchandising copy and preference questions.",
+      "role": "Compliance and training managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot replace our helpdesk agents or store managers?",
+      "answer": "No. In this industry, DocsBot is most useful for repetitive answers, knowledge retrieval, structured intake, summaries, routing, and bounded workflow actions. Store managers, compliance leads, and support teams should still own exceptions, refusals, identity disputes, pricing commitments, legal interpretations, and regulated sales decisions.",
+      "role": "Retail owners and operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What reporting should we expect after launch?",
+      "answer": "Buyers should look for the questions customers ask most, which topics escalate, where answers are missing, satisfaction or resolution trends, repeated product availability requests, and employee training gaps. DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery to support that review cycle.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How is DocsBot different from putting a generic chatbot on our store website?",
+      "answer": "DocsBot is trained on your approved business knowledge and can be configured as a governed AI support agent, internal knowledge agent, or workflow automation layer. It can provide source-grounded answers, use approved Skills and APIs for bounded actions, support human handoff, and expose knowledge gaps instead of relying on generic responses.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should procurement and IT evaluate before approving an AI agent for age-restricted retail?",
+      "answer": "Evaluate data handling, SOC 2 Type II status, encryption, role-based permissions, source controls, logging, escalation paths, live-action boundaries, and whether customer data is used to train public models. Also confirm who owns policy updates, who reviews sensitive conversations, and which systems the agent may access.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help reduce phone calls like “Do you carry this?” or “What ID do I need?” without frustrating customers?",
+      "answer": "Yes. A website or product chat agent can answer repetitive catalog, store hours, pickup, delivery, return, and policy questions instantly from approved sources. When the request needs live inventory, order context, or manager review, it can collect details and route a concise handoff instead of forcing the customer to start over.",
+      "role": "Customer support and ecommerce teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What happens when the customer asks something the agent cannot answer from our approved sources?",
+      "answer": "DocsBot can be configured to say it does not have enough approved information, ask a clarifying question, create a task, or escalate to a person with the conversation summary. That is especially important for restricted products, state-specific delivery, disputed refusals, unusual orders, and policy exceptions.",
+      "role": "Retail owners and operators",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "slug": "safety-security-legal",
+  "business": "Safety, Security, & Legal",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Safety, Security, and Legal Teams",
+    "description": "DocsBot helps safety, security, and legal teams deliver source-grounded answers, intake requests, and route sensitive work faster.",
+    "canonicalPath": "/industry/safety-security-legal"
+  },
+  "hero": {
+    "eyebrow": "AI agents for regulated, high-stakes service operations",
+    "headline": "DocsBot AI agents for safety, security, and legal work",
+    "subheadline": "Give clients, employees, field teams, and intake staff instant access to approved procedures, policies, case guidance, service information, and handoff paths. DocsBot turns your own documents into source-grounded AI agents with scoped actions for routing, summaries, live lookups, and human escalation.",
+    "proofBullets": [
+      {
+        "text": "Answer client and employee questions from approved policies, service pages, SOPs, FAQs, manuals, and private knowledge bases.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect intake details, summarize context, and route matters to the right legal, compliance, security, or operations team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support sensitive workflows with human escalation, permissions, logs, and customer-defined boundaries.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Deploy through a website widget, private team chat, Slack, Microsoft Teams, API, or customer-configured workflows.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build a safer knowledge agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps safety, security, and legal organizations create AI agents trained on their own approved knowledge. Agents can answer routine questions, retrieve source material, summarize incidents or intake conversations, identify documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Legal intake and client services teams",
+        "roleContext": "Client-facing staff need fast, consistent answers without creating unauthorized legal advice or losing important intake details.",
+        "bullets": [
+          {
+            "text": "Collect matter type, jurisdiction, deadlines, contact details, and documents before handing off to a qualified professional.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Answer routine questions from approved FAQs, service pages, fee policies, onboarding packets, and status guidance.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Escalate legal advice, privileged facts, urgent deadlines, or conflict-sensitive questions to a human review path.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Security operations and field supervisors",
+        "roleContext": "Security teams rely on post orders, incident procedures, site rules, training materials, and clear escalation paths across shifts and locations.",
+        "bullets": [
+          {
+            "text": "Make post orders, patrol checklists, emergency contacts, reporting rules, and escalation trees searchable for guards and supervisors.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Summarize incident details into a draft report or ticket when a customer-configured workflow is approved.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route maintenance, access-control, visitor, and alarm questions to the right internal queue or responsible team.",
+            "icon": "BellIcon"
+          }
+        ],
+        "roleIcon": "EyeIcon"
+      },
+      {
+        "role": "Compliance, risk, and safety leaders",
+        "roleContext": "Compliance and safety teams need employees to follow current procedures and need visibility into recurring questions that signal documentation gaps.",
+        "bullets": [
+          {
+            "text": "Provide source-grounded guidance from policies, training materials, risk registers, legal updates, and internal SOPs.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Use analytics, logs, and conversation review to find repeated questions, unclear procedures, and missing knowledge.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Keep sensitive actions scoped with role-based access, encryption, SOC 2 Type II controls, and GDPR-ready governance.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "CheckCircleIcon"
+      },
+      {
+        "role": "Sales, consultation, and account teams",
+        "roleContext": "Firms and service providers often need to explain capabilities, qualify fit, and prepare handoffs without overpromising on legal, security, or safety outcomes.",
+        "bullets": [
+          {
+            "text": "Answer service-fit, coverage, process, documentation, and consultation questions from approved sales and service materials.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Qualify inquiries using your rules for urgency, geography, case type, service line, account size, or scheduling intent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Forward qualified summaries to CRM, helpdesk, email, Slack, Microsoft Teams, or another approved workflow when configured.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fbi-ic3-2024",
+      "metric": "859,532 internet crime complaints and more than $16 billion in reported losses in 2024",
+      "claim": "The FBI’s 2024 Internet Crime Report shows high public demand for clear fraud, reporting, and security guidance.",
+      "sourceTitle": "FBI Releases Annual Internet Crime Report",
+      "sourceUrl": "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "security risk",
+        "fraud intake pressure",
+        "customer education demand"
+      ]
+    },
+    {
+      "id": "src-ftc-sentinel-2024",
+      "metric": "6.5 million consumer reports to the FTC Sentinel network in 2024",
+      "claim": "Fraud, identity theft, and consumer protection reports create high-volume education and triage needs for legal and security organizations.",
+      "sourceTitle": "Consumer Sentinel Network Data Book 2024",
+      "sourceUrl": "https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2024",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fraud prevention",
+        "consumer protection",
+        "intake volume"
+      ]
+    },
+    {
+      "id": "src-osha-workplace-violence",
+      "metric": "OSHA enforcement guidance ties workplace violence hazards to employers’ legal duty under the General Duty Clause",
+      "claim": "Safety and security guidance often carries operational and legal importance, making source-grounded answers and escalation paths important.",
+      "sourceTitle": "Workplace Violence - Enforcement | Occupational Safety and Health Administration",
+      "sourceUrl": "https://www.osha.gov/workplace-violence/enforcement",
+      "sourceDate": "Current OSHA guidance",
+      "bestUsedFor": [
+        "safety compliance",
+        "security procedures",
+        "workplace violence risk"
+      ]
+    },
+    {
+      "id": "src-bls-security-guards",
+      "metric": "BLS projects 2024–2034 employment data for security guards and gambling surveillance officers",
+      "claim": "Security operations depend on trained frontline workers who need clear instructions on reporting, public relations, deterring crises, and first aid.",
+      "sourceTitle": "Security Guards and Gambling Surveillance Officers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "frontline workforce",
+        "training requirements",
+        "security operations"
+      ]
+    },
+    {
+      "id": "src-aba-ai-techreport-2024",
+      "metric": "ABA’s 2024 AI TechReport is based on a 275-question Legal Technology Survey administered from October to December 2024",
+      "claim": "Legal professionals are actively evaluating AI’s role while balancing technology competence, ethics, and risk.",
+      "sourceTitle": "2024 Artificial Intelligence TechReport",
+      "sourceUrl": "https://www.americanbar.org/groups/law_practice/resources/tech-report/2024/2024-artificial-intelligence-techreport/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "legal AI adoption",
+        "ethics and competence",
+        "legal operations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client and matter intake agent",
+      "problem": "Legal, safety, and security inquiries often arrive with missing facts, urgent deadlines, unclear jurisdiction, or sensitive details that should not be handled as casual support.",
+      "agentWorkflow": "DocsBot answers routine service and process questions from approved sources, collects structured intake details, flags urgency based on customer-defined instructions, summarizes the conversation, and prepares a handoff for the appropriate professional or team.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or forms, the agent can create an intake record, route a ticket, notify a team, or request a consultation slot while keeping legal advice and final commitments with humans.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle workplace violence prevention policy reviews in my state?",
+        "What documents should I upload before a consultation?",
+        "I received a demand letter today. What information do you need for intake?"
+      ],
+      "businessOutcome": "Reduce repetitive intake work while giving staff cleaner summaries, better triage, and clearer escalation for sensitive matters.",
+      "icon": "ScaleIcon"
+    },
+    {
+      "name": "Security incident reporting assistant",
+      "problem": "Incident details are often captured after stressful events, across shifts, and in inconsistent formats that make follow-up harder.",
+      "agentWorkflow": "An internal DocsBot agent guides staff through the organization’s reporting procedure, asks for missing details, retrieves the right post order or incident category, and drafts a structured incident summary for human review.",
+      "liveContextOrTools": "Customer-configured actions can create a task or ticket, attach a summary, route by location or severity, and notify a supervisor through approved systems.",
+      "exampleQuestionsOrRequests": [
+        "Help me document an access-control incident at the north gate.",
+        "Which escalation path applies to a workplace violence threat?",
+        "Summarize this guard log for supervisor review."
+      ],
+      "businessOutcome": "Improve consistency in incident documentation and shorten the time between field reporting, supervisor review, and follow-up action.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-osha-workplace-violence",
+        "src-bls-security-guards"
+      ]
+    },
+    {
+      "name": "Policy and compliance knowledge agent",
+      "problem": "Employees may not know which policy, SOP, or legal update applies, especially when procedures span safety, privacy, workplace conduct, security, and reporting obligations.",
+      "agentWorkflow": "DocsBot trains on approved policies, SOPs, compliance notes, training content, PDFs, wikis, and internal knowledge bases, then returns source-grounded answers with links or references to the underlying material.",
+      "liveContextOrTools": "When configured with permissions and live context, the agent can look up an approved policy version, route a clarification request, or create a documentation-gap task for the compliance owner.",
+      "exampleQuestionsOrRequests": [
+        "What is our current visitor access procedure for contractors?",
+        "Where is the escalation policy for threats against employees?",
+        "Which handbook section covers confidential incident records?"
+      ],
+      "businessOutcome": "Give teams faster access to current guidance while helping compliance leaders see repeated questions and unclear documentation.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Fraud, scam, and public education assistant",
+      "problem": "Security and legal teams receive recurring questions about scams, identity theft, breach notices, and how to report suspicious activity.",
+      "agentWorkflow": "DocsBot answers from approved fraud education pages, client alerts, reporting checklists, and service guidance, then separates general education from situations requiring professional review or law enforcement contact.",
+      "liveContextOrTools": "An approved workflow can collect incident details, route a support ticket, send a summary to a fraud response team, or trigger a follow-up checklist.",
+      "exampleQuestionsOrRequests": [
+        "I think I sent money to an imposter. What should I gather before calling?",
+        "How do I tell whether this breach notice is legitimate?",
+        "Which agency reporting links should our employees use?"
+      ],
+      "businessOutcome": "Handle repetitive education questions consistently while routing high-risk fraud, identity, or legal matters to the right human team.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fbi-ic3-2024",
+        "src-ftc-sentinel-2024"
+      ]
+    },
+    {
+      "name": "Sales enablement and proposal support agent",
+      "problem": "Account teams need quick answers about service scope, staffing models, compliance language, exclusions, pricing guidance, and proposal content without searching scattered folders.",
+      "agentWorkflow": "DocsBot acts as a private sales enablement agent trained on approved service catalogs, proposal templates, case studies, FAQs, objection handling, contract language, and implementation notes.",
+      "liveContextOrTools": "With customer-approved tools, the agent can summarize an account, draft a follow-up email, prepare a proposal outline, or forward a qualified opportunity summary to sales systems for human review.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up for a prospect asking about multi-site security coverage.",
+        "What language do we use for incident-response limitations?",
+        "Summarize our compliance consulting offering for a healthcare prospect."
+      ],
+      "businessOutcome": "Help sales and account teams respond faster while keeping final pricing, legal terms, and contractual commitments under human control.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Documentation gap and risk trend reporting",
+      "problem": "Repeated questions about procedures, reporting, or client obligations can reveal unclear documentation, training needs, or emerging risk patterns.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams see what people ask, where answers are missing, and which topics need updated source material.",
+      "liveContextOrTools": "Customer-defined workflows can create documentation tasks, notify content owners, or route unresolved topics to compliance, legal, safety, or operations leaders.",
+      "exampleQuestionsOrRequests": [
+        "Which incident-reporting questions went unanswered this month?",
+        "What policies are employees asking about most often?",
+        "Create a summary of unresolved intake themes for the risk team."
+      ],
+      "businessOutcome": "Turn recurring questions into a practical roadmap for better policies, training, and client-facing guidance.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and visitors a guided front door without overstepping professional boundaries",
+    "intro": "A DocsBot customer-facing agent can answer from your approved public content, collect details through structured intake, and prepare clean handoffs for sensitive legal, safety, or security requests. Human experts remain responsible for advice, emergency response, contracts, and high-impact decisions.",
+    "requests": [
+      {
+        "request": "“Do you handle this type of legal or compliance issue?”",
+        "agentResponseStrategy": "Answer from approved service descriptions, ask clarifying intake questions, explain next steps, and route qualified inquiries to the right team.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Intake forms",
+          "Consultation policies"
+        ],
+        "optionalAction": "Submit a custom lead or intake form and forward the summary to a configured CRM, inbox, or helpdesk workflow.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“What should I do before our security assessment?”",
+        "agentResponseStrategy": "Retrieve the pre-assessment checklist, explain what documents or access details are needed, and offer a scheduling or follow-up path.",
+        "sourceTypes": [
+          "Assessment checklists",
+          "Service guides",
+          "Client onboarding packets",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Collect scheduling intent and use an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar configured tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I think I’m a victim of fraud. What information should I gather?”",
+        "agentResponseStrategy": "Provide general, source-grounded preparation steps from approved education materials and route urgent or case-specific questions to a person.",
+        "sourceTypes": [
+          "Fraud education pages",
+          "Incident checklists",
+          "Reporting guidance",
+          "Client alerts"
+        ],
+        "optionalAction": "Create a ticket or send a handoff summary to the designated fraud, legal, or support team when configured.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fbi-ic3-2024"
+        ]
+      },
+      {
+        "request": "“Can you explain your incident reporting process?”",
+        "agentResponseStrategy": "Summarize the published process, clarify what details are needed, and distinguish routine reporting from emergencies or matters requiring human review.",
+        "sourceTypes": [
+          "Reporting procedures",
+          "Client portals",
+          "SOPs",
+          "Escalation guidance"
+        ],
+        "optionalAction": "Route a non-emergency report to the appropriate queue or prepare a draft report for human approval.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I get this information in another language?”",
+        "agentResponseStrategy": "Respond in the user’s preferred language from the same approved source material while preserving escalation rules for sensitive issues.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Policies",
+          "Service pages",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Capture preferred language and contact details for a bilingual follow-up workflow if your team configures one.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What happens after I submit an intake request?”",
+        "agentResponseStrategy": "Explain your standard review, conflict check, consultation, or response timeline from approved onboarding materials without guaranteeing an outcome.",
+        "sourceTypes": [
+          "Onboarding packets",
+          "Intake policies",
+          "Client communications",
+          "Status guidance"
+        ],
+        "optionalAction": "Look up an approved request status or route a status question to staff when live context is configured.",
+        "icon": "InformationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put policies, procedures, and sensitive operating knowledge where your team already works",
+    "intro": "DocsBot can run as a private internal knowledge agent for legal staff, security supervisors, compliance teams, HR, operations, and field personnel. Train it on approved internal sources so employees get consistent answers instead of searching shared drives, wikis, and long PDFs.",
+    "workflows": [
+      {
+        "name": "SOP and post-order lookup",
+        "problem": "Frontline teams need fast, location-specific guidance during shifts, but procedures may be buried in binders, PDFs, or shared folders.",
+        "agentWorkflow": "The agent retrieves answers from post orders, SOPs, emergency procedures, visitor rules, and site instructions, then cites or references the source material for review.",
+        "sourceTypes": [
+          "Post orders",
+          "SOPs",
+          "Emergency plans",
+          "Training manuals"
+        ],
+        "optionalAction": "Route unclear or outdated instructions to the operations owner as a documentation task.",
+        "outcome": "Reduce time spent searching for procedures and help teams follow the same approved guidance.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Legal operations knowledge base",
+        "problem": "Attorneys, paralegals, and intake staff often repeat searches across templates, matter checklists, policies, and prior guidance.",
+        "agentWorkflow": "DocsBot answers internal process questions from approved templates, playbooks, onboarding content, matter workflows, and knowledge bases while escalating substantive legal judgment to qualified professionals.",
+        "sourceTypes": [
+          "Matter checklists",
+          "Templates",
+          "Playbooks",
+          "Internal policies"
+        ],
+        "optionalAction": "Draft a matter summary, create a task, or prepare a handoff for review through customer-configured workflows.",
+        "outcome": "Help staff move faster on routine knowledge retrieval while preserving human responsibility for legal analysis and advice.",
+        "icon": "FolderIcon",
+        "sourceIds": [
+          "src-aba-ai-techreport-2024"
+        ]
+      },
+      {
+        "name": "Compliance and training support",
+        "problem": "Policy owners need employees to understand rules, but recurring questions often reveal unclear training or outdated documentation.",
+        "agentWorkflow": "The agent answers from training materials, compliance memos, policy manuals, and FAQs, then reports unanswered topics and repeated questions for content improvement.",
+        "sourceTypes": [
+          "Training materials",
+          "Compliance policies",
+          "Risk memos",
+          "Employee handbooks"
+        ],
+        "optionalAction": "Create a documentation-gap task or notify the responsible policy owner when a question cannot be answered from approved sources.",
+        "outcome": "Improve self-service access to guidance and give leaders practical signals for training updates.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Incident and investigation summaries",
+        "problem": "Security, HR, safety, and legal teams need concise summaries of long reports, logs, and conversations without losing context.",
+        "agentWorkflow": "DocsBot can summarize approved source material, extract key facts, and format a review-ready brief for the appropriate internal team.",
+        "sourceTypes": [
+          "Incident reports",
+          "Call notes",
+          "Guard logs",
+          "Case notes"
+        ],
+        "optionalAction": "Attach a summary to a ticket, notify reviewers, or route by location, severity, or matter type when configured.",
+        "outcome": "Speed up review preparation while keeping decisions, investigations, and disciplinary or legal actions with authorized people.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents train on websites, help centers, internal content, documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Use approved legal FAQs, safety policies, security SOPs, post orders, training manuals, client onboarding guides, and compliance materials as the answer base.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform customer-configured lookups, summaries, record updates, workflow triggers, routing, and handoffs inside defined rules.",
+      "industryApplication": "Create intake records, route incident reports, notify supervisors, draft handoff summaries, or trigger review workflows without letting the agent make legal, safety-critical, or contractual decisions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Live context through approved connectors and APIs",
+      "mainLandingPageContext": "DocsBot can use live system context when a customer configures the right Skill, connector, API, metadata binding, MCP Connector, or approved runtime access.",
+      "industryApplication": "Look up approved request status, policy versions, site assignments, or account context while keeping credentials out of chats and access controlled by your team.",
+      "icon": "ServerIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which safety procedures, legal intake topics, fraud questions, or security policies people ask about most often and improve the source material behind the answers.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Support private legal, safety, security, compliance, and operational knowledge with access controls and escalation paths appropriate for sensitive work.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual support and flexible deployment",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be deployed through a website widget, private team chat, API, Slack, Microsoft Teams, and customer-configured workflows.",
+      "industryApplication": "Serve multilingual clients, employees, guards, and stakeholders across public websites, internal channels, and operational workflows.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health",
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your own approved content library.",
+      "Proven in high-volume support environments with measurable automated resolution.",
+      "Useful for internal decision support where teams need less back-and-forth to find trusted knowledge."
+    ],
+    "whyTheseReviewsFit": "Safety, security, and legal teams need dependable answers, controlled handoffs, and fast access to internal knowledge. DocsBot proof spans owned-content training, high-volume customer support, and internal decision workflows—three patterns that map directly to regulated and sensitive service operations.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for safety, security, legal intake, compliance, and internal knowledge operations",
+    "audience": [
+      "Legal operations leaders",
+      "Security firm owners",
+      "Compliance and risk teams",
+      "Safety managers",
+      "Client services and intake teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "legal-document-drafting",
+    "private-security",
+    "security-guard",
+    "security-system-installation",
+    "compliance-consulting",
+    "attorney-services",
+    "cybersecurity",
+    "emergency-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "safety-security-legal",
+    "webSearchQueries": [
+      "Bureau of Labor Statistics legal services employment NAICS 5411 2024",
+      "FBI Internet Crime Report 2024 losses complaints",
+      "OSHA workplace violence security legal compliance guidance employers",
+      "ABA 2024 legal technology survey AI lawyers",
+      "BLS occupational outlook security guards employment 2024",
+      "FTC 2024 fraud reports losses consumers"
+    ],
+    "sourceUrls": [
+      "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2024",
+      "https://www.osha.gov/workplace-violence/enforcement",
+      "https://www.bls.gov/ooh/protective-service/security-guards.htm",
+      "https://www.americanbar.org/groups/law_practice/resources/tech-report/2024/2024-artificial-intelligence-techreport/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45269,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32725,
+        "outputTokens": 8059,
+        "reasoningOutputTokens": 181,
+        "totalTokens": 53328,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.205834,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.225834
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25546,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18250,
+          "outputTokens": 5297,
+          "reasoningOutputTokens": 181,
+          "totalTokens": 30843,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.126904,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.146904
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19723,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14475,
+          "outputTokens": 2762,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22485,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07893,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07893
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1595306394931-b35768661692?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDMyMTh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Safety, Security, & Legal background image",
+    "source": "legacy-industry",
+    "query": "Safety, Security, & Legal"
+  },
+  "faq": [
+    {
+      "question": "How do we keep an AI agent from giving legal advice or making safety-critical decisions?",
+      "answer": "Configure the agent around approved knowledge and clear boundaries: answer routine process questions, collect facts, cite source material, and escalate anything involving legal judgment, emergencies, privileged details, threats, conflicts, or final commitments. DocsBot can support human handoff paths, scoped actions, logs, and role-based permissions so sensitive decisions stay with authorized professionals.",
+      "role": "Legal intake and client services teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot handle legal or security intake without creating messy follow-up work for staff?",
+      "answer": "Yes. A DocsBot agent can ask for structured details such as matter type, jurisdiction, deadline, location, contact information, incident category, and uploaded documents, then summarize the conversation for a human reviewer. With customer-configured Skills, APIs, connectors, or forms, it can route that summary to an approved inbox, ticketing system, CRM, or review workflow.",
+      "role": "Legal intake and client services teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will answers be based on our policies and SOPs instead of general internet information?",
+      "answer": "DocsBot is designed to answer from your approved content: policies, SOPs, post orders, training manuals, FAQs, service pages, onboarding packets, internal wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other configured sources. For safety, security, and legal work, that source-grounding is important because employees need current internal guidance, not generic advice.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent support guards or field teams who need quick answers during a shift?",
+      "answer": "Yes. An internal DocsBot agent can make post orders, emergency procedures, patrol checklists, visitor rules, escalation trees, and reporting instructions searchable from a private chat, Slack, Microsoft Teams, API, or configured workflow. It can also draft an incident summary for supervisor review when your workflow permits it.",
+      "role": "Security operations and field supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot help with incident reporting quality?",
+      "answer": "The agent can guide staff through your reporting procedure, ask for missing facts, retrieve the right incident category or post order, and create a structured draft for human review. This is useful in security operations where frontline workers are expected to document events, deter crises, interact with the public, and follow site-specific procedures.",
+      "role": "Security operations and field supervisors",
+      "category": "Implementation",
+      "sourceIds": [
+        "src-bls-security-guards"
+      ]
+    },
+    {
+      "question": "Can we use this for workplace violence, threat, or emergency-related procedures?",
+      "answer": "DocsBot can help employees find approved escalation policies, reporting instructions, emergency contacts, and post-incident documentation steps. It should not replace emergency response or professional judgment. OSHA guidance connects workplace violence hazards to employers’ duties under the General Duty Clause, so buyers should configure these workflows with clear escalation and human review.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-workplace-violence"
+      ]
+    },
+    {
+      "question": "How does DocsBot protect sensitive legal, security, and compliance information?",
+      "answer": "DocsBot supports SOC 2 Type II controls, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models. For actions, Skills can be configured with secrets, metadata bindings, network policy, logging, and customer-defined limits so credentials stay out of chats.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different answers or source material?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so internal knowledge can be scoped by team, role, or use case. For example, a public website agent can answer from service pages and FAQs, while a private legal operations agent can use internal checklists, templates, and playbooks that are not exposed to clients.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What integrations should we expect for intake, incident, or ticket workflows?",
+      "answer": "DocsBot can work through customer-configured Skills, APIs, connectors, MCP Connectors, forms, webhooks, or workflow automations. Typical patterns include creating a ticket, routing an intake summary, notifying a supervisor, looking up an approved status, updating approved fields, or forwarding a qualified inquiry to CRM or helpdesk software. Specific system access depends on what your team authorizes and configures.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot work in Slack or Microsoft Teams for internal policy questions?",
+      "answer": "Yes. DocsBot agents can be deployed in Slack, Microsoft Teams, private team chat, a website widget, API, or customer-configured workflows. Internal teams can ask about SOPs, legal operations procedures, compliance policies, post orders, training materials, and onboarding guidance without searching shared drives or long PDFs.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if the goal is risk reduction, not just ticket deflection?",
+      "answer": "Track both efficiency and control metrics: intake completion rate, time to route, repeated questions deflected, incident report completeness, unresolved topics, escalation accuracy, policy search volume, staff time saved, and documentation gaps closed. DocsBot analytics, logs, topic management, reports, conversation review, satisfaction analysis, and resolution analysis help turn usage into an operating dashboard.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us handle fraud and scam questions from the public or clients?",
+      "answer": "Yes. A customer-facing agent can answer from approved fraud education pages, reporting checklists, client alerts, and service guidance, then route urgent or case-specific matters to a person. This matters because the FBI reported 859,532 internet crime complaints and more than $16 billion in reported losses for 2024.",
+      "role": "Legal intake and client services teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fbi-ic3-2024"
+      ]
+    },
+    {
+      "question": "Why would fraud and consumer protection intake be a good fit for automation?",
+      "answer": "Many questions are repetitive but still sensitive: what to gather, which internal team to contact, what forms are needed, and when to escalate. The FTC Sentinel network received 6.5 million consumer reports in 2024, showing the scale of recurring fraud, identity theft, and consumer protection education needs.",
+      "role": "Legal intake and client services teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ftc-sentinel-2024"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot for multilingual client or employee support?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages from the same approved source material. For safety, security, and legal teams, that can help multilingual clients, guards, employees, and stakeholders understand process steps while preserving the same escalation rules for advice, emergencies, and sensitive matters.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much content cleanup do we need before launch?",
+      "answer": "You do not need perfect documentation, but you do need approved source material and clear rules for what the agent should answer, decline, or escalate. A practical launch often starts with service FAQs, intake instructions, SOPs, post orders, policies, training documents, and escalation paths, then uses DocsBot analytics to identify missing or confusing content.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot identify outdated or unclear policies after deployment?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can see which safety procedures, intake topics, fraud questions, or security policies people ask about most often, then create documentation tasks or notify content owners through customer-configured workflows.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when the agent cannot answer from approved sources?",
+      "answer": "You can configure DocsBot to say it does not have enough approved information, ask clarifying questions, and escalate to a person or documentation owner. For high-stakes work, this is preferable to guessing. Unanswered questions can also feed analytics so legal, compliance, safety, or operations teams can improve the underlying knowledge base.",
+      "role": "Compliance, risk, and safety leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent summarize long incident reports, guard logs, or intake conversations?",
+      "answer": "Yes. DocsBot can summarize approved source material, extract key facts, and format a review-ready brief for the appropriate team. With approved workflows, the summary can be attached to a ticket, routed by location or severity, or sent to a supervisor, while final investigation, disciplinary, legal, or safety decisions remain with humans.",
+      "role": "Security operations and field supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the public-facing agent from making promises about outcomes, pricing, or response times?",
+      "answer": "Train it on approved service pages, fee policies, consultation rules, onboarding materials, and status guidance, then set instructions that prohibit guarantees, legal conclusions, emergency commitments, or contract promises. The agent can explain normal process steps and collect details, but route pricing exceptions, legal advice, urgent deadlines, and final commitments to staff.",
+      "role": "Sales, consultation, and account teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can sales and account teams use DocsBot without exposing internal proposal or contract language to clients?",
+      "answer": "Yes. You can separate a private sales enablement agent from a public-facing agent. The internal agent can train on proposal templates, service catalogs, case studies, objection handling, implementation notes, and contract language, while the public agent is limited to approved website, FAQ, service, and intake content.",
+      "role": "Sales, consultation, and account teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot qualify leads for regulated legal, security, or safety services?",
+      "answer": "Yes. The agent can ask approved qualification questions about geography, urgency, matter type, site count, service line, account size, documentation, consultation intent, or budget range. It can then prepare a summary for human review or forward the inquiry through a customer-configured CRM, email, helpdesk, Slack, Microsoft Teams, form, or workflow.",
+      "role": "Sales, consultation, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should legal teams think about AI adoption risk?",
+      "answer": "Use AI for controlled retrieval, intake, summaries, and workflow routing before expanding into more sensitive use cases. Legal professionals are already evaluating AI while balancing competence, ethics, and risk; the ABA’s 2024 AI TechReport was based on a 275-question Legal Technology Survey administered from October to December 2024.",
+      "role": "Legal intake and client services teams",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-aba-ai-techreport-2024"
+      ]
+    },
+    {
+      "question": "Can DocsBot support both public client service and private internal operations at the same time?",
+      "answer": "Yes. Many buyers will want separate agents or scopes: one for public service questions, one for client or matter intake, one for internal SOP lookup, and one for sales enablement. Each can use different sources, instructions, permissions, deployment channels, and escalation paths based on the audience and risk level.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement and IT review before approving DocsBot?",
+      "answer": "Review data handling, access controls, SOC 2 Type II status, GDPR-ready governance, encryption, role-based permissions, logging, source ownership, retention expectations, and how Skills or APIs are scoped. Also confirm which systems the agent will access, what actions it can perform, and which human review steps are required for sensitive workflows.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How is DocsBot different from a generic chatbot or a custom-built internal AI tool?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent platform for approved knowledge, analytics, human escalation, and bounded workflow actions. Compared with a generic chatbot, it is designed around your documents and controlled handoffs. Compared with building from scratch, buyers get a managed path for training sources, deployment channels, governance, logs, and workflow automation.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What does a realistic pilot look like for a safety, security, or legal team?",
+      "answer": "Start with one high-volume, bounded workflow: legal intake FAQs, security post-order lookup, fraud education, incident report drafting, or compliance policy search. Load approved sources, define escalation rules, test with real staff questions, review logs, measure unanswered topics, and only then add live lookups, ticket creation, routing, or other scoped actions.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    }
+  ]
+}

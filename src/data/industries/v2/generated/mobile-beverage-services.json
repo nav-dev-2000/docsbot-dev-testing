@@ -1,0 +1,745 @@
+{
+  "slug": "mobile-beverage-services",
+  "business": "Mobile Beverage Services",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Mobile Beverage Service Operations",
+    "description": "DocsBot helps mobile beverage services answer event inquiries, qualify bookings, and keep staff aligned with source-grounded AI agents.",
+    "canonicalPath": "/industry/mobile-beverage-services"
+  },
+  "hero": {
+    "eyebrow": "AI agents for mobile bars, beverage carts, and event drink service",
+    "headline": "Serve faster event answers with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your menus, packages, service areas, FAQs, SOPs, licensing notes, setup guides, and booking policies so customers and staff get clear answers before, during, and after each event.",
+    "proofBullets": [
+      {
+        "text": "Answer guest and planner questions about packages, mixers, glassware, staffing, service area, setup needs, and nonalcoholic options.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect event details, qualify booking requests, and route complete summaries to your team through approved forms, APIs, or workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give bartenders and event leads private access to SOPs, prep lists, recipes, responsible-service guidance, and teardown checklists.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated questions, missing policy details, and high-intent booking topics.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your mobile beverage agent",
+    "secondaryCta": "See how DocsBot handles event questions"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps mobile beverage services create AI agents trained on their own knowledge. Your agent can answer from approved menus, event packages, service rules, booking FAQs, SOPs, and internal documents; collect lead details; summarize requests; route handoffs; and support staff with source-grounded guidance in a website widget, private chat, Slack, Microsoft Teams, or customer-configured workflow.",
+    "whoItHelps": [
+      {
+        "role": "Owners and event sales teams",
+        "roleContext": "Keep inquiries moving even when the team is loading a trailer, working a wedding, or managing weekend event volume.",
+        "bullets": [
+          {
+            "text": "Qualify private parties, weddings, corporate events, festivals, and venue partnerships with structured intake questions.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Explain package fit, staffing assumptions, minimums, add-ons, dry-hire rules, and follow-up steps from your approved content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Forward qualified booking summaries to email, CRM, helpdesk software, or a scheduling workflow when configured by your team.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Event operations managers",
+        "roleContext": "Turn scattered event notes, BEO-style details, equipment lists, and service procedures into searchable operational guidance.",
+        "bullets": [
+          {
+            "text": "Help staff find setup instructions, garnish counts, batch recipes, equipment checklists, parking notes, and teardown steps.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Create a task, notify a lead, or route an exception when a configured AI Action identifies missing event details.",
+            "icon": "BellIcon"
+          },
+          {
+            "text": "Reduce repeat questions by identifying knowledge gaps across customer and employee conversations.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Bartenders and on-site leads",
+        "roleContext": "Give mobile teams fast answers on phones without digging through binders, text threads, or old event documents.",
+        "bullets": [
+          {
+            "text": "Retrieve recipes, service scripts, allergen notes, mocktail options, responsible-service reminders, and escalation instructions.",
+            "icon": "DevicePhoneMobileIcon"
+          },
+          {
+            "text": "Support multilingual staff or clients with answers in more than 100 languages from the same approved sources.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Escalate questions about alcohol service, contracts, pricing exceptions, or venue restrictions to a human manager.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bartender-outlook",
+      "metric": "756,700 bartender jobs in 2024; 6% projected growth from 2024 to 2034",
+      "claim": "BLS projects bartender employment to grow faster than the average for all occupations and estimates about 129,600 bartender openings per year over the decade.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Bartenders",
+      "sourceUrl": "https://www.bls.gov/ooh/food-preparation-and-serving/bartenders.htm",
+      "sourceDate": "2025-09-04",
+      "bestUsedFor": [
+        "labor scale",
+        "staff training pressure",
+        "weekend and event staffing complexity"
+      ]
+    },
+    {
+      "id": "src-event-planner-outlook",
+      "metric": "155,800 event planner jobs in 2024; 5% projected growth from 2024 to 2034",
+      "claim": "BLS says event planner services are expected to be in demand for weddings, business events, and organizational gatherings.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Meeting, Convention, and Event Planners",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "sourceDate": "2025-09-04",
+      "bestUsedFor": [
+        "event demand",
+        "planner coordination pressure",
+        "booking workflow complexity"
+      ]
+    },
+    {
+      "id": "src-ttb-retail-alcohol",
+      "metric": "Federal alcohol guidance points retail alcohol businesses to licensing and tax obligations",
+      "claim": "TTB advises businesses selling beverage alcohol at retail, including bars and catering services, to address licensing and potential federal tax or fee requirements.",
+      "sourceTitle": "Alcohol FAQs | Alcohol and Tobacco Tax and Trade Bureau",
+      "sourceUrl": "https://www.ttb.gov/faqs/alcohol?tid=7",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "compliance pressure",
+        "alcohol service boundaries",
+        "licensing-sensitive workflows"
+      ]
+    },
+    {
+      "id": "src-idaho-mobile-bars",
+      "metric": "Some states do not offer an alcohol license exclusively for mobile establishments",
+      "claim": "Idaho Alcohol Beverage Control explains that alcohol sales and consumption are generally restricted to licensed premises unless a catering permit is secured for a special event.",
+      "sourceTitle": "Mobile Bars | Idaho State Police Alcohol Beverage Control",
+      "sourceUrl": "https://isp.idaho.gov/abc/mobile-bars/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "state-by-state licensing variation",
+        "mobile bar operating constraints",
+        "human review boundaries"
+      ]
+    },
+    {
+      "id": "src-ibis-event-planners",
+      "metric": "Party and event planning in the U.S. grew at a 1.9% CAGR from 2020 to 2025",
+      "claim": "IBISWorld reports recent growth in the U.S. party and event planning industry, with demand shaped by changing consumer preferences, location, size, and service mix.",
+      "sourceTitle": "Party & Event Planners in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/party-event-planners/4414/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market demand",
+        "event services growth",
+        "competitive positioning"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Event inquiry and package qualification agent",
+      "problem": "Mobile beverage teams lose time answering the same questions about availability, guest counts, package fit, setup needs, and what is included before a quote can be prepared.",
+      "agentWorkflow": "DocsBot answers from your menu, package sheet, service area rules, FAQs, and booking policies. It collects event date, venue, guest count, service style, bar type, alcohol handling preference, budget range, and follow-up details, then prepares a structured summary for your team.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, forms, connectors, or workflow automations, the agent can check approved availability context, submit an intake form, create a task, or route a lead to sales.",
+      "exampleQuestionsOrRequests": [
+        "Do you serve weddings for 150 guests in Austin on September 12?",
+        "What is included in your mocktail bar package?",
+        "Can you send my event details to someone for a quote?"
+      ],
+      "businessOutcome": "Respond faster to high-intent inquiries, reduce incomplete leads, and help sales teams spend more time pricing qualified events.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Responsible-service and licensing guidance assistant",
+      "problem": "Alcohol service is location-specific, and mobile operators need staff to follow the company’s approved policies rather than improvising on licensing, service limits, or venue rules.",
+      "agentWorkflow": "DocsBot retrieves internal responsible-service policies, escalation rules, staff training materials, venue notes, and state-specific guidance your business has approved. It can point staff to the source and require human review for legal, licensing, or contract-sensitive decisions.",
+      "liveContextOrTools": "A configured AI Action can route uncertain alcohol-service questions to a manager, create a compliance review task, or attach the event summary to the handoff.",
+      "exampleQuestionsOrRequests": [
+        "Can we serve alcohol at this off-site venue if the client buys the bottles?",
+        "What should staff do if a guest appears intoxicated?",
+        "Who approves a last-minute change to bar service hours?"
+      ],
+      "businessOutcome": "Keep sensitive questions inside defined boundaries while making approved operating guidance easier for staff to find.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ttb-retail-alcohol",
+        "src-idaho-mobile-bars"
+      ]
+    },
+    {
+      "name": "On-site operations knowledge agent",
+      "problem": "Mobile beverage crews work away from the office, often at night or on weekends, and need quick answers about equipment, recipes, prep quantities, event notes, and teardown steps.",
+      "agentWorkflow": "DocsBot trains on SOPs, event playbooks, prep sheets, recipe guides, equipment manuals, packing lists, brand standards, and internal FAQs. Staff can ask natural-language questions and get source-grounded answers from the latest approved content.",
+      "liveContextOrTools": "Through configured Slack, Microsoft Teams, private chat, or an MCP connector to approved internal tools, the agent can retrieve live event metadata or trigger a handoff when information is missing.",
+      "exampleQuestionsOrRequests": [
+        "How many pounds of ice do we pack for a 4-hour event with 100 guests?",
+        "What is the garnish setup for the signature margarita bar?",
+        "Where is the checklist for closing the trailer after an outdoor event?"
+      ],
+      "businessOutcome": "Improve consistency across events and reduce calls to managers for routine operational details.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-bartender-outlook"
+      ]
+    },
+    {
+      "name": "Planner and venue partner support agent",
+      "problem": "Event planners and venues need fast, consistent answers about insurance, setup footprint, power, water, load-in timing, bar appearance, and service limitations.",
+      "agentWorkflow": "DocsBot answers from approved venue packets, sales collateral, insurance FAQs, setup diagrams, planning checklists, and sample timelines. When the request needs a human, it collects missing details and escalates with conversation context.",
+      "liveContextOrTools": "Customer-configured actions can route requests by event type, create a partner follow-up task, or send a summary to the assigned account owner.",
+      "exampleQuestionsOrRequests": [
+        "What floor space do you need for the cart and back bar?",
+        "Can you provide COI details for our venue file?",
+        "What questions should I answer before we book beverage service?"
+      ],
+      "businessOutcome": "Make it easier for planners and venues to evaluate your service while protecting staff from repetitive pre-event email threads.",
+      "icon": "BuildingStorefrontIcon",
+      "sourceIds": [
+        "src-event-planner-outlook"
+      ]
+    },
+    {
+      "name": "Post-event insight and follow-up agent",
+      "problem": "After a busy event weekend, teams often delay follow-up, miss recurring complaints, or lose useful notes about menus, staffing, and equipment needs.",
+      "agentWorkflow": "DocsBot can summarize customer conversations, identify repeated questions, surface knowledge gaps, and help draft follow-up responses from approved tone and policy guidance. Managers can review logs and improve the source content before the next event cycle.",
+      "liveContextOrTools": "With approved workflows, DocsBot can create follow-up tasks, route unresolved issues, or draft a recap for human review before sending.",
+      "exampleQuestionsOrRequests": [
+        "Summarize unanswered questions from this week’s website inquiries.",
+        "Draft a follow-up email for a corporate event lead who asked about zero-proof options.",
+        "What topics should we add to our booking FAQ?"
+      ],
+      "businessOutcome": "Turn inquiry and support history into better documentation, stronger follow-up, and more consistent client communication.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Seasonal staffing and training assistant",
+      "problem": "BLS projects about 129,600 bartender openings per year, and mobile beverage companies often rely on part-time or seasonal staff who need fast access to service standards.",
+      "agentWorkflow": "DocsBot gives new and returning staff a private knowledge assistant trained on onboarding guides, SOPs, recipes, safety notes, packing lists, event roles, and company policies. It can answer questions instantly and show where the answer came from.",
+      "liveContextOrTools": "Managers can review common employee questions in analytics and update training documents where gaps appear.",
+      "exampleQuestionsOrRequests": [
+        "What should a barback check before the trailer leaves?",
+        "How do we handle a missing garnish at an event?",
+        "What is our standard greeting for wedding guests?"
+      ],
+      "businessOutcome": "Shorten ramp time for temporary crews and keep service standards consistent across locations and event teams.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bartender-outlook"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give planners and clients instant answers before they request a quote",
+    "intro": "A DocsBot customer-facing agent can live on your website or booking page and answer from your approved beverage menus, service packages, FAQs, policies, venue requirements, and lead forms. It keeps the experience fast while routing complex pricing, licensing, and contract questions to your team.",
+    "requests": [
+      {
+        "request": "“Do you have availability for a 120-person wedding, and what package should we choose?”",
+        "agentResponseStrategy": "Ask for date, venue, guest count, service duration, bar style, alcohol preference, and contact details; explain package differences from approved content; then prepare a qualified handoff.",
+        "sourceTypes": [
+          "Service packages",
+          "Booking FAQs",
+          "Lead intake forms",
+          "Service area rules"
+        ],
+        "optionalAction": "Submit the completed intake to a configured form, CRM, email, or scheduling workflow for human follow-up.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you provide bartenders, mixers, glassware, and a nonalcoholic drink station?”",
+        "agentResponseStrategy": "Answer from your menu, package inclusions, rentals guide, and add-on catalog while clarifying what the client or venue must provide.",
+        "sourceTypes": [
+          "Menu PDFs",
+          "Rental add-on lists",
+          "Package pages",
+          "Event planning guides"
+        ],
+        "optionalAction": "Create a quote-prep task with selected services and missing details for a manager to review.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Are you allowed to serve alcohol at my venue?”",
+        "agentResponseStrategy": "Share your approved general policy and collect venue, state, event type, and alcohol-purchase details, then escalate for human review instead of making a legal determination.",
+        "sourceTypes": [
+          "Approved policy notes",
+          "Venue FAQs",
+          "Licensing guidance",
+          "Escalation rules"
+        ],
+        "optionalAction": "Route the question to the designated operations or compliance owner with the full conversation summary.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-ttb-retail-alcohol"
+        ]
+      },
+      {
+        "request": "“What do you need for setup and load-in?”",
+        "agentResponseStrategy": "Provide setup footprint, power, water, access, parking, timing, and weather-plan details from your event guide or venue packet.",
+        "sourceTypes": [
+          "Setup guides",
+          "Venue packets",
+          "Load-in checklists",
+          "Event timelines"
+        ],
+        "optionalAction": "Send a checklist link or create a planner follow-up task when venue details are incomplete.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can you support guests who do not drink alcohol?”",
+        "agentResponseStrategy": "Answer from your mocktail menu, zero-proof package information, garnish options, allergens, and service policies.",
+        "sourceTypes": [
+          "Mocktail menus",
+          "Ingredient lists",
+          "Allergen notes",
+          "Package FAQs"
+        ],
+        "optionalAction": "Add zero-proof preferences to the lead summary for the sales or event planning team.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“I’m a planner comparing vendors for next year’s events.”",
+        "agentResponseStrategy": "Explain service formats, planning timelines, partner materials, insurance document request steps, and what information is needed for a proposal.",
+        "sourceTypes": [
+          "Partner one-sheets",
+          "Planning timelines",
+          "Insurance FAQs",
+          "Sales enablement content"
+        ],
+        "optionalAction": "Forward a partner inquiry summary to the assigned sales contact or create a follow-up task.",
+        "icon": "BriefcaseIcon",
+        "sourceIds": [
+          "src-event-planner-outlook"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep mobile beverage crews aligned from prep to last call",
+    "intro": "DocsBot can also act as a private internal knowledge agent for owners, managers, bartenders, barbacks, and event leads. Train it on your operations library so staff can retrieve the right answer without searching through old messages, spreadsheets, or printed binders.",
+    "workflows": [
+      {
+        "name": "Event prep checklist retrieval",
+        "problem": "Packing mistakes and unclear prep ownership can cause delays when crews are working across multiple venues.",
+        "agentWorkflow": "Staff ask DocsBot for the correct checklist by event type, package, trailer, cart, or venue. The agent answers from approved SOPs and can surface missing information for manager review.",
+        "sourceTypes": [
+          "Packing lists",
+          "Event orders",
+          "SOPs",
+          "Equipment manuals"
+        ],
+        "optionalAction": "Create a task or notify the operations lead when required event details are missing from the source material.",
+        "outcome": "Fewer repeated questions and more consistent pre-event execution.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Recipe, allergen, and menu support",
+        "problem": "Temporary or rotating staff may not remember every batch spec, garnish, substitution, or ingredient note.",
+        "agentWorkflow": "DocsBot retrieves recipes, prep instructions, ingredient notes, allergen statements, and service scripts from approved documents so staff can answer confidently and consistently.",
+        "sourceTypes": [
+          "Recipe books",
+          "Menu PDFs",
+          "Ingredient lists",
+          "Training guides"
+        ],
+        "optionalAction": "Flag unanswered recipe questions as documentation gaps for the beverage director or owner.",
+        "outcome": "Protect drink quality and guest communication across changing crews.",
+        "icon": "BeakerIcon"
+      },
+      {
+        "name": "Service issue escalation",
+        "problem": "Questions about intoxication, minors, venue conflict, client disputes, or service-hour changes should not be handled by guesswork.",
+        "agentWorkflow": "DocsBot gives staff the approved escalation path, responsible-service reminders, and manager contact instructions, while keeping legal or high-impact decisions with humans.",
+        "sourceTypes": [
+          "Responsible-service policies",
+          "Escalation guides",
+          "Venue rules",
+          "Manager playbooks"
+        ],
+        "optionalAction": "Route the issue summary to the on-call manager or create an incident follow-up record through an approved workflow.",
+        "outcome": "Staff get fast guidance while sensitive decisions stay within company-defined boundaries.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-idaho-mobile-bars"
+        ]
+      },
+      {
+        "name": "Sales follow-up preparation",
+        "problem": "Owners and sales reps often need to respond quickly after an inquiry, but details may be spread across chat transcripts, forms, and package documents.",
+        "agentWorkflow": "DocsBot summarizes the inquiry, identifies missing fields, drafts a response from approved sales language, and helps the human decide next steps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Sales playbooks",
+          "Package pages",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM task through customer-configured Skills, APIs, or connectors.",
+        "outcome": "Speed up follow-up without removing human control over pricing, contracts, or final commitments.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Knowledge-gap review for owners",
+        "problem": "If clients repeatedly ask the same questions about permits, bar packages, travel fees, or setup requirements, the website and sales materials may be missing useful information.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help owners see repeated questions and update source content over time.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Website FAQs",
+          "Policy documents",
+          "Sales collateral"
+        ],
+        "optionalAction": "Export or summarize recurring topics for a monthly content review.",
+        "outcome": "Improve customer self-service and reduce avoidable back-and-forth before quotes.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the knowledge sources a business approves, so answers can be grounded in company content rather than generic web responses.",
+      "industryApplication": "Train on mobile bar packages, menus, setup guides, alcohol-service policies, venue packets, and booking FAQs to answer event questions consistently.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Lead qualification and booking intake",
+      "mainLandingPageContext": "DocsBot can collect structured lead details through custom forms or intake flows and apply customer-defined qualification rules.",
+      "industryApplication": "Capture event date, venue, guest count, package interest, service area, budget range, and contact preferences before a human prepares the quote.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, record creation, routing, notifications, and workflow triggers through customer-configured access.",
+      "industryApplication": "Use approved workflows to submit intake forms, create follow-up tasks, route licensing questions, look up event metadata, or connect to remote Model Context Protocol servers that expose tools your team already uses.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can support employees with instant answers from SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other internal knowledge sources.",
+      "industryApplication": "Give bartenders, barbacks, event leads, and managers searchable access to prep lists, recipes, staffing procedures, responsible-service notes, and teardown checklists.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation review, analytics, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See whether customers keep asking about dry-hire rules, mocktails, travel fees, guest-count minimums, venue needs, or package inclusions, then update your content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect client event details, internal SOPs, pricing guidance, and staff materials while controlling what the agent can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "bowe-dollie-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions and fast first-line answers.",
+      "Train agents on your own content library, not generic hospitality assumptions.",
+      "Use embedded website support and internal knowledge access from the same DocsBot foundation."
+    ],
+    "whyTheseReviewsFit": "Mobile beverage buyers need fast inquiry handling, reliable answers from approved service content, and easy access for teams working outside the office. DocsBot proof spans customer-facing support, owned-content training, and embedded self-service that can help event-driven businesses respond with consistency.",
+    "trustClaimIcons": [
+      "BoltIcon",
+      "BookOpenIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for mobile beverage services",
+    "audience": [
+      "Mobile bar owners",
+      "Event beverage caterers",
+      "Wedding and corporate beverage teams",
+      "Mobile coffee and mocktail carts",
+      "Hospitality operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "mobile-food-services",
+    "caterer",
+    "catering-equipment-rental",
+    "food-trucks",
+    "alcoholic-beverage-manufacturing",
+    "food-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "mobile-beverage-services",
+    "webSearchQueries": [
+      "mobile bar catering industry event beverage services alcohol catering demand statistics",
+      "National Restaurant Association off-premises catering events beverage alcohol service regulations mobile bar",
+      "BLS bartenders employment occupational outlook 2024 2034 catering drinking places",
+      "TTB alcohol beverage catering mobile bar state licensing requirements",
+      "BLS meeting convention event planners occupational outlook 2024 2034 employment growth",
+      "IBISWorld party and event planners industry revenue United States 2025"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/food-preparation-and-serving/bartenders.htm",
+      "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "https://www.ttb.gov/faqs/alcohol?tid=7",
+      "https://isp.idaho.gov/abc/mobile-bars/",
+      "https://www.ibisworld.com/united-states/industry/party-event-planners/4414/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45516,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32972,
+        "outputTokens": 8222,
+        "reasoningOutputTokens": 206,
+        "totalTokens": 53738,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.208897,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.228897
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25575,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18279,
+          "outputTokens": 5457,
+          "reasoningOutputTokens": 206,
+          "totalTokens": 31032,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.129377,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.149377
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19941,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14693,
+          "outputTokens": 2765,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22706,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07952,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07952
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1700887945472-4d6e059c8b06?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU0ODJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Mobile Beverage Services background image",
+    "source": "legacy-industry",
+    "query": "Mobile Beverage Services"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify event inquiries before our team spends time building a quote?",
+      "answer": "Yes. You can train the agent on your packages, menus, service areas, minimums, add-ons, and booking policies, then have it collect the details your team needs: date, venue, guest count, service duration, bar style, alcohol handling preference, budget range, and contact information. The agent can summarize the request and route it through a configured form, email, CRM workflow, or task system for human follow-up.",
+      "role": "Owners and event sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from making promises about alcohol licensing or venue approval?",
+      "answer": "Use DocsBot as a source-grounded guidance and escalation layer, not as the final authority on legal or licensing decisions. It can answer from your approved policies, collect venue and event details, and route uncertain questions to a manager. That matters because TTB guidance points retail alcohol businesses, including bars and catering services, to licensing and potential federal tax or fee obligations.",
+      "role": "Owners and event sales teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ttb-retail-alcohol"
+      ]
+    },
+    {
+      "question": "Can it handle wedding planners and venue partners asking for setup, COI, load-in, and power requirements?",
+      "answer": "Yes. DocsBot can answer from your venue packets, setup diagrams, insurance FAQs, planning checklists, sample timelines, and sales collateral. If a planner needs a document, quote, or exception review, the agent can collect the missing details and prepare a handoff for the assigned sales or operations owner instead of leaving another incomplete email thread.",
+      "role": "Owners and event sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this help us respond when inquiries come in while we are working events on nights and weekends?",
+      "answer": "That is one of the strongest fits. A website agent can answer common package, availability, setup, staffing, and mocktail questions immediately, then capture structured lead information for the team to review later. It helps keep high-intent prospects engaged while owners, bartenders, and event leads are loading, serving, or tearing down.",
+      "role": "Owners and event sales teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support both alcohol-focused mobile bars and coffee, mocktail, or zero-proof beverage carts?",
+      "answer": "Yes. The agent is trained on your approved content, so it can support different service models: mobile bars, prosecco carts, coffee carts, mocktail bars, smoothie stations, or mixed beverage packages. You control the menus, ingredient notes, package rules, allergen language, and escalation paths it uses for each offering.",
+      "role": "Owners and event sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can staff use it on-site to find recipes, garnish counts, prep lists, and teardown steps?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, recipe guides, packing lists, event playbooks, equipment manuals, staff guides, and teardown checklists. Bartenders and event leads can ask natural-language questions from a phone or team chat experience and get answers grounded in the latest approved documents.",
+      "role": "Bartenders and on-site leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot help with seasonal or part-time bartender training?",
+      "answer": "DocsBot gives new and returning staff a searchable assistant for onboarding guides, service scripts, responsible-service reminders, recipes, packing steps, and escalation rules. That is useful in a labor market where BLS reported 756,700 bartender jobs in 2024 and projected about 129,600 bartender openings per year from 2024 to 2034.",
+      "role": "Event operations managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bartender-outlook"
+      ]
+    },
+    {
+      "question": "Can the agent distinguish between customer-facing answers and internal staff instructions?",
+      "answer": "Yes. You can create customer-facing and private internal experiences with different approved sources, instructions, permissions, and escalation rules. For example, clients might see package and planning guidance, while staff can access SOPs, batch recipes, responsible-service procedures, and manager escalation contacts.",
+      "role": "Event operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens if the agent does not know an answer or the source material is outdated?",
+      "answer": "DocsBot is designed to answer from approved knowledge sources and can escalate when information is missing, sensitive, or uncertain. Managers can review logs, repeated unanswered questions, and knowledge gaps, then update menus, FAQs, policy notes, or SOPs so the agent improves from better source material rather than guessing.",
+      "role": "Event operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us reduce back-and-forth before a quote is ready?",
+      "answer": "Yes. The agent can ask intake questions in a consistent order, explain what is included in each package, clarify client-provided versus company-provided items, and identify missing fields before a human prices the event. That helps sales teams spend less time chasing basics and more time handling qualified opportunities, custom pricing, and contract details.",
+      "role": "Owners and event sales teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it connect with the forms, CRM, scheduling, or task tools we already use?",
+      "answer": "DocsBot can route summaries, submit forms, create tasks, trigger workflows, or use approved APIs, Skills, connectors, webhooks, and MCP options when your team configures the access. The right pattern depends on your stack, but the goal is to keep the agent’s actions bounded: collect details, prepare handoffs, update approved fields, and notify the right person.",
+      "role": "Owners and event sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep humans in control of pricing, contracts, substitutions, and service exceptions?",
+      "answer": "You can define instructions that keep pricing exceptions, contract language, licensing decisions, last-minute service-hour changes, and nonstandard venue requests with a human. DocsBot can still gather context, summarize the conversation, show the relevant policy, and route the issue to the right manager for review.",
+      "role": "Owners and event sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support multi-location mobile beverage teams with different service areas or state rules?",
+      "answer": "Yes, if your source content is organized by location, service area, venue type, or operating policy. The agent can answer from the relevant approved material and escalate where the answer depends on jurisdiction or licensing review. State variation matters: Idaho Alcohol Beverage Control says some states do not offer a license exclusively for mobile establishments.",
+      "role": "Event operations managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-idaho-mobile-bars"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our event coordinator or salesperson?",
+      "answer": "No. It is best positioned as a first-line AI agent that answers repetitive questions, qualifies leads, drafts summaries, and supports staff with approved knowledge. Your team should still own final quotes, client relationships, contract commitments, event design, compliance decisions, and high-touch planner communication.",
+      "role": "Owners and event sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What documents should we prepare before launching a mobile beverage AI agent?",
+      "answer": "Start with your service packages, menus, mocktail or zero-proof options, rental add-ons, setup requirements, service area rules, booking policies, FAQs, proposal templates, venue packets, SOPs, recipes, packing lists, responsible-service guidance, and escalation rules. Cleaner source content leads to more reliable answers and fewer human corrections after launch.",
+      "role": "Event operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation take if our information is spread across PDFs, Google Drive, spreadsheets, and old event notes?",
+      "answer": "The timeline depends less on the file types and more on how clear and current the content is. DocsBot can train on PDFs, documents, websites, internal knowledge sources, and similar materials, but most teams should budget time to remove outdated pricing, separate internal from public content, and define escalation rules before going live.",
+      "role": "Event operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help planners compare us against other mobile bar vendors without sounding generic?",
+      "answer": "Yes, if you train it on your real differentiators: service formats, bar appearance, staffing model, insurance request process, setup footprint, planning timeline, dry-hire rules, alcohol handling policies, add-ons, and sample event types. The agent should answer from your approved sales materials rather than making broad claims about competitors.",
+      "role": "Owners and event sales teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How can we measure whether the agent is actually improving sales or operations?",
+      "answer": "Track metrics such as qualified inquiry volume, completed intake rate, response time, unanswered questions, recurring topics, handoff volume, staff questions answered, and documentation gaps. DocsBot analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help owners see where the agent is creating value and where content needs improvement.",
+      "role": "Owners and event sales teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us handle corporate events, festivals, weddings, and private parties with different intake questions?",
+      "answer": "Yes. You can define different qualification paths and source materials by event type. A corporate happy hour may need COI, venue access, invoice, and brand standards details, while a wedding may need guest count, timeline, signature cocktails, planner contact, and load-in rules. DocsBot can collect the right details and summarize them for the team.",
+      "role": "Owners and event sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is this relevant if most of our leads come from Instagram, referrals, or planner relationships rather than our website?",
+      "answer": "Yes, if your team still answers the same questions repeatedly. DocsBot can support website inquiries, internal sales enablement, private staff knowledge access, and customer-configured workflows. Even when the original lead comes from a referral or social channel, the agent can help standardize follow-up, intake, and package explanations.",
+      "role": "Owners and event sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot protect client event details, pricing guidance, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. That helps mobile beverage teams separate public sales information from private operating procedures, pricing notes, and staff guidance.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it answer in multiple languages for clients, guests, or staff?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved source content. That can help with multilingual planner communication, venue coordination, and staff questions, while keeping the substance grounded in your menus, policies, procedures, and escalation rules.",
+      "role": "Bartenders and on-site leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent make up availability if it cannot see our calendar?",
+      "answer": "It should not be configured to guess. If you do not connect approved availability context, DocsBot can collect the event details and explain that your team will confirm availability. If you do configure a Skill, API, connector, or workflow with scoped calendar or event metadata access, the agent can use that approved live context within your rules.",
+      "role": "Owners and event sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us identify which FAQs or policies are missing from our website?",
+      "answer": "Yes. Conversation review, analytics, reports, topic management, and knowledge-gap discovery can show repeated questions about travel fees, dry-hire rules, mocktails, guest-count minimums, setup needs, licensing review, or package inclusions. Owners can use those insights to improve website copy, sales collateral, and staff documentation.",
+      "role": "Event operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why should we consider an AI agent now instead of just hiring another admin or coordinator?",
+      "answer": "An AI agent will not replace high-touch event planning, but it can absorb repetitive intake, FAQ, staff lookup, and handoff work around the clock. That matters in an event market where BLS reported 155,800 event planner jobs in 2024 and projected 5% growth from 2024 to 2034, reflecting ongoing demand for coordinated weddings, business events, and gatherings.",
+      "role": "Owners and event sales teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-event-planner-outlook"
+      ]
+    },
+    {
+      "question": "What is the biggest implementation risk for a mobile beverage company?",
+      "answer": "The biggest risk is usually messy source content: outdated menus, conflicting package descriptions, unclear alcohol handling language, or SOPs that live only in someone’s head. A successful rollout starts by deciding what the agent may answer, what it must escalate, and which documents are the approved source of truth.",
+      "role": "Event operations managers",
+      "category": "Implementation"
+    }
+  ]
+}

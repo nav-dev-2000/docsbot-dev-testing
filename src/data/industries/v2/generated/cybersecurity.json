@@ -1,0 +1,770 @@
+{
+  "slug": "cybersecurity",
+  "business": "Cybersecurity",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Cybersecurity Support and Knowledge",
+    "description": "DocsBot helps cybersecurity teams deliver source-grounded answers, qualify urgent requests, and route escalations from approved security knowledge.",
+    "canonicalPath": "/industry/cybersecurity"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for security-focused teams",
+    "headline": "DocsBot AI agents keep cybersecurity knowledge ready for every request",
+    "subheadline": "Train DocsBot on your help center, security documentation, onboarding material, policies, runbooks, product notes, and customer-facing FAQs so prospects, customers, analysts, and support teams can get fast, source-grounded answers with clear escalation paths for sensitive work.",
+    "proofBullets": [
+      {
+        "text": "Answer customer and prospect questions from approved product, policy, implementation, and security documentation.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Collect incident, onboarding, demo, or support details and route the request to the right team when a human needs to review it.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Summarize support conversations, surface repeated documentation gaps, and help teams improve knowledge bases over time.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "text": "Use scoped AI Actions for approved lookups, ticket or task creation, handoffs, notifications, and workflow triggers.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a cybersecurity AI agent",
+    "secondaryCta": "See how DocsBot handles support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps cybersecurity companies create AI agents trained on their own trusted knowledge. Agents can support customers in a website or product widget, assist internal teams in private chat, retrieve procedures from approved sources, summarize conversations, identify documentation gaps, and take bounded actions when configured through Skills, APIs, connectors, MCP, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and success leaders",
+        "roleContext": "For teams handling recurring configuration, compatibility, onboarding, billing, and security-questionnaire questions while keeping complex or sensitive issues with humans.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive documentation questions with source-grounded answers in the company’s voice.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Draft or summarize ticket responses through customer-configured helpdesk workflows.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate account-specific, incident-related, legal, or contract questions with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Security operations and implementation teams",
+        "roleContext": "For internal teams that need fast access to runbooks, deployment notes, supported integrations, customer environments, and troubleshooting procedures.",
+        "bullets": [
+          {
+            "text": "Retrieve approved SOPs, runbooks, and internal troubleshooting guidance without searching across scattered repositories.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Use scoped live lookups or record summaries where the customer has authorized APIs, Skills, or connectors.",
+            "icon": "ServerIcon"
+          },
+          {
+            "text": "Keep credentials out of conversations while using permissions, logs, and customer-defined boundaries for sensitive actions.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "CpuChipIcon"
+      },
+      {
+        "role": "Sales engineers and revenue teams",
+        "roleContext": "For teams that answer technical fit questions, prepare demos, respond to security questionnaires, and qualify buyers before a human consultation.",
+        "bullets": [
+          {
+            "text": "Answer product, architecture, pricing-fit, implementation, and compatibility questions from approved sales and technical content.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect company, environment, timeline, compliance needs, and preferred follow-up details through structured intake.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Forward qualified leads, summaries, and next-step context to sales systems through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Compliance, risk, and documentation owners",
+        "roleContext": "For teams maintaining public docs, internal controls content, incident-response guidance, and regulated customer communications.",
+        "bullets": [
+          {
+            "text": "Make policy, governance, and incident-response documentation easier to query across teams.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Support disclosure and response workflows where public companies face four-business-day SEC reporting after determining a cyber incident is material.",
+            "icon": "ClockIcon",
+            "sourceIds": [
+              "src-sec-cyber-disclosure"
+            ]
+          },
+          {
+            "text": "Use analytics to see repeated unanswered questions and prioritize documentation improvements.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "FolderIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fbi-ic3-2024",
+      "metric": "859,532 complaints and more than $16 billion in reported losses",
+      "claim": "The FBI’s 2024 Internet Crime Report recorded 859,532 suspected internet crime complaints and reported losses exceeding $16 billion, a 33% increase from 2023.",
+      "sourceTitle": "FBI Releases Annual Internet Crime Report",
+      "sourceUrl": "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Threat volume",
+        "Customer urgency",
+        "Cybercrime loss context"
+      ]
+    },
+    {
+      "id": "src-ibm-breach-cost-2024",
+      "metric": "$4.88 million average global breach cost",
+      "claim": "IBM reported that the average global cost of a data breach reached $4.88 million in 2024, up from $4.45 million the prior year.",
+      "sourceTitle": "IBM Report: Escalating Data Breach Disruption Pushes Costs to New Highs",
+      "sourceUrl": "https://newsroom.ibm.com/2024-07-30-ibm-report-escalating-data-breach-disruption-pushes-costs-to-new-highs",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Breach cost pressure",
+        "Incident readiness",
+        "Security operations urgency"
+      ]
+    },
+    {
+      "id": "src-isc2-workforce-2024",
+      "metric": "4.8 million professional workforce gap",
+      "claim": "ISC2 reported in 2024 that the global cybersecurity workforce gap rose 19% year over year to an estimated 4.8 million professionals needed.",
+      "sourceTitle": "#CybersecurityAwarenessMonth: Cybersecurity Needs You!",
+      "sourceUrl": "https://www.isc2.org/Insights/2024/10/CybersecurityAwarenessMonth-Cybersecurity-Needs-You",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Workforce shortage",
+        "Operational burden",
+        "Internal knowledge leverage"
+      ]
+    },
+    {
+      "id": "src-nist-csf-2",
+      "metric": "NIST CSF 2.0 adds Govern to the core functions",
+      "claim": "NIST Cybersecurity Framework 2.0 organizes cyber risk guidance around Govern, Identify, Protect, Detect, Respond, and Recover.",
+      "sourceTitle": "NIST Releases Version 2.0 of Landmark Cybersecurity Framework",
+      "sourceUrl": "https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Governance workflows",
+        "Risk-management language",
+        "Documentation structure"
+      ]
+    },
+    {
+      "id": "src-sec-cyber-disclosure",
+      "metric": "Four business days after materiality determination",
+      "claim": "The SEC’s public-company cybersecurity disclosure rules generally require an Item 1.05 Form 8-K within four business days after a registrant determines a cyber incident is material.",
+      "sourceTitle": "SEC Adopts Rules on Cybersecurity Risk Management, Strategy, Governance, and Incident Disclosure by Public Companies",
+      "sourceUrl": "https://www.sec.gov/newsroom/press-releases/2023-139",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "Disclosure pressure",
+        "Incident response workflow",
+        "Compliance documentation"
+      ]
+    },
+    {
+      "id": "src-cisa-small-business",
+      "metric": "Small businesses often lack cyber defense resources",
+      "claim": "CISA notes that small businesses often do not have the resources to defend against threats such as ransomware and need practical, current cyber guidance.",
+      "sourceTitle": "Cyber Guidance for Small Businesses",
+      "sourceUrl": "https://www.cisa.gov/small-business/",
+      "sourceDate": "Current guidance",
+      "bestUsedFor": [
+        "SMB customer education",
+        "Security guidance access",
+        "Resource constraints"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Customer security question answering",
+      "problem": "Cybersecurity buyers often ask detailed questions about implementation, integrations, data handling, support scope, SLAs, pricing fit, and security posture before they speak with sales.",
+      "agentWorkflow": "A DocsBot agent answers from approved product docs, trust-center content, FAQs, implementation notes, and sales enablement material. If the question is account-specific, contractual, or sensitive, it collects missing details and prepares a handoff for a human specialist.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, or connectors, the agent can attach lead details, route the summary to sales or support, or create a follow-up task in an approved workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you support our cloud environment and compliance requirements?",
+        "Can you summarize your data handling and retention policy?",
+        "I need a security review before procurement—who should I talk to?"
+      ],
+      "businessOutcome": "Reduce repetitive presales and support load while giving buyers faster, better-sourced answers before human review.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Incident intake and escalation triage",
+      "problem": "When customers report suspicious activity or urgent access issues, support teams need structured details quickly without letting an AI make high-impact security judgments.",
+      "agentWorkflow": "The agent asks for configured intake fields such as affected product, time observed, severity indicators, account identifiers, logs available, and contact details. It summarizes the report, flags sensitive context, and routes it to the right response path.",
+      "liveContextOrTools": "AI Actions can create a ticket, notify a response channel, attach a conversation summary, or trigger a customer-defined escalation workflow with scoped permissions and logs.",
+      "exampleQuestionsOrRequests": [
+        "We may have a compromised account—what information do you need?",
+        "Create an urgent ticket for this suspicious login pattern.",
+        "Summarize this conversation for the incident response team."
+      ],
+      "businessOutcome": "Improve intake consistency and handoff speed while keeping security-critical decisions with trained personnel.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-ibm-breach-cost-2024"
+      ]
+    },
+    {
+      "name": "Internal runbook and policy assistant",
+      "problem": "Security teams work across runbooks, SOPs, product notes, customer procedures, compliance guidance, and wikis; searching manually slows response and onboarding.",
+      "agentWorkflow": "DocsBot trains on approved internal documents, Confluence-style wikis, Google Drive content, PDFs, Word files, and policies so employees can ask natural-language questions and get source-grounded answers with citations to internal materials.",
+      "liveContextOrTools": "Where authorized, Skills can retrieve live record status, summarize recent ticket context, or trigger a task for missing documentation instead of exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "What is the runbook for high-severity customer escalation?",
+        "Where is the latest deployment checklist for enterprise onboarding?",
+        "Summarize our access-review procedure for a new analyst."
+      ],
+      "businessOutcome": "Help scarce security talent spend less time searching and more time resolving customer and operational work; ISC2 estimated a 4.8 million global cybersecurity professional gap in 2024.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-isc2-workforce-2024"
+      ]
+    },
+    {
+      "name": "Security questionnaire and RFP response support",
+      "problem": "Vendor assessments and RFPs require accurate answers from security policies, product documentation, architecture notes, data-processing terms, and prior response libraries.",
+      "agentWorkflow": "A DocsBot internal agent retrieves approved answers, drafts response language, links back to source material, and highlights questions that need legal, compliance, or security leadership review.",
+      "liveContextOrTools": "Customer-configured workflows can create tasks, route unresolved questions, or forward a completed draft to the responsible reviewer before submission.",
+      "exampleQuestionsOrRequests": [
+        "Draft an answer about encryption in transit and at rest from our approved materials.",
+        "Which policy answers this SOC 2 evidence request?",
+        "Flag questionnaire items that require legal review."
+      ],
+      "businessOutcome": "Accelerate response preparation while keeping final commitments, legal terms, and regulated claims under human control.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Documentation gap discovery for support and product teams",
+      "problem": "Repeated support tickets often reveal unclear documentation, missing setup steps, confusing security concepts, or unsupported buyer assumptions.",
+      "agentWorkflow": "DocsBot can review conversations, topic trends, logs, reports, satisfaction or resolution signals, and unanswered questions to identify knowledge gaps and repeated requests.",
+      "liveContextOrTools": "The agent can summarize top missing topics and create a documentation task through a customer-configured workflow when teams approve that action.",
+      "exampleQuestionsOrRequests": [
+        "What questions did users ask most often about SSO setup this month?",
+        "Which answers had low confidence or required escalation?",
+        "Create a documentation task for repeated API-key rotation questions."
+      ],
+      "businessOutcome": "Turn support demand into a roadmap for clearer help articles, onboarding guides, and technical documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Governance and response knowledge navigator",
+      "problem": "Cybersecurity firms and their customers use frameworks and disclosure rules that require consistent language across governance, risk, response, and recovery workflows.",
+      "agentWorkflow": "Train DocsBot on internal governance docs, incident-response plans, disclosure playbooks, risk templates, and policy references so employees can quickly locate approved procedures and responsible teams.",
+      "liveContextOrTools": "The agent can route a question to compliance, prepare a summary for review, or create a task when an approved workflow is configured.",
+      "exampleQuestionsOrRequests": [
+        "Which internal procedure maps to the Recover function?",
+        "What is our review process before external incident communication?",
+        "Summarize the approved steps for materiality escalation."
+      ],
+      "businessOutcome": "Support consistent governance communication aligned to frameworks such as NIST CSF 2.0, which organizes guidance around Govern, Identify, Protect, Detect, Respond, and Recover.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-nist-csf-2"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give cybersecurity buyers fast answers without bypassing expert review",
+    "intro": "A DocsBot customer-facing agent can live in your website, product, or support experience to answer from approved materials, collect structured details, qualify urgency, and escalate sensitive security, contractual, or account-specific questions to the right human team.",
+    "requests": [
+      {
+        "request": "“Do you meet our security and compliance requirements?”",
+        "agentResponseStrategy": "Answer from approved security, compliance, product, and policy sources; identify which requirements are covered; and collect follow-up details when a specialist needs to confirm fit.",
+        "sourceTypes": [
+          "Trust center content",
+          "Security FAQs",
+          "Policy pages",
+          "Product documentation"
+        ],
+        "optionalAction": "Forward the summary and buyer context to sales engineering or compliance through a customer-configured workflow.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“I need help configuring SSO, MFA, or access controls.”",
+        "agentResponseStrategy": "Retrieve setup steps from product docs and implementation guides, ask clarifying environment questions, and escalate if the request involves account-specific access changes.",
+        "sourceTypes": [
+          "Implementation guides",
+          "Help center articles",
+          "Admin documentation",
+          "Known-issue notes"
+        ],
+        "optionalAction": "Create a support ticket or handoff summary when the user reaches a configured escalation condition.",
+        "icon": "KeyIcon"
+      },
+      {
+        "request": "“We may be experiencing a security incident.”",
+        "agentResponseStrategy": "Collect configured intake details, avoid making a final incident determination, provide approved emergency instructions, and route the report to the response team.",
+        "sourceTypes": [
+          "Incident intake scripts",
+          "Support policies",
+          "Escalation runbooks",
+          "Customer contact rules"
+        ],
+        "optionalAction": "Trigger an urgent notification or ticket creation through an approved AI Action with scoped permissions.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Can we book a technical demo?”",
+        "agentResponseStrategy": "Answer fit questions first, collect company, use case, environment, timeline, and compliance needs, then qualify the request using customer-defined instructions.",
+        "sourceTypes": [
+          "Sales enablement docs",
+          "Service catalogs",
+          "Pricing guidance",
+          "Demo qualification forms"
+        ],
+        "optionalAction": "Request or book a meeting through an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar configured tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What should a small business do first to reduce cyber risk?”",
+        "agentResponseStrategy": "Point users to approved educational resources, product guidance, and practical next steps while avoiding legal, forensic, or guaranteed risk-reduction claims.",
+        "sourceTypes": [
+          "Cyber education content",
+          "Product guides",
+          "SMB FAQs",
+          "Public guidance summaries"
+        ],
+        "optionalAction": "Route a qualified consultation request to the right sales or advisory team.",
+        "icon": "BuildingStorefrontIcon",
+        "sourceIds": [
+          "src-cisa-small-business"
+        ]
+      },
+      {
+        "request": "“Do you support my language or region?”",
+        "agentResponseStrategy": "Respond in the user’s language when configured and answer from localized or approved global documentation where available.",
+        "sourceTypes": [
+          "Localized help docs",
+          "Global support policies",
+          "Regional service notes"
+        ],
+        "optionalAction": "Collect region and preferred language before routing to the correct team.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help security, support, sales, and compliance teams find the right answer faster",
+    "intro": "DocsBot can act as a private internal knowledge agent trained on the documents cybersecurity teams already use: runbooks, SOPs, help articles, product documentation, sales notes, questionnaires, policies, onboarding guides, and internal wikis.",
+    "workflows": [
+      {
+        "name": "Analyst onboarding and runbook lookup",
+        "problem": "New analysts and implementation specialists need consistent guidance without interrupting senior staff for every procedure.",
+        "agentWorkflow": "The agent answers questions from internal runbooks, onboarding materials, troubleshooting procedures, and product notes, with source-grounded references back to approved materials.",
+        "sourceTypes": [
+          "Runbooks",
+          "SOPs",
+          "Onboarding guides",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a documentation-gap task when a repeated question has no approved answer.",
+        "outcome": "Faster onboarding, fewer repeated questions, and clearer visibility into missing knowledge.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Ticket summarization and response drafting",
+        "problem": "Security support tickets often contain long technical threads, logs, attachments, and context that slow handoffs between support, engineering, and response teams.",
+        "agentWorkflow": "DocsBot can summarize conversation history, draft a response from approved docs, classify the topic, and prepare a concise handoff for a human reviewer.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Product documentation",
+          "Known issues",
+          "Support macros"
+        ],
+        "optionalAction": "Route the ticket, create a task, or notify a team through customer-configured helpdesk workflows, APIs, or connectors.",
+        "outcome": "Shorter handoffs and more consistent responses without removing human oversight for sensitive cases.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Sales engineering prep",
+        "problem": "Technical sellers need to quickly prepare for buyer calls with accurate product, architecture, compliance, pricing-fit, and objection-handling details.",
+        "agentWorkflow": "The agent retrieves sales enablement answers, summarizes relevant product materials, prepares talking points, and drafts follow-up responses for human approval.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Security questionnaires",
+          "Case studies"
+        ],
+        "optionalAction": "When configured, use approved Skills to research a prospect from public sources and create a CRM or follow-up task.",
+        "outcome": "Better prepared sales conversations and fewer delays waiting on technical experts.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Disclosure and governance review support",
+        "problem": "Public-company customers and cybersecurity vendors may need rapid coordination around materiality review, incident communications, and governance documentation.",
+        "agentWorkflow": "DocsBot can retrieve internal disclosure playbooks, response responsibilities, board-reporting procedures, and approved communication templates so teams can find the right process quickly.",
+        "sourceTypes": [
+          "Disclosure playbooks",
+          "Governance policies",
+          "Incident-response plans",
+          "Communication templates"
+        ],
+        "optionalAction": "Route a summary to compliance, legal, or security leadership for review through a customer-defined workflow.",
+        "outcome": "More consistent coordination when time-sensitive rules require disciplined documentation and review.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-sec-cyber-disclosure"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from the knowledge sources a business approves, including websites, help centers, documentation, internal files, and team knowledge.",
+      "industryApplication": "Cybersecurity teams can answer product, implementation, policy, onboarding, access, and troubleshooting questions without relying on generic AI responses.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can train on internal documents, SOPs, policies, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other company knowledge sources.",
+      "industryApplication": "Security analysts, support teams, sales engineers, and compliance owners can query approved runbooks, questionnaires, response plans, and technical notes in one place.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded, customer-configured lookups, summaries, record updates, workflow triggers, routing, and handoffs.",
+      "industryApplication": "Use approved live context to create tickets, route urgent incidents, summarize accounts, notify response teams, or trigger review workflows while keeping controls customer-defined.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "DocsBot can learn from, summarize, route, answer, or draft responses for support tickets when customers provide the right Skills, APIs, connectors, exports, or workflow access.",
+      "industryApplication": "Cybersecurity support teams can handle recurring setup and troubleshooting questions faster while escalating account-specific or incident-sensitive issues.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Documentation owners can see where buyers, customers, and internal teams repeatedly ask unclear or unanswered cybersecurity questions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer data training of public models.",
+      "industryApplication": "Cybersecurity buyers can deploy agents with permissions, private-source handling, secrets management for Skills, logging, and boundaries for sensitive workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support scale, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for teams that need agents trained on their own trusted content library rather than generic answers.",
+      "Useful for documentation teams that want to understand what users are trying to learn from technical docs."
+    ],
+    "whyTheseReviewsFit": "Cybersecurity buyers need accuracy, scale, and visibility into what customers and employees are asking. DocsBot proof spans high-volume customer support, source-grounded documentation experiences, and internal knowledge workflows—practical signals for teams managing sensitive technical knowledge.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "MagnifyingGlassIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, internal knowledge, documentation, and workflow automation agents for cybersecurity teams",
+    "audience": [
+      "Cybersecurity software companies",
+      "Managed security service providers",
+      "Security consulting firms",
+      "Security operations and support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "compliance-consulting",
+    "emergency-management",
+    "private-security",
+    "attorney-services",
+    "safety-security-legal"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "cybersecurity",
+    "webSearchQueries": [
+      "CISA cyber attacks small businesses 43 percent cyber attacks small businesses source",
+      "IBM Cost of a Data Breach Report 2024 average cost data breach",
+      "FBI Internet Crime Report 2024 losses cybercrime complaints",
+      "ISC2 Cybersecurity Workforce Study 2024 workforce gap",
+      "NIST Cybersecurity Framework 2.0 govern identify protect detect respond recover 2024",
+      "SEC cybersecurity incident disclosure four business days 2023 final rule"
+    ],
+    "sourceUrls": [
+      "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "https://newsroom.ibm.com/2024-07-30-ibm-report-escalating-data-breach-disruption-pushes-costs-to-new-highs",
+      "https://www.isc2.org/Insights/2024/10/CybersecurityAwarenessMonth-Cybersecurity-Needs-You",
+      "https://www.nist.gov/news-events/news/2024/02/nist-releases-version-20-landmark-cybersecurity-framework",
+      "https://www.sec.gov/newsroom/press-releases/2023-139",
+      "https://www.cisa.gov/small-business/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45562,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33018,
+        "outputTokens": 8249,
+        "reasoningOutputTokens": 200,
+        "totalTokens": 53811,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.209416,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.229416
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25584,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18288,
+          "outputTokens": 5408,
+          "reasoningOutputTokens": 200,
+          "totalTokens": 30992,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.128664,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.148664
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19978,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14730,
+          "outputTokens": 2841,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22819,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080752,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080752
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxjeWJlcnNlY3VyaXR5fGVufDB8MHx8fDE3MTQ4NzgwNzF8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cybersecurity background image",
+    "source": "legacy-industry",
+    "query": "Cybersecurity"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from giving unsupported security advice or making incident decisions?",
+      "answer": "Train the agent only on approved documentation, runbooks, policies, and customer-facing guidance, then configure escalation rules for incident, legal, contractual, or account-specific questions. DocsBot can collect structured details, summarize the request, and route it to the right human team instead of making high-impact security determinations.",
+      "role": "Security operations and implementation teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help reduce repetitive support questions without weakening our escalation process?",
+      "answer": "Yes. DocsBot can answer recurring setup, compatibility, onboarding, access-control, billing, and documentation questions from approved sources. For sensitive issues—such as suspected compromise, customer-specific access changes, or legal commitments—it can collect context and hand off the conversation summary to support, security, or compliance reviewers.",
+      "role": "Customer support and success leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Would this work for cybersecurity customers who ask detailed compliance and architecture questions before sales gets involved?",
+      "answer": "Yes. A DocsBot agent can answer presales questions from your trust center, product docs, implementation guides, security FAQs, and sales enablement content. It can also collect company, environment, compliance needs, timeline, and preferred follow-up details so sales engineering receives a better-qualified handoff.",
+      "role": "Sales engineers and revenue teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI if our team already has a help center and ticketing process?",
+      "answer": "Track deflected repetitive questions, faster first-response times, reduced internal search time, ticket summaries created, escalations routed with complete context, and documentation gaps resolved. For cybersecurity teams facing a 4.8 million global workforce gap, even small reductions in repeated lookup and intake work can preserve scarce analyst and support capacity.",
+      "role": "Customer support and success leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-isc2-workforce-2024"
+      ]
+    },
+    {
+      "question": "Can DocsBot support incident intake without turning into an incident response tool?",
+      "answer": "Yes. DocsBot is best positioned as an intake, routing, and knowledge assistant. It can ask configured questions about affected product, time observed, severity indicators, account identifiers, logs, and contact details, then summarize and route the report. Human responders remain responsible for investigation, severity decisions, and customer communications.",
+      "role": "Security operations and implementation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit into our existing helpdesk, CRM, Slack, Teams, or internal workflow tools?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, MCP options, forms, webhooks, and approved automation paths. Common patterns include creating a ticket, notifying a response channel, forwarding a qualified lead, summarizing a support thread, or updating approved fields where your team has authorized the connection.",
+      "role": "Security operations and implementation teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot for internal runbook lookup across Confluence-style wikis, PDFs, Google Drive, and policy documents?",
+      "answer": "Yes. DocsBot can be trained on internal documents, SOPs, policies, wikis, Google Drive content, PDFs, Word files, and other approved knowledge sources. Internal teams can ask natural-language questions and receive source-grounded answers that point back to the relevant approved materials.",
+      "role": "Security operations and implementation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What controls exist so credentials, secrets, or sensitive customer data do not end up in chats?",
+      "answer": "DocsBot supports role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no customer data training of public models. For Skills, customers configure secrets, environment values, metadata bindings, logging, network policy, and boundaries so credentials stay out of conversations.",
+      "role": "Security operations and implementation teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent cite the source of an answer so support or compliance can verify it?",
+      "answer": "Yes. DocsBot is designed for source-grounded answers from the knowledge sources you approve. That matters in cybersecurity because teams often need to verify whether an answer came from a current policy, product document, runbook, security FAQ, or governance playbook before acting on it.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this help with security questionnaires and RFP responses?",
+      "answer": "A private DocsBot agent can retrieve approved answers from policies, architecture notes, security documentation, prior response libraries, and product materials. It can draft response language, link back to sources, and flag items that require legal, compliance, security leadership, or sales engineering review before submission.",
+      "role": "Sales engineers and revenue teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support SEC cyber disclosure workflows for public-company customers or internal governance teams?",
+      "answer": "DocsBot can help teams locate disclosure playbooks, incident-response procedures, review responsibilities, and approved communication templates. It should not decide materiality, but it can route summaries for legal, compliance, or security leadership review. SEC rules generally require Form 8-K disclosure within four business days after a registrant determines a cyber incident is material.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-sec-cyber-disclosure"
+      ]
+    },
+    {
+      "question": "How much human review should we keep in the loop for customer-facing security answers?",
+      "answer": "Keep humans in the loop for incident classification, account-specific access changes, legal terms, contractual commitments, regulated claims, pricing exceptions, and anything involving sensitive customer data. Use the agent for approved answers, structured intake, summaries, and handoffs so experts spend less time gathering context and more time reviewing decisions.",
+      "role": "Customer support and success leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us understand where our cybersecurity documentation is failing customers?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Teams can review repeated unanswered questions, low-confidence topics, and escalation patterns to prioritize better setup guides, runbooks, FAQs, onboarding docs, and security explanations.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep answers current when security policies, supported integrations, and response procedures change often?",
+      "answer": "Treat DocsBot as an agent trained on approved, maintained sources—not as a static FAQ. Update the underlying docs, runbooks, help articles, policy pages, or enablement materials, then use logs and unanswered-question reports to spot outdated or missing content that needs ownership from support, security, compliance, or product teams.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot handle multilingual customer questions from global cybersecurity buyers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured. For global security teams, it can respond from approved localized documentation where available, collect region and preferred language, and route the user to the right support, sales, or compliance team when a local review is needed.",
+      "role": "Customer support and success leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What is the safest first use case for a cybersecurity company evaluating AI agents?",
+      "answer": "Start with a bounded, source-grounded use case: customer documentation Q&A, internal runbook lookup, security questionnaire drafting, or structured support intake. Avoid beginning with autonomous incident decisions or broad write access. Prove value with low-risk answers, clear escalation rules, logs, and human review paths.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we deploy separate agents for customers, sales engineers, support, and internal security teams?",
+      "answer": "Yes. Cybersecurity teams often need different knowledge scopes. A public support or presales agent can use customer-facing docs and FAQs, while private internal agents can use runbooks, policies, questionnaires, and implementation notes. Permissions and source selection should reflect each audience’s role and risk level.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot compare with using a generic AI assistant for cybersecurity support?",
+      "answer": "DocsBot is built around your approved knowledge, source-grounded answers, access controls, logs, and bounded workflows. A generic assistant may be useful for brainstorming, but cybersecurity support usually requires answers tied to current product docs, policies, runbooks, escalation rules, and human review for sensitive topics.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent create tickets or notify an urgent response channel when a customer reports suspicious activity?",
+      "answer": "Yes, when your team configures the appropriate Skills, APIs, connectors, or workflow automations. The agent can collect required intake fields, summarize the conversation, create a ticket, notify an approved channel, and attach context—while leaving investigation and severity decisions to trained personnel.",
+      "role": "Security operations and implementation teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What kind of audit trail or review process should we expect for sensitive AI-assisted workflows?",
+      "answer": "For sensitive workflows, configure clear permissions, scoped actions, logs, review queues, and escalation thresholds. DocsBot supports logs and customer-defined controls for Skills and actions, so teams can review what the agent answered, which sources it used, and what workflow steps were triggered.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help small-business cybersecurity providers educate prospects without giving legal or forensic advice?",
+      "answer": "Yes. A customer-facing agent can point prospects to approved educational resources, product guidance, and practical next steps while avoiding legal, forensic, or guaranteed risk-reduction claims. This is useful because CISA notes that small businesses often lack resources to defend against threats such as ransomware.",
+      "role": "Sales engineers and revenue teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cisa-small-business"
+      ]
+    },
+    {
+      "question": "How can we use DocsBot to improve onboarding for new analysts or implementation specialists?",
+      "answer": "Train an internal agent on onboarding guides, SOPs, product notes, customer environment procedures, deployment checklists, and escalation runbooks. New team members can ask procedural questions without interrupting senior staff, while managers can use repeated questions to identify missing training content.",
+      "role": "Security operations and implementation teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot work if our knowledge is spread across help articles, internal wikis, PDFs, product notes, and old ticket examples?",
+      "answer": "Yes. DocsBot can train on a mix of approved websites, help centers, documentation, internal files, wikis, PDFs, Word documents, Google Drive, Notion, Confluence-style content, and ticket sources when provided through approved exports or workflows. Most teams start by curating the highest-trust sources first.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "How should we handle edge cases where the agent does not know the answer?",
+      "answer": "Configure the agent to say when approved sources do not contain enough information, ask for missing details, and escalate to a human instead of guessing. Those unanswered or low-confidence conversations can then feed documentation-gap reports for support, product, security, or compliance owners.",
+      "role": "Customer support and success leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support governance language aligned with frameworks like NIST CSF 2.0?",
+      "answer": "Yes, if your team trains it on your governance documents, risk templates, incident-response plans, and framework mappings. NIST CSF 2.0 organizes cybersecurity risk guidance around Govern, Identify, Protect, Detect, Respond, and Recover, and DocsBot can help employees find the internal procedures tied to those functions.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nist-csf-2"
+      ]
+    },
+    {
+      "question": "What procurement objections should we expect from security leadership before approving an AI agent?",
+      "answer": "Expect questions about data retention, source control, access permissions, auditability, model training, encryption, escalation rules, secrets handling, and human oversight. DocsBot addresses these with SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and no customer data training of public models.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot scale for high-volume support periods, such as new product launches or major vulnerability announcements?",
+      "answer": "DocsBot can provide always-available answers from approved documentation and route sensitive questions to humans. It has proven high-volume support usage elsewhere, including more than 30,000 inquiries handled in one month for Sony NURO. Cybersecurity teams should still define surge-specific sources, escalation triggers, and review coverage.",
+      "role": "Customer support and success leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we make sure the agent does not expose internal-only procedures to customers?",
+      "answer": "Separate public and internal agents or carefully scope each agent’s approved sources. Customer-facing agents should use public docs, trust-center content, help articles, and approved FAQs. Internal agents can access runbooks, response procedures, sales notes, and policies according to role-based permissions and source-level governance.",
+      "role": "Compliance, risk, and documentation owners",
+      "category": "Security and compliance"
+    }
+  ]
+}

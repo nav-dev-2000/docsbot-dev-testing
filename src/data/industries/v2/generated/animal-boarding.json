@@ -1,0 +1,709 @@
+{
+  "slug": "animal-boarding",
+  "business": "Animal Boarding",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Animal Boarding Operations",
+    "description": "DocsBot helps animal boarding teams answer pet owner questions, prepare check-ins, and keep SOPs searchable so staff can focus on care.",
+    "canonicalPath": "/industry/animal-boarding"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for kennels, pet hotels, and daycare teams",
+    "headline": "Give pet owners fast answers while your staff stays focused on animal care",
+    "subheadline": "DocsBot lets animal boarding facilities create AI agents trained on their own policies, care instructions, FAQs, forms, SOPs, and service pages. Use them to answer pre-boarding questions, collect reservation details, guide staff through procedures, and route sensitive issues to a human.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions about vaccination requirements, check-in windows, feeding rules, enrichment options, pricing pages, and cancellation policies from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking intent, pet details, and follow-up preferences through structured intake flows before handing the request to your team or configured systems.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give kennel, front desk, and management staff instant access to SOPs, cleaning checklists, incident steps, and customer communication guidelines.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize conversations, create tasks, route special-care requests, or trigger approved workflows with clear boundaries.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your boarding AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps animal boarding businesses turn their facility knowledge into AI agents for customer support, staff knowledge, and workflow automation. Train an agent on your website, FAQs, PDFs, policies, SOPs, service descriptions, and internal documents so it can provide source-grounded answers, collect details, summarize requests, and escalate when a person should decide.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep service information consistent across phone, web, email, and front desk conversations while identifying what pet owners ask most often.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive questions about availability, vaccination rules, late pickup fees, medication handling, and tour requests.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Use conversation analytics and logs to discover policy gaps, unclear website pages, and recurring booking objections.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support a growing market: IBISWorld estimated U.S. pet grooming and boarding at $15.5 billion in 2025.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-ibisworld-market-size"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front desk and reservations teams",
+        "roleContext": "Help staff respond quickly without hunting through binders, old emails, or multiple documents while keeping humans in control of bookings and exceptions.",
+        "bullets": [
+          {
+            "text": "Draft source-grounded replies for common owner questions and prepare handoffs for complex, emotional, or unusual requests.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Collect pet name, dates, species, medication notes, temperament flags, and preferred contact method before staff follow-up.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route grooming add-ons, daycare trials, tour requests, and first-time-boarder questions to the right teammate or workflow.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Kennel leads and care staff",
+        "roleContext": "Make operating procedures easier to find during busy drop-off, feeding, medication, cleaning, and pickup periods.",
+        "bullets": [
+          {
+            "text": "Search approved SOPs for feeding instructions, cleaning steps, enrichment routines, incident documentation, and closing checklists.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Give new hires fast, consistent answers during onboarding without replacing supervisor judgment for animal health or safety decisions.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Keep bite, scratch, zoonotic disease, and sanitation reminders accessible; CDC notes animal care workers face hazards including bites, scratches, slips, trips, and falls.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-cdc-animal-care-hazards"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ibisworld-market-size",
+      "metric": "$15.5 billion U.S. pet grooming and boarding market size in 2025",
+      "claim": "IBISWorld lists the U.S. Pet Grooming & Boarding market at $15.5 billion in 2025, with 2.5% market size growth in 2025 and 9.4% CAGR from 2020 to 2025.",
+      "sourceTitle": "Pet Grooming & Boarding in the US Market Size Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/pet-grooming-boarding/1735/",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "market scale",
+        "growth pressure",
+        "owner demand"
+      ]
+    },
+    {
+      "id": "src-appa-pet-ownership",
+      "metric": "About 94 million U.S. families own a pet",
+      "claim": "The Insurance Information Institute cites APPA's 2024-2025 National Pet Owners Survey, reporting that 71% of U.S. households, or about 94 million families, own a pet.",
+      "sourceTitle": "Facts + Statistics: Pet Ownership and Insurance",
+      "sourceUrl": "https://www.iii.org/fact-statistic/facts-statistics-pet-ownership-and-insurance",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "customer demand",
+        "pet ownership scale",
+        "boarding addressable market"
+      ]
+    },
+    {
+      "id": "src-avma-pet-ownership",
+      "metric": "2024 AVMA pet ownership data covers veterinary spending and pet ownership",
+      "claim": "AVMA publishes 2024 U.S. pet ownership statistics sourced from its 2024 Pet Ownership and Demographic Sourcebook, including household pet ownership and veterinary care spending figures.",
+      "sourceTitle": "U.S. pet ownership statistics",
+      "sourceUrl": "https://www.avma.org/resources-tools/reports-statistics/us-pet-ownership-statistics",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "pet owner behavior",
+        "veterinary readiness",
+        "care documentation"
+      ]
+    },
+    {
+      "id": "src-cdc-animal-care-hazards",
+      "metric": "Animal care workers face bites, scratches, zoonotic disease, slips, trips, and falls",
+      "claim": "CDC/NIOSH describes hazards for veterinary and animal care workers, including bites and scratches, zoonotic diseases, slips, trips, and falls.",
+      "sourceTitle": "Hazards to Veterinary Medicine and Animal Care Workers",
+      "sourceUrl": "https://www.cdc.gov/niosh/veterinary/about/hazards.html",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "worker safety",
+        "staff training",
+        "operational SOPs"
+      ]
+    },
+    {
+      "id": "src-osha-zoonoses",
+      "metric": "Animal exposure can transmit zoonotic disease through direct contact or bites",
+      "claim": "OSHA explains that zoonoses can be transmitted through animal exposure, including direct transmission through animal bites, and that worker risk varies by task and animal exposure.",
+      "sourceTitle": "Agricultural Operations - Hazards & Controls",
+      "sourceUrl": "https://www.osha.gov/agricultural-operations/hazards",
+      "sourceDate": "Current OSHA resource",
+      "bestUsedFor": [
+        "safety risk",
+        "sanitation training",
+        "animal handling procedures"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Pre-boarding question agent",
+      "problem": "Prospective customers often need fast answers before they are ready to call: vaccine requirements, required paperwork, hours, tours, feeding policies, medication rules, and what to bring.",
+      "agentWorkflow": "Train a DocsBot AI support agent on your website, boarding policies, service pages, intake forms, FAQs, and PDF handouts. The agent answers in your facility’s voice, cites approved sources, collects missing details, and escalates special-care questions to staff.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or workflows, the agent can collect booking intent, submit a lead form, create a ticket, notify the front desk, or request a scheduling follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What vaccines does my dog need before boarding?",
+        "Can you board a senior cat that needs medication twice a day?",
+        "What should I bring for a first overnight stay?",
+        "Do you offer tours before I book?"
+      ],
+      "businessOutcome": "Fewer repetitive calls, faster owner education, and cleaner handoffs for staff who need to confirm availability or review special-care needs.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Reservation intake and handoff assistant",
+      "problem": "Incomplete booking requests slow down the front desk and create back-and-forth during peak travel seasons.",
+      "agentWorkflow": "A DocsBot agent can guide owners through structured intake: dates, pet details, feeding notes, medication notes, temperament considerations, add-ons, emergency contact, and preferred follow-up. It then summarizes the request for staff review.",
+      "liveContextOrTools": "Customer-configured AI Actions can create a task, route the request to reservations, trigger an email workflow, or pass a structured summary to approved systems through Skills, APIs, connectors, webhooks, or an MCP Connector when authorized.",
+      "exampleQuestionsOrRequests": [
+        "I need boarding for two dogs from July 3 to July 8.",
+        "Can I add a bath before pickup?",
+        "My dog has separation anxiety. What information do you need?",
+        "Please have someone call me about holiday availability."
+      ],
+      "businessOutcome": "Staff receive better-prepared inquiries and can spend more time confirming fit, availability, and any care exceptions.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Internal SOP and training agent",
+      "problem": "Animal boarding staff need consistent procedures for feeding, cleaning, opening and closing, incident documentation, owner updates, and escalation, but those answers are often scattered across binders and shared drives.",
+      "agentWorkflow": "Use DocsBot as a private internal knowledge agent trained on SOPs, checklists, onboarding docs, training materials, policies, and manager guidance. Staff ask natural-language questions and get source-grounded answers from approved internal content.",
+      "liveContextOrTools": "Deploy in private chat experiences, Slack, Microsoft Teams, or other configured team workflows so staff can access procedures without leaving their normal communication environment.",
+      "exampleQuestionsOrRequests": [
+        "What is the closing checklist for the small-dog room?",
+        "How do we document a minor scratch?",
+        "What do I say if an owner asks about a missed meal?",
+        "Where is the cleaning dilution guide?"
+      ],
+      "businessOutcome": "More consistent procedures, faster onboarding, and better visibility into documentation gaps that managers should improve.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Owner update and incident response drafts",
+      "problem": "Pet owners expect clear, calm communication when their animal is not eating, seems anxious, has a minor incident, or needs a routine update.",
+      "agentWorkflow": "DocsBot can retrieve your approved communication guidelines, summarize the situation from staff notes, and draft a response for human review. For sensitive issues, the agent can prepare the handoff while staff make the care decision and final contact.",
+      "liveContextOrTools": "With configured Skills, the agent can generate a summary, create a follow-up task, route to a manager, or prepare a message draft without sending high-impact communications automatically.",
+      "exampleQuestionsOrRequests": [
+        "Draft a pickup note explaining that Bella skipped breakfast but ate dinner.",
+        "Summarize this incident log for the manager.",
+        "What is our policy for notifying owners about minor paw irritation?",
+        "Prepare a human-reviewed update for an anxious first-time boarder."
+      ],
+      "businessOutcome": "Clearer owner communication, better documentation, and less time spent rewriting the same careful messages.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "name": "Safety and handling knowledge assistant",
+      "problem": "Animal care work carries real operational risk, including bites, scratches, zoonotic disease exposure, and slips or falls, so staff need quick access to facility-specific safety procedures.",
+      "agentWorkflow": "Train DocsBot on safety procedures, bite-prevention guidance, sanitation rules, cleaning product instructions, emergency steps, and incident forms. The agent can answer procedural questions and point staff back to approved source material.",
+      "liveContextOrTools": "Use scoped permissions so employees see only the internal materials appropriate for their role, with escalation instructions for health, injury, and emergency situations.",
+      "exampleQuestionsOrRequests": [
+        "What is our procedure after a dog bite?",
+        "How do we clean a kennel after a suspected contagious illness?",
+        "Who gets notified after an escape attempt?",
+        "Where is the incident report template?"
+      ],
+      "businessOutcome": "Staff can find safety procedures faster while supervisors and veterinary professionals remain responsible for medical and emergency decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cdc-animal-care-hazards",
+        "src-osha-zoonoses"
+      ]
+    },
+    {
+      "name": "Service upsell and first-visit fit assistant",
+      "problem": "New customers often need help understanding the difference between overnight boarding, daycare, enrichment, grooming add-ons, private suites, and temperament requirements.",
+      "agentWorkflow": "Train an AI presales agent on your service catalog, pricing guidance, package descriptions, eligibility rules, FAQs, and intake criteria. It answers fit questions, collects owner needs, and hands qualified requests to your team.",
+      "liveContextOrTools": "Configured forms and AI instructions can qualify by pet type, dates, services requested, first-time status, location, and urgency, then forward the summary to sales, support, or reservations workflows.",
+      "exampleQuestionsOrRequests": [
+        "Is daycare or overnight boarding better for my dog?",
+        "Do you offer enrichment for high-energy dogs?",
+        "Can I book grooming with a boarding stay?",
+        "What should I choose for a shy first-time boarder?"
+      ],
+      "businessOutcome": "Better-informed pet owners, more complete inquiries, and more opportunities to match customers with appropriate services.",
+      "icon": "SparklesIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent that answers before the phone rings",
+    "intro": "DocsBot can power a website chat widget or customer support experience that helps pet owners understand your requirements, services, and next steps. It stays grounded in your approved content and can escalate when a request needs staff judgment.",
+    "requests": [
+      {
+        "request": "“What vaccines are required before my dog can stay?”",
+        "agentResponseStrategy": "Answer from your vaccination policy, explain required documents, mention timing rules if included in your source content, and collect details if the owner wants a staff follow-up.",
+        "sourceTypes": [
+          "Vaccination policy",
+          "FAQ page",
+          "Intake checklist"
+        ],
+        "optionalAction": "Create a follow-up task or ticket when the owner says they need help confirming eligibility.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Do you have space for two cats next weekend?”",
+        "agentResponseStrategy": "Collect dates, pet count, species, special-care needs, and contact details, then make clear that staff will confirm availability unless a live lookup is configured.",
+        "sourceTypes": [
+          "Service pages",
+          "Reservation policy",
+          "Booking intake form"
+        ],
+        "optionalAction": "Use an approved scheduling or reservation workflow to request a call, submit an inquiry, or route the summary to the front desk.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“My dog takes medication. Can you handle that?”",
+        "agentResponseStrategy": "Provide general facility policy from approved sources, ask for high-level intake details, and escalate to staff for final review of medical or high-risk care situations.",
+        "sourceTypes": [
+          "Medication policy",
+          "Special-care checklist",
+          "Owner instructions"
+        ],
+        "optionalAction": "Prepare a staff-reviewed handoff with medication timing, owner contact details, and questions needing confirmation.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“What happens if my pet gets anxious while boarding?”",
+        "agentResponseStrategy": "Explain your enrichment, monitoring, comfort-item, and owner-update policies from approved content, while avoiding promises not documented in your sources.",
+        "sourceTypes": [
+          "Care philosophy page",
+          "Owner FAQ",
+          "Staff communication guidelines"
+        ],
+        "optionalAction": "Route first-time or behavior-sensitive requests to a manager or experienced care lead.",
+        "icon": "FaceSmileIcon"
+      },
+      {
+        "request": "“Can I add a bath or grooming before pickup?”",
+        "agentResponseStrategy": "Answer from your add-on service descriptions and collect pickup timing, pet type, coat notes, and contact details for staff confirmation.",
+        "sourceTypes": [
+          "Service catalog",
+          "Pricing page",
+          "Grooming add-on policy"
+        ],
+        "optionalAction": "Create an add-on request or notify the grooming/reservations team through a configured workflow.",
+        "icon": "ScissorsIcon"
+      },
+      {
+        "request": "“What should I bring for my pet’s stay?”",
+        "agentResponseStrategy": "Provide a checklist from your approved boarding instructions, including food, medication, labeling, bedding, toys, and prohibited items only where your policy specifies them.",
+        "sourceTypes": [
+          "Pre-arrival guide",
+          "FAQ",
+          "Owner handout"
+        ],
+        "optionalAction": "Send or generate a pre-arrival summary for staff review using a configured email or workflow action.",
+        "icon": "CheckCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for the people running the kennel",
+    "intro": "DocsBot gives animal boarding staff a searchable source of truth for SOPs, training materials, policies, owner communication templates, and shift procedures. Managers can review conversations to see where documentation needs updates.",
+    "workflows": [
+      {
+        "name": "Shift procedure lookup",
+        "problem": "Staff may need different checklists for opening, closing, feeding, cleaning, laundry, yard rotation, and room resets.",
+        "agentWorkflow": "Employees ask the internal agent for the correct procedure and receive source-grounded steps from approved SOPs and checklists.",
+        "sourceTypes": [
+          "SOPs",
+          "Daily checklists",
+          "Room procedures",
+          "Training PDFs"
+        ],
+        "optionalAction": "Generate a checklist summary for a specific shift or create a task for a manager to review outdated guidance.",
+        "outcome": "Faster answers during busy shifts and more consistent execution across teams.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Incident documentation support",
+        "problem": "Minor injuries, escapes, missed meals, unusual behavior, and owner complaints need clear documentation and escalation paths.",
+        "agentWorkflow": "The agent retrieves the relevant procedure, asks for missing details, summarizes notes, and drafts a handoff for a manager or front desk follow-up.",
+        "sourceTypes": [
+          "Incident forms",
+          "Escalation policies",
+          "Communication templates"
+        ],
+        "optionalAction": "Create a manager review task or route a structured incident summary to approved channels.",
+        "outcome": "Better handoffs and less time spent reconstructing events after a busy shift.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "New-hire onboarding helper",
+        "problem": "New staff need repeat explanations about animal handling expectations, cleaning routines, owner communication, and facility terminology.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training materials, SOPs, policies, and manager-approved guidance, then reveals repeated knowledge gaps through analytics.",
+        "sourceTypes": [
+          "Onboarding docs",
+          "Training guides",
+          "Employee handbook",
+          "Care standards"
+        ],
+        "optionalAction": "Suggest missing documentation topics based on repeated employee questions in conversation reports.",
+        "outcome": "More self-service learning and less repetitive supervisor time spent answering the same procedural questions.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Policy and owner-message drafting",
+        "problem": "Front desk staff need consistent wording when explaining late pickups, cancellations, vaccination documents, medication limits, or behavior review requirements.",
+        "agentWorkflow": "The agent retrieves the correct policy and drafts a response in your facility’s voice for staff review before sending.",
+        "sourceTypes": [
+          "Policies",
+          "Email templates",
+          "FAQ pages",
+          "Service terms"
+        ],
+        "optionalAction": "Draft a reply, summarize the customer context, or route the conversation to a manager for approval.",
+        "outcome": "More consistent communication without removing human judgment from sensitive owner interactions.",
+        "icon": "PencilIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s own content and provide instant answers from approved knowledge sources.",
+      "industryApplication": "Answer pet owner questions about boarding requirements, pet preparation, check-in and pickup, add-on services, cancellation rules, and first-time visit expectations.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can train on SOPs, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other company knowledge sources.",
+      "industryApplication": "Make kennel procedures, cleaning checklists, communication templates, incident steps, and onboarding materials searchable for care staff and front desk teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, record updates, task creation, routing, and workflow triggers when configured by the customer.",
+      "industryApplication": "Collect booking intent, summarize special-care notes, create reservation follow-up tasks, route incident summaries, or trigger approved workflows through APIs, connectors, webhooks, or Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, topic management, reports, satisfaction and resolution analysis, and insight into unanswered questions.",
+      "industryApplication": "See which boarding policies confuse owners, which questions staff repeat, and which website or SOP pages need improvement before peak travel periods.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and governance controls",
+      "mainLandingPageContext": "DocsBot supports human escalation, granular access controls, role-based permissions, encryption, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models.",
+      "industryApplication": "Escalate medical, behavioral, safety, pricing-exception, or incident questions to staff while keeping private SOPs and sensitive operating information controlled.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own policies, service pages, and training materials instead of relying on generic answers.",
+      "Support high-volume customer questions while keeping complex or sensitive requests available for human escalation.",
+      "Use embedded website support and internal knowledge access to reduce repetitive front desk and staff questions."
+    ],
+    "whyTheseReviewsFit": "Animal boarding teams need practical AI that is easy to maintain, grounded in their own procedures, and useful for both customer questions and staff knowledge. DocsBot proof spans self-service support, training-material answers, content-library grounding, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for animal boarding facilities",
+    "audience": [
+      "Animal boarding facility owners",
+      "Kennel and pet hotel managers",
+      "Front desk and reservations teams",
+      "Dog daycare and boarding operators",
+      "Pet care operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "beauty-salon",
+    "dry-cleaning-laundry",
+    "fitness-center",
+    "janitorial-cleaning-services",
+    "event-planning"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "animal-boarding",
+    "webSearchQueries": [
+      "IBISWorld pet boarding grooming industry revenue United States 2024 pet boarding",
+      "American Pet Products Association pet ownership statistics 2024 dogs cats United States",
+      "AVMA pet ownership and demographics sourcebook dogs cats boarding vaccination",
+      "OSHA animal care workers hazards bites zoonotic diseases kennel boarding"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/market-size/pet-grooming-boarding/1735/",
+      "https://www.iii.org/fact-statistic/facts-statistics-pet-ownership-and-insurance",
+      "https://www.avma.org/resources-tools/reports-statistics/us-pet-ownership-statistics",
+      "https://www.cdc.gov/niosh/veterinary/about/hazards.html",
+      "https://www.osha.gov/agricultural-operations/hazards"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40736,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28192,
+        "outputTokens": 8018,
+        "reasoningOutputTokens": 122,
+        "totalTokens": 48754,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.193887,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.203887
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21391,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14095,
+          "outputTokens": 5087,
+          "reasoningOutputTokens": 122,
+          "totalTokens": 26478,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.113367,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.123367
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19345,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14097,
+          "outputTokens": 2931,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22276,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08052,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08052
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDA1Mjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Animal Boarding background image",
+    "source": "legacy-industry",
+    "query": "Animal Boarding"
+  },
+  "faq": [
+    {
+      "question": "Will an AI agent actually reduce front desk calls, or will pet owners still call to confirm everything?",
+      "answer": "DocsBot is best used for repetitive, policy-driven questions that owners ask before they are ready to book: vaccines, check-in windows, what to bring, medication rules, add-ons, tours, and cancellation policies. It can answer from approved sources, collect missing details, and escalate when staff confirmation is needed. Many owners may still call for availability or special care, but those calls can arrive better prepared.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot answer availability questions for boarding reservations?",
+      "answer": "Yes, with the right setup. If you only train DocsBot on static content, it should collect dates, pet details, and contact information, then tell the owner staff will confirm availability. If you configure approved Skills, APIs, connectors, webhooks, or an MCP Connector to an authorized reservation source, the agent can use live context or trigger a scoped booking inquiry workflow.",
+      "role": "Front desk and reservations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from giving medical advice about a pet’s condition or medication?",
+      "answer": "Train the agent on your medication and special-care policies, then set instructions to provide only facility policy, collect intake details, and escalate medical, behavioral, or high-risk care questions to staff. DocsBot supports human escalation and source-grounded answers, so the agent can prepare a clear handoff without making health or safety decisions on behalf of your team.",
+      "role": "Kennel leads and care staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent handle vaccination requirements without making exceptions we would not approve?",
+      "answer": "Yes. DocsBot answers from your approved vaccination policy, FAQ, intake checklist, and pre-arrival materials. You can instruct it to explain required documents and timing rules only when they are present in source content, and to route unclear cases, expired records, puppy exceptions, titer questions, or special circumstances to staff for final review.",
+      "role": "Front desk and reservations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What information can DocsBot collect before our reservations team follows up?",
+      "answer": "DocsBot can guide owners through a structured intake flow: pet name, species, breed or size, boarding dates, first-time status, feeding notes, medication notes, temperament considerations, grooming or enrichment add-ons, emergency contact, and preferred follow-up method. It can then summarize the request for staff or trigger an approved workflow when configured.",
+      "role": "Front desk and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for both customer-facing questions and internal staff SOPs?",
+      "answer": "Yes. You can use DocsBot as a website AI support agent for pet owners and as a private internal knowledge agent for staff. The customer-facing agent can answer from service pages, FAQs, policies, and forms, while the internal agent can search SOPs, cleaning checklists, incident procedures, onboarding materials, and communication templates with access controls.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep kennel procedures private if we also use DocsBot on our website?",
+      "answer": "Separate agents, permissions, and source collections can keep public owner information separate from internal SOPs. DocsBot supports granular access controls and role-based permissions, so public users see approved customer-facing answers while staff access private procedures, incident steps, safety guidance, and training materials through authorized internal experiences.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can staff use it during busy feeding, cleaning, pickup, and closing shifts?",
+      "answer": "Yes. DocsBot can serve as a private knowledge agent for shift procedures, feeding instructions, cleaning steps, laundry routines, yard rotation, room resets, and closing checklists. Staff can ask natural-language questions instead of searching binders or shared drives, and managers can review repeated questions to identify SOPs that need clarification.",
+      "role": "Kennel leads and care staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot help with safety procedures like bites, scratches, sanitation, or escape attempts?",
+      "answer": "DocsBot can be trained on your safety SOPs, incident forms, sanitation rules, bite-response steps, and escalation policies so staff can quickly find the approved procedure. This matters because CDC/NIOSH identifies animal care worker hazards including bites, scratches, zoonotic diseases, slips, trips, and falls. Supervisors still make injury, emergency, and medical decisions.",
+      "role": "Kennel leads and care staff",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cdc-animal-care-hazards"
+      ]
+    },
+    {
+      "question": "Can DocsBot draft owner messages after a missed meal, anxious behavior, or minor incident?",
+      "answer": "Yes, for human review. DocsBot can retrieve your communication guidelines, summarize staff notes, and draft calm, consistent owner updates. For sensitive issues like injuries, behavior concerns, illness symptoms, or complaints, configure it to prepare the handoff and draft only, while a manager or trained staff member approves the final message.",
+      "role": "Front desk and reservations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What systems can DocsBot connect with if our kennel uses booking, forms, email, or team chat tools?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and MCP connectivity. Depending on what you authorize, the agent can collect intake details, create a task, route a request, notify Slack or Microsoft Teams-style channels, submit a form, or pass structured summaries to approved systems. Specific connections depend on your configuration.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will the agent know our exact pricing, holiday rules, late fees, and cancellation policy?",
+      "answer": "Only if you provide those materials as approved sources. DocsBot can answer from your pricing pages, service catalog, holiday policies, cancellation terms, late pickup rules, and add-on descriptions. If pricing varies by pet, suite, date, behavior, or package, the agent can explain the documented guidance and route quote-sensitive cases to staff.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How long does implementation take if our policies are scattered across PDFs, web pages, and staff documents?",
+      "answer": "Implementation starts by gathering the sources you already trust: website pages, FAQs, PDFs, owner handouts, SOPs, intake forms, email templates, and training documents. DocsBot can train on those materials and be refined with instructions, escalation rules, and test questions. The bigger task is usually deciding which policies are current enough to expose to owners or staff.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if our SOPs are outdated or different managers explain procedures differently?",
+      "answer": "That is a common reason to start with an internal knowledge agent. DocsBot can surface inconsistent or unanswered staff questions through logs, reports, topic management, and knowledge-gap discovery. Managers can then update the source documents and retrain the agent so answers reflect the current approved procedure instead of informal hallway knowledge.",
+      "role": "Kennel leads and care staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we measure whether the AI agent is helping before expanding it across locations?",
+      "answer": "Yes. DocsBot provides analytics, logs, conversation review, reports, satisfaction and resolution analysis, and knowledge-gap discovery. For boarding teams, useful measures include repeated question volume, completed intake summaries, escalation reasons, unanswered topics, staff SOP searches, owner satisfaction signals, and reductions in repetitive front desk back-and-forth.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this mainly for large pet hotel chains, or can a single-location kennel use it?",
+      "answer": "A single-location kennel can use DocsBot to answer common owner questions and make internal policies searchable. Multi-location operators can use similar agents across facilities while controlling location-specific policies, services, hours, pricing, and escalation paths. The U.S. pet grooming and boarding market was estimated by IBISWorld at $15.5 billion in 2025, so both independents and larger operators face demand and service-consistency pressure.",
+      "role": "Owners and general managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-ibisworld-market-size"
+      ]
+    },
+    {
+      "question": "How should we think about ROI during peak travel seasons?",
+      "answer": "Focus on time saved from repetitive questions, cleaner booking handoffs, fewer incomplete inquiries, faster staff access to SOPs, and better visibility into confusing policies before holidays. DocsBot will not replace capacity management or staff judgment, but it can reduce avoidable back-and-forth when owners ask the same vaccine, packing, medication, pickup, and add-on questions.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help first-time boarders choose between daycare, overnight boarding, enrichment, grooming, or private suites?",
+      "answer": "Yes. Train DocsBot on your service catalog, eligibility rules, temperament requirements, add-on descriptions, pricing guidance, and first-visit materials. The agent can explain differences, ask fit questions, collect pet details, and hand qualified requests to staff. It should avoid promising acceptance, availability, or suitability when your team needs to review the pet first.",
+      "role": "Front desk and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we make sure the agent does not hallucinate a policy we do not have?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved content. For buyer evaluation, test it with real edge cases: expired vaccines, anxious dogs, intact pets, senior cats, medication timing, late pickups, aggressive behavior, and holiday cancellations. Configure instructions so the agent says when it does not know and escalates rather than inventing an answer.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What data security controls matter if owners share pet details, contact information, or care notes?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For boarding use cases, you should also define what the agent may collect, where summaries are routed, who can view logs, and which sensitive cases require human review.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot support multilingual pet owners?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured for your content and use case. For boarding teams, that can help owners understand vaccination documents, check-in instructions, what to bring, pickup windows, and follow-up steps. Staff should still review sensitive medical, behavioral, legal, pricing-exception, or incident communications.",
+      "role": "Front desk and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this compare with a generic website chatbot or simple FAQ widget?",
+      "answer": "A simple FAQ widget usually points visitors to static answers. DocsBot can be trained on your broader knowledge base, provide source-grounded responses, collect structured details, summarize conversations, escalate to humans, and trigger approved workflows through configured Actions or Skills. It can also serve internal staff, not just website visitors.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Who should own the rollout: operations, front desk, IT, or the general manager?",
+      "answer": "The best owner is usually operations or the general manager, with input from front desk, kennel leads, and whoever manages the website or systems. Operations defines policies and escalation rules, front desk validates owner questions, kennel leads validate SOP answers, and technical support configures sources, permissions, and any approved workflow connections.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot to onboard seasonal or part-time staff before holidays?",
+      "answer": "Yes. A private internal agent can answer new-hire questions from onboarding docs, employee handbooks, care standards, SOPs, and training PDFs. It helps seasonal staff find approved procedures faster, while managers keep authority over animal handling, safety, and judgment calls. Conversation analytics can also show where training materials are unclear.",
+      "role": "Kennel leads and care staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will pet owners trust an AI agent with questions about their animals?",
+      "answer": "Trust depends on how the agent is positioned. It should be clear that the agent answers from your facility’s approved policies, collects information, and escalates sensitive issues to staff. It should not pretend to be a veterinarian or guarantee acceptance. In animal boarding, the best experience is fast self-service for routine questions plus obvious human paths for emotional or complex cases.",
+      "role": "Owners and general managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "What kinds of questions should always escalate to a person?",
+      "answer": "Escalate medical concerns, medication exceptions, severe anxiety, aggression history, bites, escape attempts, illness symptoms, vaccination uncertainty, denied or conditional bookings, complaints, refund disputes, pricing exceptions, and any incident involving injury or safety. DocsBot can collect context and prepare summaries, but your staff should decide care, risk, acceptance, and customer-resolution outcomes.",
+      "role": "Kennel leads and care staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How much policy documentation do we need before launching?",
+      "answer": "You do not need perfect documentation, but you do need reliable sources for the topics you want the agent to answer. Start with high-volume owner questions and critical staff SOPs: vaccines, hours, check-in and pickup, feeding, medications, cancellation, incident escalation, sanitation, and what to bring. Use unanswered questions and logs to improve documentation over time.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    }
+  ]
+}

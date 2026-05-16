@@ -1,0 +1,757 @@
+{
+  "slug": "physicians-office",
+  "business": "Physicians Office",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Physician Office Support Automation",
+    "description": "DocsBot helps physician offices automate patient FAQs, staff knowledge access, and routed handoffs while keeping answers grounded in approved practice content.",
+    "canonicalPath": "/industry/physicians-office"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for busy medical practices",
+    "headline": "Give your physician office an AI agent for everyday patient and staff questions",
+    "subheadline": "DocsBot helps physician offices create AI support agents trained on approved patient instructions, policies, forms, FAQs, visit prep, billing guidance, and internal SOPs. Patients get faster answers, staff spend less time repeating routine information, and sensitive cases can be escalated to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer appointment prep, forms, office policies, billing basics, referral instructions, and patient education questions from approved sources.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Route sensitive, urgent, clinical, or account-specific questions to staff with conversation summaries and collected context.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "text": "Give front desk, care coordination, billing, and management teams a private knowledge agent for SOPs, scripts, policies, and training.",
+        "icon": "UserGroupIcon"
+      }
+    ],
+    "primaryCta": "Build a physician office AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns a physician office’s approved knowledge into AI agents that answer routine patient and employee questions, summarize conversations, identify documentation gaps, and trigger bounded workflows when configured through Skills, APIs, connectors, MCP Connectors, or customer-defined review paths. It is not a replacement for clinicians; it helps staff deliver consistent, source-grounded information and escalate care-sensitive requests.",
+    "whoItHelps": [
+      {
+        "role": "Practice administrators and office managers",
+        "roleContext": "Administrators balancing access, staffing, revenue cycle, and patient experience can use DocsBot to make policies and routine workflows easier to follow across the practice.",
+        "bullets": [
+          {
+            "text": "Medical group leaders reported finance or staffing as their biggest 2024 project focus in an MGMA poll, making repeatable workflows a practical priority.",
+            "icon": "ChartBarIcon",
+            "sourceIds": [
+              "src-mgma-finance-staffing"
+            ]
+          },
+          {
+            "text": "Publish consistent answers about hours, forms, accepted documents, portal use, cancellation rules, and office procedures from approved content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which patient or staff questions are creating repeated interruptions.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Front desk, call center, and patient access staff",
+        "roleContext": "Patient access teams can deflect routine questions, collect missing details, and route messages without asking staff to search across binders, portals, shared drives, and intranet pages.",
+        "bullets": [
+          {
+            "text": "Answer routine appointment, form, location, insurance-process, and preparation questions through a website widget or approved internal chat experience.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect scheduling intent or request details and forward a structured handoff to staff or configured scheduling workflows.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Give new staff a searchable assistant for phone scripts, eligibility-process notes, referral rules, and escalation paths.",
+            "icon": "BookOpenIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Care coordinators, nurses, and clinical support teams",
+        "roleContext": "Clinical support teams need quick access to approved education and workflow instructions while keeping medical judgment with licensed professionals.",
+        "bullets": [
+          {
+            "text": "Retrieve approved patient education, prep instructions, follow-up guidance, and referral process notes without searching multiple repositories.",
+            "icon": "HeartIcon"
+          },
+          {
+            "text": "Escalate symptom, diagnosis, medication, urgent, or individualized clinical questions to qualified staff instead of generating unsupervised advice.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Summarize patient-facing conversations so staff can review context before responding through the practice’s approved channels.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Billing, prior authorization, and revenue cycle teams",
+        "roleContext": "Revenue cycle teams can use an internal knowledge agent to find payer process notes, documentation checklists, appeal templates, and approved escalation steps faster.",
+        "bullets": [
+          {
+            "text": "AMA reported physicians complete an average of 39 prior authorizations per week, with 40% hiring staff who work exclusively on prior authorization requirements.",
+            "icon": "ArchiveBoxIcon",
+            "sourceIds": [
+              "src-ama-prior-auth"
+            ]
+          },
+          {
+            "text": "Draft internal summaries, checklist reminders, and handoff notes from approved policy and payer-process content for staff review.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Route missing-information requests or create tasks through customer-configured Skills, APIs, connectors, or workflow automations.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "CalculatorIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cdc-office-visits",
+      "metric": "1.0 billion physician office visits in 2019",
+      "claim": "CDC’s National Center for Health Statistics estimated 1.0 billion office-based physician visits in the United States in 2019, or 320.7 visits per 100 people.",
+      "sourceTitle": "Characteristics of Office-based Physician Visits by Age, 2019",
+      "sourceUrl": "https://www.cdc.gov/nchs/data/nhsr/nhsr184.pdf",
+      "sourceDate": "April 19, 2023",
+      "bestUsedFor": [
+        "patient volume",
+        "front desk demand",
+        "office visit scale"
+      ]
+    },
+    {
+      "id": "src-ama-prior-auth",
+      "metric": "39 prior authorizations per physician per week",
+      "claim": "AMA’s 2024 prior authorization survey reported an average of 39 prior authorizations per physician per week and 40% of respondents hiring staff who work exclusively on prior authorization.",
+      "sourceTitle": "Reducing prior authorization burdens",
+      "sourceUrl": "https://www.ama-assn.org/system/files/2026-nac-action-kit-prior-auth.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "administrative burden",
+        "revenue cycle workflows",
+        "prior authorization staffing"
+      ]
+    },
+    {
+      "id": "src-mgma-staffing",
+      "metric": "53% cite finding candidates as top staffing challenge",
+      "claim": "An October 2024 MGMA Stat poll found 53% of medical group leaders pointed to finding candidates as their top staffing challenge.",
+      "sourceTitle": "Reshaping your medical practice staffing strategies for 2025",
+      "sourceUrl": "https://www.mgma.com/mgma-stat/reshaping-your-medical-practice-staffing-strategies-for-2025",
+      "sourceDate": "October 2, 2024",
+      "bestUsedFor": [
+        "staffing shortage",
+        "training burden",
+        "operational pressure"
+      ]
+    },
+    {
+      "id": "src-mgma-finance-staffing",
+      "metric": "70% focused on finance or staffing projects",
+      "claim": "A January 2024 MGMA Stat poll found 70% of medical group leaders reported finance, revenue cycle management, staffing, or HR as their biggest project focus.",
+      "sourceTitle": "Finance, staffing projects top medical group leaders’ list of 2024 resolutions",
+      "sourceUrl": "https://www.mgma.com/mgma-stat/finance-staffing-projects-top-medical-group-leaders-2024-resolutions",
+      "sourceDate": "January 3, 2024",
+      "bestUsedFor": [
+        "practice management priorities",
+        "staffing pressure",
+        "revenue cycle focus"
+      ]
+    },
+    {
+      "id": "src-hhs-hipaa-access",
+      "metric": "HIPAA right of access applies to PHI in designated record sets",
+      "claim": "HHS explains that the HIPAA Privacy Rule gives individuals, with limited exceptions, a right to review or obtain copies of PHI maintained in a covered entity’s designated record set.",
+      "sourceTitle": "The HIPAA Privacy Rule’s Right of Access and Health Information Technology",
+      "sourceUrl": "https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/understanding/special/healthit/eaccess.pdf",
+      "sourceDate": "HHS guidance",
+      "bestUsedFor": [
+        "patient access",
+        "privacy expectations",
+        "records request workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient access and appointment-prep assistant",
+      "problem": "Patients call or message for hours, forms, visit preparation, accepted documents, portal help, parking, telehealth instructions, cancellation policies, and what to expect before an appointment.",
+      "agentWorkflow": "DocsBot answers from approved office FAQs, visit-prep pages, forms, policies, and patient education documents. When a request requires account access, scheduling confirmation, symptoms, medications, or clinical judgment, the agent collects context and escalates with a concise summary.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can collect scheduling intent, create a task, notify staff, or hand off to a configured scheduling workflow without making clinical decisions.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first visit?",
+        "Do I need to fast before my lab appointment?",
+        "Can I reschedule my appointment for next week?",
+        "Where do I upload my referral form?"
+      ],
+      "businessOutcome": "Reduces repetitive front desk questions while giving patients consistent guidance from current practice-approved content.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-cdc-office-visits"
+      ]
+    },
+    {
+      "name": "Prior authorization and referral workflow support",
+      "problem": "Prior authorizations, referrals, payer rules, documentation checklists, and appeal steps consume staff time and create interruptions for clinicians.",
+      "agentWorkflow": "An internal DocsBot agent retrieves approved payer process notes, referral requirements, medical-necessity checklist language, appeal templates, and escalation rules. It can draft staff-facing summaries and checklist reminders for review rather than submitting unsupervised clinical or coverage determinations.",
+      "liveContextOrTools": "Through customer-configured Skills, APIs, connectors, or workflow triggers, the agent can create a task, route a missing-information request, summarize a case note, or update approved nonclinical fields when permissioned.",
+      "exampleQuestionsOrRequests": [
+        "What documents do we need for this imaging prior auth?",
+        "Where is our appeal template for denied specialty medication?",
+        "Which staff queue handles cardiology referrals?",
+        "Summarize the missing information before I call the payer."
+      ],
+      "businessOutcome": "Helps revenue cycle and clinical support teams find the right process faster while keeping high-impact payer and clinical decisions under staff review.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-ama-prior-auth"
+      ]
+    },
+    {
+      "name": "Private SOP and onboarding agent for staff",
+      "problem": "New and cross-trained staff need fast answers about phones, portal messages, rooming workflows, billing handoffs, referral routing, lab instructions, and office policies.",
+      "agentWorkflow": "DocsBot trains on SOPs, shared-drive documents, PDFs, wikis, policies, scripts, training notes, and internal announcements. Employees ask natural-language questions and receive source-grounded answers with references back to approved material.",
+      "liveContextOrTools": "The agent can be deployed in private chat experiences and, when configured, Slack or Microsoft Teams for internal team access.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a prescription refill request?",
+        "How do we handle a records request from a patient?",
+        "What is the phone script for a new patient intake?",
+        "Where do I find the no-show policy?"
+      ],
+      "businessOutcome": "Improves consistency across roles and locations, especially when hiring and training capacity is constrained.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-mgma-staffing"
+      ]
+    },
+    {
+      "name": "Patient education and follow-up guidance finder",
+      "problem": "Patients often need understandable reminders after visits, but staff must avoid ad hoc answers that conflict with approved clinical education or provider instructions.",
+      "agentWorkflow": "DocsBot retrieves approved education materials, preparation guides, discharge-style instructions, follow-up FAQs, and office policies. The agent can explain where to find information, summarize approved content, and prompt escalation for symptoms, diagnosis, medication changes, or urgent concerns.",
+      "liveContextOrTools": "A configured workflow can generate a staff-review summary, route the patient to the right team, or create a follow-up task when the request is outside self-service boundaries.",
+      "exampleQuestionsOrRequests": [
+        "Where is the colonoscopy prep handout?",
+        "What are your post-visit instructions for wound care?",
+        "How do I request a refill through the portal?",
+        "Who do I contact if my symptoms changed?"
+      ],
+      "businessOutcome": "Makes approved education easier to find while reinforcing human review for clinical judgment and urgent care needs.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Records request and privacy workflow guide",
+      "problem": "Patients ask how to access records, send information to another provider, update forms, or understand release-of-information steps, creating privacy-sensitive administrative work.",
+      "agentWorkflow": "DocsBot answers from the practice’s HIPAA policies, release forms, patient portal instructions, identity-verification steps, and records request procedures. It can explain process requirements in plain language and route specific requests to authorized staff.",
+      "liveContextOrTools": "With approved workflow access, the agent can collect required request details, create a records task, and send a handoff summary while leaving verification and release decisions to authorized personnel.",
+      "exampleQuestionsOrRequests": [
+        "How do I request a copy of my medical record?",
+        "Can you send my records to a specialist?",
+        "Where is the authorization form?",
+        "How long does a records request take?"
+      ],
+      "businessOutcome": "Improves clarity around privacy-sensitive workflows and reduces incomplete records requests.",
+      "icon": "LockClosedIcon",
+      "sourceIds": [
+        "src-hhs-hipaa-access"
+      ]
+    },
+    {
+      "name": "Service-fit and new patient intake support",
+      "problem": "Prospective patients want to know whether the office offers a service, accepts certain visit types, or has the right preparation steps before contacting staff.",
+      "agentWorkflow": "A DocsBot presales-style agent answers from service pages, provider bios, new patient FAQs, insurance-process notes, and intake requirements. It can collect contact details, preferred follow-up channel, reason for visit category, and scheduling intent for staff review.",
+      "liveContextOrTools": "Using customer-configured forms, Skills, APIs, or connectors, the agent can forward a qualified inquiry to staff, create a task, or request a booking handoff through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you see new patients for diabetes management?",
+        "What information do you need before my first appointment?",
+        "Can I request a telehealth visit?",
+        "Which provider handles sports physicals?"
+      ],
+      "businessOutcome": "Helps prospective patients self-serve basic fit questions and gives staff a structured intake summary for follow-up.",
+      "icon": "UserCircleIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A patient-facing AI agent that knows your office policies and when to hand off",
+    "intro": "DocsBot can power a website or portal-adjacent support experience trained on approved physician office content. It is best for logistics, forms, preparation, education, and process guidance—not diagnosis, treatment decisions, urgent triage, or individualized medical advice.",
+    "requests": [
+      {
+        "request": "“What do I need before my annual physical?”",
+        "agentResponseStrategy": "Answer from approved visit-prep instructions, required forms, arrival time, identification, insurance-process notes, and lab-prep content. Escalate if the patient asks whether a test or treatment is medically necessary.",
+        "sourceTypes": [
+          "Visit-prep pages",
+          "Patient forms",
+          "Office FAQs",
+          "Patient education"
+        ],
+        "optionalAction": "Collect missing form or appointment context and create a staff handoff when configured.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can I get my test results or records?”",
+        "agentResponseStrategy": "Explain the practice’s approved portal, records request, identity verification, and release-of-information steps. Do not expose PHI unless the practice has configured an authorized, compliant workflow.",
+        "sourceTypes": [
+          "HIPAA policies",
+          "Release forms",
+          "Portal instructions",
+          "Records procedures"
+        ],
+        "optionalAction": "Create a records-request task or route the patient to authorized staff after collecting required non-sensitive intake details.",
+        "icon": "LockClosedIcon",
+        "sourceIds": [
+          "src-hhs-hipaa-access"
+        ]
+      },
+      {
+        "request": "“I need to reschedule or ask about a referral.”",
+        "agentResponseStrategy": "Collect scheduling intent or referral context, answer general policy questions, and escalate account-specific updates to staff or a configured workflow.",
+        "sourceTypes": [
+          "Scheduling policies",
+          "Referral process notes",
+          "Office procedures",
+          "Staff scripts"
+        ],
+        "optionalAction": "Forward a structured summary to the correct queue or trigger a configured scheduling handoff.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you accept new patients for this service?”",
+        "agentResponseStrategy": "Answer from approved service pages, provider bios, new patient instructions, and practice-defined intake rules, then capture follow-up details if the patient wants contact.",
+        "sourceTypes": [
+          "Service pages",
+          "Provider bios",
+          "New patient FAQs",
+          "Intake forms"
+        ],
+        "optionalAction": "Submit a custom intake form or route the inquiry to the front desk for review.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“What should I do if my symptoms are getting worse?”",
+        "agentResponseStrategy": "Avoid diagnosis or individualized treatment advice. Provide approved emergency and escalation language, direct the patient to contact the office or emergency services as appropriate, and prepare a handoff summary if configured.",
+        "sourceTypes": [
+          "Escalation policies",
+          "After-hours instructions",
+          "Emergency guidance",
+          "Patient safety scripts"
+        ],
+        "optionalAction": "Notify the appropriate staff queue or provide approved urgent-contact instructions within practice-defined boundaries.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can you explain this patient handout?”",
+        "agentResponseStrategy": "Summarize approved education material in plain language, cite the source content, and remind the patient to follow provider-specific instructions for their situation.",
+        "sourceTypes": [
+          "Patient education PDFs",
+          "After-visit instructions",
+          "Care guides",
+          "Practice FAQs"
+        ],
+        "optionalAction": "Offer to send the source handout link or route follow-up questions to staff.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for the people running the practice",
+    "intro": "DocsBot gives staff a secure, source-grounded way to search internal SOPs, policies, scripts, payer notes, training documents, and patient-facing materials. Sensitive workflows can use permissions, logs, and human review paths.",
+    "workflows": [
+      {
+        "name": "Front desk and call script guidance",
+        "problem": "Staff need quick, consistent answers while handling calls, portal messages, intake questions, cancellations, and directions.",
+        "agentWorkflow": "Employees ask DocsBot for the approved script, policy, or next step. The answer cites the underlying SOP or FAQ and can suggest when to escalate to clinical, billing, or management staff.",
+        "sourceTypes": [
+          "Phone scripts",
+          "Scheduling SOPs",
+          "Portal message policies",
+          "Office FAQs"
+        ],
+        "optionalAction": "Create a task or route the caller summary through a customer-configured workflow.",
+        "outcome": "Faster onboarding and fewer policy inconsistencies across patient access teams.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Billing and prior authorization checklist retrieval",
+        "problem": "Billing teams lose time finding payer-specific instructions, documentation requirements, denial workflows, and staff responsibilities.",
+        "agentWorkflow": "DocsBot retrieves checklist items, summarizes relevant process notes, and drafts staff-facing next steps from approved documents for review.",
+        "sourceTypes": [
+          "Payer process notes",
+          "Authorization checklists",
+          "Appeal templates",
+          "Revenue cycle SOPs"
+        ],
+        "optionalAction": "Trigger a missing-information task, route the case summary, or update approved workflow fields when configured.",
+        "outcome": "Less time searching and more consistent revenue cycle execution.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-ama-prior-auth"
+        ]
+      },
+      {
+        "name": "Clinical support knowledge lookup",
+        "problem": "Nurses, medical assistants, and care coordinators need approved education and workflow guidance without relying on memory or outdated printouts.",
+        "agentWorkflow": "The internal agent answers from current protocols, patient education, referral instructions, refill process notes, and escalation policies while keeping clinical judgment with licensed staff.",
+        "sourceTypes": [
+          "Clinical support SOPs",
+          "Patient education",
+          "Referral procedures",
+          "Escalation policies"
+        ],
+        "optionalAction": "Generate a staff-review summary or handoff note for a complex patient message.",
+        "outcome": "Supports consistent communication and reduces time spent hunting for the latest handout or process.",
+        "icon": "HeartIcon"
+      },
+      {
+        "name": "Manager analytics and knowledge-gap review",
+        "problem": "Practice leaders need to know which questions are driving calls, confusion, delays, or training gaps.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery help managers see repeated questions and improve source content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Reports",
+          "Topic analytics",
+          "Knowledge base content"
+        ],
+        "optionalAction": "Assign documentation updates or training follow-ups based on repeated unanswered topics.",
+        "outcome": "Turns recurring questions into better FAQs, SOPs, patient education, and staff training.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Secure policy access for regulated workflows",
+        "problem": "Physician offices handle PHI, identity verification, records access, and other sensitive workflows where staff need clear boundaries.",
+        "agentWorkflow": "DocsBot can answer from approved privacy, security, and access-control policies. SOC 2 Type II certification, GDPR-ready governance, encryption, granular access controls, role-based permissions, and no public-model training on customer data support secure deployment.",
+        "sourceTypes": [
+          "Privacy policies",
+          "Security procedures",
+          "Records workflows",
+          "Access-control guidance"
+        ],
+        "optionalAction": "Route requests requiring verification or authorization to qualified staff with a concise summary.",
+        "outcome": "Improves staff access to policy guidance while maintaining defined boundaries for sensitive requests.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved practice content",
+      "mainLandingPageContext": "DocsBot trains agents on websites, documents, PDFs, help centers, internal content, wikis, Google Drive, Notion, Confluence, Word files, text files, and other configured knowledge sources.",
+      "industryApplication": "Train an agent on patient FAQs, forms, visit-prep instructions, provider bios, office policies, payer-process notes, SOPs, and education materials so answers stay tied to practice-approved sources.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Website widget and patient support experience",
+      "mainLandingPageContext": "DocsBot agents can work through an embeddable website or product chat widget and provide instant, source-grounded answers in the organization’s voice.",
+      "industryApplication": "Add a patient-facing assistant for hours, appointment prep, forms, location details, portal help, and service-fit questions, with escalation for sensitive or clinical requests.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved workflows to collect intake details, create staff tasks, route referral or records requests, summarize conversations, or connect to authorized systems through APIs, connectors, or remote Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for staff",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, giving instant answers about procedures, policies, tools, onboarding, compliance guidance, and operational processes.",
+      "industryApplication": "Help front desk, billing, care coordination, clinical support, and management teams search SOPs, training materials, payer notes, scripts, and escalation rules from one governed interface.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which patient and staff questions are repeated, unanswered, or confusing so the office can improve FAQs, instructions, scripts, and training documents.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive operations",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use permissioned agents for privacy-sensitive physician office workflows, keeping credentials out of chats and routing PHI, clinical, identity, or high-impact requests through approved staff processes.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making and reduce unnecessary human handoffs.",
+      "Agents are trained on your own content library, so answers reflect the materials your practice approves.",
+      "DocsBot supports source-grounded knowledge access for complex educational and operational content."
+    ],
+    "whyTheseReviewsFit": "Physician offices need AI that respects approved content, helps staff find answers quickly, and supports healthcare workflows without replacing professional judgment. DocsBot proof from healthcare communications, education, and owned-content knowledge bases shows how teams use source-grounded agents for reliable answers and internal efficiency.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "DocumentTextIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for physician offices",
+    "audience": [
+      "Physician office administrators",
+      "Medical practice managers",
+      "Patient access teams",
+      "Clinical support teams",
+      "Revenue cycle teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "medical-office",
+    "chiropractic-office",
+    "dentistry",
+    "healthcare-revenue-cycle-management",
+    "health-coaching"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "physicians-office",
+    "webSearchQueries": [
+      "AMA physician practice administrative burden prior authorization survey 2024",
+      "MGMA medical practice staffing shortages report 2024",
+      "CDC NAMCS physician office visits United States 2019 2020",
+      "HHS HIPAA Privacy Rule patient access medical records",
+      "MGMA 2024 medical practice staffing shortage percentage practices"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/nchs/data/nhsr/nhsr184.pdf",
+      "https://www.ama-assn.org/system/files/2026-nac-action-kit-prior-auth.pdf",
+      "https://www.mgma.com/mgma-stat/reshaping-your-medical-practice-staffing-strategies-for-2025",
+      "https://www.mgma.com/mgma-stat/finance-staffing-projects-top-medical-group-leaders-2024-resolutions",
+      "https://www.hhs.gov/sites/default/files/ocr/privacy/hipaa/understanding/special/healthit/eaccess.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46115,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 25891,
+        "outputTokens": 8349,
+        "reasoningOutputTokens": 165,
+        "totalTokens": 54464,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.195019,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.215019
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25580,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 10604,
+          "outputTokens": 5718,
+          "reasoningOutputTokens": 165,
+          "totalTokens": 31298,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.116024,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.136024
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20535,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15287,
+          "outputTokens": 2631,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23166,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078995,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078995
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1585842378054-ee2e52f94ba2?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg1MzN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Physicians Office background image",
+    "source": "legacy-industry",
+    "query": "Physicians Office"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot reduce front desk call volume without giving medical advice?",
+      "answer": "Yes. DocsBot is best used for repeatable nonclinical questions such as hours, forms, directions, visit prep, cancellation rules, portal instructions, billing basics, and where to find approved patient education. It can be configured to avoid diagnosis, medication guidance, urgent triage, or individualized treatment advice and instead collect context for staff handoff.",
+      "role": "Practice administrators and office managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would an AI agent know when to escalate a patient question to our staff?",
+      "answer": "You can define boundaries for clinical, urgent, identity-specific, billing-account, medication, symptom, test-result, referral, and scheduling-change requests. When a question falls outside approved self-service content, DocsBot can ask for relevant context, summarize the conversation, and route it to the appropriate team through a customer-configured workflow.",
+      "role": "Care coordinators, nurses, and clinical support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we train the agent on our actual forms, prep instructions, policies, and SOPs instead of generic healthcare content?",
+      "answer": "Yes. DocsBot agents are trained on your approved content sources, such as patient FAQs, PDFs, forms, visit-prep instructions, provider bios, office policies, internal SOPs, scripts, payer notes, and training documents. That helps answers reflect how your specific practice operates rather than generic web information.",
+      "role": "Practice administrators and office managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What patient-facing questions are safe to automate first?",
+      "answer": "Most practices should start with low-risk, high-volume topics: office hours, accepted documents, new-patient paperwork, parking, telehealth instructions, appointment preparation, portal navigation, referral process basics, records request steps, and where to find patient handouts. Keep symptoms, diagnosis, medications, urgent issues, and personalized care decisions routed to qualified staff.",
+      "role": "Front desk, call center, and patient access staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with prior authorization and referral work, or is it only for patient FAQs?",
+      "answer": "DocsBot can support internal prior authorization and referral workflows by retrieving payer process notes, documentation checklists, appeal templates, referral routing rules, and escalation instructions. Staff can use it to draft summaries or checklist reminders for review, while final clinical, coverage, and submission decisions stay with authorized personnel. AMA’s 2024 survey reported an average of 39 prior authorizations per physician per week.",
+      "role": "Billing, prior authorization, and revenue cycle teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ama-prior-auth"
+      ]
+    },
+    {
+      "question": "Will this replace our call center or front desk staff?",
+      "answer": "No. The realistic goal is to reduce repetitive interruptions and give staff better context, not remove humans from care-sensitive workflows. DocsBot can answer routine questions and prepare structured handoffs so staff spend more time on scheduling exceptions, patient concerns, account-specific issues, referrals, authorizations, and clinical escalations.",
+      "role": "Practice administrators and office managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent the agent from answering with outdated policies or old handouts?",
+      "answer": "DocsBot should be connected only to approved, maintained sources and governed with a clear content owner for patient FAQs, SOPs, forms, prep instructions, and payer notes. Analytics and knowledge-gap review can show which answers need better documentation, while source-grounded responses help staff trace answers back to the material used.",
+      "role": "Practice administrators and office managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can our staff use DocsBot privately for SOPs and scripts, separate from the patient-facing agent?",
+      "answer": "Yes. A physician office can use a private internal knowledge agent for front desk scripts, portal message rules, billing handoffs, referral procedures, records request steps, onboarding documents, and clinical support workflows. Patient-facing and staff-facing agents can be scoped differently so internal policies are not exposed to patients.",
+      "role": "Front desk, call center, and patient access staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot support HIPAA-sensitive records request workflows?",
+      "answer": "DocsBot can explain your approved records request process, portal instructions, identity-verification steps, and release-of-information requirements, then route specific requests to authorized staff. It should not expose PHI unless your practice has configured an authorized compliant workflow. HHS explains that HIPAA gives individuals, with limited exceptions, the right to review or obtain copies of PHI in a designated record set.",
+      "role": "Practice administrators and office managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hhs-hipaa-access"
+      ]
+    },
+    {
+      "question": "What security controls matter when evaluating an AI agent for a physician office?",
+      "answer": "Buyers should look for encryption, access controls, role-based permissions, logging, clear data-use terms, human review paths, and separation between public patient content and private staff content. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Practice administrators and office managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent connect to our scheduling, portal, EHR, CRM, or task systems?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, MCP Connectors, forms, and workflow automations for approved lookups, task creation, routing, notifications, summaries, or field updates. It should be scoped carefully: for example, collecting scheduling intent and creating a staff task rather than independently making clinical or account-sensitive decisions.",
+      "role": "Practice administrators and office managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much implementation work should a small or mid-size practice expect?",
+      "answer": "A practical rollout starts by selecting approved content, defining “answer versus escalate” rules, testing common patient and staff questions, and assigning owners for updates. Many offices can begin with a limited patient FAQ or internal SOP agent before adding actions such as task creation, routing, or scheduling handoff workflows.",
+      "role": "Practice administrators and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What ROI metrics should we track after launching a physician office AI agent?",
+      "answer": "Track repetitive question deflection, after-hours self-service, call or portal-message reductions by topic, staff time saved, handoff quality, unanswered questions, patient satisfaction signals, onboarding speed, and fewer policy inconsistencies. For revenue cycle use cases, track time spent finding checklists, referral routing errors, missing-information requests, and prior authorization follow-up delays.",
+      "role": "Practice administrators and office managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How can we justify this when our biggest issue is staffing, not technology?",
+      "answer": "That is exactly why many practices evaluate automation: it helps existing staff handle repetitive work more consistently. An October 2024 MGMA Stat poll found 53% of medical group leaders cited finding candidates as their top staffing challenge. DocsBot can reduce search time, support onboarding, and answer routine questions without asking scarce staff to repeat the same information all day.",
+      "role": "Practice administrators and office managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mgma-staffing"
+      ]
+    },
+    {
+      "question": "Can DocsBot help train new front desk, billing, or medical assistant staff?",
+      "answer": "Yes. An internal DocsBot agent can answer onboarding questions from approved scripts, SOPs, referral rules, billing handoffs, portal-message policies, records procedures, and escalation paths. New staff can ask natural-language questions instead of interrupting experienced employees or searching across shared drives, binders, and outdated documents.",
+      "role": "Front desk, call center, and patient access staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot handle patient questions in languages other than English?",
+      "answer": "DocsBot can answer in more than 100 languages, using the practice’s approved content as the grounding source. For clinical, urgent, identity-specific, or legally sensitive workflows, the office should still define escalation paths and review expectations, especially where professional interpretation or staff verification is required.",
+      "role": "Front desk, call center, and patient access staff",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can managers see what patients and staff are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Practice leaders can use that data to identify confusing prep instructions, missing FAQs, repeated billing questions, training gaps, or policies that need clearer wording.",
+      "role": "Practice administrators and office managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep physicians and nurses comfortable with AI in patient communication?",
+      "answer": "Position the agent as a source-grounded support layer, not a clinical decision-maker. Start with approved logistics, education, and process content; require escalation for symptoms, diagnosis, medication changes, test interpretation, urgent issues, or individualized advice; and let clinical leaders review sample conversations before expanding scope.",
+      "role": "Care coordinators, nurses, and clinical support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support after-hours questions without creating liability risk?",
+      "answer": "Yes, if the scope is tightly defined. The agent can answer approved after-hours logistics, portal instructions, appointment prep, forms, and emergency-contact guidance. For worsening symptoms, urgent concerns, medication issues, or individualized medical questions, it should display approved escalation language and direct the patient to appropriate human or emergency channels.",
+      "role": "Care coordinators, nurses, and clinical support teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What makes DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved practice content, not a generic scripted bot. It can support both patient-facing and internal staff use cases, provide conversation analytics, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows when appropriate.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent summarize patient conversations before a staff member responds?",
+      "answer": "Yes. For handoffs, DocsBot can summarize the patient’s question, relevant context already collected, source materials used, and why the issue needs staff review. That is useful for scheduling exceptions, referrals, records requests, billing account questions, symptoms, medication concerns, and other cases where a person must respond.",
+      "role": "Front desk, call center, and patient access staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we evaluate whether the agent is safe enough before going live?",
+      "answer": "Test it against real scenarios: routine prep questions, ambiguous symptom questions, refill requests, records requests, billing complaints, angry patients, after-hours concerns, and intentionally unsafe prompts. Review whether it cites approved content, refuses or escalates appropriately, avoids PHI exposure, and produces useful handoff summaries for staff.",
+      "role": "Practice administrators and office managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help identify documentation gaps in our practice operations?",
+      "answer": "Yes. DocsBot analytics and conversation review can show repeated unanswered questions, confusing topics, and areas where patients or staff cannot find clear guidance. Those insights can inform updates to patient FAQs, forms, visit-prep instructions, phone scripts, payer notes, SOPs, and onboarding materials.",
+      "role": "Practice administrators and office managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this useful for multi-provider or multi-location practices with different rules by site?",
+      "answer": "Yes, if the knowledge base is organized with clear location, provider, service, and workflow distinctions. DocsBot can answer from approved content and help route questions based on the context provided. Role-based permissions and separate internal versus patient-facing scopes help keep location-specific and staff-only guidance controlled.",
+      "role": "Practice administrators and office managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement or compliance ask before approving an AI agent for a physician office?",
+      "answer": "Ask what data is used for training, whether customer data trains public models, how access is controlled, how logs are reviewed, how PHI-sensitive requests are handled, which systems the agent can access, how actions are permissioned, and what human review paths exist. DocsBot supports scoped permissions, logs, and customer-defined controls for sensitive workflows.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

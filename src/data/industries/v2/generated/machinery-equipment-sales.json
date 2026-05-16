@@ -1,0 +1,715 @@
+{
+  "slug": "machinery-equipment-sales",
+  "business": "Machinery & Equipment Sales",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Machinery & Equipment Sales Teams",
+    "description": "DocsBot helps machinery and equipment sales teams answer spec questions, qualify buyers, and route service requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/machinery-equipment-sales"
+  },
+  "hero": {
+    "eyebrow": "AI agents for industrial distributors, dealers, and equipment sellers",
+    "headline": "Move machinery buyers from spec questions to qualified quotes faster",
+    "subheadline": "DocsBot helps machinery and equipment sales teams create AI agents trained on product catalogs, manuals, pricing guidance, parts references, SOPs, and support history so prospects, customers, and reps can get source-grounded answers before a human takes over the complex deal.",
+    "proofBullets": [
+      {
+        "text": "Answer product fit, compatibility, capacity, installation, maintenance, warranty, and documentation questions from approved catalogs and manuals.",
+        "icon": "CogIcon"
+      },
+      {
+        "text": "Collect project requirements, qualify leads by customer-defined rules, and forward structured summaries to your sales workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Help reps retrieve specs, objection handling, proposal notes, and internal policies without digging through folders or PDFs.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Route urgent service, parts, or quote requests to the right human team with conversation context and missing details captured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build an equipment sales agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your machinery knowledge into customer-facing and internal AI agents. Train agents on manuals, product pages, spec sheets, service FAQs, quote policies, sales playbooks, PDFs, help center content, and internal SOPs. Agents can answer with source-grounded responses, collect lead details, summarize context, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Equipment sales leaders",
+        "roleContext": "Industrial machinery buying often involves fit, capacity, lead time, power, compliance, service, and procurement questions before a buyer is ready for a quote.",
+        "bullets": [
+          {
+            "text": "Qualify inquiries by application, machine type, facility constraints, budget range, timeline, region, and requested follow-up channel.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Give sales reps a faster way to retrieve approved product comparisons, proposal notes, objection handling, and pricing guidance.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Wholesale and manufacturing sales representatives held about 1.6 million U.S. jobs in 2024, including 303,200 technical and scientific product reps.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-bls-sales-reps"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Parts, service, and support managers",
+        "roleContext": "Customers often need fast answers about maintenance intervals, serial-number context, spare parts, warranty steps, and troubleshooting before escalation.",
+        "bullets": [
+          {
+            "text": "Answer routine service and documentation questions from approved manuals, warranty pages, service bulletins, and internal FAQs.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Use configured actions to collect model, serial number, location, failure symptoms, and urgency before creating or routing a ticket.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Analyze repeated questions and unanswered topics so teams know which manuals, FAQs, and support articles need improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Operations and branch teams",
+        "roleContext": "Dealerships and distributors need consistent answers across branches, inside sales, field reps, and support desks even when product lines change.",
+        "bullets": [
+          {
+            "text": "Make SOPs, quote rules, documentation, onboarding materials, and branch procedures searchable in a private team agent.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Support multilingual product and service questions for buyers or field teams who prefer another language.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "The U.S. industrial machinery and equipment wholesaling market was estimated at $331.7 billion in 2025, underscoring the scale of catalog and customer complexity.",
+            "icon": "ChartPieIcon",
+            "sourceIds": [
+              "src-ibisworld-market-size"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ibisworld-market-size",
+      "metric": "$331.7 billion U.S. market size in 2025",
+      "claim": "IBISWorld estimated the U.S. Industrial Machinery & Equipment Wholesaling market at $331.7 billion in 2025 and $326.7 billion in 2024.",
+      "sourceTitle": "Industrial Machinery & Equipment Wholesaling in the US - Market Size",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/industrial-machinery-equipment-wholesaling/948/",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "market scale",
+        "catalog complexity",
+        "industrial distribution demand"
+      ]
+    },
+    {
+      "id": "src-bls-sales-reps",
+      "metric": "About 1.6 million U.S. wholesale and manufacturing sales rep jobs in 2024",
+      "claim": "BLS reported about 1.3 million nontechnical wholesale and manufacturing sales representative jobs and 303,200 technical and scientific wholesale and manufacturing sales representative jobs in 2024.",
+      "sourceTitle": "Wholesale and Manufacturing Sales Representatives: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/sales/wholesale-and-manufacturing-sales-representatives.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "sales labor scale",
+        "field sales pressure",
+        "rep enablement"
+      ]
+    },
+    {
+      "id": "src-bls-sales-work",
+      "metric": "Large territories, travel, phone, chat, email, and video are common sales channels",
+      "claim": "BLS notes that some wholesale and manufacturing sales representatives cover large territories, travel considerably, and use phone, chats, email, and video conferencing to contact clients.",
+      "sourceTitle": "Wholesale and Manufacturing Sales Representatives: Work Environment",
+      "sourceUrl": "https://www.bls.gov/ooh/sales/wholesale-and-manufacturing-sales-representatives.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "distributed sales teams",
+        "digital buyer communication",
+        "rep productivity"
+      ]
+    },
+    {
+      "id": "src-naw-wholesale-scale",
+      "metric": "NAW represents the $8.2 trillion wholesale distribution industry",
+      "claim": "The National Association of Wholesaler-Distributors describes wholesale distribution as an $8.2 trillion industry in the United States.",
+      "sourceTitle": "About the National Association of Wholesaler-Distributors",
+      "sourceUrl": "https://www.naw.org/about/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "wholesale distribution scale",
+        "B2B operations complexity",
+        "industry context"
+      ]
+    },
+    {
+      "id": "src-census-awts",
+      "metric": "U.S. merchant wholesalers had $11.38 trillion in sales in 2022",
+      "claim": "The U.S. Census Bureau reported that merchant wholesalers had $11,382.3 billion in 2022 sales, up 17.4% from 2021, in the Annual Wholesale Trade Survey.",
+      "sourceTitle": "Annual Wholesale Trade Survey",
+      "sourceUrl": "https://www.census.gov/programs-surveys/awts.html",
+      "sourceDate": "January 2024",
+      "bestUsedFor": [
+        "wholesale sales scale",
+        "distribution operations",
+        "inventory and sales context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product specification and fit assistant",
+      "problem": "Machinery buyers compare models, capacity, power requirements, attachments, certifications, and facility constraints before they are ready to talk to sales.",
+      "agentWorkflow": "A DocsBot agent answers from approved product pages, catalogs, spec sheets, manuals, comparison guides, and FAQs. It asks clarifying questions about the application, work environment, throughput, footprint, utilities, and current equipment, then summarizes the fit conversation for a rep.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or MCP-connected tools, the agent can look up approved availability, region, configured product metadata, or lead status when authorized.",
+      "exampleQuestionsOrRequests": [
+        "Which compressor model fits a 24/7 production line with this CFM requirement?",
+        "Can this lift handle our pallet dimensions and floor conditions?",
+        "Compare these two CNC machines for tolerance, spindle speed, and service requirements."
+      ],
+      "businessOutcome": "Shortens early research cycles, gives buyers consistent product answers, and hands sales teams a cleaner discovery summary.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Quote-ready lead qualification",
+      "problem": "Inbound forms and website chats often lack enough detail for a machinery quote, causing back-and-forth before sales can respond.",
+      "agentWorkflow": "The agent collects structured requirements such as company, location, application, current machine, desired output, timeline, budget range, installation needs, financing interest, and preferred follow-up. AI instructions qualify the lead using customer-defined ICP, region, urgency, product fit, and readiness rules.",
+      "liveContextOrTools": "Configured actions can submit a custom lead form, create or update a CRM-style record, notify inside sales, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "I need a replacement packaging line for 80 units per minute.",
+        "Can someone quote a used forklift fleet for three warehouses?",
+        "Book a demo for a hydraulic press in the Midwest region."
+      ],
+      "businessOutcome": "Improves sales handoffs by turning vague inquiries into structured, prioritized opportunities while keeping humans responsible for final pricing and commitments.",
+      "icon": "BanknotesIcon"
+    },
+    {
+      "name": "Parts and service request triage",
+      "problem": "Customers with down equipment need fast help, but service teams need model, serial number, symptoms, location, warranty status, and urgency before routing the request.",
+      "agentWorkflow": "A DocsBot support agent asks for missing details, answers routine maintenance or troubleshooting questions from approved manuals, and prepares a concise escalation summary when the issue needs a technician, parts specialist, or warranty review.",
+      "liveContextOrTools": "Customer-configured Skills or APIs can look up an approved equipment record, create a ticket or task, route by branch or product line, and attach the conversation summary for the human team.",
+      "exampleQuestionsOrRequests": [
+        "My baler is showing error code E42. What should I check first?",
+        "I need the right filter kit for serial number 1884-AX.",
+        "Is this failure covered under the standard warranty?"
+      ],
+      "businessOutcome": "Reduces repetitive triage, captures complete service context, and helps customers reach the right team faster.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Field sales knowledge agent",
+      "problem": "Sales representatives may travel across large territories and rely on phone, chat, email, and video to contact clients, making fast access to current product knowledge important.",
+      "agentWorkflow": "A private DocsBot agent gives reps source-grounded answers from playbooks, catalogs, proposal templates, competitive notes, implementation guides, warranty language, and internal procedures. Reps can ask for a product comparison, a discovery checklist, or a draft follow-up email for human review.",
+      "liveContextOrTools": "When configured, the agent can summarize public account research with web search, retrieve approved account context, draft follow-ups, or create sales tasks through customer-approved workflows.",
+      "exampleQuestionsOrRequests": [
+        "Give me the talking points for a food-processing customer replacing two older mixers.",
+        "Draft a follow-up email with the top three reasons this model fits their throughput target.",
+        "What warranty and installation language should I include in the proposal?"
+      ],
+      "businessOutcome": "Helps distributed sales teams respond consistently and spend less time searching for the right document before customer conversations.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-bls-sales-work"
+      ]
+    },
+    {
+      "name": "Documentation gap and support trend analysis",
+      "problem": "If customers repeatedly ask about the same installation, part, or compatibility issue, the underlying documentation may be incomplete or hard to find.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, satisfaction analysis, and knowledge-gap discovery help teams see unanswered topics and recurring questions. Teams can then improve manuals, FAQs, product pages, and sales enablement material.",
+      "liveContextOrTools": "Teams can review conversation history, identify missing sources, and update approved knowledge sources before retraining or refreshing the agent.",
+      "exampleQuestionsOrRequests": [
+        "Which model comparison questions are prospects asking most often?",
+        "What service topics are getting escalated because the manual is unclear?",
+        "Which product pages should we improve before the next campaign?"
+      ],
+      "businessOutcome": "Turns customer and rep questions into a practical roadmap for better documentation, fewer repeat tickets, and stronger self-service.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual dealer and distributor support",
+      "problem": "Machinery sellers often support regional buyers, dealers, technicians, and operators who need product or maintenance information in different languages.",
+      "agentWorkflow": "A DocsBot agent trained on approved multilingual manuals, product pages, and policies can answer in more than 100 languages while staying grounded in the company’s source material. It can escalate when a question involves safety-critical judgment, contracts, or unusual service conditions.",
+      "liveContextOrTools": "Configured routing workflows can send translated summaries and original conversation context to the right branch, dealer manager, or support queue.",
+      "exampleQuestionsOrRequests": [
+        "Explain the maintenance schedule for this pump in Spanish.",
+        "Help a dealer compare these two attachments for a customer in French.",
+        "Summarize this Portuguese support request for our U.S. service desk."
+      ],
+      "businessOutcome": "Gives distributed teams a more consistent way to support buyers and dealers across language barriers without replacing expert review.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers a guided equipment research experience before the sales call",
+    "intro": "DocsBot can power a website or product chat widget that answers from your approved machinery content, asks qualifying questions, and escalates with context when a prospect needs pricing, configuration, financing, legal terms, or a human consultation.",
+    "requests": [
+      {
+        "request": "“Which machine is right for my application?”",
+        "agentResponseStrategy": "Ask about material, throughput, duty cycle, footprint, utilities, environment, attachments, current machine, and timeline, then answer from approved catalogs and manuals with a source-grounded fit summary.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Spec sheets",
+          "Application guides",
+          "Comparison pages"
+        ],
+        "optionalAction": "Forward the fit summary and buyer details to inside sales or a configured CRM-style workflow.",
+        "icon": "AdjustmentsHorizontalIcon"
+      },
+      {
+        "request": "“Do you have parts or service for this model?”",
+        "agentResponseStrategy": "Collect model, serial number, location, symptoms, part number if known, urgency, and warranty context, then provide approved self-service guidance or route to a human service team.",
+        "sourceTypes": [
+          "Service manuals",
+          "Parts references",
+          "Warranty FAQs",
+          "Support procedures"
+        ],
+        "optionalAction": "Create a service ticket, parts request, or branch handoff through customer-configured Skills, APIs, or connectors.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Can I get a quote or schedule a demo?”",
+        "agentResponseStrategy": "Capture contact details, company, application, equipment interest, region, budget range, timeline, and preferred follow-up, then qualify the request using customer-defined rules.",
+        "sourceTypes": [
+          "Lead forms",
+          "Sales qualification rules",
+          "Pricing guidance",
+          "Demo workflows"
+        ],
+        "optionalAction": "Request a meeting through an approved scheduling workflow or notify the assigned sales team with a structured summary.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Send me installation and maintenance information.”",
+        "agentResponseStrategy": "Retrieve the relevant approved manual, summarize the key steps, answer follow-up questions, and flag when a certified technician or human review is needed.",
+        "sourceTypes": [
+          "PDF manuals",
+          "Installation guides",
+          "Maintenance schedules",
+          "Safety notes"
+        ],
+        "optionalAction": "Email or route a documentation request when configured, or create a task for a rep to follow up.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you answer in my language?”",
+        "agentResponseStrategy": "Respond in the customer’s preferred language from the same approved product, warranty, and support sources while preserving source-grounded context.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website content",
+          "FAQs",
+          "Support articles"
+        ],
+        "optionalAction": "Escalate with a translated summary and the original conversation when a human must respond.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this compatible with our existing equipment?”",
+        "agentResponseStrategy": "Ask for model numbers, dimensions, process requirements, interfaces, capacity, and environment, then compare against approved compatibility documentation and escalate uncertain cases.",
+        "sourceTypes": [
+          "Compatibility matrices",
+          "Engineering notes",
+          "Product manuals",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Create a review task for engineering, applications, or sales support with the buyer’s details attached.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put machinery knowledge where reps, support, and branch teams already work",
+    "intro": "A private DocsBot internal knowledge agent helps employees retrieve answers from SOPs, product documentation, sales playbooks, policies, onboarding materials, and support history. Teams can access the agent in private chat experiences, Slack, Microsoft Teams, or configured workflows.",
+    "workflows": [
+      {
+        "name": "Sales rep proposal support",
+        "problem": "Reps need accurate specs, service details, implementation notes, approved language, and objection handling while building proposals or follow-up emails.",
+        "agentWorkflow": "The internal agent retrieves source-grounded answers from product docs, proposal templates, sales playbooks, warranty guidance, and competitive notes, then drafts a rep-reviewed response or proposal section.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Product docs",
+          "Warranty guidance"
+        ],
+        "optionalAction": "Draft a follow-up email, create a task, or prepare a meeting brief through approved sales workflows.",
+        "outcome": "Reps spend less time hunting for documents and more time advancing qualified opportunities.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Branch procedure and policy answers",
+        "problem": "Inside sales, operations, and branch teams need consistent answers about quote steps, discounts, returns, rentals, shipping, escalation paths, and handoffs.",
+        "agentWorkflow": "DocsBot answers from SOPs, policies, internal wikis, PDFs, and team knowledge sources so employees can follow the same process across branches.",
+        "sourceTypes": [
+          "SOPs",
+          "Internal wikis",
+          "Policy documents",
+          "Training PDFs"
+        ],
+        "optionalAction": "Route an exception to the right manager or create a review task when a policy question needs approval.",
+        "outcome": "Keeps day-to-day decisions consistent without forcing employees to search through shared drives.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "name": "Support response drafting",
+        "problem": "Support teams handle recurring questions about maintenance, documentation, warranties, parts, and troubleshooting, but many still need human review.",
+        "agentWorkflow": "The agent can summarize ticket context, retrieve the relevant manual or policy, and draft a response for a support teammate to review before sending.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Help center content",
+          "Manuals",
+          "Warranty policies"
+        ],
+        "optionalAction": "With configured helpdesk workflows, DocsBot can route, summarize, answer, or draft responses in ticketing systems.",
+        "outcome": "Speeds repetitive support work while preserving human control for safety, warranty, or technical edge cases.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "name": "Onboarding and product line training",
+        "problem": "New hires must learn product families, parts terminology, branch procedures, and sales processes before they can confidently support buyers.",
+        "agentWorkflow": "A private agent answers onboarding questions from training materials, product catalogs, internal guides, and recorded or written knowledge sources.",
+        "sourceTypes": [
+          "Training materials",
+          "Product catalogs",
+          "Onboarding docs",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Surface repeated onboarding questions so managers can improve the training library.",
+        "outcome": "Helps new staff learn faster and gives managers visibility into documentation gaps.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, product documentation, internal content, websites, team conversations, and other configured knowledge sources.",
+      "industryApplication": "Train an equipment sales agent on catalogs, manuals, spec sheets, warranty pages, application notes, service FAQs, and branch SOPs so answers reflect approved machinery knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Presales qualification and structured intake",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and qualify leads using customer-defined AI instructions.",
+      "industryApplication": "Collect application, capacity, facility, budget, timeline, region, and product interest details before routing a machinery buyer to the right rep or branch.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, record updates, workflow triggers, routing, summaries, and handoffs through customer-configured systems.",
+      "industryApplication": "Use approved actions for availability lookups, lead forwarding, service ticket creation, branch routing, meeting requests, or task updates where your systems authorize access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which machinery specs, parts questions, warranty topics, and service issues keep surfacing so teams can improve manuals, product pages, and internal enablement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and governed workflows",
+      "mainLandingPageContext": "DocsBot supports human escalation and customer-defined boundaries for complex, sensitive, high-impact, pricing, contract, or safety-related workflows.",
+      "industryApplication": "Let agents answer routine questions while routing final quotes, engineered configurations, contract terms, warranty exceptions, and safety-critical troubleshooting to qualified staff.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Private internal knowledge access",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company sources.",
+      "industryApplication": "Give sales, support, operations, and branch teams one governed place to ask about quote procedures, parts policies, product training, and internal handoffs.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, websites, catalogs, and knowledge sources instead of relying on generic answers.",
+      "Support high-volume customer questions with source-grounded automation and clear escalation paths.",
+      "Deploy customer-facing and internal agents for product support, documentation access, and sales enablement."
+    ],
+    "whyTheseReviewsFit": "Machinery and equipment buyers expect accurate answers from manuals, product pages, and service documentation. DocsBot’s customer proof shows teams using owned content libraries, multilingual manuals, embedded support experiences, and high-volume automation to make self-service and human handoffs more efficient.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and sales enablement agents for machinery and equipment sales",
+    "audience": [
+      "Industrial equipment distributors",
+      "Machinery dealers",
+      "Inside sales teams",
+      "Parts and service managers",
+      "Branch operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CogIcon"
+  },
+  "relatedIndustrySlugs": [
+    "replacement-parts-sales",
+    "b2b-product-distributors",
+    "laboratory-equipment-suppliers",
+    "office-equipment-suppliers",
+    "safety-equipment-suppliers",
+    "electrical-supply-distribution",
+    "electronics-component-distribution",
+    "contract-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "machinery-equipment-sales",
+    "webSearchQueries": [
+      "IBISWorld industrial machinery equipment wholesaling US market size 2024",
+      "U.S. Census Annual Wholesale Trade Survey machinery equipment supplies sales 2023",
+      "BLS wholesale trade machinery equipment supplies employment sales representatives wholesale manufacturing machinery",
+      "NAW 2024 wholesale distribution industry sales"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/market-size/industrial-machinery-equipment-wholesaling/948/",
+      "https://www.bls.gov/ooh/sales/wholesale-and-manufacturing-sales-representatives.htm",
+      "https://www.naw.org/about/",
+      "https://www.census.gov/programs-surveys/awts.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40435,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27891,
+        "outputTokens": 7831,
+        "reasoningOutputTokens": 107,
+        "totalTokens": 48266,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.190329,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.200329
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20781,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 13485,
+          "outputTokens": 5174,
+          "reasoningOutputTokens": 107,
+          "totalTokens": 25955,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.113147,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.123147
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19654,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14406,
+          "outputTokens": 2657,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22311,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077182,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077182
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1652396669401-db1bc4c4457d?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxNYWNoaW5lcnklMjAlMjYlMjBFcXVpcG1lbnQlMjBTYWxlc3xlbnwwfDB8fHwxNzc4ODIyNTk5fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a group of yellow and black construction vehicles",
+    "source": "unsplash-search",
+    "query": "Machinery & Equipment Sales"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle detailed spec and fit questions before a buyer is ready for a sales call?",
+      "answer": "Yes. You can train a DocsBot agent on approved catalogs, spec sheets, manuals, comparison guides, application notes, and FAQs. It can ask clarifying questions about application, capacity, footprint, utilities, environment, duty cycle, attachments, and timeline, then provide a source-grounded fit summary and hand the context to sales when the buyer is ready.",
+      "role": "Equipment sales leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we stop the AI agent from recommending the wrong machine for a complex application?",
+      "answer": "Use DocsBot for guided discovery and source-grounded answers, not unchecked engineering approval. You can define boundaries so the agent answers routine fit questions, cites approved content, asks for missing requirements, and escalates uncertain, engineered, safety-critical, or high-value configuration decisions to an applications expert or sales engineer.",
+      "role": "Equipment sales leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent qualify quote requests instead of sending us vague website leads?",
+      "answer": "Yes. DocsBot can collect structured details such as company, region, application, machine type, current equipment, capacity target, installation needs, timeline, budget range, financing interest, and preferred follow-up. Customer-defined AI instructions can score or route the lead by fit, urgency, territory, product line, or readiness before forwarding a summary to your sales workflow.",
+      "role": "Equipment sales leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will reps actually use an internal AI agent, or will this become another tool they ignore?",
+      "answer": "Adoption is strongest when the agent answers questions reps already ask every day: model comparisons, warranty language, installation notes, objection handling, quote steps, and follow-up drafts. DocsBot can be used in private chat experiences, Slack, Microsoft Teams, or configured workflows so reps do not have to leave their normal sales routine to search folders and PDFs.",
+      "role": "Equipment sales leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support our parts and service team without creating liability around troubleshooting advice?",
+      "answer": "Yes, with the right boundaries. A DocsBot support agent can answer routine maintenance, documentation, warranty, and parts questions from approved sources, collect model, serial number, symptoms, location, and urgency, and escalate safety-critical, unusual, or technician-required issues with a concise handoff summary for human review.",
+      "role": "Parts, service, and support managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent collect serial numbers, symptoms, and urgency before routing service requests?",
+      "answer": "Yes. DocsBot can guide customers through a structured intake flow for model, serial number, location, failure symptoms, part number if known, warranty context, downtime impact, and preferred contact method. With customer-configured Skills, APIs, connectors, or workflows, it can create or route a ticket, task, or branch handoff with the conversation context attached.",
+      "role": "Parts, service, and support managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot work with our CRM, ticketing system, or branch routing process?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, forms, workflow automations, and MCP-connected tools where you authorize access. Typical actions include forwarding qualified leads, creating tasks or tickets, updating approved fields, notifying the right team, requesting a meeting, or attaching a conversation summary for the human owner.",
+      "role": "Operations and branch teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to clean up every manual and catalog before launching?",
+      "answer": "No, but you should start with the content that drives the highest-value or highest-volume questions: active product lines, current manuals, warranty pages, service FAQs, quote policies, and branch SOPs. DocsBot analytics and knowledge-gap discovery can then show repeated unanswered topics so your team can improve documentation over time.",
+      "role": "Operations and branch teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we limit answers to approved product lines, territories, or branch policies?",
+      "answer": "Yes. DocsBot agents are trained on the knowledge sources you choose and can follow customer-defined instructions for region, product line, escalation rules, and policy boundaries. For live context such as availability, territory assignment, or branch routing, you can use scoped Skills, APIs, connectors, or workflow rules that only expose approved data.",
+      "role": "Operations and branch teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot help if our buyers compare models across dozens of brands and attachments?",
+      "answer": "DocsBot can centralize approved comparison material, spec sheets, compatibility notes, manuals, and sales playbooks into one source-grounded agent. It can ask clarifying questions, compare known attributes, explain tradeoffs from approved documentation, and flag missing or uncertain compatibility questions for sales engineering instead of guessing.",
+      "role": "Equipment sales leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent help with multilingual customers, dealers, or technicians?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in your approved manuals, product pages, warranty content, and support articles. For sensitive cases, it can escalate with both the original conversation and a translated summary so a branch, dealer manager, or support specialist can respond.",
+      "role": "Operations and branch teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What ROI should we expect from an AI agent in machinery sales?",
+      "answer": "Most teams should measure ROI around fewer incomplete leads, faster first response, shorter quote discovery cycles, reduced repetitive service triage, better rep productivity, and documentation improvements. The opportunity is meaningful because U.S. wholesale and manufacturing sales representatives held about 1.6 million jobs in 2024, including 303,200 technical and scientific product reps.",
+      "role": "Equipment sales leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-sales-reps"
+      ]
+    },
+    {
+      "question": "How do we measure whether the agent is improving lead quality, not just increasing chat volume?",
+      "answer": "Track qualified conversations, required fields captured, quote-ready handoffs, meeting requests, territory routing accuracy, unanswered fit questions, escalation reasons, and sales acceptance of AI-generated summaries. DocsBot analytics, logs, reports, conversation review, satisfaction and resolution analysis, and topic management help separate useful buying intent from low-value activity.",
+      "role": "Equipment sales leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can support managers see which manuals or parts pages are causing repeated questions?",
+      "answer": "Yes. DocsBot’s conversation logs, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery can reveal recurring questions about maintenance intervals, error codes, compatibility, parts, warranty steps, and installation. That helps managers decide which manuals, FAQs, product pages, or internal procedures need improvement.",
+      "role": "Parts, service, and support managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a buyer asks for pricing, discounts, financing, or contractual terms?",
+      "answer": "You can define the boundary. DocsBot can explain approved pricing guidance, collect the information needed for a quote, and route the request to sales, finance, or management. Humans should remain responsible for final pricing, discounts, financing commitments, legal terms, engineered configurations, and contract language.",
+      "role": "Equipment sales leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help new inside sales or branch employees get up to speed on product lines?",
+      "answer": "Yes. A private internal DocsBot agent can answer onboarding questions from product catalogs, training PDFs, SOPs, quote rules, warranty guidance, internal FAQs, and branch procedures. It gives new employees a safe place to ask repeat questions and gives managers visibility into onboarding topics that need clearer documentation.",
+      "role": "Operations and branch teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Is DocsBot secure enough for internal SOPs, pricing guidance, and customer conversations?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. DocsBot does not use customer data to train public models, and Skills can be configured with scoped secrets, metadata bindings, network policy, logging, and customer-defined controls.",
+      "role": "Operations and branch teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we deploy one agent for customers and another for employees?",
+      "answer": "Yes. Many machinery sellers should separate external and internal use cases. A customer-facing agent can answer product, documentation, service, and quote-intake questions from approved public or customer-safe content. A private internal agent can use SOPs, pricing guidance, proposal templates, support history, and branch procedures with access controls.",
+      "role": "Operations and branch teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much IT involvement is needed to launch?",
+      "answer": "A basic launch can start by training DocsBot on approved websites, PDFs, manuals, catalogs, and internal documents. IT or operations usually becomes more involved when you want live lookups, CRM updates, ticket creation, branch routing, single-source governance, permissions, or customer-configured Skills, APIs, connectors, and workflow automations.",
+      "role": "Operations and branch teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support field reps who cover large territories and need answers between customer visits?",
+      "answer": "Yes. A private DocsBot agent can help field reps retrieve current specs, proposal notes, comparison points, installation details, warranty language, and approved follow-up drafts. This fits distributed sales work: BLS notes wholesale and manufacturing reps may cover large territories, travel considerably, and use phone, chat, email, and video to contact clients.",
+      "role": "Equipment sales leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-sales-work"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or website search box?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved content, not a generic keyword search or open-ended bot. It can answer from manuals and catalogs, ask qualifying questions, summarize context, identify knowledge gaps, support human escalation, and take bounded workflow actions when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more automation?",
+      "answer": "Yes. Teams can start with answer-only or draft-only use cases, review logs and conversations, tune instructions, improve sources, and gradually enable bounded actions such as routing, task creation, or approved field updates. That staged rollout is useful when product fit, safety, pricing, and warranty accuracy matter.",
+      "role": "Operations and branch teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Will DocsBot work for both new equipment sales and aftermarket parts or service?",
+      "answer": "Yes. For new equipment, DocsBot can support spec discovery, model comparisons, quote intake, and sales handoffs. For aftermarket parts and service, it can answer from manuals, parts references, warranty FAQs, service procedures, and support history while collecting the details a parts specialist or technician needs.",
+      "role": "Parts, service, and support managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we handle seasonal spikes, product launches, or new catalog updates?",
+      "answer": "DocsBot can help absorb repetitive product, documentation, and service questions during peak periods, launches, or campaign traffic. Teams should keep approved sources current, review unanswered topics, and refresh the agent as catalogs, manuals, pricing guidance, service bulletins, and branch procedures change.",
+      "role": "Operations and branch teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement and leadership look for when comparing AI agent vendors?",
+      "answer": "Look for source-grounded answers, governance controls, human escalation, analytics, access permissions, security posture, workflow flexibility, and the ability to use your own manuals, catalogs, SOPs, and sales materials. Machinery sellers should also evaluate how well a vendor handles long PDFs, structured lead intake, multilingual support, and scoped integrations.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Why is this problem large enough to prioritize now?",
+      "answer": "Machinery and equipment sellers operate in a large, document-heavy market with complex buyer questions. IBISWorld estimated the U.S. Industrial Machinery & Equipment Wholesaling market at $331.7 billion in 2025, while NAW describes U.S. wholesale distribution as an $8.2 trillion industry.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ibisworld-market-size",
+        "src-naw-wholesale-scale"
+      ]
+    }
+  ]
+}

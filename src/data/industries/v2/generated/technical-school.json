@@ -1,0 +1,710 @@
+{
+  "slug": "technical-school",
+  "business": "Technical School",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Technical School Student Support",
+    "description": "DocsBot helps technical schools automate program, aid, career, and staff knowledge support so students get faster source-grounded answers.",
+    "canonicalPath": "/industry/technical-school"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for career-focused education",
+    "headline": "Help technical school students find answers before they fall behind",
+    "subheadline": "DocsBot lets technical schools create AI agents trained on approved program catalogs, student handbooks, financial aid FAQs, career services resources, lab policies, and internal procedures. Give prospects, students, instructors, and staff fast, source-grounded support while keeping complex issues routed to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer program, tuition, schedule, admissions, aid, externship, and graduation questions from your approved school content.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "text": "Guide students to policies, forms, exam resources, lab requirements, and career services without making staff repeat the same links.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect prospect details, qualify fit by school-defined rules, and hand off enrollment questions to admissions or advising teams.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize requests, create tickets or tasks, route issues, and trigger approved workflows when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a technical school AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps a technical school turn its approved knowledge into AI agents for student support, admissions, advising, career services, instructors, and operations. Agents can answer from school sources, retrieve policy details, summarize conversations, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Admissions and enrollment teams",
+        "roleContext": "Prospects often compare programs by cost, schedule, credential, job fit, and admissions requirements. A DocsBot agent can answer from published school materials and collect structured follow-up details for staff.",
+        "bullets": [
+          {
+            "text": "Explain program length, prerequisites, start dates, delivery format, campus requirements, and application steps from approved sources.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect name, email, program interest, timeline, prior education, and preferred follow-up channel through a structured intake flow.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Route qualified inquiries to admissions or advising with a concise conversation summary when a human follow-up is needed.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Student services, financial aid, and advising",
+        "roleContext": "Technical school support teams handle recurring questions about forms, deadlines, satisfactory progress, attendance, payments, graduation, and placement resources. DocsBot gives students a consistent first stop for approved answers.",
+        "bullets": [
+          {
+            "text": "Surface financial aid checklists, school payment policies, SAP guidance, document requirements, and office handoff paths.",
+            "icon": "WalletIcon"
+          },
+          {
+            "text": "Help students find registration instructions, tutoring resources, exam preparation links, accommodation procedures, and handbook policies.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Escalate sensitive financial, academic standing, identity, or appeal questions to staff instead of making high-impact decisions automatically.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      },
+      {
+        "role": "Instructors, program directors, and operations staff",
+        "roleContext": "Faculty and staff need quick access to curriculum notes, lab policies, equipment procedures, onboarding documents, and student-facing resources. DocsBot can act as a private internal knowledge assistant trained on school-approved materials.",
+        "bullets": [
+          {
+            "text": "Retrieve SOPs, instructor guides, lab procedures, safety reminders, program policies, and internal workflows from private sources.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Summarize repeated student questions so program leaders can improve course pages, handbooks, and orientation materials.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support onboarding by answering staff questions about systems, templates, escalation paths, and department procedures.",
+            "icon": "BriefcaseIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nces-postsecondary-cte",
+      "metric": "NCES tracks postsecondary CTE across Title IV institutions",
+      "claim": "NCES defines postsecondary CTE as education leading to a credential below the bachelor’s degree level and provides tables on occupational education in Title IV-participating institutions.",
+      "sourceTitle": "NCES Career and Technical Education Statistics: Postsecondary/College Tables",
+      "sourceUrl": "https://nces.ed.gov/surveys/ctes/tables/index.asp?LEVEL=COLLEGE",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "postsecondary CTE market context",
+        "program and credential complexity",
+        "student information needs"
+      ]
+    },
+    {
+      "id": "src-nces-coe-cte",
+      "metric": "Health sciences remained the most common CTE certificate field in 2021–22",
+      "claim": "NCES reports that despite a 35% decrease in certificates conferred, health sciences was the most common field for CTE certificates in both 2011–12 and 2021–22.",
+      "sourceTitle": "NCES Condition of Education: Career and Technical Education in the United States",
+      "sourceUrl": "https://nces.ed.gov/programs/coe/indicator/tob?tid=4",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "program mix",
+        "certificate trends",
+        "career-focused education demand"
+      ]
+    },
+    {
+      "id": "src-bls-occupational-projections",
+      "metric": "BLS publishes projections, openings, training, wage, and education data by occupation",
+      "claim": "The Bureau of Labor Statistics provides employment change, openings, education, training, and wage data for detailed occupations, which technical schools can use when discussing career pathways.",
+      "sourceTitle": "BLS Occupational Employment Projections Data",
+      "sourceUrl": "https://www.bls.gov/emp/data/occupational-data.htm",
+      "sourceDate": "Updated 2025",
+      "bestUsedFor": [
+        "career services",
+        "program pages",
+        "labor market information"
+      ]
+    },
+    {
+      "id": "src-ed-fvt-ge",
+      "metric": "Financial Value Transparency and Gainful Employment rules became effective July 1, 2024",
+      "claim": "The U.S. Department of Education established Financial Value Transparency and Gainful Employment regulations addressing career training programs, unaffordable debt, earnings outcomes, and program-level transparency.",
+      "sourceTitle": "Federal Student Aid Knowledge Center: Final Regulations for Financial Value Transparency and Gainful Employment",
+      "sourceUrl": "https://fsapartners.ed.gov/knowledge-center/library/federal-registers/2023-10-10/final-regulations-financial-value-transparency-and-gainful-employment",
+      "sourceDate": "October 10, 2023",
+      "bestUsedFor": [
+        "compliance pressure",
+        "financial aid communication",
+        "program transparency"
+      ]
+    },
+    {
+      "id": "src-fsa-program-eligibility",
+      "metric": "Some eligible certificate or diploma programs must prepare students for gainful employment",
+      "claim": "Federal Student Aid guidance describes eligible certificate or diploma training programs that prepare students for gainful employment in a recognized occupation, subject to program requirements.",
+      "sourceTitle": "Federal Student Aid Handbook: Program Eligibility, Written Arrangements, and Distance Education",
+      "sourceUrl": "https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2023-2024/vol2/ch2-program-eligibility-written-arrangements-and-distance-education",
+      "sourceDate": "2023–2024",
+      "bestUsedFor": [
+        "program eligibility",
+        "financial aid questions",
+        "career training disclosures"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Program discovery and admissions fit agent",
+      "problem": "Prospective students need clear answers about which technical program fits their schedule, background, budget, and career goal before they are ready to talk to admissions.",
+      "agentWorkflow": "Train a DocsBot agent on program pages, catalogs, admissions FAQs, tuition pages, campus policies, and advising materials. The agent answers source-grounded questions, asks follow-up questions, collects lead details, applies school-defined qualification instructions, and prepares a handoff summary for admissions.",
+      "liveContextOrTools": "With approved Skills, APIs, forms, or scheduling workflows, the agent can submit a prospect form, request a campus tour or advising call, create a CRM-style record, or notify an admissions team.",
+      "exampleQuestionsOrRequests": [
+        "Which HVAC program can I take at night?",
+        "What documents do I need before applying for the medical assistant program?",
+        "I want a program under one year that leads to an entry-level technical job."
+      ],
+      "businessOutcome": "Admissions staff spend less time repeating program basics and more time helping qualified prospects choose the right next step.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Financial aid and program transparency assistant",
+      "problem": "Career-focused students frequently ask about tuition, fees, aid steps, document deadlines, debt, outcomes, and eligibility, while staff must avoid giving individualized financial decisions through automated tools.",
+      "agentWorkflow": "DocsBot can answer from approved financial aid pages, school policies, federal-aid checklists, program disclosures, and office instructions. The agent can explain where to find required forms, summarize next steps, and route account-specific or high-impact questions to a human advisor.",
+      "liveContextOrTools": "When configured with secure Skills or APIs, the agent can collect missing context, create a financial aid office ticket, attach a conversation summary, or trigger a staff review workflow without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Where do I upload my verification documents?",
+        "What does satisfactory academic progress mean for my aid?",
+        "Who should I contact if my program cost estimate looks wrong?"
+      ],
+      "businessOutcome": "Students get faster guidance on standard aid processes while sensitive financial judgments remain with trained staff.",
+      "icon": "WalletIcon",
+      "sourceIds": [
+        "src-ed-fvt-ge"
+      ]
+    },
+    {
+      "name": "Student handbook, registration, and retention support",
+      "problem": "Students often miss answers buried in handbooks, course pages, orientation slides, LMS announcements, and department emails, creating avoidable calls and confusion.",
+      "agentWorkflow": "Train a student-facing agent on handbooks, registration instructions, attendance policies, academic calendars, tutoring resources, lab rules, graduation checklists, and exam-prep materials. DocsBot answers with approved context, links students to the right source, and escalates unresolved issues.",
+      "liveContextOrTools": "AI Actions can create a support task, route a registration question to student services, or summarize repeated question themes for staff review when connected to school workflows.",
+      "exampleQuestionsOrRequests": [
+        "How do I register for the next term?",
+        "What happens if I miss a required lab?",
+        "Where can I find exam review resources for my electrical course?"
+      ],
+      "businessOutcome": "Students receive always-available support from school-approved materials, helping staff focus on cases that require judgment or personal intervention.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Career services and externship knowledge agent",
+      "problem": "Career services teams answer recurring questions about resumes, interviews, externship steps, employer requirements, job boards, credentials, and occupational outlook information.",
+      "agentWorkflow": "DocsBot can answer from career services guides, externship handbooks, resume templates, employer FAQs, certification resources, and approved labor-market references. The agent can summarize a student’s request and route it to placement staff when the next step requires a person.",
+      "liveContextOrTools": "With customer-configured connectors, the agent can collect appointment intent, create a career services task, or draft a staff follow-up summary. BLS occupation data can be referenced in approved career resources because it includes education, training, wage, openings, and projection information.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my externship orientation?",
+        "Can you help me find the resume template for welding graduates?",
+        "What does BLS say about training requirements for this occupation?"
+      ],
+      "businessOutcome": "Career staff can provide consistent self-service guidance while preserving human coaching for employer relationships and student placement decisions.",
+      "icon": "BriefcaseIcon",
+      "sourceIds": [
+        "src-bls-occupational-projections"
+      ]
+    },
+    {
+      "name": "Private staff knowledge and instructor operations agent",
+      "problem": "Technical schools run on program-specific procedures, compliance notes, lab instructions, curriculum documents, and staff handoffs that are often scattered across drives and wikis.",
+      "agentWorkflow": "Deploy DocsBot as a private internal knowledge agent trained on SOPs, staff manuals, curriculum guides, equipment procedures, templates, internal policies, PDFs, Google Drive, Notion, Confluence, and other approved sources. Staff can ask natural-language questions and get source-grounded answers.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or MCP connections can support approved live lookups, task creation, workflow triggers, summaries, and notifications for internal teams.",
+      "exampleQuestionsOrRequests": [
+        "What is the process for reporting a lab equipment issue?",
+        "Where is the current instructor evaluation template?",
+        "How do we escalate an attendance appeal?"
+      ],
+      "businessOutcome": "Faculty and staff find operational answers faster, reduce tribal knowledge dependency, and expose documentation gaps through DocsBot analytics.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for student experience improvement",
+      "problem": "If students keep asking the same unanswered questions, program pages, handbooks, and orientation resources may be unclear or incomplete.",
+      "agentWorkflow": "DocsBot logs, analytics, reports, topic management, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery help staff see what students and prospects are trying to learn. Teams can update source content, retrain the agent, and monitor whether questions decline.",
+      "liveContextOrTools": "Teams can review conversations, identify topics needing better documentation, and use summaries to prioritize updates across admissions, aid, advising, and career services content.",
+      "exampleQuestionsOrRequests": [
+        "Which program questions are students asking most often?",
+        "What financial aid topics are not answered well in our current documents?",
+        "Which handbook pages should we rewrite before orientation?"
+      ],
+      "businessOutcome": "Your school improves student-facing content based on real questions rather than guessing which resources are confusing.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and students one reliable place to ask school questions",
+    "intro": "A DocsBot customer-facing AI agent can live in a website or student portal chat widget and answer from the technical school’s approved sources. It can support more than 100 languages, collect structured information, and escalate complex, private, or high-impact questions to staff.",
+    "requests": [
+      {
+        "request": "“Which program should I choose if I want hands-on training and evening classes?”",
+        "agentResponseStrategy": "Ask clarifying questions, compare approved program descriptions and schedules, show source-grounded options, and offer an admissions handoff when the student is ready.",
+        "sourceTypes": [
+          "Program catalog",
+          "Admissions FAQs",
+          "Schedule pages",
+          "Tuition pages"
+        ],
+        "optionalAction": "Collect contact details and program interest, then forward a qualified lead summary to admissions through a configured workflow.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What financial aid steps do I need to finish before classes start?”",
+        "agentResponseStrategy": "Explain the school’s standard aid checklist from approved sources, link to required forms, clarify office contact paths, and avoid deciding aid eligibility in chat.",
+        "sourceTypes": [
+          "Financial aid FAQs",
+          "Student handbook",
+          "Office procedures",
+          "Federal aid instructions"
+        ],
+        "optionalAction": "Create a financial aid ticket or route the request to staff when the question involves a student-specific record or appeal.",
+        "icon": "WalletIcon"
+      },
+      {
+        "request": "“Where is the exam review guide and what happens if I miss lab?”",
+        "agentResponseStrategy": "Retrieve exam resources, course policies, attendance language, and lab make-up instructions from approved course and handbook materials.",
+        "sourceTypes": [
+          "Course resources",
+          "Student handbook",
+          "LMS exports",
+          "Program policies"
+        ],
+        "optionalAction": "Summarize the request and route it to the instructor or student services team if the answer requires approval or exception handling.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“How do I prepare for externship or career placement?”",
+        "agentResponseStrategy": "Point students to career services resources, resume templates, externship requirements, credential checklists, and approved employer-readiness guidance.",
+        "sourceTypes": [
+          "Career services guides",
+          "Externship handbook",
+          "Resume templates",
+          "Certification resources"
+        ],
+        "optionalAction": "Collect appointment intent and create a career services follow-up task through an approved scheduling or workflow connection.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Can I get this answer in Spanish?”",
+        "agentResponseStrategy": "Respond in the student’s preferred language while staying grounded in the same approved school sources and escalation rules.",
+        "sourceTypes": [
+          "Program pages",
+          "Handbooks",
+          "FAQs",
+          "Support articles"
+        ],
+        "optionalAction": "Route language-specific support needs to staff with a summarized transcript when needed.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What outcomes or career information can I review before enrolling?”",
+        "agentResponseStrategy": "Direct students to school-approved disclosures, career resources, and labor-market pages. NCES and federal guidance show why credential, cost, and outcomes information matters for career-focused programs.",
+        "sourceTypes": [
+          "Program disclosures",
+          "Career resources",
+          "Aid pages",
+          "Approved labor-market links"
+        ],
+        "optionalAction": "Send the prospect a summary of relevant school resources and request an advising follow-up.",
+        "icon": "ChartPieIcon",
+        "sourceIds": [
+          "src-nces-postsecondary-cte",
+          "src-fsa-program-eligibility"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help staff and instructors find operating knowledge without digging through folders",
+    "intro": "DocsBot can also run as a private internal knowledge agent for admissions, financial aid, advising, instructors, IT, operations, and leadership. Train it on approved internal sources so staff can retrieve procedures, summarize context, and identify documentation gaps quickly.",
+    "workflows": [
+      {
+        "name": "Admissions staff answer desk",
+        "problem": "Admissions teams need fast, consistent answers about program requirements, start dates, tuition language, campus policies, and handoff rules during calls and follow-up emails.",
+        "agentWorkflow": "Staff ask a private DocsBot agent questions in natural language. The agent retrieves approved source content, summarizes the answer, and can draft a response for human review.",
+        "sourceTypes": [
+          "Program catalog",
+          "Admissions scripts",
+          "Tuition sheets",
+          "FAQ documents"
+        ],
+        "optionalAction": "Create a follow-up task, draft an email, or send a lead summary to a configured admissions workflow.",
+        "outcome": "Prospects receive more consistent information, and new admissions staff ramp faster.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Financial aid office triage",
+        "problem": "Aid teams receive many repeated questions but must keep account-specific and eligibility decisions under human control.",
+        "agentWorkflow": "DocsBot answers staff questions from financial aid SOPs, checklists, institutional policies, and approved public guidance. It summarizes student conversations and recommends the appropriate escalation path based on school-defined instructions.",
+        "sourceTypes": [
+          "Financial aid SOPs",
+          "Student handbook",
+          "Compliance notes",
+          "Office checklists"
+        ],
+        "optionalAction": "Create or route a ticket with a summary and missing information list when connected to approved systems.",
+        "outcome": "Aid staff reduce repetitive explanation while maintaining review paths for sensitive financial decisions.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Instructor and lab operations lookup",
+        "problem": "Instructors and lab managers need quick access to safety rules, equipment procedures, syllabus templates, make-up policies, and reporting processes.",
+        "agentWorkflow": "Train DocsBot on internal SOPs, lab manuals, instructor handbooks, forms, and equipment documentation. The agent answers with source references and flags missing or outdated information through analytics.",
+        "sourceTypes": [
+          "Lab manuals",
+          "Instructor guides",
+          "Equipment procedures",
+          "Internal forms"
+        ],
+        "optionalAction": "Create a maintenance task, notify operations, or summarize an incident handoff through customer-configured actions.",
+        "outcome": "Staff spend less time searching for procedures and more time supporting hands-on learning.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Leadership view of student question trends",
+        "problem": "School leaders need to know where students are confused across admissions, aid, registration, attendance, and career services.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery show repeated topics, unresolved questions, and content areas that need revision.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap analytics",
+          "Student support content"
+        ],
+        "optionalAction": "Export summaries for a student experience meeting or trigger content-update tasks in an approved workflow.",
+        "outcome": "Teams improve high-friction resources before they become call volume, complaints, or retention risks.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the organization’s own websites, documents, help centers, internal content, and other configured knowledge sources.",
+      "industryApplication": "Technical schools can answer program, admissions, tuition, registration, handbook, lab, exam, and career services questions from approved school materials instead of generic web content.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can support customer-facing chat experiences and private internal team knowledge assistants.",
+      "industryApplication": "Put an AI support agent on admissions and student services pages, then give staff a private agent for SOPs, handbooks, procedures, and internal guides.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, record updates, and workflow triggers when configured by the customer.",
+      "industryApplication": "A technical school can configure actions to collect prospect details, create advising tickets, route financial aid questions, summarize career services requests, or notify departments within approved boundaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify which program pages, aid instructions, registration steps, or handbook policies students ask about most so staff can improve the source content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual, governed support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages and supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and private data handling.",
+      "industryApplication": "Support diverse student populations while protecting internal knowledge sources, limiting access by role, and keeping sensitive student decisions routed to authorized staff.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Education teams use DocsBot to reinforce course concepts, assignments, exams, and projects from approved learning materials.",
+      "DocsBot can be trained on a school’s own content library so answers stay grounded in the resources students and staff already trust.",
+      "High-volume support proof shows DocsBot can handle large numbers of recurring questions while preserving analytics for improvement."
+    ],
+    "whyTheseReviewsFit": "Technical schools need dependable answers from program materials, training resources, and student support content. DocsBot proof spans real education use, owned content libraries, and high-volume support automation, giving schools confidence that AI agents can support learners and staff without replacing expert judgment.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "DocumentTextIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for technical schools",
+    "audience": [
+      "Technical school owners and directors",
+      "Admissions and enrollment teams",
+      "Student services and financial aid offices",
+      "Career services and instructors"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "AcademicCapIcon"
+  },
+  "relatedIndustrySlugs": [
+    "trade-school",
+    "vocational-school",
+    "cosmetology-school",
+    "real-estate-school",
+    "private-school",
+    "technical-writing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "technical-school",
+    "webSearchQueries": [
+      "National Center for Education Statistics career and technical education postsecondary certificates enrollment percentage",
+      "NCES postsecondary occupational education certificates technical schools financial aid students data",
+      "BLS occupational outlook technical education healthcare computer trades job growth skills training",
+      "Federal Student Aid gainful employment career training programs disclosures 2024",
+      "site:ed.gov gainful employment financial value transparency final rule career training programs 2024",
+      "U.S. Department of Education gainful employment financial value transparency final rule effective July 1 2024"
+    ],
+    "sourceUrls": [
+      "https://nces.ed.gov/surveys/ctes/tables/index.asp?LEVEL=COLLEGE",
+      "https://nces.ed.gov/programs/coe/indicator/tob?tid=4",
+      "https://www.bls.gov/emp/data/occupational-data.htm",
+      "https://fsapartners.ed.gov/knowledge-center/library/federal-registers/2023-10-10/final-regulations-financial-value-transparency-and-gainful-employment",
+      "https://fsapartners.ed.gov/knowledge-center/fsa-handbook/2023-2024/vol2/ch2-program-eligibility-written-arrangements-and-distance-education"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45449,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32905,
+        "outputTokens": 7996,
+        "reasoningOutputTokens": 210,
+        "totalTokens": 53445,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.205339,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.225339
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25646,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18350,
+          "outputTokens": 5394,
+          "reasoningOutputTokens": 210,
+          "totalTokens": 31040,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.128609,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.148609
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19803,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14555,
+          "outputTokens": 2602,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22405,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07673,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07673
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1516053256215-94022213b13c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzQ2OTJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Technical School background image",
+    "source": "legacy-industry",
+    "query": "Technical School"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer program and admissions questions without giving generic advice that conflicts with our catalog?",
+      "answer": "Yes. A DocsBot agent is trained on your approved program pages, catalog, tuition pages, admissions FAQs, schedules, and policies. It can answer from those sources, link students back to the relevant material, ask clarifying questions, and hand off uncertain or exception-based cases to admissions instead of guessing.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help admissions without replacing the conversations our reps need to have?",
+      "answer": "DocsBot is best used as a first-response and qualification layer. It can explain requirements, collect program interest, timeline, prior education, contact details, and preferred follow-up channel, then send a concise summary to admissions. Staff still own fit conversations, campus tours, financial commitments, and enrollment decisions.",
+      "role": "Admissions and enrollment teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent compare programs for students who are unsure whether they want HVAC, welding, medical assisting, IT, or another track?",
+      "answer": "Yes, if your approved content supports it. DocsBot can ask about schedule, campus preference, prerequisites, hands-on requirements, credential goal, and career interest, then summarize relevant program options from your catalog. For subjective fit, licensing nuance, transfer credit, or employment promises, it should route the student to an advisor.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for financial aid questions without creating compliance risk?",
+      "answer": "Yes, with clear boundaries. DocsBot can explain standard aid steps, document checklists, office procedures, SAP language, payment policies, and where to upload forms from approved sources. It should not decide eligibility, interpret a student’s private record, approve appeals, or make individualized financial judgments; those should escalate to staff.",
+      "role": "Student services, financial aid, and advising",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Why should technical schools care about program transparency in an AI support project?",
+      "answer": "Career-focused programs often involve credential, cost, debt, and employment-outcome questions. The U.S. Department of Education’s Financial Value Transparency and Gainful Employment regulations address career training programs, unaffordable debt, earnings outcomes, and program-level transparency, so AI answers should stay grounded in approved disclosures and route sensitive cases to staff.",
+      "role": "Student services, financial aid, and advising",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ed-fvt-ge"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer career outcome and labor-market questions for prospective students?",
+      "answer": "DocsBot can point students to your approved career resources, disclosures, externship materials, and labor-market references. If you include approved BLS occupation resources, the agent can help students find employment change, openings, education, training, and wage information, while avoiding unsupported placement promises or individualized career guarantees.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-occupational-projections"
+      ]
+    },
+    {
+      "question": "What systems or content sources would we need to connect before launching?",
+      "answer": "Most schools start with public program pages, the catalog, admissions FAQs, tuition pages, financial aid instructions, the student handbook, academic calendar, career services materials, and key forms. Internal deployments can add SOPs, instructor guides, lab procedures, PDFs, Google Drive, Notion, Confluence, or other approved knowledge sources.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it work with our CRM, ticketing system, student portal, or scheduling process?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, forms, webhooks, MCP connections, and workflow automations. That can include collecting lead details, creating a support task, routing a financial aid question, requesting an advising appointment, or sending a summarized handoff when your team authorizes the connection and defines the boundaries.",
+      "role": "Admissions and enrollment teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from answering questions using outdated handbooks or old tuition sheets?",
+      "answer": "Implementation should start with source governance: decide which pages, files, and folders are authoritative, remove obsolete versions, and assign content owners. DocsBot analytics and conversation review can reveal confusing or missing content, but your school should keep a review process for tuition, policy, aid, and program updates.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can staff review what students are asking and where the agent is failing?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Leaders can use those insights to see repeated program, aid, registration, attendance, or career services questions and prioritize updates to pages, handbooks, and orientation materials.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What would success look like in the first 60 to 90 days?",
+      "answer": "A realistic first phase is fewer repetitive questions to admissions and student services, faster answers for prospects and students, clearer handoffs, and a visible list of content gaps. Track conversation volume, resolved topics, escalations, unanswered questions, lead handoffs, satisfaction, and the source pages that need revision.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent support students outside office hours or in languages other than English?",
+      "answer": "Yes. A DocsBot customer-facing agent can be available through a website or student portal chat widget and can answer in more than 100 languages. It should still use the same approved school sources and escalation rules, so multilingual support does not become a separate, unmanaged advice channel.",
+      "role": "Student services, financial aid, and advising",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we handle questions involving disability accommodations, appeals, conduct, grades, or academic standing?",
+      "answer": "Those should be treated as high-impact or sensitive issues. DocsBot can explain published procedures, deadlines, forms, and office contacts, but it should route case-specific decisions to authorized staff. Use instructions, scoped actions, logging, and handoff summaries so the agent supports the process without making the decision.",
+      "role": "Student services, financial aid, and advising",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can instructors use DocsBot privately for lab procedures, curriculum notes, and internal SOPs?",
+      "answer": "Yes. DocsBot can run as a private internal knowledge agent trained on staff manuals, lab procedures, equipment documentation, curriculum guides, templates, and internal policies. Role-based permissions and granular access controls help keep internal content separate from student-facing answers.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this expose student records or staff-only documents to the public chat widget?",
+      "answer": "It should not be configured that way. DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and private data handling. Public agents should be trained only on approved student-facing sources, while private internal agents can use restricted staff materials.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot use our school content or student conversations to train public models?",
+      "answer": "No. DocsBot does not use customer data to train public models. For schools, that matters because catalogs, procedures, internal documents, and student support conversations may contain sensitive operational context even when they are not formal student records.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How much work is required from admissions, financial aid, and academic teams before launch?",
+      "answer": "The main work is content selection and rule-setting. Teams should identify authoritative sources, remove outdated files, define escalation rules, decide which questions the agent should not answer, and test common scenarios. DocsBot then provides the agent layer, source-grounded answers, analytics, and optional configured actions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we start with admissions only and expand later to student services or internal staff support?",
+      "answer": "Yes. Many schools would start with a focused admissions or student FAQ agent, then expand to financial aid, registration, career services, instructor operations, or a private staff knowledge agent. A phased rollout lowers risk and helps prove value before connecting more sources or workflows.",
+      "role": "Admissions and enrollment teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help with retention and student persistence, not just lead generation?",
+      "answer": "DocsBot can give enrolled students a consistent place to ask about registration, attendance, lab rules, tutoring, exam prep, graduation checklists, externships, and handbook policies. It also surfaces repeated unanswered questions, helping staff improve confusing resources before they turn into avoidable frustration or missed deadlines.",
+      "role": "Student services, financial aid, and advising",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the AI agent help with externship and career services workflows?",
+      "answer": "Yes. Train it on externship handbooks, career services guides, resume templates, credential checklists, employer-readiness resources, and approved labor-market links. With configured workflows, it can collect appointment intent, summarize the student’s request, create a career services task, or route the student to placement staff.",
+      "role": "Student services, financial aid, and advising",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot qualify prospective students before sending them to admissions?",
+      "answer": "Yes. Using school-defined instructions, a DocsBot agent can ask structured questions about program interest, campus, schedule, timeline, prior education, and contact preference. It can then prepare a handoff summary or submit a configured lead form, while admissions staff remain responsible for final advising and enrollment decisions.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we evaluate DocsBot against a generic chatbot or a student information system add-on?",
+      "answer": "Compare whether the tool answers from your approved sources, supports public and private knowledge use cases, provides conversation analytics, allows human escalation, and can take bounded actions through configured Skills, APIs, connectors, or workflows. For technical schools, source control and escalation design matter more than a generic chat interface.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What if students ask for promises about jobs, wages, licensing, transferability, or aid eligibility?",
+      "answer": "The agent should answer only from approved disclosures and career resources, avoid guarantees, and route individualized or high-impact questions to staff. This is especially important because postsecondary CTE spans credential-focused programs, and some eligible certificate or diploma programs must prepare students for gainful employment in a recognized occupation.",
+      "role": "Admissions and enrollment teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-nces-postsecondary-cte",
+        "src-fsa-program-eligibility"
+      ]
+    },
+    {
+      "question": "Can leadership see which departments are creating the most student confusion?",
+      "answer": "Yes. DocsBot reporting can show repeated topics, unresolved questions, content gaps, and satisfaction or resolution patterns across admissions, financial aid, registration, career services, and academic policies. That gives leadership a practical way to prioritize content fixes, staffing conversations, and process improvements.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep humans in the loop when the agent takes actions?",
+      "answer": "Use scoped AI Actions and Skills with customer-defined permissions. DocsBot can collect missing details, create a ticket, update approved fields, notify a team, or prepare a handoff summary, while sensitive decisions such as aid eligibility, academic appeals, admissions exceptions, or disciplinary matters stay with authorized staff.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will staff need technical training to maintain the agent?",
+      "answer": "Staff do not need to become AI engineers, but they do need ownership of source content and escalation rules. Admissions, aid, advising, and academic teams should review analytics, update pages or documents, test common questions, and decide when new workflows or internal sources are ready to add.",
+      "role": "Instructors, program directors, and operations staff",
+      "category": "Training and onboarding"
+    }
+  ]
+}

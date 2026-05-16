@@ -1,0 +1,727 @@
+{
+  "slug": "electronics-component-distribution",
+  "business": "Electronics Component Distribution",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Electronics Component Distribution",
+    "description": "DocsBot helps electronics component distributors automate spec answers, RFQ intake, order lookups, and support handoffs from trusted product knowledge.",
+    "canonicalPath": "/industry/electronics-component-distribution"
+  },
+  "hero": {
+    "eyebrow": "AI support and workflow automation for component distributors",
+    "headline": "Move component buyers from part questions to qualified action faster",
+    "subheadline": "DocsBot helps electronics component distributors deploy AI agents trained on datasheets, line cards, FAQs, policies, support history, and internal playbooks so engineers, buyers, sales teams, and support reps can get source-grounded answers and trigger approved follow-up workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer parametric, packaging, availability, substitute, compliance, and documentation questions from approved sources.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "text": "Collect RFQ details, identify missing specs, qualify fit, and route summaries to sales or support workflows.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give internal teams fast access to SOPs, supplier notes, pricing guidance, return policies, and escalation paths.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or MCP servers for approved live lookups, ticket creation, notifications, and handoffs.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build a component distribution agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your distributor knowledge: product pages, datasheets, application notes, FAQs, supplier documentation, help center articles, ticket history, sales playbooks, SOPs, and policies. Agents can answer with sources, collect structured intake, summarize conversations, surface knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+    "whoItHelps": [
+      {
+        "role": "Inside sales and customer service teams",
+        "roleContext": "Teams handling RFQs, alternates, lead-time questions, documentation requests, and quote follow-ups can use DocsBot to turn scattered product and policy knowledge into fast, consistent answers.",
+        "bullets": [
+          {
+            "text": "Draft responses to recurring buyer questions from approved catalogs, FAQs, datasheets, and ticket history.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Capture part number, quantity, target price, region, date code, packaging, lifecycle status, and application context before handoff.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize complex conversations so account owners can respond with the right context instead of re-reading threads.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "FAEs, product specialists, and technical support",
+        "roleContext": "Technical experts can preserve scarce application knowledge while keeping the agent grounded in approved documentation and escalating when a request needs engineering judgment.",
+        "bullets": [
+          {
+            "text": "Help users compare package options, operating ranges, application notes, and documentation links from source material.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Route design-in, compliance, reliability, or safety-critical questions to human experts with a concise summary.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Identify unanswered topics and repeated documentation gaps from analytics and conversation review.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Operations, purchasing, and quality leaders",
+        "roleContext": "Distribution operations depend on traceability, supplier rules, returns, handling requirements, and repeatable workflows. DocsBot helps teams retrieve the right internal guidance and trigger approved next steps.",
+        "bullets": [
+          {
+            "text": "Make receiving, returns, ESD handling, lot traceability, stock rotation, and exception procedures searchable for employees.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Use approved live context to look up order, ticket, or record status when your team configures the right connection.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Keep permissions, review paths, logs, and customer-defined boundaries around sensitive pricing, quality, and supplier workflows.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-sia-2025-sales",
+      "metric": "$791.7 billion in 2025 global semiconductor sales",
+      "claim": "SIA reported global semiconductor sales of $791.7 billion in 2025, up 25.6% from 2024, showing the scale and pace of demand behind component distribution workflows.",
+      "sourceTitle": "Global Annual Semiconductor Sales Increase 25.6% to $791.7 Billion in 2025",
+      "sourceUrl": "https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/",
+      "sourceDate": "February 6, 2026",
+      "bestUsedFor": [
+        "market scale",
+        "demand pressure",
+        "growth context"
+      ]
+    },
+    {
+      "id": "src-commerce-inventory",
+      "metric": "Median chip inventory fell from 40 days to less than 5 days",
+      "claim": "The U.S. Department of Commerce found that median semiconductor inventory reported by buyers fell from 40 days in 2019 to less than 5 days in 2021 during the shortage.",
+      "sourceTitle": "Results from Semiconductor Supply Chain Request for Information",
+      "sourceUrl": "https://www.commerce.gov/news/blog/2022/01/results-semiconductor-supply-chain-request-information",
+      "sourceDate": "January 25, 2022",
+      "bestUsedFor": [
+        "lead-time volatility",
+        "availability pressure",
+        "supply-chain fragility"
+      ]
+    },
+    {
+      "id": "src-nist-counterfeit-risk",
+      "metric": "Counterfeit risk rises with complex and constrained supply chains",
+      "claim": "NIST notes that the counterfeit electronics industry can exploit supply constraints and that electronic counterfeits affect markets including consumer goods, networking, medical, automotive, aerospace, and defense.",
+      "sourceTitle": "Development of a Methodology to Determine Risk of Counterfeit Use",
+      "sourceUrl": "https://www.nist.gov/publications/development-methodology-determine-risk-counterfeit-use",
+      "sourceDate": "2013",
+      "bestUsedFor": [
+        "counterfeit risk",
+        "quality assurance",
+        "authorized sourcing pressure"
+      ]
+    },
+    {
+      "id": "src-nist-cscrm",
+      "metric": "Supply-chain risk management requires identifying, assessing, mitigating, documenting, and monitoring risks",
+      "claim": "NIST guidance frames ICT supply-chain risk management as a risk process involving identification, assessment, mitigation, documentation, and monitoring.",
+      "sourceTitle": "Proposed Risk Management Guidelines Aim to Bolster Security of Federal ICT Supply Chains",
+      "sourceUrl": "https://www.nist.gov/news-events/news/2014/06/proposed-risk-management-guidelines-aim-bolster-security-federal-ict-supply",
+      "sourceDate": "June 2014",
+      "bestUsedFor": [
+        "supply-chain governance",
+        "risk documentation",
+        "quality workflows"
+      ]
+    },
+    {
+      "id": "src-ecia-counterfeit-policy",
+      "metric": "Counterfeit avoidance policies include control and reporting processes",
+      "claim": "ECIA materials comparing DFARS and AS6496 describe counterfeit electronics control plans, suspect part control, and reporting processes for counterfeit parts.",
+      "sourceTitle": "ECIA White Paper Comparing DFARS Section 252.246-7007 and AS6496 Counterfeit Avoidance Policy",
+      "sourceUrl": "https://www.ecianow.org/assets/docs/GIPC/ECIA%20White%20Paper%20Comparing%20DFARS%20Section%20252.246-7007%20and%20AS6496%20Counterfeit%20Avoidance%20Policy.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "counterfeit procedures",
+        "quality documentation",
+        "reporting workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "RFQ and quote-readiness intake",
+      "problem": "Component buyers often submit incomplete requests, forcing inside sales to chase part numbers, quantities, alternates, lifecycle notes, packaging preferences, and timing before a quote can move forward.",
+      "agentWorkflow": "A DocsBot agent asks clarifying questions, checks approved catalog and policy sources, captures structured RFQ fields, summarizes the buyer’s use case, and routes the qualified request to the right sales or support workflow. Humans stay responsible for final pricing, commitments, and contractual terms.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or forms, the agent can create a ticket, forward a lead summary, notify a team, or update approved fields in a sales workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you quote 5,000 units of this MCU in tape-and-reel with RoHS documentation?",
+        "We need an alternate for this obsolete regulator by next Friday.",
+        "Can you send this RFQ to the right product specialist?"
+      ],
+      "businessOutcome": "Sales teams receive cleaner RFQs with less back-and-forth, improving response consistency while preserving human control over price and availability commitments.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Datasheet and compatibility support",
+      "problem": "Engineers and buyers need quick answers from long datasheets, product pages, application notes, and supplier documentation, but distributor teams cannot manually answer every basic spec question at scale.",
+      "agentWorkflow": "DocsBot trains on approved product documentation and responds with source-grounded answers about specs, package options, operating conditions, documentation links, and next-step guidance. When a question is ambiguous, design-critical, or outside the sources, it escalates with conversation context.",
+      "liveContextOrTools": "The agent can run in a website widget, product experience, private team chat, or helpdesk-connected workflow depending on the distributor’s deployment.",
+      "exampleQuestionsOrRequests": [
+        "What is the maximum operating temperature for this connector series?",
+        "Which package options are available for this part family?",
+        "Do you have the application note for low-noise power design?"
+      ],
+      "businessOutcome": "Buyers find trusted documentation faster, and technical teams see which questions keep appearing so they can improve product content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Availability, order, and status assistance",
+      "problem": "Shortage cycles and allocation pressure make availability and lead-time questions urgent. During the semiconductor shortage, Commerce reported median buyer inventory dropped from 40 days in 2019 to less than 5 days in 2021.",
+      "agentWorkflow": "A DocsBot agent answers policy and process questions from approved sources, gathers order or quote identifiers, explains what information is needed, and prepares a handoff when live status requires a connected system or human review.",
+      "liveContextOrTools": "Where authorized, customer-configured Skills or APIs can look up order, ticket, or quote status, create a support task, summarize the customer’s issue, and notify the right team.",
+      "exampleQuestionsOrRequests": [
+        "Can you check whether my order shipped?",
+        "What information do you need to investigate a delayed backorder?",
+        "How do I request a lead-time update for an allocated part?"
+      ],
+      "businessOutcome": "Support teams can reduce repetitive status triage while keeping live availability and shipment actions inside approved system permissions.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-commerce-inventory"
+      ]
+    },
+    {
+      "name": "Counterfeit-risk and quality procedure guidance",
+      "problem": "NIST notes that counterfeiters can exploit supply constraints, and ECIA counterfeit avoidance materials emphasize control and reporting processes for suspect parts.",
+      "agentWorkflow": "DocsBot makes internal quality procedures, supplier rules, return workflows, receiving checks, escalation paths, and reporting instructions searchable for authorized employees. The agent can summarize an issue and route it to quality, purchasing, or compliance teams for review.",
+      "liveContextOrTools": "Configured workflows can create an internal case, request missing documentation, notify a quality owner, or attach a structured summary to a review queue.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for handling a suspect counterfeit component?",
+        "Which documents are required before accepting a broker-sourced lot?",
+        "How do I escalate a customer claim about date-code mismatch?"
+      ],
+      "businessOutcome": "Employees get consistent procedural guidance while sensitive quality decisions, supplier actions, and customer commitments remain under human review.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nist-counterfeit-risk",
+        "src-ecia-counterfeit-policy"
+      ]
+    },
+    {
+      "name": "Internal sales enablement for line-card knowledge",
+      "problem": "Distributor reps need fast recall across thousands of SKUs, supplier lines, programs, policies, and competitive positioning, but knowledge is often scattered across PDFs, wikis, emails, and sales decks.",
+      "agentWorkflow": "DocsBot acts as a private sales enablement agent trained on approved line cards, product briefs, FAQs, objection handling, proposal templates, case studies, and internal guidance. Reps can ask for concise talk tracks, product summaries, and draft follow-ups for human review.",
+      "liveContextOrTools": "With approved Skills and web search, the agent can research public account context, summarize prospect needs, draft a follow-up email, or create a sales task through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Summarize our value proposition for automotive OEM buyers.",
+        "Draft a follow-up explaining our authorized sourcing process.",
+        "What questions should I ask a prospect designing a new IoT gateway?"
+      ],
+      "businessOutcome": "Reps spend less time hunting for internal knowledge and more time preparing accurate, buyer-specific conversations.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for product content",
+      "problem": "Fast-growing semiconductor demand creates more questions about specs, substitutes, availability, and documentation. SIA reported $791.7 billion in global semiconductor sales in 2025, up 25.6% from 2024.",
+      "agentWorkflow": "DocsBot logs conversations, reports repeated topics, surfaces unanswered questions, and helps teams identify which product pages, FAQs, manuals, or support articles should be improved next.",
+      "liveContextOrTools": "Analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams prioritize documentation updates.",
+      "exampleQuestionsOrRequests": [
+        "What are customers asking that our datasheets do not answer?",
+        "Which product families generate the most unresolved questions?",
+        "Where should we add new FAQ content this quarter?"
+      ],
+      "businessOutcome": "Marketing, support, and product teams can improve self-service content based on real buyer and engineer questions.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-sia-2025-sales"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give engineers and buyers a source-grounded front door for component questions",
+    "intro": "DocsBot can sit on your website, product pages, portal, or help center to answer recurring technical, commercial, and support questions from approved content. It can collect structured details, explain next steps, and escalate to humans when a request needs quote ownership, engineering review, or account-specific handling.",
+    "requests": [
+      {
+        "request": "“Can you help me find the correct alternate for this out-of-stock part?”",
+        "agentResponseStrategy": "Ask for the existing part number, required specs, application constraints, quantity, timing, region, and acceptable substitutions; answer from approved documentation where available and escalate when engineering judgment is needed.",
+        "sourceTypes": [
+          "Product catalog",
+          "Datasheets",
+          "Application notes",
+          "Lifecycle guidance",
+          "Support FAQs"
+        ],
+        "optionalAction": "Create a qualified request or route a summary to inside sales, technical support, or a product specialist through configured workflows.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "request": "“Do you have RoHS, REACH, or certificate documentation for this component?”",
+        "agentResponseStrategy": "Search approved documentation sources, explain which compliance documents are available, identify missing details, and provide the correct escalation path when a certificate requires account or lot-specific handling.",
+        "sourceTypes": [
+          "Supplier documents",
+          "Compliance FAQs",
+          "Product pages",
+          "Internal policy notes"
+        ],
+        "optionalAction": "Collect part, lot, order, or customer details and create a support task for document fulfillment if configured.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“What is the status of my order or backorder?”",
+        "agentResponseStrategy": "Explain the information needed, answer policy questions from approved sources, and use live context only when the distributor has configured an authorized lookup.",
+        "sourceTypes": [
+          "Order support FAQs",
+          "Shipping policies",
+          "Return policies",
+          "Helpdesk articles"
+        ],
+        "optionalAction": "Look up approved status fields, create a ticket, or prepare a handoff summary using customer-configured Skills, APIs, or connectors.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“I need pricing and delivery for a production build.”",
+        "agentResponseStrategy": "Collect structured RFQ details and clarify that final pricing, allocation, contractual commitments, and delivery promises are handled by the distributor’s sales team.",
+        "sourceTypes": [
+          "RFQ forms",
+          "Sales qualification rules",
+          "Line cards",
+          "Product pages",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Forward a qualified RFQ summary to the right workflow, CRM, helpdesk, email, Slack, or Microsoft Teams channel when configured.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“How do I return or report a component issue?”",
+        "agentResponseStrategy": "Guide the customer through published return, RMA, and quality intake requirements while escalating sensitive quality or counterfeit concerns for human review.",
+        "sourceTypes": [
+          "RMA policies",
+          "Quality procedures",
+          "Support articles",
+          "Customer service scripts"
+        ],
+        "optionalAction": "Create a ticket with part number, order details, symptoms, photos, and requested resolution if the workflow is approved.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Can I speak with someone about a design-in project?”",
+        "agentResponseStrategy": "Collect application context, project stage, target production date, annual volume, region, and preferred follow-up channel before routing to the right expert.",
+        "sourceTypes": [
+          "Lead qualification rules",
+          "FAE intake forms",
+          "Product family pages",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Use a configured scheduling workflow or handoff process to request a meeting while keeping humans responsible for commitments.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Equip distributor teams with one governed source for product, process, and policy answers",
+    "intro": "DocsBot can serve as a private internal knowledge agent for sales, support, purchasing, quality, marketing, and operations teams. It answers from approved company knowledge, summarizes context, supports onboarding, and helps leaders see where documentation is missing or outdated.",
+    "workflows": [
+      {
+        "name": "Inside sales quote preparation",
+        "problem": "Sales reps need product, policy, supplier, and customer context before responding, but that information may live across documents, folders, ticket history, and sales enablement materials.",
+        "agentWorkflow": "The agent retrieves relevant internal guidance, summarizes the buyer’s request, drafts a response for review, and flags missing information before the rep sends anything externally.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Line cards",
+          "Pricing guidance",
+          "Supplier notes",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a follow-up email, create a task, or attach a summary to a customer-configured sales workflow.",
+        "outcome": "Reps respond with more consistent context and fewer manual searches.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Quality and supplier exception handling",
+        "problem": "Counterfeit, traceability, returns, and supplier exceptions require consistent procedures. NIST frames supply-chain risk management as identifying, assessing, mitigating, documenting, and monitoring risks.",
+        "agentWorkflow": "DocsBot retrieves the right SOP, asks for required details, summarizes the issue, and routes the case to quality, purchasing, or compliance while keeping approvals and final determinations with humans.",
+        "sourceTypes": [
+          "Quality SOPs",
+          "Supplier policies",
+          "Receiving procedures",
+          "Return workflows",
+          "Compliance notes"
+        ],
+        "optionalAction": "Create an internal review task, notify an owner, or update approved case fields through configured Skills and permissions.",
+        "outcome": "Teams follow documented procedures more consistently during high-risk exceptions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-nist-cscrm"
+        ]
+      },
+      {
+        "name": "New-hire and cross-training assistant",
+        "problem": "Electronics distribution knowledge is specialized, and onboarding new reps requires product, process, supplier, and systems context that experienced employees often carry informally.",
+        "agentWorkflow": "A private DocsBot agent answers onboarding questions from SOPs, training decks, wikis, policies, and product resources, then highlights repeated unanswered questions for documentation owners.",
+        "sourceTypes": [
+          "Training materials",
+          "SOPs",
+          "Internal wiki",
+          "HR policies",
+          "Product primers"
+        ],
+        "optionalAction": "Route knowledge gaps to documentation owners or managers for review.",
+        "outcome": "New employees learn workflows faster and managers can see where training materials need improvement.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Support-ticket intelligence",
+        "problem": "Recurring tickets about shipping, returns, documentation, alternates, and specs consume support capacity and hide useful trends in conversation history.",
+        "agentWorkflow": "When connected through approved exports, APIs, Skills, or connectors, DocsBot can learn from ticket sources, summarize issues, draft replies, route cases, and report repeated topics.",
+        "sourceTypes": [
+          "Helpdesk tickets",
+          "Support macros",
+          "Knowledge base",
+          "Policies",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft a response, classify a ticket, create a handoff summary, or route a case through customer-configured helpdesk workflows.",
+        "outcome": "Support leaders get faster triage and better insight into documentation and process gaps.",
+        "icon": "TicketIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot trains AI agents on a company’s own knowledge sources and provides instant answers in the company’s voice, with source-grounded responses and escalation when needed.",
+      "industryApplication": "Deploy on product pages, help centers, or customer portals so buyers can ask about specs, documentation, alternates, packaging, returns, and ordering steps without waiting for a human for every routine answer.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Presales intake and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details, apply customer-defined qualification rules, and forward summaries to sales, CRM, helpdesk, forms, email, Slack, Microsoft Teams, or other configured systems.",
+      "industryApplication": "Collect RFQ, design-in, sample, or production-build details; qualify by region, urgency, product fit, account type, and project stage; then route the summary to the correct team.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, routing, record updates, summaries, workflow triggers, and handoffs.",
+      "industryApplication": "Use approved live context for order status, ticket creation, RFQ routing, quality case handoffs, team notifications, or field updates, including connectivity through APIs, connectors, or remote Model Context Protocol servers where configured.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can operate as a private employee assistant trained on internal documents, SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company knowledge.",
+      "industryApplication": "Give sales, support, purchasing, warehouse, and quality teams instant access to receiving rules, supplier procedures, return policies, escalation paths, and sales enablement content.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which component families, policies, availability questions, or documentation gaps drive the most unresolved customer and employee questions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer data is not used to train public models.",
+      "industryApplication": "Protect supplier notes, customer conversations, pricing guidance, quality procedures, and internal SOPs while giving teams controlled access to the knowledge they need.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on manuals, websites, knowledge bases, and support content for scalable 24/7 assistance.",
+      "Support high-volume inquiry environments with source-grounded customer answers and escalation paths.",
+      "Help human teams answer faster by using owned knowledge and helpdesk-style workflows."
+    ],
+    "whyTheseReviewsFit": "Electronics component distributors need the same fundamentals proven across DocsBot customers: agents trained on owned technical content, embedded support experiences, multilingual documentation coverage, helpdesk-assisted workflows, and scalable customer inquiry handling without replacing human ownership of complex decisions.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for electronics component distributors",
+    "audience": [
+      "Electronics component distributors",
+      "Authorized parts distributors",
+      "Inside sales teams",
+      "Technical support teams",
+      "Distribution operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "electrical-supply-distribution",
+    "industrial-parts-distribution",
+    "wholesale-distribution",
+    "b2b-product-distributors",
+    "industrial-automation",
+    "electric-vehicle-components"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "electronics-component-distribution",
+    "webSearchQueries": [
+      "ECIA electronic components authorized distribution report supply chain counterfeit components",
+      "SIA 2025 semiconductor sales global market statistics",
+      "Department of Commerce semiconductor supply chain report lead times inventory 2022",
+      "NIST counterfeit electronic parts supply chain risk management"
+    ],
+    "sourceUrls": [
+      "https://www.semiconductors.org/global-annual-semiconductor-sales-increase-25-6-to-791-7-billion-in-2025/",
+      "https://www.commerce.gov/news/blog/2022/01/results-semiconductor-supply-chain-request-information",
+      "https://www.nist.gov/publications/development-methodology-determine-risk-counterfeit-use",
+      "https://www.nist.gov/news-events/news/2014/06/proposed-risk-management-guidelines-aim-bolster-security-federal-ict-supply",
+      "https://www.ecianow.org/assets/docs/GIPC/ECIA%20White%20Paper%20Comparing%20DFARS%20Section%20252.246-7007%20and%20AS6496%20Counterfeit%20Avoidance%20Policy.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41062,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28518,
+        "outputTokens": 8299,
+        "reasoningOutputTokens": 116,
+        "totalTokens": 49361,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.198916,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.208916
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20711,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 13415,
+          "outputTokens": 5528,
+          "reasoningOutputTokens": 116,
+          "totalTokens": 26239,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.118281,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.128281
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20351,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15103,
+          "outputTokens": 2771,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23122,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080635,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080635
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1562408590-e32931084e23?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxFbGVjdHJvbmljcyUyMENvbXBvbmVudCUyMERpc3RyaWJ1dGlvbnxlbnwwfDB8fHwxNzc4ODIyNjc2fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "blue circuit board",
+    "source": "unsplash-search",
+    "query": "Electronics Component Distribution"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer component spec questions without making unsupported engineering claims?",
+      "answer": "Yes. DocsBot is designed to answer from approved sources such as datasheets, product pages, application notes, FAQs, and supplier documentation, with source-grounded responses. If the question is ambiguous, design-critical, or not covered by the indexed material, the agent can be instructed to say so and escalate to a product specialist or FAE with the conversation context.",
+      "role": "FAEs, product specialists, and technical support",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our inside sales team with incomplete RFQs?",
+      "answer": "A DocsBot agent can ask for missing RFQ details such as part number, quantity, region, target price, packaging, date-code requirements, lifecycle status, application context, and timing. It can then summarize the request and route it to the right sales or support workflow. Humans still own final pricing, allocation decisions, delivery commitments, and contractual terms.",
+      "role": "Inside sales and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot handle availability and lead-time questions during volatile supply cycles?",
+      "answer": "DocsBot can answer policy and process questions, collect order or quote identifiers, explain what information is needed, and prepare handoffs for live availability review. Where you authorize a Skill, API, connector, or workflow, it can look up approved status fields. This matters because Commerce reported median buyer chip inventory fell from 40 days in 2019 to less than 5 days in 2021 during the shortage.",
+      "role": "Inside sales and customer service teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-commerce-inventory"
+      ]
+    },
+    {
+      "question": "Will the agent quote pricing or promise delivery dates to customers?",
+      "answer": "Only if you explicitly configure a tightly scoped workflow, and most distributors should keep those decisions with humans. DocsBot can collect RFQ information, explain published policies, summarize buyer needs, and route the opportunity. Final pricing, allocation, contractual terms, export restrictions, and delivery promises should remain under sales, operations, or account-owner review.",
+      "role": "Inside sales and customer service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use it for alternates, obsolete parts, or substitute recommendations?",
+      "answer": "Yes, with the right guardrails. DocsBot can ask for the original part, required parameters, application constraints, package, certifications, temperature range, quantity, and urgency, then answer from approved lifecycle, catalog, and supplier documentation. For design-critical substitutes or uncertain fit, it should escalate to an FAE or product specialist rather than presenting a recommendation as final engineering approval.",
+      "role": "FAEs, product specialists, and technical support",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot support RoHS, REACH, certificate, and documentation requests?",
+      "answer": "DocsBot can search approved supplier documents, compliance FAQs, product pages, and internal policy notes to explain what documentation is available and what details are required. For lot-specific certificates or account-specific documentation, the agent can collect part, lot, order, or customer details and create a handoff or support task through a configured workflow.",
+      "role": "Inside sales and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can this help with counterfeit-risk and quality procedures without exposing sensitive supplier decisions?",
+      "answer": "Yes. DocsBot can serve as a private internal agent for quality SOPs, receiving checks, supplier rules, return procedures, and escalation paths, while permissions and review paths keep sensitive decisions with humans. That is important because NIST notes counterfeiters can exploit supply constraints, and ECIA materials emphasize counterfeit control, suspect-part handling, and reporting processes.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nist-counterfeit-risk",
+        "src-ecia-counterfeit-policy"
+      ]
+    },
+    {
+      "question": "How would the agent fit into our existing ERP, CRM, ecommerce, or ticketing workflows?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, or MCP server connections for bounded actions such as record lookups, ticket creation, routing, notifications, summaries, or approved field updates. You define what systems it can access, what data it can retrieve, and which actions require human review.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we start without integrating live inventory or order systems?",
+      "answer": "Yes. Many distributors can start with a knowledge-only agent trained on public product content, FAQs, policies, line cards, support macros, and internal SOPs. That first phase can answer recurring questions and collect structured intake. Live order, quote, inventory, or ticket actions can be added later through approved Skills, APIs, connectors, or workflows.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent the agent from using outdated datasheets or supplier documents?",
+      "answer": "DocsBot should be connected to your approved source locations and governed by clear content ownership. Teams can review logs, unanswered questions, and repeated topics to find stale or missing documentation. For high-risk topics, configure the agent to cite sources, avoid unsupported claims, and escalate when the available source is missing, conflicting, or outdated.",
+      "role": "FAEs, product specialists, and technical support",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What kind of ROI should a component distributor expect to measure?",
+      "answer": "Typical measures include fewer repetitive support tickets, faster RFQ qualification, lower back-and-forth on missing information, reduced time spent searching SOPs or datasheets, higher self-service resolution, and better visibility into content gaps. DocsBot’s analytics, logs, conversation review, satisfaction and resolution analysis, and knowledge-gap reporting help connect agent usage to operational impact.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us scale support as semiconductor demand grows?",
+      "answer": "Yes. DocsBot can answer recurring buyer and engineer questions from approved content, collect structured requests, and route complex issues to people. The scale problem is real: SIA reported global semiconductor sales of $791.7 billion in 2025, up 25.6% from 2024, which signals continued pressure on distributor support, sales, and documentation workflows.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-sia-2025-sales"
+      ]
+    },
+    {
+      "question": "How much human oversight do we need after launch?",
+      "answer": "Plan for human review during rollout and for sensitive workflows indefinitely. Teams should review early conversations, tune instructions, add missing sources, define escalation triggers, and monitor unresolved topics. Human ownership should remain for pricing commitments, engineering judgment, quality dispositions, supplier exceptions, export-sensitive requests, and customer-specific account decisions.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can different teams see different information, such as pricing guidance versus public product answers?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so you can separate public customer answers from private employee knowledge. That matters for component distributors because supplier notes, pricing guidance, quality procedures, customer conversations, and internal SOPs often require different access rules than datasheets or product FAQs.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security posture can we present to IT and procurement?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a commitment that customer data is not used to train public models. Skills can also be configured with secrets, metadata bindings, network policy, logging, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support both customer-facing and internal employee use cases?",
+      "answer": "Yes. A customer-facing agent can answer product, RFQ, order-support, documentation, return, and design-in questions from approved sources. A private internal agent can help sales, support, purchasing, warehouse, quality, and operations teams find SOPs, supplier rules, escalation paths, pricing guidance, and training materials.",
+      "role": "General buyer",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we train the agent on thousands of SKUs without creating a maintenance nightmare?",
+      "answer": "Focus on authoritative source systems and content ownership rather than manually writing answers. DocsBot can train on product pages, datasheets, PDFs, help articles, internal documents, wikis, and support content. Use analytics to identify high-volume product families, unresolved questions, and missing documentation so your team improves the sources that matter most first.",
+      "role": "FAEs, product specialists, and technical support",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help new inside sales reps learn our line card and procedures faster?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions from training decks, SOPs, line cards, supplier notes, internal wikis, sales playbooks, and policy documents. New reps can ask practical questions while managers review repeated unanswered topics to improve training materials and reduce dependence on tribal knowledge.",
+      "role": "Inside sales and customer service teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or search box on our website?",
+      "answer": "A generic search box helps users find pages; DocsBot can answer from approved sources, cite context, ask follow-up questions, collect structured intake, summarize conversations, identify knowledge gaps, and trigger approved workflows. It is better positioned as a source-grounded AI agent for support, presales, and internal knowledge rather than a simple scripted chatbot.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use customer conversations to improve product content and supplier documentation coverage?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can see which component families, policies, compliance documents, alternates, or order-support topics are generating unanswered or repeated questions, then prioritize content updates.",
+      "role": "FAEs, product specialists, and technical support",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when the customer asks a question that spans sales, technical support, and quality?",
+      "answer": "DocsBot can collect the relevant context, answer only from approved sources, and route the request based on your rules. For example, it can summarize the part number, quantity, application, issue description, order details, photos, and requested resolution, then hand off to sales, FAE, customer service, quality, or purchasing as appropriate.",
+      "role": "Inside sales and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent operate in multiple languages for global buyers and suppliers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help global distributors provide more consistent first-line support across regions. You should still govern source content, escalation rules, and region-specific policy handling carefully, especially for pricing, shipping, compliance documentation, returns, and contractual commitments.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How long does implementation usually take for a first use case?",
+      "answer": "Implementation depends on source readiness, security review, workflow complexity, and whether you need live system actions. A practical first deployment is often a focused use case: product documentation answers, RFQ intake, order-support triage, or an internal SOP assistant. More complex ERP, CRM, helpdesk, or quality workflows can be phased in after the knowledge base is validated.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How should we evaluate whether the agent is safe enough for quality and supply-chain risk workflows?",
+      "answer": "Evaluate source control, permissions, logging, escalation rules, and whether the agent refuses to make unsupported determinations. For supply-chain risk workflows, NIST frames risk management as identifying, assessing, mitigating, documenting, and monitoring risks, so the agent should support documentation and routing while humans retain authority over dispositions and supplier actions.",
+      "role": "Operations, purchasing, and quality leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nist-cscrm"
+      ]
+    },
+    {
+      "question": "Can DocsBot create tickets or tasks from customer conversations?",
+      "answer": "Yes, when you configure the appropriate Skills, APIs, connectors, forms, or workflow automations. The agent can collect required fields, summarize the issue, attach conversation context, route it to the right queue, notify a team, or update approved fields. It should not be given unrestricted access; actions should be scoped, logged, and aligned with your approval rules.",
+      "role": "Inside sales and customer service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What information should we prepare before a pilot?",
+      "answer": "Prepare a focused source set, common customer questions, escalation rules, sample RFQs, return and documentation policies, internal SOPs, and success metrics. Decide whether the pilot is customer-facing, internal, or helpdesk-connected. Also identify who owns content review, who approves workflow actions, and what questions must always route to a human.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

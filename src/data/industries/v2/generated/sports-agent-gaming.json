@@ -1,0 +1,727 @@
+{
+  "slug": "sports-agent-gaming",
+  "business": "Sports Agent",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Esports Sports Agent Workflows",
+    "description": "DocsBot helps gaming sports agents answer client questions, qualify sponsor interest, and surface contract knowledge from approved agency sources.",
+    "canonicalPath": "/industry/sports-agent-gaming"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for esports representation",
+    "headline": "DocsBot AI agents keep esports clients and sponsor deals moving",
+    "subheadline": "Train DocsBot on your agency playbooks, client FAQs, deal templates, brand guidelines, tournament calendars, sponsorship packages, and policy notes so players, creators, staff, and prospects can get fast answers while sensitive negotiations stay with your team.",
+    "proofBullets": [
+      {
+        "text": "Answer player, parent, creator, and sponsor questions from approved agency materials instead of scattered messages.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Qualify sponsorship and partnership inquiries with structured intake, routing, summaries, and human handoffs.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "text": "Help agents retrieve contract clauses, deliverables, disclosure rules, travel notes, and onboarding steps from private sources.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions for bounded lookups, task creation, notifications, and workflow triggers when your team configures the right Skills or APIs.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build an esports agency agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps sports agents in gaming create AI agents trained on the agency’s own knowledge. Those agents can answer routine client and sponsor questions, summarize account context, retrieve approved policies and deal materials, collect lead details, identify knowledge gaps, and trigger bounded workflows through customer-configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Player agents and talent managers",
+        "roleContext": "Representatives juggling client questions, brand requests, tournament commitments, content obligations, and negotiation prep need a faster way to search internal knowledge without letting AI make high-impact legal or commercial decisions.",
+        "bullets": [
+          {
+            "text": "Retrieve agency-approved answers about onboarding, travel expectations, deliverable timelines, and communication norms.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize client context before sponsor calls, renewals, or team negotiations so humans can focus on strategy.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate contract, compensation, immigration, or eligibility questions to the right person instead of giving uncontrolled advice.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Partnerships and sponsorship teams",
+        "roleContext": "Gaming talent revenue often depends on rapid sponsor response, clear packages, and clean handoffs from inbound interest to qualified opportunity.",
+        "bullets": [
+          {
+            "text": "Collect campaign goals, budget range, markets, target titles, deliverables, timeline, and preferred follow-up channel through structured intake.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route qualified brand opportunities to the right agent or partnerships lead with a conversation summary.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Keep media-kit, rate-card, audience, and brand-safety answers consistent from approved sales enablement materials.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Operations, legal, and compliance coordinators",
+        "roleContext": "Agency teams need quick access to procedures and disclosure guidance while preserving human review for contracts, regulated claims, and sensitive client data.",
+        "bullets": [
+          {
+            "text": "Make SOPs, disclosure checklists, content review steps, and internal policies searchable for staff.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "The FTC says influencers are responsible for making disclosures and complying with laws against deceptive advertising.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-ftc-influencer-disclosures"
+            ]
+          },
+          {
+            "text": "Use logs, role-based permissions, and customer-defined controls to keep private sources and actions bounded.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon",
+        "sourceIds": [
+          "src-ftc-influencer-disclosures"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-esa-us-gamers-2025",
+      "metric": "205.1 million U.S. video game players in 2025",
+      "claim": "The Entertainment Software Association reported that 64% of the U.S. population ages 5–90, or 205.1 million people, actively play video games.",
+      "sourceTitle": "2025 Essential Facts About the U.S. Video Game Industry",
+      "sourceUrl": "https://www.theesa.com/wp-content/uploads/2025/06/2025-Essential-Facts-Booklet-05-30-25-RGB.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "gaming audience scale",
+        "sponsor market context",
+        "fan engagement"
+      ]
+    },
+    {
+      "id": "src-newzoo-games-market-2025",
+      "metric": "Global games revenue reached about $196.7 billion in 2025",
+      "claim": "Newzoo data reported by GamesBeat estimated global games revenue at $196.7 billion in 2025, up 7.4% year over year.",
+      "sourceTitle": "Global game revenues hit $196.7B in 2025, up 7.4%",
+      "sourceUrl": "https://gamesbeat.com/global-game-revenues-hit-196-7b-in-2025-up-7-4-newzoo/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "market size",
+        "commercial opportunity",
+        "gaming industry growth"
+      ]
+    },
+    {
+      "id": "src-esportscharts-worlds-2025",
+      "metric": "League of Legends Worlds 2025 peaked at 6.7 million viewers",
+      "claim": "Esports Charts data reported by esports.gg said the 2025 League of Legends World Championship final reached 6,737,568 peak viewers, excluding Chinese platforms.",
+      "sourceTitle": "T1 vs KT showdown draws 6.7 million viewers at LoL Worlds 2025",
+      "sourceUrl": "https://esports.gg/news/league-of-legends/t1-vs-kt-showdown-draws-6-7-million-viewers-at-lol-worlds-2025//",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "esports audience scale",
+        "sponsor demand",
+        "event visibility"
+      ]
+    },
+    {
+      "id": "src-ftc-influencer-disclosures",
+      "metric": "FTC disclosure rules apply to social media influencers",
+      "claim": "The FTC tells influencers they are responsible for making disclosures, understanding the Endorsement Guides, and complying with laws against deceptive ads.",
+      "sourceTitle": "Disclosures 101 for Social Media Influencers",
+      "sourceUrl": "https://www.ftc.gov/influencers",
+      "sourceDate": "Current guidance",
+      "bestUsedFor": [
+        "endorsement compliance",
+        "sponsor content reviews",
+        "brand disclosure workflows"
+      ]
+    },
+    {
+      "id": "src-wapo-esports-contracts",
+      "metric": "Esports contract pressure and minor-player issues create representation risk",
+      "claim": "The Washington Post reported on esports player contract concerns and noted expert discussion of short signing deadlines, player understanding, and contracts involving minors.",
+      "sourceTitle": "Inside ‘contract hell’: Esports players say predatory contracts run ‘rampant’",
+      "sourceUrl": "https://www.washingtonpost.com/video-games/esports/2022/03/04/esports-player-contracts/",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "contract workflow pressure",
+        "human review requirements",
+        "player protection"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client FAQ and onboarding agent",
+      "problem": "Players, creators, parents, and support staff repeat the same questions about agency process, communication channels, deliverables, travel expectations, and next steps.",
+      "agentWorkflow": "DocsBot trains on onboarding documents, agency FAQs, SOPs, client handbooks, travel notes, and communication policies. The agent answers source-grounded questions, shows the basis for responses, and escalates sensitive or account-specific issues to staff.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can create an internal task, notify the responsible manager, or attach a summary to a customer-defined workflow.",
+      "exampleQuestionsOrRequests": [
+        "What does my agency need before a sponsor shoot?",
+        "Who approves my stream overlay before a tournament?",
+        "Summarize what this new player needs for onboarding."
+      ],
+      "businessOutcome": "Reduces repetitive message handling while giving clients a consistent, always-available source for routine agency information.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Sponsorship intake and qualification agent",
+      "problem": "Brands may contact an esports agency with vague campaign goals, incomplete deliverables, or tight timelines, creating back-and-forth before an agent can evaluate fit.",
+      "agentWorkflow": "DocsBot can answer from sponsorship packages, talent rosters, rate guidance, case studies, audience notes, and brand-safety policies. It collects structured details such as game title, region, budget range, campaign dates, requested deliverables, and target talent, then applies customer-defined qualification rules.",
+      "liveContextOrTools": "AI Actions can forward qualified inquiries, create a CRM-style record or task, draft a follow-up email, and route the conversation summary to partnerships staff when the agency configures the workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which of your FPS creators are available for a July campaign?",
+        "We have a $25k budget for a tournament activation—who should we speak with?",
+        "Create a sponsor intake summary for human review."
+      ],
+      "businessOutcome": "Turns inbound sponsor interest into cleaner opportunities without letting AI negotiate final pricing, contracts, or talent commitments.",
+      "icon": "MegaphoneIcon"
+    },
+    {
+      "name": "Contract and deal knowledge assistant",
+      "problem": "Agents need fast access to clause history, approval steps, deliverables, renewal notes, exclusivity language, and negotiation playbooks, but legal and commercial details are often spread across documents.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on approved templates, negotiation notes, playbooks, contract summaries, and policy documents. It retrieves relevant language, summarizes prior context, and flags when a human lawyer, executive, or licensed advisor should review.",
+      "liveContextOrTools": "Configured permissions can limit access by role. A Skill can generate a deal-summary draft or route a review request without letting the agent approve binding terms.",
+      "exampleQuestionsOrRequests": [
+        "Find our standard content usage language for a sponsor renewal.",
+        "Summarize the deliverables and exclusivity concerns in this deal folder.",
+        "What needs legal review before this player signs?"
+      ],
+      "businessOutcome": "Speeds deal preparation while keeping final legal interpretation and contract commitments under human control, important because esports contract disputes and minor-player issues have been publicly reported.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-wapo-esports-contracts"
+      ]
+    },
+    {
+      "name": "Sponsored content disclosure and review helper",
+      "problem": "Gaming talent often posts across Twitch, YouTube, TikTok, X, Instagram, Discord, and event channels, making it easy for sponsorship instructions and disclosure requirements to get missed.",
+      "agentWorkflow": "DocsBot can answer staff and creator questions from brand guidelines, disclosure checklists, campaign briefs, platform instructions, and agency review policies. It can summarize what a creator needs to include before publishing and escalate ambiguous claims.",
+      "liveContextOrTools": "With approved workflow access, an AI Action can create a content-review task, notify the campaign manager, or attach the draft caption and disclosure checklist for human approval.",
+      "exampleQuestionsOrRequests": [
+        "Does this caption need a sponsorship disclosure?",
+        "Summarize the required talking points and prohibited claims for this campaign.",
+        "Create a review task for this sponsored stream asset."
+      ],
+      "businessOutcome": "Helps teams keep disclosure guidance visible in day-to-day workflows; the FTC says influencers are responsible for disclosures and deceptive-ad compliance.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-influencer-disclosures"
+      ]
+    },
+    {
+      "name": "Tournament, travel, and media-day coordination agent",
+      "problem": "Tournament weeks create operational load: schedules, call times, travel rules, media obligations, equipment reminders, and sponsor deliverables change quickly.",
+      "agentWorkflow": "DocsBot can train on tournament briefs, agency calendars exported as documents, travel policies, media schedules, sponsor deliverable checklists, and internal SOPs. It answers routine logistics questions and summarizes each client’s commitments for managers.",
+      "liveContextOrTools": "When connected through configured APIs or Skills, the agent can look up approved schedule context, trigger reminders, or route a change request to operations.",
+      "exampleQuestionsOrRequests": [
+        "What time is the sponsor photo call for our Valorant player?",
+        "Summarize this client’s obligations during championship week.",
+        "Notify ops that the flight arrival changed."
+      ],
+      "businessOutcome": "Gives clients and staff one source for operational answers while reducing missed deliverables during high-pressure event windows.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Market and prospect research briefings",
+      "problem": "Agents need quick, credible context on game communities, tournament audiences, sponsor categories, and prospect accounts before outreach or negotiations.",
+      "agentWorkflow": "DocsBot can use approved internal sales enablement sources and, when configured with web search and customer-defined instructions, summarize public account research for human review. It can combine agency playbooks with sourced notes to prepare outreach talking points.",
+      "liveContextOrTools": "A Skill can create a prospect brief, draft a sales email, or send an internal summary to Slack, Microsoft Teams, CRM-style tools, or email through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Prepare a sponsor briefing for a peripheral brand interested in fighting game creators.",
+        "Summarize public news and likely pain points for this gaming publisher.",
+        "Draft a human-reviewed outreach email using our approved positioning."
+      ],
+      "businessOutcome": "Helps agents prepare faster for commercial conversations in a games market estimated at about $196.7 billion in 2025.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-newzoo-games-market-2025"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give players, families, creators, and sponsors faster answers without opening every internal system",
+    "intro": "A DocsBot customer-facing agent can live on your agency site, portal, or chat widget and answer from approved public or client-safe materials. It can collect structured requests, explain next steps, and hand off anything sensitive to your team.",
+    "requests": [
+      {
+        "request": "A brand asks which esports talent fits a product launch.",
+        "agentResponseStrategy": "Answer from approved talent profiles, package descriptions, audience notes, availability rules, and campaign requirements, then collect budget, region, timeline, game category, deliverables, and contact details.",
+        "sourceTypes": [
+          "Media kits",
+          "Talent rosters",
+          "Sponsorship packages",
+          "Brand-safety policies"
+        ],
+        "optionalAction": "Forward a qualified inquiry and conversation summary to the partnerships lead through a customer-configured workflow.",
+        "icon": "StarIcon"
+      },
+      {
+        "request": "A player asks how to submit a new deal for review.",
+        "agentResponseStrategy": "Explain the agency’s intake process, required documents, expected review steps, and escalation path using onboarding and deal-review SOPs.",
+        "sourceTypes": [
+          "Client handbook",
+          "Deal intake SOPs",
+          "Contract review checklists"
+        ],
+        "optionalAction": "Create a review request or task when the agency has configured the right Skill, API, or connector.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "A creator asks what to disclose in a sponsored post.",
+        "agentResponseStrategy": "Surface the agency’s disclosure checklist and campaign guidance, remind the user that final content may need human review, and avoid making legal determinations.",
+        "sourceTypes": [
+          "FTC guidance summaries",
+          "Campaign briefs",
+          "Disclosure checklists",
+          "Platform instructions"
+        ],
+        "optionalAction": "Route the draft caption or stream script to a campaign manager for approval.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-influencer-disclosures"
+        ]
+      },
+      {
+        "request": "A parent of a minor player asks what happens before signing.",
+        "agentResponseStrategy": "Provide agency-approved process information, explain who reviews the matter internally, and escalate contract, guardian, eligibility, or legal questions to a human representative.",
+        "sourceTypes": [
+          "Onboarding FAQs",
+          "Minor-client procedures",
+          "Review policies"
+        ],
+        "optionalAction": "Collect contact details and route the question to the assigned agent or legal review workflow.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "A fan or sponsor asks about tournament-week appearances.",
+        "agentResponseStrategy": "Answer from approved event pages, availability notes, public appearance policies, and sponsor deliverable guidelines without exposing private travel or client data.",
+        "sourceTypes": [
+          "Event briefs",
+          "Public schedules",
+          "Appearance policies",
+          "Sponsor deliverables"
+        ],
+        "optionalAction": "Capture a booking or appearance request and send it to the responsible team for review.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "An international sponsor asks in another language.",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages while staying grounded in the agency’s approved source material and voice.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Sponsorship pages",
+          "Agency policies"
+        ],
+        "optionalAction": "Route the lead summary to the correct regional contact if your workflow includes that handoff.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Turn agency knowledge into a private operating layer for agents, partnerships, and operations",
+    "intro": "A private DocsBot internal knowledge agent helps staff retrieve the latest approved answers, summarize client and deal context, draft internal handoffs, and spot knowledge gaps in the materials your agency relies on every day.",
+    "workflows": [
+      {
+        "name": "Agent desk research and deal prep",
+        "problem": "Before a call, agents often need to scan old notes, templates, sponsor history, and client obligations under time pressure.",
+        "agentWorkflow": "Ask the internal agent for a source-grounded brief that pulls from approved sales playbooks, client summaries, contract templates, proposal language, and prior handoff notes.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Client summaries",
+          "Contract summaries"
+        ],
+        "optionalAction": "Generate a briefing document or create a follow-up task through a configured workflow.",
+        "outcome": "Shortens prep time while preserving human judgment for negotiation strategy and final commitments.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Sponsor campaign operations",
+        "problem": "Campaign managers need to track deliverables, talking points, deadlines, content status, and escalation rules across creators and platforms.",
+        "agentWorkflow": "Train DocsBot on campaign briefs, content review SOPs, brand guidelines, deliverable trackers exported as documents, and disclosure policies so staff can ask operational questions in plain language.",
+        "sourceTypes": [
+          "Campaign briefs",
+          "Brand guidelines",
+          "Disclosure checklists",
+          "Content review SOPs"
+        ],
+        "optionalAction": "Use a configured Skill to create a task, notify the manager, or update an approved status field.",
+        "outcome": "Keeps campaign instructions easier to find and helps prevent missed handoffs during multi-platform activations.",
+        "icon": "RectangleGroupIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "If staff repeatedly ask questions that are not answered in your docs, the agency’s playbooks and client resources quietly fall behind.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, conversation review, and reports to see unanswered questions, recurring topics, and content gaps across client support, sponsor intake, and operations.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base articles",
+          "Internal SOPs",
+          "Support reports"
+        ],
+        "optionalAction": "Turn recurring gaps into documentation tasks or internal review items.",
+        "outcome": "Improves the quality of agency knowledge over time and helps managers decide which guides, FAQs, or templates to update next.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Secure internal access for sensitive representation work",
+        "problem": "Agency knowledge may include private client records, sponsor terms, pricing guidance, and draft contract language that should not be visible to everyone.",
+        "agentWorkflow": "Use DocsBot access controls, role-based permissions, encryption, SOC 2 Type II certification, GDPR-ready governance, and customer-defined Skill boundaries to control who can ask what and what actions an agent can take.",
+        "sourceTypes": [
+          "Private documents",
+          "Policy libraries",
+          "Deal folders",
+          "Role-specific playbooks"
+        ],
+        "optionalAction": "Restrict AI Actions to scoped lookups, summaries, handoffs, or review-triggering workflows.",
+        "outcome": "Supports faster internal knowledge access without treating every employee or client as having the same permissions.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on agency knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, websites, documentation, internal content, PDFs, Word documents, wikis, and other configured sources.",
+      "industryApplication": "Train an esports agency agent on client FAQs, sponsorship packages, talent profiles, deal templates, disclosure checklists, travel SOPs, and campaign playbooks.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer and client answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers grounded in approved sources and can work through a website or product chat widget.",
+      "industryApplication": "Let players, parents, creators, sponsors, and partners get consistent answers about routine agency processes, intake requirements, and next steps.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Presales qualification and structured intake",
+      "mainLandingPageContext": "DocsBot can collect lead details, apply customer-defined qualification rules, and forward qualified leads and summaries through configured workflows.",
+      "industryApplication": "Qualify sponsor inquiries by budget, region, title, talent fit, campaign date, deliverables, and urgency before routing to partnerships staff.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support approved live lookups, record creation, record updates, workflow triggers, summaries, and handoffs through customer-configured connections, including MCP Connectors for remote Model Context Protocol servers.",
+      "industryApplication": "Create review tasks, route sponsor leads, look up approved schedule context, notify campaign managers, or generate handoff summaries inside boundaries your agency defines.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for staff",
+      "mainLandingPageContext": "DocsBot can serve as a private assistant for employees, answering questions about procedures, policies, tools, onboarding, sales playbooks, contracts, and operations.",
+      "industryApplication": "Give agents, legal coordinators, partnerships staff, and operations teams faster access to approved guidance without searching across scattered files.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which sponsor questions, client onboarding issues, contract topics, or campaign steps cause repeated confusion and update documentation accordingly.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private client, sponsor, pricing, and deal materials while giving the right teams access to the knowledge they need.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the content library your agency already trusts.",
+      "Support high-volume questions with source-grounded answers and escalation paths.",
+      "Use conversation analytics to see what clients, sponsors, and staff keep asking."
+    ],
+    "whyTheseReviewsFit": "Sports agents in gaming need reliable answers from their own playbooks, not generic AI guesses. DocsBot proof spans owned-content training, website and support-team assistance, documentation engagement, and high-volume inquiry handling, giving agencies a practical model for client service and internal knowledge access.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for esports sports agents",
+    "audience": [
+      "Esports player agents",
+      "Gaming talent managers",
+      "Sponsorship and partnerships teams",
+      "Agency operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TrophyIcon"
+  },
+  "relatedIndustrySlugs": [
+    "e-sports-organization",
+    "fantasy-sports-management",
+    "online-gaming",
+    "game-development",
+    "gaming"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "sports-agent-gaming",
+    "webSearchQueries": [
+      "esports market revenue global 2025 source Newzoo esports audience",
+      "Entertainment Software Association essential facts 2025 video game players US percentage",
+      "FTC endorsement guides influencers social media disclosures athletes esports",
+      "Esports Charts top esports games 2025 peak viewers League of Legends 6.7 million"
+    ],
+    "sourceUrls": [
+      "https://www.theesa.com/wp-content/uploads/2025/06/2025-Essential-Facts-Booklet-05-30-25-RGB.pdf",
+      "https://gamesbeat.com/global-game-revenues-hit-196-7b-in-2025-up-7-4-newzoo/",
+      "https://esports.gg/news/league-of-legends/t1-vs-kt-showdown-draws-6-7-million-viewers-at-lol-worlds-2025//",
+      "https://www.ftc.gov/influencers",
+      "https://www.washingtonpost.com/video-games/esports/2022/03/04/esports-player-contracts/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 51290,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 31066,
+        "outputTokens": 8292,
+        "reasoningOutputTokens": 294,
+        "totalTokens": 59582,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.207101,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.237101
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 31408,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 16432,
+          "outputTokens": 5549,
+          "reasoningOutputTokens": 294,
+          "totalTokens": 36957,
+          "webSearchCalls": 3,
+          "estimatedTokenCostUsd": 0.128059,
+          "estimatedWebSearchCostUsd": 0.03,
+          "estimatedTotalCostUsd": 0.158059
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19882,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14634,
+          "outputTokens": 2743,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22625,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079042,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079042
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1633545505446-586bf83717f0?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU4OTN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Sports Agent background image",
+    "source": "legacy-industry",
+    "query": "Sports Agent"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer routine player, creator, parent, and sponsor questions without exposing private deal details?",
+      "answer": "Yes. You can train separate customer-facing and internal agents on approved source sets, such as public FAQs, client handbooks, sponsorship packages, and safe onboarding materials. Sensitive contract folders, pricing guidance, negotiation notes, or private client records can be kept behind role-based permissions and human handoff rules.",
+      "role": "Player agents and talent managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this help our agents during tournament weeks when schedules and sponsor deliverables change constantly?",
+      "answer": "DocsBot can serve as a source-grounded operating assistant trained on tournament briefs, travel policies, media schedules, sponsor deliverable checklists, and internal SOPs. Staff can ask for a client’s commitments, call times, review steps, or escalation path, and configured AI Actions can trigger reminders, tasks, or handoffs when your workflow allows it.",
+      "role": "Player agents and talent managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent qualify sponsor leads before they reach our partnerships team?",
+      "answer": "Yes. A DocsBot sponsorship intake agent can collect budget range, game title, region, campaign dates, deliverables, target talent, brand category, urgency, and preferred follow-up channel. It can apply your qualification rules, summarize the conversation, and route qualified opportunities to the right partnerships lead without negotiating final pricing or talent commitments.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot make legal or contract recommendations to players?",
+      "answer": "DocsBot should be configured to retrieve approved process guidance, clause references, deal summaries, and review checklists—not to provide final legal advice or approve binding terms. For contract, compensation, immigration, eligibility, guardian, or minor-player questions, the agent can escalate to a human agent, legal coordinator, attorney, or other approved reviewer.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot help with sponsored-content disclosure workflows?",
+      "answer": "DocsBot can answer from your disclosure checklists, campaign briefs, brand guidelines, platform instructions, and review SOPs. It can summarize required talking points, flag missing review steps, and create a content-review task through configured workflows. The FTC says influencers are responsible for making disclosures and complying with laws against deceptive advertising.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-influencer-disclosures"
+      ]
+    },
+    {
+      "question": "Can we use this for minor players and parents without creating risk?",
+      "answer": "Yes, if you design the agent around process information and escalation. It can explain required intake documents, guardian involvement, review steps, and who handles next questions, while routing contract, eligibility, compensation, or legal questions to a human. That matters because esports contract pressure and minor-player issues have been publicly reported.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-wapo-esports-contracts"
+      ]
+    },
+    {
+      "question": "What sources would we need to prepare before launch?",
+      "answer": "Most agencies start with client FAQs, onboarding guides, agency SOPs, sponsorship packages, talent profiles, media kits, rate-card guidance, brand-safety rules, disclosure checklists, travel policies, contract review checklists, and campaign briefs. DocsBot works best when the source material reflects the answers your team already wants clients, staff, and sponsors to use.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep outdated sponsorship packages or player availability from producing bad answers?",
+      "answer": "DocsBot should be trained on approved, maintained sources and paired with governance around ownership, review cadence, and source freshness. For changing information like availability, schedules, or campaign status, use customer-configured Skills, APIs, connectors, or workflow triggers so the agent can reference approved live context instead of stale documents.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot work with our CRM, task system, Slack, Teams, or shared drive?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, and MCP Connectors for scoped lookups, summaries, record creation, field updates, task creation, notifications, and handoffs. The safest approach is to start with approved source training, then add bounded actions only where your agency has clear permissions and review rules.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure whether the AI agent is worth the investment?",
+      "answer": "Track practical agency metrics: repetitive questions deflected, sponsor intake completion rate, time to first response, qualified lead volume, handoff quality, staff search time, content-review turnaround, missed-information rates, and unresolved question themes. DocsBot analytics, logs, reports, conversation review, and knowledge-gap discovery help show what clients, sponsors, and staff keep asking.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Could this improve sponsor response time without making our agency look automated or impersonal?",
+      "answer": "Yes. The agent can answer routine package and process questions immediately, collect structured campaign details, and hand off a concise summary to a human. Your partnerships team still owns relationship strategy, pricing, negotiation, and final talent recommendations, while the AI reduces the slow back-and-forth that happens before a lead is ready for review.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support international sponsors, players, or family members?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in the approved source material you provide. For multilingual sponsor inquiries, it can collect the same structured details, summarize the lead for your team, and route it to the appropriate regional contact if your workflow defines that handoff.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What prevents a public agent from revealing private travel plans, rates, or contract language?",
+      "answer": "Use separate bots or source scopes for public, client-safe, and internal-only knowledge. Combine granular access controls, role-based permissions, source selection, escalation rules, and limited AI Actions. Public agents should answer from approved public materials and collect requests, while private terms, travel details, pricing, and contracts remain restricted.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much human review should we keep in the workflow?",
+      "answer": "Keep human review for pricing, contract commitments, legal interpretation, player eligibility, immigration, regulated claims, crisis issues, minors, sensitive health or personal information, and final sponsor approvals. DocsBot is strongest as a retrieval, intake, summary, routing, and workflow-support layer that gives humans cleaner context before they decide.",
+      "role": "Player agents and talent managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can agents use DocsBot internally to prepare for renewal calls or team negotiations?",
+      "answer": "Yes. A private internal knowledge agent can retrieve approved clause references, proposal language, renewal notes, client summaries, sponsor history, deliverables, and negotiation playbooks. It can produce a briefing draft or handoff summary, while the agent remains responsible for strategy, commercial judgment, and final commitments.",
+      "role": "Player agents and talent managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this compare with using a generic AI tool in a browser?",
+      "answer": "DocsBot is designed for source-grounded answers from your agency’s approved materials, with access controls, logs, analytics, knowledge-gap reporting, and customer-defined actions. A generic AI tool may help draft text, but it is not the same as a governed agency agent trained on your playbooks, private documents, and workflow boundaries.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start with one use case instead of automating the whole agency?",
+      "answer": "Yes. Many agencies would start with a narrow, high-friction workflow such as sponsor intake, client onboarding FAQs, campaign disclosure support, or internal deal-prep search. After validating answer quality, escalation patterns, and analytics, you can expand to additional source sets, roles, and bounded AI Actions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if our knowledge is scattered across PDFs, Google Drive, Notion, Confluence, Word docs, and old playbooks?",
+      "answer": "DocsBot can train on many configured knowledge sources, including internal documents, websites, wikis, PDFs, Word documents, text files, Google Drive, Notion, and Confluence-style content. Implementation is also a chance to clean up ownership, versioning, and source authority so the agent reflects the agency’s approved operating model.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we know which documents or FAQs need to be improved after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That lets managers see repeated sponsor questions, unanswered client issues, confusing contract-review steps, or campaign handoff gaps, then turn those findings into documentation updates or internal training tasks.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us present a stronger business case to sponsors?",
+      "answer": "It can help your team respond faster and more consistently using approved talent profiles, audience notes, sponsorship packages, case studies, and brand-safety materials. The broader market context is strong: the ESA reported 205.1 million U.S. video game players in 2025, and Newzoo data reported by GamesBeat estimated global games revenue at about $196.7 billion in 2025.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-esa-us-gamers-2025",
+        "src-newzoo-games-market-2025"
+      ]
+    },
+    {
+      "question": "Can the agent handle event visibility and high-interest moments around major esports tournaments?",
+      "answer": "Yes, if the agency prepares approved event briefs, appearance policies, talent availability rules, sponsor deliverables, and escalation paths. That matters because esports moments can attract major attention; Esports Charts data reported by esports.gg said the 2025 League of Legends World Championship final reached 6,737,568 peak viewers, excluding Chinese platforms.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-esportscharts-worlds-2025"
+      ]
+    },
+    {
+      "question": "What will our IT or security reviewer care about before approving this?",
+      "answer": "They will likely ask about data use, permissions, encryption, auditability, and action boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be scoped with secrets, logging, and customer-defined controls.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we let junior staff use the internal agent without giving them access to everything?",
+      "answer": "Yes. Use role-based permissions and source scoping so junior coordinators can access SOPs, campaign briefs, and onboarding guidance without seeing restricted pricing, contract language, private client records, or executive negotiation notes. AI Actions should follow the same boundaries, with logs and human review for sensitive workflows.",
+      "role": "Operations, legal, and compliance coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much training will agents and campaign managers need?",
+      "answer": "Training should focus less on prompt tricks and more on operating rules: which sources are authoritative, when to trust an answer, when to escalate, how to review citations, how to submit missing knowledge, and which actions the agent is allowed to take. A short pilot with real sponsor, client, and campaign questions usually exposes the right training needs.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot draft emails or summaries for our team?",
+      "answer": "Yes. With approved source material and configured workflows, DocsBot can draft sponsor follow-ups, lead summaries, deal-prep briefs, campaign handoffs, review requests, or internal status summaries. Humans should review outbound messages, pricing, legal terms, and strategic recommendations before anything is sent or committed.",
+      "role": "Partnerships and sponsorship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement compare when evaluating AI agents for an esports agency?",
+      "answer": "Compare source-grounding, permission controls, private knowledge support, analytics, escalation workflows, action boundaries, implementation effort, data-use policies, multilingual support, and whether the vendor can support both public sponsor intake and private internal knowledge use. Avoid evaluating only on chat appearance; the operating model and governance matter more.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

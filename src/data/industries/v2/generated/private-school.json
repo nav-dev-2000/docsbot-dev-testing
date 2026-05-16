@@ -1,0 +1,704 @@
+{
+  "slug": "private-school",
+  "business": "Private School",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Private School Admissions and Operations",
+    "description": "DocsBot helps private schools answer parent questions, guide admissions, and give staff source-grounded policy support from approved school content.",
+    "canonicalPath": "/industry/private-school"
+  },
+  "hero": {
+    "eyebrow": "AI automation for private school admissions, families, and staff",
+    "headline": "Make private school communication easier with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your admissions pages, handbooks, calendars, tuition policies, forms, FAQs, and internal procedures so families and staff can get clear, source-grounded answers without waiting for the front office.",
+    "proofBullets": [
+      {
+        "text": "Answer parent questions about admissions steps, tuition policies, school calendars, forms, uniforms, transportation, and event logistics from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect inquiry details, qualify admissions interest, and prepare a handoff for enrollment staff through customer-configured forms, Skills, APIs, or workflows.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Give teachers and administrators a private knowledge agent for handbook rules, internal procedures, onboarding, communications, and policy lookup.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate sensitive student, billing, discipline, or records questions to the right human while keeping answers inside school-defined boundaries.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a private school AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps private schools create AI agents trained on the school’s own approved knowledge. A family-facing agent can answer admissions and daily operations questions on the website, while an internal agent can help staff retrieve policies, summarize context, identify content gaps, and trigger bounded workflows when configured through Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Admissions and enrollment leaders",
+        "roleContext": "Private schools compete on fit, responsiveness, and trust. DocsBot helps admissions teams give prospective families fast, consistent answers while preserving human follow-up for tours, interviews, financial aid, and final enrollment decisions.",
+        "bullets": [
+          {
+            "text": "Answer questions about application requirements, deadlines, grade availability, tuition, visit days, and required documents from approved admissions content.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Collect family inquiry details and route qualified prospects to admissions staff with a concise conversation summary when configured.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Use conversation analytics to see which admissions questions are repeated and where the website, FAQ, or application instructions need clarification.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Heads of school and operations teams",
+        "roleContext": "School leaders need consistent communication across admissions, academics, advancement, and daily operations. DocsBot can centralize approved knowledge so families and employees receive aligned answers.",
+        "bullets": [
+          {
+            "text": "Give front-office teams a searchable assistant for calendars, handbook rules, event details, field trip procedures, and emergency communications scripts.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Route after-hours requests, missing-form questions, and policy clarifications to the right team instead of leaving families to search multiple pages.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Support student-privacy expectations by keeping sensitive record or discipline questions on human escalation paths rather than open-ended automation.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      },
+      {
+        "role": "Faculty, staff, and department coordinators",
+        "roleContext": "Teachers and coordinators often need quick access to policy language, templates, and procedures while working with families. DocsBot can serve as a private knowledge assistant for approved internal documents.",
+        "bullets": [
+          {
+            "text": "Retrieve handbook language, communications templates, onboarding steps, and SOPs without searching shared drives or old email threads.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Summarize internal procedures and draft staff-facing responses that a human can review before sending to families.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support multilingual communication by answering from approved content in more than 100 languages when the school configures the agent for that use.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-private-school-scale",
+      "metric": "29,946 U.S. private schools in 2021–22",
+      "claim": "NCES reported 29,946 private elementary and secondary schools, 4,731,485 students, and 493,082 full-time-equivalent teachers in the United States during the 2021–22 school year.",
+      "sourceTitle": "NCES Private School Universe Survey: Number and percentage distribution of private schools, students, and FTE teachers, 2021–22",
+      "sourceUrl": "https://nces.ed.gov/surveys/pss/tables/TABLE01fl2122.asp",
+      "sourceDate": "2021–22",
+      "bestUsedFor": [
+        "labor scale",
+        "market size",
+        "school operations complexity"
+      ]
+    },
+    {
+      "id": "src-private-enrollment",
+      "metric": "Private schools enrolled millions of K–12 students in fall 2021",
+      "claim": "NCES reports private K–12 enrollment by school orientation from fall 2011 through fall 2021, showing private schools as a major part of U.S. elementary and secondary education.",
+      "sourceTitle": "NCES Condition of Education: Private School Enrollment",
+      "sourceUrl": "https://nces.ed.gov/programs/coe/indicator/cgc",
+      "sourceDate": "Fall 2021 data",
+      "bestUsedFor": [
+        "enrollment context",
+        "family demand",
+        "school choice"
+      ]
+    },
+    {
+      "id": "src-nais-parent-communication",
+      "metric": "NAIS emphasizes regular communication with families",
+      "claim": "NAIS describes independent schools as promoting regular communication among students, parents, and teachers, and reports a 2024–25 median ratio of 8.2 students per teacher in NAIS schools.",
+      "sourceTitle": "NAIS: The Independent School Advantage",
+      "sourceUrl": "https://nais.org/parents/learn/the-independent-school-advantage/",
+      "sourceDate": "2024–25",
+      "bestUsedFor": [
+        "parent expectations",
+        "family engagement",
+        "independent school value proposition"
+      ]
+    },
+    {
+      "id": "src-ferpa-parent-rights",
+      "metric": "FERPA requires eligible schools to notify parents and eligible students of rights",
+      "claim": "The U.S. Department of Education explains that schools subject to FERPA must notify parents and eligible students of rights to inspect and review education records, seek amendments, consent to certain disclosures, and file complaints.",
+      "sourceTitle": "U.S. Department of Education Student Privacy Policy Office: Frequently Asked Questions",
+      "sourceUrl": "https://studentprivacy.ed.gov/index.php/frequently-asked-questions",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "student privacy",
+        "records questions",
+        "governance pressure"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Admissions inquiry and tour-readiness agent",
+      "problem": "Prospective families ask the same questions about grade openings, application steps, tuition, financial aid timing, visit days, and required documents before they are ready for a personal call.",
+      "agentWorkflow": "DocsBot answers from admissions pages, tuition policies, application checklists, calendar pages, and FAQs. When a family shows strong intent, the agent can collect contact details, grade interest, timeline, and visit preferences, then prepare a summarized handoff for admissions staff through a customer-configured workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or scheduling workflows, the agent can look up published tour options, submit an inquiry form, create a task, or request a meeting while leaving admissions decisions to staff.",
+      "exampleQuestionsOrRequests": [
+        "What is the application deadline for 6th grade?",
+        "Do you offer financial aid, and when should we apply?",
+        "Can I schedule a campus tour next week?",
+        "What documents are required before the interview?"
+      ],
+      "businessOutcome": "Respond to families while interest is high, reduce repetitive admissions email, and give enrollment staff better context for follow-up.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Parent handbook and daily operations assistant",
+      "problem": "Current families need quick answers about arrival times, uniforms, lunch, absences, after-school programs, transportation, technology policies, and event logistics.",
+      "agentWorkflow": "DocsBot uses the school handbook, calendar, parent portal guides, policy PDFs, website pages, and office FAQs to return source-grounded answers. If a question involves a specific student, payment, discipline, or record, the agent can route the family to the appropriate office instead of guessing.",
+      "liveContextOrTools": "Configured AI Actions can create a ticket, send a notification, collect missing details, or route requests to attendance, business office, athletics, or division office workflows.",
+      "exampleQuestionsOrRequests": [
+        "What time does early dismissal start on Friday?",
+        "Where do I find the middle school uniform policy?",
+        "How do I report an absence?",
+        "Who should I contact about after-school pickup changes?"
+      ],
+      "businessOutcome": "Give families a dependable first place to ask questions and reduce front-office interruptions during busy school days.",
+      "icon": "HomeIcon",
+      "sourceIds": [
+        "src-nais-parent-communication"
+      ]
+    },
+    {
+      "name": "Internal policy and staff knowledge agent",
+      "problem": "Faculty and staff often search across shared drives, old emails, PDFs, and wikis to find the current procedure or approved language for a family response.",
+      "agentWorkflow": "DocsBot can act as a private internal knowledge agent trained on staff handbooks, SOPs, onboarding materials, HR policies, templates, and department procedures. Staff can ask natural-language questions and receive answers grounded in approved internal sources.",
+      "liveContextOrTools": "The agent can operate in private chat experiences and, when configured, use Skills or connectors to retrieve approved context, summarize procedures, draft responses, or create follow-up tasks.",
+      "exampleQuestionsOrRequests": [
+        "What is the procedure for a field trip request?",
+        "Where is the approved language for a weather closure message?",
+        "How do new advisors submit course-change notes?",
+        "What steps should a new teacher complete before orientation?"
+      ],
+      "businessOutcome": "Help employees move faster while keeping policy answers consistent across divisions, offices, and departments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Student records and privacy triage agent",
+      "problem": "Parents may ask about transcripts, recommendations, records access, directory information, custody-related communication, or health and safety disclosures—topics that require careful handling.",
+      "agentWorkflow": "DocsBot can answer general policy questions from approved public guidance and school policies, then escalate requests involving student-specific records or sensitive circumstances to trained staff. Responses can include clear next steps without exposing private student information.",
+      "liveContextOrTools": "Scoped workflows can collect the request type, verify what office should review it, create a secure handoff summary, and log the escalation according to customer-defined procedures.",
+      "exampleQuestionsOrRequests": [
+        "How do I request my child’s transcript?",
+        "Who can see student records?",
+        "How do I update emergency contacts?",
+        "What is the process for changing directory information preferences?"
+      ],
+      "businessOutcome": "Improve clarity for families while keeping student-record questions in a human-reviewed process.",
+      "icon": "LockClosedIcon",
+      "sourceIds": [
+        "src-ferpa-parent-rights"
+      ]
+    },
+    {
+      "name": "Advancement, alumni, and event information agent",
+      "problem": "Private schools run open houses, fundraisers, alumni events, volunteer programs, and giving campaigns that generate recurring questions across multiple departments.",
+      "agentWorkflow": "DocsBot answers from event pages, giving FAQs, volunteer instructions, alumni communications, and campaign materials. It can summarize donor or alumni inquiries for human follow-up when the school configures a handoff workflow.",
+      "liveContextOrTools": "AI Actions can route event questions, collect volunteer interest, forward a giving inquiry, or create a task in an approved workflow. MCP Connectors can also be used where a school exposes approved tools through a remote Model Context Protocol server.",
+      "exampleQuestionsOrRequests": [
+        "Where do I park for the gala?",
+        "How can grandparents make a gift?",
+        "Can alumni volunteer for career day?",
+        "Who handles sponsorship questions?"
+      ],
+      "businessOutcome": "Make advancement and event information easier to find while keeping donor, sponsorship, and relationship decisions with staff.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for school communications",
+      "problem": "If families cannot find answers, the same questions keep coming through email, phone, parent portals, and division offices.",
+      "agentWorkflow": "DocsBot conversation logs, reports, topic management, review tools, and knowledge-gap discovery help school teams see repeated questions, unanswered topics, and unclear content. Communications teams can update FAQs, handbooks, and admissions pages based on real demand.",
+      "liveContextOrTools": "Configured reports can support content planning, office workflows, and conversation review without replacing human judgment on policy changes.",
+      "exampleQuestionsOrRequests": [
+        "Which admissions questions are repeated most often?",
+        "What handbook topics are families asking about?",
+        "Where does the agent lack a source?",
+        "Which office receives the most routed requests?"
+      ],
+      "businessOutcome": "Turn recurring questions into better documentation, clearer family communication, and fewer avoidable interruptions.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give families one reliable place to ask school questions",
+    "intro": "A DocsBot family-facing agent can live on your website or approved chat interface and answer from your school’s own content. It can guide prospective parents, current families, alumni, and event guests while escalating sensitive or student-specific questions to staff.",
+    "requests": [
+      {
+        "request": "“Is there still time to apply for ninth grade?”",
+        "agentResponseStrategy": "Answer from admissions deadlines and grade-level application instructions, ask for basic inquiry details if appropriate, and route a summary to admissions when configured.",
+        "sourceTypes": [
+          "Admissions pages",
+          "Application checklist",
+          "Tuition and aid FAQ",
+          "Visit calendar"
+        ],
+        "optionalAction": "Submit a custom inquiry form or request a tour through an approved scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What do we need for the first day of school?”",
+        "agentResponseStrategy": "Pull together source-grounded guidance from supply lists, orientation schedules, uniform policies, arrival instructions, and parent handbook pages.",
+        "sourceTypes": [
+          "Parent handbook",
+          "Orientation pages",
+          "Supply lists",
+          "Uniform policy"
+        ],
+        "optionalAction": "Offer a division-specific handoff if the family needs help with a unique circumstance.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“How do I request a transcript or recommendation?”",
+        "agentResponseStrategy": "Explain the general request process from approved records-office content and route student-specific requests to staff review.",
+        "sourceTypes": [
+          "Records policy",
+          "Registrar instructions",
+          "Student privacy guidance",
+          "Office contact rules"
+        ],
+        "optionalAction": "Create a secure handoff ticket or collect non-sensitive request details for the records office.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-ferpa-parent-rights"
+        ]
+      },
+      {
+        "request": "“Can you tell me about transportation and after-school care?”",
+        "agentResponseStrategy": "Answer from bus route pages, after-care FAQs, pickup procedures, fee schedules, and contact instructions, while noting when availability must be confirmed by staff.",
+        "sourceTypes": [
+          "Transportation pages",
+          "After-school program FAQ",
+          "Fee schedule",
+          "Pickup procedures"
+        ],
+        "optionalAction": "Route a detailed question to the operations or auxiliary programs team.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you communicate with parents regularly?”",
+        "agentResponseStrategy": "Answer from the school’s own parent communication practices, portal instructions, division newsletters, conference schedules, and teacher-contact policies.",
+        "sourceTypes": [
+          "Parent communication policy",
+          "Portal guide",
+          "Division newsletters",
+          "Conference calendar"
+        ],
+        "optionalAction": "Direct the family to the right division office or admissions contact for follow-up.",
+        "icon": "EnvelopeIcon",
+        "sourceIds": [
+          "src-nais-parent-communication"
+        ]
+      },
+      {
+        "request": "“I have a question in another language.”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering from approved school content to help families understand general information, then escalate nuanced or sensitive matters to staff.",
+        "sourceTypes": [
+          "Website pages",
+          "Handbooks",
+          "Admissions FAQ",
+          "Office procedures"
+        ],
+        "optionalAction": "Collect preferred language and contact method for a human follow-up when needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help school teams find the right answer before they send it",
+    "intro": "DocsBot can also serve as a private internal knowledge agent for administrative offices, division leaders, faculty, admissions, advancement, and operations teams. Staff can ask natural-language questions and get grounded answers from approved internal knowledge.",
+    "workflows": [
+      {
+        "name": "Front-office answer desk",
+        "problem": "Reception and office teams handle recurring questions across attendance, calendar changes, forms, parking, visitors, uniforms, payments, and event logistics.",
+        "agentWorkflow": "Train DocsBot on office FAQs, calendars, internal contact maps, parent handbook sections, and procedure documents so staff can retrieve the latest approved answer quickly.",
+        "sourceTypes": [
+          "Office SOPs",
+          "Calendar pages",
+          "Handbook PDFs",
+          "Contact directory"
+        ],
+        "optionalAction": "Create a task or route a request to the correct office through a configured workflow.",
+        "outcome": "Faster, more consistent responses without relying on one person’s memory.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Admissions team enablement",
+        "problem": "Admissions staff need fast, accurate answers about programs, policies, tuition language, visit formats, financial aid timing, and follow-up steps during peak season.",
+        "agentWorkflow": "DocsBot can retrieve approved admissions talking points, program descriptions, FAQs, objection handling, tour notes, and follow-up templates. It can also draft a response for staff review.",
+        "sourceTypes": [
+          "Admissions playbooks",
+          "Program pages",
+          "Financial aid FAQ",
+          "Email templates"
+        ],
+        "optionalAction": "Forward a summarized inquiry to admissions, create a CRM-style task, or prepare a follow-up email when connected by approved Skills or APIs.",
+        "outcome": "Better follow-up context and less time spent rebuilding the same answers.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "name": "Faculty and staff onboarding",
+        "problem": "New employees need to learn procedures, tools, communication norms, student-support protocols, and school culture without overwhelming HR or department chairs.",
+        "agentWorkflow": "Train an internal DocsBot agent on onboarding guides, staff handbooks, IT setup instructions, HR policies, professional development materials, and department procedures.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Staff handbook",
+          "IT instructions",
+          "HR policies"
+        ],
+        "optionalAction": "Summarize onboarding steps, link to source documents, or route unresolved questions to HR or IT.",
+        "outcome": "Reduce repetitive onboarding questions and help new staff become productive sooner.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Communications review support",
+        "problem": "School communications must be accurate, timely, and aligned with current policies, especially for closures, events, admissions reminders, and family notices.",
+        "agentWorkflow": "DocsBot can retrieve approved language, summarize prior notices, compare drafts against source content, and identify missing context before a human sends the message.",
+        "sourceTypes": [
+          "Message templates",
+          "Policy documents",
+          "Prior notices",
+          "Event briefs"
+        ],
+        "optionalAction": "Draft a family-facing response or create a review task for communications leadership.",
+        "outcome": "More consistent messaging across divisions, offices, and channels.",
+        "icon": "PencilIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded school answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the customer’s configured knowledge sources and provide answers grounded in approved content.",
+      "industryApplication": "Answer private school questions from admissions pages, tuition FAQs, handbooks, calendars, forms, program descriptions, and internal policies instead of relying on generic AI output.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can support customer-facing chat experiences and private internal knowledge experiences for teams.",
+      "industryApplication": "Use a website agent for prospective and current families, and a private agent for staff who need policy, procedure, and template answers.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform bounded lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect admissions inquiry details, request a tour, route an attendance question, create a task, summarize a parent request, or hand off student-record questions to the appropriate office.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what families ask about tuition, deadlines, policies, events, and procedures so communications teams can improve handbooks, FAQs, and admissions pages.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Keep private school knowledge access governed with permissions, review paths, and scoped actions for sensitive workflows such as student records, discipline, billing, or health-related questions.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved knowledge sources.",
+      "industryApplication": "Help international or multilingual families understand general admissions, calendar, handbook, and event information while routing nuanced situations to staff.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Education users rely on DocsBot to reinforce course concepts and help learners find answers from approved materials.",
+      "Teams can train DocsBot on their own content library, making school-specific policies, FAQs, and guides easier to access.",
+      "DocsBot analytics help teams understand what users are trying to learn and where documentation needs improvement.",
+      "High-volume support proof shows DocsBot can handle many repeated questions while preserving escalation for human teams."
+    ],
+    "whyTheseReviewsFit": "Private schools need trusted answers, not generic automation. DocsBot proof spans education support, owned-content training, documentation analytics, and high-volume question handling—matching the needs of admissions teams, family communications, and internal school operations.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "ArchiveBoxIcon",
+      "ChartBarIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for private schools",
+    "audience": [
+      "Private school admissions teams",
+      "Heads of school and operations leaders",
+      "K–12 school communications teams",
+      "Faculty and staff support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingLibraryIcon"
+  },
+  "relatedIndustrySlugs": [
+    "cosmetology-school",
+    "real-estate-school",
+    "technical-school",
+    "trade-school",
+    "vocational-school"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "private-school",
+    "webSearchQueries": [
+      "NCES private elementary secondary schools number students United States 2021 2022 private schools",
+      "NAIS parents independent schools communication expectations enrollment admission data",
+      "U.S. Department of Education FERPA schools protect student education records parents rights"
+    ],
+    "sourceUrls": [
+      "https://nces.ed.gov/surveys/pss/tables/TABLE01fl2122.asp",
+      "https://nces.ed.gov/programs/coe/indicator/cgc",
+      "https://nais.org/parents/learn/the-independent-school-advantage/",
+      "https://studentprivacy.ed.gov/index.php/frequently-asked-questions"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46576,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 34032,
+        "outputTokens": 7599,
+        "reasoningOutputTokens": 185,
+        "totalTokens": 54175,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.202202,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.222202
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27459,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20163,
+          "outputTokens": 5037,
+          "reasoningOutputTokens": 185,
+          "totalTokens": 32496,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.127787,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.147787
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19117,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13869,
+          "outputTokens": 2562,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21679,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074415,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074415
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzQxODZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Private School background image",
+    "source": "legacy-industry",
+    "query": "Private School"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer admissions questions without giving families outdated or unofficial information?",
+      "answer": "Yes. DocsBot is trained on the school-approved sources you choose, such as admissions pages, application checklists, tuition FAQs, visit calendars, and policy PDFs. Answers can stay grounded in those sources, and if a topic is missing or ambiguous, the agent can avoid guessing and route the family to admissions staff.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our admissions team during peak inquiry season?",
+      "answer": "DocsBot can answer recurring questions about deadlines, grade-level requirements, tuition, financial aid timing, tours, and required documents before a family is ready for a call. When configured, it can collect inquiry details and prepare a summarized handoff so admissions staff spend more time on fit, follow-up, and enrollment conversations.",
+      "role": "Admissions and enrollment leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent qualify prospective families or does it only answer website questions?",
+      "answer": "It can do both when configured. DocsBot can answer from approved admissions content, then collect structured details such as grade interest, timeline, contact information, visit preference, and questions for follow-up. Schools can use customer-defined rules and workflows to route qualified inquiries to the admissions team for human review.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot replace the personal admissions experience families expect from a private school?",
+      "answer": "No. It is best used as a first-response and preparation layer, not as a replacement for admissions relationships. The agent can handle repetitive factual questions and collect context, while admissions staff remain responsible for tours, interviews, financial aid conversations, enrollment decisions, and family relationship-building.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can current families use it for handbook, calendar, uniform, transportation, and event questions?",
+      "answer": "Yes. A family-facing DocsBot agent can answer from handbooks, calendars, parent portal guides, transportation pages, uniform policies, event briefs, and office FAQs. For student-specific issues such as a billing question, discipline matter, pickup change, or record request, it can route the family to the appropriate office instead of improvising.",
+      "role": "Heads of school and operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle sensitive student records or FERPA-related questions?",
+      "answer": "DocsBot can answer general policy questions from approved school guidance, but student-specific records, discipline, custody, health, billing, or transcript issues should be escalated to trained staff. FERPA-subject schools must notify parents and eligible students of rights related to education records, so these workflows should remain governed and human-reviewed.",
+      "role": "Heads of school and operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ferpa-parent-rights"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot internally for faculty and administrative staff, not just families?",
+      "answer": "Yes. DocsBot can serve as a private internal knowledge agent trained on staff handbooks, SOPs, HR policies, onboarding materials, communications templates, calendars, and department procedures. Staff can ask natural-language questions and get source-grounded answers without searching shared drives, old emails, or multiple PDFs.",
+      "role": "Faculty, staff, and department coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much work is required to launch an agent for a private school?",
+      "answer": "Most schools should start with a focused scope: admissions FAQs, tuition and aid pages, the parent handbook, calendars, and a few high-volume office procedures. After launch, conversation logs and knowledge-gap reports can show which answers need better source content before expanding to internal workflows or additional departments.",
+      "role": "Heads of school and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if our policies are spread across PDFs, website pages, Google Drive, and old internal documents?",
+      "answer": "That is a common starting point. DocsBot can train on configured knowledge sources such as websites, PDFs, Word documents, text files, Google Drive, Notion, Confluence, and other approved content sources. The bigger implementation task is governance: deciding which source is authoritative and removing outdated policy copies.",
+      "role": "Heads of school and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the AI tell us which parent questions our website or handbook fails to answer?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a school, that can reveal repeated questions about tuition, deadlines, uniforms, transportation, forms, events, or policies so communications teams know what to clarify.",
+      "role": "Heads of school and operations teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep the agent from answering beyond its authority?",
+      "answer": "Schools can define boundaries in the agent’s instructions, approved sources, access permissions, and escalation rules. For high-impact topics such as admissions decisions, financial aid awards, student records, discipline, health, billing, or legal matters, the agent should provide general next steps and route to a human reviewer.",
+      "role": "Heads of school and operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot connect to our forms, scheduling tools, CRM-style admissions process, or ticketing workflow?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, forms, webhooks, and approved scheduling or routing steps. For example, the agent can collect tour intent, submit an inquiry form, create a task, notify a team, or prepare a handoff summary when the school authorizes the workflow.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to expose our student information system to use DocsBot?",
+      "answer": "No. Many valuable use cases do not require live access to student systems. Schools can start with public admissions content, handbooks, calendars, PDFs, FAQs, and internal procedures. If live lookups are later needed, they should be limited to approved APIs, scoped permissions, logging, and human review paths.",
+      "role": "Heads of school and operations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot support privacy and security expectations for a school environment?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Schools can also keep sensitive actions scoped through customer-defined controls, logs, secrets handling, and review paths.",
+      "role": "Heads of school and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer families in languages other than English?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from approved knowledge sources. For private schools, that can help multilingual or international families understand general admissions, calendar, handbook, transportation, and event information while routing nuanced or sensitive situations to staff.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What KPIs should we use to judge whether a private school AI agent is working?",
+      "answer": "Useful KPIs include repeated-question deflection, admissions inquiry capture, tour-request handoffs, unresolved topics, escalation quality, family satisfaction, response time, after-hours engagement, staff time saved, and documentation gaps closed. For internal agents, track staff search reduction, policy consistency, and onboarding question volume.",
+      "role": "Heads of school and operations teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will families trust an AI answer about tuition, financial aid, or admissions deadlines?",
+      "answer": "Trust depends on clarity and boundaries. DocsBot should cite or ground answers in approved tuition, aid, admissions, and policy content; disclose when staff confirmation is needed; and escalate individualized financial aid, contract, or enrollment questions. That keeps the agent useful without pretending to make school decisions.",
+      "role": "Admissions and enrollment leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot support advancement, alumni, and school event questions too?",
+      "answer": "Yes. Schools can train an agent on event pages, giving FAQs, volunteer instructions, alumni communications, parking details, sponsorship information, and campaign materials. It can answer routine logistics and route donor, sponsorship, or relationship-sensitive questions to advancement staff with a conversation summary.",
+      "role": "Heads of school and operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or a parent portal search box?",
+      "answer": "A generic chatbot may answer broadly but not reliably from your school’s approved content. A search box still makes families find and interpret pages themselves. DocsBot is designed to provide source-grounded answers, support private internal knowledge use, identify content gaps, and trigger bounded workflows when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations before expanding the agent to more departments?",
+      "answer": "Yes. DocsBot includes logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Schools can begin with admissions or parent operations, review real questions and escalations, improve source content, and then expand to advancement, faculty onboarding, or internal office workflows.",
+      "role": "Heads of school and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when parents ask about a specific student, payment, discipline issue, or custody situation?",
+      "answer": "Those should be treated as escalation cases. DocsBot can provide general policy guidance from approved sources and collect limited, non-sensitive routing details if configured, but the actual case should go to the appropriate office. That protects privacy and keeps judgment-heavy decisions with trained staff.",
+      "role": "Heads of school and operations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can a small private school with limited IT staff manage this?",
+      "answer": "Yes, especially if the first version is limited to approved content and simple handoffs. The practical work is usually content ownership: deciding which admissions pages, handbooks, calendars, FAQs, and office procedures should be authoritative. More advanced Skills, APIs, or connectors can be added later as capacity allows.",
+      "role": "Heads of school and operations teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Why is this relevant for private schools specifically?",
+      "answer": "Private schools operate at meaningful scale and depend heavily on responsive family communication. NCES reported 29,946 U.S. private elementary and secondary schools, 4,731,485 students, and 493,082 full-time-equivalent teachers in 2021–22, creating many recurring admissions, parent, staff, and operations questions.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-private-school-scale"
+      ]
+    },
+    {
+      "question": "How can we prevent inconsistent answers across divisions, offices, and departments?",
+      "answer": "DocsBot works best when the school designates approved sources and owners for each content area: admissions, business office, division offices, transportation, athletics, advancement, and HR. The agent can then answer from the same source set for families and staff, while analytics reveal where policies conflict or need clarification.",
+      "role": "Heads of school and operations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help new teachers and staff learn school procedures faster?",
+      "answer": "Yes. An internal DocsBot agent can answer from onboarding guides, staff handbooks, IT setup instructions, HR policies, professional development materials, and department procedures. It can summarize steps, link back to source documents, and route unresolved questions to HR, IT, or the right department leader.",
+      "role": "Faculty, staff, and department coordinators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should procurement or leadership ask before approving an AI agent for our school?",
+      "answer": "Ask what content the agent will use, who owns updates, which topics require escalation, what data is logged, which users have access, whether customer data trains public models, how permissions work, and which workflows are allowed. For schools, privacy, policy accuracy, and human review matter as much as automation.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

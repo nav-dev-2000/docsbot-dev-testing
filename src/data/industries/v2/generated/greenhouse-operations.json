@@ -1,0 +1,742 @@
+{
+  "slug": "greenhouse-operations",
+  "business": "Greenhouse Operations",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Greenhouse Operations & Grower Support",
+    "description": "DocsBot helps greenhouse operations answer grower, staff, and buyer questions from approved SOPs, catalogs, care guides, and live workflows.",
+    "canonicalPath": "/industry/greenhouse-operations"
+  },
+  "hero": {
+    "eyebrow": "Greenhouse operations AI automation",
+    "headline": "AI agents that keep greenhouse knowledge within reach",
+    "subheadline": "DocsBot helps greenhouse teams create source-grounded AI agents trained on crop guides, SOPs, availability sheets, safety notes, customer FAQs, and sales materials—so staff, buyers, and support teams can get consistent answers and route work faster.",
+    "proofBullets": [
+      {
+        "text": "Answer plant availability, care, shipping, order, and wholesale policy questions from approved catalogs and documents.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Give employees quick access to propagation, irrigation, pest-management, sanitation, and equipment SOPs in private team chat.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect lead or order-request details, qualify fit with your rules, and hand off summaries to sales or support workflows.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP-enabled tools for approved live lookups, ticket creation, routing, and notifications.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a greenhouse AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns the knowledge your greenhouse already maintains—crop plans, care sheets, seasonal catalogs, compliance notes, training files, PDFs, websites, and team documentation—into AI agents that answer questions, summarize context, identify documentation gaps, and take bounded actions when you configure Skills, APIs, connectors, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Operations and production managers",
+        "roleContext": "Teams coordinating crop schedules, crew instructions, and recurring greenhouse procedures across shifts and growing zones.",
+        "bullets": [
+          {
+            "text": "Make SOPs for propagation, watering, fertility, scouting, sanitation, and climate routines easier for staff to find during the workday.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Support multilingual crews with source-grounded answers in more than 100 languages when your approved content is available.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Spot repeated employee questions through analytics and use them to improve training materials and shift handoff documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Customer service and wholesale sales teams",
+        "roleContext": "People answering availability, substitutions, minimums, delivery windows, care questions, and seasonal program requests from retailers, landscapers, and consumers.",
+        "bullets": [
+          {
+            "text": "Let buyers ask about varieties, order policies, care instructions, and documents through an embedded website widget or support workflow.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured inquiry details such as customer type, region, timeline, quantities, crop interest, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified requests, conversation summaries, and missing details to the right sales or support queue through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Safety, HR, and training leads",
+        "roleContext": "Managers responsible for onboarding seasonal workers, maintaining policies, and keeping safety instructions accessible without burying teams in binders.",
+        "bullets": [
+          {
+            "text": "USDA reported 248,827 hired workers at U.S. horticultural operations in 2024, making repeatable training and knowledge access a large operational need.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-usda-horticulture-highlights"
+            ]
+          },
+          {
+            "text": "Surface approved heat, chemical, PPE, equipment, and emergency-response guidance from your internal policies and training documents.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use logs and conversation review to see which policies workers ask about most, then update the source content behind the agent.",
+            "icon": "EyeIcon"
+          }
+        ],
+        "roleIcon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-usda-horticulture-highlights"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-horticulture-highlights",
+      "metric": "23,060 operations; $18.3B sales; 248,827 hired workers; $14.9B production expenses",
+      "claim": "USDA NASS reported that U.S. horticultural specialty operations had $18.3 billion in 2024 sales, 23,060 operations, 248,827 hired workers, and $14.9 billion in production expenses.",
+      "sourceTitle": "USDA NASS: 2024 Census of Horticultural Specialties Highlights",
+      "sourceUrl": "https://www.nass.usda.gov/Publications/Highlights/2026/HorticulturalSpecialties2024.pdf",
+      "sourceDate": "2026-02-26",
+      "bestUsedFor": [
+        "market scale",
+        "labor scale",
+        "operational complexity",
+        "production expense pressure"
+      ]
+    },
+    {
+      "id": "src-usda-horticulture-news",
+      "metric": "$18.3B horticulture sales in 2024",
+      "claim": "USDA NASS announced that horticulture operations sold $18.3 billion in floriculture, nursery, and specialty crops in 2024.",
+      "sourceTitle": "USDA NASS: U.S. Horticulture Operations Report $18.3 Billion in Sales",
+      "sourceUrl": "https://www.nass.usda.gov/Newsroom/2026/02-26-2026.php",
+      "sourceDate": "2026-02-26",
+      "bestUsedFor": [
+        "industry size",
+        "market validation"
+      ]
+    },
+    {
+      "id": "src-osha-ag-hazards",
+      "metric": "Agricultural hazards include chemicals, heat, noise, musculoskeletal injuries, and pesticide residues",
+      "claim": "OSHA identifies agricultural-operation hazards including hazard communication for chemicals, heat, musculoskeletal injuries, and pesticide exposure from spray, drift, or residues.",
+      "sourceTitle": "OSHA: Agricultural Operations — Hazards & Controls",
+      "sourceUrl": "https://www.osha.gov/agricultural-operations/hazards",
+      "sourceDate": "Accessed 2026-05-14",
+      "bestUsedFor": [
+        "safety risk",
+        "training pressure",
+        "compliance-sensitive operations"
+      ]
+    },
+    {
+      "id": "src-epa-wps-greenhouses",
+      "metric": "Worker Protection Standard restrictions apply during pesticide applications in nurseries and greenhouses",
+      "claim": "EPA says employers in nurseries and greenhouses must keep workers and other persons out of treated areas and immediately surrounding areas during some pesticide applications under the Worker Protection Standard.",
+      "sourceTitle": "U.S. EPA: Restrictions During Pesticide Applications Under the Worker Protection Standard",
+      "sourceUrl": "https://www.epa.gov/pesticide-worker-safety/restrictions-during-pesticide-applications-under-worker-protection-standard",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "pesticide safety",
+        "worker protection",
+        "regulated workflow boundaries"
+      ]
+    },
+    {
+      "id": "src-osha-heat",
+      "metric": "Heat illness symptoms can include thirst, rash, cramps, heat exhaustion, and heat stroke",
+      "claim": "OSHA explains that workers in indoor and outdoor heat environments can experience heat illness when the body cannot dissipate heat quickly enough.",
+      "sourceTitle": "OSHA: Heat — Working in Outdoor and Indoor Heat Environments",
+      "sourceUrl": "https://www.osha.gov/heat-exposure",
+      "sourceDate": "Accessed 2026-05-14",
+      "bestUsedFor": [
+        "heat risk",
+        "worker safety",
+        "training reminders"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Plant care and availability support agent",
+      "problem": "Customers and wholesale buyers ask recurring questions about plant varieties, care requirements, substitutions, availability, minimums, and seasonal programs.",
+      "agentWorkflow": "Train a DocsBot agent on your catalog, care guides, FAQ pages, seasonal sales sheets, and wholesale policies. The agent answers in your voice, cites approved sources, collects missing inquiry details, and escalates unusual requests to a human.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can perform approved availability lookups, submit a lead form, create a support ticket, or notify a sales channel.",
+      "exampleQuestionsOrRequests": [
+        "Do you have 72-cell tomato transplants available for pickup next week?",
+        "Which annuals tolerate full sun and high humidity?",
+        "Can you send care instructions for these poinsettias after delivery?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, faster buyer self-service, and cleaner handoffs for sales or support staff.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Internal greenhouse SOP assistant",
+      "problem": "Crew members need the latest propagation, watering, IPM, sanitation, and equipment instructions, but information may live across PDFs, binders, shared drives, and manager notes.",
+      "agentWorkflow": "Create a private internal DocsBot agent trained on SOPs, crop notes, safety policies, onboarding docs, equipment manuals, and shift checklists. Employees ask natural-language questions and receive source-grounded answers from approved material.",
+      "liveContextOrTools": "The agent can be available in private chat, Slack, Microsoft Teams, or API-powered internal tools depending on your deployment. Analytics reveal repeated questions and documentation gaps.",
+      "exampleQuestionsOrRequests": [
+        "What is the sanitation checklist before moving trays into House 4?",
+        "Where is the irrigation startup procedure for the boom system?",
+        "What should new seasonal staff review before handling plug trays?"
+      ],
+      "businessOutcome": "More consistent procedures across shifts and less time searching for current instructions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Safety and compliance knowledge agent",
+      "problem": "Greenhouse work can involve heat, chemicals, pesticide residues, equipment, and repetitive tasks; OSHA identifies agricultural hazards including heat, chemical hazard communication, musculoskeletal injuries, and pesticide exposure from spray, drift, or residues.",
+      "agentWorkflow": "Train DocsBot on your safety manual, hazard communication documents, pesticide labels or restricted-entry references you are authorized to use, PPE policies, emergency procedures, and training content. The agent retrieves the relevant policy, summarizes steps, and points employees to human supervisors for safety-critical decisions.",
+      "liveContextOrTools": "For bounded workflows, AI Actions can route incident questions, create a review task, or notify a safety lead. Keep permissions scoped for regulated or high-impact actions.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find the re-entry rule for today’s treated bay?",
+        "What are our heat-stress response steps for a worker feeling dizzy?",
+        "Which PPE checklist applies before mixing this product?"
+      ],
+      "businessOutcome": "Safety information becomes easier to access while supervisors retain control over judgment calls, approvals, and regulated decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-ag-hazards",
+        "src-epa-wps-greenhouses",
+        "src-osha-heat"
+      ]
+    },
+    {
+      "name": "Seasonal onboarding and training agent",
+      "problem": "Greenhouses often rely on seasonal or role-specific labor, and USDA reported 15,382 horticultural operations with hired workers in 2024.",
+      "agentWorkflow": "Use DocsBot as an onboarding assistant trained on role guides, training videos, checklists, HR policies, greenhouse maps, terminology, and crop-stage instructions. New hires can ask questions without waiting for a manager to repeat the same explanation.",
+      "liveContextOrTools": "The agent can summarize training questions, flag missing onboarding content, and route unanswered questions to HR or production leads.",
+      "exampleQuestionsOrRequests": [
+        "What does spacing mean for this crop stage?",
+        "Where do I clock in and who approves my timesheet?",
+        "What is the checklist for my first shift in shipping?"
+      ],
+      "businessOutcome": "Managers repeat fewer basics, new employees ramp faster, and training gaps become visible.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-usda-horticulture-highlights"
+      ]
+    },
+    {
+      "name": "Sales enablement and quote-prep assistant",
+      "problem": "Sales teams need fast access to crop specs, availability notes, delivery policies, margin guidance, proposal templates, and customer-specific context before responding to retailers or landscapers.",
+      "agentWorkflow": "Train an internal DocsBot sales agent on product catalogs, pricing guidance, service policies, proposal templates, objection handling, case notes, and customer FAQs. Reps can ask for summaries, draft replies, and retrieve approved language for follow-up.",
+      "liveContextOrTools": "When configured with approved Skills, APIs, connectors, or workflows, the agent can retrieve CRM context, prepare account summaries, draft follow-up emails, create tasks, or update approved fields for human review.",
+      "exampleQuestionsOrRequests": [
+        "Draft a response for a landscaper asking about spring annual availability and delivery limits.",
+        "Summarize our substitution policy for a retail buyer.",
+        "What objections should I prepare for on a young-plants program call?"
+      ],
+      "businessOutcome": "Faster, more consistent sales responses without removing human control over pricing, contracts, or commitments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Operations question analytics",
+      "problem": "Managers may not know which SOPs, care pages, or policies are confusing until the same questions keep resurfacing.",
+      "agentWorkflow": "DocsBot logs conversations, reports topics, supports review, and helps teams discover knowledge gaps. Greenhouse leaders can use recurring questions to update source documents and improve future answers.",
+      "liveContextOrTools": "Reports and conversation review can inform documentation updates, training refreshers, and support-content priorities.",
+      "exampleQuestionsOrRequests": [
+        "Which crop-care topics did staff ask about most this month?",
+        "What buyer questions did the agent fail to answer?",
+        "Which SOP should we update before the next seasonal hiring wave?"
+      ],
+      "businessOutcome": "Documentation improves based on real greenhouse questions instead of guesswork.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Help buyers and plant customers get answers before they call",
+    "intro": "A DocsBot customer-facing agent can sit on your website or product experience and answer from approved public content, catalogs, policies, and care documents. For complex orders, unavailable items, sensitive complaints, or pricing exceptions, it can collect context and hand off to a person.",
+    "requests": [
+      {
+        "request": "“Do you have this variety available, and what sizes can I order?”",
+        "agentResponseStrategy": "Answer from the current catalog or availability sheet provided to the agent; if live availability is configured, perform an approved lookup and explain any limits or substitutions from your policy.",
+        "sourceTypes": [
+          "Seasonal catalogs",
+          "Availability lists",
+          "Wholesale policies",
+          "Substitution guidelines"
+        ],
+        "optionalAction": "Create a lead or order-inquiry record with quantity, timing, customer type, and preferred follow-up channel.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“How should I care for these plants after delivery?”",
+        "agentResponseStrategy": "Retrieve care instructions, light and watering guidance, hardening-off notes, and troubleshooting steps from your approved plant care documents.",
+        "sourceTypes": [
+          "Plant care guides",
+          "Customer FAQs",
+          "Delivery handouts",
+          "Website content"
+        ],
+        "optionalAction": "Send a summarized care guide or route the question to support when the plant issue may need a human review.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“Can I speak with someone about a wholesale program?”",
+        "agentResponseStrategy": "Collect company, role, region, crop interest, timing, budget range if appropriate, and urgency, then qualify the inquiry using customer-defined rules.",
+        "sourceTypes": [
+          "Wholesale program pages",
+          "Sales enablement docs",
+          "Lead qualification instructions",
+          "Pricing-policy notes"
+        ],
+        "optionalAction": "Forward the qualified lead summary to CRM, helpdesk, email, Slack, Microsoft Teams, or another approved sales workflow configured by the customer.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "request": "“Where are my delivery instructions or order documents?”",
+        "agentResponseStrategy": "Answer from public policies when possible and use a scoped live lookup only if the customer has configured secure access to the relevant order or document system.",
+        "sourceTypes": [
+          "Delivery policies",
+          "Order FAQs",
+          "Customer portal documentation",
+          "Approved live system metadata"
+        ],
+        "optionalAction": "Route missing-document requests to the correct team or create a support ticket with the conversation summary.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you ship to my region?”",
+        "agentResponseStrategy": "Check approved shipping or service-area documents, explain restrictions in plain language, and ask clarifying questions when geography, timing, or product type matters.",
+        "sourceTypes": [
+          "Shipping policies",
+          "Service area pages",
+          "Seasonal program rules",
+          "FAQ content"
+        ],
+        "optionalAction": "Collect scheduling intent for a sales call or request a quote through an approved booking workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer in the customer’s preferred language from the same approved source material, while preserving your source-grounded policies and escalation rules.",
+        "sourceTypes": [
+          "Translated FAQs when available",
+          "Approved English source documents",
+          "Care guides",
+          "Policy pages"
+        ],
+        "optionalAction": "Escalate to a bilingual human team member when the inquiry is complex, sensitive, or outside the available sources.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give greenhouse teams one place to ask operational questions",
+    "intro": "Private DocsBot agents help production, HR, safety, sales, and service teams retrieve approved knowledge without digging through shared drives, binders, or message threads. The agent can summarize, route, and trigger bounded workflows when configured.",
+    "workflows": [
+      {
+        "name": "Crop-stage procedure lookup",
+        "problem": "Instructions change by crop, house, stage, and season, so staff may rely on memory or interrupt supervisors.",
+        "agentWorkflow": "Employees ask the agent for the relevant SOP, checklist, or crop note. DocsBot answers from approved documents and cites the source so the worker can verify the instruction.",
+        "sourceTypes": [
+          "Crop plans",
+          "Propagation SOPs",
+          "Irrigation schedules",
+          "IPM notes",
+          "Sanitation checklists"
+        ],
+        "optionalAction": "Create a task for a production lead when an SOP is missing or unclear.",
+        "outcome": "More consistent execution and fewer repeated supervisor interruptions.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Pesticide and restricted-entry information routing",
+        "problem": "EPA Worker Protection Standard restrictions apply to nurseries and greenhouses during some pesticide applications, including keeping workers and others out of treated and surrounding areas.",
+        "agentWorkflow": "The agent retrieves your approved pesticide safety content, restricted-entry references, PPE instructions, and internal policies, then routes uncertain or high-impact questions to a supervisor.",
+        "sourceTypes": [
+          "Worker Protection Standard training materials",
+          "Pesticide labels and safety sheets you authorize",
+          "Internal safety SOPs",
+          "Incident procedures"
+        ],
+        "optionalAction": "Notify a safety lead or create a review task for questions involving treated areas, re-entry timing, or incident follow-up.",
+        "outcome": "Workers can find policy guidance quickly while safety leads remain responsible for decisions and approvals.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-epa-wps-greenhouses"
+        ]
+      },
+      {
+        "name": "Seasonal workforce onboarding",
+        "problem": "Seasonal employees need answers about roles, terminology, timekeeping, greenhouse maps, safety basics, and task checklists.",
+        "agentWorkflow": "DocsBot answers onboarding questions from HR documents, training guides, maps, FAQs, and role-specific SOPs in a private team interface.",
+        "sourceTypes": [
+          "Employee handbook",
+          "Onboarding checklists",
+          "Training PDFs",
+          "Greenhouse maps",
+          "Role guides"
+        ],
+        "optionalAction": "Summarize unanswered onboarding questions for HR or operations so source documents can be updated.",
+        "outcome": "New staff get faster help and managers see where training materials need improvement.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Support-ticket triage",
+        "problem": "Customer emails about plant care, delivery, shortages, substitutions, and documents can vary in detail and urgency.",
+        "agentWorkflow": "When connected through customer-configured helpdesk workflows, DocsBot can summarize tickets, draft source-grounded replies, route issues, and escalate sensitive or unusual cases to a human.",
+        "sourceTypes": [
+          "Support history exports",
+          "Help articles",
+          "Care guides",
+          "Shipping policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create or update a ticket, add a summary, or route the request to sales, shipping, or production.",
+        "outcome": "Support teams spend less time rewriting common answers and more time resolving exceptions.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Management knowledge-gap review",
+        "problem": "As catalogs, crops, policies, and equipment change, outdated documentation can cause inconsistent answers.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to identify unanswered questions and recurring themes.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap reports",
+          "Reviewed agent answers"
+        ],
+        "optionalAction": "Assign content updates to document owners or notify teams when a high-frequency gap appears.",
+        "outcome": "Your greenhouse knowledge base gets better as real employees and buyers use it.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from owned knowledge",
+      "mainLandingPageContext": "DocsBot agents train on websites, help centers, internal content, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, and other configured sources.",
+      "industryApplication": "Answer greenhouse questions from crop guides, SOPs, seasonal catalogs, care sheets, safety policies, and customer FAQs instead of generic model memory.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Website widget and customer support workflows",
+      "mainLandingPageContext": "DocsBot can power website or product chat experiences and support helpdesk-connected workflows when configured by the customer.",
+      "industryApplication": "Let buyers and plant customers self-serve care, availability, delivery, and policy questions, then escalate exceptions to a human team.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private internal assistant for operations, HR, IT, sales, compliance, finance, and other teams.",
+      "industryApplication": "Give growers, crew leads, HR, and safety managers a private place to ask about procedures, onboarding, equipment, and policies.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform bounded lookups, summaries, routing, record creation, record updates, notifications, and workflow triggers through customer-defined rules and approved connections.",
+      "industryApplication": "Support approved availability lookups, lead forms, ticket creation, sales handoffs, task creation, and notifications without giving the agent unlimited system access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which greenhouse SOPs, plant care topics, safety questions, and buyer requests need better documentation.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Governance and access controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal crop procedures, pricing guidance, customer notes, and safety documents available only to the roles and agents that should use them.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "sanchay-indned-ebike-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own greenhouse content library, not generic plant advice.",
+      "Use DocsBot for both public buyer support and private employee knowledge workflows.",
+      "Deploy source-grounded support across multilingual manuals, websites, and owned documentation.",
+      "Rely on enterprise-grade governance including SOC 2 Type II, GDPR-ready controls, encryption, role-based permissions, and no public-model training on customer数据"
+    ],
+    "whyTheseReviewsFit": "Greenhouse operations depend on owned catalogs, care guides, manuals, and training materials. These reviews emphasize training on proprietary content, answering common queries from training materials, and supporting customers with multilingual manuals and website content—closely aligned with greenhouse buyer support and internal SOP access.",
+    "trustClaimIcons": [
+      "FolderIcon",
+      "UserCircleIcon",
+      "LanguageIcon",
+      "LockClosedIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for greenhouse operations",
+    "audience": [
+      "Greenhouse owners",
+      "Production managers",
+      "Wholesale sales teams",
+      "Customer support teams",
+      "Safety and HR leaders",
+      "Nursery and floriculture operators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "agriculture-forestry-wildlife",
+    "crop-consulting",
+    "farming",
+    "organic-farming",
+    "seed-production",
+    "landscaping-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "greenhouse-operations",
+    "webSearchQueries": [
+      "USDA greenhouse nursery floriculture sales 2024 greenhouse operations labor statistics",
+      "OSHA greenhouse nursery hazards heat pesticide workers",
+      "USDA floriculture crops 2024 summary sales greenhouse nursery",
+      "controlled environment agriculture market labor challenges greenhouse growers survey"
+    ],
+    "sourceUrls": [
+      "https://www.nass.usda.gov/Publications/Highlights/2026/HorticulturalSpecialties2024.pdf",
+      "https://www.nass.usda.gov/Newsroom/2026/02-26-2026.php",
+      "https://www.osha.gov/agricultural-operations/hazards",
+      "https://www.epa.gov/pesticide-worker-safety/restrictions-during-pesticide-applications-under-worker-protection-standard",
+      "https://www.osha.gov/heat-exposure"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40510,
+        "cachedInputTokens": 0,
+        "billableInputTokens": 40510,
+        "outputTokens": 8748,
+        "reasoningOutputTokens": 101,
+        "totalTokens": 49258,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.46499,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.47499
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20637,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20637,
+          "outputTokens": 5385,
+          "reasoningOutputTokens": 101,
+          "totalTokens": 26022,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.264735,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.274735
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19873,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 19873,
+          "outputTokens": 3363,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23236,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.200255,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.200255
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1588235189340-2b9f9d6e5cd1?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQzMjd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Greenhouse Operations background image",
+    "source": "legacy-industry",
+    "query": "Greenhouse Operations"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer availability and variety questions without promising inventory we no longer have?",
+      "answer": "Yes, if you train the agent on approved catalogs, availability sheets, wholesale policies, and substitution rules. For static documents, DocsBot answers from the latest source content you provide and can cite where the answer came from. If your team configures a scoped Skill, API, connector, or workflow, the agent can perform an approved live availability lookup, collect quantity and timing details, and hand off exceptions to sales instead of making an unsupported commitment.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help our production managers when crop instructions vary by house, crop stage, and season?",
+      "answer": "A private DocsBot agent can be trained on crop plans, propagation SOPs, irrigation schedules, IPM notes, sanitation checklists, equipment manuals, and shift handoff documents. Staff can ask for the relevant procedure in plain language and receive a source-grounded answer from approved material, reducing reliance on memory, text threads, or supervisor interruptions. When an SOP is unclear or missing, conversation review and knowledge-gap reporting can show managers what needs to be updated.",
+      "role": "Operations and production managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can seasonal workers use it for onboarding without giving them access to every internal file?",
+      "answer": "Yes. DocsBot supports private internal knowledge agents with granular access controls and role-based permissions, so you can scope what different teams or users are allowed to see. A greenhouse can create onboarding-focused agents trained on employee handbooks, role checklists, maps, safety basics, and task instructions while keeping pricing guidance, customer notes, or management-only SOPs restricted.",
+      "role": "Safety, HR, and training leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "We have bilingual and multilingual crews. Can the agent answer in Spanish or other languages?",
+      "answer": "DocsBot can answer in more than 100 languages when the approved source content supports the question. For greenhouse teams, that means workers or buyers can ask about care instructions, onboarding, safety policies, or SOPs in their preferred language while the answer remains grounded in the same approved documents. For sensitive safety, HR, or customer issues, you can define escalation rules to route the conversation to a bilingual human reviewer.",
+      "role": "Safety, HR, and training leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we use DocsBot for pesticide safety or restricted-entry questions?",
+      "answer": "DocsBot can help workers find and summarize your approved pesticide safety content, Worker Protection Standard training materials, labels or references you are authorized to use, PPE policies, and incident procedures. It should be configured to route uncertain, safety-critical, or high-impact questions to a supervisor rather than making final judgment calls. This matters because EPA states that nurseries and greenhouses must keep workers and other persons out of treated areas and immediately surrounding areas during some pesticide applications under the",
+      "role": "Safety, HR, and training leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-epa-wps-greenhouses"
+      ]
+    },
+    {
+      "question": "How do we prevent the AI from giving generic plant advice that conflicts with our grower instructions?",
+      "answer": "DocsBot is designed around source-grounded answers from your owned knowledge, such as crop guides, care sheets, catalogs, SOPs, policies, and FAQs. You can instruct the agent to answer only from approved sources, cite the source used, ask clarifying questions when crop, size, region, or timing matters, and escalate when the answer is not in the knowledge base. That is especially important for greenhouses where the right answer may depend on your varieties, hardening-off practices, local delivery conditions, or customer program rules.",
+      "role": "Operations and production managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What parts of customer service can the agent handle before a person steps in?",
+      "answer": "A customer-facing DocsBot agent can answer recurring questions about plant care, availability documents, order policies, delivery regions, minimums, substitutions, pickup instructions, and wholesale program fit. It can also collect structured details such as customer type, region, quantity, timeline, crop interest, and preferred follow-up channel. For pricing exceptions, complaints, unavailable items, quality claims, or contract-sensitive commitments, the agent can summarize the conversation and hand it to a human.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot connect to our order, CRM, availability, or ticketing systems?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, workflow automations, and MCP-enabled tools for approved live lookups and bounded actions. In a greenhouse setting, those actions might include checking availability metadata, creating a ticket, submitting a lead form, notifying sales, drafting a follow-up, or updating approved fields for review. It should be scoped carefully so the agent has only the access it needs and does not make open-ended pricing, order, or contract commitments.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What would implementation look like if our knowledge is spread across PDFs, shared drives, binders, websites, and spreadsheets?",
+      "answer": "Most greenhouse teams should start by choosing one high-value workflow, such as buyer availability questions, seasonal onboarding, or internal SOP lookup. Then gather the approved source documents for that workflow, train the agent, test it against real questions, assign source owners for updates, and define escalation rules. DocsBot can train on websites, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, and other configured sources, so the main implementation work is deciding what is current, approved, and safe to expose.",
+      "role": "Operations and production managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI if we are not trying to replace staff?",
+      "answer": "Greenhouse buyers usually measure ROI through time saved on repetitive questions, faster sales handoffs, fewer supervisor interruptions, better onboarding throughput, reduced support backlog, and fewer documentation gaps. For customer-facing workflows, track deflected availability, care, shipping, and policy questions plus qualified leads captured after hours. For internal workflows, track repeated SOP questions, unanswered questions, and which documents need improvement. This is meaningful in a labor-intensive sector: USDA NASS reported 248,827 hired І",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-usda-horticulture-highlights"
+      ]
+    },
+    {
+      "question": "Will the agent work during peak spring volume when calls, emails, and walk-up questions spike?",
+      "answer": "DocsBot can provide always-available answers through website chat, private team chat, and configured support workflows, which is useful when seasonal demand concentrates questions into a short window. The best approach is to prepare before peak season: load current availability sheets, catalogs, delivery policies, care guides, and escalation rules; test the most common buyer and staff questions; and create a process for updating time-sensitive content as conditions change.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can sales reps use it to prepare quotes or respond to landscapers and retailers?",
+      "answer": "Yes. An internal sales enablement agent can be trained on product catalogs, crop specs, pricing guidance, delivery rules, substitution policies, proposal templates, objection handling, and customer FAQs. Reps can ask DocsBot to summarize the right policy, draft a response, prepare account notes, or collect missing requirements. Humans should still own final pricing, contract terms, substitutions, and commitments that affect margin or customer relationships.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How can we keep answers current when availability changes daily or crops move between houses?",
+      "answer": "Use static knowledge for policies, care guidance, sales collateral, and SOPs, then use customer-configured live lookups for data that changes frequently. For daily availability, the agent can either answer from the latest uploaded sheet or, when configured, call an approved system through a Skill, API, connector, or workflow. You should also set freshness rules, document owners, and escalation language so the agent asks for confirmation or routes to sales when the data may be time-sensitive.",
+      "role": "Operations and production managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can managers review what employees or buyers are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Greenhouse managers can use those insights to see which SOPs confuse workers, which care topics customers ask about most, where the agent could not answer, and which documents need to be rewritten before the next crop cycle or seasonal hiring wave.",
+      "role": "Operations and production managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security controls matter if we train the agent on pricing, crop plans, customer notes, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For greenhouse operations, that means you can separate public buyer content from private employee knowledge, restrict sensitive pricing or customer information, and configure Skills with controlled secrets, logging, metadata bindings, and customer-defined access boundaries.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it help with heat-stress and safety-policy questions for crews working in hot greenhouse conditions?",
+      "answer": "DocsBot can surface your approved heat-stress procedures, emergency response steps, PPE guidance, supervisor contacts, and training materials in a private agent. It should be configured to encourage immediate human escalation for symptoms, incidents, or urgent safety decisions. OSHA explains that workers in indoor and outdoor heat environments can experience heat illness when the body cannot dissipate heat quickly enough, so fast access to approved procedures can be valuable while supervisors remain responsible for response and judgment.",
+      "role": "Safety, HR, and training leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-heat"
+      ]
+    },
+    {
+      "question": "How do we compare DocsBot with a generic chatbot or a homegrown AI project?",
+      "answer": "The key difference is whether the system is built for source-grounded answers, governed knowledge access, reviewable conversations, and bounded workflow actions. A generic chatbot may answer from broad model knowledge, which is risky for crop instructions, availability, safety policies, and pricing. A homegrown system may offer flexibility but requires your team to maintain retrieval, permissions, evaluation, integrations, logs, and updates. DocsBot is positioned for teams that want to train agents on owned content, deploy customer-facing or internal use",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent collect wholesale leads without creating more messy follow-up work for sales?",
+      "answer": "Yes. A DocsBot presales agent can collect structured details such as company, role, region, customer type, crop interest, quantities, timeline, budget range if appropriate, and preferred follow-up channel. Using your qualification rules, it can summarize fit, identify missing details, and forward the inquiry to CRM, helpdesk, email, Slack, Microsoft Teams, or another customer-configured workflow. Sales still controls final qualification, pricing, and account commitments.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if a buyer asks about plant health problems, returns, shortages, or quality claims?",
+      "answer": "You can configure the agent to answer routine care or policy questions from approved documents, then escalate sensitive cases. For plant health issues, the agent can ask for order details, symptoms, photos if your workflow supports them, delivery timing, and care conditions, then create a support ticket or route the summary to the right team. For shortages, credits, replacements, or quality disputes, human review should remain the default.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use the same platform for public website questions and private employee SOPs?",
+      "answer": "Yes. DocsBot can support both customer-facing agents and private internal knowledge agents, but they should be separated by audience, sources, permissions, and escalation rules. A public agent might use catalogs, care guides, shipping policies, and wholesale FAQs. An internal agent might use crop plans, safety policies, onboarding files, equipment manuals, and pricing guidance with role-based access controls.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much documentation cleanup do we need before launch?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved source material for the questions you expect the agent to answer. Start with the documents that drive the most repeated questions: current catalogs, availability rules, care sheets, shipping policies, onboarding checklists, and top SOPs. DocsBot analytics and knowledge-gap discovery can then show what is missing, outdated, or unclear based on real buyer and employee questions.",
+      "role": "Operations and production managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support safety training without becoming our compliance system of record?",
+      "answer": "Yes. DocsBot is best used as an access and guidance layer over approved safety content, not as the final compliance authority. It can help workers find heat, chemical, PPE, equipment, pesticide, and emergency-response procedures, while your safety leads maintain the official policies, training records, and required documentation elsewhere. OSHA identifies agricultural hazards including chemicals, heat, musculoskeletal injuries, noise, and pesticide exposure from spray, drift, or residues, so keeping approved guidance accessible can support—but not г",
+      "role": "Safety, HR, and training leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-ag-hazards"
+      ]
+    },
+    {
+      "question": "What procurement concerns should we resolve before buying an AI agent for greenhouse operations?",
+      "answer": "The buying committee should confirm the initial use case, source owners, permission model, data-retention expectations, security requirements, implementation responsibilities, and success metrics. For greenhouse operations, also decide who approves crop guidance, who owns availability updates, which safety topics require human escalation, and which systems the agent may access through Skills, APIs, connectors, or workflows. That keeps the purchase focused on operational outcomes instead of a vague AI experiment.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent take actions, or is it only answering questions?",
+      "answer": "DocsBot can do more than answer when you configure AI Actions, Skills, APIs, connectors, or customer-defined workflows. For greenhouse teams, bounded actions might include creating a support ticket, routing a safety question, submitting a wholesale inquiry, notifying sales, preparing a handoff summary, generating a draft response, or looking up approved live context. Sensitive actions should include scoped permissions, logs, review paths, and human approval where needed.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we avoid staff ignoring the tool and continuing to ask supervisors everything?",
+      "answer": "Adoption improves when the agent solves specific daily problems and is available where staff already work, such as private chat, Slack, Microsoft Teams, or an internal tool. Start with high-frequency questions, use plain role-based prompts, include source citations so supervisors trust the answers, and review unanswered questions weekly. Managers should also update the source documents when gaps appear, so workers see that the agent becomes more useful over time.",
+      "role": "Operations and production managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot help us understand which customer questions are costing the most time?",
+      "answer": "Yes. DocsBot conversation logs, topic reporting, satisfaction and resolution analysis, and knowledge-gap discovery can show patterns across buyer questions. Customer service and sales leaders can identify repeated questions about availability, care, delivery windows, substitutions, minimums, wholesale program fit, and missing documents, then decide whether to improve public content, update policies, adjust lead forms, or route certain requests directly to a person.",
+      "role": "Customer service and wholesale sales teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

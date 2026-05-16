@@ -1,0 +1,718 @@
+{
+  "slug": "arcade-management",
+  "business": "Arcade Management",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Arcade Operations and Guest Support",
+    "description": "DocsBot helps arcade management teams answer guest questions, surface machine SOPs, route issues, and reduce repetitive staff interruptions.",
+    "canonicalPath": "/industry/arcade-management"
+  },
+  "hero": {
+    "eyebrow": "AI automation for arcades, FECs, and location-based gaming venues",
+    "headline": "Keep arcade guests playing with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your game guides, party policies, attraction rules, prize procedures, maintenance notes, FAQs, and staff SOPs so guests and employees get fast, source-grounded answers while your team focuses on the floor.",
+    "proofBullets": [
+      {
+        "text": "Answer game rules, card balance questions, event policies, party package details, hours, and accessibility FAQs from approved arcade content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give floor staff instant access to machine reset steps, redemption desk procedures, incident checklists, and manager escalation rules.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Collect party, group, and corporate event details through structured intake flows, then route qualified requests to your team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Use AI Actions to create tasks, summarize guest issues, trigger handoffs, or look up approved live context when your systems are connected.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your arcade AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps arcade management teams create AI agents trained on their own venue knowledge. A customer-facing agent can answer guest questions in a website widget, while a private internal knowledge agent helps staff find SOPs, troubleshooting steps, policies, and handoff guidance. With configured Skills, APIs, connectors, or workflows, agents can also collect details, summarize issues, route requests, and trigger bounded actions.",
+    "whoItHelps": [
+      {
+        "role": "Arcade owners and general managers",
+        "roleContext": "Keep guest information, staff procedures, event rules, and escalation paths consistent across busy shifts, new hires, and multiple locations.",
+        "bullets": [
+          {
+            "text": "Give guests quick answers about party packages, age rules, pricing policies, redemption, accessibility, and current promotions.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "See repeated guest and staff questions in DocsBot analytics so you can improve signage, FAQs, training, and operations documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Reduce interruptions for managers by letting staff search approved SOPs before escalating unusual situations.",
+            "icon": "UserGroupIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Guest services and front-desk teams",
+        "roleContext": "Support high-volume walk-ins, birthday parties, school groups, and phone-style web inquiries without forcing every question through a manager.",
+        "bullets": [
+          {
+            "text": "Use a website agent to answer common questions before guests arrive, including hours, attractions, food rules, party timing, and card setup.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Collect missing details for parties or group visits, then prepare a clean summary for staff follow-up through approved workflows.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Offer multilingual answers from your approved venue content for families, tourists, and group organizers.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "FaceSmileIcon"
+      },
+      {
+        "role": "Technicians and shift leads",
+        "roleContext": "Keep machine support, safety notes, prize procedures, cleaning steps, and escalation rules searchable when staff need answers quickly on the floor.",
+        "bullets": [
+          {
+            "text": "Retrieve reset steps, troubleshooting notes, vendor manual excerpts, and out-of-order procedures from your internal knowledge base.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Turn repeated machine or prize-counter issues into tasks, summaries, or maintenance handoffs when AI Actions are configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Support new attendant training in a sector where BLS reported 254,530 amusement and recreation attendants across amusement, gambling, and recreation industries in 2024.",
+            "icon": "AcademicCapIcon",
+            "sourceIds": [
+              "src-bls-naics-713"
+            ]
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-naics-713",
+      "metric": "254,530 amusement and recreation attendants in 2024",
+      "claim": "The U.S. Bureau of Labor Statistics reported 254,530 amusement and recreation attendants in the broader amusement, gambling, and recreation industries in 2024.",
+      "sourceTitle": "Amusement, Gambling, and Recreation Industries: NAICS 713",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag713.htm",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "labor scale",
+        "frontline training",
+        "shift operations"
+      ]
+    },
+    {
+      "id": "src-bls-arcades-occupation",
+      "metric": "69,610 amusement and recreation attendants in amusement parks and arcades in May 2023",
+      "claim": "BLS industry-specific occupational data for NAICS 713100 showed 69,610 amusement and recreation attendants in amusement parks and arcades in May 2023.",
+      "sourceTitle": "Amusement Parks and Arcades - May 2023 OEWS Industry-Specific Occupational Employment and Wage Estimates",
+      "sourceUrl": "https://www.bls.gov/oes/2023/may/naics4_713100.htm",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "arcade staffing",
+        "frontline support workload",
+        "training needs"
+      ]
+    },
+    {
+      "id": "src-iaapa-fec-benchmark",
+      "metric": "FEC benchmarks cover operations, attraction mix, admissions, staffing, visitors, revenue, and expenses",
+      "claim": "IAAPA’s Family Entertainment Center Benchmark Report summarizes facility operations, attraction mix, admissions, staffing, visitor information, revenue, and expense data.",
+      "sourceTitle": "2019 IAAPA Benchmark Series: Family Entertainment Centers",
+      "sourceUrl": "https://iaapa.org/research/2019-iaapa-benchmark-series-fec",
+      "sourceDate": "2019",
+      "bestUsedFor": [
+        "operational complexity",
+        "multi-attraction management",
+        "staffing and revenue context"
+      ]
+    },
+    {
+      "id": "src-cpsc-amusement-rides",
+      "metric": "22,520 estimated amusement-attraction injuries in one CPSC-based analysis",
+      "claim": "A peer-reviewed analysis using CPSC NEISS data estimated 22,520 national injuries for amusement attractions, including rides, in the referenced period.",
+      "sourceTitle": "Amusement ride injury data in the United States",
+      "sourceUrl": "https://www.sciencedirect.com/science/article/pii/S0925753513002282",
+      "sourceDate": "2013",
+      "bestUsedFor": [
+        "safety-sensitive workflows",
+        "incident escalation",
+        "operations risk"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Guest FAQ and visit planning agent",
+      "problem": "Guests often ask the same questions about hours, game cards, age limits, party timing, attractions, food, accessibility, and refund policies before they arrive.",
+      "agentWorkflow": "Train a DocsBot support agent on your website, FAQs, party brochures, pricing pages, waiver notes, attraction rules, and policy documents. The agent gives source-grounded answers in your voice and escalates unclear, sensitive, or exception-based questions to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can use live context such as current hours, temporary closures, event availability, or card-system guidance when your team connects those sources.",
+      "exampleQuestionsOrRequests": [
+        "What age range is best for the arcade and laser maze?",
+        "Can I bring outside cake for a birthday party?",
+        "How do game cards, points, and prize tickets work?",
+        "Is your venue wheelchair accessible?"
+      ],
+      "businessOutcome": "Reduce repetitive pre-visit questions while helping guests arrive prepared and confident.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Party and group booking intake",
+      "problem": "Arcade teams lose time chasing missing details for birthdays, school trips, camps, fundraisers, and corporate events.",
+      "agentWorkflow": "DocsBot can collect structured details such as group size, preferred date, age range, food needs, attraction interests, budget range, contact information, and follow-up preference. AI instructions can qualify the request based on your rules and prepare a handoff summary.",
+      "liveContextOrTools": "Through customer-configured scheduling workflows, forms, email, CRM, helpdesk software, or webhooks, AI Actions can forward the lead, create a task, or request a meeting without making unapproved commitments.",
+      "exampleQuestionsOrRequests": [
+        "I need a birthday party for 18 kids next Saturday.",
+        "Can you host a school field trip for 60 students?",
+        "Send me options for a corporate team event with food.",
+        "Do you have fundraising packages for youth sports teams?"
+      ],
+      "businessOutcome": "Capture more complete event inquiries and give sales or guest services a cleaner follow-up path.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Machine troubleshooting and floor operations assistant",
+      "problem": "Frontline attendants may not know the latest reset steps, prize procedures, cleaning rules, or manager escalation paths for every cabinet, card reader, kiosk, and attraction.",
+      "agentWorkflow": "Create a private DocsBot internal knowledge agent trained on vendor manuals, machine notes, inspection logs, SOPs, opening and closing checklists, redemption procedures, and shift-lead guidance. Staff ask natural-language questions and get grounded answers with source references.",
+      "liveContextOrTools": "Configured Skills can create a maintenance task, summarize the issue, update an approved status field, or notify the right technician. MCP Connectors can also expose tools from systems your team already uses when authorized.",
+      "exampleQuestionsOrRequests": [
+        "How do I reset this racing cabinet after a card-reader error?",
+        "What do I do if a prize ticket count looks wrong?",
+        "Which issues require the manager before we restart the attraction?",
+        "What is the closing checklist for redemption?"
+      ],
+      "businessOutcome": "Speed up routine troubleshooting and reduce tribal knowledge gaps during busy shifts.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Incident and safety handoff support",
+      "problem": "Arcade and FEC environments combine games, attractions, food, parties, and crowds, so staff need clear procedures when a guest issue, injury, machine fault, or behavior concern occurs.",
+      "agentWorkflow": "DocsBot can make incident procedures, first-response checklists, documentation steps, escalation rules, and post-incident communication templates searchable. The agent can summarize what staff entered and prepare a handoff for a manager while keeping final judgment with trained people.",
+      "liveContextOrTools": "Where configured, AI Actions can create an incident task, route a summary, or notify a manager. Safety-sensitive workflows should use scoped permissions, logs, and human review.",
+      "exampleQuestionsOrRequests": [
+        "A guest says they slipped near the prize counter. What should I document?",
+        "When should we close a game after a fault?",
+        "What is the escalation path for aggressive behavior?",
+        "Which manager needs the incident summary?"
+      ],
+      "businessOutcome": "Help staff follow consistent procedures while preserving human control over safety-critical decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cpsc-amusement-rides"
+      ]
+    },
+    {
+      "name": "Promotions, prize, and policy knowledge agent",
+      "problem": "Promotions, prize rules, membership offers, card bonuses, seasonal events, and refund policies change often and can be hard for staff and guests to explain consistently.",
+      "agentWorkflow": "DocsBot trains on approved promotion calendars, prize rules, offer terms, membership details, FAQs, and signage copy. The agent answers what is active, what restrictions apply, and when a staff member should verify an exception.",
+      "liveContextOrTools": "With approved live lookups, the agent can retrieve current promotion metadata or route unclear offer questions to a manager before a guest receives a final answer.",
+      "exampleQuestionsOrRequests": [
+        "Can I combine a coupon with a birthday package?",
+        "Which prizes are eligible for the weekend bonus?",
+        "What is included in the unlimited play pass?",
+        "When does the summer tournament start?"
+      ],
+      "businessOutcome": "Improve consistency across marketing, front desk, redemption, and guest-service conversations.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Training and onboarding knowledge base",
+      "problem": "Arcades rely on attendants, technicians, party hosts, and shift leads who must learn many small procedures quickly, especially during seasonal or weekend staffing peaks.",
+      "agentWorkflow": "A private DocsBot agent can answer employee questions from onboarding guides, role checklists, HR policies, opening and closing SOPs, game-room scripts, food-service rules, and manager notes. Analytics show which training topics cause the most confusion.",
+      "liveContextOrTools": "Managers can review conversation logs, identify documentation gaps, and update source material so future answers reflect current venue procedures.",
+      "exampleQuestionsOrRequests": [
+        "What should a party host do 15 minutes before guests arrive?",
+        "How do I explain card recharges to a first-time visitor?",
+        "What are the steps for opening the prize counter?",
+        "Where do I find the uniform and break policy?"
+      ],
+      "businessOutcome": "Support faster ramp-up and more consistent guest experiences across roles and shifts.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-arcades-occupation"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest-facing arcade agent for questions before, during, and after the visit",
+    "intro": "Add DocsBot to your website or guest support flow so families, players, party planners, and group organizers can ask natural-language questions and receive answers from your approved venue content. Complex, sensitive, or exception-based requests can be escalated to your team.",
+    "requests": [
+      {
+        "request": "“What is included in your birthday party package?”",
+        "agentResponseStrategy": "Answer from party package pages, FAQs, food rules, timing policies, upgrade options, and cancellation terms, then collect details if the guest wants follow-up.",
+        "sourceTypes": [
+          "Website pages",
+          "Party PDFs",
+          "Pricing sheets",
+          "Policy FAQs"
+        ],
+        "optionalAction": "Submit a structured party inquiry or route a summary to guest services through a configured workflow.",
+        "icon": "CakeIcon"
+      },
+      {
+        "request": "“How do points, tickets, and prizes work?”",
+        "agentResponseStrategy": "Explain card setup, earning and redeeming rules, prize counter procedures, balance questions, and when staff need to inspect a card or kiosk issue in person.",
+        "sourceTypes": [
+          "Guest FAQs",
+          "Redemption rules",
+          "Card-system help content",
+          "Staff policy notes"
+        ],
+        "optionalAction": "Create a support task or handoff if the guest provides an issue description and your workflow allows it.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Which games are good for younger kids?”",
+        "agentResponseStrategy": "Recommend based on your approved game descriptions, age guidance, accessibility notes, and attraction rules without inventing unavailable games.",
+        "sourceTypes": [
+          "Game lists",
+          "Attraction guides",
+          "Accessibility notes",
+          "Venue rules"
+        ],
+        "optionalAction": "Escalate special accessibility or safety questions to staff when a human review is needed.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Are you open for a school group on Friday?”",
+        "agentResponseStrategy": "Answer from current hours and group-visit content when available, then collect date, headcount, age range, and contact details for staff confirmation.",
+        "sourceTypes": [
+          "Hours pages",
+          "Group booking docs",
+          "Event policies",
+          "School visit FAQs"
+        ],
+        "optionalAction": "Forward a complete inquiry summary to sales, guest services, email, or a booking workflow configured by the arcade.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "request": "“What should I do if a machine took my credits?”",
+        "agentResponseStrategy": "Give the guest a clear next step from your approved credit issue policy and ask for useful details such as machine name, time, card number, and location in the venue.",
+        "sourceTypes": [
+          "Refund policies",
+          "Machine issue procedures",
+          "Guest support FAQs"
+        ],
+        "optionalAction": "Create a ticket or prepare a staff handoff with the guest’s details if connected to your support workflow.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do you host tournaments or special events?”",
+        "agentResponseStrategy": "Answer from your event calendar, promotion pages, rules, entry requirements, prize terms, and registration guidance.",
+        "sourceTypes": [
+          "Event calendars",
+          "Promotion terms",
+          "Tournament rules",
+          "Website announcements"
+        ],
+        "optionalAction": "Collect registration interest or send a summarized inquiry to the event team through an approved workflow.",
+        "icon": "TrophyIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal arcade knowledge agent for staff, technicians, and managers",
+    "intro": "DocsBot can act as a private operations assistant trained on your manuals, SOPs, policies, training materials, vendor notes, and manager playbooks. Staff get faster answers without searching binders, chat threads, drives, or outdated spreadsheets.",
+    "workflows": [
+      {
+        "name": "Shift-ready SOP search",
+        "problem": "Opening, closing, cleaning, cash-handling, prize-counter, and party-host tasks can vary by role, shift, and location.",
+        "agentWorkflow": "Staff ask the internal agent for the right procedure, checklist, or policy. DocsBot answers from approved SOPs and cites the source so employees can verify the latest guidance.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Checklists",
+          "Policy documents"
+        ],
+        "optionalAction": "Trigger a shift checklist, create a follow-up task, or route a question to a manager when configured.",
+        "outcome": "Make operational knowledge easier to find during fast-moving arcade shifts.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Technician and machine support notes",
+        "problem": "Machine faults, card-reader issues, prize dispensers, and attraction resets create repeated interruptions for senior technicians.",
+        "agentWorkflow": "Train DocsBot on manuals, internal repair notes, vendor bulletins, known issue logs, and escalation rules. The agent suggests source-grounded next steps and flags when a human technician or manager is required.",
+        "sourceTypes": [
+          "Vendor manuals",
+          "Repair notes",
+          "Known issue logs",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a maintenance task, summarize symptoms, or update an approved issue status through a connected workflow.",
+        "outcome": "Help attendants document issues clearly and give technicians better context before they arrive.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Manager handoff summaries",
+        "problem": "Guest issues can arrive through web chat, floor staff, party hosts, and email, leaving managers to reconstruct context from scattered notes.",
+        "agentWorkflow": "DocsBot can summarize guest conversations, staff notes, machine issue details, and requested outcomes into concise handoffs for the appropriate person.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support notes",
+          "Incident templates",
+          "Manager playbooks"
+        ],
+        "optionalAction": "Send the summary to email, Slack, Microsoft Teams, helpdesk software, or a task system if your team configures the connection.",
+        "outcome": "Give managers cleaner context and reduce duplicate follow-up questions.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Training gap reporting",
+        "problem": "Repeated staff questions often reveal unclear documentation, outdated signage, or missing training material.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, and conversation review to see what staff and guests ask most often, then update source documents or FAQs.",
+        "sourceTypes": [
+          "Conversation analytics",
+          "Knowledge base articles",
+          "Training docs",
+          "Guest FAQs"
+        ],
+        "optionalAction": "Export reports or assign documentation updates through your internal workflow.",
+        "outcome": "Continuously improve arcade procedures based on real questions from guests and employees.",
+        "icon": "ChartBarIcon",
+        "sourceIds": [
+          "src-iaapa-fec-benchmark"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your own content",
+      "mainLandingPageContext": "DocsBot agents are trained on approved business knowledge such as websites, documents, help centers, manuals, PDFs, internal docs, and knowledge bases.",
+      "industryApplication": "Use approved arcade content to answer guest questions about games, parties, promotions, rules, prize procedures, machine issues, and venue policies.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Embeddable customer support widget",
+      "mainLandingPageContext": "DocsBot can provide instant support through a website or product chat widget and escalate when questions need a person.",
+      "industryApplication": "Place an arcade support agent on your site so families and party planners can ask questions before visiting or booking an event.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for teams",
+      "mainLandingPageContext": "DocsBot can operate as a private assistant for employees, giving fast answers from SOPs, policies, onboarding materials, wikis, and internal documents.",
+      "industryApplication": "Help attendants, party hosts, shift leads, and technicians retrieve machine reset steps, opening procedures, redemption rules, and escalation paths.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, routing, task creation, record updates, summaries, and workflow triggers when configured by the customer.",
+      "industryApplication": "Create maintenance tasks, route event inquiries, summarize guest issues, look up approved live context, or notify managers through your connected arcade workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics and conversation review to understand recurring questions, satisfaction patterns, resolution trends, and documentation gaps.",
+      "industryApplication": "Spot recurring questions about pricing, parties, card issues, game rules, and machine problems so you can improve training, signage, and support content.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages from the knowledge sources your business provides.",
+      "industryApplication": "Support families, tourists, and group organizers who need venue answers in another language while keeping responses grounded in your approved policies.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and controls for configured Skills.",
+      "industryApplication": "Keep internal SOPs, manager notes, and connected actions governed with role-based access, customer-defined boundaries, logging, and private source handling.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "bowe-dollie-support",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the arcade content your guests and staff already rely on.",
+      "Deploy support through an embedded website widget for first-line guest help.",
+      "Connect customer-configured workflows for support handoffs, ticket drafts, and team assistance.",
+      "Proven at high-volume support, including a Sony NURO deployment that handled over 30,000 inquiries in one month."
+    ],
+    "whyTheseReviewsFit": "Arcade operators need fast answers from their own content, easy deployment for guest-facing help, and support workflows that do not overwhelm frontline staff. DocsBot proof spans owned-content training, embedded first-line support, human team assistance, and high-volume customer inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RectangleGroupIcon",
+      "ArrowPathRoundedSquareIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for arcade management, guest support, staff knowledge, and event inquiry routing",
+    "audience": [
+      "Arcade owners",
+      "Family entertainment center operators",
+      "Guest services managers",
+      "Arcade technicians",
+      "Party and group sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "casino-and-video-gaming",
+    "e-sports-organization",
+    "game-development",
+    "gaming",
+    "online-gaming",
+    "board-game-publishing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "arcade-management",
+    "webSearchQueries": [
+      "IBISWorld arcade industry revenue United States 2024 amusement arcades",
+      "IAAPA FEC arcade revenue family entertainment centers report guest experience",
+      "BLS amusement and recreation attendants employment amusement arcades",
+      "U.S. Consumer Product Safety Commission arcade amusement injuries report"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/iag/tgs/iag713.htm",
+      "https://www.bls.gov/oes/2023/may/naics4_713100.htm",
+      "https://iaapa.org/research/2019-iaapa-benchmark-series-fec",
+      "https://www.sciencedirect.com/science/article/pii/S0925753513002282"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40907,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28363,
+        "outputTokens": 7782,
+        "reasoningOutputTokens": 124,
+        "totalTokens": 48689,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.190774,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.200774
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21476,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14180,
+          "outputTokens": 5116,
+          "reasoningOutputTokens": 124,
+          "totalTokens": 26592,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114014,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124014
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19431,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14183,
+          "outputTokens": 2666,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22097,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07676,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07676
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1630340338979-721d11f8cf26?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU2NTN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Arcade Management background image",
+    "source": "legacy-industry",
+    "query": "Arcade Management"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer guest questions without making up our party rules, game list, or refund policy?",
+      "answer": "Yes. DocsBot is trained on the venue content you approve, such as website pages, party PDFs, pricing sheets, FAQs, waiver notes, attraction rules, and policy documents. It can provide source-grounded answers and escalate unclear, sensitive, or exception-based questions to your team instead of guessing.",
+      "role": "Arcade owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would an AI agent help during our busiest weekend shifts?",
+      "answer": "A guest-facing agent can deflect repetitive questions about hours, birthday packages, game cards, food rules, accessibility, promotions, and credit issues before staff are interrupted. A private internal agent can help attendants quickly find SOPs, reset steps, redemption procedures, and escalation rules while managers stay focused on the floor.",
+      "role": "Arcade owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support both guests on our website and employees behind the counter?",
+      "answer": "Yes. You can use a customer-facing agent in a website widget for families, party planners, and group organizers, and a private internal knowledge agent for attendants, party hosts, technicians, shift leads, and managers. Each agent can be trained on the right sources and governed with role-based permissions.",
+      "role": "Arcade owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kinds of arcade documents should we train the agent on first?",
+      "answer": "Start with high-volume, high-confidence content: guest FAQs, hours, pricing, party packages, food rules, attraction rules, accessibility notes, refund policies, promotion terms, card or ticket guidance, opening and closing checklists, machine reset notes, redemption procedures, and manager escalation rules.",
+      "role": "Arcade owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent collect birthday party or school group details before our staff follows up?",
+      "answer": "Yes. DocsBot can use structured intake flows to collect group size, preferred date, age range, food needs, attraction interests, budget range, contact details, and follow-up preference. With configured workflows, it can forward a clean summary to email, CRM, helpdesk software, forms, or another approved system without making unapproved commitments.",
+      "role": "Guest services and front-desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot integrate with our arcade card system, booking tool, CRM, or maintenance tracker?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, workflows, or MCP Connectors when your team authorizes the access. Typical actions include looking up approved live context, creating a task, routing an inquiry, updating an approved field, or sending a handoff summary. It should not be positioned as having a specific native vendor integration unless your team has configured it.",
+      "role": "Arcade owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can staff use DocsBot for machine troubleshooting without giving every attendant full system access?",
+      "answer": "Yes. A private internal agent can answer from manuals, repair notes, known issue logs, and escalation policies while access is controlled by permissions. If actions are configured, they can be limited to safe steps like creating a maintenance task, summarizing symptoms, or notifying a technician rather than exposing sensitive systems to every employee.",
+      "role": "Technicians and shift leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle safety, injury, or incident questions?",
+      "answer": "DocsBot can make your incident checklists, first-response procedures, documentation steps, and escalation rules easier to find, then summarize staff notes for a manager. Safety-sensitive workflows should keep trained people responsible for judgment, use scoped permissions, and route serious or ambiguous situations to human review.",
+      "role": "Technicians and shift leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Why would an arcade need stronger incident handoff procedures?",
+      "answer": "Arcades and FECs combine crowds, attractions, food areas, redemption counters, parties, and machine faults, so staff need consistent procedures when something goes wrong. A peer-reviewed CPSC NEISS-based analysis estimated 22,520 national injuries for amusement attractions, including rides, in the referenced period, which supports treating incident workflows as safety-sensitive rather than casual support chats.",
+      "role": "Arcade owners and general managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cpsc-amusement-rides"
+      ]
+    },
+    {
+      "question": "Can DocsBot help reduce manager interruptions from new or seasonal staff?",
+      "answer": "Yes. DocsBot can act as a searchable internal knowledge agent for onboarding guides, role checklists, HR policies, opening procedures, redemption rules, party-host scripts, and technician notes. That matters in a labor-intensive environment where BLS reported 254,530 amusement and recreation attendants across amusement, gambling, and recreation industries in 2024.",
+      "role": "Arcade owners and general managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-naics-713"
+      ]
+    },
+    {
+      "question": "Will employees trust the answer if it comes from an AI agent?",
+      "answer": "Trust usually improves when the agent cites or references the source material behind an answer and staff know when to escalate. DocsBot is best used as a source-grounded assistant for approved procedures, not as a replacement for manager judgment on refunds, guest disputes, safety calls, or policy exceptions.",
+      "role": "Technicians and shift leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent outdated promotions or prize rules from being shared?",
+      "answer": "Keep the agent trained on your approved promotion calendars, offer terms, prize rules, membership details, and signage copy, then update those sources as offers change. Where configured, DocsBot can use approved live lookups or route unclear offer questions to a manager before a final answer is given.",
+      "role": "Guest services and front-desk teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot answer in Spanish or other languages for families and tourists?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the knowledge sources you provide. That helps guests understand hours, attraction rules, party policies, accessibility information, and card or ticket procedures while keeping responses grounded in your approved venue content.",
+      "role": "Guest services and front-desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What analytics would we get after launching an arcade AI agent?",
+      "answer": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Arcade managers can use that to see repeated questions about pricing, parties, card issues, game rules, machine problems, or confusing policies, then improve signage, training, and source documents.",
+      "role": "Arcade owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we measure ROI for an arcade or FEC AI agent?",
+      "answer": "Track avoided repetitive inquiries, completed party or group intake forms, faster staff answers, fewer manager interruptions, cleaner maintenance handoffs, reduced training confusion, and recurring topics identified for better signage or documentation. For multi-attraction FECs, operational complexity is real: IAAPA’s FEC benchmark report covers operations, attraction mix, admissions, staffing, visitors, revenue, and expenses.",
+      "role": "Arcade owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-iaapa-fec-benchmark"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us capture more complete group event leads?",
+      "answer": "Yes. The agent can ask for missing details like headcount, date, age range, package interest, food needs, budget, and contact information. It can then prepare a summary for your guest services or sales team, reducing back-and-forth before a human confirms availability, pricing, special requests, or contract terms.",
+      "role": "Guest services and front-desk teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What if a guest asks about a refund, lost card balance, or machine taking credits?",
+      "answer": "DocsBot can answer from your approved credit issue and refund policy, ask for useful details like machine name, time, card number, and location, and prepare a handoff or ticket if connected. For exceptions, disputes, or anything requiring judgment, it should route the guest to staff instead of promising a refund.",
+      "role": "Guest services and front-desk teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use DocsBot across multiple arcade locations with different rules?",
+      "answer": "Yes, but implementation should separate or tag location-specific content such as hours, pricing, party rooms, attraction availability, promotions, tax rules, escalation contacts, and maintenance procedures. The agent should be instructed to confirm the relevant location before answering questions that vary by venue.",
+      "role": "Arcade owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much cleanup do our SOPs need before we launch?",
+      "answer": "You do not need a perfect knowledge base, but the best first launch uses current, approved, and clearly organized documents. Remove stale PDFs, duplicate policies, old promotion sheets, and conflicting machine notes where possible. DocsBot analytics can then reveal which topics still need clearer documentation after staff and guests begin asking questions.",
+      "role": "Arcade owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can technicians use DocsBot on the floor to document recurring machine problems?",
+      "answer": "Yes. Staff can ask for reset steps or escalation rules, then configured AI Actions can create a maintenance task, summarize symptoms, notify the right person, or update an approved status field. This is especially useful when attendants need to capture context before a technician arrives.",
+      "role": "Technicians and shift leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security controls matter if we put internal manuals and manager notes into DocsBot?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and controls for configured Skills. Customer data is not used to train public models, and connected actions can be governed with secrets, metadata bindings, network policy, logging, and customer-defined boundaries.",
+      "role": "Arcade owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot replace our front desk or party sales team?",
+      "answer": "No. DocsBot is best used as first-line support and intake automation, not a replacement for human hospitality, exception handling, upselling, final booking confirmation, contracts, or safety decisions. It can answer routine questions, collect details, summarize context, and route requests so staff spend more time on guests and revenue-driving follow-up.",
+      "role": "Guest services and front-desk teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot on our website?",
+      "answer": "DocsBot is trained on your approved arcade knowledge and can be configured for source-grounded answers, internal SOP search, analytics, human escalation, and bounded actions. A generic chatbot may answer broadly, but an arcade buyer usually needs venue-specific policies, current procedures, staff-only knowledge, and controlled handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "DocsBot should be configured to say when the approved sources do not contain enough information, ask clarifying questions if helpful, and route the issue to a human. That is important for edge cases like private events, allergy or accessibility details, safety concerns, angry guests, unusual refund requests, or machine faults not covered in the knowledge base.",
+      "role": "Arcade owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support training for attendants, redemption staff, party hosts, and shift leads?",
+      "answer": "Yes. A private agent can answer role-specific questions from onboarding guides, checklists, SOPs, HR policies, game-room scripts, food-service rules, and manager notes. BLS industry-specific data for amusement parks and arcades showed 69,610 amusement and recreation attendants in May 2023, underscoring the need for scalable frontline training.",
+      "role": "Technicians and shift leads",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-arcades-occupation"
+      ]
+    },
+    {
+      "question": "What does a realistic pilot look like for one arcade location?",
+      "answer": "Start with one high-volume use case, such as guest FAQs and party intake or internal SOP search. Upload approved sources, define escalation rules, test common questions, review logs with managers, and refine the content before adding actions like task creation, live lookups, or maintenance handoffs.",
+      "role": "Arcade owners and general managers",
+      "category": "Implementation"
+    }
+  ]
+}

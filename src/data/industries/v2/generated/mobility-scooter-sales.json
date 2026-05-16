@@ -1,0 +1,746 @@
+{
+  "slug": "mobility-scooter-sales",
+  "business": "Mobility Scooter Sales",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Mobility Scooter Sales and Support",
+    "description": "DocsBot helps mobility scooter sellers answer product, fit, Medicare, and maintenance questions faster while qualifying leads and routing support.",
+    "canonicalPath": "/industry/mobility-scooter-sales"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for mobility equipment retailers",
+    "headline": "Help every mobility scooter buyer find the right next step",
+    "subheadline": "DocsBot turns your product pages, manuals, FAQs, financing notes, delivery policies, and support procedures into an AI agent that answers shoppers, assists owners, qualifies leads, and escalates sensitive fit or coverage questions to your team.",
+    "proofBullets": [
+      {
+        "text": "Answer model, battery, weight capacity, portability, warranty, and care questions from approved scooter documentation.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect lead details such as mobility needs, home access considerations, budget range, location, and preferred follow-up channel.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Route complex fit, insurance, repair, or safety questions to a human with a concise conversation summary.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give sales and support teams a private knowledge agent for manuals, SOPs, comparisons, and troubleshooting steps.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build your mobility scooter AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps mobility scooter retailers and DME suppliers create AI agents trained on their own approved knowledge sources. The agent can answer customer questions, support presales qualification, retrieve manual details, summarize inquiries for staff, draft helpdesk responses when connected, and take bounded AI Actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Store owners and ecommerce operators",
+        "roleContext": "Give online shoppers a guided way to compare scooters, understand policies, and request follow-up without waiting for business hours.",
+        "bullets": [
+          {
+            "text": "Qualify shoppers by intended use, portability needs, weight capacity, transport plans, and purchase timeline.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to your CRM, email inbox, helpdesk, or sales workflow when you configure the connection.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Use analytics and conversation logs to spot repeated questions missing from product pages or buying guides.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Sales consultants and showroom teams",
+        "roleContext": "Help staff answer detailed questions consistently while keeping final product recommendations and high-impact decisions with trained humans.",
+        "bullets": [
+          {
+            "text": "Retrieve model specs, accessory compatibility, battery ranges, folding details, and warranty language from approved sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft follow-up emails that summarize the shopper’s needs and link to relevant models or appointment options.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Escalate medical-necessity, safety, coverage, or complex fit questions for human review instead of over-automating them.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Support, service, and delivery coordinators",
+        "roleContext": "Reduce repetitive calls about setup, charging, transport, and maintenance by making manuals and service procedures searchable for customers and staff.",
+        "bullets": [
+          {
+            "text": "Guide owners to approved troubleshooting steps for charging, keys, brakes, battery care, and basic maintenance.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Create or route a service ticket with model, serial number, issue summary, and preferred contact method when configured.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Help delivery teams access SOPs for setup, handoff checklists, and customer education scripts.",
+            "icon": "TruckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Compliance and reimbursement support staff",
+        "roleContext": "Keep public answers grounded in your policy content while directing coverage and documentation questions to qualified staff when needed.",
+        "bullets": [
+          {
+            "text": "Medicare says power-operated vehicles may be covered under Part B only when medically necessary and supported by a face-to-face exam and written prescription.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-medicare-scooters"
+            ]
+          },
+          {
+            "text": "Use scoped permissions, logs, and review paths for coverage, identity, payment, or medical-documentation workflows.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Give staff quick access to payer checklists, intake forms, and internal procedures without exposing private sources publicly.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cdc-disability-prevalence",
+      "metric": "More than 1 in 4 U.S. adults reported a disability in 2022.",
+      "claim": "CDC reported that over 70 million U.S. adults had a disability in 2022, underscoring the large population that may need accessible mobility, support, and service information.",
+      "sourceTitle": "CDC Data Shows Over 70 Million U.S. Adults Reported Having a Disability",
+      "sourceUrl": "https://www.cdc.gov/media/releases/2024/s0716-Adult-disability.html",
+      "sourceDate": "July 16, 2024",
+      "bestUsedFor": [
+        "market need",
+        "accessible customer support",
+        "buyer population"
+      ]
+    },
+    {
+      "id": "src-cdc-mobility-older-adults",
+      "metric": "Mobility disability is common among older adults.",
+      "claim": "CDC states that mobility disability was the most common disability among middle-aged adults and affected about 1 in 4 older adults.",
+      "sourceTitle": "Prevalence of Disabilities and Health Care Access by Disability Status and Type Among Adults",
+      "sourceUrl": "https://www.cdc.gov/disability-and-health/articles-documents/disabilities-health-care-access.html",
+      "sourceDate": "May 15, 2025",
+      "bestUsedFor": [
+        "mobility need",
+        "older adult buyers",
+        "accessibility"
+      ]
+    },
+    {
+      "id": "src-census-aging-2024",
+      "metric": "61.2 million Americans were age 65 or older in 2024.",
+      "claim": "The U.S. Census Bureau reported that the U.S. population age 65 and older rose 3.1% to 61.2 million from 2023 to 2024.",
+      "sourceTitle": "Older Adults Outnumber Children in 11 States and Nearly Half of U.S. Counties",
+      "sourceUrl": "https://content.govdelivery.com/accounts/USCENSUS/bulletins/3e6d275",
+      "sourceDate": "June 26, 2025",
+      "bestUsedFor": [
+        "aging population",
+        "demand backdrop",
+        "retail planning"
+      ]
+    },
+    {
+      "id": "src-medicare-scooters",
+      "metric": "Medicare coverage requires medical necessity, exam, and prescription.",
+      "claim": "Medicare says Part B covers power-operated vehicles such as scooters when medically necessary, and requires a face-to-face examination and written prescription from a treating provider.",
+      "sourceTitle": "Wheelchairs & scooters",
+      "sourceUrl": "https://www.medicare.gov/coverage/wheelchairs-scooters",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "coverage questions",
+        "DME documentation",
+        "compliance-sensitive support"
+      ]
+    },
+    {
+      "id": "src-faa-mobility-batteries",
+      "metric": "Air travel with mobility devices can involve battery-specific restrictions.",
+      "claim": "FAA PackSafe guidance notes that airlines may have more restrictive rules for dangerous goods, including lithium batteries that power mobility aids.",
+      "sourceTitle": "PackSafe - Wheelchairs and Mobility Devices",
+      "sourceUrl": "https://www.faa.gov/hazmat/packsafe/wheelchairs-mobility-devices",
+      "sourceDate": "Updated 2024",
+      "bestUsedFor": [
+        "travel questions",
+        "battery handling",
+        "customer education"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Guided scooter comparison and fit intake",
+      "problem": "Mobility scooter shoppers often need help narrowing choices by indoor use, outdoor terrain, portability, battery range, weight capacity, accessories, and budget before speaking with sales.",
+      "agentWorkflow": "The agent answers from your catalog, spec sheets, buying guides, FAQs, and policies. It asks structured questions, explains differences between relevant models, captures contact details, and prepares a human handoff when the buyer needs personalized fit advice.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can check live inventory, request a quote, submit a custom lead form, create a CRM task, or trigger a scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which scooter can fit in a car trunk and still handle outdoor sidewalks?",
+        "Compare these two models for weight capacity, battery range, and turning radius.",
+        "I’m buying for my parent. Can someone call me after I answer a few questions?"
+      ],
+      "businessOutcome": "More qualified conversations reach sales with the buyer’s needs already summarized, while shoppers get faster product education.",
+      "icon": "AdjustmentsHorizontalIcon"
+    },
+    {
+      "name": "Medicare, DME, and policy question triage",
+      "problem": "Coverage questions can be high-volume and sensitive because shoppers may confuse retail pricing, insurance requirements, prescriptions, and medical necessity.",
+      "agentWorkflow": "The agent gives general, source-grounded answers from your reimbursement FAQs and public policy pages, collects missing documentation details, and routes medical-necessity or eligibility questions to trained staff instead of making determinations.",
+      "liveContextOrTools": "A configured workflow can create an intake ticket, attach a conversation summary, notify reimbursement staff, or send the customer the correct checklist.",
+      "exampleQuestionsOrRequests": [
+        "Does Medicare help pay for a scooter?",
+        "What paperwork do I need before I visit the showroom?",
+        "Can you send my coverage question to the right person?"
+      ],
+      "businessOutcome": "Staff spend less time repeating basic process information while maintaining boundaries around coverage, medical, and eligibility decisions.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-medicare-scooters"
+      ]
+    },
+    {
+      "name": "Owner troubleshooting from manuals",
+      "problem": "After purchase, owners ask recurring questions about charging, battery care, error lights, keys, braking, assembly, storage, and safe operation.",
+      "agentWorkflow": "DocsBot trains on user manuals, quick-start guides, warranty terms, service FAQs, and approved troubleshooting scripts so customers and support agents can retrieve model-specific steps quickly.",
+      "liveContextOrTools": "When connected to helpdesk software through Skills, APIs, connectors, exports, or workflows, the agent can draft a response, summarize the issue, route service requests, or create a ticket for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "My scooter will not charge. What should I check first?",
+        "How do I fold this travel scooter for transport?",
+        "Is this battery issue covered by warranty?"
+      ],
+      "businessOutcome": "Customers get consistent first-line help, and service teams receive better issue details before they intervene.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Travel and battery guidance assistant",
+      "problem": "Travel scooter buyers frequently ask about airline rules, lithium batteries, transport, disassembly, and documentation before a trip.",
+      "agentWorkflow": "The agent answers from your travel guides, manufacturer battery specifications, FAA guidance summaries, and store policies, then recommends contacting the airline for carrier-specific confirmation.",
+      "liveContextOrTools": "A configured Skill can generate a travel-prep checklist, send battery specification documents, or route complex travel questions to support.",
+      "exampleQuestionsOrRequests": [
+        "Can I fly with this scooter battery?",
+        "What should I ask the airline before traveling?",
+        "Which model is easiest to disassemble for a car or plane trip?"
+      ],
+      "businessOutcome": "Travel questions become faster to answer while reducing the risk of overpromising airline acceptance or battery handling details.",
+      "icon": "PaperAirplaneIcon",
+      "sourceIds": [
+        "src-faa-mobility-batteries"
+      ]
+    },
+    {
+      "name": "Internal sales and service knowledge agent",
+      "problem": "Retail teams need quick access to model details, ordering rules, delivery scripts, repair workflows, and policy language across many documents.",
+      "agentWorkflow": "A private DocsBot agent answers staff questions from internal SOPs, product sheets, training materials, vendor notes, and service procedures. It can summarize policy changes and surface documentation gaps from repeated employee questions.",
+      "liveContextOrTools": "Teams can access the agent in private chat, Slack, Microsoft Teams, or configured internal workflows; MCP Connectors can extend approved access to tools exposed through remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "What is our delivery checklist for a first-time scooter owner?",
+        "Which accessories are compatible with this model?",
+        "Draft a follow-up email after a showroom consultation."
+      ],
+      "businessOutcome": "New hires ramp faster and experienced staff spend less time searching scattered product and operations knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Accessibility-first multilingual website support",
+      "problem": "Mobility equipment buyers and caregivers may need answers outside business hours, in different languages, or before they are ready to call a showroom.",
+      "agentWorkflow": "DocsBot can run in an embeddable website chat widget and answer in more than 100 languages from approved product, service, and policy content. It escalates unclear or sensitive requests to staff.",
+      "liveContextOrTools": "The agent can collect preferred language, contact channel, location, and reason for inquiry before routing the conversation summary to the right team.",
+      "exampleQuestionsOrRequests": [
+        "Do you have Spanish support for this scooter manual?",
+        "Can I ask questions before visiting the showroom?",
+        "Please send this conversation to a sales consultant."
+      ],
+      "businessOutcome": "Shoppers and caregivers get a more accessible first step while staff receive organized context for follow-up.",
+      "icon": "LanguageIcon",
+      "sourceIds": [
+        "src-cdc-disability-prevalence"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent for shoppers, caregivers, and scooter owners",
+    "intro": "Put DocsBot on your website to answer practical buying and ownership questions from your approved content. The agent can guide shoppers, explain policies, collect lead details, summarize context, and hand off sensitive decisions to trained staff.",
+    "requests": [
+      {
+        "request": "“Which scooter is best for indoor use and tight turns?”",
+        "agentResponseStrategy": "Ask about home layout, portability, weight capacity, intended surfaces, and budget; compare models using catalog data; then offer a showroom appointment or sales handoff.",
+        "sourceTypes": [
+          "Product catalog",
+          "Spec sheets",
+          "Buying guides",
+          "Store policies"
+        ],
+        "optionalAction": "Submit a qualified lead form or request a meeting through a customer-configured scheduling workflow.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“Will Medicare cover this mobility scooter?”",
+        "agentResponseStrategy": "Give general coverage process information from approved reimbursement content, explain that eligibility depends on medical necessity and required documentation, and route specific cases to staff.",
+        "sourceTypes": [
+          "Reimbursement FAQs",
+          "Medicare policy links",
+          "Internal intake scripts"
+        ],
+        "optionalAction": "Create an intake ticket with the customer’s question, contact details, and conversation summary.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-medicare-scooters"
+        ]
+      },
+      {
+        "request": "“How do I charge and store my scooter battery?”",
+        "agentResponseStrategy": "Retrieve model-specific care steps from the correct manual, warn when the question needs service review, and suggest contacting support for unresolved issues.",
+        "sourceTypes": [
+          "Owner manuals",
+          "Battery guides",
+          "Warranty terms",
+          "Service FAQs"
+        ],
+        "optionalAction": "Route a service request with model, serial number, symptoms, and attempted troubleshooting steps.",
+        "icon": "BoltIcon"
+      },
+      {
+        "request": "“Can I travel with this scooter on an airplane?”",
+        "agentResponseStrategy": "Answer from battery specifications and travel guidance, note that airlines may impose their own restrictions, and recommend confirming with the carrier before travel.",
+        "sourceTypes": [
+          "Battery specifications",
+          "Travel FAQs",
+          "FAA PackSafe guidance",
+          "Manufacturer documentation"
+        ],
+        "optionalAction": "Send a travel checklist or escalate the question to a support specialist.",
+        "icon": "GlobeAltIcon",
+        "sourceIds": [
+          "src-faa-mobility-batteries"
+        ]
+      },
+      {
+        "request": "“Do you have someone who can call my daughter about this model?”",
+        "agentResponseStrategy": "Collect consent-based contact details, preferred language, product interest, timeline, and the buyer’s main concerns, then prepare a concise sales handoff.",
+        "sourceTypes": [
+          "Lead forms",
+          "Sales playbooks",
+          "Product pages",
+          "Follow-up templates"
+        ],
+        "optionalAction": "Forward the lead summary to email, CRM, helpdesk, or a configured sales workflow.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“What is your return policy if the scooter is too large for my home?”",
+        "agentResponseStrategy": "Answer from your published return, trial, restocking, and delivery policies, then suggest human review for special cases or custom orders.",
+        "sourceTypes": [
+          "Return policies",
+          "Delivery policies",
+          "FAQ pages",
+          "Order terms"
+        ],
+        "optionalAction": "Create a follow-up task for a staff member when the policy answer depends on the order or configuration.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give your team one trusted place for product, policy, and service knowledge",
+    "intro": "DocsBot can run as a private internal knowledge agent for sales, service, delivery, reimbursement, and operations teams. Staff can ask natural-language questions and receive source-grounded answers from your approved internal content.",
+    "workflows": [
+      {
+        "name": "Sales onboarding and product training",
+        "problem": "New reps need to learn model differences, common objections, accessory compatibility, and store-specific qualification rules.",
+        "agentWorkflow": "Train the internal agent on sales playbooks, product sheets, vendor notes, training docs, and call scripts so reps can ask questions during onboarding or before consultations.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product documentation",
+          "Vendor materials",
+          "Training guides"
+        ],
+        "optionalAction": "Draft a follow-up email or create a coaching note for manager review.",
+        "outcome": "Sales knowledge becomes easier to apply consistently across showrooms, phones, and online leads.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Service desk ticket preparation",
+        "problem": "Technicians and support staff waste time gathering missing details before they can diagnose warranty, repair, or replacement requests.",
+        "agentWorkflow": "The agent prompts staff for model, serial number, issue, purchase date, photos, and troubleshooting history, then summarizes the case using your service procedures.",
+        "sourceTypes": [
+          "Service SOPs",
+          "Warranty policies",
+          "Troubleshooting guides",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Create or update a ticket, draft a customer reply, or route the case to the correct repair queue when configured.",
+        "outcome": "Support cases arrive with cleaner context, reducing back-and-forth before human service review.",
+        "icon": "TicketIcon"
+      },
+      {
+        "name": "Delivery and setup checklists",
+        "problem": "Delivery teams need consistent handoff instructions for assembly, charging, safe operation, documentation, and customer education.",
+        "agentWorkflow": "A private agent retrieves the correct setup checklist by model and summarizes key customer education points from your SOPs and manuals.",
+        "sourceTypes": [
+          "Delivery SOPs",
+          "Owner manuals",
+          "Safety handouts",
+          "Internal checklists"
+        ],
+        "optionalAction": "Generate a delivery note, completion summary, or follow-up reminder through an approved workflow.",
+        "outcome": "Customers receive more consistent handoffs, and operations leaders can identify which setup questions keep recurring.",
+        "icon": "TruckIcon"
+      },
+      {
+        "name": "Policy and reimbursement knowledge access",
+        "problem": "Staff need fast access to coverage processes, intake forms, documentation requirements, and escalation rules without guessing.",
+        "agentWorkflow": "DocsBot answers from approved internal policies and public references, while keeping eligibility judgments and private customer records behind human review and permissioned workflows.",
+        "sourceTypes": [
+          "Coverage FAQs",
+          "Internal reimbursement SOPs",
+          "Forms",
+          "Public policy references"
+        ],
+        "optionalAction": "Prepare an intake summary or notify reimbursement staff through a scoped workflow.",
+        "outcome": "Teams can answer process questions faster while maintaining review boundaries for sensitive coverage decisions.",
+        "icon": "ScaleIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your approved content",
+      "mainLandingPageContext": "DocsBot creates AI agents that answer from business knowledge such as websites, documentation, PDFs, help centers, internal files, and other configured sources.",
+      "industryApplication": "Train a mobility scooter agent on product catalogs, manuals, warranty pages, delivery policies, reimbursement FAQs, buying guides, and service procedures.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer support",
+      "mainLandingPageContext": "DocsBot support agents deliver instant answers in your company’s voice and can escalate complex questions to humans.",
+      "industryApplication": "Give shoppers and owners consistent answers about scooter specs, care, troubleshooting, accessories, travel, returns, and appointment options.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Presales qualification and handoffs",
+      "mainLandingPageContext": "DocsBot can collect lead details through forms or structured intake flows and forward summaries through customer-configured workflows.",
+      "industryApplication": "Capture mobility needs, product interest, budget range, location, purchase timeline, and caregiver contact preferences before sales follow-up.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, routing, record creation, field updates, summaries, and workflow triggers.",
+      "industryApplication": "Configure approved actions for inventory lookups, quote requests, service tickets, lead routing, meeting requests, and internal notifications.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "When connected through approved Skills, APIs, connectors, exports, or workflows, DocsBot can summarize, route, answer, or draft responses for support tickets.",
+      "industryApplication": "Prepare service cases for battery, charger, warranty, assembly, and repair issues with model details and attempted troubleshooting steps.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which scooter models, policies, accessories, travel topics, or troubleshooting issues are creating repeated questions.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions.",
+      "industryApplication": "Use permissioned internal agents and scoped actions for staff policies, reimbursement workflows, customer details, and service operations.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for product businesses with manuals, websites, and post-purchase support needs.",
+      "Scales customer-facing answers while preserving human handoffs for complex cases.",
+      "Helps support teams work from the same approved knowledge base instead of scattered files."
+    ],
+    "whyTheseReviewsFit": "Mobility scooter sales teams need reliable product education, owner support, and fast follow-up across online and in-store journeys. DocsBot proof spans high-volume customer support, multilingual manuals, embedded website assistance, and support-team workflows grounded in owned content.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "ArrowPathRoundedSquareIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, presales, and internal knowledge agents for mobility scooter sales and service teams",
+    "audience": [
+      "Mobility scooter retailers",
+      "DME suppliers",
+      "Ecommerce mobility equipment stores",
+      "Showroom sales teams",
+      "Service and support coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "DevicePhoneMobileIcon"
+  },
+  "relatedIndustrySlugs": [
+    "automotive-part-sales",
+    "new-motor-vehicle-sales",
+    "recreational-vehicle-sales",
+    "motor-vehicle-repair",
+    "vehicle-leasing",
+    "motor-vehicle"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "mobility-scooter-sales",
+    "webSearchQueries": [
+      "mobility scooters market older adults disability statistics United States",
+      "U.S. Census older adults 65 mobility disability statistics",
+      "FDA mobility scooters wheelchairs power mobility devices consumer safety guidance",
+      "Medicare power-operated vehicles scooters coverage",
+      "Census Bureau older population 65 and older 2024 United States percentage",
+      "CDC disability impacts all of us mobility disability 2024 adults"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/media/releases/2024/s0716-Adult-disability.html",
+      "https://www.cdc.gov/disability-and-health/articles-documents/disabilities-health-care-access.html",
+      "https://content.govdelivery.com/accounts/USCENSUS/bulletins/3e6d275",
+      "https://www.medicare.gov/coverage/wheelchairs-scooters",
+      "https://www.faa.gov/hazmat/packsafe/wheelchairs-mobility-devices"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45233,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32689,
+        "outputTokens": 7934,
+        "reasoningOutputTokens": 195,
+        "totalTokens": 53167,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.203869,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.223869
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25553,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18257,
+          "outputTokens": 5253,
+          "reasoningOutputTokens": 178,
+          "totalTokens": 30806,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.126262,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.146262
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19680,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14432,
+          "outputTokens": 2681,
+          "reasoningOutputTokens": 17,
+          "totalTokens": 22361,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077607,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077607
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1589228589773-7ebefccb6dfc?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzY29vdGVyfGVufDB8MHx8fDE3MTQ4NzgwNjF8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Mobility Scooter Sales background image",
+    "source": "legacy-industry",
+    "query": "Mobility Scooter Sales"
+  },
+  "faq": [
+    {
+      "question": "Can the agent help shoppers choose a scooter without making unsafe medical or fit recommendations?",
+      "answer": "Yes. Configure DocsBot to ask practical qualification questions—intended use, surfaces, portability, weight capacity, transport plans, home access, and budget—then compare models from your approved catalog and buying guides. For high-impact fit, safety, or medical-necessity questions, it can hand off to a trained consultant with the conversation summarized.",
+      "role": "Sales consultants and showroom teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot handle Medicare questions without creating reimbursement risk?",
+      "answer": "DocsBot can provide general process information from your approved reimbursement FAQs and public policy content, then route eligibility, medical-necessity, and documentation questions to staff. Medicare says Part B may cover power-operated vehicles such as scooters when medically necessary and supported by a face-to-face exam and written prescription.",
+      "role": "Compliance and reimbursement support staff",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-medicare-scooters"
+      ]
+    },
+    {
+      "question": "Can we use the agent to qualify leads before a salesperson calls?",
+      "answer": "Yes. DocsBot can collect structured lead details such as who the scooter is for, mobility goals, indoor versus outdoor use, portability needs, weight capacity range, budget, location, purchase timeline, and preferred follow-up channel. With configured Skills, APIs, connectors, or workflows, it can forward a concise lead summary to your CRM, inbox, helpdesk, or sales process.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent answer from our exact scooter specs, manuals, and store policies?",
+      "answer": "Yes. DocsBot is designed to answer from approved business knowledge such as product pages, PDFs, manuals, warranty terms, delivery policies, return policies, service procedures, reimbursement FAQs, and internal SOPs. That matters for mobility sales because small differences in turning radius, battery type, folding method, range, and weight capacity can change the right next step.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it reduce calls about charging, batteries, keys, brakes, and basic troubleshooting?",
+      "answer": "DocsBot can train on owner manuals, quick-start guides, warranty terms, and approved troubleshooting scripts so customers get model-specific first-line answers. If the issue looks unsafe, unresolved, or warranty-sensitive, the agent can collect model, serial number, symptoms, and attempted steps, then route or create a service request through your configured workflow.",
+      "role": "Support, service, and delivery coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot know when to escalate instead of answering?",
+      "answer": "You can define escalation rules for sensitive or complex topics, such as medical necessity, insurance eligibility, injury risk, electrical issues, battery damage, return exceptions, custom orders, or angry customers. The agent can stop short of making a determination, collect the missing details, and send staff a summary so the customer does not have to repeat everything.",
+      "role": "Support, service, and delivery coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can our staff use it internally, or is it only for website shoppers?",
+      "answer": "DocsBot can support both. A public website agent can help shoppers and owners, while a private internal knowledge agent can answer staff questions from SOPs, vendor notes, product sheets, repair workflows, delivery checklists, reimbursement procedures, and sales playbooks. Access controls and role-based permissions help keep internal content separate from public answers.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What systems can DocsBot connect to for lead routing or service tickets?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, MCP Connectors, or workflow automations to perform bounded actions such as sending lead summaries, creating tasks, routing service requests, looking up approved live context, or notifying a team. It should be scoped to the systems and fields you authorize rather than given broad access by default.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much content do we need before launching a useful scooter sales agent?",
+      "answer": "A strong first version usually starts with your product catalog, model spec sheets, top FAQs, return and delivery policies, warranty terms, and a buying guide. For support, add owner manuals and troubleshooting scripts. For reimbursement teams, add approved process pages and intake instructions. DocsBot analytics can then show which missing topics customers keep asking about.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it answer travel and airline battery questions safely?",
+      "answer": "Yes, if trained on your travel guidance, manufacturer battery specifications, and approved public references. The agent can explain what documents or specs the shopper may need and recommend confirming with the airline. FAA PackSafe guidance notes that airlines may have more restrictive rules for dangerous goods, including lithium batteries used in mobility aids.",
+      "role": "Sales consultants and showroom teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-faa-mobility-batteries"
+      ]
+    },
+    {
+      "question": "Will it support caregivers who are researching for a parent or spouse?",
+      "answer": "Yes. The agent can be instructed to collect consent-based contact details, who the scooter is for, the caregiver’s relationship, preferred language, decision timeline, home or transport constraints, and whether the buyer wants a showroom visit or call. It can then prepare a human-readable handoff for sales so the next conversation starts with context.",
+      "role": "Sales consultants and showroom teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help shoppers outside business hours without replacing our sales team?",
+      "answer": "Yes. DocsBot can answer common product, policy, and ownership questions 24/7 and gather structured information when shoppers are not ready or able to call. Your team still handles final recommendations, pricing exceptions, coverage discussions, and complex fit decisions. The goal is to make the next human interaction better prepared, not remove trained staff from sensitive decisions.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should a mobility scooter retailer look for?",
+      "answer": "Track reduced repetitive calls, higher lead capture from after-hours traffic, faster response time, more complete service tickets, fewer missed handoffs, and better conversion from qualified shoppers. For showrooms, also watch staff time spent searching manuals, consistency of answers across locations, and whether analytics reveal product-page gaps that were creating avoidable calls.",
+      "role": "Store owners and ecommerce operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we measure whether the agent is answering accurately?",
+      "answer": "Use conversation logs, topic reports, satisfaction signals, resolution analysis, and regular staff review. For mobility scooter sales, review high-risk topics separately: Medicare, returns, safety, battery troubleshooting, travel, and model fit. You can improve accuracy by updating source documents, tightening instructions, adding escalation rules, and removing outdated manufacturer or policy content.",
+      "role": "Support, service, and delivery coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent work for a retailer with multiple locations or territories?",
+      "answer": "Yes. You can organize content so answers reflect location-specific policies, service areas, delivery rules, inventory context, appointment options, or escalation paths when configured. For multi-location retailers, the most important implementation step is deciding which information is shared nationally and which details should depend on store, region, product line, or service team.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can it help new sales reps learn model differences and objection handling?",
+      "answer": "Yes. A private DocsBot agent can be trained on product sheets, vendor notes, sales playbooks, comparison tables, accessory compatibility guides, and follow-up templates. Reps can ask questions before or during consultations, draft follow-up emails for review, and learn why a travel scooter, heavy-duty scooter, or indoor-focused model may fit different needs.",
+      "role": "Sales consultants and showroom teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we prevent the agent from promising inventory, discounts, delivery dates, or coverage approvals?",
+      "answer": "Set clear instructions and action boundaries. DocsBot can answer from published policy and retrieve approved live context when you configure the right Skill or API, but it should phrase uncertain items carefully and escalate commitments such as discounts, custom quotes, delivery exceptions, coverage determinations, and special-order returns to staff.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Is DocsBot appropriate for customers with accessibility needs or limited English proficiency?",
+      "answer": "DocsBot can run in an embeddable website chat widget and answer in more than 100 languages from your approved content. That can make product and support information easier to access for shoppers and caregivers. CDC reported that over 70 million U.S. adults had a disability in 2022, so accessible support is a real operating need, not just a convenience.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cdc-disability-prevalence"
+      ]
+    },
+    {
+      "question": "What security controls matter if the agent handles customer contact details or reimbursement intake?",
+      "answer": "Look for scoped permissions, role-based access, encryption, auditability, and clear data boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Sensitive workflows should use approved forms, logs, and human review rather than asking customers to paste unnecessary private information into chat.",
+      "role": "Compliance and reimbursement support staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot draft helpdesk replies for service staff without sending them automatically?",
+      "answer": "Yes. When connected through approved Skills, APIs, connectors, ticket exports, or workflows, DocsBot can summarize the issue, retrieve relevant manual steps, and draft a response for staff review. That is useful for battery, charger, assembly, warranty, and repair questions where the team wants speed but still needs human judgment before replying.",
+      "role": "Support, service, and delivery coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is this different from adding a generic website chatbot?",
+      "answer": "A generic chatbot often answers broad questions or follows a simple script. DocsBot is positioned as a source-grounded AI agent trained on your approved scooter content, policies, manuals, and internal procedures. It can also support structured qualification, human handoffs, ticket summaries, knowledge-gap reporting, and bounded workflow actions when you configure them.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help us identify gaps in our product pages and manuals?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery. For scooter retailers, repeated questions about turning radius, battery range, trunk fit, return rules, airline travel, Medicare process, or charger troubleshooting can show exactly which pages need clearer copy or better documentation.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What implementation work should we plan for before going live?",
+      "answer": "Plan a content audit, source cleanup, escalation policy, public versus internal knowledge separation, lead fields, routing rules, and staff review workflow. For higher-risk areas such as reimbursement, returns, safety, and battery issues, write explicit answer boundaries. Then pilot with common shopper and support scenarios before exposing the agent broadly.",
+      "role": "Store owners and ecommerce operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it support delivery teams with setup and handoff consistency?",
+      "answer": "Yes. A private internal agent can retrieve model-specific setup checklists, charging instructions, handoff scripts, safety reminders, and documentation steps from your SOPs and manuals. It can also generate a delivery note or follow-up reminder through an approved workflow, helping customers receive a more consistent first-use experience.",
+      "role": "Support, service, and delivery coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Why does AI support matter now for mobility scooter sellers?",
+      "answer": "Demand is supported by an aging population and a large accessibility need: the U.S. Census Bureau reported 61.2 million Americans were age 65 or older in 2024, and CDC states mobility disability affects about 1 in 4 older adults. Retailers need scalable ways to answer practical product, service, and access questions without overloading staff.",
+      "role": "Store owners and ecommerce operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-census-aging-2024",
+        "src-cdc-mobility-older-adults"
+      ]
+    }
+  ]
+}

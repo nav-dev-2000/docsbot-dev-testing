@@ -1,0 +1,674 @@
+{
+  "slug": "entertainment-party-rentals",
+  "business": "Entertainment & Party Rentals",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Entertainment and Party Rental Teams",
+    "description": "DocsBot helps entertainment and party rental businesses answer quote, package, delivery, setup, and policy questions while routing leads faster.",
+    "canonicalPath": "/industry/entertainment-party-rentals"
+  },
+  "hero": {
+    "eyebrow": "AI support and booking assistance for party rental operations",
+    "headline": "Keep party rental inquiries moving with DocsBot AI agents",
+    "subheadline": "Train a DocsBot agent on your rental catalog, packages, setup rules, FAQs, safety notes, pricing guidance, policies, and internal procedures so customers and staff can get source-grounded answers before, during, and after event season.",
+    "proofBullets": [
+      {
+        "text": "Answer common customer questions about tent sizes, bounce houses, photo booths, games, décor, staffing, deposits, delivery areas, setup windows, and damage policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect event date, venue, guest count, surface type, power access, budget range, and package interests before handing qualified leads to your team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or workflows for approved availability checks, quote intake, ticket creation, routing, and follow-up summaries.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give office, warehouse, sales, and delivery staff a private knowledge agent for SOPs, setup guides, inventory notes, escalation rules, and seasonal training.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ],
+    "primaryCta": "Build your rental AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps entertainment and party rental companies create AI agents trained on their own business knowledge. Agents can answer customer questions, support lead qualification, summarize conversations, identify missing knowledge, assist employees, and take bounded workflow actions when you configure approved Skills, APIs, connectors, MCP servers, or internal automations.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep inquiries from stalling when phones are busy, event weekends are packed, or staff are moving between showroom, warehouse, delivery routes, and onsite setups.",
+        "bullets": [
+          {
+            "text": "Give prospects instant answers from your catalog, FAQs, service area, rental policies, and package pages.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Capture structured quote details so staff spend less time repeating intake questions.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics and conversation logs to spot repeated questions, missing package details, and policy confusion.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Sales and booking coordinators",
+        "roleContext": "Help customers compare options, understand event requirements, and reach the right human faster for custom pricing or complex commitments.",
+        "bullets": [
+          {
+            "text": "Qualify leads by date, location, guest count, event type, desired rentals, budget range, and readiness to book.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft handoff summaries for sales calls, email follow-up, helpdesk tickets, or CRM records through configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Support more than 100 languages for families, schools, venues, and corporate buyers with different communication needs.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Operations, warehouse, and delivery teams",
+        "roleContext": "Make internal procedures easier to find when crews need fast answers about setup rules, cleaning steps, loading lists, weather policies, or escalation paths.",
+        "bullets": [
+          {
+            "text": "Search SOPs, product manuals, venue notes, setup checklists, and training documents from one private knowledge agent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize customer conversations before dispatch so delivery teams understand timing, access, power, surface, and special instructions.",
+            "icon": "TruckIcon"
+          },
+          {
+            "text": "Escalate safety, contract, damage, or onsite exception questions to a manager instead of letting the agent make high-impact decisions.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-party-rental-market-size",
+      "metric": "$8.5 billion U.S. party supply rental market in 2025",
+      "claim": "IBISWorld estimated the U.S. party supply rental market at $8.5 billion in 2025 and reported $8.4 billion in 2024.",
+      "sourceTitle": "Party Supply Rental in the US - Market Size 2005–2031",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/party-supply-rental/4389/",
+      "sourceDate": "July 2025",
+      "bestUsedFor": [
+        "market scale",
+        "seasonal inquiry volume",
+        "rental category demand"
+      ]
+    },
+    {
+      "id": "src-event-planner-outlook",
+      "metric": "155,800 event planner jobs and 5% projected growth",
+      "claim": "The Bureau of Labor Statistics reported 155,800 meeting, convention, and event planner jobs and projected 5% employment growth from 2024 to 2034.",
+      "sourceTitle": "Meeting, Convention, and Event Planners: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/Business-and-Financial/Meeting-convention-and-event-planners.htm",
+      "sourceDate": "September 2025",
+      "bestUsedFor": [
+        "event coordination workload",
+        "buyer expectations",
+        "planning complexity"
+      ]
+    },
+    {
+      "id": "src-inflatable-safety",
+      "metric": "12 reported inflatable amusement deaths from 2003 to 2013",
+      "claim": "The U.S. Consumer Product Safety Commission reported 12 deaths associated with inflatable amusements from 2003 to 2013 and warns that bounce houses must be properly secured.",
+      "sourceTitle": "Don’t Get Swept Away; CPSC Reminds Consumers to Be Grounded in Safety When Using Bounce Houses",
+      "sourceUrl": "https://www.cpsc.gov/Newsroom/News-Releases/2019/Dont-Get-Swept-Away-CPSC-Reminds-Consumers-to-Be-Grounded-in-Safety-When-Using-Bounce-Houses",
+      "sourceDate": "May 2019",
+      "bestUsedFor": [
+        "safety communication",
+        "inflatable setup policies",
+        "human escalation boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Quote intake and lead qualification",
+      "problem": "Party rental teams often need several back-and-forth messages before they know whether an inquiry is bookable, complete, and ready for pricing.",
+      "agentWorkflow": "A DocsBot agent asks for event date, start time, location, venue type, guest count, item interests, power access, surface type, setup constraints, budget range, and follow-up preference. It answers package and policy questions from approved sources, then creates a structured summary for staff review.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or workflows, the agent can submit a lead form, create a ticket or CRM-style record, notify sales, or request a meeting through an approved scheduling flow.",
+      "exampleQuestionsOrRequests": [
+        "Do you have a bounce house and cotton candy machine available for a school carnival on June 8?",
+        "What size tent do I need for 80 guests with tables and a dance floor?",
+        "Can someone send me a quote for a backyard graduation party this weekend?"
+      ],
+      "businessOutcome": "Cleaner intake, faster human follow-up, and fewer abandoned inquiries during peak weekend and graduation-season demand.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Catalog and package guidance",
+      "problem": "Customers compare tents, tables, chairs, inflatables, concessions, performers, DJs, photo booths, and décor without always knowing what fits their space or event type.",
+      "agentWorkflow": "Train DocsBot on product pages, package PDFs, FAQs, photos with descriptions, policy pages, delivery zones, and sales guidance. The agent explains options in plain language, recommends questions to ask a human, and avoids making final commitments on availability or price unless connected to approved systems.",
+      "liveContextOrTools": "If authorized, a live lookup Skill can check approved catalog metadata, package rules, service area logic, or availability context before routing the conversation to the right team.",
+      "exampleQuestionsOrRequests": [
+        "What is included in your deluxe birthday party package?",
+        "Do I need a generator for the inflatable obstacle course?",
+        "Which rentals work best for a park event with no power?"
+      ],
+      "businessOutcome": "More self-service answers for shoppers and better-prepared prospects before staff spend time on a custom quote.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Delivery, setup, and safety-policy assistant",
+      "problem": "Inflatables, tents, games, and entertainment setups involve weather, anchoring, access, power, supervision, and venue rules that customers may overlook.",
+      "agentWorkflow": "DocsBot can answer from setup policies, safety FAQs, waiver language, weather rules, supervision requirements, equipment manuals, and escalation procedures. For high-impact safety or onsite exceptions, it routes the customer or employee to a human manager rather than making the decision itself.",
+      "liveContextOrTools": "A configured workflow can create an internal review task, notify operations, or attach the conversation summary to the order record when a customer mentions wind, storms, restricted access, or unusual surfaces.",
+      "exampleQuestionsOrRequests": [
+        "Can you set up a bounce house on concrete?",
+        "What happens if rain or high wind is forecast?",
+        "How much space do your water slides need?"
+      ],
+      "businessOutcome": "Clearer policy communication and safer handoffs for questions that require judgment. CPSC has reported 12 deaths associated with inflatable amusements from 2003 to 2013, making safety communication especially important for inflatable rental operators.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-inflatable-safety"
+      ]
+    },
+    {
+      "name": "Post-event support and damage follow-up",
+      "problem": "After events, customers may ask about pickup timing, missing items, deposits, cleaning charges, photos, receipts, or refund policies while staff are processing returns.",
+      "agentWorkflow": "DocsBot answers routine after-event questions from rental agreements, deposit policies, pickup procedures, billing FAQs, and support macros. It can gather order number, event date, item type, photos, and issue description before escalating to the office.",
+      "liveContextOrTools": "With approved connections, the agent can create a helpdesk ticket, update allowed fields, attach a summary, or route billing, damage, and lost-item issues to the correct queue.",
+      "exampleQuestionsOrRequests": [
+        "When will my deposit be released?",
+        "I think we left a tablecloth in one of the bins. What should I do?",
+        "Can I get a copy of my final invoice?"
+      ],
+      "businessOutcome": "Less repetitive post-event email work and more complete context when a human needs to resolve billing or damage questions.",
+      "icon": "CreditCardIcon"
+    },
+    {
+      "name": "Internal seasonal training and SOP search",
+      "problem": "Seasonal crews and part-time staff need quick access to procedures during busy periods, but information may be scattered across PDFs, shared drives, messages, and manager knowledge.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent answers employee questions from SOPs, loading checklists, maintenance notes, cleaning procedures, sales playbooks, HR policies, and venue instructions. It can surface source references so staff know where the answer came from.",
+      "liveContextOrTools": "Teams can deploy the agent in private chat experiences, Slack, Microsoft Teams, or internal tools where configured, and use analytics to see which procedures need clearer documentation.",
+      "exampleQuestionsOrRequests": [
+        "What is the cleaning checklist for concession machines?",
+        "How do we load the 20x40 tent package?",
+        "What should drivers do if a venue gate is locked?"
+      ],
+      "businessOutcome": "Faster onboarding, more consistent procedures, and fewer interruptions for managers when weekend crews need answers.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Event planner and venue partner enablement",
+      "problem": "Professional planners and venues expect quick, accurate answers about rental specs, certificates, delivery windows, and package constraints.",
+      "agentWorkflow": "DocsBot can help sales teams retrieve approved answers from spec sheets, insurance notes, venue instructions, proposal templates, service boundaries, and pricing guidance. Reps can use the agent to draft follow-up emails or prepare call notes, while humans own final pricing and contract terms.",
+      "liveContextOrTools": "BLS reports 155,800 meeting, convention, and event planner jobs with 5% projected growth, reinforcing the need to support professional buyers who coordinate many details across vendors.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up for a planner asking about linens, delivery timing, and tent lighting.",
+        "What specs should I send a venue for our 360 photo booth?",
+        "Summarize the client’s event requirements before my call."
+      ],
+      "businessOutcome": "More consistent partner communication and faster sales preparation for planner, venue, school, and corporate event opportunities.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-event-planner-outlook"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers a rental-savvy AI agent before they call",
+    "intro": "A DocsBot customer-facing agent can sit on your website or booking pages and answer from your approved knowledge. It helps shoppers understand options, prepare quote details, and reach a person when the question needs custom pricing, safety review, or contract judgment.",
+    "requests": [
+      {
+        "request": "“What do I need for a 50-person backyard birthday party?”",
+        "agentResponseStrategy": "Ask about date, location, ages, space, power, surface, budget, and preferences, then explain relevant package options from approved catalog content.",
+        "sourceTypes": [
+          "Rental catalog",
+          "Package pages",
+          "FAQs",
+          "Service area rules"
+        ],
+        "optionalAction": "Submit a structured quote request or route a summary to the booking team through a configured workflow.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can you deliver to my venue and set up before 10 a.m.?”",
+        "agentResponseStrategy": "Answer delivery area and setup-window rules from policy sources, collect venue details, and avoid confirming operational commitments unless live context is configured.",
+        "sourceTypes": [
+          "Delivery policies",
+          "Venue notes",
+          "Operations SOPs",
+          "Booking rules"
+        ],
+        "optionalAction": "Trigger an availability or operations review task when the request falls outside standard rules.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Is this inflatable safe for toddlers?”",
+        "agentResponseStrategy": "Provide approved age, supervision, setup, and safety-policy language, then escalate to a human for unusual conditions or judgment-heavy questions.",
+        "sourceTypes": [
+          "Safety FAQs",
+          "Manufacturer instructions",
+          "Rental agreement language",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a safety review handoff with the customer’s event details and conversation summary.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you support Spanish-speaking guests?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering to provide source-grounded responses in the customer’s language while staying aligned with your approved content.",
+        "sourceTypes": [
+          "Website FAQs",
+          "Policies",
+          "Catalog descriptions",
+          "Support macros"
+        ],
+        "optionalAction": "Route the transcript to a bilingual staff member when a human follow-up is needed.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I book a consultation?”",
+        "agentResponseStrategy": "Collect scheduling intent, event basics, and preferred contact method, then guide the customer to the next approved scheduling or contact step.",
+        "sourceTypes": [
+          "Consultation pages",
+          "Sales intake forms",
+          "Scheduling rules",
+          "Lead qualification instructions"
+        ],
+        "optionalAction": "Use a customer-configured scheduling Skill for Calendly, Cal.com, TidyCal, or a similar tool when authorized.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“What happens if something breaks?”",
+        "agentResponseStrategy": "Answer from deposit, damage, waiver, replacement, and reporting policies while routing disputes or exceptions to staff.",
+        "sourceTypes": [
+          "Rental agreements",
+          "Damage policies",
+          "Deposit FAQs",
+          "Billing macros"
+        ],
+        "optionalAction": "Collect order number, item, event date, photos, and issue description before creating a support handoff.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put rental procedures, sales guidance, and setup knowledge in one place",
+    "intro": "DocsBot can also work as a private internal knowledge agent for owners, sales staff, warehouse teams, delivery crews, and support employees. Train it on your documents and let staff ask questions instead of digging through drives, binders, and message threads.",
+    "workflows": [
+      {
+        "name": "Crew setup knowledge",
+        "problem": "Delivery teams need accurate answers about loading, setup, cleaning, venue access, power, and teardown while managers are busy.",
+        "agentWorkflow": "The agent retrieves instructions from SOPs, checklists, manuals, venue notes, and equipment guides, then provides source-grounded answers with escalation guidance for exceptions.",
+        "sourceTypes": [
+          "Setup SOPs",
+          "Equipment manuals",
+          "Venue notes",
+          "Cleaning checklists"
+        ],
+        "optionalAction": "Create a manager review task when a crew asks about unsafe weather, missing equipment, or nonstandard setup conditions.",
+        "outcome": "More consistent execution across full-time, seasonal, and part-time crews.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Sales response assistant",
+        "problem": "Sales staff need to answer planner, school, corporate, and family inquiries quickly without misquoting packages or overlooking constraints.",
+        "agentWorkflow": "DocsBot retrieves approved package descriptions, pricing guidance, proposal notes, contract language, and objection-handling content. It can draft a response or call summary for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Catalog PDFs",
+          "Policy pages"
+        ],
+        "optionalAction": "Forward a qualified lead summary to CRM-style records, inboxes, forms, or team notifications through customer-configured workflows.",
+        "outcome": "Faster, more consistent follow-up while keeping humans responsible for final quotes and commitments.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Support trend and knowledge-gap review",
+        "problem": "Repeated customer questions often reveal missing website content, unclear policies, or confusing packages.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to see what customers ask most, which answers need improvement, and where content should be updated.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Support tickets",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Turn repeated unanswered questions into documentation tasks or content updates for staff review.",
+        "outcome": "A stronger self-service experience and clearer content for future inquiries.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Order handoff summaries",
+        "problem": "Details can get lost between web inquiry, sales call, warehouse prep, delivery, and post-event support.",
+        "agentWorkflow": "When configured with approved sources and workflows, the agent summarizes event requirements, customer preferences, special access notes, and unresolved questions for the next team.",
+        "sourceTypes": [
+          "Lead forms",
+          "Support tickets",
+          "Order notes",
+          "Customer messages"
+        ],
+        "optionalAction": "Attach summaries to internal tickets, dispatch notes, or handoff workflows using approved Skills or APIs.",
+        "outcome": "Cleaner communication between sales, operations, and support.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your rental knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved websites, help centers, internal content, documents, and other configured knowledge sources.",
+      "industryApplication": "Train on rental catalogs, setup requirements, delivery policies, package pages, safety notes, FAQs, contracts, and staff SOPs so answers reflect how your business actually operates.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer support",
+      "mainLandingPageContext": "DocsBot support agents provide instant answers in the company’s voice and can escalate complex or sensitive questions to humans.",
+      "industryApplication": "Answer questions about availability rules, deposits, weather, supervision, venue restrictions, and package comparisons while handing off unusual pricing, safety, or contract questions.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded tasks such as lookups, summaries, routing, record creation, record updates, and workflow triggers when configured.",
+      "industryApplication": "Use approved workflows to collect quote details, create tickets, notify sales, request scheduling, summarize orders, route damage claims, or check live context from authorized systems.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as a private employee agent trained on SOPs, policies, wikis, shared documents, PDFs, and other internal sources.",
+      "industryApplication": "Give warehouse, office, delivery, and seasonal staff a fast way to find setup procedures, cleaning steps, loading instructions, HR policies, and escalation rules.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which rental questions recur most, where customers abandon the booking path, which policies are unclear, and what content should be added before peak event season.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data.",
+      "industryApplication": "Protect private policies, internal procedures, customer conversations, and operational documents while controlling what agents can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "DocsBot supports high-volume customer questions with source-grounded answers and human handoff paths.",
+      "Teams can train agents on their own materials instead of relying on generic AI responses.",
+      "Website and internal agents help customers, staff, and sales teams reach the information they need faster."
+    ],
+    "whyTheseReviewsFit": "Entertainment and party rental businesses need practical automation that can answer from their own packages, policies, and training materials. DocsBot proof spans self-service support, owned-content training, booking-oriented inquiry conversion, and high-volume customer interaction handling.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "BookOpenIcon",
+      "RocketLaunchIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for entertainment and party rental businesses",
+    "audience": [
+      "Party rental company owners",
+      "Entertainment rental operators",
+      "Event rental sales teams",
+      "Warehouse and delivery operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "event-planning",
+    "florist",
+    "janitorial-cleaning-services",
+    "beauty-salon",
+    "fitness-center"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "entertainment-party-rentals",
+    "webSearchQueries": [
+      "party rental industry statistics revenue IBISWorld party supply rental US",
+      "American Rental Association event rental market forecast party special event rental",
+      "BLS party and event planners employment outlook meeting convention event planners",
+      "CPSC inflatable amusement injury statistics bounce house"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/market-size/party-supply-rental/4389/",
+      "https://www.bls.gov/ooh/Business-and-Financial/Meeting-convention-and-event-planners.htm",
+      "https://www.cpsc.gov/Newsroom/News-Releases/2019/Dont-Get-Swept-Away-CPSC-Reminds-Consumers-to-Be-Grounded-in-Safety-When-Using-Bounce-Houses"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40497,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27953,
+        "outputTokens": 7449,
+        "reasoningOutputTokens": 105,
+        "totalTokens": 47946,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.184754,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.194754
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21444,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14148,
+          "outputTokens": 4951,
+          "reasoningOutputTokens": 105,
+          "totalTokens": 26395,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.111459,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.121459
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19053,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13805,
+          "outputTokens": 2498,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21551,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.073295,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.073295
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1501238295340-c810d3c156d2?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDEwMTV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Entertainment & Party Rentals background image",
+    "source": "legacy-industry",
+    "query": "Entertainment & Party Rentals"
+  },
+  "faq": [
+    {
+      "question": "Can the AI agent qualify a party rental lead before our office calls them back?",
+      "answer": "Yes. A DocsBot agent can collect the details your team normally needs first: event date, location, venue type, guest count, rental interests, surface type, power access, setup constraints, budget range, and preferred follow-up. It can then create a structured handoff for your sales or booking team through customer-configured workflows.",
+      "role": "Sales and booking coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it accidentally promise availability, pricing, or delivery times we cannot honor?",
+      "answer": "DocsBot should be configured to answer from approved policies and avoid final commitments unless you connect it to approved live context. For custom quotes, constrained delivery windows, peak-weekend availability, or nonstandard setups, the agent can collect the request and escalate to a human with a summary instead of making the decision.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot answer questions about tents, inflatables, photo booths, games, concessions, and packages from our actual catalog?",
+      "answer": "Yes. You can train a DocsBot agent on your rental catalog, package pages, PDFs, FAQs, product descriptions, setup rules, delivery policies, and sales guidance. The goal is not generic event advice; it is source-grounded answers that reflect your inventory, service area, policies, and how your team sells packages.",
+      "role": "Sales and booking coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help during graduation season, school carnivals, and busy weekend rushes?",
+      "answer": "DocsBot can handle repetitive pre-quote questions, gather missing event details, explain package basics, and route qualified inquiries while staff are on phones, in the warehouse, or on deliveries. That matters in a sizable seasonal market: IBISWorld estimated the U.S. party supply rental market at $8.5 billion in 2025.",
+      "role": "Owners and general managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-party-rental-market-size"
+      ]
+    },
+    {
+      "question": "Can the agent handle safety-sensitive questions about bounce houses, wind, concrete setup, supervision, or bad weather?",
+      "answer": "It can provide approved safety and policy language from your documents, but high-impact decisions should route to a manager. This is especially important for inflatable operators because CPSC reported 12 deaths associated with inflatable amusements from 2003 to 2013 and warns that bounce houses must be properly secured.",
+      "role": "Operations, warehouse, and delivery teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-inflatable-safety"
+      ]
+    },
+    {
+      "question": "Can our delivery crews use DocsBot internally for setup instructions and loading checklists?",
+      "answer": "Yes. DocsBot can work as a private internal knowledge agent trained on SOPs, equipment manuals, cleaning checklists, loading guides, venue notes, escalation rules, and seasonal training documents. Crews can ask practical questions and get source-grounded answers instead of calling a manager for every procedure.",
+      "role": "Operations, warehouse, and delivery teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect to for quote intake, tickets, CRM records, or scheduling?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, MCP servers, forms, webhooks, and workflow automations. That can include approved lead handoffs, ticket creation, CRM-style record updates, scheduling requests, notifications, or live lookups when your team authorizes the connection and defines the rules.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "We use rental software and spreadsheets for inventory. Can the agent check live availability?",
+      "answer": "DocsBot can use live system context only when you configure an approved Skill, connector, API, metadata binding, or workflow that exposes the right availability information. Without that, it should answer general availability rules and collect the request for staff review rather than claiming an item is available.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much work is required to get useful answers live on our website?",
+      "answer": "Most teams start by organizing the content they already use: website pages, FAQs, rental agreements, package PDFs, delivery policies, safety notes, pricing guidance, and support macros. The important implementation work is deciding which answers are safe for self-service, which need escalation, and which workflows the agent is allowed to trigger.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support Spanish-speaking customers or multilingual event guests?",
+      "answer": "Yes. DocsBot supports answers in more than 100 languages while staying grounded in your approved content. For rental businesses, that can help families, schools, venues, and corporate buyers understand packages, policies, delivery requirements, and next steps in the language they prefer.",
+      "role": "Sales and booking coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the AI from giving outdated package details after we change prices or inventory?",
+      "answer": "Treat the agent’s knowledge like an operational content system. Keep source pages, PDFs, policies, and internal docs current; remove obsolete documents; and review conversation logs for confusing or incorrect answers. DocsBot analytics and knowledge-gap discovery can help show where customers are asking about content that needs improvement.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent help professional planners and venues get specs faster?",
+      "answer": "Yes. DocsBot can answer from approved spec sheets, setup requirements, insurance notes, delivery rules, proposal templates, and venue instructions. That can help sales teams respond consistently to planners and venue partners. BLS reported 155,800 meeting, convention, and event planner jobs with 5% projected employment growth from 2024 to 2034.",
+      "role": "Sales and booking coordinators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-event-planner-outlook"
+      ]
+    },
+    {
+      "question": "What should stay with a human instead of the AI agent?",
+      "answer": "Humans should own final pricing, contract exceptions, refund disputes, safety judgments, weather calls, damage disputes, unusual venue constraints, and any promise that affects staffing, delivery, or liability. DocsBot is best used to answer approved questions, collect context, summarize, route, and trigger bounded workflows inside rules your team controls.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot reduce abandoned inquiries from people who ask one question and disappear?",
+      "answer": "It can help by responding instantly, asking the next useful intake questions, explaining package fit, and giving shoppers a clear path to request a quote. The strongest ROI signal is usually faster lead response, cleaner inquiry details, fewer repetitive calls, and more prospects reaching staff with enough information to price or book.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can we use it after the event for deposits, pickup questions, missing items, or damage claims?",
+      "answer": "Yes. DocsBot can answer routine post-event questions from your deposit policy, pickup procedures, billing FAQs, rental agreement, and support macros. It can also gather order number, event date, item details, photos, and issue description before routing billing, damage, or lost-item issues to the right person.",
+      "role": "Sales and booking coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot protect customer conversations and internal rental procedures?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data. For Skills and workflow actions, teams can define scoped permissions, secrets handling, network policy, logging, and allowed actions.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can managers review what customers asked and what the agent answered?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Rental teams can use this to spot confusing packages, missing setup details, repeated delivery questions, policy friction, and content that should be updated before peak season.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this replace our booking coordinator or just support them?",
+      "answer": "For most party rental teams, DocsBot is best positioned as support for coordinators, not a replacement. It handles repetitive questions, gathers intake details, drafts summaries, and routes leads so humans can focus on quotes, relationships, exceptions, planner accounts, upsells, and operational commitments.",
+      "role": "Sales and booking coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help new seasonal staff learn policies without slowing down senior employees?",
+      "answer": "Yes. A private DocsBot agent can answer employee questions from SOPs, onboarding docs, equipment manuals, cleaning steps, loading lists, HR policies, venue notes, and escalation procedures. That can make seasonal training more consistent and reduce repeated interruptions for owners, warehouse leads, and dispatch managers.",
+      "role": "Operations, warehouse, and delivery teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How should we measure whether an AI agent is worth the investment?",
+      "answer": "Track practical rental metrics: completed quote requests, speed to first response, number of qualified leads routed, reduction in repetitive calls or emails, after-hours inquiries captured, booking handoff quality, common unanswered topics, and staff time saved. Also watch whether customers arrive with better event details before a human quote call.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot work for both customer-facing website questions and private employee questions?",
+      "answer": "Yes. You can use DocsBot for a customer-facing agent trained on approved public sales and policy content, and a private internal knowledge agent trained on SOPs, manuals, checklists, and staff procedures. Access controls and role-based permissions help keep internal operating knowledge separate from customer-facing answers.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when a customer asks a question that is not in our documentation?",
+      "answer": "DocsBot can be configured to avoid guessing, explain that the question needs staff review, collect the missing context, and route a handoff. Conversation logs and knowledge-gap reporting then help you see which missing answers should become new FAQs, policy updates, package notes, or internal procedures.",
+      "role": "Sales and booking coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot to our rental website?",
+      "answer": "DocsBot is designed around agents trained on your own approved knowledge, with source-grounded answers, human escalation, analytics, and optional bounded actions through configured Skills, APIs, connectors, or workflows. For party rentals, that means answers should reflect your packages, setup rules, delivery area, policies, and operating constraints.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we control which actions the agent is allowed to take?",
+      "answer": "Yes. DocsBot AI Actions and Skills are designed for bounded tasks inside customer-defined rules, such as submitting a lead form, creating a ticket, notifying sales, summarizing an inquiry, updating approved fields, or requesting a meeting. Sensitive actions can require human review, scoped permissions, and logged workflows.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What content should we prepare before launching a rental AI agent?",
+      "answer": "Prepare the materials your staff already rely on: catalog descriptions, package pages, delivery zones, setup windows, surface and power requirements, weather policies, rental agreements, deposit and damage policies, safety FAQs, venue notes, quote intake questions, support macros, and internal escalation rules.",
+      "role": "Operations, warehouse, and delivery teams",
+      "category": "Implementation"
+    }
+  ]
+}

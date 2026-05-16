@@ -1,0 +1,697 @@
+{
+  "slug": "replacement-parts-sales",
+  "business": "Replacement Parts Sales",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Faster Replacement Parts Sales",
+    "description": "DocsBot helps replacement parts teams answer fitment, availability, and order questions faster while routing complex requests to the right rep.",
+    "canonicalPath": "/industry/replacement-parts-sales"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for parts catalogs, manuals, and sales workflows",
+    "headline": "Help buyers find the right replacement part without waiting on a rep",
+    "subheadline": "DocsBot lets replacement parts sellers deploy AI agents trained on catalogs, manuals, compatibility notes, policies, and sales enablement content so customers and internal teams can get accurate answers, collect quote details, and escalate complex part-matching questions.",
+    "proofBullets": [
+      {
+        "text": "Answer fitment, cross-reference, spec, warranty, return, and installation questions from approved product documentation.",
+        "icon": "CogIcon"
+      },
+      {
+        "text": "Collect model numbers, serial numbers, photos, order details, and urgency before handing the request to sales or support.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or workflows for approved live lookups, ticket creation, summaries, and handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Surface repeated unanswered questions so teams can improve catalogs, manuals, FAQs, and internal playbooks.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a parts sales agent",
+    "secondaryCta": "Explore workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps replacement parts companies create AI agents trained on their own catalogs, PDFs, manuals, fitment guides, warranty policies, SOPs, website content, and support history. Agents provide source-grounded answers for buyers, assist reps with internal knowledge, qualify quote requests, draft ticket responses, and trigger bounded workflows when configured through Skills, APIs, connectors, or approved automations.",
+    "whoItHelps": [
+      {
+        "role": "Parts sales and inside sales teams",
+        "roleContext": "Reps need to answer technical questions quickly while protecting margin, avoiding wrong-part orders, and knowing when a request needs expert review.",
+        "bullets": [
+          {
+            "text": "Retrieve compatible part options, superseded SKUs, spec notes, and policy language from approved sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Qualify RFQs with structured intake for machine model, serial number, quantity, delivery window, region, and account type.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Draft follow-up emails or CRM-ready summaries through customer-configured sales workflows while humans approve pricing and commitments.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Customer support and service desks",
+        "roleContext": "Support teams field repetitive availability, installation, warranty, and returns questions that often require searching several documents or systems.",
+        "bullets": [
+          {
+            "text": "Provide instant, source-grounded answers in a website widget or helpdesk-connected workflow.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize conversations, route complex technical cases, and prepare escalation notes for product experts.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Identify knowledge gaps when buyers keep asking questions that are missing from manuals or catalog pages.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, product, and catalog managers",
+        "roleContext": "Replacement parts operations depend on accurate documentation, searchable institutional knowledge, and clear handoffs between sales, support, warehouse, and engineering teams.",
+        "bullets": [
+          {
+            "text": "Make part documentation, SOPs, pricing guidance, and exception rules easier for employees to search.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Use analytics and logs to find recurring confusion around fitment, availability, substitutions, or return rules.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Support governed live-context workflows with scoped permissions, logging, and customer-defined boundaries.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-mckinsey-aftermarket-margins",
+      "metric": "Aftermarket services can materially outperform new-equipment margins.",
+      "claim": "McKinsey analysis across 30 industries found average EBIT margin of 25% for aftermarket services compared with 10% for new equipment.",
+      "sourceTitle": "Industrial aftermarket services: Growing the core",
+      "sourceUrl": "https://www.mckinsey.com/industries/industrials/our-insights/industrial-aftermarket-services-growing-the-core",
+      "sourceDate": "July 2017",
+      "bestUsedFor": [
+        "aftermarket profitability",
+        "parts sales opportunity",
+        "service revenue strategy"
+      ]
+    },
+    {
+      "id": "src-mckinsey-aftermarket-growth",
+      "metric": "Aftermarket sales execution can lift services revenue 30% to 60%.",
+      "claim": "McKinsey reported that industrial companies can boost services revenue by 30% to 60% within three to five years by understanding customers, prioritizing aftermarket sales, and focusing execution.",
+      "sourceTitle": "Aftermarket Services: The near-term growth opportunity in targeting the right customers",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/operations/our-insights/aftermarket-services-the-near-term-growth-opportunity-in-targeting-the-right-customers",
+      "sourceDate": "October 2017",
+      "bestUsedFor": [
+        "growth potential",
+        "customer targeting",
+        "aftermarket sales execution"
+      ]
+    },
+    {
+      "id": "src-deloitte-aftermarket-profit",
+      "metric": "Aftermarket parts and services may deliver over 50% of manufacturer profit.",
+      "claim": "Deloitte stated that aftermarket parts and services will likely continue to deliver over 50% of a manufacturer’s profit, with an upward trend.",
+      "sourceTitle": "Aftermarket services: The digital differentiator beyond COVID-19",
+      "sourceUrl": "https://www2.deloitte.com/us/en/insights/industry/manufacturing/aftermarket-services-digital-differentiator-beyond-COVID-19.html",
+      "sourceDate": "May 2020",
+      "bestUsedFor": [
+        "profit importance",
+        "manufacturing resilience",
+        "spare parts margin"
+      ]
+    },
+    {
+      "id": "src-bcg-aftermarket-direct-customer",
+      "metric": "Direct customer engagement is linked to higher service revenue share.",
+      "claim": "BCG reported that companies directly engaging customers see about 33% service revenue for equipment manufacturers compared with 17% for component and subsystem makers.",
+      "sourceTitle": "Aftermarket Services Drive Growth and Higher Margins for Industrial Manufacturers",
+      "sourceUrl": "https://www.bcg.com/publications/2025/aftermarket-services-drive-growth-for-industrial-manufacturers",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "customer engagement",
+        "service revenue",
+        "manufacturer aftermarket strategy"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Part fitment and cross-reference assistant",
+      "problem": "Buyers often arrive with an old part number, machine model, serial number, or vague symptom and need confidence before placing an order.",
+      "agentWorkflow": "A DocsBot agent answers from approved catalogs, manuals, fitment guides, substitution tables, and FAQs. It asks clarifying questions, explains known compatibility limits, cites source material, and escalates ambiguous or safety-critical matches to a human specialist.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved part records, retrieve known supersession notes, create a ticket, or attach a conversation summary for expert review.",
+      "exampleQuestionsOrRequests": [
+        "What replaced part number AX-1042 for the 2018 unit?",
+        "Will this seal kit fit model 7B with serial prefix M18?",
+        "I have a photo of a worn bracket. What details do you need to identify it?"
+      ],
+      "businessOutcome": "Reduce wrong-part orders, shorten presales back-and-forth, and give reps cleaner context before they step in.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Availability, quote, and lead qualification intake",
+      "problem": "High-intent buyers need price, lead time, quantity breaks, freight options, and account-specific handling, but many requests arrive missing key details.",
+      "agentWorkflow": "The agent collects structured quote details such as SKU, quantity, model, serial number, region, urgency, company, contact details, and preferred follow-up channel. It applies customer-defined qualification rules and prepares a clean handoff for sales.",
+      "liveContextOrTools": "When configured, AI Actions can submit a lead form, forward a summary to CRM or helpdesk software, create a task, notify the right team, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "I need 24 replacement sensors by next week. Can someone quote this?",
+        "Do you ship this gearbox kit to Texas?",
+        "Please have a rep confirm pricing for a fleet order."
+      ],
+      "businessOutcome": "Capture more complete RFQs and let sales prioritize urgent, high-fit, or high-value opportunities.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-mckinsey-aftermarket-growth"
+      ]
+    },
+    {
+      "name": "Warranty, returns, and order-support agent",
+      "problem": "Replacement parts teams field repetitive questions about warranty periods, RMA eligibility, restocking fees, installation issues, and order documentation.",
+      "agentWorkflow": "DocsBot answers from return policies, warranty documents, installation notes, troubleshooting guides, and order-support FAQs. It can clarify required evidence, explain next steps, and escalate disputes or exceptions to staff.",
+      "liveContextOrTools": "With approved helpdesk connections, Skills, APIs, or workflow automations, the agent can draft ticket replies, summarize the buyer’s issue, route by product line, or create an RMA review task.",
+      "exampleQuestionsOrRequests": [
+        "Can I return an electrical component after opening the box?",
+        "What documents are required for a warranty claim?",
+        "My replacement pump failed after installation. What should I check first?"
+      ],
+      "businessOutcome": "Lower repetitive support load while keeping sensitive warranty decisions inside defined review paths.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Internal sales and service knowledge assistant",
+      "problem": "Experienced parts experts know where to find old manuals, exception rules, and product history, but newer reps may lose time searching or asking around.",
+      "agentWorkflow": "A private DocsBot agent trains on SOPs, internal wikis, PDFs, sales playbooks, product notes, pricing guidance, and support history exports. Employees ask natural-language questions and receive source-grounded answers with citations to the approved internal material.",
+      "liveContextOrTools": "Teams can deploy access through private chat experiences such as Slack, Microsoft Teams, or internal portals and add scoped Skills, connectors, or MCP-based tool access where the organization has authorized live context.",
+      "exampleQuestionsOrRequests": [
+        "When do we recommend the heavy-duty bearing kit instead of the standard kit?",
+        "What is our escalation process for obsolete part requests?",
+        "Where is the latest installation guide for the retrofit package?"
+      ],
+      "businessOutcome": "Help reps ramp faster, preserve institutional knowledge, and reduce internal search time.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-mckinsey-aftermarket-margins"
+      ]
+    },
+    {
+      "name": "Catalog gap and content improvement reporting",
+      "problem": "If buyers repeatedly ask the same unanswered questions, product and catalog teams may not discover the issue until it creates returns, tickets, or lost sales.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see recurring questions, missing content, low-confidence areas, and documentation that needs revision.",
+      "liveContextOrTools": "Teams can review transcripts, tag topics, update source documents, and use approved workflows to notify catalog, product, or support owners when a content gap appears.",
+      "exampleQuestionsOrRequests": [
+        "Which fitment questions are our agent unable to answer?",
+        "What return-policy topics are customers asking about most?",
+        "Which obsolete SKUs need clearer replacement guidance?"
+      ],
+      "businessOutcome": "Improve self-service quality over time and keep high-margin aftermarket knowledge easier to use.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-deloitte-aftermarket-profit"
+      ]
+    },
+    {
+      "name": "Installed-base service opportunity support",
+      "problem": "Aftermarket revenue depends on understanding which customers own which equipment, what parts they need, and when service opportunities arise.",
+      "agentWorkflow": "A DocsBot sales enablement agent can summarize approved account notes, product documentation, service playbooks, and public prospect research when configured with web search. It prepares talking points and next-step drafts for a human rep.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can retrieve account context, create follow-up tasks, draft outreach, or update approved fields while humans remain responsible for pricing, contracts, and final commitments.",
+      "exampleQuestionsOrRequests": [
+        "Summarize likely replacement parts needs for this account before my call.",
+        "Draft a follow-up email about the maintenance kit we discussed.",
+        "What questions should I ask a fleet buyer replacing older assemblies?"
+      ],
+      "businessOutcome": "Give reps faster account context and more consistent aftermarket follow-up.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-bcg-aftermarket-direct-customer"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers a guided path from part question to qualified request",
+    "intro": "A DocsBot customer-facing agent can sit on your website, product portal, or support experience and answer from approved parts knowledge. It helps buyers self-serve routine questions while collecting the details your team needs for accurate quotes, returns, and fitment review.",
+    "requests": [
+      {
+        "request": "“I need a replacement for an obsolete part number.”",
+        "agentResponseStrategy": "Ask for model, serial number, application, photos if useful, and known dimensions; answer from approved supersession and compatibility sources; escalate uncertain matches.",
+        "sourceTypes": [
+          "Parts catalogs",
+          "Supersession tables",
+          "Manuals",
+          "Fitment guides"
+        ],
+        "optionalAction": "Create a ticket or route a qualified request to a product-line specialist through an approved workflow.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "request": "“Can I get price and lead time for 50 units?”",
+        "agentResponseStrategy": "Collect SKU, quantity, company, region, urgency, delivery expectations, and account status, then prepare a sales-ready summary.",
+        "sourceTypes": [
+          "Product pages",
+          "Pricing guidance",
+          "Shipping policies",
+          "Sales intake forms"
+        ],
+        "optionalAction": "Forward the lead, create a CRM-ready summary, or trigger a scheduling request when configured by the customer.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“What is your return policy for installed parts?”",
+        "agentResponseStrategy": "Answer from return, warranty, and installation-policy sources; clarify evidence needed; avoid making exception decisions that require human approval.",
+        "sourceTypes": [
+          "Warranty policies",
+          "RMA instructions",
+          "Installation guides",
+          "Support FAQs"
+        ],
+        "optionalAction": "Draft a support reply or create an RMA review task in a customer-configured helpdesk workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“How do I install this replacement assembly?”",
+        "agentResponseStrategy": "Provide source-grounded steps from approved manuals, note required tools or warnings if they appear in the source material, and hand off when the customer reports damage or uncertainty.",
+        "sourceTypes": [
+          "Installation manuals",
+          "Troubleshooting guides",
+          "Safety notes",
+          "Product documentation"
+        ],
+        "optionalAction": "Offer to send the relevant manual link or summarize the conversation for a technician.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you support customers in my language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering capabilities to support buyers in more than 100 languages while staying grounded in the same approved source content.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website content",
+          "Product FAQs",
+          "Policy documents"
+        ],
+        "optionalAction": "Route language-specific escalations to the right team if configured.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this part suitable for a regulated or safety-critical application?”",
+        "agentResponseStrategy": "Share only documented specifications, limitations, and approved policy language, then escalate suitability judgments to an authorized human reviewer.",
+        "sourceTypes": [
+          "Spec sheets",
+          "Compliance notes",
+          "Engineering guidance",
+          "Product limitations"
+        ],
+        "optionalAction": "Collect application details and create a review request with a transcript summary.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give every rep access to the parts knowledge usually trapped in folders and experts’ heads",
+    "intro": "DocsBot can also run as a private internal knowledge agent for sales, support, operations, warehouse, and product teams. It helps employees retrieve the right answer from approved documents instead of hunting through PDFs, shared drives, chat threads, and ticket history.",
+    "workflows": [
+      {
+        "name": "Rep onboarding and SOP search",
+        "problem": "New hires must learn product families, part-number logic, substitution rules, quote procedures, return policies, and escalation paths.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, SOPs, internal wikis, PDFs, Word documents, and sales playbooks so reps can ask natural-language questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Training decks",
+          "Internal wikis",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Use analytics to see which onboarding topics generate repeated questions and improve training material.",
+        "outcome": "Shorten ramp time and reduce interruptions to senior parts specialists.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Technical escalation summaries",
+        "problem": "Engineers and senior specialists waste time reconstructing context from long email chains or incomplete ticket notes.",
+        "agentWorkflow": "The agent summarizes buyer history, part details, documents referenced, troubleshooting steps attempted, and unanswered questions before escalation.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Manuals",
+          "Conversation transcripts",
+          "Product documentation"
+        ],
+        "optionalAction": "Create or update a task, attach a structured summary, and notify the correct team through a configured workflow.",
+        "outcome": "Faster expert review with fewer clarification loops.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Sales enablement for complex accounts",
+        "problem": "Account managers need consistent messaging on replacement programs, service kits, compatibility, and objection handling.",
+        "agentWorkflow": "DocsBot answers from approved proposal templates, case studies, product notes, competitive notes, contract language, implementation details, and customer-facing FAQs.",
+        "sourceTypes": [
+          "Proposal templates",
+          "Pricing guidance",
+          "Account notes",
+          "Objection handling"
+        ],
+        "optionalAction": "Draft a follow-up email or call-prep brief for human review through configured sales workflows.",
+        "outcome": "More consistent follow-up without giving the agent authority over final pricing or contract terms.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Catalog and documentation maintenance",
+        "problem": "Catalog teams need to know which SKUs, cross-references, policies, or manuals are confusing buyers and employees.",
+        "agentWorkflow": "Use DocsBot conversation review, logs, topic reports, satisfaction analysis, and knowledge-gap discovery to find documentation weaknesses.",
+        "sourceTypes": [
+          "Catalog pages",
+          "Manuals",
+          "FAQ articles",
+          "Agent logs"
+        ],
+        "optionalAction": "Generate a content-gap report and route it to the catalog owner for review.",
+        "outcome": "Turn real buyer questions into better self-service content and fewer repeated tickets.",
+        "icon": "LightBulbIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents from help centers, product documentation, internal files, websites, team conversations, and other configured sources.",
+      "industryApplication": "Train an agent on replacement parts catalogs, manuals, spec sheets, supersession notes, warranty policies, return rules, and internal sales playbooks.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and support experiences",
+      "mainLandingPageContext": "DocsBot agents can answer customer questions through an embeddable website or product chat widget and support helpdesk-connected workflows.",
+      "industryApplication": "Let buyers ask fitment, availability, installation, return, and quote questions at the moment they are searching for a replacement part.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support customer-configured lookups, routing, summaries, record creation, updates, workflow triggers, and handoffs.",
+      "industryApplication": "Create quote tasks, summarize RFQs, route obsolete-part questions, look up approved records, or trigger handoffs to sales and support systems you authorize.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees searching policies, SOPs, onboarding content, documentation, and operational knowledge.",
+      "industryApplication": "Give sales, support, warehouse, and product teams fast answers about part-number logic, escalation rules, packaging requirements, and exception handling.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which SKUs, compatibility notes, return rules, or installation topics buyers and reps keep asking about, then improve source content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Keep proprietary catalogs, pricing guidance, customer records, and internal procedures controlled while letting agents answer from approved sources.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on multilingual manuals, websites, and knowledge bases for scalable 24/7 parts support.",
+      "Use owned content libraries so answers stay grounded in approved product and policy sources.",
+      "Support website self-service and human support workflows without replacing expert review for complex cases."
+    ],
+    "whyTheseReviewsFit": "Replacement parts buyers need fast answers from manuals, product pages, and internal expertise. DocsBot proof spans high-volume customer inquiry handling, owned-content training, embedded website support, multilingual documentation, and support-team assistance—exactly the workflows parts sellers rely on to reduce friction before and after purchase.",
+    "trustClaimIcons": [
+      "LanguageIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for replacement parts sales, support, and internal knowledge operations",
+    "audience": [
+      "Replacement parts distributors",
+      "OEM aftermarket sales teams",
+      "Industrial parts support teams",
+      "Catalog and product operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CogIcon"
+  },
+  "relatedIndustrySlugs": [
+    "industrial-parts-distribution",
+    "machinery-equipment-sales",
+    "b2b-product-distributors",
+    "electronics-component-distribution",
+    "fastener-suppliers",
+    "industrial-automation"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "replacement-parts-sales",
+    "webSearchQueries": [
+      "replacement parts aftermarket sales customer support parts identification returns statistics manufacturing aftermarket services",
+      "Deloitte manufacturing aftermarket services parts revenue report",
+      "McKinsey aftermarket services industrial companies revenue parts service"
+    ],
+    "sourceUrls": [
+      "https://www.mckinsey.com/industries/industrials/our-insights/industrial-aftermarket-services-growing-the-core",
+      "https://www.mckinsey.com/capabilities/operations/our-insights/aftermarket-services-the-near-term-growth-opportunity-in-targeting-the-right-customers",
+      "https://www2.deloitte.com/us/en/insights/industry/manufacturing/aftermarket-services-digital-differentiator-beyond-COVID-19.html",
+      "https://www.bcg.com/publications/2025/aftermarket-services-drive-growth-for-industrial-manufacturers"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 37750,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 25206,
+        "outputTokens": 7753,
+        "reasoningOutputTokens": 106,
+        "totalTokens": 45503,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.182446,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.192446
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18637,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 11341,
+          "outputTokens": 4936,
+          "reasoningOutputTokens": 106,
+          "totalTokens": 23573,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.104216,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.114216
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19113,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13865,
+          "outputTokens": 2817,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21930,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07823,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07823
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1657873961503-89a65459de2b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxSZXBsYWNlbWVudCUyMFBhcnRzJTIwU2FsZXN8ZW58MHwwfHx8MTc3ODgyMjYzNnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a close up of a watch",
+    "source": "unsplash-search",
+    "query": "Replacement Parts Sales"
+  },
+  "faq": [
+    {
+      "question": "Can the agent help buyers identify the right part when they only have an old SKU, machine model, serial number, or photo?",
+      "answer": "Yes. DocsBot can be trained on your catalogs, manuals, supersession tables, fitment guides, FAQs, and product notes so it can ask for the right identifying details, explain documented compatibility limits, and cite the approved source it used. For uncertain, obsolete, or safety-critical matches, it should route the request to a parts specialist with the conversation summary attached.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the AI from recommending the wrong part and creating returns or liability?",
+      "answer": "Treat the agent as a guided parts assistant, not an unchecked engineering authority. Configure it to answer only from approved sources, ask clarifying questions, show source-grounded reasoning, and escalate ambiguous fitment, regulated applications, substitutions, and safety-critical use cases to a human reviewer before a recommendation becomes a quote or order commitment.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot collect enough information before a rep gets involved in a quote request?",
+      "answer": "Yes. A DocsBot agent can run a structured intake for SKU, quantity, model, serial number, region, urgency, account type, delivery expectations, company, contact details, and preferred follow-up. With customer-configured Skills, APIs, forms, connectors, or workflows, it can forward a sales-ready summary to CRM, email, helpdesk, or a task queue you authorize.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this replace our inside sales team or just reduce the repetitive back-and-forth?",
+      "answer": "Most parts teams should use DocsBot to remove repetitive searching, qualification, and status clarification—not to replace expert judgment. The agent can answer routine catalog, policy, warranty, and installation questions, collect missing RFQ details, and prepare handoffs while reps stay responsible for complex fitment, pricing, margin decisions, substitutions, exceptions, and customer commitments.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI for an AI agent in replacement parts sales?",
+      "answer": "Start with measurable friction: RFQ completion rate, time to first response, quote cycle time, deflected repetitive questions, wrong-part returns, escalation quality, rep search time, and after-hours lead capture. The upside matters because aftermarket services are often high-value: McKinsey found 25% average EBIT margin for aftermarket services versus 10% for new equipment across 30 industries.",
+      "role": "Operations, product, and catalog managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-aftermarket-margins"
+      ]
+    },
+    {
+      "question": "Can the agent answer availability, lead-time, or order-status questions from live systems?",
+      "answer": "DocsBot can support live-context workflows when you configure the right Skill, API, connector, webhook, or MCP-based tool access. That means the agent can be scoped to look up approved records, create a task, route a request, or summarize status details. Sensitive actions should be permissioned, logged, and bounded so the agent does not expose unauthorized pricing or account data.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Our catalogs are messy—PDFs, spreadsheets, old manuals, web pages, and tribal knowledge. Can we still start?",
+      "answer": "Yes, but start with a narrow, high-value scope. Many teams begin with top-selling parts, common replacements, warranty and return policies, installation guides, and known supersession tables. DocsBot can train on approved content such as PDFs, websites, documents, wikis, and internal files, then analytics can show which missing or confusing topics need cleanup next.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when the buyer asks for a discontinued or obsolete part?",
+      "answer": "The agent can ask for model, serial number, application, dimensions, and photos if useful, then search approved supersession notes, compatibility tables, and manuals. If the replacement path is documented, it can explain it with sources. If there are multiple possible replacements or no approved substitute, it should create an escalation with all collected details for expert review.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support both customer-facing self-service and an internal rep knowledge assistant?",
+      "answer": "Yes. A customer-facing agent can answer website or portal questions and qualify RFQs, while a private internal agent can help sales, support, warehouse, product, and operations teams search SOPs, pricing guidance, escalation rules, packaging requirements, and product notes. The two experiences can use different source sets, permissions, and workflows.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent customers from seeing internal pricing guidance, margin rules, or dealer-only documentation?",
+      "answer": "Separate customer-facing and internal knowledge sources, use granular access controls and role-based permissions, and scope any Skills or live lookups to only the fields the agent is allowed to use. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent handle warranty, RMA, and return-policy questions without making exception decisions?",
+      "answer": "Yes. DocsBot can answer from your warranty documents, return policies, RMA instructions, installation notes, and support FAQs. It can explain documented requirements, collect evidence, summarize the issue, and create a review task through an approved workflow. Exception approvals, goodwill credits, disputed claims, and legal-sensitive decisions should remain with authorized staff.",
+      "role": "Customer support and service desks",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this fit with our helpdesk, CRM, ERP, or ecommerce platform?",
+      "answer": "DocsBot should be connected around specific workflows rather than broadly plugged into every system at once. Common patterns include submitting a lead form, creating a ticket, drafting a reply, looking up an approved part record, notifying a team, or attaching a transcript summary. These are configured through Skills, APIs, connectors, webhooks, or customer-defined automations you approve.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it for technical installation questions, or is that too risky?",
+      "answer": "You can use it for source-grounded installation support when the agent answers from approved manuals, troubleshooting guides, safety notes, and product documentation. It should include documented warnings where available, avoid improvising procedures, and escalate when a customer reports damage, uncertainty, a safety issue, or a regulated application that requires qualified review.",
+      "role": "Customer support and service desks",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What reporting will tell us whether the agent is improving our parts operation?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For parts teams, useful reports include unanswered fitment questions, confusing SKUs, repeated return-policy topics, common obsolete-part searches, low-confidence answers, escalation reasons, and which documents need revision.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent help us grow aftermarket revenue, not just reduce support tickets?",
+      "answer": "Yes, when it is tied to sales workflows. It can qualify high-intent RFQs, capture after-hours demand, guide buyers to documented service kits, prepare account follow-up, and help reps prioritize urgent or high-value requests. McKinsey reported industrial companies can raise services revenue 30% to 60% within three to five years by better targeting customers and prioritizing aftermarket sales execution.",
+      "role": "Parts sales and inside sales teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-aftermarket-growth"
+      ]
+    },
+    {
+      "question": "How do we handle multilingual buyers, dealers, or field technicians?",
+      "answer": "DocsBot can answer in more than 100 languages while staying grounded in the same approved source content. That helps buyers and technicians ask questions in their preferred language, but you should still define escalation paths for region-specific policies, technical approvals, export restrictions, or cases where translated source material is incomplete.",
+      "role": "Customer support and service desks",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent support account managers preparing for installed-base or fleet conversations?",
+      "answer": "Yes. An internal sales enablement agent can summarize approved account notes, service playbooks, product documentation, prior support themes, and relevant public prospect research when configured. It can draft call-prep briefs and follow-up emails for human review. BCG reported that companies with direct customer engagement see about 33% service revenue for equipment manufacturers versus 17% for component and subsystem makers.",
+      "role": "Parts sales and inside sales teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bcg-aftermarket-direct-customer"
+      ]
+    },
+    {
+      "question": "What is the implementation path if we have thousands of SKUs and multiple product lines?",
+      "answer": "Start with one product family, one buyer journey, or one high-volume support category. Load the approved content, define escalation rules, test against real RFQs and tickets, then expand by product line. For large catalogs, prioritize common SKUs, obsolete-part paths, fitment rules, warranty questions, and quote intake before adding more complex live-system workflows.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will reps trust the answers if they are used to asking senior parts experts?",
+      "answer": "Trust improves when the agent shows the approved source behind the answer and when experts help define escalation rules. Use DocsBot first as a searchable internal knowledge assistant for SOPs, manuals, product notes, and playbooks. Review logs with senior specialists, fix weak source content, and turn repeated expert questions into documented guidance.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help reduce the dependency on a few senior people who know every old part number?",
+      "answer": "Yes. A private internal agent can make institutional knowledge easier to search by training on manuals, SOPs, product notes, sales playbooks, internal wikis, PDFs, and support history exports. It helps newer reps find documented answers faster while preserving escalation to senior experts for undocumented substitutions, unusual failures, or high-risk applications.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot compare with adding another generic chatbot to our website?",
+      "answer": "DocsBot is better positioned as a source-grounded AI agent for parts workflows, not a generic scripted bot. It can train on your approved catalogs, manuals, policies, internal documents, and support content; collect structured RFQ details; summarize handoffs; support private employee knowledge; and trigger bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should procurement and IT ask before approving an AI agent for parts sales?",
+      "answer": "Ask which data sources are used, how access is controlled, whether customer data trains public models, how encryption and logging work, which workflows can take action, how secrets are managed, and where human approval is required. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent tell us where our catalog or documentation is causing lost sales?",
+      "answer": "It can help identify the signals. DocsBot analytics and conversation review can surface repeated unanswered questions, low-confidence topics, confusing compatibility notes, missing replacement guidance, and return-policy friction. That matters because Deloitte stated aftermarket parts and services will likely continue to deliver over 50% of a manufacturer’s profit, making documentation gaps a revenue issue, not just a support issue.",
+      "role": "Operations, product, and catalog managers",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-deloitte-aftermarket-profit"
+      ]
+    },
+    {
+      "question": "What if our buyers ask for firm pricing, freight, or delivery commitments that change daily?",
+      "answer": "Use the agent to collect details and retrieve or route only the information you have authorized. If live pricing, inventory, freight, or lead time is connected through a scoped Skill or API, the agent can present approved values or create a quote task. If not, it should avoid commitments and hand off to sales with a complete summary.",
+      "role": "Parts sales and inside sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations before expanding the agent to more customers or product lines?",
+      "answer": "Yes. Teams can review logs, transcripts, topics, satisfaction signals, resolution data, and knowledge gaps before broad rollout. A practical pilot is to run the agent on a limited set of products, compare answers against real tickets and rep judgment, tune the source content and instructions, then expand once escalation and confidence patterns look reliable.",
+      "role": "Customer support and service desks",
+      "category": "Implementation"
+    }
+  ]
+}

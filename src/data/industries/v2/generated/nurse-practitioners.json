@@ -1,0 +1,699 @@
+{
+  "slug": "nurse-practitioners",
+  "business": "Nurse Practitioners",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Nurse Practitioner Practices",
+    "description": "DocsBot helps nurse practitioners automate patient education, intake routing, and internal knowledge lookup with source-grounded AI agents.",
+    "canonicalPath": "/industry/nurse-practitioners"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for NP practices and clinics",
+    "headline": "Help patients and care teams find the right answer faster",
+    "subheadline": "DocsBot lets nurse practitioner practices create AI agents trained on approved care instructions, service pages, policies, FAQs, and internal SOPs. Use them to answer routine questions, collect intake details, summarize requests, route follow-ups, and escalate sensitive clinical issues to staff.",
+    "proofBullets": [
+      {
+        "text": "Answer patient questions from approved education materials, visit instructions, policies, and service FAQs without improvising medical advice.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Collect appointment intent, symptoms-to-discuss, insurance questions, and preferred follow-up details before routing to the right human workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, protocols, patient communication templates, onboarding, and administrative policies.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to create tickets, prepare handoff summaries, trigger review workflows, or look up approved live context when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your NP practice agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your nurse practitioner practice approves: patient FAQs, pre-visit instructions, post-visit education, billing policies, referral workflows, internal SOPs, and team documents. Agents provide source-grounded answers, collect structured details, summarize conversations, identify knowledge gaps, and use scoped AI Actions for routing or live lookups when your team configures them.",
+    "whoItHelps": [
+      {
+        "role": "Independent NP practice owners",
+        "roleContext": "Keep routine patient and admin questions moving while protecting clinical judgment for licensed professionals and documented workflows.",
+        "bullets": [
+          {
+            "text": "Offer a website agent that explains services, appointment preparation, forms, payment policies, and when to contact the office.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Collect consultation or appointment intent and forward a structured summary to scheduling, helpdesk, email, or CRM-style workflows when configured.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Review analytics to see repeated patient questions and update education pages, FAQs, or internal scripts.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Clinical and care coordination teams",
+        "roleContext": "Give nurses, medical assistants, and coordinators fast access to approved procedures and consistent patient-facing language.",
+        "bullets": [
+          {
+            "text": "Search visit-prep instructions, referral steps, lab follow-up procedures, medication refill policies, and documentation standards from one private agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize patient messages or intake notes into handoff-ready context for staff review, without replacing clinical decision-making.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate complex, urgent, or sensitive questions to humans with conversation context and a clear reason for handoff.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, billing, and front-desk staff",
+        "roleContext": "Reduce repetitive phone and portal questions by making office policies and administrative workflows easier to find.",
+        "bullets": [
+          {
+            "text": "Answer routine questions about hours, location, forms, accepted documents, telehealth preparation, and non-clinical office policies.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route billing, records, referral, and prescription-renewal questions into the correct internal queue or review workflow when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Support multilingual patient communication in more than 100 languages using approved practice content as the source.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aanp-np-count-2024",
+      "metric": "431,410 licensed NPs in 2024",
+      "claim": "AANP reported 431,410 licensed nurse practitioners in the U.S. in 2024, up nearly 12% from 385,358 in 2023.",
+      "sourceTitle": "Nurse Practitioners Gather in Washington, D.C., to Advocate for Patients and Future of Health Care",
+      "sourceUrl": "https://www.aanp.org/news-feed/nps-gather-in-washington-d-c-to-advocate-for-patients-and-future-of-health-care",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "growing NP role",
+        "market size"
+      ]
+    },
+    {
+      "id": "src-bls-aprn-growth",
+      "metric": "35% APRN employment growth projected from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects overall employment of nurse anesthetists, nurse midwives, and nurse practitioners to grow 35% from 2024 to 2034.",
+      "sourceTitle": "Nurse Anesthetists, Nurse Midwives, and Nurse Practitioners: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce growth",
+        "care demand",
+        "staffing pressure"
+      ]
+    },
+    {
+      "id": "src-amn-wait-times-2025",
+      "metric": "23.5-day average wait for family medicine",
+      "claim": "AMN Healthcare’s 2025 survey reported the average wait time to see a family medicine physician was 23.5 days, up 14% since 2022.",
+      "sourceTitle": "2025 Survey of Physician Appointment Wait Times and Medicare and Medicaid Acceptance Rates",
+      "sourceUrl": "https://www.amnhealthcare.com/siteassets/amn-insights/physician/ps-2025-physician-appt-wait-times---wp-v6.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "access pressure",
+        "appointment demand",
+        "patient expectations"
+      ]
+    },
+    {
+      "id": "src-cdc-communication-strategies",
+      "metric": "CDC emphasizes plain language and teach-back communication",
+      "claim": "CDC health literacy guidance describes plain language, written information with verbal explanation, and asking patients to repeat treatment instructions as communication best practices.",
+      "sourceTitle": "Communication Strategies | Health Literacy | CDC",
+      "sourceUrl": "https://www.cdc.gov/health-literacy/php/research-summaries/communication-strategies.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "patient education",
+        "health literacy",
+        "communication quality"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient education and visit-prep agent",
+      "problem": "NP practices answer repeated questions about what to bring, how to prepare, what a service includes, and where to find trusted instructions.",
+      "agentWorkflow": "Train DocsBot on approved patient education, service pages, visit instructions, consent language, and FAQs. The agent responds in plain language, cites approved sources, offers next-step reminders, and escalates clinical or urgent questions instead of attempting diagnosis or treatment decisions.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can collect missing intake details, create a staff task, or attach a summary to the practice’s review workflow.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first primary care visit?",
+        "Can I do this appointment by telehealth?",
+        "What questions should I ask about my new medication?",
+        "I need help understanding these follow-up instructions."
+      ],
+      "businessOutcome": "Patients arrive better prepared, staff repeat fewer standard explanations, and sensitive care questions are routed to licensed professionals.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-cdc-communication-strategies"
+      ]
+    },
+    {
+      "name": "Appointment intent and routing agent",
+      "problem": "Long access times and busy front desks make it harder to prioritize appointment requests and keep patients informed before a human follows up.",
+      "agentWorkflow": "A DocsBot agent can ask structured intake questions, clarify whether the request is new care, follow-up, records, billing, referral, refill, or urgent concern, then prepare a concise handoff for the right staff queue. It can explain office policy from approved content while avoiding clinical triage beyond customer-defined boundaries.",
+      "liveContextOrTools": "AI Actions can trigger a scheduling request, create a ticket, notify staff, or pass collected details to a customer-configured scheduling or helpdesk workflow.",
+      "exampleQuestionsOrRequests": [
+        "I need a follow-up after my lab results.",
+        "Can I book a physical next week?",
+        "Who handles referral paperwork?",
+        "I left a message about a prescription renewal."
+      ],
+      "businessOutcome": "Front-desk teams receive cleaner requests, patients get consistent next steps, and urgent or complex messages can be escalated with context.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-amn-wait-times-2025"
+      ]
+    },
+    {
+      "name": "Internal SOP and protocol knowledge agent",
+      "problem": "Growing NP teams need consistent answers for administrative workflows, patient communication standards, onboarding, and internal procedures.",
+      "agentWorkflow": "DocsBot can train on SOPs, policies, onboarding guides, templates, PDFs, Word documents, Google Drive, Notion, Confluence, and other approved knowledge sources. Staff ask natural-language questions and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "Private chat, Slack, Microsoft Teams, or internal web experiences can give staff access where they already work, with permissions and role-based access controls.",
+      "exampleQuestionsOrRequests": [
+        "What is our referral follow-up process?",
+        "Where is the telehealth consent script?",
+        "How do we document after-hours messages?",
+        "What is our policy for release-of-records requests?"
+      ],
+      "businessOutcome": "Teams spend less time hunting through folders and more time applying the right practice standard consistently.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-aprn-growth"
+      ]
+    },
+    {
+      "name": "Patient message summarization and handoff",
+      "problem": "Portal messages, website requests, and support emails often arrive with missing context and take staff time to sort before a clinician can review them.",
+      "agentWorkflow": "DocsBot can summarize long patient messages, identify requested action types, list missing non-sensitive details, and draft staff-facing handoff notes. Humans remain responsible for clinical decisions, diagnosis, treatment, prescriptions, and high-impact commitments.",
+      "liveContextOrTools": "Through customer-configured Skills, APIs, connectors, MCP servers, or review workflows, the agent can create a task, route to a queue, or look up approved status context.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this patient’s portal message for clinician review.",
+        "Route this records request to the right team.",
+        "Draft a non-clinical acknowledgement for staff approval.",
+        "Create a follow-up task from this conversation."
+      ],
+      "businessOutcome": "Staff can review better-organized context while maintaining human oversight for medical and regulated decisions.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for patient communications",
+      "problem": "Patients often ask questions that are not covered clearly in website content, forms, or after-visit materials.",
+      "agentWorkflow": "DocsBot logs conversations, reports topics, reviews satisfaction and resolution signals, and surfaces unanswered or repeated questions. Practice leaders can use those insights to improve FAQs, education pages, scripts, and internal documentation.",
+      "liveContextOrTools": "Analytics and conversation review can inform updates to approved source content; agents then answer from the improved materials.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are patients asking after visits?",
+        "What topics are missing from our FAQ?",
+        "Where are patients confused about telehealth preparation?",
+        "Which internal SOPs need clearer wording?"
+      ],
+      "businessOutcome": "Practices improve self-service content over time and reduce repeat confusion across patient and staff channels.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Service-fit and new patient qualification agent",
+      "problem": "New patients may not know whether the practice offers the service they need, what records are required, or which appointment type fits.",
+      "agentWorkflow": "A DocsBot presales-style agent can answer from approved service descriptions, eligibility notes, pricing or insurance guidance, and intake instructions. It can collect contact details, care goals, location, preferred channel, and appointment intent before forwarding a summary to staff.",
+      "liveContextOrTools": "Customer-configured forms, webhooks, CRM-style systems, email, or scheduling tools can receive qualified new-patient requests for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Do you provide women’s health visits?",
+        "Can your clinic see adolescents?",
+        "What records do I need before a chronic care visit?",
+        "I want to become a new patient."
+      ],
+      "businessOutcome": "Prospective patients get clearer service guidance while staff receive structured, review-ready intake information.",
+      "icon": "UserCircleIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A patient-facing AI agent that stays inside your approved guidance",
+    "intro": "DocsBot can power a website or portal-style support experience that answers routine patient and prospective-patient questions from your practice’s own content. For medical, urgent, identity, billing, or high-impact topics, the agent can collect context and hand off to staff instead of making decisions.",
+    "requests": [
+      {
+        "request": "“What should I do before my appointment?”",
+        "agentResponseStrategy": "Answer from visit-prep instructions, forms, location details, telehealth requirements, and approved patient education, then suggest contacting the office for personal medical concerns.",
+        "sourceTypes": [
+          "Visit-prep pages",
+          "Patient FAQs",
+          "Forms and policies"
+        ],
+        "optionalAction": "Collect appointment type and missing paperwork status, then create a staff follow-up task if configured.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you treat this condition?”",
+        "agentResponseStrategy": "Explain services from approved service pages, clarify limitations, and route uncertain or urgent symptoms to a human review path.",
+        "sourceTypes": [
+          "Service pages",
+          "Scope notes",
+          "Clinical disclaimers"
+        ],
+        "optionalAction": "Forward a new-patient inquiry with the patient’s stated goal and preferred contact channel.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“I don’t understand my follow-up instructions.”",
+        "agentResponseStrategy": "Restate approved instructions in plain language, point to the source material, and escalate questions that require individualized clinical judgment.",
+        "sourceTypes": [
+          "After-visit education",
+          "Care guides",
+          "Medication education policies"
+        ],
+        "optionalAction": "Prepare a summary for nursing staff review when the patient asks for personal medical guidance.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-cdc-communication-strategies"
+        ]
+      },
+      {
+        "request": "“Can someone help with billing or records?”",
+        "agentResponseStrategy": "Separate billing, records, referral, and clinical requests, answer from office policies, and route to the correct administrative workflow.",
+        "sourceTypes": [
+          "Billing policies",
+          "Records request instructions",
+          "Referral workflows"
+        ],
+        "optionalAction": "Create a ticket or notify the right team through a customer-configured workflow.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“Can I get this information in another language?”",
+        "agentResponseStrategy": "Use the approved source material to answer in the patient’s preferred language while keeping escalation paths for unclear or sensitive requests.",
+        "sourceTypes": [
+          "Approved FAQs",
+          "Patient education",
+          "Office policies"
+        ],
+        "optionalAction": "Offer to send a summarized request to staff for follow-up in the preferred language.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I have a new concern—what happens next?”",
+        "agentResponseStrategy": "Collect the patient’s stated concern and contact details, provide approved office instructions, and route urgent or clinical questions according to practice-defined escalation language.",
+        "sourceTypes": [
+          "Escalation policy",
+          "Office hours",
+          "Patient communication templates"
+        ],
+        "optionalAction": "Notify staff or create a review task with a concise summary and timestamps.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for clinical operations and practice administration",
+    "intro": "DocsBot gives NP teams a controlled way to retrieve internal knowledge, summarize requests, draft responses, and find policy answers without searching across folders, shared drives, and outdated documents.",
+    "workflows": [
+      {
+        "name": "SOP lookup for busy staff",
+        "problem": "Front-desk and care coordination teams need fast answers to recurring procedure questions while phones, portal messages, and walk-ins compete for attention.",
+        "agentWorkflow": "Train the agent on SOPs, internal wikis, PDFs, Word documents, and approved team guidance. Staff ask questions in natural language and get source-grounded answers with references back to the underlying document.",
+        "sourceTypes": [
+          "SOPs",
+          "Internal wikis",
+          "Training documents"
+        ],
+        "optionalAction": "Flag missing or conflicting documentation for practice leadership review.",
+        "outcome": "More consistent execution of routine workflows and less time spent searching for the right document.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Message classification and routing",
+        "problem": "Patient messages often mix clinical, administrative, billing, and records issues in one request.",
+        "agentWorkflow": "The agent can classify the request, extract key details, summarize the patient’s intent, and route it to the right queue or person through customer-configured Skills, APIs, connectors, or helpdesk-style workflows.",
+        "sourceTypes": [
+          "Message policies",
+          "Routing rules",
+          "Department contact lists"
+        ],
+        "optionalAction": "Create a task, attach a summary, and notify the assigned team when configured.",
+        "outcome": "Fewer ambiguous handoffs and faster first review by the correct team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Onboarding and training support",
+        "problem": "As APRN employment grows, practices need repeatable ways to help new staff learn procedures and patient communication standards.",
+        "agentWorkflow": "DocsBot can answer new-hire questions from onboarding materials, office policies, scripts, and training manuals, then show which topics create repeated confusion.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training manuals",
+          "Policy documents"
+        ],
+        "optionalAction": "Generate a list of frequently asked onboarding questions for managers to improve training content.",
+        "outcome": "New team members can get consistent answers while managers see where documentation needs improvement.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-aprn-growth"
+        ]
+      },
+      {
+        "name": "Governed handling of sensitive workflows",
+        "problem": "Healthcare workflows include protected, high-impact, and clinically sensitive decisions that should not be automated without boundaries.",
+        "agentWorkflow": "Use DocsBot permissions, source controls, logs, customer-defined instructions, and human escalation paths to keep the agent focused on approved answers, summaries, routing, and administrative actions.",
+        "sourceTypes": [
+          "Escalation rules",
+          "Compliance guidance",
+          "Approved response templates"
+        ],
+        "optionalAction": "Send sensitive requests to a human review queue with conversation context instead of completing the action automatically.",
+        "outcome": "Teams can use automation while keeping clinical judgment, identity-sensitive work, and regulated decisions under human control.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved practice content",
+      "mainLandingPageContext": "DocsBot trains AI agents on the knowledge sources a business chooses, then answers with grounding in those materials.",
+      "industryApplication": "NP practices can use approved patient education, service descriptions, visit-prep instructions, billing policies, and SOPs so answers stay aligned with practice guidance.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform customer-configured lookups, summaries, routing, task creation, record updates, and workflow triggers.",
+      "industryApplication": "A practice can configure actions to collect intake details, create follow-up tasks, route billing or records questions, and prepare clinical handoffs for staff review.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve employees through private team chat, internal web experiences, Slack, Microsoft Teams, and approved knowledge sources.",
+      "industryApplication": "Care coordinators, front-desk staff, and managers can quickly retrieve SOPs, onboarding guidance, scripts, and administrative policies.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, reports, topic management, satisfaction and resolution analysis, and visibility into unanswered questions.",
+      "industryApplication": "NP leaders can see what patients and staff repeatedly ask, then improve FAQs, after-visit materials, service pages, and internal workflows.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for healthcare buyers",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Practices can set access controls and review paths for sensitive patient, operational, and administrative knowledge while keeping credentials out of chats.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making with source-grounded agents.",
+      "DocsBot is built for owned knowledge libraries, so practices control the materials an agent learns from.",
+      "Education-heavy workflows benefit from agents that reinforce approved concepts and make complex information easier to access."
+    ],
+    "whyTheseReviewsFit": "For nurse practitioner practices, the strongest proof is controlled knowledge access: healthcare communications teams using DocsBot internally, educators reinforcing complex concepts, and operators training agents on their own content libraries. That matches the need for reliable patient education, staff SOP lookup, and governed workflow support.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for nurse practitioner practices",
+    "audience": [
+      "Nurse practitioner practice owners",
+      "Clinic operations managers",
+      "Care coordination teams",
+      "Front-desk and patient support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "health-coaching",
+    "healthcare-revenue-cycle-management",
+    "child-youth-services",
+    "emergency-medical-services",
+    "dentistry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "nurse-practitioners",
+    "webSearchQueries": [
+      "AANP nurse practitioner statistics 2024 2025 number of nurse practitioners United States",
+      "Bureau Labor Statistics nurse practitioners occupational outlook growth 2024 2034",
+      "AMA physician appointment wait times 2025 survey average days",
+      "HHS health literacy patient communication statistics"
+    ],
+    "sourceUrls": [
+      "https://www.aanp.org/news-feed/nps-gather-in-washington-d-c-to-advocate-for-patients-and-future-of-health-care",
+      "https://www.bls.gov/ooh/healthcare/nurse-anesthetists-nurse-midwives-and-nurse-practitioners.htm",
+      "https://www.amnhealthcare.com/siteassets/amn-insights/physician/ps-2025-physician-appt-wait-times---wp-v6.pdf",
+      "https://www.cdc.gov/health-literacy/php/research-summaries/communication-strategies.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40515,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27971,
+        "outputTokens": 10324,
+        "reasoningOutputTokens": 126,
+        "totalTokens": 50839,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.227924,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.237924
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21568,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14272,
+          "outputTokens": 7747,
+          "reasoningOutputTokens": 126,
+          "totalTokens": 29315,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.153709,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.163709
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18947,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13699,
+          "outputTokens": 2577,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21524,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074215,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074215
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxoZWFsdGhjYXJlfGVufDB8MHx8fDE3MTQ4NzgwNTl8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Nurse Practitioners background image",
+    "source": "legacy-industry",
+    "query": "Nurse Practitioners"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent the agent from giving medical advice or making triage decisions?",
+      "answer": "Configure the agent around approved patient education, visit instructions, service pages, policies, and escalation rules. DocsBot can answer routine questions, collect context, summarize the request, and hand off urgent, sensitive, or individualized clinical concerns to staff instead of diagnosing, prescribing, or making care decisions.",
+      "role": "Independent NP practice owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help reduce repetitive phone calls without replacing our front-desk team?",
+      "answer": "Yes. A patient-facing agent can answer routine questions about hours, forms, appointment preparation, telehealth instructions, billing policies, records requests, and service fit from your approved content. For anything personal, unclear, urgent, or high-impact, it can collect details and route a summary to staff for follow-up.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What patient questions are safest to automate first in an NP practice?",
+      "answer": "Start with low-risk, high-volume questions: what to bring, where to park, accepted documents, telehealth setup, how referrals work, records request steps, office policies, service descriptions, and general after-visit instructions. Keep diagnosis, treatment changes, medication decisions, urgent symptoms, identity-sensitive actions, and billing disputes in human review paths.",
+      "role": "Clinical and care coordination teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support patient education in plain language?",
+      "answer": "Yes. DocsBot can answer from approved education materials and restate instructions in patient-friendly language while linking back to the source material. That fits CDC health literacy guidance emphasizing plain language, written information with verbal explanation, and teach-back-style confirmation for treatment instructions.",
+      "role": "Clinical and care coordination teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cdc-communication-strategies"
+      ]
+    },
+    {
+      "question": "How would DocsBot handle appointment requests when our schedule is already full?",
+      "answer": "The agent can collect structured appointment intent, reason for visit, preferred follow-up method, insurance or paperwork questions, and urgency language defined by your practice. It can then create a task, ticket, email, or scheduling-request handoff through customer-configured workflows, while staff remain responsible for prioritization and clinical judgment.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can this integrate with our EHR, scheduling system, portal, or helpdesk?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, MCP servers, or workflow automations where your team authorizes access. A common first phase is not deep EHR automation: use the agent to answer from approved content, collect details, and send staff a structured handoff before adding live lookups or record updates.",
+      "role": "Independent NP practice owners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot train on our patient data or use it to improve public AI models?",
+      "answer": "DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, encryption in transit and at rest, GDPR-ready governance, granular access controls, and role-based permissions, which are important for healthcare teams evaluating AI governance.",
+      "role": "Independent NP practice owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use DocsBot internally for SOPs, protocols, and onboarding instead of only patient-facing support?",
+      "answer": "Yes. DocsBot can power a private internal knowledge agent trained on SOPs, policies, onboarding guides, PDFs, Word documents, Google Drive, Notion, Confluence, and other approved sources. Staff can ask natural-language questions and receive source-grounded answers with references back to the underlying material.",
+      "role": "Clinical and care coordination teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot help with staffing pressure as NP practices grow?",
+      "answer": "DocsBot helps preserve staff time by answering repeat questions, organizing patient requests, supporting onboarding, and making SOPs easier to find. That matters because BLS projects employment of nurse anesthetists, nurse midwives, and nurse practitioners to grow 35% from 2024 to 2034, increasing the need for repeatable operational workflows.",
+      "role": "Independent NP practice owners",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-aprn-growth"
+      ]
+    },
+    {
+      "question": "What should we measure to prove ROI after launch?",
+      "answer": "Track repetitive question volume, phone or portal deflection, time to first response, number of routed requests, appointment-intent submissions, staff satisfaction, unresolved topics, escalation rates, and content gaps. For internal use, measure reduced SOP-search time, onboarding questions answered, and fewer ambiguous handoffs.",
+      "role": "Independent NP practice owners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent summarize patient messages for clinician review?",
+      "answer": "Yes, within your boundaries. DocsBot can summarize long patient messages, classify the request type, extract stated concerns, list missing non-sensitive details, and prepare a handoff note. The clinician or staff member still reviews the context and makes any clinical, prescription, diagnosis, or treatment decision.",
+      "role": "Clinical and care coordination teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the agent from using outdated policies or old patient handouts?",
+      "answer": "Use source controls and a clear content owner. Train the agent on approved documents, remove outdated files, review conversation logs, and update FAQs or SOPs when analytics show repeated confusion. DocsBot’s knowledge-gap reporting helps identify where source material is missing, conflicting, or unclear.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for patients with limited English proficiency?",
+      "answer": "DocsBot can support responses in more than 100 languages using your approved practice content as the source. For sensitive, unclear, or individualized medical questions, the agent should still route to staff according to your language-access and clinical escalation process.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What is a realistic first implementation for a small independent NP practice?",
+      "answer": "A practical pilot is a website agent trained on service pages, new-patient FAQs, visit-prep instructions, telehealth guidance, forms, billing basics, and escalation language. Add a simple handoff workflow for appointment intent or records questions, then expand to internal SOP lookup once staff trust the responses.",
+      "role": "Independent NP practice owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Do we need clean documentation before implementing DocsBot?",
+      "answer": "You do not need perfect documentation, but you do need approved sources for the agent to rely on. Many practices start with existing website pages, PDFs, forms, scripts, and SOPs, then use unanswered questions and repeated topics to improve the knowledge base over time.",
+      "role": "Independent NP practice owners",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we control what front-desk staff, clinicians, and managers are allowed to access?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so patient-facing content, internal SOPs, billing guidance, and leadership materials can be governed separately. That helps practices offer useful internal search without exposing every document to every user.",
+      "role": "Independent NP practice owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does the agent know when to escalate to a human?",
+      "answer": "Escalation rules can be defined around urgency, symptoms, personal medical judgment, medication changes, diagnosis, billing disputes, identity-sensitive requests, missing information, low confidence, or unsupported topics. The agent can then explain the handoff, capture context, and send staff a concise summary.",
+      "role": "Clinical and care coordination teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us improve our website and patient instructions over time?",
+      "answer": "Yes. Conversation review, topic reports, satisfaction and resolution analysis, and unanswered-question logs show what patients and staff keep asking. Practice leaders can use those insights to update FAQs, service pages, after-visit instructions, onboarding materials, and internal scripts.",
+      "role": "Independent NP practice owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot to our site?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not a generic scripted bot. It can answer from your materials, cite source content, collect structured details, summarize context, route requests, and use scoped AI Actions when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help with new-patient qualification without creating access or compliance risk?",
+      "answer": "Yes, if the workflow is scoped carefully. The agent can explain services, collect contact details, care goals, location, preferred channel, insurance questions, and appointment intent, then forward a structured summary to staff. It should avoid promising eligibility, diagnosis, pricing exceptions, or appointment priority unless your approved rules support that.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens if a patient asks about urgent symptoms after hours?",
+      "answer": "The agent should follow your approved escalation language: avoid clinical triage, provide your practice’s after-hours instructions, identify emergency-language triggers, and direct the patient to the appropriate human or emergency pathway. It can also log the conversation and notify staff if you configure that workflow.",
+      "role": "Clinical and care coordination teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How can we justify automation when patients are already waiting for primary care access?",
+      "answer": "Automation will not create provider capacity by itself, but it can reduce avoidable friction before staff review. With average family medicine physician wait time reported at 23.5 days in AMN Healthcare’s 2025 survey, clearer self-service, cleaner intake, and faster routing can improve the patient experience around limited appointment access.",
+      "role": "Independent NP practice owners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-amn-wait-times-2025"
+      ]
+    },
+    {
+      "question": "Can billing, records, referrals, and refill questions be separated automatically?",
+      "answer": "DocsBot can classify mixed messages, ask for missing administrative details, answer from approved policies, and route the request to the right queue or person through configured workflows. For prescription renewals, clinical review rules and identity-sensitive steps should remain under staff control.",
+      "role": "Operations, billing, and front-desk staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What will our staff need to do during onboarding?",
+      "answer": "Staff usually help identify the highest-volume questions, gather approved documents, define escalation rules, review test conversations, and decide which handoffs need human review. For internal agents, team leads should confirm which SOPs are current and who owns updates after launch.",
+      "role": "Clinical and care coordination teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we review what the agent said if there is a patient complaint or quality concern?",
+      "answer": "Yes. DocsBot provides logs and conversation review so managers can inspect responses, evaluate escalations, identify source gaps, and adjust instructions or content. That auditability is especially useful for healthcare workflows where trust, consistency, and staff accountability matter.",
+      "role": "Independent NP practice owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this scale if we add more locations, specialties, or NP providers?",
+      "answer": "Yes. You can expand the knowledge base by location, service line, policy set, or internal team while using permissions and source controls to keep answers aligned. Analytics can show which locations or workflows create the most confusion before you standardize content across the practice.",
+      "role": "Independent NP practice owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "Where should humans stay firmly in the loop?",
+      "answer": "Keep humans responsible for diagnosis, treatment plans, medication changes, prescriptions, clinical triage, identity-sensitive records work, payment exceptions, legal or consent concerns, and any high-impact commitment. DocsBot is best used to answer approved guidance, organize context, draft summaries, and route work for review.",
+      "role": "Clinical and care coordination teams",
+      "category": "Human oversight"
+    }
+  ]
+}

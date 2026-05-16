@@ -1,0 +1,762 @@
+{
+  "slug": "microfinance",
+  "business": "Microfinance",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Microfinance Client Service",
+    "description": "DocsBot helps microfinance teams deliver source-grounded client answers, route loan questions, and support field staff without adding support load.",
+    "canonicalPath": "/industry/microfinance"
+  },
+  "hero": {
+    "eyebrow": "AI automation for inclusive financial services",
+    "headline": "DocsBot AI agents for microfinance teams and borrowers",
+    "subheadline": "Give borrowers, applicants, field officers, and support teams fast answers from your approved loan policies, onboarding guides, repayment FAQs, product disclosures, SOPs, and internal knowledge—while keeping sensitive financial decisions in human hands.",
+    "proofBullets": [
+      {
+        "text": "Answer borrower questions about eligibility, repayments, documentation, fees, branch hours, and program rules from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, summarize the conversation, and route loan, savings, insurance, or hardship requests to the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support field officers with instant access to SOPs, policy notes, onboarding scripts, and compliance guidance in private team chat.",
+        "icon": "DevicePhoneMobileIcon"
+      },
+      {
+        "text": "Use AI Actions with scoped permissions for live status lookups, ticket creation, workflow triggers, and human handoffs when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a microfinance AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps microfinance institutions create AI agents trained on their own public and private knowledge. Agents can answer borrower and applicant questions, support employees, summarize context, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Client service and contact center leaders",
+        "roleContext": "Microfinance borrowers often need clear, repeatable answers about loan terms, payment timing, documentation, fees, and what happens when circumstances change.",
+        "bullets": [
+          {
+            "text": "Deflect recurring questions with source-grounded answers from your policies, FAQs, and borrower education content.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Escalate sensitive repayment, collections, complaint, fraud, or hardship cases to a human with the conversation summary attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which loan, repayment, and onboarding topics create the most confusion.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Loan officers and field teams",
+        "roleContext": "Field staff need consistent answers while working across branches, communities, partner locations, and mobile-first service channels.",
+        "bullets": [
+          {
+            "text": "Retrieve SOPs, product criteria, document checklists, and borrower education scripts without searching shared folders.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Ask policy questions in private team chat before advising an applicant or preparing a handoff.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Summarize client conversations and create follow-up tasks through customer-configured workflows when approved.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "MapPinIcon"
+      },
+      {
+        "role": "Compliance, risk, and operations teams",
+        "roleContext": "Responsible finance depends on clear disclosures, complaint handling, staff consistency, and controlled workflows around regulated financial services.",
+        "bullets": [
+          {
+            "text": "Keep approved product disclosures, fair-treatment guidance, complaint scripts, and escalation rules searchable for staff.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use role-based permissions, logs, and review paths for actions involving financial, identity, or collections workflows.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "CGAP highlights digital credit risks including overindebtedness, data misuse, limited financial literacy, and regulatory loopholes.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-cgap-digital-credit"
+            ]
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Growth and borrower outreach teams",
+        "roleContext": "Microfinance institutions may educate applicants, explain program fit, and collect lead information before a staff member reviews the case.",
+        "bullets": [
+          {
+            "text": "Answer program-fit questions from approved service pages, brochures, eligibility criteria, and community partner materials.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Collect structured intake details such as location, business type, requested amount, contact preference, and follow-up timeline.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Forward qualified inquiries, summaries, and conversation context to CRM, email, helpdesk, or team channels through configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-worldbank-findex-unbanked",
+      "metric": "1.4 billion adults remained unbanked in 2021",
+      "claim": "The World Bank Global Findex reported that 76% of adults had an account in 2021, while 1.4 billion adults still lacked an account at a financial institution or mobile money provider.",
+      "sourceTitle": "The Global Findex 2021: Interactive Executive Summary Visualization",
+      "sourceUrl": "https://www.worldbank.org/en/publication/globalfindex/interactive-executive-summary-visualization",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "financial inclusion need",
+        "client education demand",
+        "market scale"
+      ]
+    },
+    {
+      "id": "src-gsma-mobile-money-2025",
+      "metric": "Mobile money processed $1.68 trillion in 2024",
+      "claim": "GSMA reported that mobile money accounts processed about 108 billion transactions totaling more than $1.68 trillion in 2024.",
+      "sourceTitle": "Mobile Money Surpasses Two Billion Registered Accounts and Over Half a Billion Monthly Active Users Globally",
+      "sourceUrl": "https://www.gsma.com/newsroom/press-release/mobile-money-surpasses-two-billion-registered-accounts-and-over-half-a-billion-monthly-active-users-globally/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "mobile-first service",
+        "digital transaction volume",
+        "client support scale"
+      ]
+    },
+    {
+      "id": "src-cgap-digital-credit",
+      "metric": "Digital credit consumer risks include overindebtedness and data misuse",
+      "claim": "CGAP notes that digital credit growth creates consumer protection concerns including overindebtedness, data misuse, limited financial and digital literacy, and regulatory gaps.",
+      "sourceTitle": "Digital Credit | CGAP",
+      "sourceUrl": "https://www.cgap.org/topics/collections/digital-credit",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "consumer protection",
+        "responsible lending",
+        "compliance pressure"
+      ]
+    },
+    {
+      "id": "src-fed-400-expense",
+      "metric": "63% of U.S. adults could cover a $400 emergency with cash or equivalent in 2023",
+      "claim": "The Federal Reserve reported that 63% of adults could cover a $400 emergency expense using cash or equivalent, while 13% would be unable to pay it by any means.",
+      "sourceTitle": "Federal Reserve Board issues Economic Well-Being of U.S. Households in 2023 report",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/other20240521a.htm",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "financial fragility",
+        "borrower sensitivity",
+        "hardship support"
+      ]
+    },
+    {
+      "id": "src-worldbank-consumer-protection",
+      "metric": "Responsible financial inclusion requires consumer protection and financial capability",
+      "claim": "The World Bank describes responsible financial inclusion as requiring strong consumer protection frameworks and effective financial capability interventions for digital finance and fintech.",
+      "sourceTitle": "Responsible Financial Access",
+      "sourceUrl": "https://responsiblefinance.worldbank.org/en/responsible-finance",
+      "sourceDate": "Undated",
+      "bestUsedFor": [
+        "consumer protection",
+        "governance",
+        "financial education"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Borrower self-service for loan and repayment questions",
+      "problem": "Support teams repeatedly answer questions about eligibility, required documents, payment timing, late fees, grace periods, branch access, and program rules.",
+      "agentWorkflow": "A DocsBot AI support agent answers from approved borrower FAQs, product pages, policy summaries, repayment guides, and disclosure documents. If the question is sensitive, disputed, or account-specific, it collects missing details and prepares a human handoff instead of making a financial decision.",
+      "liveContextOrTools": "With approved Skills, APIs, or connectors, the agent can look up allowed status fields, create a ticket, notify a branch team, or attach a conversation summary to the borrower record.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need before applying for a group loan?",
+        "When is my next payment due?",
+        "What should I do if my business income dropped this month?"
+      ],
+      "businessOutcome": "Reduce repetitive support load while giving borrowers clearer, more consistent guidance before staff review account-specific decisions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Application intake and lead qualification",
+      "problem": "Applicants may not know which loan, savings, insurance, or business-support program fits their situation, creating incomplete inquiries and manual back-and-forth.",
+      "agentWorkflow": "The agent explains program options from approved service materials, asks structured intake questions, and qualifies inquiries using customer-defined rules such as geography, business type, requested amount, group status, documentation readiness, and preferred contact channel.",
+      "liveContextOrTools": "DocsBot can submit a custom lead form and forward the qualified summary to CRM, helpdesk software, email, Slack, Microsoft Teams, or other customer-configured systems.",
+      "exampleQuestionsOrRequests": [
+        "I run a market stall and need working capital. Which program should I ask about?",
+        "Can someone call me about a loan for equipment?",
+        "Do I need a guarantor or group membership?"
+      ],
+      "businessOutcome": "Improve inquiry quality and help staff prioritize applicants with the context needed for fast follow-up.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Field officer policy and SOP assistant",
+      "problem": "Loan officers and community agents need consistent guidance while working away from headquarters, especially when policies change or products vary by region.",
+      "agentWorkflow": "A private internal knowledge agent retrieves answers from SOPs, field manuals, onboarding guides, product criteria, branch procedures, complaint-handling instructions, and compliance notes. Staff can ask questions in plain language and receive source-grounded answers with the relevant policy context.",
+      "liveContextOrTools": "The agent can be available in private team chat, Slack, Microsoft Teams, or internal portals, depending on how the institution deploys DocsBot.",
+      "exampleQuestionsOrRequests": [
+        "What is the checklist before a first disbursement visit?",
+        "How do I explain declining-balance interest in simple language?",
+        "Which cases must be escalated to risk or compliance?"
+      ],
+      "businessOutcome": "Increase staff consistency and reduce time spent searching internal folders or asking supervisors for routine policy answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Responsible digital credit guidance and complaint routing",
+      "problem": "Digital credit can scale quickly, but unclear terms, limited financial literacy, data concerns, and complaint gaps can create borrower harm and regulatory risk.",
+      "agentWorkflow": "DocsBot answers from approved disclosures, financial education content, complaint procedures, privacy explanations, and escalation rules. It can distinguish general education from account-specific issues and route complaints, disputes, hardship requests, or data concerns to a trained human.",
+      "liveContextOrTools": "With customer-configured AI Actions, the agent can create complaint tickets, label risk categories, summarize borrower narratives, and notify compliance teams within defined permissions.",
+      "exampleQuestionsOrRequests": [
+        "How is my repayment amount calculated?",
+        "I think a fee is wrong. Who reviews this?",
+        "How do you use my personal information?"
+      ],
+      "businessOutcome": "Support clearer borrower communication while preserving human review for high-impact financial, privacy, or complaint decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cgap-digital-credit",
+        "src-worldbank-consumer-protection"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for borrower education",
+      "problem": "Microfinance teams may not know which policies, fees, repayment steps, or digital-channel issues confuse borrowers until they appear as complaints or missed payments.",
+      "agentWorkflow": "DocsBot logs conversations, reports recurring topics, reviews unanswered questions, and surfaces content gaps. Teams can use these insights to improve FAQs, borrower education scripts, onboarding pages, field training, and helpdesk macros.",
+      "liveContextOrTools": "Analytics and conversation review can inform documentation updates, support training, and topic management without exposing private customer data to public model training.",
+      "exampleQuestionsOrRequests": [
+        "Which repayment questions are appearing most often this month?",
+        "What borrower questions did the agent fail to answer?",
+        "Which onboarding article should we improve next?"
+      ],
+      "businessOutcome": "Turn support conversations into practical improvements for client education, documentation, and staff enablement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Mobile-first service support for digital finance users",
+      "problem": "Mobile money and digital finance channels are handling massive transaction volume, increasing the need for always-available guidance on payments, wallets, transfers, and account access.",
+      "agentWorkflow": "A DocsBot agent answers digital-channel questions from mobile money instructions, payment FAQs, troubleshooting guides, branch notices, and product policies. It can guide users through approved steps and escalate failed, disputed, or identity-sensitive transactions.",
+      "liveContextOrTools": "Where authorized, Skills or APIs can check permitted transaction or ticket status, trigger a support workflow, or hand off to a human agent with a summary.",
+      "exampleQuestionsOrRequests": [
+        "My mobile repayment failed. What should I check first?",
+        "Can I pay through mobile money?",
+        "Where do I find my payment reference number?"
+      ],
+      "businessOutcome": "Help borrowers resolve routine digital-channel issues faster while keeping transaction disputes and identity questions under controlled review.",
+      "icon": "DevicePhoneMobileIcon",
+      "sourceIds": [
+        "src-gsma-mobile-money-2025"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A borrower-facing AI agent that explains, routes, and escalates responsibly",
+    "intro": "DocsBot can power a website or product chat widget trained on approved borrower resources, program pages, disclosures, repayment guides, branch information, and support policies. It gives fast answers while routing account-specific, regulated, or sensitive financial situations to people.",
+    "requests": [
+      {
+        "request": "“What loan options are available for my small business?”",
+        "agentResponseStrategy": "Explain product categories and eligibility criteria from approved materials, ask clarifying intake questions, and avoid promising approval, pricing, or terms.",
+        "sourceTypes": [
+          "Program pages",
+          "Eligibility criteria",
+          "Borrower FAQs",
+          "Product brochures"
+        ],
+        "optionalAction": "Collect contact details and route the qualified inquiry to a loan officer or outreach team.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“I cannot make this week’s payment. What are my options?”",
+        "agentResponseStrategy": "Provide general hardship guidance from approved policies, collect context, and escalate to the appropriate servicing or collections team for human review.",
+        "sourceTypes": [
+          "Repayment policies",
+          "Hardship procedures",
+          "Escalation rules",
+          "Client service scripts"
+        ],
+        "optionalAction": "Create a ticket and attach a concise borrower-summary for the servicing team.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-fed-400-expense"
+        ]
+      },
+      {
+        "request": "“How are fees and repayment amounts calculated?”",
+        "agentResponseStrategy": "Answer from approved disclosures and financial education content, show the relevant source context, and route disputes or account-specific calculations to staff.",
+        "sourceTypes": [
+          "Fee disclosures",
+          "Repayment examples",
+          "Financial education guides",
+          "Compliance-approved FAQs"
+        ],
+        "optionalAction": "If configured, look up permitted account-status fields or route a disputed-fee case for review.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Can I use mobile money to make repayments?”",
+        "agentResponseStrategy": "Guide the borrower through approved payment-channel instructions and troubleshooting steps without exposing credentials or accepting sensitive information in chat.",
+        "sourceTypes": [
+          "Payment instructions",
+          "Mobile money guides",
+          "Security notices",
+          "Troubleshooting FAQs"
+        ],
+        "optionalAction": "Trigger a support workflow for failed payment reports or hand off to a human for transaction disputes.",
+        "icon": "DevicePhoneMobileIcon",
+        "sourceIds": [
+          "src-gsma-mobile-money-2025"
+        ]
+      },
+      {
+        "request": "“Do you have information in my language?”",
+        "agentResponseStrategy": "Answer in the borrower’s preferred language when your approved content supports the topic, keeping terminology consistent with your institution’s materials.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Client education materials",
+          "Website content",
+          "Policy summaries"
+        ],
+        "optionalAction": "Route requests for unavailable languages or local branch support to the right team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I want to file a complaint about my account.”",
+        "agentResponseStrategy": "Explain the complaint process from approved procedures, collect the issue category and contact preference, and keep the final resolution with trained staff.",
+        "sourceTypes": [
+          "Complaint procedures",
+          "Consumer protection policies",
+          "Escalation matrices",
+          "Service standards"
+        ],
+        "optionalAction": "Create a complaint ticket, tag the issue, and notify the responsible team through an approved workflow.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-worldbank-consumer-protection"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private knowledge agents for loan, operations, and compliance teams",
+    "intro": "DocsBot can act as an internal knowledge agent trained on SOPs, policies, staff manuals, wikis, PDFs, Google Drive, Notion, Confluence, Word documents, and other approved knowledge sources so employees get consistent answers wherever they work.",
+    "workflows": [
+      {
+        "name": "Loan officer enablement",
+        "problem": "Staff lose time asking supervisors to confirm eligibility, documentation, field-visit, disbursement, or renewal steps.",
+        "agentWorkflow": "Employees ask the internal agent for the relevant procedure, checklist, or policy explanation. DocsBot returns a source-grounded answer with the approved context, helping staff prepare the next borrower interaction.",
+        "sourceTypes": [
+          "Loan manuals",
+          "SOPs",
+          "Product criteria",
+          "Field checklists"
+        ],
+        "optionalAction": "Create a follow-up task or route a question to a supervisor when the answer is missing or ambiguous.",
+        "outcome": "Faster, more consistent staff guidance across branches, field locations, and service channels.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Compliance and complaint support",
+        "problem": "Consumer protection, privacy, collections, and complaint workflows require careful routing and consistent scripts.",
+        "agentWorkflow": "The internal agent retrieves approved guidance, summarizes borrower situations, and helps staff understand when to escalate to compliance, risk, legal, or management.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Complaint scripts",
+          "Privacy policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Draft a complaint summary or create a review task through a customer-configured workflow.",
+        "outcome": "More consistent handling of sensitive cases without letting the AI make regulated financial decisions.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Support ticket intelligence",
+        "problem": "Recurring borrower questions can bury support teams and make it difficult to identify which content needs improvement.",
+        "agentWorkflow": "DocsBot can connect to helpdesk workflows when configured to summarize tickets, draft responses from approved sources, route cases, and report repeated topics or unanswered questions.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Macros",
+          "FAQs",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Route the ticket to a branch, servicing, collections, or compliance queue with a summary and category label.",
+        "outcome": "Less repetitive support work and clearer visibility into the borrower topics causing friction.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New staff must learn many products, policies, scripts, and systems before they can confidently support borrowers.",
+        "agentWorkflow": "A private DocsBot agent answers onboarding questions from training materials, staff handbooks, SOPs, and internal knowledge bases, making institutional knowledge available on demand.",
+        "sourceTypes": [
+          "Training materials",
+          "Staff handbooks",
+          "Onboarding checklists",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Log unanswered training questions so operations leaders can improve onboarding content.",
+        "outcome": "Shorten ramp time and preserve institutional knowledge as teams grow or rotate across branches.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded borrower answers",
+      "mainLandingPageContext": "DocsBot agents train on your approved websites, help centers, documents, internal content, and other configured knowledge sources.",
+      "industryApplication": "Give borrowers clear answers about loan eligibility, documentation, repayments, fees, savings products, insurance, and digital payment steps from approved materials.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, record updates, routing, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Look up permitted account or ticket status, create servicing tasks, route complaints, summarize client conversations, or notify field teams within customer-defined permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can provide employees with instant answers from SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other private sources.",
+      "industryApplication": "Help loan officers, field agents, call center staff, and compliance teams retrieve the correct procedure before advising borrowers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Find repeated confusion around repayment schedules, fees, application requirements, digital payments, complaint processes, and borrower education content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages using your configured knowledge sources and instructions.",
+      "industryApplication": "Support multilingual borrower communities while keeping answers aligned with institution-approved product, policy, and disclosure language.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Deploy AI agents for financial-service workflows with access controls, scoped actions, logs, and review paths appropriate for sensitive borrower information.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven self-service patterns for finance-adjacent communities and high-volume support environments.",
+      "Train agents on your own content library so answers stay grounded in approved borrower and staff materials.",
+      "Support human teams with website, helpdesk-style, and internal knowledge workflows as demand grows."
+    ],
+    "whyTheseReviewsFit": "Microfinance teams need trustworthy answers, efficient support, and staff access to approved knowledge. DocsBot’s customer proof shows self-service, owned-content training, embedded support, and high-volume resolution patterns that fit borrower education and internal operations.",
+    "trustClaimIcons": [
+      "ShieldCheckIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for microfinance institutions",
+    "audience": [
+      "Microfinance operations leaders",
+      "Client service teams",
+      "Loan officers and field staff",
+      "Compliance and risk teams",
+      "Borrower outreach teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BanknotesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "bank-credit-union",
+    "finance-insurance",
+    "financial-consulting",
+    "cash-advances",
+    "collection-agency",
+    "insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "microfinance",
+    "webSearchQueries": [
+      "World Bank financial inclusion Global Findex 2021 unbanked adults 1.4 billion",
+      "GSMA mobile money state of the industry report 2025 registered accounts transactions",
+      "CGAP responsible digital credit consumer protection disclosure complaints microfinance",
+      "Federal Reserve Economic Well-Being 2023 unable to cover 400 emergency expense percent",
+      "World Bank microfinance financial consumer protection responsible finance"
+    ],
+    "sourceUrls": [
+      "https://www.worldbank.org/en/publication/globalfindex/interactive-executive-summary-visualization",
+      "https://www.gsma.com/newsroom/press-release/mobile-money-surpasses-two-billion-registered-accounts-and-over-half-a-billion-monthly-active-users-globally/",
+      "https://www.cgap.org/topics/collections/digital-credit",
+      "https://www.federalreserve.gov/newsevents/pressreleases/other20240521a.htm",
+      "https://responsiblefinance.worldbank.org/en/responsible-finance"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45281,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24545,
+        "outputTokens": 8339,
+        "reasoningOutputTokens": 191,
+        "totalTokens": 53620,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.191632,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.211632
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25734,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10246,
+          "outputTokens": 5275,
+          "reasoningOutputTokens": 191,
+          "totalTokens": 31009,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.108612,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.128612
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19547,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14299,
+          "outputTokens": 3064,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22611,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08302,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08302
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1553775927-a071d5a6a39a?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUzNjJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Microfinance background image",
+    "source": "legacy-industry",
+    "query": "Microfinance"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer borrower questions without giving credit decisions or unauthorized financial advice?",
+      "answer": "Yes. DocsBot can be configured to answer from approved borrower FAQs, disclosures, repayment guides, eligibility pages, and policy summaries while avoiding promises about approval, pricing, restructuring, or account outcomes. For regulated, disputed, hardship, collections, fraud, or account-specific situations, the agent can collect context and route the borrower to a trained staff member with a summary.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce call volume without creating risk for vulnerable borrowers?",
+      "answer": "Start with high-frequency, low-risk questions: required documents, branch hours, payment-channel steps, application stages, repayment terminology, and program-fit education. DocsBot gives source-grounded answers and escalates sensitive cases. That matters because many microfinance clients need clear financial education and protection; responsible financial inclusion depends on consumer protection and financial capability.",
+      "role": "Client service and contact center leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-worldbank-consumer-protection"
+      ]
+    },
+    {
+      "question": "Can the agent support borrowers who use mobile money for repayments?",
+      "answer": "Yes. A DocsBot agent can answer from your approved mobile money instructions, payment FAQs, troubleshooting guides, and security notices. If a payment failed, is disputed, or involves identity-sensitive details, the agent can create a support workflow or hand off to a human. Mobile money accounts processed about 108 billion transactions totaling more than $1.68 trillion in 2024, so scalable payment guidance is increasingly important.",
+      "role": "Client service and contact center leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-gsma-mobile-money-2025"
+      ]
+    },
+    {
+      "question": "Can field officers use DocsBot when they are away from a branch or supervisor?",
+      "answer": "Yes. DocsBot can be deployed as a private internal knowledge agent for loan officers and field teams, trained on SOPs, product criteria, field checklists, onboarding scripts, complaint procedures, and compliance notes. Staff can ask policy questions in plain language and get consistent source-grounded guidance before advising a borrower or preparing a handoff.",
+      "role": "Loan officers and field teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect to for account status, tickets, or follow-up tasks?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP servers, webhooks, or approved workflows to perform bounded actions such as permitted status lookups, ticket creation, routing, task creation, summaries, or team notifications. For microfinance, buyers typically scope these actions carefully so the agent can assist workflows without approving loans, changing terms, or resolving complaints on its own.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the AI from using outdated loan terms or branch procedures?",
+      "answer": "DocsBot should be trained on your current approved content and governed by clear content ownership. Teams can update source materials such as product pages, FAQs, SOPs, disclosures, and policy notes, then review logs and unanswered questions to find gaps. For higher-risk topics, use human review paths and restrict the agent to source-grounded answers rather than open-ended financial guidance.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help applicants understand which loan or savings product might fit them?",
+      "answer": "Yes, if the boundaries are clear. DocsBot can explain product categories, eligibility criteria, required documents, group requirements, geographic availability, and next steps from approved materials. It can collect structured intake details such as location, business type, requested amount, contact preference, and documentation readiness, then route the inquiry to a loan officer without promising approval or terms.",
+      "role": "Growth and borrower outreach teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot work for low-literacy or multilingual borrower communities?",
+      "answer": "DocsBot can answer in more than 100 languages using your configured knowledge sources and instructions. For microfinance, the best practice is to train it on approved plain-language borrower education, translated FAQs, repayment examples, and branch-specific service information. If a topic is not available in the borrower’s language, the agent can route the request to a staff member or local branch.",
+      "role": "Growth and borrower outreach teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we use DocsBot for hardship requests without automating collections decisions?",
+      "answer": "Yes. DocsBot can provide general hardship guidance from approved policies, collect the borrower’s situation, preferred contact method, and urgency, then create a ticket or handoff summary for servicing or collections staff. That keeps restructuring, waivers, repayment changes, and collections decisions with humans—especially important when borrowers may be financially fragile.",
+      "role": "Client service and contact center leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fed-400-expense"
+      ]
+    },
+    {
+      "question": "How does DocsBot support complaint handling and consumer protection workflows?",
+      "answer": "DocsBot can explain your complaint process, collect issue category and contact preference, summarize the borrower’s narrative, and route the case to the correct team. It can also help staff retrieve approved complaint scripts and escalation rules. This is useful because digital credit risks include overindebtedness, data misuse, limited financial literacy, and regulatory gaps.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cgap-digital-credit"
+      ]
+    },
+    {
+      "question": "What would implementation look like for a microfinance institution with scattered policies and PDFs?",
+      "answer": "A practical rollout starts with a narrow content set: borrower FAQs, product disclosures, repayment guides, branch information, payment instructions, SOPs, and escalation rules. Then teams test real questions from support, field officers, and applicants. DocsBot can train on websites, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, and other approved sources, so the bigger task is usually content cleanup and governance.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we start internally before putting an AI agent in front of borrowers?",
+      "answer": "Yes. Many microfinance buyers would start with an internal knowledge agent for loan officers, contact center staff, and operations teams. That lets compliance and managers validate answers against SOPs, product criteria, and scripts before expanding to a borrower-facing website or product chat widget. It also reveals which documents are outdated or unclear.",
+      "role": "Loan officers and field teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI beyond simple chatbot deflection?",
+      "answer": "Track repeated-question reduction, first-contact resolution, average handle time, after-hours self-service, fewer supervisor escalations for routine policy questions, faster application intake, complaint routing speed, and content-gap closure. For outreach teams, also measure qualified inquiries with complete location, product interest, business type, requested amount, and follow-up preference.",
+      "role": "Client service and contact center leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us identify which borrower education content needs improvement?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Microfinance teams can see repeated confusion around fees, repayment dates, mobile money steps, documentation, grace periods, complaint procedures, or loan eligibility, then improve FAQs, field scripts, training, and onboarding content.",
+      "role": "Client service and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What safeguards exist for borrower data and internal financial documents?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For sensitive financial workflows, Skills can be scoped with customer-defined permissions, secrets management, metadata bindings, logging, and review paths.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different information inside DocsBot?",
+      "answer": "Yes. DocsBot supports role-based permissions and granular access controls, so institutions can separate borrower-facing content from private staff SOPs, compliance procedures, escalation matrices, and operational documents. This matters when loan officers, support agents, compliance reviewers, branch managers, and outreach teams should not all access the same sources or actions.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot create tickets or update records automatically?",
+      "answer": "DocsBot can take bounded actions when you configure the right Skills, APIs, connectors, or workflows. Typical microfinance actions include creating a support ticket, routing a complaint, notifying a branch, submitting an intake form, summarizing a borrower conversation, or updating approved fields. High-impact actions—such as changing loan terms or resolving disputes—should remain under human review.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot compare with adding more call center agents or branch support staff?",
+      "answer": "DocsBot is not a replacement for trained financial-service staff. It is best used to absorb repetitive, policy-based questions and prepare cleaner handoffs so human teams can focus on approvals, disputes, hardship, complaints, fraud, and relationship-sensitive cases. The business case is strongest where the same repayment, documentation, eligibility, and payment-channel questions consume staff time across many branches or channels.",
+      "role": "Client service and contact center leaders",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help standardize answers across branches and field teams?",
+      "answer": "Yes. DocsBot can answer from the same approved SOPs, product criteria, checklists, disclosure language, and field scripts across locations. That helps reduce informal policy drift, especially when products vary by region or staff rely on supervisors for routine clarifications. Ambiguous or missing answers can be logged for policy owners to review.",
+      "role": "Loan officers and field teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the borrower asks something the agent cannot answer confidently?",
+      "answer": "DocsBot can be configured to avoid guessing, explain that it does not have enough approved information, ask for missing context, or route the case to a human. Teams can review unanswered questions and improve the knowledge base. For microfinance, this is especially important for account-specific balances, disputes, fee calculations, identity issues, hardship, and collections scenarios.",
+      "role": "Client service and contact center leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support both borrower-facing and employee-facing use cases in one program?",
+      "answer": "Yes. A microfinance institution can run borrower-facing agents for FAQs, application intake, repayment guidance, and complaint routing, while also running private internal agents for SOPs, training, compliance, and field support. The key is separating content sources, permissions, instructions, and actions so each audience gets the right level of access.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should compliance be involved before launch?",
+      "answer": "Compliance should review the source content, prohibited answer areas, escalation rules, complaint workflows, privacy language, audit expectations, and action permissions. They should also test edge cases such as hardship, collections, data-use questions, fee disputes, fraud concerns, and vulnerable-client scenarios before borrower launch. DocsBot’s logs and review tools can support this operating model.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help our outreach team qualify leads from community partners or campaign pages?",
+      "answer": "Yes. DocsBot can explain approved program options, ask structured intake questions, apply customer-defined qualification rules, and send the summary to CRM, email, helpdesk software, Slack, Microsoft Teams, or another configured workflow. It is useful for capturing location, business type, requested amount, documentation readiness, group status, and preferred follow-up channel before staff engage.",
+      "role": "Growth and borrower outreach teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot replace our loan origination system or core banking system?",
+      "answer": "No. DocsBot is not a loan origination or core banking platform. It works as an AI agent layer for source-grounded answers, intake, summaries, routing, internal knowledge, and bounded actions. Where authorized, it can use configured APIs, connectors, Skills, or workflows to look up permitted status fields or create follow-up tasks around existing systems.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should we include in the first knowledge base for launch?",
+      "answer": "For borrower self-service, include eligibility criteria, required documents, repayment schedules, fee explanations, mobile money steps, branch hours, complaint procedures, privacy explanations, hardship guidance, and escalation rules. For internal users, include SOPs, product criteria, field checklists, onboarding manuals, compliance notes, and approved scripts. Start narrow, test real questions, then expand.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot support responsible digital credit as volume grows?",
+      "answer": "DocsBot can make approved disclosures, repayment examples, privacy explanations, complaint procedures, and financial education easier to access, while routing sensitive or account-specific cases to humans. This supports responsible scale because CGAP identifies digital credit risks such as overindebtedness, data misuse, limited financial literacy, and regulatory loopholes.",
+      "role": "Compliance, risk, and operations teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-cgap-digital-credit"
+      ]
+    },
+    {
+      "question": "Can managers see what borrowers and staff are asking most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can use this to identify recurring issues by topic—such as late payments, failed mobile repayments, missing documents, eligibility confusion, or complaint categories—and prioritize training, content updates, and process fixes.",
+      "role": "Client service and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What procurement concerns should we evaluate for an AI agent in microfinance?",
+      "answer": "Evaluate security posture, data-use policies, access controls, auditability, multilingual support, source-grounding, human escalation, integration approach, action scoping, content governance, and implementation workload. For microfinance, the buying committee should also confirm the agent will not make credit decisions, alter account terms, resolve complaints, or handle sensitive identity workflows without human-controlled boundaries.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,718 @@
+{
+  "slug": "marketing-advertising",
+  "business": "Marketing & Advertising",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Marketing and Advertising Teams",
+    "description": "DocsBot helps marketing and advertising teams answer client questions, qualify leads, and surface campaign knowledge from approved sources.",
+    "canonicalPath": "/industry/marketing-advertising"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for agencies, brand teams, and campaign operations",
+    "headline": "DocsBot AI agents keep marketing knowledge moving faster",
+    "subheadline": "Train DocsBot on campaign briefs, brand guidelines, service pages, FAQs, case studies, SOPs, and sales enablement materials so prospects, clients, and internal teams get fast, consistent answers with clear escalation paths when a human strategist is needed.",
+    "proofBullets": [
+      {
+        "text": "Answer prospect and client questions from approved campaign, service, pricing, process, and FAQ content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Qualify inbound leads with structured intake forms, customer-defined rules, and handoffs to sales workflows.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Help account teams retrieve brand guidance, launch checklists, client notes, and reporting explanations without digging through folders.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize requests, route briefs, create tasks, or trigger approved workflows through configured Skills, APIs, connectors, or MCP servers.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your marketing AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps marketing and advertising organizations create AI agents trained on their own knowledge. Agents can answer website visitors, support clients, assist sales and account teams, summarize campaign context, identify repeated knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Agency founders and growth leaders",
+        "roleContext": "Give prospects faster answers while keeping human teams focused on strategy, pitches, and relationships.",
+        "bullets": [
+          {
+            "text": "Collect budget, timeline, channel mix, company size, and service-fit details before a sales call.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route qualified opportunities to the right sales or account owner with conversation summaries attached.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Keep service explanations consistent across SEO, paid media, creative, analytics, and lifecycle marketing pages.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "RocketLaunchIcon"
+      },
+      {
+        "role": "Account managers and client success teams",
+        "roleContext": "Make recurring client questions easier to answer from current playbooks, reports, campaign notes, and process docs.",
+        "bullets": [
+          {
+            "text": "Retrieve launch timelines, asset requirements, approval steps, and reporting definitions from approved sources.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Draft concise handoff summaries for complex client requests before escalation to a strategist.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Spot repeated client questions that point to missing onboarding or reporting documentation.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Marketing operations and enablement teams",
+        "roleContext": "Centralize the knowledge teams need to execute campaigns without losing time across wikis, shared drives, decks, and messages.",
+        "bullets": [
+          {
+            "text": "Support onboarding with instant answers about SOPs, naming conventions, approvals, tools, and QA checklists.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Make brand voice, campaign taxonomy, compliance reminders, and reporting procedures searchable for distributed teams.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Use analytics and logs to discover where internal documentation is thin or outdated.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-iab-digital-ad-revenue-2024",
+      "metric": "U.S. internet advertising revenue reached $258.6 billion in 2024.",
+      "claim": "IAB and PwC reported that 2024 U.S. internet advertising revenue hit a record $258.6 billion, up 15% year over year.",
+      "sourceTitle": "IAB/PwC Internet Advertising Revenue Report: Full Year 2024",
+      "sourceUrl": "https://www.iab.com/insights/internet-advertising-revenue-report-full-year-2024",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "digital advertising scale",
+        "campaign volume",
+        "competitive pressure"
+      ]
+    },
+    {
+      "id": "src-bls-marketing-managers-outlook",
+      "metric": "BLS tracks 2024–2034 employment projections for advertising, promotions, and marketing managers.",
+      "claim": "The U.S. Bureau of Labor Statistics reports employment projections and occupational details for advertising, promotions, and marketing managers, supporting the scale of management work in the field.",
+      "sourceTitle": "Advertising, Promotions, and Marketing Managers, Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/management/advertising-promotions-and-marketing-managers.htm",
+      "sourceDate": "Visited April 17, 2026",
+      "bestUsedFor": [
+        "labor scale",
+        "management workload",
+        "role complexity"
+      ]
+    },
+    {
+      "id": "src-gartner-marketing-ai-concern",
+      "metric": "87% of marketers surveyed were concerned about technology replacing jobs in the industry.",
+      "claim": "Gartner reported that 87% of marketers surveyed were concerned about technology, including generative AI, replacing jobs in their industry.",
+      "sourceTitle": "Gartner Survey Reveals 87% of Marketers Are Concerned About Technology Replacing Jobs in Their Industry",
+      "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2024-02-27-gartner-survey-reveals-87-percent-of-marketers-are-concerned-about-technology-replacing-jobs-in-their-industry",
+      "sourceDate": "February 27, 2024",
+      "bestUsedFor": [
+        "AI adoption concerns",
+        "change management",
+        "human review positioning"
+      ]
+    },
+    {
+      "id": "src-ftc-endorsement-guides",
+      "metric": "FTC Endorsement Guides were revised in June 2023 for modern advertising channels.",
+      "claim": "The FTC says endorsement and testimonial guidance applies across media including online, podcasts, social media, and reviews, and material connections should be disclosed when they affect how people evaluate endorsements.",
+      "sourceTitle": "Advertisement Endorsements",
+      "sourceUrl": "https://www.ftc.gov/news-events/media-resources/truth-advertising/advertisement-endorsements",
+      "sourceDate": "Revised June 2023",
+      "bestUsedFor": [
+        "advertising compliance",
+        "influencer disclosure",
+        "review governance"
+      ]
+    },
+    {
+      "id": "src-ftc-can-spam",
+      "metric": "FTC lists penalties of up to $53,088 per separate CAN-SPAM violation.",
+      "claim": "The FTC’s CAN-SPAM compliance guide states that each separate email in violation can be subject to penalties of up to $53,088.",
+      "sourceTitle": "CAN-SPAM Act: A Compliance Guide for Business",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business",
+      "sourceDate": "Current FTC guidance",
+      "bestUsedFor": [
+        "email compliance",
+        "campaign review",
+        "marketing operations risk"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Inbound lead qualification for agency services",
+      "problem": "Prospects often ask similar questions about services, fit, timelines, retainers, deliverables, and next steps before they are ready to book a consultation.",
+      "agentWorkflow": "DocsBot answers from approved service pages, case studies, FAQs, and sales enablement docs, then collects structured lead details such as company, goals, budget range, timeline, channels, and preferred follow-up. AI instructions can apply customer-defined qualification rules and prepare a sales handoff.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, forms, or webhooks, the agent can forward qualified leads, create a CRM task, notify a team channel, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle paid search and landing page optimization together?",
+        "What do you need from us before a discovery call?",
+        "We spend $80k per month on ads. Which service tier fits us?"
+      ],
+      "businessOutcome": "Fewer repetitive presales replies, better context before calls, and faster routing for high-intent opportunities.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Client campaign knowledge assistant",
+      "problem": "Account teams lose time answering routine questions about launch dates, asset specs, approvals, reporting definitions, and campaign status language.",
+      "agentWorkflow": "DocsBot trains on client-facing FAQs, onboarding docs, reporting glossaries, campaign briefs, and approved process notes. It gives account managers and clients consistent answers while escalating nuanced strategy, budget, legal, or brand-risk questions to the responsible human owner.",
+      "liveContextOrTools": "When authorized, AI Actions can look up approved campaign metadata, summarize a client request, create a task, or route a status question to the right account pod.",
+      "exampleQuestionsOrRequests": [
+        "What assets are still needed for this campaign launch?",
+        "How do you define assisted conversions in our monthly report?",
+        "Who approves the final creative before trafficking?"
+      ],
+      "businessOutcome": "Account teams spend less time repeating process answers and more time on strategy, performance, and client relationships.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Brand and compliance guidance retrieval",
+      "problem": "Creative, media, and influencer teams need fast access to brand voice, usage rules, disclosure requirements, offer language, and review guidelines before assets go live.",
+      "agentWorkflow": "DocsBot can answer from brand books, legal-approved claims, influencer instructions, review policies, and campaign QA checklists. For sensitive promotional claims, the agent can provide source-grounded guidance and route the final decision to a designated reviewer.",
+      "liveContextOrTools": "Configured workflows can create review tasks, attach the conversation summary, and notify legal, compliance, or brand stakeholders for approval.",
+      "exampleQuestionsOrRequests": [
+        "Can this influencer caption mention the free product?",
+        "What claims are approved for the spring campaign?",
+        "Where should the disclosure appear in a short-form video brief?"
+      ],
+      "businessOutcome": "Faster self-service guidance with clearer review paths for claims, endorsements, and regulated campaign language.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-endorsement-guides"
+      ]
+    },
+    {
+      "name": "Internal marketing operations assistant",
+      "problem": "Campaign execution depends on many internal rules: naming conventions, UTM standards, QA steps, handoff processes, dashboards, and tool ownership.",
+      "agentWorkflow": "DocsBot trains on SOPs, wikis, Google Drive files, Notion pages, Confluence spaces, PDFs, and team docs so marketers can ask operational questions in a private team chat, Slack, Microsoft Teams, or a secure internal experience.",
+      "liveContextOrTools": "With scoped Skills and connectors, the agent can retrieve approved live context, draft a task, update an approved field, or trigger a workflow while keeping credentials out of chat.",
+      "exampleQuestionsOrRequests": [
+        "What UTM format do we use for paid social campaigns?",
+        "Which QA checklist applies before an email launch?",
+        "Summarize the handoff requirements for a new landing page request."
+      ],
+      "businessOutcome": "Less searching, more consistent campaign execution, and better visibility into documentation gaps.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Reporting explanation and client education agent",
+      "problem": "Clients and internal stakeholders often need plain-language explanations of dashboards, channel metrics, attribution, experiments, and performance changes.",
+      "agentWorkflow": "DocsBot answers from reporting glossaries, dashboard documentation, campaign retrospectives, analytics SOPs, and approved methodology notes. It can summarize context, define metrics, and escalate strategic interpretation when a human analyst should weigh in.",
+      "liveContextOrTools": "Customer-configured actions can attach a summary to a ticket, create a follow-up task, or route deeper analysis requests to analytics specialists.",
+      "exampleQuestionsOrRequests": [
+        "What is the difference between ROAS and MER?",
+        "Why do platform conversions differ from analytics conversions?",
+        "Summarize the main takeaways from this campaign report for a client email."
+      ],
+      "businessOutcome": "Improves client understanding while reducing repeat explanations for account and analytics teams.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "AI-assisted sales enablement for pitches",
+      "problem": "Sales and strategy teams need fast access to proof points, case studies, objection handling, service scope, proposal language, and prospect context.",
+      "agentWorkflow": "DocsBot can support internal sales enablement agents trained on service catalogs, pricing guidance, proposal templates, case studies, testimonials, objection handling, and customer-facing FAQs. When configured with web search and approved Skills, it can summarize public account research for a human seller.",
+      "liveContextOrTools": "Approved workflows can draft follow-up emails, create tasks, retrieve CRM context, or prepare account summaries while humans remain responsible for final outreach, pricing, and contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Which case studies fit a B2B SaaS demand gen pitch?",
+        "Draft a follow-up email based on this discovery call summary.",
+        "What objections should we prepare for a prospect with a small in-house team?"
+      ],
+      "businessOutcome": "Faster pitch preparation and more consistent messaging across sales, strategy, and client service teams.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and clients a reliable front door to your marketing expertise",
+    "intro": "A DocsBot customer-facing agent can live on your website or product experience to answer service, process, pricing, reporting, onboarding, and campaign questions from sources you control. It can collect missing details and escalate when a strategist, account manager, or sales rep should step in.",
+    "requests": [
+      {
+        "request": "“Do you offer paid media strategy for B2B SaaS companies?”",
+        "agentResponseStrategy": "Answer from service pages and case studies, ask qualifying questions about goals, budget, market, timeline, and current stack, then prepare a sales handoff if the fit is strong.",
+        "sourceTypes": [
+          "Service pages",
+          "Case studies",
+          "Sales FAQs",
+          "Lead intake rules"
+        ],
+        "optionalAction": "Submit a structured lead form or forward the summary to a configured CRM, inbox, or sales workflow.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "request": "“What should we prepare before campaign kickoff?”",
+        "agentResponseStrategy": "Retrieve onboarding checklists, required access, asset lists, stakeholder responsibilities, approval timelines, and kickoff agenda notes from approved client success materials.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Client SOPs",
+          "Kickoff templates",
+          "Access checklists"
+        ],
+        "optionalAction": "Create a task or send a checklist link through a customer-configured workflow.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you explain this metric in our report?”",
+        "agentResponseStrategy": "Define the metric using reporting glossary content, clarify methodology, and route deeper performance interpretation to the account or analytics team when needed.",
+        "sourceTypes": [
+          "Reporting glossaries",
+          "Dashboard documentation",
+          "Analytics SOPs",
+          "Client FAQs"
+        ],
+        "optionalAction": "Summarize the question and attach it to a helpdesk ticket or account follow-up task.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "request": "“What disclosure do we need for influencer content?”",
+        "agentResponseStrategy": "Point to the agency’s approved influencer guidance and compliance checklist, summarize disclosure considerations, and recommend human review for final campaign claims.",
+        "sourceTypes": [
+          "Influencer briefs",
+          "Disclosure checklists",
+          "Legal-approved language",
+          "Campaign QA docs"
+        ],
+        "optionalAction": "Route the item to the designated reviewer with the conversation context.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-endorsement-guides"
+        ]
+      },
+      {
+        "request": "“How do I unsubscribe from your marketing emails?”",
+        "agentResponseStrategy": "Answer from the organization’s email policy and contact preferences documentation, then guide the user to the correct opt-out or preference-management path.",
+        "sourceTypes": [
+          "Email policies",
+          "Preference center docs",
+          "Privacy FAQs",
+          "Support macros"
+        ],
+        "optionalAction": "Create a support ticket or trigger an approved preference-update workflow when configured.",
+        "icon": "EnvelopeIcon",
+        "sourceIds": [
+          "src-ftc-can-spam"
+        ]
+      },
+      {
+        "request": "“Can I book a discovery call?”",
+        "agentResponseStrategy": "Collect scheduling intent, business goals, company context, budget range, timeline, and preferred follow-up channel before moving the visitor to an approved booking flow.",
+        "sourceTypes": [
+          "Sales FAQs",
+          "Qualification rules",
+          "Scheduling instructions",
+          "Service fit criteria"
+        ],
+        "optionalAction": "Use a configured scheduling Skill or workflow for Calendly, Cal.com, TidyCal, or a similar booking tool.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make campaign, brand, and operations knowledge easier for teams to use",
+    "intro": "DocsBot can also run as a private internal knowledge agent for marketers, account managers, sales teams, analysts, and operations staff. Train it on the materials your team already uses, then let employees ask questions, summarize context, and start bounded workflows from a secure team experience.",
+    "workflows": [
+      {
+        "name": "Campaign launch readiness",
+        "problem": "Launches stall when teams cannot quickly confirm assets, approvals, tracking, specs, and channel-specific QA steps.",
+        "agentWorkflow": "The agent answers from launch checklists, trafficking SOPs, UTM standards, creative requirements, approval matrices, and client-specific notes. It can summarize blockers and suggest the next owner based on your documented workflow.",
+        "sourceTypes": [
+          "Launch SOPs",
+          "QA checklists",
+          "Campaign briefs",
+          "Approval matrices"
+        ],
+        "optionalAction": "Create a task, notify the right channel, or route an approval request through a configured workflow.",
+        "outcome": "Cleaner handoffs and fewer last-minute searches before campaigns go live.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "Brand voice and content guidance",
+        "problem": "Distributed writers, designers, media buyers, and sales reps need consistent messaging across pitches, landing pages, ads, emails, and social content.",
+        "agentWorkflow": "DocsBot answers from brand guidelines, message houses, approved claims, persona docs, editorial rules, and campaign briefs. It can draft guidance or summarize the relevant rules without claiming to replace creative judgment.",
+        "sourceTypes": [
+          "Brand books",
+          "Messaging docs",
+          "Persona research",
+          "Approved claims libraries"
+        ],
+        "optionalAction": "Generate a brief summary or route a sensitive claim to the brand owner for review.",
+        "outcome": "More consistent work across teams, channels, and client accounts.",
+        "icon": "PaintBrushIcon"
+      },
+      {
+        "name": "Sales and proposal support",
+        "problem": "Pitch teams often rebuild the same answers about services, deliverables, proof, timelines, and implementation approach.",
+        "agentWorkflow": "Train the agent on proposal templates, service catalogs, case studies, pricing guidance, implementation notes, and objection handling. Sellers can ask for source-grounded answers and draft follow-up language for human review.",
+        "sourceTypes": [
+          "Proposal templates",
+          "Case studies",
+          "Service catalogs",
+          "Objection handling docs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or prepare a summary using configured sales workflows.",
+        "outcome": "Faster preparation with more consistent positioning and proof.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Knowledge-gap discovery",
+        "problem": "If teams keep asking the same undocumented questions, operations leaders may not know which guides, templates, or training materials need improvement.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help teams identify repeated questions, unresolved topics, and documentation gaps across client service, sales, and operations.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base content",
+          "Internal docs"
+        ],
+        "optionalAction": "Create content improvement tasks or route recurring gaps to the documentation owner.",
+        "outcome": "Better enablement content and fewer repeated internal questions over time.",
+        "icon": "MagnifyingGlassIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from owned content",
+      "mainLandingPageContext": "DocsBot agents are trained on configured knowledge sources such as websites, help centers, internal documents, PDFs, wikis, and other approved materials.",
+      "industryApplication": "Answer agency service questions, client onboarding questions, campaign process questions, reporting definitions, and brand guidance from materials your team controls.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Presales intake and qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and qualify using customer-defined AI instructions.",
+      "industryApplication": "Capture goals, budget, timeline, channel needs, company profile, and follow-up preferences before routing high-fit marketing opportunities to sales.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, summaries, record updates, task creation, workflow triggers, and handoffs.",
+      "industryApplication": "Use approved actions to summarize client requests, create launch tasks, update approved fields, route briefs, or connect to remote Model Context Protocol servers that expose tools your team already uses.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which service questions, reporting definitions, campaign steps, or client onboarding topics create repeated friction, then improve your documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private internal assistant for employees, trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and more.",
+      "industryApplication": "Give account, creative, sales, analytics, and operations teams a fast way to retrieve campaign procedures, brand rules, proposal language, and tool guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Governance for business knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect client and campaign knowledge while setting permissions, review paths, and boundaries for sensitive claims, private account information, or high-impact workflow actions.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own marketing, support, and enablement content instead of relying on generic answers.",
+      "Support both website visitors and internal teams with source-grounded responses and reviewable conversation history.",
+      "Use analytics to understand what prospects, clients, and employees are trying to learn from your content."
+    ],
+    "whyTheseReviewsFit": "Marketing and advertising teams need more than a public-facing widget. DocsBot proof spans owned-content training, website assistance, support workflows, and analytics that reveal what audiences are asking, giving agencies and brand teams a practical path to faster answers and better knowledge operations.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for marketing and advertising teams",
+    "audience": [
+      "Marketing agencies",
+      "Advertising agencies",
+      "Brand marketing teams",
+      "Marketing operations teams",
+      "Client success teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MegaphoneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "digital-marketing",
+    "ai-automation-agency",
+    "ai-consulting",
+    "big-data-analytics",
+    "business-information",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "marketing-advertising",
+    "webSearchQueries": [
+      "ANA marketing industry talent report marketers technology data privacy AI 2024",
+      "HubSpot state of marketing 2025 AI marketers report",
+      "BLS advertising promotions and marketing managers occupational outlook employment 2024",
+      "IAB internet advertising revenue report 2024 digital advertising",
+      "FTC endorsements testimonials social media advertising guides 2023 marketers disclose material connection",
+      "FTC CAN-SPAM Act compliance guide marketing emails"
+    ],
+    "sourceUrls": [
+      "https://www.iab.com/insights/internet-advertising-revenue-report-full-year-2024",
+      "https://www.bls.gov/ooh/management/advertising-promotions-and-marketing-managers.htm",
+      "https://www.gartner.com/en/newsroom/press-releases/2024-02-27-gartner-survey-reveals-87-percent-of-marketers-are-concerned-about-technology-replacing-jobs-in-their-industry",
+      "https://www.ftc.gov/news-events/media-resources/truth-advertising/advertisement-endorsements",
+      "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45097,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 24873,
+        "outputTokens": 7959,
+        "reasoningOutputTokens": 178,
+        "totalTokens": 53056,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.186624,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.206624
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25531,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 10555,
+          "outputTokens": 5286,
+          "reasoningOutputTokens": 178,
+          "totalTokens": 30817,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.109422,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.129422
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19566,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14318,
+          "outputTokens": 2673,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22239,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077202,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077202
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1602501540356-b1880316bd58?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDU4OTF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Marketing & Advertising background image",
+    "source": "legacy-industry",
+    "query": "Marketing & Advertising"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer prospect questions without giving generic or off-brand marketing advice?",
+      "answer": "Yes. DocsBot is trained on the sources you approve, such as service pages, positioning docs, case studies, FAQs, pricing guidance, and sales enablement materials. That lets the agent explain your actual offers, proof points, process, and qualification criteria instead of improvising generic agency advice.",
+      "role": "Agency founders and growth leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent qualify inbound agency leads before our sales team gets involved?",
+      "answer": "Yes. DocsBot can collect structured details such as company type, goals, budget range, timeline, channel mix, current stack, and preferred follow-up. Customer-defined AI instructions can score or route the inquiry based on fit, then send a summary to an approved CRM, inbox, form, Slack, Microsoft Teams, or sales workflow when configured.",
+      "role": "Agency founders and growth leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the AI from promising timelines, pricing, or results that our team has not approved?",
+      "answer": "Train the agent on approved scope, pricing, delivery, and FAQ content, then set instructions for what it may and may not answer. For high-impact topics like guarantees, contracts, pricing exceptions, or performance projections, DocsBot can provide the relevant source-grounded context and escalate to a human owner.",
+      "role": "Agency founders and growth leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help account managers answer recurring client questions about campaigns and reports?",
+      "answer": "Yes. DocsBot can be trained on onboarding guides, campaign briefs, reporting glossaries, dashboard documentation, SOPs, and client-facing FAQs. Account teams can ask about launch steps, asset requirements, approval owners, metric definitions, or methodology, then escalate strategic interpretation to a strategist or analyst when needed.",
+      "role": "Account managers and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of marketing knowledge sources should we train the agent on first?",
+      "answer": "Start with high-repeat, high-confidence content: service pages, proposal language, sales FAQs, onboarding checklists, campaign launch SOPs, reporting glossaries, brand guidelines, approved claims, influencer instructions, and client process docs. These sources usually produce fast value because teams already answer those questions manually.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both our public website and a private internal marketing operations assistant?",
+      "answer": "Yes. A customer-facing agent can answer prospect or client questions from approved external content, while a private internal agent can help employees retrieve SOPs, brand rules, campaign processes, proposal language, and tool guidance. Access controls and role-based permissions help keep internal knowledge separate from public answers.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot handle compliance-sensitive topics like influencer disclosures or approved campaign claims?",
+      "answer": "DocsBot can answer from your legal-approved language, influencer briefs, disclosure checklists, review policies, and campaign QA docs. For sensitive promotional claims, it should guide users to approved sources and route final approval to legal, compliance, or a designated brand reviewer. FTC endorsement guidance applies across online, social, podcast, review, and other media channels, including material-connection disclosure expectations.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-endorsement-guides"
+      ]
+    },
+    {
+      "question": "Can the agent help with email marketing compliance questions?",
+      "answer": "It can guide users to your approved email policies, unsubscribe process, preference-center documentation, and campaign review checklists. For legal interpretation, final judgment should stay with a qualified reviewer. This matters because the FTC states that each separate CAN-SPAM violation can be subject to penalties of up to $53,088.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-can-spam"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace strategists, account managers, or creative leads?",
+      "answer": "DocsBot is best positioned as a knowledge and workflow layer, not a replacement for strategic judgment. It can answer repeat questions, summarize context, draft handoffs, and route work, while humans remain responsible for campaign strategy, creative judgment, budget recommendations, legal review, pricing, and client relationship decisions. That distinction is important in a field where Gartner reported 87% of surveyed marketers were concerned about technology, including generative AI, replacing jobs.",
+      "role": "Agency founders and growth leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-gartner-marketing-ai-concern"
+      ]
+    },
+    {
+      "question": "How would we measure ROI from a marketing AI agent?",
+      "answer": "Common measures include fewer repetitive presales replies, faster lead routing, shorter time to find campaign information, reduced account-team interruptions, fewer launch-process questions, higher self-service answer rates, and documentation gaps discovered from logs. For agencies, you can also compare discovery-call quality before and after structured lead intake.",
+      "role": "Agency founders and growth leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot connect to the tools our marketing team already uses?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, webhooks, forms, and workflow automations. Those can support approved actions like creating tasks, routing briefs, forwarding lead summaries, updating approved fields, notifying team channels, or connecting to MCP servers that expose tools your organization already uses.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need clean documentation before launching, or can DocsBot help us find gaps?",
+      "answer": "You do not need perfect documentation, but you should start with approved sources for the questions you want the agent to answer. DocsBot analytics, logs, topic management, reports, and conversation review can then show repeated questions, unresolved topics, and thin documentation so operations or enablement teams know what to improve next.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent explain marketing metrics to clients without overstepping into performance strategy?",
+      "answer": "Yes. Train DocsBot on reporting glossaries, dashboard documentation, attribution notes, analytics SOPs, and approved methodology explanations. It can define terms like ROAS, MER, assisted conversions, attribution windows, and platform-versus-analytics discrepancies, while routing deeper performance recommendations to the account or analytics lead.",
+      "role": "Account managers and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we protect client campaign data and internal strategy documents?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For sensitive actions, customers can define permissions, logs, secrets handling, and boundaries around what the agent can access or do.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we control which clients, teams, or roles can access certain answers?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, which are important when agency teams manage multiple clients, confidential strategies, unpublished creative, pricing guidance, or internal-only SOPs. Buyers should plan source permissions before rollout so the agent only answers from content each audience is allowed to use.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How can DocsBot help with campaign launch readiness?",
+      "answer": "DocsBot can answer from launch SOPs, trafficking checklists, UTM standards, creative specs, approval matrices, and client-specific notes. With configured actions, it can summarize blockers, create a task, notify the right team, or route an approval request through an approved workflow.",
+      "role": "Account managers and client success teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help sales teams prepare for pitches and proposals?",
+      "answer": "Yes. An internal sales enablement agent can be trained on service catalogs, pricing guidance, proposal templates, case studies, testimonials, implementation notes, and objection handling. When configured with web search and approved Skills, it can summarize public account research for a human seller, while final outreach, pricing, and contract terms remain human-owned.",
+      "role": "Agency founders and growth leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source content is outdated?",
+      "answer": "DocsBot should be configured to avoid guessing, cite or ground responses in approved sources, and escalate unclear, sensitive, or missing-answer cases. Conversation logs and knowledge-gap reporting help teams identify outdated or missing materials so documentation owners can update source content over time.",
+      "role": "Account managers and client success teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How long does implementation usually take for a first marketing use case?",
+      "answer": "A practical first rollout usually starts with one contained use case, such as website lead qualification, reporting FAQs, campaign launch SOPs, or internal brand guidance. The main work is selecting approved sources, defining answer boundaries, writing escalation rules, and testing real buyer or employee questions before broader rollout.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support distributed teams across creative, media, analytics, sales, and client service?",
+      "answer": "Yes. DocsBot can act as a shared knowledge layer across functions by answering from approved brand, campaign, process, reporting, and sales materials. That is useful in marketing organizations where work moves across many roles and channels, and where U.S. internet advertising revenue reached $258.6 billion in 2024, reflecting the scale and complexity of digital campaign work.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-iab-digital-ad-revenue-2024"
+      ]
+    },
+    {
+      "question": "How is DocsBot different from giving our team access to a general-purpose AI tool?",
+      "answer": "DocsBot is built around your approved knowledge sources, access controls, logs, analytics, and customer-configured actions. Instead of asking employees to paste context into a general tool, teams can ask a source-grounded agent about your campaign processes, service scope, brand rules, and client workflows with clearer governance.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent collect lead information without making the website experience feel like a long form?",
+      "answer": "Yes. DocsBot can ask conversational qualifying questions and collect structured fields such as goals, budget, timeline, company size, channel needs, and contact preference. The goal is to answer useful questions first, then gather only the details needed to route the opportunity or request a meeting through an approved workflow.",
+      "role": "Agency founders and growth leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement and IT ask before approving a marketing AI agent?",
+      "answer": "They should ask how data is stored, whether customer data trains public models, what access controls exist, how permissions are managed, whether encryption is used, what logs are available, and how Skills or workflow actions are scoped. DocsBot supports SOC 2 Type II, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support multilingual prospects or global client teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which helps agencies, brand teams, and client service groups support international stakeholders. Teams should still decide which source materials are approved for each region and when legal, pricing, or campaign-policy questions need local human review.",
+      "role": "Account managers and client success teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from creating extra work for account teams?",
+      "answer": "Design the rollout around clear ownership: approved sources, escalation rules, who reviews unanswered questions, and which workflows are worth automating. For example, the agent can summarize a client request before escalation, create a task with context, or route recurring knowledge gaps to the documentation owner instead of simply forwarding raw chats.",
+      "role": "Account managers and client success teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us prove that our knowledge base or enablement content is improving?",
+      "answer": "Yes. DocsBot analytics, logs, reports, topic management, satisfaction and resolution analysis, and conversation review can show which questions are being answered, which topics repeat, and where users still get stuck. Marketing operations teams can use those patterns to prioritize new FAQs, onboarding updates, reporting explanations, or process docs.",
+      "role": "Marketing operations and enablement teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

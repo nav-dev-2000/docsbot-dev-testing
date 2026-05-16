@@ -1,0 +1,703 @@
+{
+  "slug": "battery-manufacturing",
+  "business": "Battery Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Battery Manufacturing Operations",
+    "description": "DocsBot helps battery manufacturing teams answer technical questions, qualify buyers, and route operational requests from approved knowledge sources.",
+    "canonicalPath": "/industry/battery-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "AI automation for cell, pack, and energy storage manufacturers",
+    "headline": "DocsBot AI agents for faster battery manufacturing support",
+    "subheadline": "Give customers, sales teams, engineers, quality teams, and plant staff a source-grounded AI agent trained on your product specs, SOPs, manuals, safety guidance, warranty policies, and internal process documentation.",
+    "proofBullets": [
+      {
+        "text": "Answer buyer and customer questions from approved datasheets, manuals, certification notes, warranty terms, and service documentation.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Help internal teams retrieve SOPs, quality procedures, troubleshooting steps, onboarding content, and production knowledge without searching folders.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect missing details, summarize requests, route tickets, create tasks, or trigger approved handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Escalate engineering, safety, contract, or compliance-sensitive questions to people with conversation context and source references.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a battery manufacturing AI agent",
+    "secondaryCta": "See how DocsBot uses your knowledge"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps battery manufacturers create AI agents trained on company-controlled knowledge. Teams can deploy customer-facing support, presales, documentation, and internal knowledge agents that answer from approved sources, summarize context, identify content gaps, and take bounded workflow actions when Skills, APIs, connectors, or customer-defined automations are configured.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and field service teams",
+        "roleContext": "Support teams can reduce repeat questions about operating conditions, maintenance, troubleshooting, warranty coverage, product handling, documentation, and replacement workflows while keeping complex cases with human specialists.",
+        "bullets": [
+          {
+            "text": "Draft or answer recurring support questions from manuals, service bulletins, FAQs, and approved ticket history when connected.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect model number, lot, serial, site conditions, photos, and urgency before routing a case to support or engineering.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Surface repeated unanswered questions so documentation owners can improve manuals, installation guides, and knowledge base articles.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Sales, applications, and channel teams",
+        "roleContext": "Battery buyers often need chemistry, capacity, cycle-life, dimensional, thermal, certification, logistics, and compatibility answers before they can move a project forward.",
+        "bullets": [
+          {
+            "text": "Help reps answer fit and specification questions from approved product catalogs, datasheets, proposal templates, and pricing guidance.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Qualify project requests by collecting application, pack requirements, target volumes, region, timeline, and compliance constraints.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to configured CRM, email, helpdesk, or team workflows for human follow-up.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Quality, EHS, and operations leaders",
+        "roleContext": "Battery plants operate with dense procedures, controlled documents, training requirements, and safety-sensitive handoffs. DocsBot can make approved guidance easier to find while leaving high-impact decisions to accountable staff.",
+        "bullets": [
+          {
+            "text": "Make SOPs, inspection steps, nonconformance playbooks, training notes, and controlled work instructions easier for employees to retrieve.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "OSHA says lithium-ion battery facilities must manage hazards and controls across manufacturing, use, and recycling work.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-osha-battery"
+            ]
+          },
+          {
+            "text": "Use logs, permissions, and human escalation for safety-critical, quality-release, regulatory, or customer-commitment workflows.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-battery"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-iea-2025-batteries",
+      "metric": "Global battery manufacturing capacity exceeded 3 TWh in 2024",
+      "claim": "IEA reported that global battery cell manufacturing capacity grew almost 30% in 2024 to more than 3 TWh, about three times EV and battery storage demand that year.",
+      "sourceTitle": "IEA Global EV Outlook 2025: Electric vehicle batteries",
+      "sourceUrl": "https://www.iea.org/reports/global-ev-outlook-2025/electric-vehicle-batteries",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market growth",
+        "capacity pressure",
+        "sales and operations scale"
+      ]
+    },
+    {
+      "id": "src-iea-2024-demand",
+      "metric": "EV battery demand reached more than 750 GWh in 2023",
+      "claim": "IEA’s Global EV Outlook 2024 reported that demand for EV batteries exceeded 750 GWh in 2023, up about 40% from 2022.",
+      "sourceTitle": "IEA Global EV Outlook 2024: Outlook for battery and energy demand",
+      "sourceUrl": "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-battery-and-energy-demand",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "demand growth",
+        "battery market context",
+        "operational complexity"
+      ]
+    },
+    {
+      "id": "src-osha-battery",
+      "metric": "OSHA highlights lithium-ion battery manufacturing hazards and controls",
+      "claim": "OSHA provides battery manufacturing guidance covering hazards and controls for facilities that manufacture, use, and recycle lithium-ion batteries.",
+      "sourceTitle": "OSHA Battery Manufacturing Overview",
+      "sourceUrl": "https://www.osha.gov/battery-manufacturing",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "safety risk",
+        "EHS workflows",
+        "controlled guidance"
+      ]
+    },
+    {
+      "id": "src-phmsa-lithium",
+      "metric": "PHMSA warns lithium batteries can pose fire hazards in transportation",
+      "claim": "PHMSA states that lithium batteries can pose a fire hazard in transport and requires careful assessment, terminal protection, and compliant handling for disposal or recycling shipments.",
+      "sourceTitle": "PHMSA Transporting Lithium Batteries",
+      "sourceUrl": "https://www.phmsa.dot.gov/lithiumbatteries",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "shipping compliance",
+        "logistics support",
+        "customer handling guidance"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Technical product and specification support",
+      "problem": "Customers and channel partners ask detailed questions about cell format, capacity, chemistry, operating limits, charging requirements, certifications, warranty boundaries, and compatibility.",
+      "agentWorkflow": "A DocsBot AI support agent answers from approved datasheets, product pages, manuals, FAQs, and policy documents. When the answer depends on an application detail, it asks follow-up questions and prepares a concise handoff for sales, applications engineering, or support.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved product records, create a support task, route a qualified inquiry, or attach the conversation summary to a customer-configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which battery module fits a 48V industrial application with high cycle demand?",
+        "What temperature range is approved for storage and transport?",
+        "Can you summarize the warranty limits for this pack family?"
+      ],
+      "businessOutcome": "Buyers get faster answers while technical staff receive cleaner, better-qualified requests instead of scattered emails and incomplete forms.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "name": "Safety and handling knowledge assistant",
+      "problem": "Battery manufacturers must keep handling, storage, shipping, and emergency guidance consistent across production, service, logistics, and customer support.",
+      "agentWorkflow": "DocsBot can train on approved EHS procedures, SDS references, handling guides, incident response playbooks, transport notes, and customer-facing safety instructions. The agent retrieves source-grounded guidance and escalates safety-critical decisions to authorized personnel.",
+      "liveContextOrTools": "A configured action can collect incident details, generate a summary, notify an EHS queue, or create an internal review task while keeping credentials and sensitive workflows outside chat.",
+      "exampleQuestionsOrRequests": [
+        "What are the approved steps for damaged cell isolation?",
+        "Which handling guide should be sent with this battery shipment?",
+        "Summarize the incident details for EHS review."
+      ],
+      "businessOutcome": "Teams can make approved guidance easier to find while preserving human control for hazardous, regulatory, and incident-response decisions.",
+      "icon": "FireIcon",
+      "sourceIds": [
+        "src-osha-battery",
+        "src-phmsa-lithium"
+      ]
+    },
+    {
+      "name": "Quality and production SOP retrieval",
+      "problem": "Production, quality, maintenance, and process engineering teams rely on controlled procedures, inspection criteria, nonconformance steps, and tribal knowledge that can be hard to find quickly.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent answers employee questions from SOPs, work instructions, process notes, training materials, Confluence or Notion pages, PDFs, Word documents, and other configured sources. It can cite sources and reveal documentation gaps from repeated questions.",
+      "liveContextOrTools": "When connected through approved Skills, APIs, connectors, or MCP Connectors to remote Model Context Protocol servers, the agent can retrieve live context, create tasks, or trigger bounded workflow steps defined by the customer.",
+      "exampleQuestionsOrRequests": [
+        "What inspection steps apply after electrolyte filling?",
+        "Where is the latest changeover checklist for Line 2?",
+        "Summarize the deviation handling process for a new technician."
+      ],
+      "businessOutcome": "Employees spend less time searching and get more consistent answers from approved procedures, training content, and operational knowledge.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Presales qualification for OEM and energy storage projects",
+      "problem": "Battery sales inquiries often arrive with missing use-case, volume, voltage, certification, regional, timeline, and integration details, slowing engineering review and quotation.",
+      "agentWorkflow": "DocsBot can guide prospects through a structured intake flow, answer approved fit questions, collect project details, apply customer-defined qualification rules, and prepare a summary for sales or applications engineering.",
+      "liveContextOrTools": "With approved workflows, the agent can submit a custom lead form, forward qualified leads to CRM or email, request a meeting through a configured scheduling tool, or create a ticket for technical review.",
+      "exampleQuestionsOrRequests": [
+        "We need cells for a stationary storage pilot; what details do you need?",
+        "Can you help route this OEM pack request to the right team?",
+        "Book or request a technical consultation for our procurement team."
+      ],
+      "businessOutcome": "Sales and engineering teams receive clearer project context before committing expert time to feasibility, pricing, or contract discussions.",
+      "icon": "RocketLaunchIcon",
+      "sourceIds": [
+        "src-iea-2025-batteries"
+      ]
+    },
+    {
+      "name": "Documentation gap and support trend analysis",
+      "problem": "Fast-growing battery portfolios create repeat questions across manuals, warranty pages, distributor portals, and service documentation.",
+      "agentWorkflow": "DocsBot conversation logs, analytics, topic management, reports, and review workflows help teams see what users ask, which answers need improvement, and where approved content is missing or outdated.",
+      "liveContextOrTools": "Support leaders can review unresolved conversations, export themes, and use configured workflows to create content tasks or route repeated issues to documentation owners.",
+      "exampleQuestionsOrRequests": [
+        "Which battery installation topic created the most unanswered questions this month?",
+        "Show recurring warranty questions from distributors.",
+        "What should we add to the next manual update?"
+      ],
+      "businessOutcome": "Product, support, and technical writing teams can continuously improve source materials based on real customer and employee questions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual distributor and service support",
+      "problem": "Battery manufacturers selling through regional channels need consistent support across languages, product variants, and local documentation sets.",
+      "agentWorkflow": "DocsBot agents can answer in more than 100 languages from configured knowledge sources, helping distributors, installers, and service partners find approved product and process guidance in a familiar interface.",
+      "liveContextOrTools": "A website widget, private team chat, Slack, Microsoft Teams, API, or helpdesk-connected workflow can provide access where the audience already works.",
+      "exampleQuestionsOrRequests": [
+        "Answer this maintenance question in Spanish using the approved manual.",
+        "Which documentation applies to the EU version of this pack?",
+        "Escalate this distributor question with a summary for regional support."
+      ],
+      "businessOutcome": "Regional partners get faster, more consistent answers while internal specialists keep visibility into gaps and escalations.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give battery buyers and customers answers from the sources you trust",
+    "intro": "A DocsBot customer-facing agent can sit on your website, portal, or product documentation experience to answer specification, handling, warranty, service, and qualification questions from approved content, then route complex requests to the right team.",
+    "requests": [
+      {
+        "request": "“Which pack or cell family fits my application?”",
+        "agentResponseStrategy": "Ask for voltage, capacity, duty cycle, environment, certification needs, region, target volume, and timeline, then answer from approved specs or hand off to applications engineering.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Datasheets",
+          "Application notes",
+          "Qualification rules"
+        ],
+        "optionalAction": "Submit a qualified lead summary to a configured CRM, email, helpdesk, or sales workflow.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“How should this battery be stored, shipped, or handled?”",
+        "agentResponseStrategy": "Retrieve approved handling, safety, shipping, and disposal guidance while clearly escalating damaged, overheating, incident, or regulatory questions to a human reviewer.",
+        "sourceTypes": [
+          "Safety procedures",
+          "SDS references",
+          "Shipping guides",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Create an internal EHS or support review task with the user’s details and conversation summary.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-phmsa-lithium"
+        ]
+      },
+      {
+        "request": "“What does the warranty cover?”",
+        "agentResponseStrategy": "Answer from warranty terms, service policies, product manuals, and approved support articles, then collect serial, lot, purchase, and operating details when more review is needed.",
+        "sourceTypes": [
+          "Warranty policies",
+          "Service manuals",
+          "Support articles",
+          "Ticket exports"
+        ],
+        "optionalAction": "Route the case to support with collected evidence and a concise handoff summary.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I get a technical consultation?”",
+        "agentResponseStrategy": "Collect project and contact details, explain the next step from approved sales guidance, and keep humans responsible for feasibility, pricing, contracts, and regulated commitments.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Product docs",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Request or book a meeting through a customer-configured scheduling workflow when approved.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where is the manual for this model?”",
+        "agentResponseStrategy": "Find the relevant manual, installation guide, troubleshooting note, or service bulletin from approved documentation and answer the exact question with source context.",
+        "sourceTypes": [
+          "PDF manuals",
+          "Knowledge base articles",
+          "Service bulletins",
+          "Product pages"
+        ],
+        "optionalAction": "Escalate when the model, region, revision, or safety context is ambiguous.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“What is the status of my support request?”",
+        "agentResponseStrategy": "If configured with approved live access, look up case status or request missing information; otherwise, collect details and route the inquiry to the support team.",
+        "sourceTypes": [
+          "Helpdesk records",
+          "Support policies",
+          "Ticket summaries",
+          "Customer metadata"
+        ],
+        "optionalAction": "Create or update an approved support record through a scoped Skill, API, or connector.",
+        "icon": "ClockIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make controlled manufacturing knowledge easier for employees to use",
+    "intro": "DocsBot can act as a private internal knowledge agent for plant, quality, EHS, engineering, HR, sales, and support teams, answering from approved SOPs, policies, wikis, documents, and training materials with analytics that reveal knowledge gaps.",
+    "workflows": [
+      {
+        "name": "Plant procedure lookup",
+        "problem": "Operators and supervisors need the right work instruction, changeover checklist, maintenance note, or escalation path at the moment of need.",
+        "agentWorkflow": "The agent searches configured SOPs, training guides, PDFs, and internal pages, provides a source-grounded answer, and points users to the exact controlled document.",
+        "sourceTypes": [
+          "SOPs",
+          "Work instructions",
+          "Training materials",
+          "Maintenance notes"
+        ],
+        "optionalAction": "Create a task for documentation review when employees repeatedly ask for missing or unclear guidance.",
+        "outcome": "Faster answers from approved procedures and fewer interruptions for supervisors and process engineers.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Quality issue triage",
+        "problem": "Nonconformance, inspection, and deviation questions often require context from procedures, product specs, and prior guidance.",
+        "agentWorkflow": "DocsBot summarizes the issue, retrieves relevant inspection or deviation guidance, asks for missing details, and prepares a handoff for quality review.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Inspection criteria",
+          "Deviation procedures",
+          "CAPA notes"
+        ],
+        "optionalAction": "Route a summarized review request or create a task in a customer-configured quality workflow.",
+        "outcome": "Quality teams receive more complete context while employees get faster access to approved procedural guidance.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "EHS and emergency guidance access",
+        "problem": "Safety guidance must be available quickly, but incident handling and hazardous decisions require boundaries and accountable human review.",
+        "agentWorkflow": "The agent answers routine safety and handling questions from approved EHS content, flags high-risk scenarios, and prepares structured incident summaries for EHS or emergency response teams.",
+        "sourceTypes": [
+          "EHS procedures",
+          "Safety training",
+          "SDS references",
+          "Emergency response playbooks"
+        ],
+        "optionalAction": "Notify a configured internal channel or create an EHS review task for incidents, damaged batteries, exposure concerns, or fire-related questions.",
+        "outcome": "Employees can find approved guidance faster while high-impact decisions stay within defined review paths.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-osha-battery"
+        ]
+      },
+      {
+        "name": "Sales enablement and proposal support",
+        "problem": "Sales teams need fast, consistent answers on product fit, objection handling, implementation notes, and documentation without overcommitting engineering or legal teams.",
+        "agentWorkflow": "DocsBot retrieves approved product, pricing guidance, competitive notes, proposal language, case studies, and implementation documents to draft rep-ready answers for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Proposal templates",
+          "Objection handling notes"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize account research when web search is configured, or create a CRM task through approved workflows.",
+        "outcome": "Reps respond faster while humans retain control over pricing, legal terms, procurement claims, and contractual commitments.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents from company knowledge such as websites, help centers, documents, wikis, PDFs, product docs, and internal files.",
+      "industryApplication": "Train an agent on battery manuals, datasheets, SOPs, safety guidance, warranty terms, service bulletins, sales playbooks, and distributor documentation.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer support and helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot can support website widgets and helpdesk-style workflows that answer, draft, summarize, route, or escalate support requests when configured.",
+      "industryApplication": "Answer common battery support questions, collect serial and operating details, draft responses, and escalate complex warranty, safety, or engineering cases.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded customer-configured actions such as lookups, summaries, record creation, field updates, notifications, and workflow triggers.",
+      "industryApplication": "Look up approved product or case context, create a support task, route a qualified OEM inquiry, notify EHS, or trigger a documentation review workflow.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for employees",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for HR, IT, operations, compliance, sales, engineering, support, and other internal teams.",
+      "industryApplication": "Help plant staff, quality engineers, field service, sales, and channel teams retrieve procedures, training, product knowledge, and operational guidance.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, conversation review, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated questions about storage, installation, warranty, specifications, shipping, troubleshooting, and process procedures so teams can improve documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and no public model training on customer data.",
+      "industryApplication": "Protect private manufacturing procedures, product roadmaps, customer records, supplier notes, and controlled documents while defining what agents can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Support battery customers around the clock with answers grounded in manuals, product pages, and approved documentation.",
+      "Train agents on owned content libraries so technical, support, and sales teams can reuse trusted knowledge consistently.",
+      "Use analytics to understand what customers, distributors, and employees are trying to learn from your documentation."
+    ],
+    "whyTheseReviewsFit": "Battery manufacturers need scalable support, reliable documentation access, and visibility into recurring questions. DocsBot proof spans product support, multilingual manuals, owned content libraries, and documentation analytics, all aligned with complex technical products and distributed customer support.",
+    "trustClaimIcons": [
+      "ClockIcon",
+      "ArchiveBoxIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for battery manufacturing teams",
+    "audience": [
+      "Battery manufacturers",
+      "Cell and pack manufacturers",
+      "Energy storage product teams",
+      "EV component suppliers",
+      "Manufacturing support leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "electric-vehicle-components",
+    "industrial-manufacturing",
+    "chemical-manufacturing",
+    "semiconductor-manufacturing",
+    "iot-device-manufacturing",
+    "b2b-product-distributors"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "battery-manufacturing",
+    "webSearchQueries": [
+      "IEA Global EV Outlook 2024 battery demand manufacturing growth 2023",
+      "DOE lithium-ion battery supply chain manufacturing report quality safety",
+      "OSHA battery manufacturing hazards lithium ion batteries"
+    ],
+    "sourceUrls": [
+      "https://www.iea.org/reports/global-ev-outlook-2025/electric-vehicle-batteries",
+      "https://www.iea.org/reports/global-ev-outlook-2024/outlook-for-battery-and-energy-demand",
+      "https://www.osha.gov/battery-manufacturing",
+      "https://www.phmsa.dot.gov/lithiumbatteries"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 39867,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 20155,
+        "outputTokens": 7524,
+        "reasoningOutputTokens": 90,
+        "totalTokens": 47391,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.168176,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.178176
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20740,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 6276,
+          "outputTokens": 4921,
+          "reasoningOutputTokens": 90,
+          "totalTokens": 25661,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.093121,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.103121
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19127,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13879,
+          "outputTokens": 2603,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21730,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075055,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075055
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1717386255773-1e3037c81788?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxCYXR0ZXJ5JTIwTWFudWZhY3R1cmluZ3xlbnwwfDB8fHwxNzc4ODIzMDc0fDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a large machine in a large building",
+    "source": "unsplash-search",
+    "query": "Battery Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer detailed battery specification questions without overcommitting our applications engineers?",
+      "answer": "Yes. A DocsBot AI agent can answer from approved datasheets, product catalogs, manuals, application notes, and qualification rules. When fit depends on voltage, duty cycle, chemistry, certification, environment, volume, or region, it can ask follow-up questions and prepare a structured handoff for sales or applications engineering instead of making an unsupported commitment.",
+      "role": "Sales, applications, and channel teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help if most of our support tickets are missing serial numbers, lot codes, photos, or operating conditions?",
+      "answer": "DocsBot can be configured to collect required details before routing a case: model, serial or lot number, site conditions, symptoms, photos, urgency, and warranty context. The goal is not just deflection; it is cleaner intake so field service, support, quality, or engineering teams receive a concise summary with the evidence they need.",
+      "role": "Customer support and field service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it internally for SOP lookup without turning it into an uncontrolled work-instruction system?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on approved SOPs, work instructions, training materials, quality procedures, and controlled documents. It should be configured to cite sources, point users back to the controlled document, and escalate safety, quality-release, or deviation decisions to accountable staff.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What should stay with a human instead of the AI agent in a battery plant?",
+      "answer": "Humans should remain responsible for safety-critical decisions, emergency response, quality release, deviation approval, regulatory interpretation, contract commitments, pricing exceptions, and engineering feasibility. DocsBot is best used to retrieve approved guidance, collect context, summarize requests, and route issues through defined review paths.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support damaged battery, overheating, storage, or shipping questions?",
+      "answer": "DocsBot can retrieve approved handling, storage, shipping, SDS, and incident-response guidance, then escalate damaged, overheating, fire-related, disposal, or regulatory questions to authorized reviewers. That boundary matters because OSHA highlights hazards and controls for lithium-ion battery manufacturing, use, and recycling, and PHMSA warns lithium batteries can pose fire hazards in transportation.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-battery",
+        "src-phmsa-lithium"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from answering from outdated manuals or obsolete product revisions?",
+      "answer": "Use curated source sets, access controls, review workflows, and clear ownership for documentation updates. DocsBot can answer from the sources you configure and help reveal repeated unanswered or confusing questions, but your team should define which manuals, service bulletins, warranty terms, and regional documents are approved for each audience.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we separate what distributors see from what plant employees or engineering teams see?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so teams can create different agents or source scopes for customers, distributors, sales, support, plant staff, quality, and engineering. That helps protect internal procedures, supplier notes, roadmap details, and controlled manufacturing knowledge while still making approved answers easier to access.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will our product, process, or customer data be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and granular access controls for teams managing sensitive manufacturing and customer knowledge.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can this work with our CRM, helpdesk, quality system, or internal workflow tools?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, and workflow automations for approved lookups, routing, ticket creation, summaries, field updates, notifications, or task creation. Avoid assuming a native integration; during evaluation, map the exact systems, permissions, data fields, and human approval steps you want the agent to use.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would sales use this for OEM, stationary storage, or EV component inquiries?",
+      "answer": "A DocsBot presales agent can ask structured intake questions about application, pack requirements, voltage, capacity, duty cycle, operating environment, target volume, region, certification needs, timeline, and follow-up preference. It can answer from approved sales and product materials, then forward a qualified summary to the configured CRM, email, helpdesk, or sales workflow.",
+      "role": "Sales, applications, and channel teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should we expect if our experts still need to handle complex technical cases?",
+      "answer": "Measure ROI around reduced repetitive questions, faster intake, fewer incomplete handoffs, shorter search time for internal procedures, better distributor self-service, and fewer interruptions to applications engineers or supervisors. In battery manufacturing, scale pressure is real: IEA reported global cell manufacturing capacity exceeded 3 TWh in 2024 after growing almost 30% that year.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-iea-2025-batteries"
+      ]
+    },
+    {
+      "question": "Can DocsBot help reduce engineering interruptions from sales and support teams?",
+      "answer": "Yes. An internal sales or support enablement agent can answer from approved product docs, proposal templates, warranty terms, service bulletins, objection notes, and implementation guidance. When a question truly needs engineering, the agent can package the use case, constraints, documents referenced, and open questions into a cleaner escalation.",
+      "role": "Sales, applications, and channel teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How long does implementation take if our documentation is spread across PDFs, SharePoint-style folders, wikis, and ticket history?",
+      "answer": "Implementation depends on source quality, access rules, and workflow scope. A practical rollout usually starts with one high-value audience, such as support, distributors, or SOP lookup, then expands after validating answer quality. DocsBot can train on documents, PDFs, websites, wikis, Confluence or Notion pages, Word files, and other configured sources.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What content should we prepare before launching a battery support agent?",
+      "answer": "Start with approved manuals, datasheets, product pages, application notes, storage and handling guidance, warranty policies, service bulletins, troubleshooting articles, installation guides, qualification rules, and escalation criteria. Also identify documents that should not be exposed to customers, such as internal cost data, supplier details, unreleased products, or controlled manufacturing procedures.",
+      "role": "Customer support and field service teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer in different languages for distributors and service partners?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from configured knowledge sources. For battery manufacturers, that can help regional distributors, installers, and service partners access approved product, maintenance, warranty, and handling guidance while still escalating ambiguous model, region, revision, or safety questions to the right team.",
+      "role": "Customer support and field service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we know when the agent is wrong, uncertain, or missing documentation?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review unanswered questions, low-confidence topics, escalations, and repeated phrasing to identify which manuals, FAQs, service bulletins, or SOPs need improvement.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot create tickets or notify EHS when a safety-sensitive issue comes in?",
+      "answer": "Yes, when configured through approved Skills, APIs, connectors, or workflow automations. The agent can collect incident details, summarize the conversation, create a task or ticket, and notify an internal queue. Sensitive workflows should use scoped permissions, logs, secrets management, and clear rules for when humans take over.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will operators trust an AI tool for plant-floor questions?",
+      "answer": "Trust usually comes from narrow scope, source citations, clear escalation rules, and visible alignment with controlled procedures. Position the agent as a faster way to find approved SOPs, inspection steps, training content, and escalation paths—not as a replacement for supervisors, quality engineers, EHS staff, or manufacturing execution controls.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can this help onboarding for new technicians, support reps, or channel partners?",
+      "answer": "Yes. DocsBot can answer onboarding questions from training materials, SOPs, product documentation, support playbooks, and policies. New employees or partners can ask practical questions in natural language, get source-grounded answers, and learn which approved document governs the process instead of relying only on tribal knowledge.",
+      "role": "Quality, EHS, and operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How is this different from a generic chatbot on our website?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent trained on your approved knowledge, not a generic chatbot. It can support customer-facing answers, internal knowledge retrieval, presales qualification, documentation analytics, and bounded workflow actions such as summaries, routing, ticket creation, notifications, or approved live lookups when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can procurement and IT evaluate DocsBot without committing to a full plant-wide rollout?",
+      "answer": "Yes. A focused pilot can target one use case, such as distributor support, warranty intake, product specification answers, or internal SOP lookup. Define source scope, user groups, success metrics, escalation rules, security requirements, and reporting needs up front, then expand only after answer quality and governance are validated.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "What metrics should we track after launch?",
+      "answer": "Track resolved or deflected conversations, escalation rate, missing-information reduction, response time, ticket completeness, repeated topics, knowledge gaps, user satisfaction, source coverage, and expert time saved. For internal use, also monitor SOP lookup patterns, unresolved procedure questions, onboarding friction, and documentation updates created from analytics.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support warranty triage without making final warranty decisions?",
+      "answer": "Yes. The agent can answer from approved warranty terms and service policies, collect serial number, lot, purchase date, operating conditions, photos, and failure symptoms, then route a summarized case to support or quality. Final warranty approval, exceptions, commercial concessions, and customer commitments should remain with authorized staff.",
+      "role": "Customer support and field service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot handle fast growth in product lines, chemistries, and regional variants?",
+      "answer": "DocsBot can be organized around approved source sets for product families, regions, audiences, and documentation revisions. As portfolios expand, analytics can show where customers or employees are confused, while permissions and escalation rules help prevent the agent from mixing public distributor guidance with internal engineering or plant documentation.",
+      "role": "Sales, applications, and channel teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Why is AI support becoming more relevant for battery manufacturers now?",
+      "answer": "Battery manufacturers are dealing with rapid market growth, expanding product variants, and more customer education needs. IEA reported EV battery demand exceeded 750 GWh in 2023, up about 40% from 2022, which increases pressure on sales, support, documentation, logistics, and operations teams to answer complex questions consistently.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-iea-2024-demand"
+      ]
+    }
+  ]
+}

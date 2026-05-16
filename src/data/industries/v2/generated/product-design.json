@@ -1,0 +1,725 @@
+{
+  "slug": "product-design",
+  "business": "Product Design",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Product Design Team Knowledge",
+    "description": "DocsBot helps product design teams answer client, spec, research, and handoff questions from approved sources so projects move with less rework.",
+    "canonicalPath": "/industry/product-design"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for design studios and product teams",
+    "headline": "Keep product design knowledge moving from brief to handoff",
+    "subheadline": "DocsBot turns briefs, research, design-system guidance, specs, proposals, meeting notes, and support documentation into AI agents that answer questions, summarize context, qualify requests, route handoffs, and surface knowledge gaps for product design teams.",
+    "proofBullets": [
+      {
+        "text": "Answer client and stakeholder questions from approved briefs, scopes, timelines, research summaries, and design documentation.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give designers, PMs, engineers, and account teams fast access to standards, component usage, handoff notes, and process guidance.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect project intake details, summarize requests, route next steps, and create scoped handoffs through customer-configured AI Actions.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated questions, missing docs, and design-process friction before it slows delivery.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a product design agent",
+    "secondaryCta": "Explore workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps product design organizations create AI agents trained on their own content: project documentation, design-system rules, research notes, SOPs, service catalogs, product requirements, help articles, and internal wikis. Agents provide source-grounded answers, summarize context, support client-facing intake, assist internal teams, and take bounded actions when configured through Skills, APIs, connectors, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Design studio principals and operations leads",
+        "roleContext": "Keep delivery standards, proposal language, project process, and client-facing answers consistent across multiple accounts without turning senior staff into the default knowledge desk.",
+        "bullets": [
+          {
+            "text": "Answer “what is included?” and “what happens next?” from service pages, scopes, FAQs, and onboarding docs.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Summarize new project requests and route them to the right strategist, designer, or account owner.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Identify repeated client questions that should become clearer onboarding, proposal, or delivery documentation.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Product designers, UX researchers, and design-system teams",
+        "roleContext": "Reduce time lost searching across research repositories, component notes, naming rules, accessibility guidance, and past decisions while keeping answers grounded in approved sources.",
+        "bullets": [
+          {
+            "text": "Retrieve relevant research findings, personas, decision logs, and design-system guidance from configured knowledge sources.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Explain component usage, content rules, and handoff expectations from the team’s current documentation.",
+            "icon": "RectangleGroupIcon"
+          },
+          {
+            "text": "Surface unanswered questions and documentation gaps that repeatedly block design and engineering collaboration.",
+            "icon": "ExclamationCircleIcon"
+          }
+        ],
+        "roleIcon": "PaintBrushIcon"
+      },
+      {
+        "role": "Product managers, engineers, and go-to-market partners",
+        "roleContext": "Give cross-functional partners a reliable place to ask about product rationale, requirements, release context, QA notes, and customer-facing positioning before they interrupt the design team.",
+        "bullets": [
+          {
+            "text": "Summarize design rationale, requirements, tradeoffs, and handoff context from approved project materials.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Help support, sales, or implementation teams answer product-fit and specification questions from current docs.",
+            "icon": "PuzzlePieceIcon"
+          },
+          {
+            "text": "Escalate ambiguous, sensitive, or high-impact decisions to the right human with a concise conversation summary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-industrial-designers",
+      "metric": "30,600 U.S. industrial designer jobs in 2024",
+      "claim": "BLS describes industrial designers as combining art, business, and engineering, with work that includes user research, prototyping, manufacturing requirements, costs, safety, appearance, and function.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Industrial Designers",
+      "sourceUrl": "https://www.bls.gov/ooh/arts-and-design/industrial-designers.htm",
+      "sourceDate": "2025-09-04",
+      "bestUsedFor": [
+        "labor scale",
+        "cross-functional design workflow",
+        "product design complexity"
+      ]
+    },
+    {
+      "id": "src-mckinsey-business-value-design",
+      "metric": "Top-quartile design performers outpaced peers in revenue and shareholder returns",
+      "claim": "McKinsey’s Business Value of Design research linked strong design practices with higher revenue growth and total returns to shareholders across studied industries.",
+      "sourceTitle": "McKinsey: The business value of design",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/mckinsey-design/our-insights/the-business-value-of-design",
+      "sourceDate": "2018-10-25",
+      "bestUsedFor": [
+        "business value of design",
+        "design leadership priority",
+        "cross-functional design operations"
+      ]
+    },
+    {
+      "id": "src-forrester-state-of-design-2024",
+      "metric": "Design teams report challenges with shared frameworks and accessible design practices",
+      "claim": "Forrester’s State of Design Survey, 2024 found design teams maturing in measurement, design systems, and AI hiring while still struggling with shared experience-design frameworks and accessibility implementation.",
+      "sourceTitle": "Forrester: The State Of Design",
+      "sourceUrl": "https://www.forrester.com/report/the-state-of-design/RES185530",
+      "sourceDate": "2025-08-01",
+      "bestUsedFor": [
+        "design operations maturity",
+        "design systems",
+        "accessibility process pressure"
+      ]
+    },
+    {
+      "id": "src-forrester-roi-design-thinking",
+      "metric": "Median per-project ROI of 229% for design thinking in Forrester’s analysis",
+      "claim": "Forrester reported that three-quarters of projects can return at least double their investment in design thinking, with a median per-project ROI of 229%.",
+      "sourceTitle": "Forrester: The ROI Of Design Thinking: Part 2, How To Calculate",
+      "sourceUrl": "https://www.forrester.com/report/The-ROI-Of-Design-Thinking-Part-2-How-To-Calculate/RES151195",
+      "sourceDate": "2020-07-01",
+      "bestUsedFor": [
+        "design investment ROI",
+        "business case for process improvement"
+      ]
+    },
+    {
+      "id": "src-nng-ux-careers",
+      "metric": "59% of UX professionals reported contributing to design systems or style guides",
+      "claim": "Nielsen Norman Group’s UX careers research describes common UX work such as creating flows and contributing to design systems or style guides.",
+      "sourceTitle": "Nielsen Norman Group: User Experience Careers, 2nd Edition",
+      "sourceUrl": "https://media.nngroup.com/media/reports/free/UserExperienceCareers_2nd_Edition.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "design-system work",
+        "UX team responsibilities",
+        "internal documentation needs"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client intake and project-fit agent",
+      "problem": "Prospects and clients ask similar questions about services, deliverables, process, timelines, collaboration model, and what information is needed before a design kickoff.",
+      "agentWorkflow": "A DocsBot agent answers from service pages, proposal templates, onboarding guides, FAQs, and case-study language. It can collect structured intake details such as product type, users, timeline, budget range, manufacturing or software context, and decision-makers, then prepare a summary for human review.",
+      "liveContextOrTools": "With customer-configured AI Actions, the agent can submit a lead form, create a task, route a request to the right team, or trigger an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you help with both physical product design and user experience strategy?",
+        "What do you need from us before a discovery workshop?",
+        "Summarize this request and send it to the studio lead."
+      ],
+      "businessOutcome": "Improve lead quality, reduce repetitive presales conversations, and give the team cleaner context before discovery calls.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Design-system and component guidance agent",
+      "problem": "Designers, engineers, and PMs lose time searching for component rules, accessibility notes, token usage, naming conventions, and past decisions spread across tools and documents.",
+      "agentWorkflow": "DocsBot trains on design-system documentation, style guides, contribution rules, component specs, release notes, and team SOPs. The agent answers usage questions, cites the source, and points teams to the right standard before handoff or implementation.",
+      "liveContextOrTools": "When configured with Skills, APIs, connectors, or an MCP Connector to approved systems, the agent can retrieve live component metadata, summarize a change request, or create a design-system backlog item.",
+      "exampleQuestionsOrRequests": [
+        "Which modal pattern should we use for a destructive confirmation?",
+        "What are the current rules for empty states and error copy?",
+        "Create a summary of this component question for the design-system backlog."
+      ],
+      "businessOutcome": "Reduce design drift, make standards easier to follow, and give cross-functional partners faster answers from the current system documentation.",
+      "icon": "RectangleGroupIcon",
+      "sourceIds": [
+        "src-forrester-state-of-design-2024",
+        "src-nng-ux-careers"
+      ]
+    },
+    {
+      "name": "Research repository and decision-history assistant",
+      "problem": "Product design work depends on interviews, usability findings, market context, experiments, and historical rationale that often become hard to find after a project moves on.",
+      "agentWorkflow": "DocsBot can answer from research summaries, interview notes, test reports, personas, journey maps, decision logs, and product requirement documents. It can summarize what is known, what is uncertain, and which source supports the answer.",
+      "liveContextOrTools": "Approved actions can generate a research brief, prepare a stakeholder summary, notify a channel, or route unanswered research questions to the right owner.",
+      "exampleQuestionsOrRequests": [
+        "What usability issues did we find with onboarding last quarter?",
+        "Summarize the evidence behind this design decision.",
+        "What research gaps should we address before the next prototype review?"
+      ],
+      "businessOutcome": "Help teams reuse prior learning, reduce duplicate research, and make design rationale easier to explain during reviews.",
+      "icon": "BeakerIcon"
+    },
+    {
+      "name": "Handoff, QA, and implementation support agent",
+      "problem": "Engineering, QA, support, and launch teams need fast answers about acceptance criteria, variants, states, constraints, and known tradeoffs after design files are handed off.",
+      "agentWorkflow": "The agent responds from specs, PRDs, QA notes, handoff checklists, release plans, and implementation guidance. It can summarize expected behavior, clarify where the documentation is incomplete, and escalate ambiguous product decisions.",
+      "liveContextOrTools": "With approved workflows, DocsBot can create a ticket, draft a QA note, update an approved field, or hand off a summarized issue to the responsible designer or PM.",
+      "exampleQuestionsOrRequests": [
+        "What should happen if this form validation fails?",
+        "Summarize the open questions from this implementation thread.",
+        "Create a handoff task for the missing mobile state."
+      ],
+      "businessOutcome": "Shorten feedback loops between design and build teams while keeping unresolved decisions visible instead of buried in chat threads.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-bls-industrial-designers"
+      ]
+    },
+    {
+      "name": "Design operations knowledge-gap agent",
+      "problem": "High-value design practices require consistent process, but recurring questions reveal where templates, onboarding, documentation, or collaboration rules are unclear.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help leaders see what people ask, where answers are missing, and which topics need better documentation.",
+      "liveContextOrTools": "The agent can summarize common questions for design ops reviews and route documentation updates into a customer-configured task or content workflow.",
+      "exampleQuestionsOrRequests": [
+        "What questions did clients ask most often this month?",
+        "Which internal process topics lack confident answers?",
+        "Draft a documentation update based on repeated handoff questions."
+      ],
+      "businessOutcome": "Turn recurring confusion into better briefs, templates, SOPs, and design-system documentation.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-mckinsey-business-value-design",
+        "src-forrester-roi-design-thinking"
+      ]
+    },
+    {
+      "name": "Product support and launch-readiness agent",
+      "problem": "After launch, support and sales teams need accurate answers about product behavior, feature availability, setup, compatibility, and known limitations.",
+      "agentWorkflow": "DocsBot can train on help articles, product documentation, release notes, implementation guides, FAQs, sales enablement materials, and ticket exports. It answers common questions, drafts helpdesk responses, and escalates complex issues to humans.",
+      "liveContextOrTools": "Customer-configured helpdesk connections can support ticket summaries, routing, draft responses, or approved status lookups when the team authorizes the workflow.",
+      "exampleQuestionsOrRequests": [
+        "What changed in the latest release that affects this workflow?",
+        "Draft a support response using the setup guide and release notes.",
+        "Route this issue to product because the docs do not cover it."
+      ],
+      "businessOutcome": "Give customer-facing teams consistent launch knowledge and a feedback loop into documentation gaps.",
+      "icon": "RocketLaunchIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and clients a knowledgeable first stop",
+    "intro": "A DocsBot customer-facing agent can live on a product design studio website, client portal, or project resource center. It answers from approved content, collects missing details, supports multilingual questions, and escalates nuanced strategy, pricing, contract, or design-judgment requests to the right person.",
+    "requests": [
+      {
+        "request": "“Do you design consumer hardware, SaaS products, or both?”",
+        "agentResponseStrategy": "Answer from service descriptions, portfolio summaries, positioning pages, and FAQs, then ask clarifying intake questions if the fit depends on product type or project stage.",
+        "sourceTypes": [
+          "Service pages",
+          "Portfolio notes",
+          "FAQs",
+          "Proposal language"
+        ],
+        "optionalAction": "Submit a structured lead form or route the inquiry to the appropriate studio owner.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "request": "“What happens during discovery?”",
+        "agentResponseStrategy": "Explain the current discovery process from onboarding guides, workshop agendas, research templates, and client success materials in the firm’s voice.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Workshop templates",
+          "Client FAQs"
+        ],
+        "optionalAction": "Collect scheduling intent and use an approved booking workflow when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you summarize our brief and tell us what is missing?”",
+        "agentResponseStrategy": "Summarize the provided request against the firm’s intake checklist and identify missing details such as audience, constraints, timeline, budget range, technical environment, or manufacturing context.",
+        "sourceTypes": [
+          "Intake forms",
+          "Brief templates",
+          "Scope checklists"
+        ],
+        "optionalAction": "Create a handoff summary for a strategist, account lead, or producer.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Where can I find the latest project documentation?”",
+        "agentResponseStrategy": "Answer from approved client-facing project materials and direct the user to the right source when available, while avoiding unsupported status claims unless live context is configured.",
+        "sourceTypes": [
+          "Client portal content",
+          "Project FAQs",
+          "Approved status notes"
+        ],
+        "optionalAction": "Escalate to the account owner when the answer requires human confirmation.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“Do you follow accessible design practices?”",
+        "agentResponseStrategy": "Use approved process documentation and accessibility guidance to explain how the team approaches accessibility, what is included in the engagement, and which decisions require review.",
+        "sourceTypes": [
+          "Accessibility process docs",
+          "Design-system guidance",
+          "Proposal scope"
+        ],
+        "optionalAction": "Route detailed compliance or legal claims to a human reviewer before commitment.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-forrester-state-of-design-2024"
+        ]
+      },
+      {
+        "request": "“Can you help my sales or support team explain this new product?”",
+        "agentResponseStrategy": "Answer from launch documentation, product FAQs, release notes, and enablement materials, then suggest a handoff to the team member responsible for the account or rollout.",
+        "sourceTypes": [
+          "Release notes",
+          "Enablement docs",
+          "Product FAQs"
+        ],
+        "optionalAction": "Forward a summarized request to CRM, helpdesk software, email, Slack, Microsoft Teams, or another customer-configured workflow.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put design knowledge where teams already work",
+    "intro": "A DocsBot internal knowledge agent helps design teams and cross-functional partners retrieve approved answers from project history, design standards, research, policies, and delivery playbooks. It can be used in private chat experiences, Slack, Microsoft Teams, or other configured workflows.",
+    "workflows": [
+      {
+        "name": "New project onboarding",
+        "problem": "Designers and producers need to understand the client, users, scope, constraints, and prior decisions quickly when joining an active project.",
+        "agentWorkflow": "The agent summarizes briefs, notes, research, proposals, kickoff materials, and decision logs so new contributors can ask follow-up questions in context.",
+        "sourceTypes": [
+          "Project briefs",
+          "Kickoff notes",
+          "Research summaries",
+          "Decision logs"
+        ],
+        "optionalAction": "Generate an onboarding summary or checklist for the project channel.",
+        "outcome": "Faster ramp-up and fewer repeated questions to senior designers or account leads.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Design review preparation",
+        "problem": "Reviews become less useful when teams lack a shared view of requirements, user evidence, open questions, and constraints.",
+        "agentWorkflow": "DocsBot can gather relevant context from PRDs, research notes, design rationale, QA findings, and stakeholder comments, then produce a concise review brief.",
+        "sourceTypes": [
+          "PRDs",
+          "Research notes",
+          "Design rationale",
+          "QA findings"
+        ],
+        "optionalAction": "Create a meeting summary or route unresolved decisions to the responsible owner.",
+        "outcome": "More focused critiques and clearer next steps after design reviews.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Sales and account enablement",
+        "problem": "Account teams need credible answers about services, process, design deliverables, product launch support, and past work without interrupting billable design time.",
+        "agentWorkflow": "The agent answers from case studies, service catalogs, proposal templates, objection-handling notes, product documentation, and approved pricing guidance.",
+        "sourceTypes": [
+          "Case studies",
+          "Service catalogs",
+          "Proposal templates",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Draft a follow-up email or prepare a lead summary for a human seller to review.",
+        "outcome": "More consistent presales communication while keeping humans responsible for final pricing, legal terms, and commitments.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "name": "Support feedback loop",
+        "problem": "Customer questions after launch often reveal unclear UX, missing documentation, or product issues, but that learning may not reach the design team.",
+        "agentWorkflow": "When connected to helpdesk exports or approved ticketing workflows, DocsBot can summarize recurring issues, draft support responses, and highlight product documentation gaps.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Support FAQs",
+          "Release notes",
+          "Product docs"
+        ],
+        "optionalAction": "Create a product feedback task or route a summarized issue to product, design, or support.",
+        "outcome": "Turn support patterns into better docs, product fixes, and clearer launch materials.",
+        "icon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved business sources such as documentation, websites, internal files, wikis, help centers, and product knowledge.",
+      "industryApplication": "Train an agent on briefs, research libraries, service catalogs, design-system rules, handoff checklists, launch docs, and client FAQs so answers reflect the way your product design team actually works.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers",
+      "mainLandingPageContext": "DocsBot agents provide answers based on configured knowledge sources and can cite or reference the content behind the response.",
+      "industryApplication": "Help designers and stakeholders distinguish documented standards from assumptions when asking about research findings, component rules, scope, requirements, or launch guidance.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-defined instructions, APIs, connectors, tools, and workflow rules.",
+      "industryApplication": "Collect intake details, summarize briefs, route handoffs, create tasks, update approved fields, or trigger notifications when your team has configured the right workflow and permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Live context through approved connections",
+      "mainLandingPageContext": "DocsBot can use live system context when configured with Skills, APIs, connectors, metadata, or approved runtime bindings, including MCP connectivity where teams expose tools through remote Model Context Protocol servers.",
+      "industryApplication": "Retrieve approved project or component context, summarize active requests, and support handoffs without claiming unsupported access to design tools or project systems.",
+      "icon": "LinkIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See where clients, designers, engineers, or support teams repeatedly ask for clarification, then improve onboarding, design-system documentation, specs, and help content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Protect client briefs, research, product strategy, and internal process documents while giving the right teams controlled access to an internal or customer-facing AI agent.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "liza-sentry-docs",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on owned content libraries instead of sending teams to rebuild the same answers by hand.",
+      "Use documentation interactions to understand what users, clients, and teammates are trying to learn.",
+      "Deploy source-grounded support at scale while keeping internal decision support and customer service workflows efficient."
+    ],
+    "whyTheseReviewsFit": "Product design teams depend on accurate owned knowledge: briefs, research, design-system rules, docs, and launch materials. DocsBot proof from content-library, documentation, RAG, support, and internal decisioning use cases shows how teams use source-grounded AI to make that knowledge easier to access and act on.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "MagnifyingGlassIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for product design knowledge, client intake, design documentation, and internal support",
+    "audience": [
+      "Product design studios",
+      "UX and product design teams",
+      "Design operations leaders",
+      "Design-system teams",
+      "Product managers and account teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PaintBrushIcon"
+  },
+  "relatedIndustrySlugs": [
+    "graphic-design",
+    "ux-ui-design",
+    "3d-printing-services",
+    "architect-services",
+    "augmented-reality-solutions",
+    "ai-automation-agency"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "product-design",
+    "webSearchQueries": [
+      "McKinsey Business Value of Design report design index revenue shareholder returns 2018",
+      "Forrester design system ROI report design teams productivity design debt",
+      "Nielsen Norman Group design systems UX consistency productivity statistics",
+      "BLS industrial designers occupational outlook product design employment"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/arts-and-design/industrial-designers.htm",
+      "https://www.mckinsey.com/capabilities/mckinsey-design/our-insights/the-business-value-of-design",
+      "https://www.forrester.com/report/the-state-of-design/RES185530",
+      "https://www.forrester.com/report/The-ROI-Of-Design-Thinking-Part-2-How-To-Calculate/RES151195",
+      "https://media.nngroup.com/media/reports/free/UserExperienceCareers_2nd_Edition.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41134,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20910,
+        "outputTokens": 7836,
+        "reasoningOutputTokens": 124,
+        "totalTokens": 48970,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.174871,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.184871
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21618,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6642,
+          "outputTokens": 5180,
+          "reasoningOutputTokens": 124,
+          "totalTokens": 26798,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.098049,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.108049
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19516,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14268,
+          "outputTokens": 2656,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22172,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076822,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076822
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1585435465945-bef5a93f8849?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ0NjR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Product Design background image",
+    "source": "legacy-industry",
+    "query": "Product Design"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer client questions without making promises outside the signed scope?",
+      "answer": "Yes. Train the agent on approved scopes, proposals, onboarding guides, service pages, and project FAQs so responses stay tied to documented commitments. For pricing, legal terms, timeline changes, or design-judgment calls, configure the agent to escalate to the account owner with a concise summary instead of improvising.",
+      "role": "Design studio principals and operations leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help a studio principal who keeps getting pulled into the same presales and onboarding questions?",
+      "answer": "DocsBot can answer repeat questions about services, deliverables, discovery, collaboration model, and kickoff requirements from approved sales and onboarding content. It can also collect missing intake details and route a summarized request to the right strategist, producer, or account lead for review.",
+      "role": "Design studio principals and operations leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent handle both physical product design and digital product design knowledge?",
+      "answer": "Yes, if you provide the right source material. A product design agent can be trained on industrial design briefs, manufacturing constraints, UX research, PRDs, design-system documentation, handoff checklists, launch notes, and client FAQs, then answer within the boundaries of those approved sources.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will designers trust the answers, or will they still have to verify everything manually?",
+      "answer": "DocsBot is built for source-grounded answers, so designers can see which configured content supports an answer. That is especially useful for research findings, component rules, accessibility notes, decision logs, and handoff expectations where teams need to separate documented guidance from assumptions.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can it reduce design-system drift between designers, PMs, and engineering?",
+      "answer": "It can help by making current component rules, contribution guidance, token usage, content standards, accessibility notes, and release updates easier to find. Design-system work is a common UX responsibility: Nielsen Norman Group reported that 59% of UX professionals contributed to design systems or style guides.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nng-ux-careers"
+      ]
+    },
+    {
+      "question": "How does DocsBot support accessibility questions without creating compliance risk?",
+      "answer": "Train the agent on your accessibility process docs, design-system guidance, proposal scope, and approved review language. It can explain what your process includes and route detailed legal, compliance, or commitment-level questions to a human reviewer. This matters because design teams still report accessibility implementation challenges.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-forrester-state-of-design-2024"
+      ]
+    },
+    {
+      "question": "Can this summarize research history before a design review or stakeholder meeting?",
+      "answer": "Yes. DocsBot can answer from research summaries, interview notes, usability reports, personas, journey maps, decision logs, and requirements documents. Teams can ask what is known, what remains uncertain, and which source supports a recommendation before a review, prototype critique, or roadmap discussion.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when the documentation is incomplete or conflicting?",
+      "answer": "A well-configured agent should not guess. DocsBot can surface the sources it found, identify where confidence is limited, and escalate ambiguous questions with a conversation summary. Its analytics and knowledge-gap discovery can also show which missing topics repeatedly block clients, designers, engineers, or support teams.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can engineers use it after handoff to clarify specs, states, and acceptance criteria?",
+      "answer": "Yes. Train DocsBot on PRDs, specs, QA notes, handoff checklists, release plans, and implementation guidance. Engineers can ask about expected behavior, variants, error states, constraints, and known tradeoffs, while unresolved product decisions can be routed back to the responsible designer or PM.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this improve launch readiness for support, sales, and implementation teams?",
+      "answer": "DocsBot can train on release notes, help articles, product FAQs, enablement materials, implementation guides, and approved ticket exports. It can answer common product-behavior questions, draft support responses for review, summarize recurring issues, and route documentation gaps back to product or design.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we connect it to tools we already use for tasks, tickets, or project handoffs?",
+      "answer": "DocsBot can take bounded actions through customer-configured AI Actions, Skills, APIs, connectors, webhooks, and approved workflows. Depending on your setup, it can create tasks, route requests, submit intake forms, update approved fields, notify a team, or use an MCP Connector to reach tools exposed by your systems.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need perfectly organized documentation before we start?",
+      "answer": "No, but you need enough trusted source material for the first use case. Many teams start with a narrow agent for intake, design-system guidance, research retrieval, or handoff support, then use conversation logs and knowledge-gap reports to decide which briefs, SOPs, templates, or specs to improve next.",
+      "role": "Design studio principals and operations leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own the rollout: design ops, IT, product, or studio leadership?",
+      "answer": "The strongest owner is usually the team accountable for knowledge quality and workflow adoption. Design ops or studio operations can define sources and process rules, IT can review access and security, and product/design leads can approve answer boundaries for specs, research, and client-facing guidance.",
+      "role": "Design studio principals and operations leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep junior designers or account teams from getting outdated guidance?",
+      "answer": "Train the agent on approved, current content and manage access through role-based permissions. When sources change, update the knowledge base rather than relying on informal memory. For sensitive topics like scope, pricing, legal terms, or compliance commitments, configure escalation instead of allowing autonomous final answers.",
+      "role": "Design studio principals and operations leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter if we upload client briefs, research notes, or product strategy?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. Those controls are important for protecting client IP, research, roadmap details, and internal delivery processes.",
+      "role": "Design studio principals and operations leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different clients or project teams see different knowledge?",
+      "answer": "Yes. Use separate agents, scoped sources, granular access controls, and role-based permissions so users only reach the content appropriate for their project or role. For client-facing experiences, limit the agent to approved client materials and escalate anything that requires private status confirmation.",
+      "role": "Design studio principals and operations leads",
+      "category": "Scalability"
+    },
+    {
+      "question": "How would we measure ROI beyond “people like using it”?",
+      "answer": "Track reductions in repeated presales questions, faster onboarding, fewer handoff clarifications, lower design-system support burden, faster support drafting, and recurring knowledge gaps closed. Strong design operations matter commercially: McKinsey linked top-quartile design performers with stronger revenue growth and shareholder returns.",
+      "role": "Design studio principals and operations leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-business-value-design"
+      ]
+    },
+    {
+      "question": "Can this support a business case for investing in better design operations?",
+      "answer": "Yes. DocsBot can show where teams repeatedly ask about briefs, scope, research, accessibility, components, or handoff rules, turning invisible coordination cost into actionable documentation work. Forrester has reported a median per-project ROI of 229% for design thinking in its analysis.",
+      "role": "Design studio principals and operations leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-forrester-roi-design-thinking"
+      ]
+    },
+    {
+      "question": "What if our team already uses search in Notion, Confluence, Drive, or a design-system site?",
+      "answer": "DocsBot is not just another search box. It can answer in natural language from configured sources, cite supporting material, summarize context across documents, identify missing knowledge, and trigger approved actions such as routing a handoff or creating a task when your workflows allow it.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot replace a design ops manager or design-system lead?",
+      "answer": "No. It is better framed as leverage for those roles. DocsBot can answer repeat questions, summarize context, and reveal documentation gaps, but humans should still own standards, governance, prioritization, accessibility decisions, roadmap tradeoffs, and final client or product commitments.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does the agent learn from conversations without exposing private client data?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Customer data is not used to train public models, and access can be governed with role-based permissions and customer-defined controls for sources, Skills, and actions.",
+      "role": "Design studio principals and operations leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can it work for multilingual clients or distributed product teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which helps studios and product teams support international clients, distributed contributors, and regional go-to-market teams. For high-risk commitments, the same human escalation rules should apply regardless of language.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should our first pilot look like if we want low risk and fast adoption?",
+      "answer": "Start with one high-friction workflow: client intake, design-system Q&A, research retrieval, or engineering handoff support. Limit the initial sources, define escalation rules, review conversations weekly, and measure repeated questions, unresolved topics, time saved, and documentation updates created from knowledge gaps.",
+      "role": "Design studio principals and operations leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much human review is needed before making an agent client-facing?",
+      "answer": "Review the source set, tone, escalation rules, restricted topics, and sample conversations before launch. For a studio website or client portal, the agent should answer from approved public or client-facing materials and escalate pricing, contract terms, project status, or nuanced strategy questions to a person.",
+      "role": "Design studio principals and operations leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent qualify product design leads before a discovery call?",
+      "answer": "Yes. It can collect structured details such as product type, users, timeline, budget range, technical or manufacturing context, current stage, and decision-makers. With customer-defined rules and approved workflows, it can summarize fit, forward the inquiry, or trigger a scheduling request for human follow-up.",
+      "role": "Design studio principals and operations leads",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Will this scale across multiple product lines, brands, or design systems?",
+      "answer": "Yes, if the knowledge architecture is intentional. Teams can separate sources by product, brand, client, design system, or audience, then use access controls and source management to keep answers scoped. Analytics can reveal where one system needs better documentation before scaling to others.",
+      "role": "Product designers, UX researchers, and design-system teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot fit the cross-functional nature of product design work?",
+      "answer": "Product design often combines art, business, engineering, user research, prototyping, manufacturing requirements, costs, safety, appearance, and function. DocsBot supports that complexity by giving designers, PMs, engineers, account teams, and support a shared place to ask source-grounded questions.",
+      "role": "Product managers, engineers, and go-to-market partners",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-industrial-designers"
+      ]
+    }
+  ]
+}

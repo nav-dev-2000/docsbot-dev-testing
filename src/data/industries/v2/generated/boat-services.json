@@ -1,0 +1,696 @@
+{
+  "slug": "boat-services",
+  "business": "Boat Services",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Boat Service Operations and Guest Support",
+    "description": "DocsBot helps boat services answer trip, safety, booking, and maintenance questions faster with AI agents trained on approved marine content.",
+    "canonicalPath": "/industry/boat-services"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for marine service teams",
+    "headline": "Keep boat customers informed before, during, and after every trip",
+    "subheadline": "DocsBot helps boat services create AI support and internal knowledge agents trained on your schedules, vessel policies, FAQs, manuals, safety briefings, service catalogs, and operating procedures. Give guests fast answers, help staff find the right guidance, and route complex requests to a human when needed.",
+    "proofBullets": [
+      {
+        "text": "Answer trip, charter, rental, marina, maintenance, and policy questions from approved service content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details, booking intent, vessel needs, party size, timing, and preferred follow-up channel.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Summarize inquiries, create handoffs, route tickets, and trigger approved workflows through configured Skills or APIs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Help crews and office teams retrieve SOPs, safety checklists, customer policies, and maintenance references in private chat.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a boat service AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your boat service knowledge into an AI agent that can answer customer questions, support staff, qualify requests, summarize conversations, identify missing documentation, and take scoped actions when you configure Skills, APIs, connectors, or approved workflows. It can appear in a website widget, private team chat, helpdesk-style workflow, Slack, Microsoft Teams, or your own API-powered experience.",
+    "whoItHelps": [
+      {
+        "role": "Charter, tour, and rental operators",
+        "roleContext": "Customer questions often arrive outside office hours and before guests understand weather policies, capacity limits, licensing requirements, cancellation terms, or what to bring.",
+        "bullets": [
+          {
+            "text": "Give prospects instant answers from your trip pages, FAQs, waiver language, policies, and pre-arrival instructions.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect party size, date range, experience level, accessibility needs, and booking intent before handing off to staff.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Escalate weather-sensitive, safety-critical, refund, or unusual trip requests to a human with a conversation summary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "TicketIcon"
+      },
+      {
+        "role": "Marinas, service yards, and maintenance teams",
+        "roleContext": "Boat owners need clear answers about haul-out services, slip rules, seasonal storage, maintenance packages, parts questions, and documentation-heavy service processes.",
+        "bullets": [
+          {
+            "text": "Answer service-scope, storage, billing, access, and maintenance FAQ questions from approved knowledge sources.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Help staff retrieve SOPs, checklists, yard rules, vendor notes, and troubleshooting references without digging through files.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Use configured actions to draft service-ticket summaries, route requests, or create tasks in approved systems.",
+            "icon": "ListBulletIcon"
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      },
+      {
+        "role": "Operations, safety, and customer experience leaders",
+        "roleContext": "Marine teams need consistent information across the website, phone follow-ups, crew briefings, and office workflows while keeping safety and judgment calls in human hands.",
+        "bullets": [
+          {
+            "text": "Keep answers grounded in current policies, procedures, and approved source material instead of ad hoc staff memory.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Review logs, satisfaction signals, repeated topics, and knowledge gaps to improve customer instructions and internal SOPs.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support multilingual guests with answers in more than 100 languages while preserving escalation paths for complex issues.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-uscg-2024-safety",
+      "metric": "3,887 incidents, 556 deaths, and 2,170 injuries in 2024",
+      "claim": "The U.S. Coast Guard’s 2024 recreational boating statistics show that operators still face meaningful safety risk on the water.",
+      "sourceTitle": "2024 Recreational Boating Statistics, U.S. Coast Guard",
+      "sourceUrl": "https://www.uscgboating.org/library/accident-statistics/Recreational-Boating-Statistics-2024.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "safety risk",
+        "pre-trip education",
+        "operational consistency"
+      ]
+    },
+    {
+      "id": "src-uscg-2023-causes",
+      "metric": "Operator inattention was the top listed accident factor in 2023",
+      "claim": "The Coast Guard reported operator inattention, improper lookout, operator inexperience, excessive speed, and machinery failure as the top five primary contributing factors in 2023 accidents.",
+      "sourceTitle": "Coast Guard releases 2023 recreational boating statistics",
+      "sourceUrl": "https://www.news.uscg.mil/Press-Releases/Article/3788966/coast-guard-releases-2023-recreational-boating-statistics/",
+      "sourceDate": "May 2024",
+      "bestUsedFor": [
+        "safety briefings",
+        "customer education",
+        "crew reminders"
+      ]
+    },
+    {
+      "id": "src-nmma-economic-impact",
+      "metric": "$230 billion annual U.S. economic impact and 812,000 jobs",
+      "claim": "NMMA reports that recreational boating generated $230 billion in annual U.S. economic activity and supported 812,000 jobs in 2023.",
+      "sourceTitle": "NMMA Reports Recreational Boating’s Economic Impact Soars to $230 Billion",
+      "sourceUrl": "https://www.nmma.org/advocacy/news/24324",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "market scale",
+        "buyer demand",
+        "operations volume"
+      ]
+    },
+    {
+      "id": "src-nmma-2024-spending",
+      "metric": "$55.6 billion in 2024 recreational marine retail expenditures",
+      "claim": "NMMA reported 2024 recreational marine spending of $55.6 billion, down slightly from 2023 but still healthy.",
+      "sourceTitle": "NMMA Releases 2024 Industry Sales by Category and State Report",
+      "sourceUrl": "https://www.nmma.org/press/article/25236",
+      "sourceDate": "October 2025",
+      "bestUsedFor": [
+        "market demand",
+        "customer spending",
+        "seasonal sales operations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Trip inquiry and booking-intent agent",
+      "problem": "Boat service teams lose time answering repeated questions about availability, vessel types, trip length, capacity, weather policies, deposits, cancellations, and what guests should bring.",
+      "agentWorkflow": "A DocsBot agent answers from approved trip pages, FAQs, policies, and service descriptions. It can ask follow-up questions, capture date range, party size, trip type, experience level, and contact details, then prepare a qualified handoff for the bookings team.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or scheduling workflows, the agent can check approved live context, collect scheduling intent, submit a lead form, notify the right team, or request a meeting slot.",
+      "exampleQuestionsOrRequests": [
+        "Do you have a half-day sunset charter for six people next Saturday?",
+        "What happens if the weather turns bad?",
+        "Can you recommend the right boat rental for first-time visitors?"
+      ],
+      "businessOutcome": "More inquiries become complete, actionable requests before staff respond, while pricing, safety, and contractual commitments can remain under human review.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Pre-departure safety and guest readiness assistant",
+      "problem": "Guests may miss preparation details, waiver instructions, footwear guidance, arrival times, local rules, or weather-related expectations, creating preventable confusion at the dock.",
+      "agentWorkflow": "Train the agent on your safety briefings, packing lists, arrival instructions, local operating rules, cancellation policies, and escalation guidance. It gives consistent pre-trip answers and flags safety-sensitive questions for staff review.",
+      "liveContextOrTools": "The agent can use approved runtime context, such as trip type or reservation metadata, when the customer configures the right Skill, API, connector, or workflow binding.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring for a four-hour fishing charter?",
+        "Do children need life jackets, and do you provide them?",
+        "Where do we meet, and how early should we arrive?"
+      ],
+      "businessOutcome": "Guests arrive better prepared, and staff spend less time repeating the same pre-departure instructions. The Coast Guard verified 3,887 recreational boating incidents, 556 deaths, and 2,170 injuries in 2024, making clear safety communication important for marine operators.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-uscg-2024-safety"
+      ]
+    },
+    {
+      "name": "Maintenance, storage, and service desk assistant",
+      "problem": "Marinas and service yards field repetitive questions about seasonal storage, winterization, haul-out timing, slip access, service packages, parts, warranties, and required documentation.",
+      "agentWorkflow": "DocsBot answers from service catalogs, yard rules, maintenance checklists, PDFs, website pages, and internal procedures. If a request needs staff action, it can collect vessel details, summarize the issue, and route the request to the appropriate team.",
+      "liveContextOrTools": "Through customer-configured AI Actions, the agent can create a task, draft a ticket, update approved fields, or trigger a workflow. MCP Connectors can also expose tools from remote Model Context Protocol servers when a team has authorized them.",
+      "exampleQuestionsOrRequests": [
+        "What is included in your winterization package?",
+        "Can I store my boat on the hard for the season?",
+        "What details do you need before scheduling an engine service appointment?"
+      ],
+      "businessOutcome": "Owners receive faster first-line answers, while service coordinators get cleaner intake details for scheduling, quoting, or technical review.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Crew and office knowledge agent",
+      "problem": "Seasonal staff, captains, dockhands, service coordinators, and front-desk teams need fast access to procedures, policies, and customer-facing answers during busy periods.",
+      "agentWorkflow": "A private DocsBot agent retrieves SOPs, onboarding materials, safety checklists, internal policies, service scripts, route notes, and escalation rules. Staff can ask questions in private chat, Slack, Microsoft Teams, or a configured internal interface.",
+      "liveContextOrTools": "With approved connectors or APIs, the agent can summarize internal notes, prepare handoffs, and route operational questions to the right manager without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy when a guest arrives late?",
+        "Where is the checklist for closing the fuel dock?",
+        "How should I explain our cancellation policy to a customer?"
+      ],
+      "businessOutcome": "Teams deliver more consistent answers and reduce time spent searching across folders, PDFs, shared drives, and message threads.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Safety trend and documentation-gap review",
+      "problem": "Recurring guest confusion can reveal weak FAQs, unclear pre-trip instructions, or missing operational content, but those patterns are hard to see across chats, calls, and tickets.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see what customers and employees ask repeatedly. Managers can update source content and retrain the agent with clearer guidance.",
+      "liveContextOrTools": "When connected to helpdesk-style workflows or exported ticket sources, the agent can summarize patterns, draft response improvements, and route unresolved topics for documentation review.",
+      "exampleQuestionsOrRequests": [
+        "Which trip questions are customers asking every week?",
+        "What safety topics are not answered well in our current content?",
+        "Which policies are causing the most escalation?"
+      ],
+      "businessOutcome": "Operators can improve FAQs, crew scripts, and pre-arrival instructions over time. The Coast Guard listed operator inattention, improper lookout, operator inexperience, excessive speed, and machinery failure among the top accident factors in 2023, reinforcing the value of clear operational communication.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-uscg-2023-causes"
+      ]
+    },
+    {
+      "name": "Seasonal sales and customer follow-up support",
+      "problem": "High-demand seasons create bursts of quote requests, charter questions, gift-card inquiries, boat-show leads, and follow-up tasks that can overwhelm small teams.",
+      "agentWorkflow": "A DocsBot presales or sales enablement agent answers service-fit questions from approved content, qualifies leads by customer-defined rules, and prepares summaries, drafted follow-ups, or CRM-style handoffs through approved workflows.",
+      "liveContextOrTools": "Configured Skills, APIs, webhooks, forms, or connectors can forward qualified leads, conversation summaries, and next-step details to the sales or operations system a customer authorizes.",
+      "exampleQuestionsOrRequests": [
+        "We are planning a bachelor party for 10 people. Which option fits?",
+        "Can someone send me a quote for a monthly slip?",
+        "Draft a follow-up email for this charter inquiry."
+      ],
+      "businessOutcome": "Teams can respond faster during busy seasons in a market where NMMA reported $55.6 billion in 2024 recreational marine retail expenditures.",
+      "icon": "ArrowTrendingUpIcon",
+      "sourceIds": [
+        "src-nmma-2024-spending"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers a helpful marine-service answer before they call",
+    "intro": "A DocsBot customer-facing agent can sit on your website or product experience and answer from the content you approve: trip pages, rental rules, charter descriptions, marina policies, maintenance FAQs, waiver instructions, and help articles. It can collect details, qualify intent, and escalate when a person should decide.",
+    "requests": [
+      {
+        "request": "“Which trip is best for a family with two kids and no boating experience?”",
+        "agentResponseStrategy": "Compare approved trip descriptions, capacity notes, age guidance, and customer preparation details, then ask follow-up questions before recommending next steps.",
+        "sourceTypes": [
+          "Trip pages",
+          "FAQs",
+          "Policy pages",
+          "Service catalog"
+        ],
+        "optionalAction": "Collect name, email, date range, party size, and preferred follow-up channel for the bookings team.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "request": "“What is your weather cancellation policy?”",
+        "agentResponseStrategy": "Answer from the current cancellation policy, explain what the customer can expect, and avoid making final refund or safety decisions unless configured rules allow it.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "Weather policy",
+          "Terms and conditions"
+        ],
+        "optionalAction": "Escalate to staff with the customer’s trip date, reservation reference, and conversation summary.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“Can I get my boat winterized and stored with you?”",
+        "agentResponseStrategy": "Answer from service packages, storage rules, required intake details, and operating hours, then collect the vessel and timeline information staff need.",
+        "sourceTypes": [
+          "Maintenance packages",
+          "Storage rules",
+          "Intake forms",
+          "Yard procedures"
+        ],
+        "optionalAction": "Create a service request or route the inquiry to the maintenance team through an approved workflow.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Do you support guests who speak Spanish?”",
+        "agentResponseStrategy": "Respond in the customer’s language when the approved content supports the answer, and preserve human escalation for nuanced trip, safety, or accessibility needs.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Service pages",
+          "Guest instructions"
+        ],
+        "optionalAction": "Forward the conversation summary to a bilingual staff member or the right support queue if configured.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What do I need to know before renting a personal watercraft?”",
+        "agentResponseStrategy": "Provide approved readiness information, age or licensing guidance when documented, operating rules, what to bring, and when staff must verify details directly.",
+        "sourceTypes": [
+          "Rental rules",
+          "Safety briefing",
+          "Local policy notes",
+          "Waiver instructions"
+        ],
+        "optionalAction": "Capture experience level and questions for dock staff before arrival.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Is boating still popular enough to justify expanding our fleet or service capacity?”",
+        "agentResponseStrategy": "For internal-facing or sales-assist experiences, summarize approved company planning content and cite market context where the team has included it as a source.",
+        "sourceTypes": [
+          "Market notes",
+          "Sales enablement docs",
+          "Expansion planning files"
+        ],
+        "optionalAction": "Prepare a research summary for a manager rather than making the investment decision.",
+        "icon": "ChartPieIcon",
+        "sourceIds": [
+          "src-nmma-economic-impact"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make operating procedures easier for crews, dock teams, and service staff to find",
+    "intro": "DocsBot can also work as a private internal knowledge agent trained on SOPs, training documents, checklists, policies, PDFs, shared-drive files, and team knowledge. Staff get source-grounded answers without searching through scattered folders or asking the same manager repeatedly.",
+    "workflows": [
+      {
+        "name": "Seasonal staff onboarding",
+        "problem": "New dockhands, reservation agents, guides, and service coordinators need quick answers during high-volume seasons, but training content is often spread across documents and messages.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, staff policies, service scripts, emergency procedures, trip descriptions, and customer communication standards. Employees can ask practical questions and see answers grounded in your sources.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Employee handbook",
+          "SOPs",
+          "Training PDFs"
+        ],
+        "optionalAction": "Generate a short onboarding checklist or summarize the policy a manager should review with the employee.",
+        "outcome": "Seasonal teams ramp faster and provide more consistent answers from the first week.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Operations handoff summaries",
+        "problem": "Customer calls, web inquiries, reservation changes, and service requests often need a clean summary before the next employee can act.",
+        "agentWorkflow": "DocsBot can summarize conversation context, extract missing details, and prepare a handoff for bookings, dock operations, maintenance, or management when connected through approved workflows.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Ticket exports",
+          "Forms",
+          "Internal routing rules"
+        ],
+        "optionalAction": "Create a task, draft a ticket, notify a team, or route the handoff through customer-configured Skills, APIs, connectors, or workflow automation.",
+        "outcome": "Less context is lost between front office, dock, crew, and service teams.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Policy and safety lookup",
+        "problem": "Employees may need fast confirmation of cancellation terms, late-arrival rules, safety briefing language, rental eligibility, fuel procedures, or incident escalation steps.",
+        "agentWorkflow": "A private agent retrieves the relevant policy or checklist and gives a concise answer with source grounding. Sensitive or safety-critical situations can be configured to require human review and escalation.",
+        "sourceTypes": [
+          "Safety checklists",
+          "Incident procedures",
+          "Rental rules",
+          "Policy documents"
+        ],
+        "optionalAction": "Prepare an incident summary or manager handoff without making safety-critical judgments on its own.",
+        "outcome": "Staff can act from consistent written guidance while keeping high-impact decisions with qualified people.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Service and maintenance knowledge base",
+        "problem": "Service teams need quick access to yard processes, maintenance package details, troubleshooting notes, warranty language, and customer intake requirements.",
+        "agentWorkflow": "DocsBot can train on manuals, service documentation, PDFs, maintenance checklists, internal notes, and website service pages to answer staff questions and reveal missing information.",
+        "sourceTypes": [
+          "Maintenance manuals",
+          "Service catalogs",
+          "Yard SOPs",
+          "Warranty notes"
+        ],
+        "optionalAction": "Draft a service-intake summary or route a question to a technician for review.",
+        "outcome": "Coordinators answer owners more confidently and technicians receive better-context requests.",
+        "icon": "CogIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved marine knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on the company’s own knowledge sources, including websites, help centers, documents, PDFs, internal content, and other configured sources.",
+      "industryApplication": "Boat services can train agents on trip pages, charter packages, marina rules, safety briefings, rental policies, maintenance FAQs, yard SOPs, and staff training materials.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and customer support workflows",
+      "mainLandingPageContext": "DocsBot agents can answer customer questions in a website or product chat widget and support helpdesk-connected workflows when configured.",
+      "industryApplication": "Add a support agent to a charter, marina, rental, or service-yard website so customers can ask about trips, storage, service packages, policies, and next steps at any hour.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to perform scoped lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs through customer-configured systems.",
+      "industryApplication": "Use approved actions to collect booking intent, route maintenance requests, create tasks, summarize inquiries, notify teams, or trigger follow-up workflows without giving the agent unrestricted control.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for teams",
+      "mainLandingPageContext": "DocsBot can work as a private assistant for employees, answering questions from internal documents, SOPs, policies, wikis, shared drives, and team knowledge sources.",
+      "industryApplication": "Help captains, dockhands, reservation agents, service coordinators, and managers find the right procedure, policy, checklist, or customer answer quickly.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which trip, safety, maintenance, storage, and policy topics customers ask about most so you can improve FAQs, pre-arrival instructions, and staff training content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Operate customer-facing and internal agents with permission boundaries, controlled source access, and review paths for sensitive customer, safety, pricing, or operational workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions with source-grounded answers from approved business content.",
+      "Easy to train on manuals, websites, FAQs, and owned knowledge libraries.",
+      "Useful for travel and booking-adjacent teams that need faster access to information.",
+      "Proven at scale in support environments, including a Sony NURO deployment that handled more than 30,000 inquiries in one month."
+    ],
+    "whyTheseReviewsFit": "Boat service buyers need reliable answers from manuals, policies, service pages, and booking content—not generic replies. DocsBot proof spans scalable customer support, multilingual manual-based assistance, travel-industry information access, and owned-content training, which maps closely to charter, rental, marina, and service-yard operations.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "BookOpenIcon",
+      "TicketIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for boat services",
+    "audience": [
+      "Boat charter operators",
+      "Boat rental companies",
+      "Marinas and service yards",
+      "Marine maintenance teams",
+      "Tour and excursion operators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "ferry-services",
+    "taxi-services",
+    "limousine-services",
+    "freight-forwarding",
+    "fleet-telematics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "boat-services",
+    "webSearchQueries": [
+      "NOAA recreational boating accident statistics 2023 2024 US Coast Guard report",
+      "US Coast Guard 2023 recreational boating statistics accidents deaths operator inattention improper lookout",
+      "NMMA recreational boating economic impact annual retail expenditures 2023"
+    ],
+    "sourceUrls": [
+      "https://www.uscgboating.org/library/accident-statistics/Recreational-Boating-Statistics-2024.pdf",
+      "https://www.news.uscg.mil/Press-Releases/Article/3788966/coast-guard-releases-2023-recreational-boating-statistics/",
+      "https://www.nmma.org/advocacy/news/24324",
+      "https://www.nmma.org/press/article/25236"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41127,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20903,
+        "outputTokens": 7962,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 49089,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.176744,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.186744
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21522,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6546,
+          "outputTokens": 5223,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 26745,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.098454,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.108454
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19605,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14357,
+          "outputTokens": 2739,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22344,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07829,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07829
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1604914391861-1f4ad6844d15?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDM1NzN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Boat Services background image",
+    "source": "legacy-industry",
+    "query": "Boat Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer charter and rental questions without making promises our staff has not approved?",
+      "answer": "Yes. DocsBot answers from the trip pages, policies, FAQs, waiver language, and service content you approve. For questions involving final pricing, vessel availability, weather calls, refunds, safety judgment, or exceptions, you can configure the agent to collect details and escalate with a summary instead of committing on behalf of your team.",
+      "role": "Charter, tour, and rental operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help us during peak season when calls, web forms, and walk-up questions all spike at once?",
+      "answer": "A customer-facing agent can handle repeated questions about trip options, capacity, arrival time, what to bring, deposits, cancellations, storage, and service intake at any hour. It can also collect booking intent, party size, preferred dates, vessel details, and contact information so staff receive cleaner handoffs during the busiest weeks.",
+      "role": "Charter, tour, and rental operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it support both guest-facing questions and internal SOP lookup for our dock, office, and service teams?",
+      "answer": "Yes. You can use DocsBot as a website AI support agent for customers and as a private internal knowledge agent for employees. Customer agents can answer from public trip, marina, and maintenance content, while internal agents can retrieve SOPs, safety checklists, onboarding materials, yard rules, service scripts, and escalation procedures.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "We have safety-sensitive operations. How does DocsBot avoid replacing a captain, manager, or technician’s judgment?",
+      "answer": "DocsBot is best used to deliver approved information, collect context, and route exceptions. You can keep safety-critical decisions, incident response, vessel dispatch, weather judgment, refund approvals, and technical diagnoses with qualified staff. The agent can flag those topics, summarize the situation, and tell the customer or employee that a person must review it.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help reduce preventable guest confusion before departure?",
+      "answer": "Yes. Train it on pre-arrival instructions, waiver steps, packing lists, footwear rules, meeting points, parking details, life jacket guidance, local operating rules, and trip-specific policies. Clear pre-trip communication matters in an industry where the Coast Guard reported 3,887 recreational boating incidents, 556 deaths, and 2,170 injuries in 2024.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-uscg-2024-safety"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer weather cancellation questions without creating refund disputes?",
+      "answer": "Yes, if your policy is documented clearly. The agent can explain the current weather and cancellation policy from approved sources, ask for the trip date or booking reference, and escalate refund, reschedule, or safety decisions to staff. That keeps customer communication fast while preserving human review for exceptions and money-related decisions.",
+      "role": "Charter, tour, and rental operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What sources should we give DocsBot before launch?",
+      "answer": "Most boat service teams start with trip pages, FAQs, rental rules, cancellation terms, waiver instructions, safety briefings, arrival directions, marina rules, service catalogs, storage policies, maintenance intake forms, employee SOPs, and training PDFs. The higher the quality of the source material, the more useful and consistent the agent will be.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep answers current when our schedules, policies, rates, and seasonal rules change?",
+      "answer": "Treat the agent as an extension of your approved knowledge base. Update the source documents or pages when policies change, retrain or resync the relevant sources, and review logs for outdated or confusing answers. For live details such as availability or booking status, DocsBot can use configured Skills, APIs, connectors, or workflows when you authorize that access.",
+      "role": "Charter, tour, and rental operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot connect with our booking, CRM, ticketing, or marina management software?",
+      "answer": "DocsBot can support approved connections through Skills, APIs, webhooks, connectors, MCP Connectors, or customer-configured workflows. Use cases include submitting lead forms, routing service requests, creating tasks, drafting tickets, notifying teams, updating approved fields, or using live context. You should scope each action so the agent only accesses and changes what your team approves.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Could it qualify charter leads before our reservations team follows up?",
+      "answer": "Yes. A DocsBot presales agent can ask for date range, party size, trip type, experience level, accessibility needs, budget range if appropriate, and preferred contact method. It can apply your qualification rules, summarize the conversation, and forward the lead through an approved form, email, CRM-style workflow, Slack, Microsoft Teams, or other configured system.",
+      "role": "Charter, tour, and rental operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can marinas and service yards use it for maintenance and storage intake, not just guest chat?",
+      "answer": "Yes. DocsBot can answer from service catalogs, haul-out instructions, winterization packages, storage rules, slip policies, warranty notes, intake forms, and yard SOPs. It can collect vessel make, model, length, engine details, issue description, timeline, and owner contact information before routing the request to a service coordinator or technician for review.",
+      "role": "Marinas, service yards, and maintenance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our seasonal staff actually use an internal AI agent?",
+      "answer": "Adoption is strongest when the agent answers practical questions staff already ask managers: late arrivals, fuel dock closing steps, cancellation wording, rental eligibility, incident escalation, service intake requirements, and where to find forms. Put it in the channels staff already use, train it on concise SOPs, and review unanswered questions during onboarding and weekly operations meetings.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot help us see what customers are confused about?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can identify repeated questions around weather, safety, capacity, pricing, parking, waivers, storage, or service packages, then improve the underlying FAQs, pre-arrival emails, scripts, and SOPs.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What metrics should we track to prove the agent is working?",
+      "answer": "Track deflected repetitive questions, completed lead intakes, after-hours inquiries captured, escalation rate, average response time, booking or service-request handoff quality, unanswered topics, customer satisfaction signals, and staff time saved. For internal agents, also measure onboarding questions answered, SOP searches reduced, and documentation gaps closed.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it support multilingual guests without us rewriting every answer manually?",
+      "answer": "DocsBot can answer in more than 100 languages from your approved content. For boat services, that helps with common guest questions about arrival time, what to bring, waiver steps, accessibility, cancellation rules, and service options. Nuanced safety, legal, accessibility, or refund questions should still be routed to the right staff member when needed.",
+      "role": "Charter, tour, and rental operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we handle personal information, booking details, and internal procedures securely?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For actions and integrations, teams can use scoped permissions, environment values, secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate what customers see from what employees can ask internally?",
+      "answer": "Yes. Customer-facing agents should be trained on public or customer-safe content, while private internal agents can use SOPs, policies, checklists, vendor notes, and staff training materials. Role-based permissions and source controls help prevent internal procedures, pricing guidance, credentials, or sensitive operational notes from appearing in public answers.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source material is unclear?",
+      "answer": "You can configure the agent to avoid guessing, ask clarifying questions, cite or rely on approved sources, and escalate when confidence or coverage is insufficient. Logs and knowledge-gap discovery then show which missing topics need better documentation, such as ambiguous cancellation language, unclear storage rules, or incomplete service intake requirements.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot on our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved boat service content, not a generic scripted bot. It can support customer answers, internal knowledge lookup, summaries, handoffs, reporting, and scoped actions through configured Skills, APIs, connectors, or workflows, while keeping sensitive decisions under human control.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help with safety communication beyond basic FAQs?",
+      "answer": "Yes. It can reinforce approved safety briefings, readiness instructions, rental rules, incident escalation steps, and crew procedures. That matters because the Coast Guard listed operator inattention, improper lookout, operator inexperience, excessive speed, and machinery failure among the top primary contributing factors in 2023 recreational boating accidents.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-uscg-2023-causes"
+      ]
+    },
+    {
+      "question": "How fast can we launch if our content is scattered across PDFs, web pages, and shared drives?",
+      "answer": "A practical launch usually starts with a narrow scope: top customer questions, current policies, trip or service pages, and the most-used SOPs. DocsBot can train on websites, PDFs, documents, internal content, and configured knowledge sources. After launch, review logs to add missing content and expand into actions, handoffs, or internal workflows.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help our service desk get better information before a technician gets involved?",
+      "answer": "Yes. For maintenance, storage, and yard requests, the agent can ask structured intake questions and summarize the issue for staff. That can include vessel details, service requested, symptoms, timing, location, owner contact details, photos or documents if handled through your workflow, and whether the request needs scheduling, quoting, or technician review.",
+      "role": "Marinas, service yards, and maintenance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this scale across multiple locations, fleets, trip types, or brands?",
+      "answer": "Yes, if your knowledge is organized with clear source boundaries and escalation rules. Teams can create experiences for different locations, service lines, vessels, or internal departments, then control which sources each agent uses. For live lookups or actions, configure location-specific Skills, APIs, connectors, or workflows with appropriate permissions.",
+      "role": "Operations, safety, and customer experience leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we justify the investment when our team already answers questions by phone?",
+      "answer": "Phone support still matters, but many questions are repetitive, arrive after hours, or need basic intake before a person can act. DocsBot can capture demand earlier, reduce repeated explanations, improve handoff quality, and reveal documentation gaps. The broader market remains sizable: NMMA reported $55.6 billion in 2024 recreational marine retail expenditures.",
+      "role": "General buyer",
+      "category": "Pricing and procurement",
+      "sourceIds": [
+        "src-nmma-2024-spending"
+      ]
+    },
+    {
+      "question": "Can DocsBot support expansion planning or owner questions about demand, without making business decisions for us?",
+      "answer": "Yes. An internal or sales-assist agent can summarize approved planning documents, customer inquiries, lead patterns, and market notes for managers. It should not decide whether to expand a fleet or add slips, but it can organize evidence. NMMA reported recreational boating generated $230 billion in annual U.S. economic activity and supported 812,000 jobs in 2023.",
+      "role": "General buyer",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-nmma-economic-impact"
+      ]
+    }
+  ]
+}

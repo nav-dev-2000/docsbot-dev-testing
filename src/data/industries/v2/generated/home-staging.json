@@ -1,0 +1,705 @@
+{
+  "slug": "home-staging",
+  "business": "Home Staging",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Home Staging Operations",
+    "description": "DocsBot helps home staging teams answer client questions, qualify listing requests, and keep styling, inventory, and install SOPs easy to find.",
+    "canonicalPath": "/industry/home-staging"
+  },
+  "hero": {
+    "eyebrow": "AI agents for staging consultations, seller questions, and team knowledge",
+    "headline": "Keep every home staging lead, checklist, and install detail moving",
+    "subheadline": "DocsBot creates AI agents trained on your staging packages, pricing guidance, design standards, FAQs, inventory notes, policies, and team SOPs so sellers, agents, coordinators, and installers get fast, source-grounded answers without waiting for a callback.",
+    "proofBullets": [
+      {
+        "text": "Answer seller and realtor questions from approved service pages, proposal guides, FAQs, and staging policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect project details, qualify staging requests, and route summaries to your sales or operations workflow when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give internal teams instant access to install checklists, style rules, warehouse procedures, and client-specific notes.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "text": "Escalate unusual pricing, contract, access, damage, or schedule conflicts to the right person with conversation context.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a staging AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps home staging companies turn their owned knowledge into AI support and operations agents. Train an agent on your website, service packages, PDFs, SOPs, listing-prep guides, proposal templates, FAQs, and internal documents, then deploy it in a website widget or private team chat to answer, summarize, route, and trigger scoped workflows through configured Skills, APIs, connectors, or AI Actions.",
+    "whoItHelps": [
+      {
+        "role": "Home staging owners and sales leads",
+        "roleContext": "Respond faster to listing agents and sellers while keeping humans in control of pricing exceptions, custom proposals, and final commitments.",
+        "bullets": [
+          {
+            "text": "Qualify new inquiries by property type, square footage, location, timeline, occupancy, and service interest before a consultation.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft follow-up summaries from prospect conversations so sales teams know the rooms, urgency, and next step requested.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Explain package differences, prep requirements, and booking steps from approved sales content in your brand voice.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Staging coordinators and project managers",
+        "roleContext": "Keep fast-moving installs consistent by making job details, checklists, policies, and client notes easier to retrieve during scheduling and field coordination.",
+        "bullets": [
+          {
+            "text": "Search move-in, destage, occupied staging, vacant staging, and photo-day procedures from one internal agent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize handoffs for warehouse, design, installation, and admin teams without forcing staff to dig through scattered files.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Route missing access details, elevator rules, parking instructions, or photo timing questions to the assigned coordinator.",
+            "icon": "MapPinIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Designers, installers, and warehouse teams",
+        "roleContext": "Give field and inventory teams a private knowledge assistant for style standards, handling instructions, room checklists, and job-specific context.",
+        "bullets": [
+          {
+            "text": "Retrieve brand styling rules, room-by-room checklists, accessory guidance, and handling instructions while preparing a job.",
+            "icon": "PaintBrushIcon"
+          },
+          {
+            "text": "Surface SOPs for item condition notes, damage reporting, returns, and warehouse staging lanes from approved internal sources.",
+            "icon": "TruckIcon"
+          },
+          {
+            "text": "Support onboarding by answering common questions from training materials, policies, and installation playbooks.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nar-visualization",
+      "metric": "83% of buyers’ agents said staging made visualization easier",
+      "claim": "NAR’s 2025 Profile of Home Staging reported that 83% of buyers’ agents said staging made it easier for buyers to visualize a property as a future home.",
+      "sourceTitle": "2025 Profile of Home Staging Snapshot",
+      "sourceUrl": "https://www.nar.realtor/infographics/2025-profile-of-home-staging-snapshot",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Buyer expectations",
+        "Value of staging explanations",
+        "Seller education"
+      ]
+    },
+    {
+      "id": "src-nar-time-value",
+      "metric": "49% of sellers’ agents observed reduced time on market",
+      "claim": "NAR reported that 49% of sellers’ agents observed reduced time on market when homes were staged, and 29% of agents reported a 1% to 10% increase in dollar value offered.",
+      "sourceTitle": "NAR Report Reveals Home Staging Boosts Sale Prices and Reduces Time on Market",
+      "sourceUrl": "https://www.nar.realtor/newsroom/nar-report-reveals-home-staging-boosts-sale-prices-and-reduces-time-on-market",
+      "sourceDate": "May 6, 2025",
+      "bestUsedFor": [
+        "Seller objections",
+        "Staging ROI conversations",
+        "Presales education"
+      ]
+    },
+    {
+      "id": "src-nar-tv-expectations",
+      "metric": "48% of agents said buyers expect homes to look staged like TV",
+      "claim": "NAR’s 2025 home staging reporting noted that 48% of agents said buyers want homes to look like they were staged on television shows.",
+      "sourceTitle": "Home Staging Survey: Homebuyers Say This Room Is The Most Important To Get Top Dollar",
+      "sourceUrl": "https://www.nar.realtor/newsroom/in-the-news/home-staging-survey-homebuyers-say-this-room-is-the-most-important-to-get-top-dollar-investopedia",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Buyer expectations",
+        "Marketing education",
+        "Consultation scripts"
+      ]
+    },
+    {
+      "id": "src-bls-interior-design",
+      "metric": "Interior designers determine goals, requirements, and furnishing selections",
+      "claim": "The U.S. Bureau of Labor Statistics describes interior designers as determining client goals and requirements and selecting essential and decorative items for indoor spaces.",
+      "sourceTitle": "Interior Designers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/arts-and-design/interior-designers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Design workflow complexity",
+        "Client discovery",
+        "Training and SOP needs"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Seller and realtor inquiry assistant",
+      "problem": "Staging teams lose momentum when new inquiries ask the same questions about packages, pricing ranges, prep work, lead time, occupied versus vacant staging, and what happens before photos.",
+      "agentWorkflow": "A DocsBot website agent answers from your service pages, FAQs, proposal language, prep guides, and policies. It can collect property details through a structured intake flow, summarize the request, and send qualified leads to the configured sales, CRM, email, form, or helpdesk workflow for human follow-up.",
+      "liveContextOrTools": "Use AI Actions or Skills to collect required fields, trigger a lead handoff, create a task, or request a booking through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you stage occupied homes or only vacant listings?",
+        "What should my seller do before the consultation?",
+        "Can you help stage a condo before photos next week?",
+        "What information do you need to estimate a four-bedroom property?"
+      ],
+      "businessOutcome": "Fewer missed leads, more complete intake details, and a faster path from website interest to consultation.",
+      "icon": "HomeIcon"
+    },
+    {
+      "name": "Staging ROI and seller education guide",
+      "problem": "Sellers often need clear explanations before approving staging, especially when they are comparing costs against expected sale impact and listing timelines.",
+      "agentWorkflow": "Train DocsBot on approved seller education materials, realtor-facing one-sheets, before-and-after examples, FAQs, and proposal content. The agent explains your process, what staging can and cannot promise, and when a human should provide custom pricing or market-specific advice.",
+      "liveContextOrTools": "The agent can route pricing exceptions or custom market questions to a salesperson with a conversation summary and cited source snippets.",
+      "exampleQuestionsOrRequests": [
+        "Why stage if the house is already clean?",
+        "Which rooms matter most for buyer perception?",
+        "Does staging usually affect time on market?",
+        "What should I tell a hesitant seller before listing photos?"
+      ],
+      "businessOutcome": "More consistent seller education and fewer repeated consultation questions for owners and sales staff.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-nar-visualization",
+        "src-nar-time-value"
+      ]
+    },
+    {
+      "name": "Install, destage, and photo-day operations assistant",
+      "problem": "Staging projects depend on many details: access windows, elevator reservations, parking rules, room lists, photo timing, damage notes, and destage instructions. Missing context creates delays.",
+      "agentWorkflow": "A private DocsBot internal agent retrieves job SOPs, checklists, property notes, warehouse procedures, and escalation rules. When configured with live context, it can look up approved job metadata, summarize missing details, or create a task for the coordinator.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or MCP Connectors can support approved record lookups, task creation, notifications, and workflow triggers.",
+      "exampleQuestionsOrRequests": [
+        "What is our photo-day checklist for vacant staging?",
+        "Who should be notified if elevator access changes?",
+        "What is the procedure for damaged furniture after destage?",
+        "Create a coordinator task for missing lockbox instructions."
+      ],
+      "businessOutcome": "Cleaner handoffs between design, warehouse, field, and admin teams without relying on memory or scattered message threads.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Style standards and inventory knowledge agent",
+      "problem": "Growing staging teams need consistent design execution across properties, teams, and markets while protecting the company’s look, item handling rules, and inventory procedures.",
+      "agentWorkflow": "DocsBot answers from styling guides, brand standards, room recipes, inventory categories, care instructions, installation playbooks, and training documents. Designers and installers can ask practical questions during prep and receive source-grounded guidance.",
+      "liveContextOrTools": "If connected to approved inventory or project systems, the agent can look up allowed item categories, summarize a room plan, or route shortages for review.",
+      "exampleQuestionsOrRequests": [
+        "What are our accessory rules for small living rooms?",
+        "Which rug size guidance applies to a primary bedroom?",
+        "How should installers document chipped décor?",
+        "Summarize the styling notes for this occupied staging job."
+      ],
+      "businessOutcome": "More consistent staging quality and faster onboarding for designers, assistants, and install crews.",
+      "icon": "PaintBrushIcon",
+      "sourceIds": [
+        "src-bls-interior-design"
+      ]
+    },
+    {
+      "name": "Agent and partner enablement hub",
+      "problem": "Real estate agents, photographers, cleaners, movers, and sellers may all need the same prep instructions, timing expectations, and handoff details before a listing goes live.",
+      "agentWorkflow": "DocsBot can power a partner-facing knowledge assistant trained on approved prep checklists, co-marketing language, service boundaries, and handoff policies. It answers routine questions and escalates project-specific exceptions to the assigned team.",
+      "liveContextOrTools": "Use configured forms or workflow triggers to capture missing partner details, route access questions, or notify staff when a deadline is at risk.",
+      "exampleQuestionsOrRequests": [
+        "What should the seller remove before your team arrives?",
+        "When should cleaners be scheduled relative to staging?",
+        "Can the agent stay during installation?",
+        "Send the prep checklist for an occupied consultation."
+      ],
+      "businessOutcome": "Clearer partner communication, fewer repeated emails, and fewer avoidable day-of-install surprises.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Analytics for repeated staging questions",
+      "problem": "If the same questions keep coming up, staging teams may not know whether the website, proposal, prep guide, or internal SOP is missing key information.",
+      "agentWorkflow": "DocsBot logs conversations, supports review, and helps reveal knowledge gaps by showing what sellers, agents, and employees ask most often. Teams can use those insights to improve FAQs, prep guides, onboarding materials, and proposal language.",
+      "liveContextOrTools": "Conversation review and reporting can guide content updates; sensitive contract or pricing issues can be escalated instead of answered automatically.",
+      "exampleQuestionsOrRequests": [
+        "What are prospects asking before they book?",
+        "Which prep checklist questions keep repeating?",
+        "Where do installers need clearer SOPs?",
+        "Which website answers should we add next?"
+      ],
+      "businessOutcome": "Better documentation, more consistent answers, and a support experience that improves as your staging operations grow.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give sellers and listing agents a staging expert that answers from your playbook",
+    "intro": "DocsBot can sit on your website as a customer-facing AI support and presales agent. It explains your staging process, collects project details, answers from approved content, and hands off qualified or complex requests to your team.",
+    "requests": [
+      {
+        "request": "“What does vacant staging include, and how soon can you start?”",
+        "agentResponseStrategy": "Answer from your service packages and availability rules, ask for property type, address area, photo date, and room count, then prepare a lead summary for follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Package guides",
+          "Lead forms"
+        ],
+        "optionalAction": "Trigger a configured intake form, scheduling request, email notification, CRM handoff, or helpdesk task.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“My seller is skeptical. Why should we stage before listing photos?”",
+        "agentResponseStrategy": "Explain your approved value narrative and cite your own materials. Where you include industry education, the agent can reference NAR’s finding that 83% of buyers’ agents said staging made visualization easier.",
+        "sourceTypes": [
+          "Seller education PDFs",
+          "Realtor one-sheets",
+          "Case examples",
+          "FAQs"
+        ],
+        "optionalAction": "Offer to send a seller prep guide or route the conversation to a consultant for market-specific advice.",
+        "icon": "LightBulbIcon",
+        "sourceIds": [
+          "src-nar-visualization"
+        ]
+      },
+      {
+        "request": "“What should be completed before your installation team arrives?”",
+        "agentResponseStrategy": "Return the correct prep checklist for vacant, occupied, partial, or consultation-only service and clarify when a coordinator should review exceptions.",
+        "sourceTypes": [
+          "Prep checklists",
+          "Policies",
+          "Install SOPs",
+          "Client emails"
+        ],
+        "optionalAction": "Create a follow-up task for missing access, cleaning, repair, parking, or elevator details when connected to your workflow.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can you stage a luxury listing, short-term rental, or small condo?”",
+        "agentResponseStrategy": "Answer from your portfolio descriptions, service boundaries, design approach, and qualification rules without promising availability or pricing unless approved.",
+        "sourceTypes": [
+          "Portfolio copy",
+          "Service descriptions",
+          "Qualification rules",
+          "Proposal templates"
+        ],
+        "optionalAction": "Collect photos, square footage, timeline, and goals, then route the lead for a human estimate.",
+        "icon": "HomeModernIcon"
+      },
+      {
+        "request": "“Do you work with agents in my area?”",
+        "agentResponseStrategy": "Use approved service-area content and ask clarifying questions when the location or property type is outside standard coverage.",
+        "sourceTypes": [
+          "Service area pages",
+          "Policies",
+          "FAQs",
+          "Routing rules"
+        ],
+        "optionalAction": "Route out-of-area or partner-referral requests to the right team member when configured.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can I buy or keep some of the furniture after closing?”",
+        "agentResponseStrategy": "Answer from your rental, sale, damage, and destage policies, then escalate exceptions that need inventory or contract review.",
+        "sourceTypes": [
+          "Rental policies",
+          "Inventory policies",
+          "Contract language",
+          "FAQs"
+        ],
+        "optionalAction": "Create a review task or handoff summary for the operations manager.",
+        "icon": "ShoppingBagIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put your staging SOPs, design standards, and job details in one private AI agent",
+    "intro": "DocsBot can act as an internal knowledge agent for owners, coordinators, designers, installers, admin teams, and sales staff. It gives source-grounded answers from company-approved materials and supports scoped actions when your systems are connected.",
+    "workflows": [
+      {
+        "name": "Coordinator job handoffs",
+        "problem": "Install teams often need quick answers about property access, room scope, photo timing, and escalation rules while coordinators are busy.",
+        "agentWorkflow": "The agent retrieves SOPs, job notes, and checklists, then summarizes the next steps for the person asking. If connected to your workflow, it can create a task or notify the coordinator about missing information.",
+        "sourceTypes": [
+          "Job checklists",
+          "Access instructions",
+          "SOPs",
+          "Project notes"
+        ],
+        "optionalAction": "Create a missing-info task, route an access issue, or generate a handoff summary.",
+        "outcome": "Fewer day-of-install interruptions and more consistent job execution.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Designer and installer onboarding",
+        "problem": "New staff need to learn design standards, item handling, warehouse processes, and client-facing expectations without interrupting senior team members all day.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training documents, brand guidelines, SOPs, and policy files, with source citations that help employees verify the answer.",
+        "sourceTypes": [
+          "Training materials",
+          "Style guides",
+          "Warehouse SOPs",
+          "HR policies"
+        ],
+        "optionalAction": "Log repeated onboarding questions so managers can improve training content.",
+        "outcome": "Faster ramp time and fewer undocumented tribal-knowledge gaps.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales response drafting",
+        "problem": "Owners and account managers repeatedly draft similar responses for agents, sellers, builders, investors, and property managers.",
+        "agentWorkflow": "Train DocsBot on approved proposal language, objection handling, FAQs, and service descriptions so staff can draft emails or talking points, then review and send final communications themselves.",
+        "sourceTypes": [
+          "Proposal templates",
+          "Sales FAQs",
+          "Objection handling notes",
+          "Service catalogs"
+        ],
+        "optionalAction": "Draft a follow-up email or summarize a prospect conversation for human review.",
+        "outcome": "Consistent messaging without removing human judgment from pricing, contracts, and client relationships.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "Repeated questions about prep, pricing, service boundaries, or internal procedures reveal content gaps that can slow down both customers and staff.",
+        "agentWorkflow": "DocsBot conversation logs, analytics, topic management, and review workflows help teams spot recurring unanswered questions and update the knowledge base.",
+        "sourceTypes": [
+          "Conversation logs",
+          "FAQ content",
+          "SOPs",
+          "Reports"
+        ],
+        "optionalAction": "Create content-update tasks for missing FAQ, proposal, or SOP answers.",
+        "outcome": "A clearer knowledge base that improves customer support, employee enablement, and sales consistency over time.",
+        "icon": "MagnifyingGlassIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your staging knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from company-owned content such as websites, help centers, PDFs, internal documents, wikis, and other configured sources.",
+      "industryApplication": "Train on staging packages, prep guides, design standards, service-area pages, policies, proposal language, and install SOPs so answers reflect your process.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget for customer support and presales",
+      "mainLandingPageContext": "DocsBot agents can work in a website or product chat widget and answer customer questions from approved sources.",
+      "industryApplication": "Let sellers and listing agents ask about staging options, timelines, preparation, consultation steps, and service fit before contacting your team.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded customer-configured actions such as lookups, summaries, task creation, routing, updates, and workflow triggers.",
+      "industryApplication": "Use approved actions to collect property intake, create follow-up tasks, route exceptions, summarize calls, or trigger scheduling and lead handoff workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve employees with instant answers from SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company knowledge.",
+      "industryApplication": "Support coordinators, designers, installers, warehouse staff, and admin teams with searchable staging procedures, style rules, and operational policies.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and insight into documentation gaps.",
+      "industryApplication": "See which seller questions, partner handoffs, prep steps, or internal SOPs need clearer content as your staging company grows.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep client details, proposal language, internal procedures, and project information governed with permissions and customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Improve communication with customers, agents, and stakeholders from a source-grounded agent.",
+      "Train agents on your own content library instead of relying on generic AI answers.",
+      "Support high-volume question answering while keeping escalation paths available for complex requests."
+    ],
+    "whyTheseReviewsFit": "Home staging teams depend on trusted communication, repeatable knowledge, and fast answers across sellers, listing agents, coordinators, and field crews. DocsBot proof spans real estate communication, owned-content training, customer support automation, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for home staging customer support, presales intake, and internal operations",
+    "audience": [
+      "Home staging business owners",
+      "Real estate staging consultants",
+      "Staging coordinators",
+      "Design and install teams",
+      "Listing-agent partner teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "real-estate-agent",
+    "property-management",
+    "interior-design",
+    "home-inspection",
+    "property-flipping",
+    "commercial-leasing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "home-staging",
+    "webSearchQueries": [
+      "National Association of Realtors staging homes buyers agents 2025 report home staging statistics",
+      "Real Estate Staging Association home staging statistics 2024 report",
+      "BLS occupational outlook interior designers employment home staging related client design"
+    ],
+    "sourceUrls": [
+      "https://www.nar.realtor/infographics/2025-profile-of-home-staging-snapshot",
+      "https://www.nar.realtor/newsroom/nar-report-reveals-home-staging-boosts-sale-prices-and-reduces-time-on-market",
+      "https://www.nar.realtor/newsroom/in-the-news/home-staging-survey-homebuyers-say-this-room-is-the-most-important-to-get-top-dollar-investopedia",
+      "https://www.bls.gov/ooh/arts-and-design/interior-designers.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 38692,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 17956,
+        "outputTokens": 7601,
+        "reasoningOutputTokens": 95,
+        "totalTokens": 46293,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.16409,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.17409
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19519,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 4031,
+          "outputTokens": 4964,
+          "reasoningOutputTokens": 95,
+          "totalTokens": 24483,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.08841,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.09841
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19173,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13925,
+          "outputTokens": 2637,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21810,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07568,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07568
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1600210492493-0946911123ea?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxpbnRlcmlvcnxlbnwwfDB8fHwxNzE0ODc4MDY4fDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Home Staging background image",
+    "source": "legacy-industry",
+    "query": "Home Staging"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify staging leads before my team spends time on a consultation?",
+      "answer": "Yes. A DocsBot agent can ask for property type, location, square footage, occupied or vacant status, rooms needed, listing-photo deadline, budget range, agent contact, and preferred next step. With customer-configured Skills, APIs, forms, or workflows, it can send a structured summary to your CRM, email, helpdesk, or sales queue for human follow-up.",
+      "role": "Home staging owners and sales leads",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent give pricing or make promises we do not want it to make?",
+      "answer": "You control what the agent is trained on and how it should respond. Many staging teams use DocsBot to explain package ranges, what affects cost, prep requirements, and booking steps while escalating custom quotes, rush jobs, luxury properties, contract terms, inventory exceptions, and schedule commitments to a person.",
+      "role": "Home staging owners and sales leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it help us explain staging value to skeptical sellers without overclaiming results?",
+      "answer": "Yes. Train the agent on your approved seller education content, case examples, and proposal language so it explains staging in your voice. It can also reference approved industry context, such as NAR’s 2025 finding that 83% of buyers’ agents said staging made it easier for buyers to visualize a property as a future home.",
+      "role": "Home staging owners and sales leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nar-visualization"
+      ]
+    },
+    {
+      "question": "How would this fit into our current inquiry flow from agents, sellers, and website visitors?",
+      "answer": "DocsBot can sit on your website as a presales and support agent, answer common staging questions from approved content, collect intake details, and prepare a handoff summary. If configured, it can trigger a lead form, scheduling request, task, email notification, CRM handoff, or helpdesk workflow without replacing your final sales judgment.",
+      "role": "Home staging owners and sales leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can coordinators use it internally for install, destage, and photo-day questions?",
+      "answer": "Yes. A private DocsBot internal agent can answer from SOPs, job checklists, access instructions, warehouse procedures, damage policies, and photo-day playbooks. Coordinators, designers, installers, and admin staff can ask practical questions instead of searching folders, message threads, or old emails during time-sensitive jobs.",
+      "role": "Staging coordinators and project managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a seller asks something project-specific, like access changes or elevator restrictions?",
+      "answer": "The agent can answer general policy and prep questions from your approved materials, then escalate project-specific exceptions. With the right customer-configured workflow, it can collect missing details, create a coordinator task, notify the assigned person, or attach the conversation summary so your team does not restart the conversation.",
+      "role": "Staging coordinators and project managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot connect to the tools we already use for scheduling, forms, CRM, or project tracking?",
+      "answer": "DocsBot can support approved workflows through AI Actions, Skills, APIs, connectors, webhooks, or MCP Connectors when your team authorizes the connection. It should be framed around scoped actions such as intake capture, record lookup, task creation, notifications, summaries, field updates, or routing—not broad unsupervised access.",
+      "role": "Staging coordinators and project managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer from Google Drive, PDFs, SOPs, proposal templates, and internal docs?",
+      "answer": "Yes. DocsBot can train on company-owned content such as websites, PDFs, Word documents, internal documents, wikis, Google Drive, Notion, Confluence, SOPs, policies, proposal templates, and other configured knowledge sources. That makes it useful for both customer-facing staging questions and private team operations.",
+      "role": "Designers, installers, and warehouse teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much documentation do we need before launching a useful staging agent?",
+      "answer": "You do not need a perfect knowledge base to start. Most teams begin with service pages, FAQs, prep checklists, proposal language, policies, and core SOPs. Conversation logs and knowledge-gap reporting can then show which seller questions, install steps, or internal procedures need clearer documentation over time.",
+      "role": "Home staging owners and sales leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will it help our designers and installers follow our style standards more consistently?",
+      "answer": "Yes, if your style rules and handling procedures are documented. DocsBot can answer from brand standards, room recipes, accessory guidelines, inventory categories, install playbooks, and damage-reporting SOPs. That supports consistent execution as teams grow, especially because design work often involves understanding client goals, requirements, and furnishing selections.",
+      "role": "Designers, installers, and warehouse teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-interior-design"
+      ]
+    },
+    {
+      "question": "Can we use it to onboard new staging assistants, warehouse staff, or installers?",
+      "answer": "Yes. A private internal agent can answer onboarding questions from training materials, warehouse SOPs, HR policies, item-handling rules, style guides, and installation playbooks. New employees can verify answers against source-grounded responses while managers review repeated questions to improve training content.",
+      "role": "Designers, installers, and warehouse teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot avoid giving generic AI answers that do not match our process?",
+      "answer": "DocsBot is designed around source-grounded answers from your approved knowledge. You can train the agent on your packages, policies, prep guides, service-area rules, proposal language, brand standards, and SOPs, then use escalation instructions for questions that require human judgment, unavailable information, or project-specific approval.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we keep customer-facing answers separate from internal team procedures?",
+      "answer": "Yes. You can create customer-facing agents for sellers and listing agents and private internal agents for coordinators, designers, installers, warehouse staff, or admin teams. Role-based permissions and granular access controls help keep internal SOPs, pricing guidance, client notes, and operational procedures away from public website visitors.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter if we upload contracts, client notes, pricing guidance, or SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. DocsBot also does not use customer data to train public models, which is important when your agent is trained on client details, proposal language, policies, and internal procedures.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can owners review what the agent has been asked and where it struggled?",
+      "answer": "Yes. DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Staging owners can use those insights to see repeated seller objections, unclear prep instructions, missing service-area answers, or SOP gaps that are slowing the team down.",
+      "role": "Home staging owners and sales leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How would we measure ROI for a staging AI agent?",
+      "answer": "Useful measures include faster response time to listing inquiries, more complete intake forms, fewer repeated seller questions, fewer missed after-hours leads, reduced coordinator interruptions, faster onboarding, and fewer day-of-install surprises. For seller education, the agent can also consistently explain staging value, including NAR’s report that 49% of sellers’ agents observed reduced time on market when homes were staged.",
+      "role": "Home staging owners and sales leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nar-time-value"
+      ]
+    },
+    {
+      "question": "Can DocsBot help agents and partners get prep instructions without emailing our coordinator?",
+      "answer": "Yes. You can create a partner-facing knowledge assistant trained on approved prep checklists, timing expectations, cleaner and photographer handoff notes, service boundaries, and policies. It can answer routine questions and escalate missing access, parking, elevator, cleaning, repair, or photo-timing issues to the assigned team.",
+      "role": "Staging coordinators and project managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if a listing agent asks for a rush install or a property outside our service area?",
+      "answer": "DocsBot can follow your qualification and escalation rules. It can ask clarifying questions, explain standard lead times or coverage areas from approved content, avoid promising availability, and route rush jobs, out-of-area requests, luxury listings, or unusual property types to a human with the conversation context attached.",
+      "role": "Home staging owners and sales leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it support both occupied staging and vacant staging workflows?",
+      "answer": "Yes. Train DocsBot on the checklists, policies, prep instructions, photo-day requirements, service boundaries, and proposal language for each service type. The agent can ask which workflow applies and return the right instructions, while escalating exceptions such as pets, tenants, repairs, access constraints, or unclear room scope.",
+      "role": "Staging coordinators and project managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent help us compete with firms that respond faster to agents?",
+      "answer": "It can help you respond faster and more consistently. A website agent can answer common questions immediately, collect listing details outside business hours, explain next steps, and prepare a sales handoff. Your team still controls final pricing, availability, contract terms, and relationship management.",
+      "role": "Home staging owners and sales leads",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent draft follow-up emails after a consultation or website conversation?",
+      "answer": "Yes. DocsBot can use your approved proposal language, FAQs, objection-handling notes, and service descriptions to draft follow-up emails or talking points for human review. It can summarize what the prospect asked, the property details collected, the next step requested, and any exceptions that need owner approval.",
+      "role": "Home staging owners and sales leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we stop staff from relying on outdated SOPs or old message threads?",
+      "answer": "Centralize the current versions of your SOPs, checklists, policies, design standards, and training materials as the agent’s approved sources. DocsBot can provide source-grounded answers and surface repeated questions, helping managers identify documents that need updating instead of letting tribal knowledge spread through chat threads.",
+      "role": "Staging coordinators and project managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support multilingual sellers, agents, or field crews?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help teams support multilingual sellers, agent partners, installers, or warehouse staff. As with English answers, the quality depends on the approved source materials, instructions, and escalation rules you provide.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "Is this only for larger staging companies, or can a small owner-led team use it too?",
+      "answer": "Small teams often use DocsBot to reduce repetitive inquiry handling, capture better lead details, and document owner knowledge before it becomes a bottleneck. Larger teams may extend it into internal SOP search, coordinator workflows, onboarding, partner enablement, analytics, and scoped actions across connected systems.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we budget beyond the software itself?",
+      "answer": "Plan time for collecting your best source materials, deciding escalation rules, writing intake questions, reviewing early conversations, and connecting any approved workflows. If your SOPs or pricing guidance are scattered, some cleanup may be needed, but the launch can start with high-value content and improve over time.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How is DocsBot different from putting a generic chatbot on our staging website?",
+      "answer": "DocsBot is positioned as an AI agent trained on your own staging knowledge, not a generic answer bot. It can provide source-grounded responses, collect structured intake, summarize conversations, support private internal knowledge use, reveal documentation gaps, and trigger scoped workflows when configured through approved Skills, APIs, connectors, or actions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    }
+  ]
+}

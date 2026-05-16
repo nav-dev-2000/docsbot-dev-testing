@@ -1,0 +1,686 @@
+{
+  "slug": "physical-therapy",
+  "business": "Physical Therapy",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Physical Therapy Practice Support",
+    "description": "DocsBot helps physical therapy clinics automate patient FAQs, intake routing, staff knowledge retrieval, and documentation guidance from approved sources.",
+    "canonicalPath": "/industry/physical-therapy"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for physical therapy operations",
+    "headline": "Keep physical therapy patients and staff moving with DocsBot",
+    "subheadline": "DocsBot helps PT clinics build AI support agents trained on your care instructions, FAQs, policies, referral workflows, insurance guidance, and internal SOPs. Give patients quick answers, help staff find the right procedure, and route sensitive or clinical questions to the right human.",
+    "proofBullets": [
+      {
+        "text": "Answer patient questions from approved clinic content, including visit prep, location details, forms, post-visit instructions, and general care resources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, appointment intent, referral context, and missing information before handing off to your front desk or scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for payer notes, documentation procedures, onboarding, provider handoff steps, and clinic policies.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize conversations, create tasks, route requests, trigger approved workflows, or escalate medical questions for review.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build a PT support agent",
+    "secondaryCta": "Explore healthcare workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your physical therapy knowledge into customer-facing and internal AI agents. Train it on your website, patient education PDFs, intake forms, clinic policies, SOPs, FAQs, and team knowledge sources so patients and employees can get source-grounded answers instead of searching through scattered documents or waiting for a callback.",
+    "whoItHelps": [
+      {
+        "role": "Clinic owners and practice managers",
+        "roleContext": "Run a more responsive front office without asking clinical staff to repeat the same non-diagnostic answers throughout the day.",
+        "bullets": [
+          {
+            "text": "Give patients instant guidance on forms, appointment prep, accepted service types, parking, cancellation policies, and what to bring.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route requests for new evaluations, referrals, billing questions, or provider follow-up to the right queue with a concise conversation summary.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics to see repeated patient questions and identify missing website, intake, or care-instruction content.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Physical therapists and clinical directors",
+        "roleContext": "Keep clinical judgment with licensed professionals while making approved education, protocols, and internal guidance easier to retrieve.",
+        "bullets": [
+          {
+            "text": "Surface clinic-approved education and home-program reference content while escalating diagnosis, red-flag, or treatment-plan questions to a clinician.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Help therapists and assistants find SOPs, documentation reminders, plan-of-care procedures, and handoff expectations from internal sources.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support growing teams: BLS projects physical therapist employment to grow 11% from 2024 to 2034, with about 13,200 openings annually.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-pt-outlook"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Front desk, billing, and patient access teams",
+        "roleContext": "Reduce repetitive phone and inbox work by letting an agent answer from approved policies and collect structured details before staff respond.",
+        "bullets": [
+          {
+            "text": "Draft responses for common administrative questions from your policies, then hand off exceptions that need human review.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Collect insurance, referral, appointment preference, and visit-type details through structured intake before staff follow up.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Help staff navigate payer and plan-of-care requirements; Medicare outpatient rehab services must be furnished under a written treatment plan.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-cfr-plan-treatment"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-pt-outlook",
+      "metric": "11% projected physical therapist employment growth, 2024-2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects physical therapist employment to grow 11% from 2024 to 2034, with about 13,200 openings each year on average.",
+      "sourceTitle": "Physical Therapists: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/physical-therapists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "clinic growth pressure",
+        "staff onboarding needs"
+      ]
+    },
+    {
+      "id": "src-apta-admin-burden",
+      "metric": "Administrative burden affects access, outcomes, and burnout",
+      "claim": "APTA reports that administrative requirements imposed by payers significantly burden physical therapists and negatively affect patient care.",
+      "sourceTitle": "The Impact of Administrative Burden on Physical Therapist Services",
+      "sourceUrl": "https://www.apta.org/advocacy/issues/administrative-burden/infographic",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "administrative burden",
+        "front office workload",
+        "prior authorization friction"
+      ]
+    },
+    {
+      "id": "src-apta-survey-delay",
+      "metric": "Nearly 3 in 4 PTs cited negative outcome effects in APTA survey coverage",
+      "claim": "APTA reported survey findings that nearly three in four physical therapists believed overreaching documentation and administrative mandates negatively affect patient outcomes, and eight in ten saw excessive requirements as a contributor to burnout.",
+      "sourceTitle": "APTA Survey: Administrative Burdens Delay Access, Affect Outcomes",
+      "sourceUrl": "https://www.apta.org/news/2019/07/01/apta-survey-pts-say-administrative-burdens-delay-access-affect-clinical-outcomes",
+      "sourceDate": "2019",
+      "bestUsedFor": [
+        "burnout",
+        "documentation pressure",
+        "patient access delays"
+      ]
+    },
+    {
+      "id": "src-cfr-plan-treatment",
+      "metric": "Written plan-of-treatment requirement for outpatient rehab services",
+      "claim": "Federal regulation states that outpatient rehabilitation services, including physical therapy in private practice, must be furnished under a written plan of treatment that specifies type, amount, frequency, duration, diagnosis, and anticipated goals.",
+      "sourceTitle": "42 CFR § 410.61 - Plan of treatment requirements for outpatient rehabilitation services",
+      "sourceUrl": "https://www.law.cornell.edu/cfr/text/42/410.61",
+      "sourceDate": "Current e-CFR",
+      "bestUsedFor": [
+        "compliance context",
+        "documentation workflows",
+        "plan-of-care requirements"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient FAQ and visit-prep support agent",
+      "problem": "Patients often ask the same questions about first visits, paperwork, clothing, referrals, insurance basics, cancellations, and what to expect before therapy starts.",
+      "agentWorkflow": "Train DocsBot on your website, FAQs, patient handouts, intake packets, and policy pages. The agent answers in your clinic voice, cites approved content, collects missing context when needed, and escalates anything clinical, urgent, or outside its source material.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can collect appointment intent, create a task, send a handoff summary, or trigger a scheduling workflow without making clinical decisions.",
+      "exampleQuestionsOrRequests": [
+        "What should I wear to my first physical therapy appointment?",
+        "Do I need a referral before scheduling an evaluation?",
+        "Can you send my question to the front desk with my preferred appointment times?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, faster patient preparation, and cleaner handoffs for the front office.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Referral, intake, and scheduling triage",
+      "problem": "New patient requests arrive with missing referral details, unclear visit goals, incomplete insurance information, or no preferred times, forcing staff into back-and-forth follow-up.",
+      "agentWorkflow": "DocsBot can guide patients through a structured intake conversation, ask for required non-diagnostic details, summarize the request, and route it to scheduling, billing, or clinical review based on clinic-defined rules.",
+      "liveContextOrTools": "AI Actions can submit a custom form, create a task, notify a team, or use approved scheduling workflows such as Calendly, Cal.com, TidyCal, or similar tools when configured.",
+      "exampleQuestionsOrRequests": [
+        "I have a knee referral and want an appointment next week.",
+        "Can you help me send my insurance and referral details?",
+        "I am a returning patient; who should I contact to restart care?"
+      ],
+      "businessOutcome": "More complete intake information before staff touch the request and fewer missed opportunities from website visitors who are ready to schedule.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Internal documentation and payer guidance assistant",
+      "problem": "PT staff need quick access to plan-of-care procedures, documentation expectations, payer notes, authorization steps, and handoff policies while administrative burden continues to strain care teams.",
+      "agentWorkflow": "Create a private DocsBot agent trained on SOPs, payer reference sheets, onboarding guides, policy PDFs, internal wikis, and documentation checklists. Staff can ask natural-language questions and get source-grounded guidance instead of searching multiple folders.",
+      "liveContextOrTools": "When configured with approved workflow access, the agent can draft a note template reminder, summarize a payer rule, route a documentation question, or create a review task for a supervisor.",
+      "exampleQuestionsOrRequests": [
+        "Where is our Medicare plan-of-care checklist?",
+        "What details should I collect before sending an authorization question to billing?",
+        "Summarize our discharge documentation steps for a new PTA."
+      ],
+      "businessOutcome": "Faster staff answers, more consistent internal procedures, and better onboarding support in a documentation-heavy environment.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-apta-admin-burden",
+        "src-cfr-plan-treatment"
+      ]
+    },
+    {
+      "name": "Care-instruction and home-program content finder",
+      "problem": "Patients may misplace printed instructions or ask general follow-up questions that are already answered in clinic-approved education materials.",
+      "agentWorkflow": "DocsBot can retrieve approved exercise education pages, safety reminders, visit-aftercare PDFs, and general condition education while avoiding diagnosis or individualized treatment recommendations unless a clinician has authored the source content and defined the boundary.",
+      "liveContextOrTools": "The agent can escalate pain changes, red-flag concerns, or requests for personalized plan changes to the care team with a conversation summary.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the instructions my therapist gave me after my shoulder visit?",
+        "What does your clinic say about soreness after exercise?",
+        "I need a therapist to review whether I should change my home program."
+      ],
+      "businessOutcome": "Patients find approved resources faster while clinicians remain responsible for individualized care decisions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Knowledge gap analytics for patient education",
+      "problem": "Clinic leaders often learn about confusing website copy, missing handouts, or repetitive patient questions only after staff have answered them many times.",
+      "agentWorkflow": "DocsBot logs conversations, reports common topics, and surfaces unanswered questions so managers can improve FAQs, intake pages, policies, and patient education content over time.",
+      "liveContextOrTools": "Teams can review logs, update source material, and use topic reports to decide which documents or pages need clearer language.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are patients asking most before their first evaluation?",
+        "What topics caused the most escalations this month?",
+        "Which care-instruction pages need better explanations?"
+      ],
+      "businessOutcome": "Better self-service content, fewer avoidable staff interruptions, and a clearer feedback loop between patient questions and clinic documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Provider, employer, and partner inquiry assistant",
+      "problem": "Physical therapy clinics receive inquiries from referring providers, employers, sports programs, and community partners that require accurate service, location, referral, and program information.",
+      "agentWorkflow": "Train a presales-style DocsBot agent on service lines, provider bios, referral instructions, employer program details, accepted patient populations, and marketing-approved materials. It can answer fit questions and collect partner follow-up details.",
+      "liveContextOrTools": "With approved Skills, connectors, APIs, or MCP Connectors to remote Model Context Protocol servers, the agent can forward qualified inquiries, create CRM-style records, or notify the right outreach owner.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer post-op rehab for local orthopedic referrals?",
+        "Can your clinic support an employer injury-prevention program?",
+        "Please send our referral coordinator details to your partnerships team."
+      ],
+      "businessOutcome": "More complete referral and partnership inquiries with faster routing to the right business-development or clinical contact.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients a clear first answer without crossing clinical boundaries",
+    "intro": "A DocsBot patient-facing agent can answer from your approved public content and clinic policies, then escalate sensitive, urgent, individualized, or out-of-scope questions to a human. It helps patients prepare, find resources, and submit requests while keeping care decisions with licensed professionals.",
+    "requests": [
+      {
+        "request": "“What should I do before my first appointment?”",
+        "agentResponseStrategy": "Answer from intake instructions, location pages, and first-visit FAQs; provide forms or preparation steps if they are in the approved source content.",
+        "sourceTypes": [
+          "Website FAQs",
+          "New patient packet",
+          "Clinic policy pages"
+        ],
+        "optionalAction": "Collect preferred appointment times or missing intake details and route them to staff through an approved workflow.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Do you take my insurance or need a referral?”",
+        "agentResponseStrategy": "Share approved policy language and explain what information staff need, without guaranteeing coverage or benefits unless the clinic has configured a live verified lookup.",
+        "sourceTypes": [
+          "Insurance FAQ",
+          "Referral policy",
+          "Billing office guidance"
+        ],
+        "optionalAction": "Create a billing follow-up task with the patient’s payer, plan, referral status, and callback preference.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“I lost my exercise instructions.”",
+        "agentResponseStrategy": "Retrieve general clinic-approved materials or direct the patient to the right resource, while escalating requests for individualized changes to the therapist.",
+        "sourceTypes": [
+          "Patient education PDFs",
+          "Home-program reference pages",
+          "Post-visit instructions"
+        ],
+        "optionalAction": "Send a summary to the care team when the patient reports new symptoms, worsening pain, or uncertainty about their plan.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“I want to schedule an evaluation.”",
+        "agentResponseStrategy": "Ask for structured non-diagnostic information such as location, availability, referral status, and reason for visit, then prepare the handoff.",
+        "sourceTypes": [
+          "Scheduling policy",
+          "Service pages",
+          "Intake form"
+        ],
+        "optionalAction": "Use a customer-configured scheduling workflow or create a task for the front desk to complete booking.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is this symptom normal after therapy?”",
+        "agentResponseStrategy": "Provide only approved general education if available, avoid diagnosis, and route urgent or individualized medical concerns to the clinic’s defined escalation path.",
+        "sourceTypes": [
+          "Aftercare guidance",
+          "Safety escalation policy",
+          "Clinician-reviewed education"
+        ],
+        "optionalAction": "Summarize the patient’s concern for a therapist or front-desk follow-up according to clinic rules.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Can you send my referral question to the right person?”",
+        "agentResponseStrategy": "Collect the referring provider, body region or service area, referral status, contact preference, and any documents the patient is instructed to provide.",
+        "sourceTypes": [
+          "Referral instructions",
+          "Front desk SOP",
+          "Contact routing policy"
+        ],
+        "optionalAction": "Route the request to the appropriate administrative queue with a concise summary.",
+        "icon": "PaperAirplaneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for therapists, assistants, and clinic operations",
+    "intro": "DocsBot can also run as an internal knowledge assistant for employees. Train it on SOPs, payer notes, documentation guidance, onboarding materials, HR policies, service catalogs, and internal wikis so staff get consistent answers from approved sources.",
+    "workflows": [
+      {
+        "name": "Documentation procedure lookup",
+        "problem": "Staff need quick answers about notes, recertification, discharge steps, and plan-of-care procedures while outpatient therapy services must follow written plan requirements.",
+        "agentWorkflow": "The internal agent retrieves the relevant SOP or payer-reference document, summarizes the steps, and links staff back to the source for review.",
+        "sourceTypes": [
+          "Plan-of-care SOPs",
+          "Payer guidance",
+          "Documentation checklists"
+        ],
+        "optionalAction": "Create a supervisor review task when the question concerns an exception, audit risk, or ambiguous policy.",
+        "outcome": "Less time hunting for procedures and more consistent internal guidance across therapists and support staff.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-cfr-plan-treatment"
+        ]
+      },
+      {
+        "name": "Front desk policy assistant",
+        "problem": "Reception and billing teams answer repetitive questions about cancellations, referrals, forms, insurance basics, records requests, and who owns each follow-up.",
+        "agentWorkflow": "DocsBot answers from front-desk playbooks and policy documents, then drafts response language staff can review before sending.",
+        "sourceTypes": [
+          "Front desk SOPs",
+          "Billing FAQs",
+          "Phone scripts",
+          "Patient access policies"
+        ],
+        "optionalAction": "Create a ticket, assign a task, or notify the right team channel through customer-configured workflows.",
+        "outcome": "Faster, more consistent administrative responses without requiring every employee to memorize every policy.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "New hire onboarding guide",
+        "problem": "Growing clinics must onboard therapists, PTAs, aides, and administrative staff into local workflows, documentation expectations, and patient communication standards.",
+        "agentWorkflow": "Train DocsBot on onboarding documents, training materials, policies, and internal knowledge bases so new employees can ask questions in natural language and receive source-grounded answers.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training PDFs",
+          "Internal wiki",
+          "Role checklists"
+        ],
+        "optionalAction": "Log unanswered onboarding questions so managers can improve training materials.",
+        "outcome": "More self-service learning and fewer interruptions for senior staff during onboarding.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-pt-outlook"
+        ]
+      },
+      {
+        "name": "Administrative burden and escalation review",
+        "problem": "APTA reports that payer administrative requirements continue to burden physical therapists and negatively affect patient care.",
+        "agentWorkflow": "An internal agent can help staff find payer-specific instructions, summarize authorization steps, and route edge cases to the right reviewer instead of letting questions linger in inboxes.",
+        "sourceTypes": [
+          "Authorization checklists",
+          "Payer notes",
+          "Appeal templates",
+          "Escalation policies"
+        ],
+        "optionalAction": "Generate a handoff summary or create a review task for billing, compliance, or a clinical director.",
+        "outcome": "Clearer administrative routing for payer-related work that can otherwise delay access and frustrate care teams.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-apta-admin-burden"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the sources a business approves, then answer questions in the company’s voice with grounded responses.",
+      "industryApplication": "Train on PT clinic FAQs, care-instruction PDFs, service pages, intake packets, referral policies, and administrative procedures so patients and staff receive consistent answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can serve customers through an embedded chat widget and support employees through private team experiences.",
+      "industryApplication": "Offer patient self-service on the clinic website while giving therapists, PTAs, aides, billing, and front desk teams a separate internal knowledge assistant.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions let agents take bounded, customer-configured steps such as lookups, summaries, routing, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Collect intake details, summarize referral questions, create follow-up tasks, route billing issues, or trigger approved scheduling workflows while keeping clinical decisions with the care team.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, reports, topic management, and visibility into unanswered or repeated questions.",
+      "industryApplication": "See which patient topics generate confusion, which policies staff search for most, and where new education pages or SOP updates could reduce repeat questions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and controls that prevent customer data from training public models.",
+      "industryApplication": "Use private sources, scoped permissions, review paths, and human escalation for protected, clinical, billing, or high-impact workflows in a healthcare services environment.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to reduce direct human interaction for internal decision support while keeping source material centralized.",
+      "DocsBot is built for teams that need answers grounded in their own content library, not generic web guesses.",
+      "Patient education, staff onboarding, and internal knowledge access all benefit from fast retrieval of approved materials."
+    ],
+    "whyTheseReviewsFit": "Physical therapy clinics need dependable answers from their own policies, education materials, and internal procedures. DocsBot proof from healthcare communications, education, and content-library use shows how source-grounded AI agents can support knowledge access, self-service, and operational decision workflows.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for physical therapy clinics",
+    "audience": [
+      "Physical therapy clinic owners",
+      "Practice managers",
+      "Clinical directors",
+      "Front desk and billing teams",
+      "Rehabilitation operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "massage-therapy",
+    "speech-occupational-therapy",
+    "athletic-trainer",
+    "chiropractic-office",
+    "health-coaching"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "physical-therapy",
+    "webSearchQueries": [
+      "APTA physical therapy workforce administrative burden patient access report",
+      "BLS physical therapists employment outlook 2024 2034",
+      "CMS outpatient therapy services documentation requirements physical therapy plan of care",
+      "APTA report burnout administrative burden physical therapists"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/healthcare/physical-therapists.htm",
+      "https://www.apta.org/advocacy/issues/administrative-burden/infographic",
+      "https://www.apta.org/news/2019/07/01/apta-survey-pts-say-administrative-burdens-delay-access-affect-clinical-outcomes",
+      "https://www.law.cornell.edu/cfr/text/42/410.61"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40465,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27921,
+        "outputTokens": 7360,
+        "reasoningOutputTokens": 145,
+        "totalTokens": 47825,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.183339,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.193339
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21525,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14229,
+          "outputTokens": 4933,
+          "reasoningOutputTokens": 121,
+          "totalTokens": 26458,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.111392,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.121392
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18940,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13692,
+          "outputTokens": 2427,
+          "reasoningOutputTokens": 24,
+          "totalTokens": 21367,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.071947,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.071947
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1707901841130-b70c6ff6a0ec?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg0NTJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Physical Therapy background image",
+    "source": "legacy-industry",
+    "query": "Physical Therapy"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer patient questions without giving medical advice or changing a therapist’s plan of care?",
+      "answer": "Yes. A patient-facing DocsBot agent can be trained only on approved clinic content such as FAQs, visit-prep pages, aftercare guidance, and patient education PDFs. You can define boundaries so individualized symptoms, red flags, diagnosis questions, or treatment-plan changes are escalated to a licensed clinician with a conversation summary.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce front desk call volume without frustrating patients who still need a person?",
+      "answer": "DocsBot is best used for repetitive, non-diagnostic questions: first-visit instructions, forms, parking, cancellation policy, referral basics, insurance information to collect, and where to send records. When the question needs staff review, the agent can collect context and route a concise handoff instead of leaving the patient to call again.",
+      "role": "Clinic owners and practice managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help with new patient intake before someone on our team calls back?",
+      "answer": "Yes. DocsBot can guide patients through a structured intake conversation, ask for clinic-defined details such as location preference, referral status, insurance information, appointment intent, and preferred times, then create a task or send a summary through a customer-configured workflow. It should support scheduling triage, not make clinical eligibility decisions on its own.",
+      "role": "Front desk, billing, and patient access teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot connect directly to our EMR, scheduling system, or billing tools?",
+      "answer": "DocsBot can support approved live lookups, routing, task creation, summaries, and workflow triggers through customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors where your team authorizes access. It is safest to scope the first phase around intake handoffs and internal knowledge before adding deeper system actions.",
+      "role": "Clinic owners and practice managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the agent from giving outdated insurance or referral information?",
+      "answer": "Train it on a controlled set of approved insurance FAQs, referral policies, billing-office guidance, and payer reference sheets, then assign ownership for keeping those sources current. For coverage, benefits, authorization, or edge cases, the agent can explain what information staff need and route the request rather than guaranteeing payment or eligibility.",
+      "role": "Front desk, billing, and patient access teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Could our therapists use DocsBot internally for documentation and plan-of-care questions?",
+      "answer": "Yes. A private internal agent can be trained on your documentation SOPs, payer notes, plan-of-care checklists, discharge procedures, onboarding guides, and internal wikis. It can retrieve the right procedure, summarize the source, and route ambiguous or audit-sensitive questions to a supervisor or clinical director.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cfr-plan-treatment"
+      ]
+    },
+    {
+      "question": "What kinds of PT questions should always be escalated to a human?",
+      "answer": "Most clinics should escalate worsening pain, new symptoms, red flags, post-surgical concerns, requests to change a home exercise program, diagnosis questions, medication or emergency questions, complaints, and anything outside the approved source material. DocsBot can be configured to provide general guidance only when supported by clinician-approved content.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use separate agents for patients and staff so internal policies are not exposed?",
+      "answer": "Yes. DocsBot can support a public website agent for patients and a private internal knowledge agent for staff. Role-based permissions and granular access controls help keep SOPs, payer notes, HR policies, and internal procedures separate from patient-facing content.",
+      "role": "Clinic owners and practice managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much content do we need before launching a useful PT support agent?",
+      "answer": "You can start with the content your team already repeats most: new patient FAQs, forms, location details, cancellation policies, referral instructions, insurance guidance, common service pages, and clinician-approved patient education. Many clinics should pilot with a narrow scope, review unanswered questions, then expand sources based on real patient and staff usage.",
+      "role": "Clinic owners and practice managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What reporting would show whether this is actually helping our clinic?",
+      "answer": "Track repeated topics, unanswered questions, escalation reasons, intake completion quality, patient satisfaction signals, and which source documents need updates. For internal use, review what staff ask most often and where SOPs are missing or unclear. DocsBot analytics, logs, topic management, and conversation review help turn usage into content and workflow improvements.",
+      "role": "Clinic owners and practice managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help with administrative burden from payers and authorizations?",
+      "answer": "DocsBot can’t remove payer requirements, but an internal agent can make payer notes, authorization checklists, appeal templates, and escalation paths easier to find. That matters because APTA reports payer administrative requirements significantly burden physical therapists and negatively affect patient care.",
+      "role": "Front desk, billing, and patient access teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-apta-admin-burden"
+      ]
+    },
+    {
+      "question": "How do we handle HIPAA-sensitive or protected health information in conversations?",
+      "answer": "Use clear patient instructions, scoped workflows, access controls, human escalation, and retention/review policies aligned with your compliance program. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and controls that prevent customer data from training public models.",
+      "role": "Clinic owners and practice managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will our clinicians trust answers if they are worried about AI hallucinations?",
+      "answer": "The strongest rollout is source-grounded: train DocsBot on approved clinic documents, show staff which sources are used, review logs, and keep humans responsible for clinical judgment. For sensitive workflows, configure the agent to say it does not know, link back to the source, or escalate instead of improvising.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot support multiple clinic locations with different policies and providers?",
+      "answer": "Yes, if your source structure reflects those differences. You can organize content by location, service line, provider, hours, parking, accepted request types, and escalation paths so the agent asks clarifying questions before answering or routing. For multi-site groups, governance matters as much as the AI itself.",
+      "role": "Clinic owners and practice managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent answer questions from referring providers or employer partners?",
+      "answer": "Yes. A DocsBot agent can be trained on service lines, provider bios, referral instructions, employer program details, locations, and marketing-approved materials. It can answer fit questions, collect partner context, and forward a qualified inquiry to the right outreach, referral, or clinical contact through an approved workflow.",
+      "role": "Clinic owners and practice managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or simple contact form?",
+      "answer": "A basic chatbot or form usually captures a message. DocsBot can answer from approved clinic knowledge, ask follow-up questions, summarize the conversation, identify missing information, route the request, and reveal knowledge gaps. That makes it more useful for PT workflows where context, escalation, and source control matter.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can staff use DocsBot during onboarding for PTAs, aides, and front desk hires?",
+      "answer": "Yes. Train an internal agent on onboarding guides, role checklists, documentation procedures, phone scripts, scheduling rules, and clinic policies. New hires can ask natural-language questions instead of interrupting senior staff for every procedure. This is especially useful as BLS projects physical therapist employment to grow 11% from 2024 to 2034, with about 13,200 openings annually.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-pt-outlook"
+      ]
+    },
+    {
+      "question": "What would a realistic first implementation look like for a small PT clinic?",
+      "answer": "Start with one narrow, measurable workflow: patient FAQs and first-visit preparation, or internal front desk policy lookup. Upload approved sources, define escalation rules, test common questions, review logs weekly, and update gaps before adding intake routing, payer guidance, or scheduling actions.",
+      "role": "Clinic owners and practice managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot draft responses for staff instead of replying directly to patients?",
+      "answer": "Yes. For clinics that want tighter control, DocsBot can draft answers from approved policies for staff review. This works well for billing, referral, records, cancellation, and care-instruction questions where consistency matters but a human should approve the final message.",
+      "role": "Front desk, billing, and patient access teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI if we do not want to replace staff?",
+      "answer": "Measure time saved on repetitive questions, fewer incomplete intake requests, faster routing, reduced interruptions to therapists, improved onboarding speed, and fewer repeated policy searches. In PT, ROI is often about giving licensed and front-office staff more usable capacity, not removing the human relationship from care.",
+      "role": "Clinic owners and practice managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us find gaps in patient education and website content?",
+      "answer": "Yes. DocsBot conversation logs and topic reporting can show what patients ask repeatedly, where the agent lacks an approved answer, and which topics trigger escalation. Practice managers can use that feedback to improve FAQs, handouts, intake packets, post-visit instructions, and internal scripts.",
+      "role": "Clinic owners and practice managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What procurement or compliance questions should we ask before approving an AI agent for PT operations?",
+      "answer": "Ask where data is stored, who can access each agent, whether customer data trains public models, how permissions work, how logs are reviewed, what workflows the agent can trigger, and how escalation is handled. Also confirm source ownership: someone should be accountable for keeping clinical, billing, and policy content current.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent help with Medicare or outpatient rehab documentation reminders?",
+      "answer": "DocsBot can retrieve and summarize your approved Medicare and outpatient rehab documentation procedures for staff, including plan-of-care checklists and internal review steps. Federal regulation states outpatient rehab services, including PT in private practice, must be furnished under a written plan of treatment with required elements such as type, frequency, duration, diagnosis, and goals.",
+      "role": "Physical therapists and clinical directors",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfr-plan-treatment"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from becoming another system staff have to maintain?",
+      "answer": "Assign a practical content owner, start with high-volume questions, reuse documents you already maintain, and review analytics on a regular cadence. DocsBot is most sustainable when it points back to governed source material instead of relying on one-off answers hidden in chat history.",
+      "role": "Clinic owners and practice managers",
+      "category": "Implementation"
+    }
+  ]
+}

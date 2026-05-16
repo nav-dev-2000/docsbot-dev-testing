@@ -1,0 +1,701 @@
+{
+  "slug": "radiology-services",
+  "business": "Radiology Clinic",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Radiology Clinic Support & Operations",
+    "description": "DocsBot helps radiology clinics answer exam questions, route requests, and give staff source-grounded SOP access without adding phone burden.",
+    "canonicalPath": "/industry/radiology-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for imaging teams",
+    "headline": "Reduce radiology admin pressure with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your exam prep guides, scheduling FAQs, billing policies, patient education pages, SOPs, and internal documentation so patients and staff can get fast, source-grounded answers while sensitive clinical questions are escalated to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer MRI, CT, X-ray, ultrasound, mammography, prep, arrival, and paperwork questions from approved clinic content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect intake details, identify missing information, and route scheduling or billing requests through customer-configured workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give technologists, front desk teams, and managers private access to protocols, scripts, policies, and escalation paths.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Use conversation logs and analytics to find repeated patient questions, unclear prep instructions, and documentation gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a radiology AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps radiology clinics create AI agents trained on their own trusted knowledge. A patient-facing agent can answer exam preparation, location, billing, scheduling, and post-visit information questions. An internal agent can help staff retrieve SOPs, safety reminders, patient communication scripts, payer guidance, and workflow instructions from approved documents, with escalation for medical interpretation or other high-impact decisions.",
+    "whoItHelps": [
+      {
+        "role": "Patient access and front desk teams",
+        "roleContext": "Radiology front desks handle repetitive questions about preparation, records, insurance, arrival times, and what to expect. DocsBot can provide instant, clinic-approved answers and collect context before routing requests to staff.",
+        "bullets": [
+          {
+            "text": "Explain preparation steps from approved exam pages, such as fasting, contrast instructions, clothing, arrival time, and required paperwork.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect patient intent for appointment, reschedule, records, estimate, or billing questions before creating a handoff summary.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate urgent, identity-sensitive, or clinical interpretation questions instead of improvising medical advice.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Radiology operations managers",
+        "roleContext": "Managers need consistent communication across scanners, sites, modalities, and referral sources while protecting staff time in a high-demand imaging environment.",
+        "bullets": [
+          {
+            "text": "ACR reported that the radiology-only practice count fell by almost one-third from 2014 to 2023, increasing pressure on remaining groups to operate efficiently.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-acr-workforce-2026"
+            ]
+          },
+          {
+            "text": "Use analytics to see which exam instructions, portal-result questions, or billing topics drive repeat contacts.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Make SOPs, scripts, escalation rules, and policy updates searchable for staff across locations.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Compliance, quality, and clinical leadership",
+        "roleContext": "Radiology teams must balance fast patient communication with safety boundaries, information-access obligations, and modality-specific procedures.",
+        "bullets": [
+          {
+            "text": "ACR notes that information-blocking compliance generally includes imaging data and other clinical data used by radiologists in medical decision-making.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-acr-information-blocking"
+            ]
+          },
+          {
+            "text": "Keep report interpretation, diagnosis, protocol deviation, and contrast-risk decisions on human review paths.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Give staff a private knowledge agent for accreditation notes, modality policies, and patient safety documentation.",
+            "icon": "BookOpenIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-acr-workforce-2026",
+      "metric": "Radiology-only practices declined by almost one-third from 2014 to 2023.",
+      "claim": "ACR's Harvey L. Neiman Health Policy Institute described continuing radiologist workforce pressure and reported a 31% decline in radiology-only practices from 2014 to 2023.",
+      "sourceTitle": "The Radiologist Shortage: A Workforce Update from HPI",
+      "sourceUrl": "https://www.acr.org/Clinical-Resources/Publications-and-Research/ACR-Bulletin/2026/radiologist-shortage-work-force-update",
+      "sourceDate": "February 5, 2026",
+      "bestUsedFor": [
+        "workforce pressure",
+        "operations efficiency",
+        "staff capacity"
+      ]
+    },
+    {
+      "id": "src-cms-price-transparency",
+      "metric": "Hospitals must display at least 300 shoppable services when applicable.",
+      "claim": "CMS hospital price transparency requirements include consumer-friendly displays of shoppable services with plain-language descriptions and pricing information.",
+      "sourceTitle": "Hospitals | CMS Hospital Price Transparency",
+      "sourceUrl": "https://www.cms.gov/priorities/key-initiatives/hospital-price-transparency/hospitals",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "patient pricing questions",
+        "billing transparency",
+        "plain-language service information"
+      ]
+    },
+    {
+      "id": "src-joint-commission-imaging-safety",
+      "metric": "Joint Commission maintains imaging safety requirements for MRI, CT, and fluoroscopy.",
+      "claim": "The Joint Commission says it has maintained imaging requirements to protect patients from risks such as MRI-related injuries, fluoroscopy dosing issues, and excessive CT radiation.",
+      "sourceTitle": "National Performance Goal #13: Protecting Patients and Providers in Imaging",
+      "sourceUrl": "https://www.jointcommission.org/standards/national-performance-goals/protecting-patients-and-providers-in-imaging",
+      "sourceDate": "Current page accessed 2026",
+      "bestUsedFor": [
+        "patient safety",
+        "modality-specific procedures",
+        "quality and compliance"
+      ]
+    },
+    {
+      "id": "src-acr-information-blocking",
+      "metric": "Information-blocking compliance can include imaging data used by radiologists.",
+      "claim": "ACR explains that radiology providers must avoid practices that delay legally permissible access to electronic health information, including imaging data and related clinical information.",
+      "sourceTitle": "Information Blocking | American College of Radiology",
+      "sourceUrl": "https://www.acr.org/Advocacy/Issues/Regulatory/information-blocking",
+      "sourceDate": "Current page accessed 2026",
+      "bestUsedFor": [
+        "patient access to results",
+        "records requests",
+        "compliance boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Exam preparation and arrival guidance agent",
+      "problem": "Patients often call to confirm fasting, medications, contrast instructions, clothing, pregnancy questions, arrival time, and documents needed for different imaging exams.",
+      "agentWorkflow": "DocsBot answers from the clinic's approved prep sheets, modality pages, FAQs, location pages, and appointment policies. It can ask clarifying questions such as exam type or location, then provide source-grounded next steps and escalate clinical uncertainty to staff.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved appointment metadata, collect missing details, create a task, or send a handoff to the scheduling team.",
+      "exampleQuestionsOrRequests": [
+        "Do I need to fast before my abdominal ultrasound?",
+        "What should I bring for my MRI appointment?",
+        "Can I wear jewelry for a CT scan?"
+      ],
+      "businessOutcome": "Fewer repetitive phone calls, more consistent prep communication, and better pre-visit readiness without asking staff to repeat the same instructions all day.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Records, results, and portal navigation support",
+      "problem": "Patients may see radiology reports in portals and need help understanding where to access records, how to request images, and who can discuss results.",
+      "agentWorkflow": "DocsBot can explain clinic-approved records request steps, portal navigation, release forms, turnaround expectations, and escalation paths. It should not interpret results; it routes clinical interpretation questions to the ordering provider or qualified clinic staff.",
+      "liveContextOrTools": "Customer-defined workflows can trigger a records request task, route a portal issue, or summarize the conversation for staff review while preserving boundaries for identity-sensitive requests.",
+      "exampleQuestionsOrRequests": [
+        "How do I get a copy of my MRI images?",
+        "Where can I find my report in the portal?",
+        "Who should explain my CT results?"
+      ],
+      "businessOutcome": "Patients get immediate procedural guidance while clinical meaning, diagnosis, and identity-sensitive record release remain in human-controlled processes.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-acr-information-blocking"
+      ]
+    },
+    {
+      "name": "Billing, estimate, and insurance question triage",
+      "problem": "Imaging prices, prior authorization, deductibles, and payer rules create confusion for patients and recurring work for billing teams.",
+      "agentWorkflow": "DocsBot answers from approved billing FAQs, financial policies, insurance lists, price-transparency pages, and estimate instructions. It can collect payer, exam type, referral status, and contact preferences before routing the request.",
+      "liveContextOrTools": "Through approved Skills, APIs, connectors, or MCP-based tool access where configured, the agent can perform scoped lookups, create billing tasks, or forward summaries to revenue-cycle workflows.",
+      "exampleQuestionsOrRequests": [
+        "Do you accept my insurance for an MRI?",
+        "How do I request an imaging estimate?",
+        "What does prior authorization mean for my CT scan?"
+      ],
+      "businessOutcome": "Billing teams receive cleaner requests and patients get clearer next steps for estimates, coverage questions, and payment policies.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-cms-price-transparency"
+      ]
+    },
+    {
+      "name": "Internal modality SOP and safety assistant",
+      "problem": "Technologists and support staff need quick access to current procedures, scanner-specific instructions, screening scripts, escalation policies, and safety documentation.",
+      "agentWorkflow": "A private DocsBot agent retrieves answers from SOPs, PDFs, internal wikis, training files, compliance notes, and quality documentation. It can cite sources, summarize relevant procedure steps, and surface outdated or missing content through analytics.",
+      "liveContextOrTools": "If configured, AI Actions can create a documentation-gap ticket, notify a supervisor, or route policy questions to quality leadership for review.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current MRI screening script?",
+        "What is the escalation path for a contrast reaction concern?",
+        "Which document covers fluoroscopy dose documentation?"
+      ],
+      "businessOutcome": "Staff spend less time searching shared drives and more time following the clinic's current, approved procedures.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-joint-commission-imaging-safety"
+      ]
+    },
+    {
+      "name": "Referral and service-fit presales assistant",
+      "problem": "Patients and referring offices may need to know which locations offer specific modalities, what referrals are required, and how to start scheduling.",
+      "agentWorkflow": "DocsBot answers from service catalogs, modality pages, referral instructions, accepted-insurance pages, and location content. It can qualify the request by exam type, urgency, location preference, referral status, and best callback channel.",
+      "liveContextOrTools": "With customer-approved scheduling or CRM-style workflows, the agent can collect lead details, request an appointment, or forward a structured summary to the access team for follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer cardiac CT at this location?",
+        "Can my doctor's office send an imaging order here?",
+        "I need a mammogram appointment next week."
+      ],
+      "businessOutcome": "Front-office teams receive structured, actionable inquiries instead of vague voicemail or web-form messages.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Patient-education knowledge gap analysis",
+      "problem": "Unclear prep pages and policy language cause avoidable questions, abandoned appointment requests, and inconsistent patient expectations.",
+      "agentWorkflow": "DocsBot conversation logs, topic analytics, reports, and review workflows help teams identify repeated unanswered questions, unclear exam pages, and missing staff documentation.",
+      "liveContextOrTools": "Operations teams can export insights, create documentation tasks, or route recurring questions to marketing, compliance, or modality leaders for source updates.",
+      "exampleQuestionsOrRequests": [
+        "Which MRI questions were most common this month?",
+        "What prep instructions are patients asking us to clarify?",
+        "Which answers led to escalation?"
+      ],
+      "businessOutcome": "Clinics can improve public content, staff scripts, and patient instructions based on real questions rather than guesswork.",
+      "icon": "MagnifyingGlassIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients clear imaging answers before they call",
+    "intro": "A DocsBot patient-facing agent can sit on your website or patient information pages and answer from your own approved content. It can help with preparation, scheduling intent, billing next steps, records guidance, and location questions while escalating medical interpretation and urgent concerns.",
+    "requests": [
+      {
+        "request": "“What do I need to do before my CT with contrast?”",
+        "agentResponseStrategy": "Ask for exam context if needed, answer from the approved prep guide, cite the relevant source, and advise contacting staff for medical-condition or medication-specific concerns.",
+        "sourceTypes": [
+          "Exam prep pages",
+          "Contrast instructions",
+          "Patient FAQs",
+          "Location policies"
+        ],
+        "optionalAction": "Create a staff follow-up task if the patient indicates allergy, kidney disease, pregnancy concern, or unclear instructions.",
+        "icon": "BeakerIcon"
+      },
+      {
+        "request": "“How much will my imaging exam cost?”",
+        "agentResponseStrategy": "Explain the clinic's estimate process and approved billing policy in plain language, then collect the exam type, payer, and preferred contact path for staff follow-up.",
+        "sourceTypes": [
+          "Billing FAQs",
+          "Price transparency pages",
+          "Insurance policies"
+        ],
+        "optionalAction": "Route the request to billing or revenue-cycle staff with a summarized handoff.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-cms-price-transparency"
+        ]
+      },
+      {
+        "request": "“Can you explain my MRI report?”",
+        "agentResponseStrategy": "Set a clear boundary that the agent cannot interpret results, then direct the patient to the ordering provider or clinic-defined clinical escalation path.",
+        "sourceTypes": [
+          "Results policy",
+          "Records instructions",
+          "Patient portal guidance"
+        ],
+        "optionalAction": "Offer a non-clinical records or portal navigation handoff if the patient cannot access the report.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Do you have instructions in Spanish?”",
+        "agentResponseStrategy": "Answer in the patient's preferred language when the clinic's approved content supports the topic, while keeping the response grounded in the same source material.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Patient education pages",
+          "Prep documents"
+        ],
+        "optionalAction": "Escalate to staff if the request involves consent, diagnosis, or instructions that require a certified interpreter process.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I reschedule my ultrasound?”",
+        "agentResponseStrategy": "Collect scheduling intent, appointment type, location, and contact details, then explain the clinic's approved rescheduling policy.",
+        "sourceTypes": [
+          "Scheduling policies",
+          "Location pages",
+          "Appointment FAQs"
+        ],
+        "optionalAction": "Use a customer-configured scheduling workflow or create a handoff for the access team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do I get my images sent to my doctor?”",
+        "agentResponseStrategy": "Explain approved image release and records-transfer steps without exposing identity-sensitive data in chat.",
+        "sourceTypes": [
+          "Records request forms",
+          "Release policies",
+          "Portal instructions"
+        ],
+        "optionalAction": "Create a records-team task or provide the correct secure form path, depending on the clinic workflow.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put clinic procedures and policies one question away for staff",
+    "intro": "A private DocsBot internal knowledge agent helps front desk staff, technologists, billing teams, managers, and clinical leaders retrieve answers from SOPs, policies, training files, PDFs, wikis, and shared documentation without searching multiple systems.",
+    "workflows": [
+      {
+        "name": "Front desk scripting and escalation",
+        "problem": "Different staff members may answer prep, arrival, and records questions differently when documentation is spread across binders, web pages, and shared drives.",
+        "agentWorkflow": "Staff ask the internal agent for the approved script, source, or escalation path. DocsBot cites the matching policy and can summarize the recommended response for phone, email, or helpdesk use.",
+        "sourceTypes": [
+          "Phone scripts",
+          "Exam prep SOPs",
+          "Records policies",
+          "Escalation guides"
+        ],
+        "optionalAction": "Draft a response or create a supervisor review task when the question falls outside approved guidance.",
+        "outcome": "More consistent patient communication across locations and shifts.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "name": "Technologist procedure lookup",
+        "problem": "Technologists need quick access to current modality procedures, scanner notes, safety checklists, and documentation requirements.",
+        "agentWorkflow": "DocsBot retrieves the relevant SOP or checklist, summarizes the section, and links staff back to the source document for verification.",
+        "sourceTypes": [
+          "Modality SOPs",
+          "Safety checklists",
+          "Training PDFs",
+          "Quality policies"
+        ],
+        "optionalAction": "Log a knowledge-gap item when staff ask about missing or conflicting instructions.",
+        "outcome": "Faster access to approved procedures while human staff remain responsible for clinical judgment and patient safety.",
+        "icon": "WrenchIcon",
+        "sourceIds": [
+          "src-joint-commission-imaging-safety"
+        ]
+      },
+      {
+        "name": "Revenue-cycle and referral desk support",
+        "problem": "Billing and referral staff field complex questions about authorization, payer documentation, estimates, and missing orders.",
+        "agentWorkflow": "The internal agent answers from payer notes, billing FAQs, authorization workflows, referral requirements, and approved templates. It can summarize the next step for the staff member.",
+        "sourceTypes": [
+          "Billing policies",
+          "Authorization workflows",
+          "Referral checklists",
+          "Payer guidance"
+        ],
+        "optionalAction": "Create a task, route a handoff, or draft a follow-up message through customer-configured systems.",
+        "outcome": "Cleaner requests, fewer repeated searches, and faster handoffs between access, billing, and scheduling teams.",
+        "icon": "WalletIcon"
+      },
+      {
+        "name": "Manager analytics and documentation improvement",
+        "problem": "Clinic leaders need to know which patient and staff questions indicate missing content, unclear instructions, or recurring workflow friction.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help leaders see question patterns and update source content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base reports",
+          "Patient FAQs",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Assign documentation updates or notify the owner of a policy page that needs revision.",
+        "outcome": "Continuous improvement for patient education, training materials, and internal knowledge quality.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded patient support agent",
+      "mainLandingPageContext": "DocsBot agents are trained on approved websites, documents, help centers, PDFs, and other knowledge sources to provide instant answers in a company's voice.",
+      "industryApplication": "Train an agent on radiology exam pages, prep sheets, patient FAQs, billing guidance, portal instructions, and location content so patients receive consistent imaging guidance.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as an always-available internal assistant for teams using SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other sources.",
+      "industryApplication": "Give front desk, technologist, billing, and operations teams fast access to current protocols, scripts, payer notes, and escalation paths.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support bounded lookups, routing, summaries, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved actions to collect scheduling intent, route records requests, create documentation-gap tasks, or summarize patient handoffs for staff review.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Governance for sensitive healthcare workflows",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Keep medical interpretation, identity-sensitive record release, diagnosis, and high-impact decisions on defined human review paths while still automating routine guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which MRI prep, portal-result, estimate, or referral questions repeat most often, then improve patient education and staff documentation.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal knowledge access and reduce unnecessary human routing.",
+      "DocsBot agents answer from your own content library, helping radiology clinics keep patient guidance consistent.",
+      "Private knowledge agents help staff reinforce training, procedures, and approved communication practices."
+    ],
+    "whyTheseReviewsFit": "Radiology clinics need trustworthy answers from approved sources, not generic AI responses. DocsBot's healthcare, education, and content-library proof shows how teams use owned knowledge to support decision-making, reinforce complex concepts, and make information easier to access.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for radiology clinics",
+    "audience": [
+      "Radiology clinic owners",
+      "Imaging center operations managers",
+      "Patient access leaders",
+      "Radiology compliance and quality teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "healthcare-revenue-cycle-management",
+    "emergency-medical-services",
+    "dentistry",
+    "cosmetic-surgery",
+    "chiropractic-office"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "radiology-services",
+    "webSearchQueries": [
+      "ACR patient access radiology reports patient portal 21st Century Cures Act imaging report information blocking",
+      "ACR radiology workforce shortage radiologist demand 2024",
+      "CMS hospital price transparency imaging services plain language shoppable services radiology",
+      "The Joint Commission diagnostic imaging requirements patient safety MRI CT contrast"
+    ],
+    "sourceUrls": [
+      "https://www.acr.org/Clinical-Resources/Publications-and-Research/ACR-Bulletin/2026/radiologist-shortage-work-force-update",
+      "https://www.cms.gov/priorities/key-initiatives/hospital-price-transparency/hospitals",
+      "https://www.jointcommission.org/standards/national-performance-goals/protecting-patients-and-providers-in-imaging",
+      "https://www.acr.org/Advocacy/Issues/Regulatory/information-blocking"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40374,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 19638,
+        "outputTokens": 7496,
+        "reasoningOutputTokens": 134,
+        "totalTokens": 47870,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.166719,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.176719
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21537,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6049,
+          "outputTokens": 4873,
+          "reasoningOutputTokens": 134,
+          "totalTokens": 26410,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.092089,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.102089
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18837,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13589,
+          "outputTokens": 2623,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21460,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07463,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07463
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1522849696084-818b29dfe210?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg2Mjh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Radiology Clinic background image",
+    "source": "legacy-industry",
+    "query": "Radiology Clinic"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer exam-prep questions without giving medical advice?",
+      "answer": "Yes. DocsBot can be trained on your approved MRI, CT, ultrasound, X-ray, mammography, contrast, arrival, and paperwork instructions, then answer only from those sources. For medication-specific, allergy, pregnancy, kidney-function, symptom, or result-interpretation questions, you can define escalation paths so staff handle clinical judgment.",
+      "role": "Patient access and front desk teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce call volume for our front desk without frustrating patients?",
+      "answer": "DocsBot handles repetitive questions patients often ask before calling: where to go, when to arrive, whether to fast, what to bring, how to request records, and how to start an estimate request. When the request needs staff, it can collect exam type, location, payer, referral status, and contact preference so the handoff is cleaner.",
+      "role": "Patient access and front desk teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help patients understand reports or imaging results in the portal?",
+      "answer": "DocsBot should not interpret radiology results, diagnose, or explain clinical meaning. It can explain how to access the portal, request images, obtain records, and contact the ordering provider or clinic-defined clinical team. ACR notes that information-blocking compliance can include imaging data and clinical information used by radiologists, so procedural access guidance matters.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-acr-information-blocking"
+      ]
+    },
+    {
+      "question": "What happens if a patient asks about contrast reactions, pregnancy, implants, or medication instructions?",
+      "answer": "Those should be treated as escalation triggers. DocsBot can provide general clinic-approved preparation language, then route the patient to staff when the answer depends on personal clinical history, MRI safety screening, medication management, pregnancy status, kidney function, or allergy risk.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use one agent across multiple imaging locations with different hours, scanners, and modality rules?",
+      "answer": "Yes, as long as your source content separates location-specific policies clearly. DocsBot can ask clarifying questions such as location, modality, exam type, or appointment context before answering. For multi-site groups, a good rollout starts with standardized public FAQs and then adds location-specific prep sheets and escalation rules.",
+      "role": "Radiology operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot handle billing, insurance, estimate, and prior-authorization questions?",
+      "answer": "DocsBot can answer from your approved billing FAQs, accepted-insurance pages, financial policies, price-transparency pages, and estimate instructions. It can collect payer, exam type, referral status, and callback details before routing to revenue-cycle staff. CMS hospital price transparency rules include consumer-friendly displays of shoppable services with plain-language descriptions and pricing information.",
+      "role": "Patient access and front desk teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cms-price-transparency"
+      ]
+    },
+    {
+      "question": "Can DocsBot connect to our scheduling, RIS, EHR, portal, CRM, or ticketing workflows?",
+      "answer": "DocsBot can support scoped live lookups, task creation, summaries, routing, and handoffs through customer-configured Skills, APIs, connectors, webhooks, or MCP-based tool access where authorized. It should be configured with tight permissions, logs, and human review for sensitive healthcare workflows rather than given broad access by default.",
+      "role": "Radiology operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we have to replace our existing website chat, phone tree, or patient portal?",
+      "answer": "No. Many clinics would start by placing a DocsBot agent on exam-prep, billing, records, or scheduling pages and using it to deflect routine questions or create structured handoffs. It can complement your portal and phone workflows rather than replacing the systems patients and staff already use.",
+      "role": "Radiology operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much content do we need before launching a radiology AI agent?",
+      "answer": "Start with the content that drives the most repetitive calls: modality prep sheets, location pages, scheduling policies, records instructions, billing FAQs, insurance guidance, and escalation rules. You do not need perfect documentation on day one, but the agent should be limited to approved sources and reviewed for gaps before going live.",
+      "role": "Radiology operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can staff use DocsBot internally for SOPs, safety checklists, and front-desk scripts?",
+      "answer": "Yes. A private internal DocsBot agent can answer from SOPs, PDFs, shared drives, wikis, training files, phone scripts, payer notes, and escalation policies. It can cite the source document so technologists, billing staff, and front desk teams can verify guidance instead of searching multiple folders or relying on memory.",
+      "role": "Radiology operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent outdated prep instructions or old SOPs from being used?",
+      "answer": "The main control is source governance: decide which documents are authoritative, remove or archive obsolete files, and assign owners for modality, billing, records, and scheduling content. DocsBot analytics can also show unanswered questions and repeated confusion, helping managers identify documents that need revision.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support imaging safety workflows without taking responsibility away from technologists or radiologists?",
+      "answer": "Yes. DocsBot can retrieve approved safety policies, screening scripts, and documentation requirements, but human staff remain responsible for clinical judgment and patient safety. The Joint Commission maintains imaging safety requirements addressing risks such as MRI-related injuries, fluoroscopy dosing issues, and excessive CT radiation, so AI use should reinforce documented procedures rather than improvise.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-joint-commission-imaging-safety"
+      ]
+    },
+    {
+      "question": "What security controls matter if we use this for patient-facing healthcare questions?",
+      "answer": "Buyers should look for source grounding, access controls, encryption, auditability, escalation rules, and clear limits on what the agent can access or do. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep PHI, credentials, and identity-sensitive records out of the chat experience?",
+      "answer": "Yes. DocsBot should be configured to avoid collecting unnecessary sensitive information, keep credentials out of chat, and route identity-sensitive requests through your secure records or portal process. For records workflows, it can explain steps, link to approved forms, or create a staff handoff without exposing protected data in the conversation.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we measure ROI for a radiology AI agent?",
+      "answer": "Track avoided repetitive contacts, after-hours questions answered, scheduling or billing handoffs created, staff time saved, escalation rate, unresolved topics, patient satisfaction, and reductions in avoidable prep confusion. ACR reported a 31% decline in radiology-only practices from 2014 to 2023, so operational leverage is especially important for imaging groups under staffing pressure.",
+      "role": "Radiology operations managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-acr-workforce-2026"
+      ]
+    },
+    {
+      "question": "Will this help with no-shows or incomplete prep?",
+      "answer": "DocsBot can support that goal by giving patients clearer, immediate answers about fasting, arrival time, documents, clothing, contrast instructions, and location details. It is not a no-show guarantee, but it can reduce ambiguity before the visit and show managers which prep topics patients repeatedly ask about.",
+      "role": "Patient access and front desk teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot answer in Spanish or other languages for patient education?",
+      "answer": "DocsBot can answer in more than 100 languages, but radiology clinics should still ground responses in approved source content and define escalation rules for consent, diagnosis, interpretation, or instructions requiring a certified interpreter process. For high-risk topics, multilingual support should improve access without bypassing your compliance policies.",
+      "role": "Patient access and front desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic website chatbot or patient portal FAQ?",
+      "answer": "The difference is source-grounded workflow support. DocsBot can train on your approved documents, cite sources, support internal staff knowledge, collect structured intake, route requests, create handoff summaries, and surface documentation gaps. A static FAQ cannot adapt to patient context or show managers where instructions are unclear.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What would implementation look like for a clinic that has messy PDFs, shared drives, and different departmental owners?",
+      "answer": "A practical rollout starts with one or two high-volume workflows, such as exam prep and records guidance. Then you identify authoritative sources, remove duplicates, define escalation rules, test common questions, and review conversation logs. Internal SOP use can follow once document ownership and permissions are clear.",
+      "role": "Radiology operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can compliance or clinical leadership review what the agent says?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. That gives leaders a way to audit common responses, tune instructions, find risky questions, and decide where the agent should answer, refuse, or escalate.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we make sure the AI does not hallucinate policies we never approved?",
+      "answer": "Configure DocsBot to answer from approved sources, cite relevant documents, and escalate when the source material is missing or ambiguous. Buyers should test edge cases such as conflicting prep sheets, outdated location pages, report-interpretation requests, and payer-specific billing questions before launch.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent support referring offices, not just patients?",
+      "answer": "Yes. DocsBot can answer from service catalogs, referral instructions, modality availability pages, location details, accepted-insurance guidance, and order-submission policies. It can collect exam type, urgency, referral status, preferred site, and callback channel before routing a structured summary to the access or referral team.",
+      "role": "Patient access and front desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What training will our front desk and technologists need?",
+      "answer": "Training should focus less on AI theory and more on workflow boundaries: what the agent can answer, where answers come from, when to escalate, how to review source citations, and how to flag content gaps. Staff also need a simple process for reporting outdated instructions or missing SOPs.",
+      "role": "Radiology operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we start with internal staff support before exposing anything to patients?",
+      "answer": "Yes. Many risk-sensitive clinics may prefer an internal-first rollout using SOPs, phone scripts, billing procedures, referral checklists, and safety documentation. That lets managers validate source quality, staff adoption, access controls, and escalation logic before launching a patient-facing agent.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own the AI agent after go-live?",
+      "answer": "Ownership should be cross-functional. Operations usually owns performance and call-deflection goals, compliance or quality owns safety boundaries, patient access owns scripts and escalation, billing owns revenue-cycle content, and modality leaders own prep and SOP accuracy. DocsBot analytics can help those owners prioritize updates.",
+      "role": "Radiology operations managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "What should be excluded from automation in a radiology clinic?",
+      "answer": "Exclude diagnosis, report interpretation, protocol changes, contrast-risk decisions, emergency triage, identity verification for sensitive records, legal determinations, and payer commitments that require staff review. DocsBot is best used for approved guidance, structured intake, source retrieval, and routed handoffs around those boundaries.",
+      "role": "Compliance, quality, and clinical leadership",
+      "category": "Human oversight"
+    }
+  ]
+}

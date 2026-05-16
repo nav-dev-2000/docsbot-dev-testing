@@ -1,0 +1,710 @@
+{
+  "slug": "ice-cream-shops",
+  "business": "Ice Cream Shops",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Ice Cream Shop Service & Operations",
+    "description": "DocsBot helps ice cream shops answer menu, allergen, hours, catering, and staff SOP questions instantly while keeping busy lines moving.",
+    "canonicalPath": "/industry/ice-cream-shops"
+  },
+  "hero": {
+    "eyebrow": "AI automation for scoop shops, creameries, and frozen dessert counters",
+    "headline": "Keep every scoop line moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps ice cream shops create AI support and internal knowledge agents trained on your menu, allergen notes, catering policies, party packages, SOPs, and seasonal updates. Give customers instant answers and give staff one trusted place to check procedures during rushes.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about flavors, allergens, vegan options, hours, cakes, party trays, and loyalty rules from approved shop content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect catering or cake-order details, qualify requests, and route summaries to the right team through customer-configured workflows.",
+        "icon": "CakeIcon"
+      },
+      {
+        "text": "Help employees find opening checklists, cleaning steps, handoff notes, and customer-service scripts without digging through binders or chats.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated questions, missing menu details, and seasonal knowledge gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an ice cream shop agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your ice cream shop’s own knowledge into AI agents for customers and employees. Train agents on website pages, menus, PDFs, SOPs, policies, team documents, and other approved sources so they can answer questions, summarize context, collect details, and trigger bounded handoffs when configured with Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep service consistent when staffing, seasonal menus, events, and cost pressure make every customer interaction count.",
+        "bullets": [
+          {
+            "text": "Publish one source-grounded answer for hours, parking, ordering windows, loyalty rules, and catering policies across your website widget and staff assistant.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Use conversation logs to see which flavors, dietary questions, and order policies customers ask about most often.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Restaurant operators reported labor costs, food costs, and inflation as major challenges in 2024, making self-service and faster training practical priorities.",
+            "icon": "BanknotesIcon",
+            "sourceIds": [
+              "src-restaurant-cost-pressure"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front-of-house and shift leads",
+        "roleContext": "Give counter teams fast access to current answers during rushes, when customers ask about ingredients, substitutions, parties, and availability.",
+        "bullets": [
+          {
+            "text": "Let staff ask a private agent for scoop size rules, cake pickup scripts, refund policies, and cleaning steps before escalating to a manager.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Surface approved allergen and cross-contact guidance from your internal documents instead of relying on memory during a busy shift.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Create shift notes, task summaries, or manager handoffs with customer-configured AI Actions when the workflow is approved.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Marketing and catering coordinators",
+        "roleContext": "Respond faster to birthday parties, office socials, school events, fundraisers, seasonal flavor drops, and bulk-order questions.",
+        "bullets": [
+          {
+            "text": "Collect event date, headcount, location, dietary needs, budget range, and preferred follow-up channel through a structured intake flow.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Route qualified catering or cake inquiries to email, CRM, helpdesk software, or a task list through customer-configured Skills and connectors.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Draft follow-up summaries and customer-ready replies from approved pricing, package, and ordering policies while leaving final commitments to your team.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-restaurant-cost-pressure",
+      "metric": "96% of restaurant operators cited labor costs as a significant 2024 challenge",
+      "claim": "The National Restaurant Association’s 2025 State of the Restaurant Industry report shows broad cost pressure, with labor costs, food costs, and inflation among the top challenges for operators.",
+      "sourceTitle": "National Restaurant Association, State of the Restaurant Industry 2025",
+      "sourceUrl": "https://go.restaurant.org/rs/078-ZLA-461/images/SOI-2025-Report.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "cost pressure",
+        "labor pressure",
+        "operator efficiency",
+        "staffing challenges"
+      ]
+    },
+    {
+      "id": "src-fda-major-allergens",
+      "metric": "Sesame became the ninth major U.S. food allergen on January 1, 2023",
+      "claim": "FDA guidance explains that sesame is now recognized as a major food allergen and that the FDA Food Code is a primary resource for retail food establishment allergen provisions.",
+      "sourceTitle": "FDA, Addition to the 2022 Food Code: Sesame Added as a Major Food Allergen",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "allergen awareness",
+        "food safety training",
+        "ingredient communication"
+      ]
+    },
+    {
+      "id": "src-cdc-handwashing",
+      "metric": "CDC says improved food-worker handwashing is critical to preventing outbreaks",
+      "claim": "CDC restaurant food safety guidance links improved handwashing practices to prevention of norovirus, Campylobacter, Salmonella, and E. coli outbreaks.",
+      "sourceTitle": "CDC, Food Worker Handwashing in Restaurants",
+      "sourceUrl": "https://www.cdc.gov/restaurant-food-safety/php/practices/handwashing.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "food safety",
+        "employee training",
+        "sanitation SOPs"
+      ]
+    },
+    {
+      "id": "src-cdc-norovirus-food-workers",
+      "metric": "CDC says sick food workers should not prepare or handle food",
+      "claim": "CDC norovirus prevention guidance says workers should avoid preparing or handling food when sick, especially in restaurants and similar settings.",
+      "sourceTitle": "CDC, How to Prevent Norovirus",
+      "sourceUrl": "https://www.cdc.gov/norovirus/prevention/index.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "sick policy",
+        "food safety reminders",
+        "manager procedures"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Menu, flavor, and dietary question agent",
+      "problem": "Customers often ask the same questions about today’s flavors, dairy-free options, nuts, gluten, sugar-free items, toppings, hours, and order rules while staff are serving the line.",
+      "agentWorkflow": "Train a DocsBot support agent on menu pages, ingredient sheets, allergen notes, FAQs, store policies, and seasonal announcements. The agent answers in your shop voice, cites approved source content where available, and escalates unclear or sensitive ingredient questions to a human.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can check a live flavor list, store-hours record, or availability feed configured by your team before answering.",
+      "exampleQuestionsOrRequests": [
+        "Do you have dairy-free chocolate today?",
+        "Which flavors contain peanuts or tree nuts?",
+        "Are you open late after the school game?",
+        "Can I order a quart of today’s seasonal flavor?"
+      ],
+      "businessOutcome": "Reduce repetitive calls and website questions while helping customers decide what to order before they arrive.",
+      "icon": "CakeIcon"
+    },
+    {
+      "name": "Allergen and food-safety knowledge assistant",
+      "problem": "Ice cream shops handle common allergen questions and need staff to follow consistent safety procedures during fast-moving shifts.",
+      "agentWorkflow": "Create a private internal agent trained on allergen statements, supplier notes, cleaning checklists, cross-contact procedures, sick-worker policies, and manager escalation rules. Employees can ask for the current procedure and get a source-grounded answer instead of guessing.",
+      "liveContextOrTools": "A configured Skill can collect the location, product, and question type, then route a manager review ticket when the answer requires judgment or a supplier confirmation.",
+      "exampleQuestionsOrRequests": [
+        "What should I say if a guest has a sesame allergy?",
+        "What is our cleaning process before scooping a nut-free request?",
+        "When should a sick employee be sent home?",
+        "Where is the current ingredient sheet for waffle cones?"
+      ],
+      "businessOutcome": "Give staff faster access to approved procedures while keeping managers involved for high-risk allergen or health questions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-major-allergens",
+        "src-cdc-handwashing",
+        "src-cdc-norovirus-food-workers"
+      ]
+    },
+    {
+      "name": "Catering, cake, and party inquiry intake",
+      "problem": "Birthday parties, office socials, fundraisers, and cake orders need details before a staff member can quote, schedule, or confirm the request.",
+      "agentWorkflow": "A DocsBot presales agent asks structured intake questions, summarizes the request, applies your qualification rules, and forwards the lead to the right person or system through customer-configured workflows.",
+      "liveContextOrTools": "AI Actions can create a task, submit a custom lead form, send a summary to email or helpdesk software, or request a booking slot through approved scheduling tools such as Calendly, Cal.com, TidyCal, or similar systems when configured.",
+      "exampleQuestionsOrRequests": [
+        "I need ice cream for 80 people next Friday.",
+        "Can you make a dairy-free birthday cake?",
+        "Do you offer a cart for school events?",
+        "What information do you need for a corporate sundae bar?"
+      ],
+      "businessOutcome": "Capture high-intent orders after hours and send your team complete context instead of a vague voicemail.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Seasonal staff onboarding and shift support",
+      "problem": "Many scoop shops rely on seasonal or part-time teams who need quick answers about recipes, service standards, closing tasks, refunds, and local store rules.",
+      "agentWorkflow": "Train an internal DocsBot agent on employee handbooks, opening and closing checklists, cleaning SOPs, cash-handling notes, brand scripts, and training materials. New hires can ask questions privately, and managers can review topics that need clearer documentation.",
+      "liveContextOrTools": "The agent can summarize repeated employee questions and identify knowledge gaps in training content using DocsBot analytics and logs.",
+      "exampleQuestionsOrRequests": [
+        "How do I handle a melted cake pickup complaint?",
+        "What is the closing checklist for the dipping cabinet?",
+        "Where do we record a freezer temperature issue?",
+        "What is the script for explaining loyalty rewards?"
+      ],
+      "businessOutcome": "Shorten ramp time, reduce manager interruptions, and keep answers consistent across shifts.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Customer feedback and knowledge-gap analysis",
+      "problem": "Owners need to know which questions, complaints, and ordering blockers keep repeating, but those patterns are often buried in calls, chats, reviews, and staff notes.",
+      "agentWorkflow": "Use DocsBot conversation review, analytics, topic management, satisfaction and resolution analysis, and reports to identify missing menu content, confusing order policies, repeated allergen questions, and opportunities for better website copy.",
+      "liveContextOrTools": "When configured, a Skill can create follow-up tasks or route a summary to marketing, operations, or a manager review workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which questions went unanswered this month?",
+        "What menu details should we add before summer?",
+        "Which catering questions appear most often?",
+        "What did customers ask about the new flavor launch?"
+      ],
+      "businessOutcome": "Turn everyday questions into clearer documentation, better promotions, and fewer avoidable interruptions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multi-location policy and live context assistant",
+      "problem": "A growing creamery may have different hours, local events, pickup rules, and inventory by location, which can confuse customers and staff.",
+      "agentWorkflow": "DocsBot can train on approved store pages, location documents, SOPs, and internal policies, then use configured live context to answer location-specific questions or prepare a handoff when details are missing.",
+      "liveContextOrTools": "Use customer-configured APIs, connectors, metadata bindings, or MCP Connectors for remote Model Context Protocol servers to let the agent reference approved systems and trigger bounded actions.",
+      "exampleQuestionsOrRequests": [
+        "Which locations have the vegan cookies-and-cream flavor today?",
+        "Can I pick up an online cake order at the downtown shop?",
+        "Which store is open after 9 p.m.?",
+        "Route this freezer issue to the right location manager."
+      ],
+      "businessOutcome": "Support expansion without forcing every answer through the owner or a central inbox.",
+      "icon": "MapPinIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent for the questions that slow the counter down",
+    "intro": "Put a DocsBot agent on your website or ordering pages so guests can get instant, source-grounded answers before they call, visit, or place a custom order. The agent can stay focused on your approved content and escalate sensitive or complex requests to your team.",
+    "requests": [
+      {
+        "request": "“What flavors do you have today, and which are dairy-free?”",
+        "agentResponseStrategy": "Answer from the current menu, dietary notes, and store-specific content. If live flavor data is configured, check the approved source before responding.",
+        "sourceTypes": [
+          "Menu pages",
+          "Daily flavor list",
+          "Dietary notes",
+          "Store pages"
+        ],
+        "optionalAction": "Offer to collect the guest’s location or route a flavor request to the store when configured.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“I have a severe nut allergy. What can I safely order?”",
+        "agentResponseStrategy": "Provide only approved allergen and cross-contact information, avoid guarantees, and direct the guest to staff or a manager for final confirmation.",
+        "sourceTypes": [
+          "Allergen statements",
+          "Ingredient sheets",
+          "Cross-contact policy",
+          "Manager escalation rules"
+        ],
+        "optionalAction": "Create a manager review handoff with the guest’s question and contact details when the customer provides them.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fda-major-allergens"
+        ]
+      },
+      {
+        "request": "“Can you cater an office event for 50 people?”",
+        "agentResponseStrategy": "Ask for date, headcount, location, service type, dietary needs, budget range, and preferred follow-up channel, then summarize the request.",
+        "sourceTypes": [
+          "Catering packages",
+          "Pricing guidance",
+          "Service area rules",
+          "Lead intake form"
+        ],
+        "optionalAction": "Forward a qualified catering lead to email, CRM, helpdesk software, or a task workflow configured by the shop.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“What are your loyalty rewards and birthday offers?”",
+        "agentResponseStrategy": "Answer from loyalty-program rules, promotional policies, and current offer pages so customers get consistent terms.",
+        "sourceTypes": [
+          "Loyalty FAQ",
+          "Promotion pages",
+          "Birthday offer rules",
+          "Terms and conditions"
+        ],
+        "optionalAction": "Collect a follow-up question or route account-specific issues to a human if the agent cannot access the customer record.",
+        "icon": "StarIcon"
+      },
+      {
+        "request": "“Are you open during the festival this weekend?”",
+        "agentResponseStrategy": "Use approved event notes, holiday hours, location pages, and staff announcements to provide the most current public answer available.",
+        "sourceTypes": [
+          "Holiday hours",
+          "Event pages",
+          "Location pages",
+          "Staff announcements"
+        ],
+        "optionalAction": "If configured, check a live hours source or create a request for a manager to update outdated hours content.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can I change my cake pickup time?”",
+        "agentResponseStrategy": "Explain the published order-change policy and collect the details needed for a staff member to review the request.",
+        "sourceTypes": [
+          "Cake order policy",
+          "Pickup rules",
+          "Refund policy",
+          "Support scripts"
+        ],
+        "optionalAction": "Create a ticket or task with order details through a customer-approved workflow.",
+        "icon": "TicketIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for faster shifts, cleaner handoffs, and smoother training",
+    "intro": "DocsBot gives owners, managers, and staff a private assistant trained on shop procedures, employee documents, recipes, policies, and operational knowledge. Teams can ask natural-language questions in a private chat experience and get answers from approved sources.",
+    "workflows": [
+      {
+        "name": "Opening, closing, and cleaning SOP lookup",
+        "problem": "Shift teams need fast access to cleaning steps, temperature checks, equipment notes, and closing routines without hunting through binders.",
+        "agentWorkflow": "Train DocsBot on SOPs, checklists, PDFs, and internal docs. Employees ask the agent for the current step-by-step procedure and receive a source-grounded answer.",
+        "sourceTypes": [
+          "Opening checklists",
+          "Closing procedures",
+          "Cleaning SOPs",
+          "Equipment notes"
+        ],
+        "optionalAction": "A configured Skill can create a maintenance task or notify a manager when a checklist reveals an issue.",
+        "outcome": "Reduce repeated manager questions and keep operational routines consistent.",
+        "icon": "ListBulletIcon",
+        "sourceIds": [
+          "src-cdc-handwashing"
+        ]
+      },
+      {
+        "name": "New-hire training assistant",
+        "problem": "Seasonal employees often ask the same questions about service, menu wording, cash handling, and customer complaints.",
+        "agentWorkflow": "Use DocsBot as an onboarding companion trained on handbooks, training decks, service scripts, and policy documents. Managers can review common questions and improve training materials.",
+        "sourceTypes": [
+          "Employee handbook",
+          "Training materials",
+          "Service scripts",
+          "Policy documents"
+        ],
+        "optionalAction": "Summarize unanswered onboarding questions into a weekly manager report.",
+        "outcome": "Help new staff become confident faster while preserving manager time during peak seasons.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Manager handoff and incident summaries",
+        "problem": "Customer complaints, order issues, freezer problems, and safety concerns can lose context between shifts.",
+        "agentWorkflow": "A staff member can ask the agent to summarize the issue using a structured prompt, collect missing information, and prepare a handoff for the manager.",
+        "sourceTypes": [
+          "Handoff templates",
+          "Incident procedures",
+          "Refund policy",
+          "Maintenance process"
+        ],
+        "optionalAction": "When configured, DocsBot can create a ticket, task, or notification with the summary and relevant details.",
+        "outcome": "Improve follow-through without relying on scattered notes or memory.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Promotion and flavor launch readiness",
+        "problem": "Customers ask about new flavors, limited-time offers, and social campaigns before every staff member has memorized the details.",
+        "agentWorkflow": "Train the internal agent on campaign briefs, launch calendars, ingredient notes, FAQs, and approved talking points. Staff can ask how to describe an offer and where to send interested customers.",
+        "sourceTypes": [
+          "Campaign briefs",
+          "Flavor launch notes",
+          "FAQ documents",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Route repeated launch questions to marketing so public copy can be updated.",
+        "outcome": "Keep staff aligned on promotions and reduce inconsistent answers.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on a business’s own knowledge sources and can provide instant answers in the company’s voice.",
+      "industryApplication": "Use approved menus, allergen notes, event pages, loyalty policies, and catering FAQs to answer customer questions before they call or wait in line.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, trained on SOPs, policies, wikis, PDFs, documents, and team knowledge.",
+      "industryApplication": "Give scoopers, shift leads, and managers quick access to opening tasks, closing steps, cleaning procedures, cake-order rules, and customer-service scripts.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, task creation, routing, updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect catering details, check approved live store context, create a manager task, route a cake-order change, or notify a team using customer-configured workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides review tools and reports to understand what users ask, how conversations resolve, and where knowledge is missing.",
+      "industryApplication": "See which flavors, allergen questions, hours, loyalty rules, and order policies confuse customers so your website and staff training can improve.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual and always-available answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages and provide support through website widgets and private team chat experiences.",
+      "industryApplication": "Help tourists, local families, and after-hours planners understand menu options, locations, hours, and order policies even when staff are busy.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions.",
+      "industryApplication": "Protect internal SOPs, staff documents, pricing notes, and operational workflows while controlling what customer-facing and employee agents can access.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on your own menus, policies, procedures, and content library instead of relying on generic answers.",
+      "Support customer self-service and staff knowledge access from the same approved body of shop information.",
+      "Give busy hospitality teams an AI tool that is practical to integrate, maintain, and improve over time."
+    ],
+    "whyTheseReviewsFit": "Ice cream shops need answers that match their real menu, policies, and service standards. DocsBot proof from content-heavy, training, and hospitality environments shows how teams use owned knowledge to support customers, help staff find information, and keep inquiries moving toward bookings or service.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "UserGroupIcon",
+      "WrenchIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for ice cream shops",
+    "audience": [
+      "Ice cream shop owners",
+      "Creamery operators",
+      "Frozen dessert managers",
+      "Catering and events coordinators",
+      "Front-of-house teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CakeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "bakery",
+    "caterer",
+    "food-trucks",
+    "coffee-roastery",
+    "grocery-convenience-store",
+    "food-hospitality"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "ice-cream-shops",
+    "webSearchQueries": [
+      "National Restaurant Association restaurant operators labor costs food costs 2024 report",
+      "FDA food allergen labeling sesame major food allergens restaurants allergen information",
+      "BLS ice cream and frozen dessert stores NAICS employment United States",
+      "CDC food safety restaurants norovirus sick food workers handwashing"
+    ],
+    "sourceUrls": [
+      "https://go.restaurant.org/rs/078-ZLA-461/images/SOI-2025-Report.pdf",
+      "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "https://www.cdc.gov/restaurant-food-safety/php/practices/handwashing.html",
+      "https://www.cdc.gov/norovirus/prevention/index.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 38917,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 18181,
+        "outputTokens": 7667,
+        "reasoningOutputTokens": 124,
+        "totalTokens": 46584,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.165642,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.175642
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19732,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 4244,
+          "outputTokens": 4995,
+          "reasoningOutputTokens": 124,
+          "totalTokens": 24727,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.089407,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.099407
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19185,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13937,
+          "outputTokens": 2672,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21857,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076235,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076235
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1589999637259-3c7abefd93eb?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU0NDR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Ice Cream Shops background image",
+    "source": "legacy-industry",
+    "query": "Ice Cream Shops"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer flavor, hours, and dietary questions without our staff updating the same information in multiple places?",
+      "answer": "Yes. Train the agent on your approved menu pages, seasonal announcements, allergen notes, location pages, and policies so customers and staff get one consistent answer. If your team configures Skills, APIs, or connectors, the agent can also reference approved live context such as a current flavor list or store-hours record before responding.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this reduce interruptions during a busy line instead of creating another screen for staff to manage?",
+      "answer": "The highest-value setup is usually customer self-service plus a private staff assistant. Guests can answer common questions before calling or reaching the counter, while shift leads can quickly look up SOPs, cake rules, refund scripts, or ingredient guidance without texting a manager. Conversation logs then show which questions still need clearer public content.",
+      "role": "Front-of-house and shift leads",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent safely handle severe allergy questions, or should those always go to a person?",
+      "answer": "DocsBot can provide only your approved allergen and cross-contact information, avoid making safety guarantees, and escalate severe or unclear cases to a manager. That matters because sesame became the ninth major U.S. food allergen on January 1, 2023, and retail food teams need current ingredient and allergen procedures.",
+      "role": "Front-of-house and shift leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-major-allergens"
+      ]
+    },
+    {
+      "question": "What kind of content do we need before launching an ice cream shop AI agent?",
+      "answer": "Start with the documents your team already uses: menu and flavor descriptions, ingredient sheets, allergen statements, cake and catering policies, hours, location pages, refund rules, loyalty terms, opening and closing checklists, cleaning SOPs, and staff scripts. DocsBot can train on websites, PDFs, documents, SOPs, policies, and other approved sources.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot collect cake, catering, or party details after hours and send us a usable lead?",
+      "answer": "Yes. A DocsBot presales agent can ask for event date, headcount, location, dietary needs, service type, budget range, and preferred follow-up channel. With customer-configured workflows, Skills, APIs, or connectors, it can forward the summary to email, a CRM, helpdesk software, a form, or a task list for human follow-up.",
+      "role": "Marketing and catering coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot confirm prices, availability, or custom cake commitments automatically?",
+      "answer": "Only if you configure it to do so, and many shops should keep final commitments human-reviewed. DocsBot can answer from approved pricing guidance, collect order details, explain published policies, and prepare a handoff. For custom cakes, allergy-sensitive requests, rush orders, or special-event pricing, the safer workflow is human confirmation.",
+      "role": "Marketing and catering coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the agent from giving outdated answers when flavors and seasonal offers change constantly?",
+      "answer": "Use a source-of-truth process. Train DocsBot on approved menu and campaign sources, retire outdated documents, and use analytics to spot stale or missing answers. If your shop maintains live flavor, inventory, or hours data, customer-configured Skills, APIs, connectors, metadata bindings, or MCP Connectors can let the agent reference approved live context.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use one agent across multiple locations with different hours, flavors, and pickup rules?",
+      "answer": "Yes. DocsBot can be trained on location-specific pages, store documents, SOPs, and policies, then instructed to ask for or infer the relevant location before answering. For live differences like today’s flavors or holiday hours, your team can configure approved lookups so the agent does not rely only on static content.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What metrics should we track to know whether the agent is paying off?",
+      "answer": "Track repetitive calls avoided, website conversations resolved, catering leads captured, after-hours inquiries, unanswered topics, staff questions by category, manager interruptions, and documentation gaps. For shops under cost pressure, even small reductions in repeated questions and new-hire confusion can matter; 96% of restaurant operators cited labor costs as a significant 2024 challenge.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-restaurant-cost-pressure"
+      ]
+    },
+    {
+      "question": "Can the internal agent help seasonal employees learn opening, closing, and cleaning procedures?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on employee handbooks, training decks, cleaning SOPs, opening and closing checklists, equipment notes, and service scripts. Staff can ask natural-language questions during training or a shift, and managers can review repeated questions to improve onboarding materials.",
+      "role": "Front-of-house and shift leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot remind staff about handwashing or sick-worker policies without replacing food safety training?",
+      "answer": "Yes. Use it as an always-available reference for your approved food-safety SOPs, not as a substitute for required training or manager judgment. CDC guidance links improved food-worker handwashing to preventing outbreaks, and CDC norovirus guidance says sick food workers should not prepare or handle food.",
+      "role": "Front-of-house and shift leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cdc-handwashing",
+        "src-cdc-norovirus-food-workers"
+      ]
+    },
+    {
+      "question": "How does DocsBot protect internal SOPs, pricing notes, and employee documents?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Customer data is not used to train public models. You can keep customer-facing agents limited to public-approved content while internal agents access staff-only procedures.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate what customers see from what employees can ask?",
+      "answer": "Yes. Many shops should run a customer-facing agent for public menu, hours, catering, loyalty, and policy questions, plus a private internal agent for SOPs, staff scripts, incident handling, and manager procedures. Role-based permissions and source controls help keep internal documents out of public answers.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source content conflicts?",
+      "answer": "DocsBot can be configured to avoid guessing, cite or rely on approved sources where available, and escalate unclear, sensitive, or conflicting questions to a human. Conversation review helps you find those gaps so managers can update menus, allergen notes, cake policies, or training materials.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot integrate with our current ordering, scheduling, or task tools?",
+      "answer": "DocsBot can support approved lookups, summaries, routing, task creation, form submission, notifications, and handoffs through customer-configured Skills, APIs, connectors, webhooks, or workflows. It is best to scope integrations around specific actions first, such as sending a catering summary or creating a manager review task.",
+      "role": "Marketing and catering coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need a technical person to maintain this once it is live?",
+      "answer": "Not necessarily, but someone should own the knowledge base. A manager, owner, or coordinator can update approved content, review unanswered questions, and refine policies. More technical help may be useful if you want live flavor lookups, CRM routing, POS-adjacent workflows, or custom API actions.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How fast can we start if our documentation is mostly menus, PDFs, spreadsheets, and staff notes?",
+      "answer": "You can start with a focused launch: public FAQs, current menu, allergen notes, cake policies, catering packages, hours, and a few core SOPs. DocsBot can train on websites, PDFs, documents, and other approved sources. After launch, use logs and unanswered topics to decide what to clean up next.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer in languages other than English for tourists or local families?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, using your approved shop content as the grounding source. That can help customers understand flavors, hours, pickup rules, and catering options before visiting, while still escalating nuanced allergy, payment, or order-change issues to staff.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot on our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your own menus, policies, SOPs, and documents. It can also support internal knowledge lookup, analytics, knowledge-gap discovery, and bounded workflow actions when configured. The goal is not generic conversation; it is reliable answers and handoffs based on your shop’s approved information.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help us understand what customers keep asking about before we change our website or menu board?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Owners can see repeated questions about flavors, allergens, hours, loyalty rules, cakes, catering, or pickup policies, then update content before those questions keep reaching the counter.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will staff trust the answers, or will they still ask the manager every time?",
+      "answer": "Trust improves when the agent is trained on the exact documents managers already approve, such as SOPs, ingredient sheets, scripts, and policies. Start with common low-risk questions, show staff where answers come from, and define clear escalation rules for allergies, complaints, refunds, equipment issues, and exceptions.",
+      "role": "Front-of-house and shift leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can it support promotional launches, limited-time flavors, and social campaign questions?",
+      "answer": "Yes. Train the agent on campaign briefs, launch calendars, approved flavor descriptions, ingredient notes, FAQs, and promotion terms. Customer-facing answers can explain public offers, while the internal agent helps staff describe the launch consistently and route repeated questions back to marketing or management.",
+      "role": "Marketing and catering coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we keep human-controlled even after implementing DocsBot?",
+      "answer": "Keep final decisions human-controlled for severe allergen guidance, custom cake commitments, refund exceptions, customer complaints, employment issues, health incidents, legal questions, and high-impact pricing promises. DocsBot is strongest when it answers approved questions, collects missing details, summarizes context, and routes exceptions to the right person.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How should a small shop justify the cost if we do not have a formal support team?",
+      "answer": "Frame the ROI around owner and manager time, fewer repetitive calls, fewer missed catering or cake inquiries, faster seasonal onboarding, and better documentation. Ice cream shops often have thin staffing during rushes, so value may come from keeping employees focused on guests while routine questions are handled earlier.",
+      "role": "Owners and general managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help with shift handoffs, incidents, or freezer and equipment issues?",
+      "answer": "Yes. Staff can use an internal agent to follow your incident procedure, collect the right details, summarize the issue, and prepare a manager handoff. When configured, AI Actions can create a task, ticket, or notification using your approved workflow so issues do not disappear in texts or paper notes.",
+      "role": "Front-of-house and shift leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does a practical first rollout look like for an ice cream shop?",
+      "answer": "Start with one customer-facing agent for menu, hours, dietary notes, cakes, catering, and loyalty questions, plus one internal agent for opening, closing, cleaning, refunds, and common service scripts. Review conversations weekly, update weak sources, then add live lookups or workflow actions after the basic answers are reliable.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    }
+  ]
+}

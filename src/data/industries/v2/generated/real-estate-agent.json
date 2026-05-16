@@ -1,0 +1,716 @@
+{
+  "slug": "real-estate-agent",
+  "business": "Real Estate Broker & Agent",
+  "industryCategory": "Real Estate & Housing",
+  "pageMeta": {
+    "title": "AI Agents for Real Estate Brokers and Agents",
+    "description": "DocsBot helps real estate teams answer listing questions, qualify buyer and seller leads, and surface brokerage knowledge from approved sources.",
+    "canonicalPath": "/industry/real-estate-agent"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for modern real estate teams",
+    "headline": "DocsBot AI agents keep buyers, sellers, and agents moving",
+    "subheadline": "Train an AI agent on your listings, neighborhood guides, service pages, buyer packets, seller FAQs, SOPs, and brokerage knowledge so prospects get fast answers and your team gets cleaner handoffs, summaries, and follow-up context.",
+    "proofBullets": [
+      {
+        "text": "Answer property, process, neighborhood, showing, and service questions from approved brokerage content and listing resources.",
+        "icon": "HomeIcon"
+      },
+      {
+        "text": "Collect buyer or seller intent, budget, timeline, location, financing status, and preferred contact details through structured intake flows.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Route qualified leads, create handoff summaries, and trigger customer-configured CRM, email, form, helpdesk, or scheduling workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give agents private access to policies, scripts, disclosure checklists, onboarding docs, and transaction playbooks.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build a real estate AI agent",
+    "secondaryCta": "See how DocsBot handles lead questions"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps real estate brokerages and agents create AI agents trained on their own trusted knowledge. Use it on a website as a prospect-facing support and presales agent, or privately as an internal knowledge assistant that retrieves brokerage procedures, summarizes context, drafts responses, finds knowledge gaps, and takes bounded actions when configured through Skills, APIs, connectors, MCP, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Broker-owners and team leads",
+        "roleContext": "Give prospects a consistent first response while keeping licensed agents in control of advice, negotiations, pricing strategy, and transaction decisions.",
+        "bullets": [
+          {
+            "text": "Standardize answers about services, representation, commissions, consultation steps, office coverage, and agent handoffs.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Use conversation analytics to spot repeated buyer and seller questions that should become better website, guide, or listing content.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Maintain governance with role-based permissions, encrypted data handling, SOC 2 Type II certification, and GDPR-ready controls.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Buyer and listing agents",
+        "roleContext": "Reduce repetitive prequalification and process questions so agents can spend more time on showings, pricing conversations, offers, and relationship building.",
+        "bullets": [
+          {
+            "text": "Capture buyer criteria, property interest, timeline, financing status, and showing intent before a human follow-up.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize prospect conversations into a concise handoff with the requested property, key constraints, and next best step.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Retrieve brokerage-approved scripts, disclosure reminders, vendor lists, and local process notes from private team sources.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, admins, and transaction coordinators",
+        "roleContext": "Make operational knowledge easier to find across busy teams, especially when forms, checklists, marketing steps, and closing tasks live in many documents.",
+        "bullets": [
+          {
+            "text": "Answer internal questions about intake forms, listing launch steps, offer packet preparation, file naming, and compliance checklists.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft internal task summaries or route requests to the right person through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Support onboarding by letting new team members ask about SOPs, systems, templates, and escalation paths in private chat.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nar-online-first-step",
+      "metric": "43% of buyers started by looking online for properties in 2024.",
+      "claim": "NAR reported that the home buying process often begins online, making fast digital answers important for brokerages competing for buyer attention.",
+      "sourceTitle": "Highlights From the Profile of Home Buyers and Sellers",
+      "sourceUrl": "https://www.nar.realtor/infographics/infographic-a-snapshot-of-todays-home-buyers",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "buyer digital behavior",
+        "online lead capture",
+        "website support expectations"
+      ]
+    },
+    {
+      "id": "src-nar-agent-use",
+      "metric": "86% of buyers and 90% of sellers used a real estate agent in 2024.",
+      "claim": "Even with online search, most successful transactions still involve agents, so AI should support expert handoffs rather than replace professional guidance.",
+      "sourceTitle": "9 Buyer, Seller Trends Driving Home Sales",
+      "sourceUrl": "https://www.nar.realtor/magazine/real-estate-news/9-buyer-seller-trends-driving-home-sales",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "agent value",
+        "human handoff",
+        "brokerage service positioning"
+      ]
+    },
+    {
+      "id": "src-bls-real-estate-outlook",
+      "metric": "Real estate broker and sales agent employment is projected to grow 3% from 2024 to 2034.",
+      "claim": "BLS projects steady employment growth for real estate brokers and sales agents, reinforcing the need for scalable operating systems across agent teams.",
+      "sourceTitle": "Real Estate Brokers and Sales Agents: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/sales/real-estate-brokers-and-sales-agents.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "team productivity",
+        "operations planning"
+      ]
+    },
+    {
+      "id": "src-bls-employment-matrix",
+      "metric": "BLS listed 420,900 real estate sales agent jobs in 2024 and 36,600 average annual openings projected for 2024–2034.",
+      "claim": "The large agent workforce and ongoing openings create recurring needs for onboarding, knowledge access, and process consistency.",
+      "sourceTitle": "Occupational projections and worker characteristics",
+      "sourceUrl": "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce size",
+        "onboarding pressure",
+        "internal knowledge management"
+      ]
+    },
+    {
+      "id": "src-nar-settlement",
+      "metric": "NAR’s 2024 settlement changed compensation and written buyer agreement practices.",
+      "claim": "Real estate teams need clear, consistent communication about representation steps, buyer agreements, and compensation-related process questions after rule changes.",
+      "sourceTitle": "NAR Settlement Agreement Download",
+      "sourceUrl": "https://www.nar.realtor/sites/default/files/documents/nar-settlement-agreement-download-2024-04-19.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance communication",
+        "buyer agreement process",
+        "brokerage policy clarity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Property and service Q&A for website visitors",
+      "problem": "Prospects often arrive after searching online and ask the same questions about a listing, neighborhood, showing process, seller services, financing steps, or who will contact them next.",
+      "agentWorkflow": "DocsBot answers from approved listing pages, service pages, buyer guides, seller guides, FAQs, and brokerage resources. If the question is out of scope or needs licensed judgment, the agent can collect details and escalate with a summary for the right team member.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, or connectors, the agent can look up approved live listing context, collect lead details, submit a form, or trigger a handoff workflow.",
+      "exampleQuestionsOrRequests": [
+        "Is this property still available, and what are the next showing steps?",
+        "What should I prepare before listing my home?",
+        "Can you connect me with an agent who handles condos in this area?"
+      ],
+      "businessOutcome": "Respond faster to high-intent inquiries while preserving human control over representation, pricing, offers, and negotiation advice.",
+      "icon": "HomeIcon",
+      "sourceIds": [
+        "src-nar-online-first-step"
+      ]
+    },
+    {
+      "name": "Buyer lead qualification and routing",
+      "problem": "Agents can lose time sorting casual browsers from buyers with clear criteria, budget, timeline, financing progress, and location preferences.",
+      "agentWorkflow": "DocsBot collects structured buyer details, applies customer-defined qualification rules, summarizes urgency and fit, and routes the conversation to the right agent, team inbox, CRM, helpdesk, form, Slack, Microsoft Teams, or email workflow when configured.",
+      "liveContextOrTools": "AI Actions can create or update approved lead records, send a summarized handoff, request a meeting through a configured scheduling workflow, or notify an agent on the preferred channel.",
+      "exampleQuestionsOrRequests": [
+        "I’m pre-approved up to $650k and want a 3-bedroom near good transit.",
+        "Can someone show me homes this weekend?",
+        "I’m relocating in 60 days and need help narrowing neighborhoods."
+      ],
+      "businessOutcome": "Give agents cleaner lead context before follow-up and reduce repetitive intake conversations.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Seller consultation intake",
+      "problem": "Potential sellers need quick guidance on process, preparation, marketing, and timing, but every seller lead still needs a human valuation and strategy conversation.",
+      "agentWorkflow": "DocsBot answers seller FAQs from approved resources, gathers property address, timeline, goals, occupancy status, repairs, and preferred contact method, then prepares a concise consultation summary for the listing agent.",
+      "liveContextOrTools": "Configured actions can submit a seller intake form, create a task, route to the listing team, or request a calendar booking without making pricing or valuation promises.",
+      "exampleQuestionsOrRequests": [
+        "What happens before a listing appointment?",
+        "What documents should I gather before selling?",
+        "Can I speak with a listing agent next week about my duplex?"
+      ],
+      "businessOutcome": "Shorten the path from website inquiry to informed listing consultation while avoiding unsupported valuation advice.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-nar-agent-use"
+      ]
+    },
+    {
+      "name": "Brokerage policy and transaction knowledge assistant",
+      "problem": "Agents, admins, and coordinators often need fast answers from SOPs, checklists, forms, marketing rules, contract templates, and compliance notes spread across multiple systems.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on brokerage documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other approved sources. It answers with source-grounded context and can surface repeated documentation gaps.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved record context, draft task summaries, or route a process question to operations for review.",
+      "exampleQuestionsOrRequests": [
+        "Which listing launch checklist applies to occupied homes?",
+        "Where is the approved buyer consultation packet?",
+        "What is our escalation path for advertising or fair housing questions?"
+      ],
+      "businessOutcome": "Help teams work from the same playbook, onboard faster, and avoid time lost searching across folders and message threads.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-employment-matrix"
+      ]
+    },
+    {
+      "name": "Buyer agreement and representation process support",
+      "problem": "Rule changes and compensation conversations can create confusion, especially when prospects ask process questions before speaking with an agent.",
+      "agentWorkflow": "DocsBot can explain brokerage-approved process content, retrieve internal policy language, and route sensitive or legal questions to a licensed professional or broker review path. It should not provide legal advice or negotiate compensation terms autonomously.",
+      "liveContextOrTools": "Customer-defined workflows can collect the question, attach the relevant source, and create a review task for the broker, agent, or compliance lead.",
+      "exampleQuestionsOrRequests": [
+        "Do I need to sign anything before touring a home?",
+        "How does your brokerage explain buyer representation?",
+        "Who can answer a question about fees or agency disclosures?"
+      ],
+      "businessOutcome": "Provide consistent first-line process information while escalating high-impact representation, fee, and legal questions to people.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-nar-settlement"
+      ]
+    },
+    {
+      "name": "Agent enablement for follow-up and objection handling",
+      "problem": "Real estate follow-up often depends on fast recall of services, market collateral, buyer objections, seller preparation steps, and prior conversation context.",
+      "agentWorkflow": "DocsBot can help agents retrieve approved talking points, draft response outlines, summarize prospect context, and prepare follow-up language from sales playbooks, FAQs, testimonials, service descriptions, and internal training materials.",
+      "liveContextOrTools": "With approved Skills, APIs, or connectors, agents can research public account or relocation context, draft an email, create a follow-up task, or update approved fields for human review.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up for a buyer who wants walkability and a short commute.",
+        "What should I say when a seller asks about pre-list repairs?",
+        "Summarize this lead conversation for my next call."
+      ],
+      "businessOutcome": "Help agents respond with more complete context while keeping final outreach, pricing, and representation commitments human-owned.",
+      "icon": "PencilIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give every online prospect a faster path to the right agent",
+    "intro": "DocsBot can power a website AI support agent that answers from your approved real estate content, collects structured lead details, and escalates to people when a question involves legal, financial, pricing, negotiation, or transaction-specific judgment.",
+    "requests": [
+      {
+        "request": "“I found a home online. Can I tour it this weekend?”",
+        "agentResponseStrategy": "Confirm the property of interest, collect availability and contact details, answer showing-process questions from approved content, and route a summary to the right agent or scheduling workflow.",
+        "sourceTypes": [
+          "Listing pages",
+          "Showing FAQs",
+          "Lead intake forms",
+          "Scheduling rules"
+        ],
+        "optionalAction": "Submit a lead form, request a meeting through a configured scheduler, or notify the assigned agent.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What do you do for sellers before a home goes live?”",
+        "agentResponseStrategy": "Explain the brokerage’s documented listing preparation, marketing, photography, staging, and consultation process, then collect property and timeline details for a listing appointment.",
+        "sourceTypes": [
+          "Seller guides",
+          "Service pages",
+          "Marketing checklists",
+          "Consultation FAQs"
+        ],
+        "optionalAction": "Create a seller-intake handoff with address, timing, goals, and requested follow-up channel.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "request": "“Do I need a buyer agreement before seeing homes?”",
+        "agentResponseStrategy": "Share only the brokerage-approved explanation of touring and representation steps, avoid legal advice, and escalate policy-specific or compensation questions to a licensed professional.",
+        "sourceTypes": [
+          "Brokerage policy pages",
+          "Buyer consultation packets",
+          "Approved disclosures",
+          "FAQ content"
+        ],
+        "optionalAction": "Route the question to the broker or assigned agent with the source-grounded conversation summary.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“Can you recommend neighborhoods that fit my commute and budget?”",
+        "agentResponseStrategy": "Collect preferences and explain any approved neighborhood resources you provide, while making clear that personalized advice and suitability guidance should be handled by an agent.",
+        "sourceTypes": [
+          "Neighborhood guides",
+          "Buyer guides",
+          "Service area pages",
+          "Relocation resources"
+        ],
+        "optionalAction": "Send a qualified lead summary to an agent who serves the requested area.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual response capability to answer from the same approved sources while preserving consistent brokerage information across languages.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Service pages",
+          "Buyer and seller guides",
+          "Office contact details"
+        ],
+        "optionalAction": "Route the conversation to a bilingual team member when the customer asks for human follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where can I find your agent’s contact information?”",
+        "agentResponseStrategy": "Retrieve office, team, and agent contact details from approved website or internal directory content and clarify the right next step for buyers, sellers, or renters.",
+        "sourceTypes": [
+          "Team pages",
+          "Office directory",
+          "Service area pages",
+          "Contact policies"
+        ],
+        "optionalAction": "Create a contact request or route to a shared inbox when configured.",
+        "icon": "PhoneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep brokerage knowledge searchable for agents, admins, and coordinators",
+    "intro": "Use DocsBot as a private knowledge agent trained on SOPs, transaction checklists, scripts, templates, onboarding materials, policy notes, and approved source libraries so your team can find the right answer without interrupting operations.",
+    "workflows": [
+      {
+        "name": "Transaction checklist retrieval",
+        "problem": "Coordinators and agents may need the current checklist for listings, offers, inspections, escrow, closing, or post-close follow-up.",
+        "agentWorkflow": "The internal agent retrieves the relevant checklist, explains the next step from approved sources, and cites the underlying document so the team can verify details.",
+        "sourceTypes": [
+          "SOPs",
+          "PDF checklists",
+          "Transaction templates",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a task or route a checklist question to operations through a configured workflow.",
+        "outcome": "Reduce inconsistent process answers and help teams complete recurring transaction steps from the same source of truth.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Agent onboarding assistant",
+        "problem": "New agents need fast answers about systems, forms, marketing standards, brand rules, escalation paths, and office procedures.",
+        "agentWorkflow": "DocsBot answers onboarding questions from internal guides, training materials, wikis, PDFs, and playbooks, then reports knowledge gaps when repeated questions are not covered.",
+        "sourceTypes": [
+          "Onboarding docs",
+          "Training materials",
+          "Brand guidelines",
+          "Tool guides"
+        ],
+        "optionalAction": "Notify the operations team when onboarding content is missing or outdated.",
+        "outcome": "Support a growing agent workforce with self-service knowledge access and fewer repetitive admin questions.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-real-estate-outlook"
+        ]
+      },
+      {
+        "name": "Broker review and sensitive question routing",
+        "problem": "Questions about agency, advertising, fair housing, compensation, contracts, and legal interpretation should not be answered from memory or handled without the right review path.",
+        "agentWorkflow": "The agent can retrieve approved policy language, state when a question needs a person, and prepare a sourced summary for broker, legal, compliance, or leadership review.",
+        "sourceTypes": [
+          "Brokerage policies",
+          "Approved disclosure guidance",
+          "Compliance notes",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Create a review task with the question, source citations, requester, and urgency when configured.",
+        "outcome": "Keep sensitive workflows bounded while making routine policy references easier to find.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales follow-up drafting",
+        "problem": "Agents often need to respond quickly after consultations, open houses, online inquiries, and listing presentations while staying aligned to brokerage messaging.",
+        "agentWorkflow": "DocsBot retrieves service descriptions, objection handling, templates, and prior conversation notes provided by the team, then drafts a response for human editing and approval.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Email templates",
+          "Buyer FAQs",
+          "Seller FAQs"
+        ],
+        "optionalAction": "Draft an email, create a CRM task, or update approved fields through customer-configured Skills or connectors.",
+        "outcome": "Help agents follow up faster with consistent messaging while keeping final communications under human control.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents from approved websites, documents, help centers, internal files, and other configured sources so answers stay tied to your knowledge.",
+      "industryApplication": "Train on listing FAQs, buyer and seller guides, office procedures, neighborhood pages, service descriptions, marketing checklists, and internal transaction playbooks.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can be deployed where people ask questions, including website chat widgets and private team experiences.",
+      "industryApplication": "Use a public agent for online buyers and sellers, and a private assistant for agents, admins, coordinators, and brokerage operations.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record updates, and workflow triggers inside customer-defined rules.",
+      "industryApplication": "Configure approved listing lookups, lead forms, CRM handoffs, meeting requests, task creation, broker-review routing, or Model Context Protocol connections to tools your team already uses.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Lead qualification and scheduling support",
+      "mainLandingPageContext": "DocsBot can collect structured lead details, apply qualification instructions, forward summaries, and support booking flows through customer-configured scheduling workflows.",
+      "industryApplication": "Collect buyer criteria, seller property details, urgency, budget range, location, financing status, and preferred follow-up channel before routing to an agent.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation review, analytics, reporting, topic management, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which listing, buyer, seller, representation, neighborhood, and process questions repeat so you can improve content and agent training.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private brokerage sources",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Keep internal SOPs, scripts, transaction procedures, and operational knowledge available to the right team members without using customer data to train public models.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "anders-boligsiden-communication",
+      "gareth-it-marketing",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions, source-grounded answers, and practical team communication workflows.",
+      "Train agents on your own content library so real estate answers reflect your brokerage, not generic web copy.",
+      "Support public prospect questions and private internal knowledge access from one AI agent platform."
+    ],
+    "whyTheseReviewsFit": "Real estate teams need fast digital responses, reliable source material, and better communication across customers and stakeholders. DocsBot proof spans real estate communication, easy content training, and high-volume support operations, giving brokerages confidence to start with practical workflows.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "ArchiveBoxIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for real estate brokers, agents, and brokerage operations",
+    "audience": [
+      "Real estate brokers",
+      "Buyer agents",
+      "Listing agents",
+      "Transaction coordinators",
+      "Real estate operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "real-estate-housing",
+    "commercial-leasing",
+    "home-inspection",
+    "mortgage-company",
+    "property-management",
+    "landlord-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "real-estate-agent",
+    "webSearchQueries": [
+      "National Association of Realtors 2024 home buyers internet search real estate agent statistics",
+      "NAR 2024 Profile of Home Buyers and Sellers first step online look properties 43 percent",
+      "Bureau of Labor Statistics real estate brokers sales agents occupational outlook employment 2024",
+      "National Association of Realtors membership statistics 2025"
+    ],
+    "sourceUrls": [
+      "https://www.nar.realtor/infographics/infographic-a-snapshot-of-todays-home-buyers",
+      "https://www.nar.realtor/magazine/real-estate-news/9-buyer-seller-trends-driving-home-sales",
+      "https://www.bls.gov/ooh/sales/real-estate-brokers-and-sales-agents.htm",
+      "https://www.bls.gov/emp/tables/occupational-projections-and-characteristics.htm",
+      "https://www.nar.realtor/sites/default/files/documents/nar-settlement-agreement-download-2024-04-19.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41240,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20504,
+        "outputTokens": 7623,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 48863,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.17079,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.18079
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21811,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6323,
+          "outputTokens": 5090,
+          "reasoningOutputTokens": 108,
+          "totalTokens": 26901,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.09603,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.10603
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19429,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14181,
+          "outputTokens": 2533,
+          "reasoningOutputTokens": 15,
+          "totalTokens": 21962,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07476,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07476
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1507086182422-97bd7ca2413b?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDI1MjN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Real Estate Broker & Agent background image",
+    "source": "legacy-industry",
+    "query": "Real Estate Broker & Agent"
+  },
+  "faq": [
+    {
+      "question": "Can the AI answer listing questions without giving unapproved pricing, legal, or negotiation advice?",
+      "answer": "Yes. DocsBot can be trained on approved listing pages, showing FAQs, buyer and seller guides, and brokerage policy content, then instructed to escalate pricing strategy, offer guidance, legal interpretation, compensation questions, and transaction-specific judgment to a licensed person with a conversation summary.",
+      "role": "Broker-owners and team leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help us capture online buyer leads before another agent responds?",
+      "answer": "DocsBot can give website visitors fast answers, collect structured buyer intent such as budget, location, timeline, property interest, financing status, and contact preference, then route a summarized handoff through customer-configured workflows. That matters because 43% of buyers started by looking online for properties in 2024.",
+      "role": "Broker-owners and team leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nar-online-first-step"
+      ]
+    },
+    {
+      "question": "Will agents see this as replacing them or competing with their client relationships?",
+      "answer": "DocsBot is best positioned as an intake, knowledge, and follow-up support layer, not a replacement for licensed agents. It handles repetitive process questions and prepares cleaner handoffs while agents remain responsible for advice, representation, pricing, offers, negotiations, and client relationships.",
+      "role": "Broker-owners and team leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it qualify buyer leads differently for our luxury, relocation, investor, or first-time buyer teams?",
+      "answer": "Yes. You can define qualification instructions around geography, budget range, property type, urgency, pre-approval status, relocation timeline, investment intent, or team coverage. DocsBot can collect the right fields, summarize fit, and route the lead according to your customer-configured rules and workflows.",
+      "role": "Buyer and listing agents",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot handle seller inquiries without accidentally creating a valuation expectation?",
+      "answer": "DocsBot can answer from your approved seller guides, explain preparation and consultation steps, collect address, goals, timing, occupancy, repair context, and preferred contact method, then route the inquiry to a listing agent. It should be configured not to make valuation promises or pricing recommendations autonomously.",
+      "role": "Buyer and listing agents",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does the agent know when to escalate a question to our broker, compliance lead, or licensed agent?",
+      "answer": "You can define escalation rules for sensitive areas such as agency, compensation, fair housing, advertising, contracts, disclosures, legal interpretation, financing, valuation, and negotiations. DocsBot can provide approved first-line process information, then prepare a sourced summary and route the issue for human review.",
+      "role": "Broker-owners and team leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it explain buyer agreement and representation steps after the NAR settlement changes?",
+      "answer": "Yes, if you provide approved brokerage language. DocsBot can answer process questions from your buyer consultation packets, disclosure guidance, and policy content, while escalating fee, legal, or compensation-specific questions. NAR’s 2024 settlement changed compensation and written buyer agreement practices, so consistency matters.",
+      "role": "Broker-owners and team leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nar-settlement"
+      ]
+    },
+    {
+      "question": "Can we use it internally for transaction checklists, listing launch steps, and agent onboarding?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, templates, scripts, and checklists. Agents, admins, and coordinators can ask process questions and get source-grounded answers from approved brokerage materials.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much work is required before launch if our content is spread across website pages, PDFs, drives, and old checklists?",
+      "answer": "Most teams should start by prioritizing the highest-risk and highest-volume sources: current service pages, buyer and seller FAQs, listing process documents, showing rules, escalation paths, and active SOPs. DocsBot can train on multiple approved source types, and conversation analytics can reveal which content needs cleanup after launch.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent connect to our CRM, forms, scheduling tools, or team inbox?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, MCP connections, and workflow automations for approved actions such as submitting a lead form, creating or updating approved fields, requesting a meeting, notifying an agent, or routing a summary. It should be scoped to your permissions and review rules.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "What does a lead handoff actually include for an agent?",
+      "answer": "A useful handoff can include the property or service requested, buyer or seller intent, budget range, preferred area, timeline, financing status, contact details, urgency, unanswered questions, and recommended next step. DocsBot can summarize the conversation so the agent does not have to reread the full chat.",
+      "role": "Buyer and listing agents",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it answer in Spanish or other languages while keeping our brokerage wording consistent?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved source content. For brokerage teams, that means multilingual prospects can receive consistent process, service, and contact information, while human handoff rules can route requests to a bilingual agent when needed.",
+      "role": "Buyer and listing agents",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the AI from using outdated listing data or stale brokerage policies?",
+      "answer": "Treat DocsBot as a source-grounded agent and connect or upload only approved, current materials. For live availability or listing context, use customer-configured Skills, APIs, connectors, or approved workflows. Internally, assign ownership for source refreshes and use analytics to spot repeated questions where content is missing or outdated.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will we be able to review conversations and see what prospects keep asking?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, topic management, satisfaction or resolution analysis, and knowledge-gap discovery. Real estate teams can use those insights to improve listing pages, seller guides, buyer packets, neighborhood content, onboarding docs, and escalation instructions.",
+      "role": "Broker-owners and team leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What ROI should a broker-owner expect beyond fewer repetitive questions?",
+      "answer": "Look for faster response to online prospects, cleaner lead qualification, fewer low-context handoffs, reduced time spent searching internal documents, more consistent process answers, and better visibility into content gaps. Since 86% of buyers and 90% of sellers used a real estate agent in 2024, the goal is to support agent productivity rather than remove the agent relationship.",
+      "role": "Broker-owners and team leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nar-agent-use"
+      ]
+    },
+    {
+      "question": "Can DocsBot help new agents learn our systems and procedures faster?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions from training guides, brand standards, office procedures, form instructions, transaction checklists, and escalation paths. This is useful in an industry with 420,900 real estate sales agent jobs in 2024 and 36,600 projected average annual openings from 2024 to 2034.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-employment-matrix"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle security for internal SOPs, scripts, and client-related workflows?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Customer data is not used to train public models, and Skills can be scoped with secrets, environment values, metadata bindings, logging, and customer-defined controls.",
+      "role": "Broker-owners and team leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate what the public website agent knows from what our private team agent knows?",
+      "answer": "Yes. You can use DocsBot for both public prospect-facing answers and private internal knowledge access, with different approved sources, permissions, and instructions. Public agents might use listing, service, and lead intake content, while internal agents can use SOPs, scripts, checklists, policy notes, and onboarding documents.",
+      "role": "Operations, admins, and transaction coordinators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens if a prospect asks about schools, safety, demographics, or neighborhood suitability?",
+      "answer": "Those questions should be handled carefully. DocsBot can point to approved neighborhood resources and collect preferences for an agent, but it should avoid unsupported suitability guidance or sensitive steering. Configure clear escalation language so a licensed professional handles questions that require judgment or compliance review.",
+      "role": "Buyer and listing agents",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it draft follow-up emails after open houses or online inquiries?",
+      "answer": "Yes. DocsBot can retrieve approved service descriptions, templates, objection-handling notes, testimonials, and prior conversation context to draft follow-up language for human review. Agents should remain responsible for final outreach, representation commitments, pricing claims, legal terms, and client-specific advice.",
+      "role": "Buyer and listing agents",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot on our real estate website?",
+      "answer": "DocsBot is designed around source-grounded AI agents trained on your approved brokerage knowledge, not generic web responses. It can support structured lead intake, internal knowledge retrieval, summaries, analytics, knowledge-gap discovery, and bounded workflow actions through customer-configured Skills, APIs, connectors, or automations.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can a small team start with one use case before expanding across the brokerage?",
+      "answer": "Yes. Many real estate teams should start with a narrow workflow such as website buyer intake, seller consultation intake, or internal SOP search. Once the source content and escalation rules are working, you can expand into scheduling requests, CRM handoffs, agent onboarding, policy lookup, and follow-up drafting.",
+      "role": "Broker-owners and team leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own the rollout: marketing, operations, the broker, or the agents?",
+      "answer": "The strongest rollout usually has shared ownership. Marketing owns website content and lead capture, operations owns SOPs and routing, the broker or compliance lead approves sensitive policy boundaries, and agents validate whether handoffs are useful. DocsBot analytics can then show which topics need better content or training.",
+      "role": "Broker-owners and team leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support teams with multiple offices, service areas, or agent specialties?",
+      "answer": "Yes. You can organize approved sources and routing logic around offices, neighborhoods, property types, languages, agent specialties, and team coverage. DocsBot can collect the prospect’s location and need, answer from relevant content, and route the summarized handoff through your configured workflow.",
+      "role": "Broker-owners and team leads",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement or leadership ask before approving an AI agent for our brokerage?",
+      "answer": "Ask which sources the agent will use, which topics require escalation, who reviews conversations, how permissions are managed, whether data is used to train public models, what actions the agent can take, how integrations are scoped, and what metrics define success, such as qualified leads, response speed, handoff quality, and reduced internal search time.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

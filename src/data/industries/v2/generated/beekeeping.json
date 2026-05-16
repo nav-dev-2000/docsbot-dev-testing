@@ -1,0 +1,800 @@
+{
+  "slug": "beekeeping",
+  "business": "Beekeeping",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Beekeeping Operations & Support",
+    "description": "DocsBot helps beekeeping businesses answer buyer questions, organize apiary SOPs, route leads, and keep hive knowledge accessible.",
+    "canonicalPath": "/industry/beekeeping"
+  },
+  "hero": {
+    "eyebrow": "AI agents for apiaries, honey sellers, and beekeeping educators",
+    "headline": "DocsBot AI agents keep beekeeping knowledge moving",
+    "subheadline": "Train a DocsBot agent on your bee yard procedures, honey product pages, seasonal checklists, treatment notes, class materials, and customer FAQs so customers and staff get source-grounded answers without waiting for the beekeeper to come in from the field.",
+    "proofBullets": [
+      {
+        "text": "Answer honey, nuc, queen, class, and pollination-service questions from your approved website, PDFs, manuals, and policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give employees quick access to SOPs for inspections, feeding, extraction, packaging, equipment care, and customer handoffs.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect lead details for swarm calls, pollination inquiries, wholesale orders, farm visits, and beekeeping consultations.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "text": "Use approved AI Actions to route requests, create tasks or tickets, summarize conversations, and escalate safety-sensitive issues to a human.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build a beekeeping agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps beekeeping organizations create AI agents trained on their own content. The agent can answer public questions, support internal teams, summarize conversations, identify content gaps, and trigger approved workflows through Skills, APIs, connectors, MCP options, or customer-configured automations—while keeping sensitive decisions under human control.",
+    "whoItHelps": [
+      {
+        "role": "Commercial apiary owners and operations managers",
+        "roleContext": "Teams coordinating yards, treatments, seasonal labor, equipment, honey production, and pollination-service commitments.",
+        "bullets": [
+          {
+            "text": "Make inspection procedures, feeding schedules, extraction steps, truck checklists, and yard notes easier to find from a private team assistant.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Route incoming requests for nucs, queens, honey wholesale, pollination, or farm visits to the right person with a summary of the buyer’s needs.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Keep humans responsible for treatment decisions, food-safety calls, veterinary questions, pesticide-label interpretation, pricing, and contractual commitments.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "HomeIcon"
+      },
+      {
+        "role": "Honey brands, farm stores, and online sellers",
+        "roleContext": "Businesses that need to answer repetitive product, shipping, storage, allergen, pickup, and seasonal availability questions.",
+        "bullets": [
+          {
+            "text": "Let shoppers ask about honey varieties, creamed honey, beeswax products, gift boxes, pickup rules, and shipping policies using your approved product content.",
+            "icon": "ShoppingBagIcon"
+          },
+          {
+            "text": "Capture wholesale, event, and custom-label inquiries with structured intake before forwarding them to sales or support workflows.",
+            "icon": "CreditCardIcon"
+          },
+          {
+            "text": "Surface repeated unanswered questions so your team can improve product pages, labels, FAQs, and seasonal announcements.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Beekeeping associations, educators, and mentors",
+        "roleContext": "Clubs, extension educators, queen breeders, and course providers supporting beginners through recurring seasonal questions.",
+        "bullets": [
+          {
+            "text": "Turn class notes, recorded guidance, PDFs, inspection checklists, and association resources into a searchable learning assistant.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Give beginners consistent answers from your own curriculum while escalating local regulatory, disease, or safety questions to a qualified person.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Review analytics to see what new beekeepers are struggling with before the next meeting, workshop, or field day.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-pollination-value",
+      "metric": "More than $400 million spent on pollination services in 2024",
+      "claim": "USDA ERS reported that producers spent more than $400 million on pollination services across 1.7 million acres in 2024, compared with $361.5 million in honey production revenue.",
+      "sourceTitle": "USDA ERS Chart of Note: Pollination services valued at $400 million on 1.7 million acres",
+      "sourceUrl": "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=112782",
+      "sourceDate": "2025-06-09",
+      "bestUsedFor": [
+        "pollination services",
+        "commercial value",
+        "sales intake",
+        "operations scale"
+      ]
+    },
+    {
+      "id": "src-usda-honey-2025",
+      "metric": "116 million pounds of U.S. honey production in 2025",
+      "claim": "USDA NASS reported U.S. honey production of 116 million pounds in 2025, down 14 percent from 2024.",
+      "sourceTitle": "USDA NASS Honey Report, March 2026",
+      "sourceUrl": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/hony0326.pdf",
+      "sourceDate": "2026-03-13",
+      "bestUsedFor": [
+        "honey production",
+        "market pressure",
+        "inventory questions",
+        "seasonal operations"
+      ]
+    },
+    {
+      "id": "src-usda-colonies-survey",
+      "metric": "USDA tracks colony inventory, losses, additions, renovations, and CCD symptoms",
+      "claim": "USDA NASS Honey Bee Colonies reports track colony numbers, colonies lost, colonies added, renovated colonies, and losses with Colony Collapse Disorder symptoms.",
+      "sourceTitle": "USDA NASS Honey Bee Colonies",
+      "sourceUrl": "https://esmis.nal.usda.gov/publication/honey-bee-colonies",
+      "sourceDate": "2025-08-01",
+      "bestUsedFor": [
+        "colony reporting",
+        "apiary records",
+        "operational documentation",
+        "loss tracking"
+      ]
+    },
+    {
+      "id": "src-epa-pollinator-health",
+      "metric": "EPA identifies multiple stressors affecting honey bee health",
+      "claim": "EPA describes honey bee health decline as related to interacting stressors including pests such as varroa mites, pathogens, viruses, pesticide exposure, poor nutrition, and bee management practices.",
+      "sourceTitle": "EPA Pollinator Health Concerns",
+      "sourceUrl": "https://www.epa.gov/pollinator-protection/pollinator-health-concerns",
+      "sourceDate": "2025-11-10",
+      "bestUsedFor": [
+        "bee health risk",
+        "education",
+        "knowledge base content",
+        "human escalation"
+      ]
+    },
+    {
+      "id": "src-epa-varroa-advisory",
+      "metric": "EPA advisory on substances used to control varroa mites",
+      "claim": "EPA states that substances used for the pesticidal purpose of controlling varroa mites in bee colonies must comply with pesticide laws and label requirements, and state requirements may be more restrictive.",
+      "sourceTitle": "EPA Advisory on the Applicability of FIFRA and FFDCA for Substances Used to Control Varroa Mites in Beehives",
+      "sourceUrl": "https://www.epa.gov/pollinator-protection/advisory-applicability-fifra-and-ffdca-substances-used-control-varroa-mites",
+      "sourceDate": "2025-10-01",
+      "bestUsedFor": [
+        "compliance pressure",
+        "treatment content",
+        "human approval",
+        "risk boundaries"
+      ]
+    },
+    {
+      "id": "src-fda-bee-antimicrobials",
+      "metric": "Veterinary oversight for medically important antimicrobials in bees",
+      "claim": "FDA says medically important antimicrobials approved for therapeutic use in bees must be used by or on the order of a licensed veterinarian through a prescription or Veterinary Feed Directive, depending on the product.",
+      "sourceTitle": "FDA: Using Medically Important Antimicrobials in Bees - Questions and Answers",
+      "sourceUrl": "https://www.fda.gov/animal-veterinary/development-approval-process/using-medically-important-antimicrobials-bees-questions-and-answers",
+      "sourceDate": "2026-05-08",
+      "bestUsedFor": [
+        "veterinary oversight",
+        "regulated treatment questions",
+        "human escalation",
+        "compliance"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Seasonal customer support for honey, nucs, queens, and classes",
+      "problem": "Beekeeping businesses often receive the same questions about pickup dates, honey varieties, queen availability, nuc preparation, course schedules, equipment lists, and beginner expectations.",
+      "agentWorkflow": "A DocsBot support agent answers from approved product pages, class guides, FAQs, pickup policies, care sheets, and seasonal announcements. If the visitor asks about availability, the agent can collect structured details such as location, quantity, date, experience level, and preferred contact method.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or forms, the agent can submit a lead, create a ticket, notify the team, or request a meeting workflow when configured.",
+      "exampleQuestionsOrRequests": [
+        "Do you still have 5-frame nucs available for May pickup?",
+        "Which honey is best for a gift box?",
+        "What equipment do I need before picking up my first bees?",
+        "Can someone call me about hosting hives on my property?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, more complete inquiries, and faster handoffs during peak season.",
+      "icon": "ShoppingCartIcon"
+    },
+    {
+      "name": "Pollination-service inquiry qualification",
+      "problem": "Pollination work is commercially important and detail-heavy; USDA ERS reported more than $400 million in producer spending on pollination services across 1.7 million acres in 2024.",
+      "agentWorkflow": "The agent asks for crop type, acreage, bloom window, farm location, contract status, access constraints, pesticide communication practices, and preferred follow-up. It then summarizes the opportunity for the beekeeper or sales team.",
+      "liveContextOrTools": "Through approved customer-configured workflows, the agent can create a CRM record, route the request by region or crop, and attach a conversation summary for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can you provide bees for 80 acres of blueberries in April?",
+        "What information do you need before quoting almond pollination?",
+        "Can I send pesticide application windows to your team?",
+        "Please have someone contact me about pollination for next season."
+      ],
+      "businessOutcome": "Better-qualified opportunities and less back-and-forth before a beekeeper reviews the account.",
+      "icon": "MapPinIcon",
+      "sourceIds": [
+        "src-usda-pollination-value"
+      ]
+    },
+    {
+      "name": "Internal apiary SOP and inspection assistant",
+      "problem": "Procedures for inspections, feeding, splits, requeening, extraction, bottling, storage, and vehicle prep can be spread across notebooks, spreadsheets, PDFs, messages, and employee memory.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, yard guides, employee manuals, checklists, PDFs, and policy documents so staff can ask questions in private chat, Slack, Microsoft Teams, or another configured team experience.",
+      "liveContextOrTools": "If connected to approved internal systems, the agent can retrieve allowed context, draft a task, summarize an inspection note, or create a follow-up item for review.",
+      "exampleQuestionsOrRequests": [
+        "What is our checklist before moving colonies to a new yard?",
+        "How do we label and store extracted supers?",
+        "Summarize this inspection note into action items.",
+        "Where is the SOP for bottling creamed honey?"
+      ],
+      "businessOutcome": "Less time searching for procedures and more consistent execution across seasonal workers and experienced staff.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "name": "Treatment, pest, and compliance knowledge routing",
+      "problem": "EPA identifies honey bee health concerns as the result of interacting stressors including varroa mites, pathogens, viruses, pesticide exposure, poor nutrition, and management practices; treatment and antimicrobial questions can also carry regulatory obligations.",
+      "agentWorkflow": "The agent answers only from approved educational material, label-reference notes, veterinary guidance, association resources, and internal escalation rules. For regulated or high-risk questions, it provides the relevant internal resource and routes the user to a qualified human instead of making a final treatment decision.",
+      "liveContextOrTools": "Approved Skills can create a support ticket, send a notification, or attach the user’s description and source citations for a beekeeper, veterinarian, or compliance lead to review.",
+      "exampleQuestionsOrRequests": [
+        "Where is our varroa monitoring procedure?",
+        "What should I do if I suspect American foulbrood?",
+        "Can I use this product in a hive?",
+        "Who approves antimicrobial treatment questions?"
+      ],
+      "businessOutcome": "Consistent education, faster escalation, and lower risk of an AI overstepping into regulated treatment advice.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-epa-pollinator-health",
+        "src-fda-bee-antimicrobials"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for beekeeping education and support",
+      "problem": "The same unresolved questions from beginners, customers, and employees can reveal missing care sheets, unclear product pages, or outdated seasonal instructions.",
+      "agentWorkflow": "DocsBot conversation logs, reports, topic management, and knowledge-gap discovery help teams see what people ask, which answers need improvement, and which content should be added to the knowledge base.",
+      "liveContextOrTools": "Teams can review conversations, update source documents, refine instructions, and add new PDFs, FAQs, or SOPs before the next season.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are customers asking before nuc pickup?",
+        "What topics did the agent fail to answer this month?",
+        "Which beginner class topics need better handouts?",
+        "What should we add to the website before swarm season?"
+      ],
+      "businessOutcome": "A support loop that turns repeated questions into better documentation and more consistent answers.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Honey production, inventory, and customer communication support",
+      "problem": "USDA NASS reported U.S. honey production of 116 million pounds in 2025, down 14 percent from 2024, making clear communication about seasonal availability and product substitutions important for sellers.",
+      "agentWorkflow": "The agent answers from your approved inventory notes, product catalog, harvest updates, storage guidance, shipping rules, and retail policies, while collecting customer preferences when an item is unavailable.",
+      "liveContextOrTools": "With approved live context, the agent can look up allowed product availability, create a customer request, or send a restock notification workflow when configured.",
+      "exampleQuestionsOrRequests": [
+        "When will wildflower honey be back in stock?",
+        "Can I reserve a case for pickup at the market?",
+        "What is the difference between this year’s spring and fall honey?",
+        "Do you sell buckets for brewers or bakeries?"
+      ],
+      "businessOutcome": "Clearer buyer expectations and more complete sales inquiries when harvest volumes or product mixes change.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-usda-honey-2025"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing agent for every bee season question",
+    "intro": "Embed a DocsBot agent on your website so buyers, students, farmers, and community members can get answers from your approved beekeeping content while your team is in the yard, at the extractor, or at the market.",
+    "requests": [
+      {
+        "request": "“Do you sell nucs, queens, or starter equipment?”",
+        "agentResponseStrategy": "Answer from product pages, pickup policies, preparation guides, and current seasonal announcements. If the request needs follow-up, collect location, quantity, experience level, and contact details.",
+        "sourceTypes": [
+          "Website pages",
+          "Product catalogs",
+          "Pickup policies",
+          "Beginner care guides",
+          "Seasonal announcements"
+        ],
+        "optionalAction": "Submit a custom lead form or create a ticket for staff review.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Can you pollinate my crop this spring?”",
+        "agentResponseStrategy": "Ask structured qualification questions and summarize acreage, crop, bloom window, location, access constraints, and preferred communication method before routing to a human.",
+        "sourceTypes": [
+          "Pollination service pages",
+          "Contract intake forms",
+          "Crop-specific checklists",
+          "Farm communication policies"
+        ],
+        "optionalAction": "Forward a qualified inquiry to a configured CRM, form, email, or ticketing workflow.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“What should I do about a suspected disease or treatment issue?”",
+        "agentResponseStrategy": "Provide approved educational resources and escalation instructions, then route the question to a qualified beekeeper or veterinarian rather than making a diagnosis or regulated treatment decision.",
+        "sourceTypes": [
+          "Educational handouts",
+          "Treatment policy notes",
+          "Veterinary escalation procedures",
+          "Association resources"
+        ],
+        "optionalAction": "Create an escalation ticket with the customer’s description and conversation summary.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Which class should I take before getting bees?”",
+        "agentResponseStrategy": "Recommend the best-fit class from your approved curriculum, prerequisites, schedule notes, and equipment lists without inventing dates or guarantees.",
+        "sourceTypes": [
+          "Class pages",
+          "Course syllabi",
+          "Event FAQs",
+          "Equipment checklists"
+        ],
+        "optionalAction": "Collect scheduling intent or route the visitor to a configured booking workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you ship honey or offer wholesale pricing?”",
+        "agentResponseStrategy": "Answer from approved shipping, storage, retail, wholesale, and custom-label policies, then gather order size and timeline for staff follow-up.",
+        "sourceTypes": [
+          "Shipping policies",
+          "Wholesale sheets",
+          "Product FAQs",
+          "Retail terms"
+        ],
+        "optionalAction": "Create a wholesale inquiry record or notify the sales team.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Where can I find local swarm or bee removal help?”",
+        "agentResponseStrategy": "Share approved guidance, geographic boundaries, safety disclaimers, and intake steps. Route urgent or uncertain cases to a human responder.",
+        "sourceTypes": [
+          "Swarm call procedures",
+          "Service-area pages",
+          "Safety disclaimers",
+          "Intake forms"
+        ],
+        "optionalAction": "Create a service request with photos or details if your workflow supports attachments and review.",
+        "icon": "PhoneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private beekeeping knowledge for field teams and office staff",
+    "intro": "Use DocsBot as an internal assistant trained on your apiary documents, SOPs, policies, manuals, training materials, product notes, sales playbooks, and operational checklists.",
+    "workflows": [
+      {
+        "name": "Inspection and yard-procedure lookup",
+        "problem": "Field staff need the latest internal procedure without digging through binders, messages, or old spreadsheets.",
+        "agentWorkflow": "The agent answers from approved SOPs and checklists, cites the source, and can summarize notes into next steps for review.",
+        "sourceTypes": [
+          "Inspection SOPs",
+          "Yard maps",
+          "Feeding guides",
+          "Equipment checklists",
+          "Internal PDFs"
+        ],
+        "optionalAction": "Create a follow-up task or ticket through a configured workflow.",
+        "outcome": "More consistent work across yards, employees, and seasonal routines.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "New employee onboarding",
+        "problem": "Seasonal workers and new staff often ask the same questions about equipment, extraction, packaging, market setup, and customer service.",
+        "agentWorkflow": "DocsBot provides always-available answers from onboarding documents, training content, and internal policies.",
+        "sourceTypes": [
+          "Employee manuals",
+          "Training guides",
+          "Market booth instructions",
+          "Extraction-room procedures"
+        ],
+        "optionalAction": "Escalate unanswered onboarding questions to a manager and log content gaps.",
+        "outcome": "Faster ramp-up and fewer interruptions for senior beekeepers.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Treatment-policy escalation",
+        "problem": "Treatment, pesticide, and antimicrobial questions can require careful interpretation and qualified human review.",
+        "agentWorkflow": "The agent retrieves your approved internal policy and escalation steps, then prepares a summary for the responsible person when the question is sensitive.",
+        "sourceTypes": [
+          "Treatment policies",
+          "Label-reference notes",
+          "Veterinary contact procedures",
+          "Compliance guidance"
+        ],
+        "optionalAction": "Notify a manager or create a compliance-review ticket with the conversation summary.",
+        "outcome": "Clear boundaries for regulated or safety-sensitive decisions.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Sales and account-prep assistant",
+        "problem": "Owners and account managers need quick context before replying to farm, retail, or wholesale opportunities.",
+        "agentWorkflow": "The agent can summarize approved product details, past conversation context, service notes, and public account research when web search and appropriate Skills are configured.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Wholesale policies",
+          "Case notes",
+          "Approved public sources"
+        ],
+        "optionalAction": "Draft a follow-up email or prepare a call brief for human review.",
+        "outcome": "More complete responses without handing pricing or contract authority to the AI.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Documentation improvement loop",
+        "problem": "Questions from customers and employees reveal where your beekeeping content is unclear or missing.",
+        "agentWorkflow": "Use DocsBot analytics, reports, conversation review, and knowledge-gap discovery to identify recurring unanswered topics and update your source materials.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge-base reports",
+          "Website FAQs",
+          "Training materials"
+        ],
+        "optionalAction": "Create documentation tasks for the right owner.",
+        "outcome": "A living knowledge base that improves before the next rush of seasonal questions.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own knowledge sources",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, documentation, internal files, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Train the beekeeping agent on care sheets, seasonal pickup instructions, pollination-service details, extraction SOPs, class materials, product pages, and internal policies.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers in the company’s voice from approved sources and can run in an embeddable website or product chat widget.",
+      "industryApplication": "Help customers understand honey products, nuc prep, queen availability, class requirements, pickup policies, swarm intake, and farm-visit rules without relying on generic bee advice.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, record creation, updates, workflow triggers, summaries, notifications, and handoffs when configured through customer-defined rules.",
+      "industryApplication": "Route pollination leads, create support tickets, collect wholesale details, summarize swarm calls, notify staff, or trigger approved booking workflows while keeping humans in charge of sensitive decisions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can provide private team answers from SOPs, policies, onboarding docs, sales playbooks, troubleshooting guides, and operational processes.",
+      "industryApplication": "Give field crews, market staff, extraction-room teams, and office staff quick access to approved procedures and seasonal instructions.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or approved workflows to summarize, route, answer, or draft ticket responses.",
+      "industryApplication": "Turn repetitive questions about order status, pickup dates, class logistics, and product care into faster drafted responses and cleaner human handoffs.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which beginner topics, product details, treatment boundaries, or pollination questions need clearer pages before the next busy season.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private yard notes, internal SOPs, customer inquiries, wholesale terms, and operational documents governed while still making them useful to authorized teams.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Multilingual access",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from configured knowledge sources.",
+      "industryApplication": "Support farm workers, retail customers, students, and pollination contacts who prefer to ask beekeeping or product questions in another language.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own beekeeping content instead of relying on generic model memory.",
+      "Deploy customer-facing website support and private team knowledge experiences from the same source-grounded approach.",
+      "Use analytics and conversation review to understand what customers, students, and employees need clarified.",
+      "Apply enterprise-ready controls including SOC 2 Type II certification, GDPR-ready governance, encryption, permissions, and no training of public models on your",
+      "data. PII or secrets should not be pasted into chats."
+    ],
+    "whyTheseReviewsFit": "The selected reviews emphasize owned-content training, support from manuals and websites, and analytics-driven documentation insight—well aligned with beekeeping businesses that rely on seasonal guides, product pages, SOPs, and recurring customer education.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ComputerDesktopIcon",
+      "ChartBarIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for beekeeping businesses",
+    "audience": [
+      "Commercial beekeepers",
+      "Apiary managers",
+      "Honey sellers",
+      "Pollination service providers",
+      "Beekeeping educators",
+      "Farm stores",
+      "Beekeeping associations"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "agriculture-forestry-wildlife",
+    "agro-tourism",
+    "farming",
+    "organic-farming",
+    "farm-equipment-sales",
+    "crop-consulting"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "beekeeping",
+    "webSearchQueries": [
+      "USDA honey bee colonies report 2024 2025 colonies beekeeping",
+      "USDA honey production 2024 report United States beekeeping",
+      "EPA pollinator protection managed bees pesticides beekeepers varroa mites",
+      "FDA veterinary feed directive honey bees beekeeping antibiotics"
+    ],
+    "sourceUrls": [
+      "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=112782",
+      "https://www.nass.usda.gov/Publications/Todays_Reports/reports/hony0326.pdf",
+      "https://esmis.nal.usda.gov/publication/honey-bee-colonies",
+      "https://www.epa.gov/pollinator-protection/pollinator-health-concerns",
+      "https://www.epa.gov/pollinator-protection/advisory-applicability-fifra-and-ffdca-substances-used-control-varroa-mites",
+      "https://www.fda.gov/animal-veterinary/development-approval-process/using-medically-important-antimicrobials-bees-questions-and-answers"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 61936,
+        "cachedInputTokens": 13952,
+        "billableInputTokens": 47984,
+        "outputTokens": 15391,
+        "reasoningOutputTokens": 266,
+        "totalTokens": 77327,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.708626,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.728626
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20623,
+          "cachedInputTokens": 13952,
+          "billableInputTokens": 6671,
+          "outputTokens": 6151,
+          "reasoningOutputTokens": 127,
+          "totalTokens": 26774,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.224861,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.234861
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20648,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20648,
+          "outputTokens": 5931,
+          "reasoningOutputTokens": 122,
+          "totalTokens": 26579,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.28117,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.29117
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20665,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20665,
+          "outputTokens": 3309,
+          "reasoningOutputTokens": 17,
+          "totalTokens": 23974,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.202595,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.202595
+        }
+      ]
+    }
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer seasonal questions about nucs, queens, honey pickup, and classes without making promises we can’t keep?",
+      "answer": "Yes. A DocsBot agent can answer from your approved product pages, pickup policies, class materials, care sheets, and seasonal announcements. For anything that depends on live availability, pricing, weather, colony condition, or staff approval, you can configure the agent to collect the visitor’s details and route the request to a person instead of making a final commitment.",
+      "role": "Honey brands, farm stores, and online sellers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help during our spring rush when everyone is calling about nuc pickup, equipment lists, and beginner mistakes?",
+      "answer": "DocsBot is a strong fit for high-volume, repetitive seasonal questions because it can give source-grounded answers from your own pickup instructions, beginner guides, FAQs, and class notes. Buyers can get consistent answers after hours, while your team receives more complete handoffs for questions that need a beekeeper, refund decision, or inventory check.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot qualify pollination inquiries before we spend time quoting them?",
+      "answer": "Yes. You can set up a structured intake flow that asks for crop type, acreage, bloom window, farm location, access constraints, pesticide communication practices, timeline, and preferred follow-up. The agent can then summarize the opportunity and route it to the right person for pricing, hive counts, movement planning, contract terms, and final approval. That matters because USDA ERS reported more than $400 million in producer spending on pollination services across 1.7 million acres in 2024.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-pollination-value"
+      ]
+    },
+    {
+      "question": "Will the agent give treatment advice, or can we keep varroa, disease, and antimicrobial decisions under human control?",
+      "answer": "You can keep those topics tightly bounded. DocsBot can retrieve your approved educational resources, internal treatment policies, label-reference notes, and escalation steps, but it should route diagnosis, pesticide-label interpretation, off-label use concerns, prescription or Veterinary Feed Directive questions, and colony-health decisions to a qualified human. FDA says medically important antimicrobials approved for therapeutic use in bees must be used by or on the order of a licensed veterinarian through a prescription or Veterinary Feed Directive, so",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-bee-antimicrobials"
+      ]
+    },
+    {
+      "question": "Can we prevent the AI from answering from generic internet beekeeping advice?",
+      "answer": "Yes. DocsBot agents are trained on your selected knowledge sources, such as your website, PDFs, SOPs, class handouts, care sheets, manuals, product catalogs, and internal policies. For public support, that means the agent can answer in your voice from your approved materials rather than relying on general model memory. For sensitive topics, you can add instructions that require escalation instead of a direct answer.",
+      "role": "Beekeeping associations, educators, and mentors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What internal documents should we upload first if our apiary knowledge is scattered across notebooks, spreadsheets, and staff memory?",
+      "answer": "Start with documents that reduce interruptions and operational risk: inspection SOPs, feeding and moving checklists, extraction and bottling procedures, pickup-day instructions, market booth procedures, employee onboarding guides, product information, refund policies, pollination intake forms, and treatment-escalation rules. You do not need to perfect the whole knowledge base before launch; many teams start with the highest-volume questions and use conversation analytics to identify what to add next.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field crews use DocsBot privately, or is it only for the customer website?",
+      "answer": "DocsBot can support both public and private use cases. A public website agent can answer customers, students, farmers, and shoppers, while a private internal knowledge agent can help field crews and office staff find SOPs, yard procedures, product notes, onboarding documents, sales playbooks, and policies. Access controls and role-based permissions help keep internal materials separate from public-facing answers.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle swarm calls or bee removal requests where safety and location details matter?",
+      "answer": "The agent can collect structured intake information such as location, photos or description if your workflow supports it, urgency, property access, contact details, and whether the caller is inside your service area. It can share your approved safety guidance and boundaries, then route the request to a human responder when the situation is urgent, outside policy, or unclear.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use the agent for wholesale honey, custom-label, and event inquiries without exposing our pricing rules?",
+      "answer": "Yes. The agent can answer from approved wholesale pages, product sheets, shipping policies, and retail terms while collecting order size, delivery timeline, product interest, location, and contact details. You can keep negotiated pricing, allocation decisions, custom-label approvals, substitutions, and contract terms with staff rather than allowing the agent to finalize them.",
+      "role": "Honey brands, farm stores, and online sellers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help when honey availability changes after a poor crop or a fast-selling harvest?",
+      "answer": "DocsBot can answer from your approved harvest updates, product catalog, inventory notes, shipping rules, and substitution policies. When an item is unavailable, the agent can collect customer preferences, create a restock request or ticket through an approved workflow, and hand off wholesale allocation or refund decisions to staff. Clear communication is important because USDA NASS reported U.S. honey production of 116 million pounds in 2025, down 14 percent from 2024.",
+      "role": "Honey brands, farm stores, and online sellers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-honey-2025"
+      ]
+    },
+    {
+      "question": "Can beekeeping educators use this for students without replacing mentors or local expertise?",
+      "answer": "Yes. The agent can answer from your curriculum, handouts, recorded guidance, inspection checklists, equipment lists, and association resources, which makes it useful for recurring beginner questions. You can also define escalation rules for local regulations, suspected disease, treatment decisions, safety issues, and anything that should be reviewed by a mentor, inspector, veterinarian, or experienced beekeeper.",
+      "role": "Beekeeping associations, educators, and mentors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What integrations would we need for leads, tickets, or staff notifications?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, MCP Connectors, or approved workflow automations. Typical beekeeping workflows include creating a ticket for a swarm call, forwarding a pollination lead to a CRM-style system, notifying staff in Slack or Microsoft Teams, submitting a wholesale inquiry form, or preparing a conversation summary for follow-up. You should scope each action so the agent can collect and route information without approving sensitive commitments.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer in Spanish or other languages for farm workers, market customers, or students?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your configured knowledge sources. That can help customers, seasonal workers, students, and farm contacts ask questions in the language they are most comfortable using, while still grounding answers in your approved policies, guides, and procedures.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we know whether the agent is actually reducing work instead of creating another inbox to manage?",
+      "answer": "Use DocsBot analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For beekeeping teams, useful indicators include fewer repetitive pickup questions, more complete pollination and wholesale inquiries, faster handoffs, fewer staff interruptions about SOPs, and a shorter list of unanswered beginner questions before the next class or season.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review what customers asked and improve our website or handouts from that data?",
+      "answer": "Yes. DocsBot can surface repeated questions, unanswered topics, and knowledge gaps from conversations. A honey seller might discover that customers do not understand creamed honey storage, while an educator might see repeated confusion about pre-nuc equipment. Your team can then update the source documents, product pages, FAQs, or class materials and retrain the agent on the improved content.",
+      "role": "Beekeeping associations, educators, and mentors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security controls matter if we upload yard notes, wholesale terms, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For beekeeping operations, that means private yard notes, internal procedures, customer inquiries, and wholesale materials can be governed while still being searchable by authorized users. Staff should still avoid pasting secrets, credentials, or unnecessary sensitive personal information into chats.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent understand the difference between beginner education and regulated treatment guidance?",
+      "answer": "It can if you configure the knowledge base and instructions carefully. For example, the agent can explain your approved varroa monitoring procedure or point to an educational handout, but route treatment selection, suspected American foulbrood, antimicrobial questions, and pesticide-label interpretation to a qualified person. EPA identifies honey bee health concerns as involving interacting stressors such as varroa mites, pathogens, viruses, pesticide exposure, poor nutrition, and management practices, so AI boundaries should be explicit.",
+      "role": "Beekeeping associations, educators, and mentors",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-epa-pollinator-health"
+      ]
+    },
+    {
+      "question": "Can DocsBot help new seasonal employees learn extraction, bottling, packaging, and market procedures?",
+      "answer": "Yes. A private internal agent can answer from your employee manuals, extraction-room procedures, packaging instructions, label rules, market setup checklists, customer service scripts, and cleanup procedures. It is especially useful for repeat questions that otherwise interrupt senior staff, while managers still approve food-safety decisions, quality checks, and changes to procedure.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much setup work should we expect before launch?",
+      "answer": "Most of the work is choosing the right source material and deciding where humans must stay in the loop. A practical first launch might include your website pages, product catalog, pickup instructions, top customer FAQs, class handouts, and a short escalation policy. More advanced phases can add internal SOPs, helpdesk workflows, lead routing, live lookups, and approved Skills for task or ticket creation.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot if we do not have a full-time IT person?",
+      "answer": "Yes. DocsBot is designed so teams can create agents from existing content such as websites, PDFs, Word documents, internal files, and knowledge sources. For simple FAQ and knowledge-assistant use cases, the main requirement is organizing the right materials and writing clear instructions. More complex live actions, APIs, or system updates may require help from a technical administrator or implementation partner.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent connect customer questions to our existing forms, CRM, email, or ticket process?",
+      "answer": "Yes, when you configure the appropriate Skills, APIs, connectors, forms, or workflow automations. The agent can collect missing details, submit a lead form, create a task or ticket, forward a summary by email, or update approved fields in a connected system. DocsBot should not be positioned as automatically replacing your existing tools; it works best as a source-grounded front end and workflow helper around the systems you already approve.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we compare when evaluating DocsBot against a generic website chatbot?",
+      "answer": "Compare whether the system is trained on your own beekeeping content, provides source-grounded answers, supports internal knowledge as well as public support, captures structured leads, offers analytics and knowledge-gap discovery, supports bounded actions, and includes governance controls. For beekeeping, the biggest difference is whether the agent can respect your seasonal policies, treatment boundaries, inventory realities, and human approval rules instead of giving generic bee advice.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support our association or club if volunteers answer emails only a few times per week?",
+      "answer": "Yes. An agent can answer routine questions from approved membership pages, event details, class materials, beginner resources, swarm guidance, and meeting FAQs even when volunteers are unavailable. For membership exceptions, local regulations, safety issues, disease concerns, and mentor assignments, it can collect details and route the request to the appropriate volunteer or committee member.",
+      "role": "Beekeeping associations, educators, and mentors",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we avoid outdated answers when pickup dates, queen availability, or class schedules change?",
+      "answer": "Treat the agent’s sources as operational content, not one-time setup. Keep seasonal announcements, product pages, pickup policies, class schedules, and inventory notes current, and remove or archive obsolete documents. DocsBot analytics and conversation review can help identify where visitors are asking questions that your current materials do not answer clearly.",
+      "role": "Honey brands, farm stores, and online sellers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use the agent to summarize inspection notes or create follow-up tasks?",
+      "answer": "Yes, if you configure the workflow. A private DocsBot agent can summarize notes into action items and, through approved Skills, APIs, connectors, or workflows, create a task or ticket for review. Managers should still make the operational decision on treatment timing, requeening, feeding, movement, worker safety, and quality control.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What compliance issues should we discuss before letting AI answer treatment or product-use questions?",
+      "answer": "Review pesticide-label boundaries, state-specific requirements, veterinary escalation, antimicrobial use, internal treatment approval, and food-label claims. EPA states that substances used for the pesticidal purpose of controlling varroa mites in bee colonies must comply with pesticide laws and label requirements, and state requirements may be more restrictive. DocsBot can help retrieve approved policy and route sensitive questions, but humans should approve regulated or high-impact decisions.",
+      "role": "Commercial apiary owners and operations managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-varroa-advisory"
+      ]
+    },
+    {
+      "question": "What does success look like after the first season using a beekeeping AI agent?",
+      "answer": "A realistic first-season win is not replacing the beekeeper; it is reducing repetitive questions, improving lead quality, helping staff find procedures faster, and showing which pages or handouts need work. Look for more complete pollination inquiries, fewer basic pickup emails, faster onboarding for seasonal workers, clearer escalation on treatment topics, and better documentation before the next rush.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    }
+  ],
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1556316830-8fce5824a0f7?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQyMzd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Beekeeping background image",
+    "source": "legacy-industry",
+    "query": "Beekeeping"
+  }
+}

@@ -1,0 +1,759 @@
+{
+  "slug": "pipeline",
+  "business": "Pipeline",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Pipeline Operations and Public Response",
+    "description": "DocsBot helps pipeline teams deliver source-grounded answers, route public inquiries, and surface SOPs for safer operations and faster response.",
+    "canonicalPath": "/industry/pipeline"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for pipeline operators and field teams",
+    "headline": "Keep pipeline knowledge moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps pipeline companies build AI agents trained on approved operating procedures, emergency plans, public awareness materials, inspection guidance, maintenance records, and stakeholder FAQs so employees and communities get consistent answers while sensitive decisions stay with qualified teams.",
+    "proofBullets": [
+      {
+        "text": "Answer public, landowner, and contractor questions from approved FAQs, right-of-way guidance, safety notices, and project documents.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give field and control-room teams fast access to SOPs, emergency procedures, maintenance references, and shift handover context.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect details, summarize incidents, create tasks, route requests, or prepare human handoffs inside scoped workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review analytics to identify repeated questions, documentation gaps, training needs, and unclear stakeholder communications.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a pipeline AI agent",
+    "secondaryCta": "Explore knowledge automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets pipeline operators create AI support and internal knowledge agents trained on company-approved sources. Agents can answer in a website widget, private team chat, Slack, Microsoft Teams, or API-powered experience; retrieve source-grounded information; summarize context; and trigger bounded workflows through customer-configured Skills, APIs, connectors, MCP servers, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Operations, control-room, and integrity teams",
+        "roleContext": "Pipeline work depends on current procedures, technical references, shift context, and fast escalation. DocsBot can make approved knowledge easier to find without replacing engineering, operations, or emergency authority.",
+        "bullets": [
+          {
+            "text": "Retrieve procedures, inspection references, repair criteria, and historical notes from approved internal documents.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize handover context or event notes so incoming teams know what changed and where to verify details.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route complex, safety-critical, or abnormal operating questions to the right human reviewer with conversation context.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Public affairs, land, and stakeholder teams",
+        "roleContext": "Community trust depends on clear, consistent, and timely information. PHMSA regulations require pipeline operators to maintain written continuing public education programs under 49 CFR 192.616 and 195.440.",
+        "bullets": [
+          {
+            "text": "Answer landowner, excavator, local official, and community questions from approved public awareness materials.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Collect contact details, location context, and inquiry type before routing requests to land, public affairs, or emergency contacts.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Review repeated community questions to improve public notices, website FAQs, and outreach materials.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon",
+        "sourceIds": [
+          "src-phmsa-public-awareness"
+        ]
+      },
+      {
+        "role": "Compliance, safety, and training leaders",
+        "roleContext": "Pipeline organizations manage regulated procedures, emergency plans, contractor guidance, and role-specific training materials across distributed teams and assets.",
+        "bullets": [
+          {
+            "text": "Make training manuals, safety policies, emergency response plans, and O&M procedures searchable for employees.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Use logs, analytics, and conversation review to discover documentation gaps before they become repeated support burdens.",
+            "icon": "EyeIcon"
+          },
+          {
+            "text": "Apply role-based permissions and private-source controls for sensitive operational, compliance, and security information.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Commercial, project, and customer service teams",
+        "roleContext": "Pipeline operators and service providers receive recurring questions about capacity, interconnections, project schedules, documentation, and follow-up channels.",
+        "bullets": [
+          {
+            "text": "Qualify project, service, or consultation requests with structured intake forms and customer-defined routing rules.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft follow-up summaries for sales, account, land, or project teams while humans own commitments and contract terms.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Answer approved questions about service areas, documentation requirements, schedules, and next steps.",
+            "icon": "CalendarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-phmsa-mileage",
+      "metric": "PHMSA reported 413,021 miles for natural gas transmission and gathering systems in 2025.",
+      "claim": "The U.S. pipeline network spans hundreds of thousands of regulated miles, making consistent access to operating knowledge and stakeholder information a large-scale coordination challenge.",
+      "sourceTitle": "Annual Report Mileage for Natural Gas Transmission & Gathering Systems",
+      "sourceUrl": "https://www.phmsa.dot.gov/data-and-statistics/pipeline/annual-report-mileage-natural-gas-transmission-gathering-systems",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "industry scale",
+        "distributed operations",
+        "knowledge access"
+      ]
+    },
+    {
+      "id": "src-phmsa-incidents",
+      "metric": "PHMSA tracks 20-year trends for serious pipeline incidents, including fatalities, inpatient injuries, reported costs, and causes.",
+      "claim": "Pipeline safety management depends on learning from incidents, causes, costs, injuries, and fatalities over time.",
+      "sourceTitle": "Pipeline Incident 20 Year Trends",
+      "sourceUrl": "https://www.phmsa.dot.gov/data-and-statistics/pipeline/pipeline-incident-20-year-trends",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "safety risk",
+        "incident learning",
+        "operations pressure"
+      ]
+    },
+    {
+      "id": "src-phmsa-incident-data",
+      "metric": "PHMSA incident datasets include time, location, injuries or fatalities, commodity released, causes of failure, and evacuation procedures.",
+      "claim": "Incident records contain operationally important context that teams may need to retrieve, summarize, and analyze during reviews or response preparation.",
+      "sourceTitle": "Distribution, Transmission & Gathering, LNG, and Liquid Accident and Incident Data",
+      "sourceUrl": "https://www.phmsa.dot.gov/data-and-statistics/pipeline/distribution-transmission-gathering-lng-and-liquid-accident-and-incident-data",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "incident documentation",
+        "root cause context",
+        "reporting workflows"
+      ]
+    },
+    {
+      "id": "src-phmsa-public-awareness",
+      "metric": "49 CFR 192.616 and 195.440 require written continuing public education programs for many pipeline operators.",
+      "claim": "Public awareness and stakeholder communication are formal regulatory expectations for pipeline operators.",
+      "sourceTitle": "Public Awareness Programs: Regulatory Requirements",
+      "sourceUrl": "https://primis-uat.phmsa.dot.gov/stakeholder-comms/publicawareness/paregulatoryrequirements",
+      "sourceDate": "Current PHMSA stakeholder communication page",
+      "bestUsedFor": [
+        "public awareness",
+        "community engagement",
+        "regulatory communications"
+      ]
+    },
+    {
+      "id": "src-cfr-emergency-plans",
+      "metric": "49 CFR 192.615 requires gas pipeline operators to maintain emergency plans, define responsibilities, and coordinate with responding organizations.",
+      "claim": "Emergency response planning requires clear responsibilities, contacts, resources, and coordination with government and public safety organizations.",
+      "sourceTitle": "49 CFR § 192.615 - Emergency plans",
+      "sourceUrl": "https://www.law.cornell.edu/cfr/text/49/192.615",
+      "sourceDate": "Current e-CFR text via Cornell LII",
+      "bestUsedFor": [
+        "emergency response",
+        "coordination",
+        "procedure access"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Public awareness and landowner response agent",
+      "problem": "Pipeline teams must answer recurring questions from residents, landowners, excavators, local officials, and media without drifting from approved public materials.",
+      "agentWorkflow": "Train a DocsBot agent on public awareness brochures, website pages, project FAQs, right-of-way guidance, emergency contact instructions, and approved talking points. The agent answers routine questions, cites the source material, collects missing details, and escalates sensitive or site-specific concerns to public affairs, land, or emergency contacts.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can create a stakeholder inquiry record, notify a team channel, route by geography or topic, and attach a conversation summary for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What should I do before digging near a marked right-of-way?",
+        "Who do I contact about vegetation work on my property?",
+        "Is there a public meeting or project update for my county?",
+        "How do I report a pipeline odor, leak concern, or damaged marker?"
+      ],
+      "businessOutcome": "Provide consistent, source-grounded public information while reducing repetitive calls and preserving human review for location-specific, emergency, legal, or media-sensitive issues.",
+      "icon": "MegaphoneIcon",
+      "sourceIds": [
+        "src-phmsa-public-awareness"
+      ]
+    },
+    {
+      "name": "Emergency procedure lookup and escalation assistant",
+      "problem": "During abnormal events, teams need fast access to procedures, contacts, and response responsibilities, but the final response must remain under trained operators and emergency leaders.",
+      "agentWorkflow": "Train an internal DocsBot agent on emergency response plans, control-room procedures, contact trees, notification matrices, drills, and after-action templates. Employees can ask for the relevant procedure, checklist, or contact path, then the agent can summarize context and prepare a handoff for the assigned response role.",
+      "liveContextOrTools": "AI Actions can collect event type, location, asset, time, and observed conditions; then create a task, notify an approved channel, or prepare a review packet without making safety-critical decisions.",
+      "exampleQuestionsOrRequests": [
+        "Show the approved steps for classifying this type of alarm.",
+        "Which internal roles and external organizations are listed for this response area?",
+        "Summarize the initial event notes for the incident commander.",
+        "Create a follow-up task for the compliance review queue."
+      ],
+      "businessOutcome": "Help teams locate approved emergency information quickly while keeping command decisions, external notifications, and corrective actions under qualified human control.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-cfr-emergency-plans"
+      ]
+    },
+    {
+      "name": "Inspection, integrity, and maintenance knowledge agent",
+      "problem": "Inspection and maintenance teams often need to search across manuals, repair procedures, asset notes, and historical reports before deciding what to review next.",
+      "agentWorkflow": "DocsBot can train on O&M manuals, integrity management references, maintenance bulletins, equipment manuals, inspection procedures, and internal knowledge bases. Teams ask natural-language questions and receive source-grounded answers that point back to the relevant document, section, or policy.",
+      "liveContextOrTools": "Where authorized, Skills or connectors can look up approved asset metadata, retrieve recent work order summaries, draft maintenance notes, or create a follow-up task for engineering review.",
+      "exampleQuestionsOrRequests": [
+        "Find the coating repair procedure for this asset class.",
+        "Summarize the last inspection notes attached to this station record.",
+        "What documents should be reviewed before this maintenance activity?",
+        "Create a task for engineering to review this anomaly summary."
+      ],
+      "businessOutcome": "Reduce time spent searching for technical references and help field, integrity, and engineering teams work from the same approved knowledge base.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Incident documentation and lessons-learned assistant",
+      "problem": "Pipeline incident records can contain time, location, injuries, commodity released, failure cause, evacuation, cost, and corrective-action details that are hard to review consistently.",
+      "agentWorkflow": "Train a private DocsBot agent on internal incident reports, near-miss records, after-action reviews, corrective action logs, and PHMSA-style reporting guidance. The agent can summarize incidents, compare recurring themes, draft review questions, and surface related procedures for safety or compliance teams.",
+      "liveContextOrTools": "AI Actions can generate a structured summary, create a corrective-action task, route the record to compliance, or update approved fields when a customer-configured workflow allows it.",
+      "exampleQuestionsOrRequests": [
+        "Summarize incidents involving third-party damage in the last two years.",
+        "Which corrective actions are still open for this event type?",
+        "Draft a lessons-learned summary for review.",
+        "Find similar events and the procedures referenced afterward."
+      ],
+      "businessOutcome": "Turn incident documentation into searchable operational knowledge while maintaining review controls for regulated reporting and final conclusions.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-phmsa-incident-data"
+      ]
+    },
+    {
+      "name": "Shift handover and operational briefing agent",
+      "problem": "Distributed operations teams need concise handovers that preserve recent events, open tasks, watch items, and references without burying the next shift in long notes.",
+      "agentWorkflow": "DocsBot can summarize shift notes, tickets, logs, SOP references, and open task lists into a structured handover brief. Incoming employees can ask follow-up questions and jump to the cited source document or approved system record.",
+      "liveContextOrTools": "With approved connectors, the agent can pull current ticket or task context, draft a handover summary, create missing follow-up items, and route the briefing to Slack, Microsoft Teams, or a private chat space.",
+      "exampleQuestionsOrRequests": [
+        "Summarize open watch items for this region.",
+        "What changed since the last shift handover?",
+        "List unresolved maintenance tasks mentioned in today’s notes.",
+        "Prepare a brief for the morning operations meeting."
+      ],
+      "businessOutcome": "Improve continuity between shifts and regions by making current context easier to review, verify, and act on.",
+      "icon": "ClockIcon"
+    },
+    {
+      "name": "Project inquiry, presales, and service qualification agent",
+      "problem": "Pipeline contractors, shippers, developers, and partners may ask repetitive questions about service fit, documentation needs, schedules, and next steps before a human team can qualify the request.",
+      "agentWorkflow": "Train a DocsBot agent on service pages, project intake criteria, FAQs, proposal templates, approved pricing guidance, documentation requirements, and sales enablement materials. The agent answers approved questions, collects structured details, qualifies the request using customer-defined rules, and forwards a summary to the right team.",
+      "liveContextOrTools": "Configured Skills can submit a lead form, create or update a CRM-style record, request a meeting through an approved scheduling workflow, or send a handoff email for human review.",
+      "exampleQuestionsOrRequests": [
+        "What information do you need to evaluate an interconnection request?",
+        "Do you serve projects in this region?",
+        "Collect my project details and route them to the right team.",
+        "Prepare a follow-up summary for the commercial manager."
+      ],
+      "businessOutcome": "Respond faster to qualified opportunities while keeping pricing, contract terms, regulated commitments, and engineering feasibility decisions with people.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give communities and partners a clear place to ask pipeline questions",
+    "intro": "A DocsBot customer-facing agent can live on a pipeline website, project page, or support portal and answer from approved public information. It can collect details, route requests, and escalate high-impact questions instead of improvising answers outside your reviewed materials.",
+    "requests": [
+      {
+        "request": "“I received a notice about work near my property. What does it mean?”",
+        "agentResponseStrategy": "Answer from approved right-of-way notices, project FAQs, landowner guidance, and contact instructions; ask for location or notice type only if needed for routing.",
+        "sourceTypes": [
+          "Public awareness materials",
+          "Project FAQs",
+          "Landowner notices",
+          "Contact directories"
+        ],
+        "optionalAction": "Create a stakeholder follow-up request and route it to the land or public affairs team with a conversation summary.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“What should I do before digging near a pipeline marker?”",
+        "agentResponseStrategy": "Provide approved excavation-safety guidance, explain where to verify requirements, and direct emergency or damage concerns to the appropriate immediate contact path.",
+        "sourceTypes": [
+          "Damage prevention FAQs",
+          "Public safety pages",
+          "Approved emergency contact instructions"
+        ],
+        "optionalAction": "Collect the ZIP code, project type, and contact details for a non-emergency prevention inquiry handoff.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-phmsa-public-awareness"
+        ]
+      },
+      {
+        "request": "“Can someone explain this construction schedule or outage notice?”",
+        "agentResponseStrategy": "Use approved project pages and notices to explain published timelines, scope, expected impacts, and where the user can get an official update.",
+        "sourceTypes": [
+          "Construction notices",
+          "Project webpages",
+          "Community update documents"
+        ],
+        "optionalAction": "Route unresolved schedule questions to the project communications team and attach the user’s location and preferred contact method.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I need documentation for a service, interconnection, or contractor request.”",
+        "agentResponseStrategy": "Answer from approved service documentation and intake requirements, then collect structured details so the right team can assess fit.",
+        "sourceTypes": [
+          "Service pages",
+          "Intake forms",
+          "Technical FAQs",
+          "Sales enablement materials"
+        ],
+        "optionalAction": "Submit a qualified inquiry through a customer-configured form, CRM workflow, ticketing system, or email handoff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you answer in my preferred language?”",
+        "agentResponseStrategy": "DocsBot agents can answer in more than 100 languages when configured, using the same approved source material so multilingual users receive consistent guidance.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Safety materials",
+          "Website content",
+          "Approved translations"
+        ],
+        "optionalAction": "Escalate to a bilingual team member when the question is sensitive, emergency-related, or requires official interpretation.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I think there may be a leak or emergency.”",
+        "agentResponseStrategy": "Direct the person to emergency instructions and official contact channels from approved materials; avoid diagnosing conditions or replacing emergency services.",
+        "sourceTypes": [
+          "Emergency contact instructions",
+          "Public safety notices",
+          "Operator-approved escalation copy"
+        ],
+        "optionalAction": "If configured, capture non-sensitive context for internal notification while telling the user to follow official emergency reporting instructions immediately.",
+        "icon": "FireIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make operating procedures and incident knowledge easier for employees to use",
+    "intro": "A private DocsBot internal knowledge agent helps pipeline employees find answers from approved SOPs, policies, manuals, incident records, training content, and knowledge bases. Access controls, source grounding, logs, and review paths help teams use AI without exposing sensitive operational knowledge broadly.",
+    "workflows": [
+      {
+        "name": "Procedure and policy retrieval",
+        "problem": "Employees lose time searching through PDFs, wikis, shared drives, and manuals for the right operating or safety procedure.",
+        "agentWorkflow": "Train DocsBot on approved SOPs, manuals, policies, PDFs, Word documents, Google Drive folders, Notion, Confluence, and internal knowledge bases. The agent answers with source-grounded references so employees can verify the original procedure.",
+        "sourceTypes": [
+          "SOPs",
+          "O&M manuals",
+          "Safety policies",
+          "Training guides"
+        ],
+        "optionalAction": "Route unanswered questions to the document owner and log them as knowledge gaps for content improvement.",
+        "outcome": "Faster access to consistent procedures across operations, field, compliance, and support teams.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Incident review preparation",
+        "problem": "Safety and compliance teams need to review prior events and corrective actions, but incident context may be spread across reports, logs, and follow-up tasks.",
+        "agentWorkflow": "The agent summarizes approved reports, identifies related incidents, lists open questions, and prepares a draft review brief for a human owner.",
+        "sourceTypes": [
+          "Incident reports",
+          "After-action reviews",
+          "Corrective action logs",
+          "Compliance guidance"
+        ],
+        "optionalAction": "Create a corrective-action task, attach a summary, or route the review packet through an approved workflow.",
+        "outcome": "More consistent preparation for lessons-learned reviews and compliance follow-up.",
+        "icon": "ArchiveBoxIcon",
+        "sourceIds": [
+          "src-phmsa-incident-data"
+        ]
+      },
+      {
+        "name": "Training and onboarding support",
+        "problem": "New employees and contractors need role-specific answers, but trainers cannot answer every repeated question across shifts and locations.",
+        "agentWorkflow": "DocsBot can answer from onboarding materials, training modules, manuals, FAQs, and internal policies, then show analytics on repeated questions and missing documentation.",
+        "sourceTypes": [
+          "Training materials",
+          "Onboarding guides",
+          "Contractor FAQs",
+          "Role-specific policies"
+        ],
+        "optionalAction": "Send unresolved training questions to the training owner and build a report of documentation gaps.",
+        "outcome": "Reduce repetitive trainer workload while helping workers find approved references when they need them.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Support ticket and request triage",
+        "problem": "Public inquiries, internal service requests, and operational questions can arrive through many channels without enough context for quick routing.",
+        "agentWorkflow": "A DocsBot agent can learn from approved ticket exports or connect to helpdesk-style workflows through customer-configured Skills, APIs, or connectors. It can summarize the request, classify topic and urgency, draft a response, or route to the right queue.",
+        "sourceTypes": [
+          "Ticket history",
+          "Support macros",
+          "Routing rules",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Create a ticket, draft a response, notify the responsible team, or escalate to a human when the request is complex or sensitive.",
+        "outcome": "Cleaner handoffs, faster first responses, and better visibility into recurring support themes.",
+        "icon": "TicketIcon"
+      },
+      {
+        "name": "Commercial knowledge and proposal support",
+        "problem": "Sales and project teams need consistent answers about service scope, requirements, proposal language, and approved customer-facing claims.",
+        "agentWorkflow": "Train the agent on service catalogs, proposal templates, FAQs, case studies, implementation notes, and approved sales playbooks. Reps can ask for answers, objection handling, or follow-up drafts grounded in the source material.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Sales playbooks",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare a meeting brief, or forward a qualified opportunity summary to a configured sales system for human review.",
+        "outcome": "Help commercial teams respond consistently while keeping pricing, legal terms, and commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved pipeline knowledge",
+      "mainLandingPageContext": "DocsBot agents can learn from websites, help centers, internal documents, PDFs, wikis, team content, and other configured knowledge sources.",
+      "industryApplication": "Train agents on public awareness materials, emergency plans, O&M manuals, inspection guidance, project FAQs, training content, and stakeholder communications so answers stay grounded in approved sources.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Source-grounded answers across public and private interfaces",
+      "mainLandingPageContext": "DocsBot can deliver instant answers in a website widget, private team chat, API experience, Slack, Microsoft Teams, or helpdesk-connected workflow when configured.",
+      "industryApplication": "Use a website agent for community and landowner questions, and a private internal agent for SOPs, incident reviews, training, and shift support.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs using customer-defined rules.",
+      "industryApplication": "Configure scoped actions to create stakeholder inquiry records, summarize incident notes, draft handover briefs, route tickets, or look up approved asset context through APIs, connectors, or Model Context Protocol servers.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and discovery of unanswered topics.",
+      "industryApplication": "See which public questions, field procedures, training topics, or service requests repeat most often, then improve FAQs, SOPs, training modules, or outreach materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive operational knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and controls so customer data is not used to train public models.",
+      "industryApplication": "Keep sensitive procedures, asset context, incident records, and commercial documents in permissioned experiences while providing broader access to approved public or employee-facing information.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Multilingual support for distributed stakeholders",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages using the configured knowledge sources.",
+      "industryApplication": "Support community members, contractors, and employees who prefer another language while maintaining consistent source-grounded guidance and escalation for sensitive matters.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "anders-boligsiden-communication",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train AI agents on owned content libraries so answers reflect your approved materials.",
+      "Improve communication with customers, stakeholders, and internal teams from one governed knowledge base.",
+      "Use analytics to understand what people are asking and where documentation needs improvement.",
+      "Support high-volume inquiry handling while preserving escalation for sensitive or complex issues."
+    ],
+    "whyTheseReviewsFit": "Pipeline teams need dependable answers from approved sources, clearer stakeholder communication, and visibility into recurring questions. DocsBot proof spans owned-content training, customer and stakeholder communication, documentation analytics, high-volume support, and internal decision support for teams that cannot afford inconsistent knowledge.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon",
+      "BoltIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for pipeline operations, stakeholder response, internal knowledge, and support triage",
+    "audience": [
+      "Pipeline operators",
+      "Pipeline public affairs teams",
+      "Integrity and maintenance teams",
+      "Energy infrastructure service providers",
+      "Compliance and safety leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "oil-gas-distribution",
+    "oil-gas-extraction-production",
+    "environmental-monitoring",
+    "environmental-consultancy",
+    "energy-storage-systems",
+    "carbon-accounting"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "pipeline",
+    "webSearchQueries": [
+      "PHMSA pipeline miles United States hazardous liquid gas 2024 annual report",
+      "PHMSA pipeline incident 20 year trends serious incidents fatalities injuries",
+      "API AOPL pipeline safety excellence performance report 2024 incidents",
+      "PHMSA pipeline public awareness programs 49 CFR 192.616 195.440",
+      "PHMSA emergency response guide pipeline operators emergency plans 49 CFR 192 195"
+    ],
+    "sourceUrls": [
+      "https://www.phmsa.dot.gov/data-and-statistics/pipeline/annual-report-mileage-natural-gas-transmission-gathering-systems",
+      "https://www.phmsa.dot.gov/data-and-statistics/pipeline/pipeline-incident-20-year-trends",
+      "https://www.phmsa.dot.gov/data-and-statistics/pipeline/distribution-transmission-gathering-lng-and-liquid-accident-and-incident-data",
+      "https://primis-uat.phmsa.dot.gov/stakeholder-comms/publicawareness/paregulatoryrequirements",
+      "https://www.law.cornell.edu/cfr/text/49/192.615"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46412,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33868,
+        "outputTokens": 8424,
+        "reasoningOutputTokens": 173,
+        "totalTokens": 54836,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.214166,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.234166
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25676,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18380,
+          "outputTokens": 5832,
+          "reasoningOutputTokens": 173,
+          "totalTokens": 31508,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.135254,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.155254
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20736,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15488,
+          "outputTokens": 2592,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23328,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078912,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078912
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1620053265666-09baf5cf6a04?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDAzNzF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Pipeline background image",
+    "source": "legacy-industry",
+    "query": "Pipeline"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer public awareness questions without giving unofficial safety advice?",
+      "answer": "Yes. A public-facing DocsBot agent can be trained on your approved public awareness materials, right-of-way guidance, project FAQs, and emergency contact instructions. It can answer routine questions from those sources, collect context for routing, and escalate leak, damage, media, legal, or site-specific concerns instead of improvising beyond approved language.",
+      "role": "Public affairs, land, and stakeholder teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our control-room or field teams without replacing operator judgment?",
+      "answer": "DocsBot is best used as a source-grounded lookup, summarization, and handoff layer. It can help employees find SOPs, emergency plans, maintenance references, shift notes, and contact paths faster, while abnormal operating decisions, notifications, corrective actions, and engineering conclusions remain with qualified personnel.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we keep public information separate from sensitive operating procedures and incident records?",
+      "answer": "Yes. DocsBot supports private knowledge agents, role-based permissions, granular access controls, encryption in transit and at rest, and SOC 2 Type II certified governance. Pipeline teams can expose approved public FAQs in a website agent while keeping SOPs, asset context, emergency plans, and incident records in permissioned internal experiences.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What kinds of pipeline documents can we train the agent on?",
+      "answer": "Common sources include public awareness brochures, landowner notices, project FAQs, emergency plans, O&M manuals, inspection procedures, maintenance bulletins, training materials, incident reports, corrective-action logs, proposal templates, and internal wikis. DocsBot can also train on PDFs, Word documents, websites, Google Drive, Notion, Confluence, and other approved knowledge sources.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with PHMSA public awareness obligations?",
+      "answer": "DocsBot can support the communication workflow by answering from approved public awareness materials, collecting stakeholder details, and surfacing repeated questions for content improvement. Many pipeline operators have written continuing public education program obligations under 49 CFR 192.616 and 195.440, so teams should still have compliance owners review program content and records.",
+      "role": "Public affairs, land, and stakeholder teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-phmsa-public-awareness"
+      ]
+    },
+    {
+      "question": "How do we prevent hallucinations when the agent is answering landowners or local officials?",
+      "answer": "Train the agent only on approved sources, instruct it to cite or reference the source material, and define escalation rules for anything outside scope. For public deployment, limit answers to reviewed FAQs, notices, safety pages, and contact instructions; use conversation logs to audit responses and refine content when the agent cannot answer confidently.",
+      "role": "Public affairs, land, and stakeholder teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot connect to our work order, ticketing, CRM, or asset systems?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP servers, or workflow automations to perform scoped lookups and actions where you authorize access. Typical uses include creating a stakeholder inquiry, routing a ticket, looking up approved asset metadata, summarizing a work order, notifying a team channel, or preparing a CRM-style handoff.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we automate first if our pipeline knowledge is spread across PDFs, SharePoint-style folders, and team notes?",
+      "answer": "Start with a contained, high-volume use case such as public awareness FAQs, employee SOP lookup, training questions, or project inquiry triage. Use approved documents first, review unresolved questions, then expand into actions like routing, task creation, handoff summaries, and approved system lookups after teams trust the answers.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would DocsBot support emergency response preparation without becoming an emergency command tool?",
+      "answer": "An internal agent can retrieve emergency procedures, contact matrices, response responsibilities, drill notes, and after-action templates. AI Actions can collect event context and prepare a handoff packet, but the agent should not classify emergencies, direct field response, or make external notifications unless your approved workflow requires human review and authorization.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Why does fast access to emergency plan information matter for gas pipeline teams?",
+      "answer": "Gas pipeline operators subject to 49 CFR 192.615 must maintain emergency plans that define procedures, responsibilities, resources, and coordination with public officials and other responding organizations. DocsBot can make those approved plans easier to search internally, but response authority and compliance accountability should remain with trained roles.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfr-emergency-plans"
+      ]
+    },
+    {
+      "question": "Can the agent summarize shift handovers and open operational items?",
+      "answer": "Yes. A private DocsBot agent can summarize shift notes, tickets, logs, SOP references, and open tasks into a structured handover brief. With approved connectors or Skills, it can pull permitted ticket or task context, create missing follow-up items, and route a briefing to Slack, Microsoft Teams, or a private chat space.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI beyond “fewer questions answered by people”?",
+      "answer": "Pipeline buyers typically measure reduced time spent searching for procedures, faster stakeholder routing, fewer repetitive public inquiries, cleaner shift handovers, improved training support, and better visibility into documentation gaps. DocsBot analytics, logs, topic reports, satisfaction and resolution analysis, and unanswered-question trends help quantify where the agent is saving time or improving content.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us learn from incident and near-miss documentation?",
+      "answer": "Yes. A private agent can summarize approved incident reports, near-miss records, after-action reviews, and corrective-action logs; surface similar events; draft lessons-learned briefs; and create review tasks through configured workflows. PHMSA incident datasets include details such as time, location, injuries or fatalities, commodity released, failure causes, and evacuation procedures, showing the breadth of context teams may need to review.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-phmsa-incident-data"
+      ]
+    },
+    {
+      "question": "Will our data be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. For sensitive pipeline use cases, DocsBot also supports role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and customer-defined controls for Skills and actions.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we handle questions from residents who report a possible leak or damaged marker?",
+      "answer": "Configure the public agent to use only approved emergency contact instructions and safety notices. It should avoid diagnosing conditions, tell the user to follow official emergency reporting instructions immediately, and optionally capture non-sensitive context for internal notification if your workflow allows it. Human responders and emergency channels should remain the authority.",
+      "role": "Public affairs, land, and stakeholder teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for multilingual public and contractor communications?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages using the configured knowledge sources. For pipeline use, the safest pattern is to ground multilingual answers in the same approved public FAQs, safety materials, website content, and translations, then escalate emergency, legal, media, or official-interpretation issues to a human.",
+      "role": "Public affairs, land, and stakeholder teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much internal review is needed before launching a pipeline AI agent?",
+      "answer": "For public or safety-adjacent use cases, involve public affairs, land, operations, compliance, legal, IT/security, and document owners before launch. Review source material, define disallowed topics, test common and adversarial questions, set escalation rules, and decide who reviews logs and unanswered questions after go-live.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can commercial teams use DocsBot for interconnection, capacity, or service inquiries?",
+      "answer": "Yes, if the agent is trained on approved service pages, intake criteria, documentation requirements, FAQs, proposal templates, and sales enablement materials. It can answer approved questions, collect structured project details, qualify requests using customer-defined rules, and forward a summary to the right commercial or project team for human follow-up.",
+      "role": "Commercial, project, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should stay out of automation for pipeline operators?",
+      "answer": "Keep high-impact decisions with people: emergency classification, operating commands, engineering feasibility, repair decisions, regulatory filings, legal interpretations, media statements, pricing commitments, contract terms, and official public safety instructions. DocsBot can retrieve sources, summarize context, route requests, and prepare drafts inside scoped workflows.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support contractor onboarding and recurring training questions?",
+      "answer": "Yes. A private or controlled-access agent can answer from onboarding guides, contractor FAQs, safety policies, training modules, and role-specific procedures. Analytics can show which questions repeat, where documentation is missing, and which topics need clearer training content, while unresolved questions can be routed to training or safety owners.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant internally?",
+      "answer": "Building internally may offer deep customization, but it also requires ongoing work for ingestion, permissions, retrieval quality, interfaces, analytics, logging, workflow actions, and governance. DocsBot gives teams a faster path to source-grounded agents, private knowledge experiences, analytics, and customer-configured Skills while still allowing API, connector, and MCP-based extension where needed.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we audit what the agent said after a sensitive inquiry?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery. For pipeline teams, those records can help public affairs, compliance, training, and operations review how questions were handled, where answers came from, and which topics need better source material.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this scale across regions, assets, and departments without mixing up local procedures?",
+      "answer": "It can, but the knowledge architecture matters. Separate sources by audience, region, asset class, or department; apply role-based permissions; and use routing rules or metadata where configured. Start with a few governed collections, validate answer quality, then expand to additional regions and functions once ownership and review processes are clear.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if our SOPs or public notices change frequently?",
+      "answer": "Assign document owners, connect approved source locations where practical, and make content review part of the operating process. DocsBot should answer from current approved materials, while analytics and unanswered-question reports help identify outdated, ambiguous, or missing content that needs revision.",
+      "role": "Compliance, safety, and training leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Why is knowledge access such a large coordination problem for pipeline operators?",
+      "answer": "PHMSA reported 413,021 miles for U.S. natural gas transmission and gathering systems in 2025. That scale means procedures, emergency contacts, maintenance references, stakeholder information, and training materials often need to be found by distributed teams quickly and consistently across many assets and regions.",
+      "role": "Operations, control-room, and integrity teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-phmsa-mileage"
+      ]
+    }
+  ]
+}

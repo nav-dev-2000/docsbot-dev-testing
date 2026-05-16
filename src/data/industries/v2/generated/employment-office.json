@@ -1,0 +1,728 @@
+{
+  "slug": "employment-office",
+  "business": "Employment Office",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Employment Office Support and Intake",
+    "description": "DocsBot helps employment offices answer job seeker questions, triage intake, and surface program resources with source-grounded AI agents.",
+    "canonicalPath": "/industry/employment-office"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for workforce and placement teams",
+    "headline": "Help job seekers move faster with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your career resources, program FAQs, employer instructions, intake steps, training materials, and internal SOPs so job seekers, employers, and staff get consistent answers without waiting for the next available counselor.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about services, eligibility steps, workshops, appointment preparation, and job search resources from approved office content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, summarize conversations, and route job seeker or employer requests to the right staff workflow when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, partner referrals, forms, policies, and program guidance across locations.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated questions, missing resources, and documentation gaps across your employment office.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an employment office AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your employment office approves: service pages, FAQs, intake instructions, workshop calendars, resume guidance, employer resources, partner referral lists, internal policies, PDFs, and ticket history when connected. Agents answer with source-grounded context, escalate sensitive cases, and can trigger bounded workflows through customer-configured Skills, APIs, connectors, or MCP tools.",
+    "whoItHelps": [
+      {
+        "role": "Job seeker services teams",
+        "roleContext": "Front-desk, resource-room, and career counseling staff can reduce repeat questions while keeping high-touch time for complex barriers, case planning, and employer introductions.",
+        "bullets": [
+          {
+            "text": "Deflect routine questions about hours, workshops, appointment requirements, documents to bring, and available job search services.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Summarize a job seeker’s question history before a staff handoff so counselors start with context instead of re-asking basics.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep answers aligned to office-approved content instead of scattered email threads or outdated printed handouts.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Employer relations and placement staff",
+        "roleContext": "Employer-facing teams can use an AI support agent to answer service questions, collect hiring needs, qualify follow-up urgency, and prepare handoffs for human account managers.",
+        "bullets": [
+          {
+            "text": "Collect structured employer details such as hiring location, role type, start date, skills required, and preferred follow-up channel.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Route hiring inquiries to the right business services contact or create a task in a customer-configured workflow.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Answer questions about posting jobs, hiring events, applicant referrals, and partnership options from approved employer resources.",
+            "icon": "BuildingOffice2Icon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Operations and compliance managers",
+        "roleContext": "Leaders can standardize answers across branches, review conversation logs, and identify where public resources, staff scripts, or internal SOPs need improvement.",
+        "bullets": [
+          {
+            "text": "Use analytics to see repeated unanswered questions and prioritize updates to FAQs, program pages, and intake instructions.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Keep sensitive or high-impact decisions with staff by setting boundaries, escalation paths, permissions, and review workflows.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support multilingual access with AI answers in more than 100 languages while preserving office-approved source grounding.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-careeronestop-services",
+      "metric": "American Job Centers offer resume, interview, job fair, and counseling services.",
+      "claim": "CareerOneStop, sponsored by the U.S. Department of Labor, describes American Job Centers as offering services such as job fairs, resume writing, interviewing workshops, and one-to-one career counseling.",
+      "sourceTitle": "Navigate the Civilian Job Market with CareerOneStop",
+      "sourceUrl": "https://blog.careeronestop.org/navigate-the-civilian-job-market-with-careeronestop/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "job seeker support scope",
+        "career center service complexity",
+        "resource navigation"
+      ]
+    },
+    {
+      "id": "src-careeronestop-jobsearch",
+      "metric": "CareerOneStop provides job search, resume, interview, and training resources.",
+      "claim": "CareerOneStop organizes job search help around finding openings, resumes, applications, interviews, networking, training, and local service access.",
+      "sourceTitle": "Job Search | CareerOneStop",
+      "sourceUrl": "https://www.careeronestop.org/JobSearch/job-search.aspx",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "public resource breadth",
+        "candidate FAQ topics",
+        "self-service support needs"
+      ]
+    },
+    {
+      "id": "src-dol-wsr-ajc",
+      "metric": "The workforce system operates through local American Job Centers.",
+      "claim": "The Department of Labor’s Workforce System Results materials identify American Job Centers as local access points connecting individuals to employment and training opportunities.",
+      "sourceTitle": "Workforce System Results, U.S. Department of Labor Employment and Training Administration",
+      "sourceUrl": "https://www.dol.gov/sites/dolgov/files/ETA/Performance/pdfs/2023%2007%2011%20WSR-Accessible%20508.pdf",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "public workforce delivery",
+        "multi-location operations",
+        "referral complexity"
+      ]
+    },
+    {
+      "id": "src-shrm-time-to-fill",
+      "metric": "SHRM reported average time to fill at 33.28 days in cited research.",
+      "claim": "SHRM defines time to fill as the days from requisition opening to accepted offer and reported a 33.28-day average in the referenced staffing metrics research.",
+      "sourceTitle": "Staffing Metrics: Time to Fill Can Kill Prospects of Landing Top Talent",
+      "sourceUrl": "https://www.shrm.org/in/topics-tools/news/talent-acquisition/staffing-metrics-time-to-fill-can-kill-prospects-landing-top-talent",
+      "sourceDate": "2011",
+      "bestUsedFor": [
+        "employer urgency",
+        "placement speed",
+        "hiring process friction"
+      ]
+    },
+    {
+      "id": "src-bls-contingent-workers",
+      "metric": "BLS reported temporary help agency workers were 0.5% of total employment in July 2023.",
+      "claim": "The Bureau of Labor Statistics reported that temporary help agency workers represented 0.5% of total employment in July 2023, about the same percentage as in May 2017.",
+      "sourceTitle": "Contingent and Alternative Employment Arrangements News Release",
+      "sourceUrl": "https://www.bls.gov/news.release/pdf/conemp.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "staffing market context",
+        "temporary help workflows",
+        "employer service demand"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Job seeker service navigator",
+      "problem": "Employment offices field repetitive questions about where to start, what documents to bring, how to register, and which services apply to a job seeker’s situation.",
+      "agentWorkflow": "DocsBot answers from approved service pages, intake instructions, PDFs, and FAQs. When a question needs staff review, the agent collects missing details, summarizes the need, and routes the handoff through a configured ticket, form, inbox, or team notification.",
+      "liveContextOrTools": "AI Actions can create an intake task, submit a custom form, notify staff, or look up appointment-related context when the office has authorized the required Skill, API, connector, or workflow.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first appointment?",
+        "Can you help me find a resume workshop this week?",
+        "I was laid off yesterday. Which services should I ask about first?"
+      ],
+      "businessOutcome": "More consistent first-line guidance, fewer repeated front-desk interruptions, and better-prepared job seekers before counselor time.",
+      "icon": "MapPinIcon",
+      "sourceIds": [
+        "src-careeronestop-services"
+      ]
+    },
+    {
+      "name": "Employer hiring inquiry intake",
+      "problem": "Employer relations staff can lose time gathering basic hiring details before deciding whether a request belongs in job posting support, hiring event coordination, candidate referral, or a direct account manager follow-up.",
+      "agentWorkflow": "A DocsBot agent answers employer service questions, asks structured intake questions, applies office-defined qualification rules, and prepares a concise handoff with role, location, schedule, skills, timeline, and urgency.",
+      "liveContextOrTools": "With customer-configured Skills or connectors, the agent can forward the lead summary to CRM, helpdesk software, email, Slack, Microsoft Teams, or another approved workflow without promising a specific native integration.",
+      "exampleQuestionsOrRequests": [
+        "How do I post a job with your office?",
+        "We need 12 warehouse associates by next month. Who should we talk to?",
+        "Can you help us plan a hiring event?"
+      ],
+      "businessOutcome": "Cleaner employer intake and faster routing for business services teams that need to respond while hiring needs are still active.",
+      "icon": "BriefcaseIcon",
+      "sourceIds": [
+        "src-shrm-time-to-fill"
+      ]
+    },
+    {
+      "name": "Workshop and resource assistant",
+      "problem": "Job seekers often need help finding the right resume, interview, application, training, or computer access resource before they can make progress independently.",
+      "agentWorkflow": "DocsBot retrieves the right internal or public resource from approved content, explains the next step in plain language, and can summarize resource recommendations for a counselor or workshop facilitator.",
+      "liveContextOrTools": "If connected to approved calendars or resource systems, AI Actions can look up workshop details, collect scheduling intent, or trigger a registration review workflow.",
+      "exampleQuestionsOrRequests": [
+        "Where can I practice interview questions?",
+        "Do you have help for online job applications?",
+        "Which training resources fit an entry-level healthcare job search?"
+      ],
+      "businessOutcome": "Better self-service resource discovery while staff remain available for personalized counseling and eligibility-sensitive guidance.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-careeronestop-jobsearch"
+      ]
+    },
+    {
+      "name": "Internal SOP and partner referral agent",
+      "problem": "Employment offices often coordinate across programs, partner organizations, eligibility rules, forms, referral paths, and local practices that staff may not remember consistently.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent answers staff questions from SOPs, partner directories, referral guides, policy documents, and internal training materials, with source-grounded responses and links back to the source content.",
+      "liveContextOrTools": "Staff can use the agent in private chat experiences, Slack, Microsoft Teams, or other configured team workflows. Permissions help keep internal material limited to authorized users.",
+      "exampleQuestionsOrRequests": [
+        "Which partner handles transportation assistance referrals?",
+        "What is our process for employer hiring event requests?",
+        "Where is the latest intake checklist for dislocated workers?"
+      ],
+      "businessOutcome": "Faster staff onboarding, fewer policy scavenger hunts, and more consistent service delivery across offices and shifts.",
+      "icon": "FolderIcon",
+      "sourceIds": [
+        "src-dol-wsr-ajc"
+      ]
+    },
+    {
+      "name": "Conversation analytics for service gaps",
+      "problem": "Managers may not know which job seeker questions are driving staff load until the same issue appears repeatedly at the front desk, by phone, and in email.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic review, and knowledge-gap discovery show what users ask, where answers are missing, and which content needs updating. Teams can review conversations and improve public FAQs or internal scripts.",
+      "liveContextOrTools": "Use topic reports and conversation review to prioritize content updates, staff training, and escalation rules for sensitive or high-impact topics.",
+      "exampleQuestionsOrRequests": [
+        "What questions are people asking that our website does not answer?",
+        "Which topics are being escalated most often?",
+        "What should we add to our workshop FAQ?"
+      ],
+      "businessOutcome": "A clearer feedback loop between real service demand, website content, internal documentation, and staff training priorities.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual first-response support",
+      "problem": "Employment offices may serve job seekers and employers who need basic service information in languages other than English, while final counseling and high-impact decisions still require appropriate staff support.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from the same approved knowledge base, provide consistent first-line guidance, and escalate complex, identity-related, legal, benefits, or eligibility questions to staff.",
+      "liveContextOrTools": "The agent can collect preferred language and contact details before routing a human follow-up through an approved workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can I get resume help in Spanish?",
+        "What documents do I need for my appointment?",
+        "Who can contact me about training options?"
+      ],
+      "businessOutcome": "Broader access to basic service information without replacing staff judgment for sensitive or eligibility-dependent cases.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A front-door AI agent for job seekers and employers",
+    "intro": "Place DocsBot on your employment office website or service portal so visitors can ask natural-language questions, get answers from approved resources, and hand off to staff when the request needs a person.",
+    "requests": [
+      {
+        "request": "“I just lost my job. What should I do first?”",
+        "agentResponseStrategy": "Explain the office’s intake path from approved content, list documents to prepare, suggest relevant service pages, and offer to collect contact details for staff follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Intake checklists",
+          "FAQs",
+          "Public resource guides"
+        ],
+        "optionalAction": "Create an intake task or route the summary to a counselor queue through a configured workflow.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Can your office help me improve my resume?”",
+        "agentResponseStrategy": "Answer from resume workshop pages, office hours, appointment instructions, and approved resume guidance without inventing personalized career decisions.",
+        "sourceTypes": [
+          "Workshop calendars",
+          "Resume guides",
+          "Appointment instructions"
+        ],
+        "optionalAction": "Collect scheduling intent or send a workshop registration request when an approved scheduling workflow exists.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-careeronestop-services"
+        ]
+      },
+      {
+        "request": "“We are an employer and need candidates for several roles.”",
+        "agentResponseStrategy": "Ask for role, location, shift, skills, pay range if appropriate, timeline, and contact information, then summarize the hiring need for business services staff.",
+        "sourceTypes": [
+          "Employer service pages",
+          "Hiring event instructions",
+          "Business services FAQs"
+        ],
+        "optionalAction": "Forward a qualified employer inquiry to CRM, ticketing, email, or a team channel through customer-configured actions.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“Where can I find training for a new career?”",
+        "agentResponseStrategy": "Point to approved training resources, explain how to request staff guidance, and avoid making eligibility or funding determinations unless the office has approved exact scripted language.",
+        "sourceTypes": [
+          "Training resource pages",
+          "Partner referral lists",
+          "Program FAQs"
+        ],
+        "optionalAction": "Route eligibility-sensitive questions to staff with a conversation summary and user-provided details.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“Do you have job search help in my language?”",
+        "agentResponseStrategy": "Respond in the user’s language when possible, identify available language access resources from approved content, and escalate if a human interpreter or specialist is needed.",
+        "sourceTypes": [
+          "Language access pages",
+          "Service FAQs",
+          "Contact policies"
+        ],
+        "optionalAction": "Capture preferred language and callback information for a staff handoff.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“How do I prepare for an interview?”",
+        "agentResponseStrategy": "Provide office-approved interview preparation steps, link to workshops or guides, and recommend staff support for role-specific coaching when needed.",
+        "sourceTypes": [
+          "Interview guides",
+          "Workshop pages",
+          "Career readiness materials"
+        ],
+        "optionalAction": "Trigger a workshop interest form or appointment request if configured.",
+        "icon": "MicrophoneIcon",
+        "sourceIds": [
+          "src-careeronestop-jobsearch"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for employment office staff",
+    "intro": "DocsBot helps staff find the right policy, form, script, partner referral, or process without searching shared drives and old emails. It can be trained on internal documentation and made available in private team chat experiences with access controls.",
+    "workflows": [
+      {
+        "name": "Counselor prep summaries",
+        "problem": "Counselors may receive a handoff with limited context and spend valuable appointment time reconstructing the job seeker’s question.",
+        "agentWorkflow": "DocsBot can summarize prior AI conversations, intake details, and unresolved questions so staff can review the situation before responding.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Intake forms",
+          "Service FAQs"
+        ],
+        "optionalAction": "Attach the summary to a ticket, task, or staff notification through an approved workflow.",
+        "outcome": "Shorter context-gathering cycles and more focused counselor conversations.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "SOP search across programs",
+        "problem": "Staff need quick answers about procedures, referral steps, forms, and partner responsibilities across multiple workforce programs and office locations.",
+        "agentWorkflow": "A private DocsBot agent retrieves answers from SOPs, PDFs, wikis, shared drives, and policy documents, with source-grounded references back to the original material.",
+        "sourceTypes": [
+          "SOPs",
+          "Policy PDFs",
+          "Partner directories",
+          "Internal wikis"
+        ],
+        "optionalAction": "Escalate uncertain or outdated policy questions to a supervisor review queue.",
+        "outcome": "More consistent internal guidance and less time spent hunting through documents.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Employer services enablement",
+        "problem": "Business services representatives need quick access to employer-facing service descriptions, event options, talking points, and follow-up templates.",
+        "agentWorkflow": "DocsBot answers staff questions from employer service materials, proposal templates, outreach scripts, case notes, and FAQs, then can draft a follow-up for human review.",
+        "sourceTypes": [
+          "Employer service guides",
+          "Email templates",
+          "Event checklists",
+          "Sales enablement notes"
+        ],
+        "optionalAction": "Draft an email or create a follow-up task in a customer-configured sales or CRM workflow.",
+        "outcome": "Faster, more consistent employer follow-up while humans remain responsible for final commitments.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Documentation gap review",
+        "problem": "If job seekers keep asking questions that public pages do not answer, staff may continue solving the same issues manually.",
+        "agentWorkflow": "DocsBot reports, logs, topic management, and conversation review help managers identify unanswered questions and update FAQs, scripts, workshop pages, and internal notes.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Analytics reports",
+          "FAQ libraries",
+          "Help articles"
+        ],
+        "optionalAction": "Create content update tasks or route knowledge gaps to the right owner through configured workflows.",
+        "outcome": "Better self-service content and fewer repeated operational interruptions.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot trains agents on approved company knowledge so users receive instant answers grounded in the organization’s own content.",
+      "industryApplication": "Answer job seeker and employer questions from employment office FAQs, service pages, intake instructions, workshop materials, and approved career resources.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees using internal documents, policies, SOPs, wikis, PDFs, and other knowledge sources.",
+      "industryApplication": "Help staff retrieve procedures, referral paths, partner contacts, form instructions, and program guidance across locations and teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents use customer-configured tools for lookups, summaries, record updates, task creation, routing, and workflow triggers.",
+      "industryApplication": "Collect job seeker or employer intake details, summarize the request, create a task, notify staff, or trigger an approved handoff through systems the office authorizes, including MCP-connected tools where appropriate.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and review boundaries",
+      "mainLandingPageContext": "DocsBot supports human escalation when questions are complex, sensitive, or require a person, with customer-defined controls around what agents can access and do.",
+      "industryApplication": "Escalate benefits, eligibility, legal, identity, disability accommodation, funding, or high-impact placement questions to qualified staff instead of letting automation overstep.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which services, forms, workshops, and employer questions cause confusion, then improve public content and internal staff resources.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual deployment",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be deployed through website widgets, private chat, and configured team workflows.",
+      "industryApplication": "Offer first-line service navigation for multilingual job seekers while routing complex cases to staff with the right language or program expertise.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where recurring questions need fast, consistent answers.",
+      "Train agents on your own content library so responses stay aligned with your approved resources.",
+      "Use internal knowledge agents to reduce direct interruptions and support faster staff decision-making."
+    ],
+    "whyTheseReviewsFit": "Employment offices need dependable first-line answers, searchable training materials, and internal knowledge access that helps staff serve people faster. DocsBot proof spans high-volume inquiry handling, owned-content training, and internal decision support—exactly the patterns workforce teams need when demand crosses web, phone, email, and in-person channels.",
+    "trustClaimIcons": [
+      "BoltIcon",
+      "FolderIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for employment offices",
+    "audience": [
+      "Employment office directors",
+      "American Job Center operators",
+      "Workforce development agencies",
+      "Staffing and placement teams",
+      "Employer services managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BriefcaseIcon"
+  },
+  "relatedIndustrySlugs": [
+    "business-information",
+    "ai-automation-agency",
+    "ai-consulting",
+    "colleges-universities",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "employment-office",
+    "webSearchQueries": [
+      "BLS employment services industry employment agencies temporary help services establishments revenue statistics 2024",
+      "U.S. Department of Labor workforce system American Job Centers number job seekers services WIOA participants 2023",
+      "SHRM average time to fill positions 2024 talent acquisition benchmark",
+      "CareerOneStop American Job Centers services job search resume interview"
+    ],
+    "sourceUrls": [
+      "https://blog.careeronestop.org/navigate-the-civilian-job-market-with-careeronestop/",
+      "https://www.careeronestop.org/JobSearch/job-search.aspx",
+      "https://www.dol.gov/sites/dolgov/files/ETA/Performance/pdfs/2023%2007%2011%20WSR-Accessible%20508.pdf",
+      "https://www.shrm.org/in/topics-tools/news/talent-acquisition/staffing-metrics-time-to-fill-can-kill-prospects-landing-top-talent",
+      "https://www.bls.gov/news.release/pdf/conemp.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40909,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20685,
+        "outputTokens": 7739,
+        "reasoningOutputTokens": 151,
+        "totalTokens": 48648,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.172854,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.182854
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21646,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6670,
+          "outputTokens": 5086,
+          "reasoningOutputTokens": 134,
+          "totalTokens": 26732,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.096709,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.106709
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19263,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14015,
+          "outputTokens": 2653,
+          "reasoningOutputTokens": 17,
+          "totalTokens": 21916,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076145,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076145
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1582653547187-2bb73b2d7b67?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDUxOTR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Employment Office background image",
+    "source": "legacy-industry",
+    "query": "Employment Office"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle repetitive front-desk questions without giving eligibility or benefits advice it should not give?",
+      "answer": "Yes. You can train the agent on approved service pages, intake instructions, FAQs, and scripts, then set boundaries so routine questions get answered while eligibility, benefits, legal, identity, accommodation, or funding decisions are escalated to staff. The goal is first-line navigation, not replacing qualified case judgment.",
+      "role": "Operations and compliance managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this fit into our intake process for job seekers who are not sure where to start?",
+      "answer": "DocsBot can ask basic intake questions, explain next steps from approved office content, summarize the person’s situation, and route the handoff to a configured form, ticket, inbox, or staff workflow. That helps counselors start with context instead of spending the first interaction reconstructing the request.",
+      "role": "Job seeker services teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent answer questions about resumes, interviews, workshops, job fairs, and counseling services?",
+      "answer": "Yes, if those resources are in your approved knowledge base. That scope fits employment office demand: CareerOneStop describes American Job Centers as offering job fairs, resume writing, interviewing workshops, and one-to-one career counseling, which are exactly the kinds of recurring topics DocsBot can help route and explain.",
+      "role": "Job seeker services teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-careeronestop-services"
+      ]
+    },
+    {
+      "question": "Can DocsBot support employers as well as job seekers?",
+      "answer": "Yes. You can configure an employer-facing agent to answer questions about posting jobs, hiring events, candidate referrals, and partnership options, then collect structured details such as role, location, shift, skills, timeline, urgency, and preferred follow-up channel before routing the request to business services staff.",
+      "role": "Employer relations and placement staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI agent from inventing program rules or giving outdated guidance?",
+      "answer": "DocsBot is designed around source-grounded answers from the content your office approves. Teams should connect current service pages, SOPs, PDFs, workshop materials, and policy documents, then use conversation review and knowledge-gap reports to find missing or stale content. Sensitive or uncertain answers can be escalated to a person.",
+      "role": "Operations and compliance managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will this work across multiple American Job Center locations or partner programs with different rules?",
+      "answer": "Yes, if your content is organized by location, program, audience, or permission level. DocsBot can answer from the right approved materials and help staff find local SOPs, partner referral paths, and forms. The Department of Labor identifies American Job Centers as local access points connecting people to employment and training opportunities, so location-aware content matters.",
+      "role": "Operations and compliance managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-dol-wsr-ajc"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot internally for staff SOPs, not just on the public website?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, policy PDFs, partner directories, referral guides, wikis, and training materials. Staff can ask procedural questions, get source-grounded answers, and follow links back to the underlying document instead of searching shared drives or old email threads.",
+      "role": "Operations and compliance managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect to for handoffs and routing?",
+      "answer": "DocsBot can use customer-configured AI Actions, Skills, APIs, connectors, forms, webhooks, or MCP-connected tools to create tasks, submit intake details, notify staff, forward summaries, or update approved fields. It should be scoped to the systems and permissions your office authorizes rather than treated as an unrestricted automation layer.",
+      "role": "Operations and compliance managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it integrate with our case management, CRM, helpdesk, or scheduling tools?",
+      "answer": "Usually, the practical path is to connect DocsBot through approved Skills, APIs, connectors, exported knowledge sources, forms, or workflow automations. It can collect scheduling intent, prepare a handoff, create a ticket or task, or send a summary to a configured system, but final integration design depends on your software access and governance rules.",
+      "role": "Operations and compliance managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would we measure ROI if our services are grant-funded or mission-driven rather than sales-driven?",
+      "answer": "Measure reduced repetitive questions, faster intake triage, shorter handoff preparation, fewer documentation gaps, improved self-service usage, multilingual access, and staff time redirected to complex cases. For employer services, track cleaner intake, faster routing, and fewer missed follow-ups while hiring needs are still active.",
+      "role": "Operations and compliance managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help our employer services team respond faster to urgent hiring requests?",
+      "answer": "Yes. The agent can collect hiring requirements up front and route a concise summary to the right staff member. Speed matters for employers: SHRM defines time to fill as days from requisition opening to accepted offer and reported a 33.28-day average in the cited staffing research, so delays can make referrals less useful.",
+      "role": "Employer relations and placement staff",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-shrm-time-to-fill"
+      ]
+    },
+    {
+      "question": "Can the agent recommend training programs or funding options to job seekers?",
+      "answer": "It can point people to approved training resources, explain how to request staff guidance, and summarize the question for follow-up. For eligibility-sensitive funding, benefits, or program enrollment decisions, the safer configuration is to provide scripted general guidance and escalate to qualified staff for a determination.",
+      "role": "Job seeker services teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support job seekers who prefer languages other than English?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved knowledge base. Many offices use this for first-line navigation, while routing complex cases to staff when a human interpreter, program specialist, or eligibility review is needed.",
+      "role": "Operations and compliance managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when a job seeker shares sensitive personal information in the chat?",
+      "answer": "You can configure escalation paths, permissions, and review workflows for sensitive situations. DocsBot also supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Operations and compliance managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Many teams start with answer-only or low-risk routing, review real conversations, tune content and escalation rules, then add more bounded actions later.",
+      "role": "Operations and compliance managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much content do we need before launching an employment office AI agent?",
+      "answer": "You can start with the highest-volume materials: public service pages, FAQs, intake checklists, workshop calendars, employer service pages, resume and interview guides, contact policies, and a few internal SOPs. A limited pilot is often better than waiting for every document to be perfect, because analytics will show what users still cannot find.",
+      "role": "Operations and compliance managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will staff need to rewrite all of our PDFs, handouts, and SOPs first?",
+      "answer": "Not necessarily. DocsBot can train on websites, PDFs, documents, wikis, and other approved knowledge sources. You may still want to clean up contradictory or outdated materials, because the quality of the agent depends on the quality and freshness of the content you authorize it to use.",
+      "role": "Operations and compliance managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help new staff learn referral paths and program procedures?",
+      "answer": "Yes. A private internal agent can answer staff questions from SOPs, partner directories, referral guides, policy documents, and training materials. That is useful for onboarding, coverage across shifts, and consistency when procedures vary by program, location, funding stream, or partner organization.",
+      "role": "Operations and compliance managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot help us find gaps in our website or public resources?",
+      "answer": "DocsBot analytics and conversation review show repeated questions, unresolved topics, escalations, and missing knowledge. Managers can use those patterns to update FAQs, service pages, workshop instructions, employer resources, and staff scripts based on what job seekers and employers actually ask.",
+      "role": "Operations and compliance managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we separate public answers from internal staff-only guidance?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so public-facing agents can use approved public resources while internal staff agents can access SOPs, policies, partner notes, and private documents. That separation is important when staff guidance should not be exposed to every website visitor.",
+      "role": "Operations and compliance managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we keep humans in control of employer commitments, candidate referrals, and event promises?",
+      "answer": "Configure DocsBot to collect information, answer from approved service descriptions, draft summaries, and route requests without making final commitments. Humans should approve employer agreements, hiring event details, candidate referral decisions, pricing or funding terms, and any high-impact service promise.",
+      "role": "Employer relations and placement staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support both walk-in style questions and digital channels like website, email, or team chat?",
+      "answer": "DocsBot can be deployed as a website widget for public self-service and as a private chat experience for staff. With configured workflows, it can also prepare summaries or handoffs for ticketing, forms, email, Slack, Microsoft Teams, or other approved systems your office uses.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How is DocsBot different from a generic chatbot on our website?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent trained on your approved employment office knowledge, not a generic script tree. It can answer from documents, summarize context, identify missing content, support internal staff knowledge, and take bounded actions through customer-configured Skills and workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What procurement or IT questions should we expect before approval?",
+      "answer": "Expect questions about data handling, access controls, security certifications, retention expectations, integrations, auditability, role permissions, escalation rules, and who owns knowledge updates. For a smoother review, define the first pilot use case, approved content sources, prohibited topics, and success metrics up front.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help with the wide range of job search topics people ask about?",
+      "answer": "Yes, if those resources are included in your approved content. CareerOneStop organizes job search help around finding openings, resumes, applications, interviews, networking, training, and local service access, which mirrors the broad question mix many employment offices need to support consistently.",
+      "role": "Job seeker services teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-careeronestop-jobsearch"
+      ]
+    },
+    {
+      "question": "What if the agent gives an answer that staff disagree with?",
+      "answer": "Use source-grounded answers, conversation review, and knowledge-gap reporting to trace the response back to the content it relied on. If the issue is outdated or conflicting documentation, update the source. If the issue is judgment-sensitive, tighten instructions and escalation rules so the agent routes instead of answering.",
+      "role": "Operations and compliance managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support temporary staffing or placement-style workflows as well as public workforce services?",
+      "answer": "Yes. For staffing and placement teams, DocsBot can answer candidate and employer FAQs, collect availability or hiring details, summarize conversations, and route requests. BLS reported temporary help agency workers were 0.5% of total employment in July 2023, showing this is a distinct workflow segment with its own intake and routing needs.",
+      "role": "Employer relations and placement staff",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-contingent-workers"
+      ]
+    }
+  ]
+}

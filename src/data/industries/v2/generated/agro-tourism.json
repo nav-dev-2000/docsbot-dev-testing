@@ -1,0 +1,747 @@
+{
+  "slug": "agro-tourism",
+  "business": "Agro-Tourism",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Agro-Tourism Visitor Operations",
+    "description": "DocsBot helps agro-tourism teams answer visitor questions, qualify bookings, and surface farm safety guidance from approved content.",
+    "canonicalPath": "/industry/agro-tourism"
+  },
+  "hero": {
+    "eyebrow": "Agro-tourism AI support and operations",
+    "headline": "AI agents that help farm visitors plan, book, and arrive prepared",
+    "subheadline": "DocsBot trains on your farm FAQs, tour pages, waivers, field maps, SOPs, seasonal crop notes, animal-area rules, event details, and staff knowledge so visitors and employees get source-grounded answers before, during, and after the visit.",
+    "proofBullets": [
+      {
+        "text": "Answer tour, u-pick, farm store, animal encounter, school group, and accessibility questions from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking intent, group size, date preferences, special needs, and follow-up details through structured intake flows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Route weather, safety, lost-and-found, private event, and refund questions to the right team with summaries for handoff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give seasonal staff fast access to SOPs, emergency scripts, guest policies, and product details in private team chat.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build your farm visitor agent",
+    "secondaryCta": "See agro-tourism workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps agro-tourism businesses create AI agents trained on their own visitor-facing and internal knowledge. Agents can answer questions in a website widget, support staff in private chat, summarize visitor requests, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or approved workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Farm owners and agritourism operators",
+        "roleContext": "Teams balancing crop production, visitor experiences, seasonal events, and limited staff time.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions about hours, parking, what to wear, stroller access, pet policies, u-pick availability, and farm store inventory guidance from approved content.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot recurring visitor confusion before peak weekends, school tours, or fall festival season.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Agritourism and recreational services generated $1.26 billion for U.S. farms and ranches in 2022, so small improvements in planning and response speed can support a meaningful farm",
+            "icon": "BanknotesIcon",
+            "sourceIds": [
+              "src-usda-ers-agritourism-income"
+            ]
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      },
+      {
+        "role": "Visitor services, events, and reservations teams",
+        "roleContext": "Staff handling family outing questions, group reservations, field trips, birthday parties, farm dinners, and seasonal ticketing inquiries.",
+        "bullets": [
+          {
+            "text": "Collect group details, preferred dates, mobility needs, chaperone counts, and contact information before handing the request to a person or configured booking workflow.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft concise handoff summaries for private events, school visits, vendor requests, and refund exceptions so staff do not start from scratch.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Answer in more than 100 languages when international tourists or multilingual local families need help understanding visit logistics.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "TicketIcon"
+      },
+      {
+        "role": "Field guides, educators, and seasonal staff",
+        "roleContext": "Frontline teams who need consistent answers while moving between barns, trails, fields, tasting rooms, and event areas.",
+        "bullets": [
+          {
+            "text": "Ask a private internal agent for tour scripts, crop facts, animal handling reminders, allergen notes, and emergency procedures from approved SOPs.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Search staff policies, opening and closing checklists, radio codes, incident reporting steps, and visitor accommodation guidance without digging through binders.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Agritourism safety programs note that more than 70 million people visit farms each year, including almost 24 million children, making consistent visitor guidance especially useful.",
+            "icon": "HandRaisedIcon",
+            "sourceIds": [
+              "src-safe-agritourism-visits"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-ers-agritourism-income",
+      "metric": "$1.26 billion U.S. agritourism income in 2022; 12.4% real growth from 2017",
+      "claim": "U.S. farms and ranches generated $1.26 billion in income from agritourism services in 2022, up 12.4% from 2017 after adjusting for inflation.",
+      "sourceTitle": "2022 Census of Agriculture: The majority of U.S. counties generate some agritourism income",
+      "sourceUrl": "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=110552",
+      "sourceDate": "2024-11-18",
+      "bestUsedFor": [
+        "market demand",
+        "revenue opportunity",
+        "agritourism growth"
+      ]
+    },
+    {
+      "id": "src-usda-nrcs-resource-manual",
+      "metric": "About $1.3 billion in agritourism receipts and about $3.3 billion in direct-to-consumer food and value-added sales",
+      "claim": "USDA’s agritourism resource manual reports that 2022 Census receipts from agritourism and recreational services reached around $1.3 billion, while direct sales of food and value-added food products to consumers approached $3.3 billion.",
+      "sourceTitle": "USDA Agritourism Resource Manual",
+      "sourceUrl": "https://www.nrcs.usda.gov/sites/default/files/2025-04/usda-agritourism-resource-manual-final-4325.pdf",
+      "sourceDate": "2025-04",
+      "bestUsedFor": [
+        "farm store opportunity",
+        "direct sales",
+        "experience diversification"
+      ]
+    },
+    {
+      "id": "src-safe-agritourism-visits",
+      "metric": "More than 70 million annual farm visitors; almost 24 million children",
+      "claim": "Agritourism Safety states that more than 70 million people visit farms each year and almost 24 million of those visitors are children.",
+      "sourceTitle": "Agritourism Safety: Integrating Safety into Agritourism",
+      "sourceUrl": "https://safeagritourism.org/",
+      "sourceDate": "No date listed",
+      "bestUsedFor": [
+        "visitor safety",
+        "family and school group expectations",
+        "frontline guidance"
+      ]
+    },
+    {
+      "id": "src-national-ag-law-statutes",
+      "metric": "State agritourism statutes vary across liability, tax credit, and zoning topics",
+      "claim": "The National Agricultural Law Center notes that state agritourism statutes vary and can cover liability protections, tax credits, and zoning requirements.",
+      "sourceTitle": "States' Agritourism Statutes",
+      "sourceUrl": "https://nationalaglawcenter.org/wp-content/uploads/assets/agritourism/",
+      "sourceDate": "No date listed",
+      "bestUsedFor": [
+        "legal variation",
+        "compliance pressure",
+        "policy handoff"
+      ]
+    },
+    {
+      "id": "src-psu-agritourism-census-update",
+      "metric": "Roughly $1.26 billion in national gross receipts from agritourism and recreational services in 2022",
+      "claim": "Penn State Extension summarizes USDA Census data showing national agritourism and recreational services gross receipts totaling roughly $1.26 billion in 2022.",
+      "sourceTitle": "U.S. Agritourism and Direct-to-Consumer Sales Census Update",
+      "sourceUrl": "https://extension.psu.edu/u-s-agritourism-and-direct-to-consumer-sales-census-update",
+      "sourceDate": "2024-08-30",
+      "bestUsedFor": [
+        "industry growth",
+        "small farm diversification",
+        "direct-to-consumer context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Visitor planning and trip-readiness agent",
+      "problem": "Visitors ask the same questions across phone, email, social, and the website: what is open today, whether wagons are allowed, what shoes to wear, whether tickets are refundable, and what happens if it rains.",
+      "agentWorkflow": "Train DocsBot on public FAQs, tour pages, seasonal crop notes, farm maps, ticket policies, accessibility details, and safety rules. The agent answers in the website widget, points visitors to the right policy, and escalates unusual cases to staff with a summary.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved live context such as event availability, daily crop status, weather advisory text, or ticket policy metadata before responding.",
+      "exampleQuestionsOrRequests": [
+        "Are strawberries available for u-pick this weekend?",
+        "Can we bring a stroller on the hayride route?",
+        "What should my child wear for the goat encounter?",
+        "What happens if storms are forecast for our farm dinner?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, clearer expectations before arrival, and better prepared guests.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Group booking and field trip qualification",
+      "problem": "School tours, scout groups, corporate outings, and private events require details that often arrive incomplete, forcing staff into multiple back-and-forth messages.",
+      "agentWorkflow": "DocsBot can collect group size, age range, desired dates, activity interests, accessibility needs, lunch or food requirements, billing contact, and preferred follow-up channel. It can apply customer-defined qualification rules and forward the structured request to the right reservations workflow.",
+      "liveContextOrTools": "AI Actions can create a ticket or task, submit a custom form, notify a team, or request a meeting through an approved scheduling workflow when configured.",
+      "exampleQuestionsOrRequests": [
+        "I need a field trip for 45 second graders in October.",
+        "Can we book a private wagon ride and bonfire for our company?",
+        "Do you offer homeschool group pricing?",
+        "Please have someone call me about a birthday party package."
+      ],
+      "businessOutcome": "Cleaner intake, faster staff follow-up, and less lost revenue from unanswered or incomplete group inquiries.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Farm store and direct-sales assistant",
+      "problem": "Many agritourism visits also drive farm store, u-pick, CSA, and value-added product sales, but staff may be busy with guests, checkout, or production work.",
+      "agentWorkflow": "Train the agent on farm store FAQs, product descriptions, allergen information, pickup instructions, gift box options, CSA pickup rules, and seasonal availability notes. It answers shopper questions and routes wholesale, custom order, or allergy-sensitive requests to a human.",
+      "liveContextOrTools": "With approved live lookups, the agent can retrieve current product availability or pickup windows from customer-managed systems; without live data, it can clearly answer from the latest approved content and suggest contacting staff for final confirmation.",
+      "exampleQuestionsOrRequests": [
+        "Do you have apple cider donuts today?",
+        "Which jam flavors are made without added sugar?",
+        "Can I pick up my CSA box during festival hours?",
+        "Do you ship gift baskets?"
+      ],
+      "businessOutcome": "More self-service product education and better handoffs for orders that need staff review.",
+      "icon": "ShoppingBagIcon",
+      "sourceIds": [
+        "src-usda-nrcs-resource-manual"
+      ]
+    },
+    {
+      "name": "Safety, rules, and incident-response knowledge agent",
+      "problem": "Farms are working environments. Seasonal employees need consistent answers about animal areas, machinery boundaries, heat guidance, lost children, first aid, and emergency communication.",
+      "agentWorkflow": "DocsBot can serve as a private internal knowledge agent trained on SOPs, opening checklists, emergency action plans, incident report templates, waiver language, and visitor rules. Staff ask natural-language questions and get source-grounded guidance with escalation paths for emergencies or sensitive incidents.",
+      "liveContextOrTools": "Configured workflows can create an incident task, notify a manager, summarize a visitor report, or route a safety concern to the approved channel. Human review should remain in place for injury, legal, medical, or liability decisions.",
+      "exampleQuestionsOrRequests": [
+        "What is the procedure if a child is separated from their group?",
+        "Where do we direct guests during lightning?",
+        "What do I say if a visitor asks to enter a restricted animal area?",
+        "How do I file an incident report after a fall?"
+      ],
+      "businessOutcome": "More consistent staff guidance, faster routing, and clearer boundaries for safety-sensitive situations.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-safe-agritourism-visits"
+      ]
+    },
+    {
+      "name": "Policy, liability, and compliance Q&A for managers",
+      "problem": "Agritourism rules differ by state and may involve signage, liability notices, zoning, permits, animal handling, food service, tax, or land-use considerations.",
+      "agentWorkflow": "A private DocsBot agent can train on your own policies, attorney-reviewed guidance, state-specific statute notes, insurance requirements, permit checklists, and local operating procedures. It helps managers retrieve approved internal guidance while routing legal interpretation to qualified professionals.",
+      "liveContextOrTools": "AI Actions can prepare a checklist, create a review task, or route a policy question to leadership or counsel. The agent should not provide legal advice beyond approved source material.",
+      "exampleQuestionsOrRequests": [
+        "Which warning signs do we use at the corn maze entrance?",
+        "Where is our policy for school-group waivers?",
+        "What does our insurance checklist require before opening the petting zoo?",
+        "Who reviews a new after-hours event concept?"
+      ],
+      "businessOutcome": "Faster policy retrieval and fewer informal answers for topics that need documented review.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-national-ag-law-statutes"
+      ]
+    },
+    {
+      "name": "Seasonal content-gap and operations reporting",
+      "problem": "Visitor questions change by season: blooms, calving, harvest, pumpkins, holiday markets, weather, parking overflow, and school schedules all create new information gaps.",
+      "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery to see what guests and staff keep asking. Update the farm FAQ, ticket pages, staff scripts, and seasonal SOPs based on those repeated questions.",
+      "liveContextOrTools": "Reports can guide content updates and staffing priorities; configured workflows can create documentation tasks for recurring unanswered topics.",
+      "exampleQuestionsOrRequests": [
+        "What questions did guests ask most before opening weekend?",
+        "Which answers had low confidence during pumpkin season?",
+        "What should we add to our field trip FAQ?",
+        "Which topics should staff be trained on before the holiday market?"
+      ],
+      "businessOutcome": "A continuously improving visitor knowledge base that reduces repeated questions over time.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give guests a practical farm-planning assistant before they arrive",
+    "intro": "A DocsBot customer-facing agent helps visitors plan the right experience from your approved pages, PDFs, policies, maps, and seasonal updates. It can live in an embeddable website widget and escalate when an answer needs staff judgment.",
+    "requests": [
+      {
+        "request": "“Are the sunflower fields still blooming, and do I need tickets?”",
+        "agentResponseStrategy": "Answer from current seasonal content and ticketing policy, explain what is included, and suggest a staff handoff if live availability is not connected.",
+        "sourceTypes": [
+          "Seasonal crop updates",
+          "Ticketing FAQ",
+          "Farm map",
+          "Photography policy"
+        ],
+        "optionalAction": "If configured, look up approved availability data or create a ticket for staff follow-up.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“Can my school bring 60 students and eat lunch on-site?”",
+        "agentResponseStrategy": "Collect grade level, group size, requested dates, arrival time, meal needs, accessibility notes, and contact details before routing the request.",
+        "sourceTypes": [
+          "Field trip guide",
+          "Group booking form",
+          "Lunch area policy",
+          "Accessibility information"
+        ],
+        "optionalAction": "Submit a custom lead form, create a reservations task, or request a meeting through a scheduling workflow.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“Is the farm safe for toddlers?”",
+        "agentResponseStrategy": "Summarize toddler-relevant guidance from approved family visit content, restricted areas, supervision requirements, stroller notes, and animal-interaction rules while avoiding guarantees.",
+        "sourceTypes": [
+          "Family visit FAQ",
+          "Animal area rules",
+          "Safety notices",
+          "Accessibility guide"
+        ],
+        "optionalAction": "Escalate special accommodation or safety-sensitive questions to staff.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-safe-agritourism-visits"
+        ]
+      },
+      {
+        "request": "“Do you sell cider, honey, or produce after the tour?”",
+        "agentResponseStrategy": "Answer from farm store pages and product notes, explain pickup or shipping policies, and route custom or allergy-sensitive questions to a person.",
+        "sourceTypes": [
+          "Farm store catalog",
+          "Product FAQs",
+          "Allergen notes",
+          "Pickup policy"
+        ],
+        "optionalAction": "Use an approved live lookup for availability or create a custom order inquiry.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“What happens if it rains during our wagon ride?”",
+        "agentResponseStrategy": "Cite the farm’s weather, rescheduling, refund, and safety policies; recommend human help when the request involves an exception or emergency.",
+        "sourceTypes": [
+          "Weather policy",
+          "Refund policy",
+          "Event terms",
+          "Safety SOP"
+        ],
+        "optionalAction": "Route a rescheduling request or create a support ticket with the visitor’s order details if authorized.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“Do you offer Spanish-language tour information?”",
+        "agentResponseStrategy": "Respond in the visitor’s preferred language using approved content and clearly state when staff translation or on-site interpretation is required.",
+        "sourceTypes": [
+          "Tour pages",
+          "FAQs",
+          "Visitor policies",
+          "Maps and signage text"
+        ],
+        "optionalAction": "Collect language preference for the reservations team.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep seasonal teams aligned without another operations binder",
+    "intro": "DocsBot can also work as a private internal knowledge agent for owners, managers, educators, guides, retail staff, and event coordinators. Teams can ask operational questions in plain language and receive answers grounded in approved SOPs, policies, documents, and training material.",
+    "workflows": [
+      {
+        "name": "Opening, closing, and daily readiness checks",
+        "problem": "Peak days require staff to coordinate parking, restrooms, signage, animal areas, retail displays, trail conditions, ticket scanning, and emergency supplies.",
+        "agentWorkflow": "Train the internal agent on checklists, role assignments, daily operating notes, equipment instructions, and escalation paths. Staff can ask what needs to be done for a specific area or shift.",
+        "sourceTypes": [
+          "Opening checklist",
+          "Closing checklist",
+          "Department SOPs",
+          "Daily manager notes"
+        ],
+        "optionalAction": "Create a task, notify a channel, or summarize readiness issues when configured.",
+        "outcome": "More consistent execution across part-time and seasonal teams.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Guide scripts and educational consistency",
+        "problem": "Tour guides and educators may give uneven answers about crop practices, animal care, conservation, farm history, or tasting notes.",
+        "agentWorkflow": "DocsBot answers staff questions from approved tour scripts, lesson plans, conservation materials, species notes, and brand guidelines so guests hear consistent explanations.",
+        "sourceTypes": [
+          "Tour scripts",
+          "Education curriculum",
+          "Crop and animal reference sheets",
+          "Brand voice guidelines"
+        ],
+        "optionalAction": "Generate a short briefing for the day’s featured crop, animal, or route based on approved content.",
+        "outcome": "Better visitor education and fewer improvised explanations.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Incident notes and manager handoffs",
+        "problem": "When something goes wrong, managers need accurate summaries rather than scattered radio calls, texts, or incomplete notes.",
+        "agentWorkflow": "A configured agent can help staff capture who, what, where, when, witnesses, and immediate actions taken, then prepare a structured summary for manager review.",
+        "sourceTypes": [
+          "Incident report template",
+          "Emergency SOP",
+          "Insurance checklist",
+          "Manager escalation tree"
+        ],
+        "optionalAction": "Create an incident task or route a summary to the approved manager channel. Human review remains required for injuries, claims, or sensitive matters.",
+        "outcome": "Cleaner documentation and faster escalation without letting AI make safety, legal, or medical decisions.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "name": "Policy lookup for events, vendors, and add-on experiences",
+        "problem": "Managers often need to confirm whether a new vendor, tasting, campfire, photography session, or after-hours event fits existing rules.",
+        "agentWorkflow": "Train DocsBot on vendor agreements, event policies, capacity limits, food-service requirements, insurance certificates, and attorney-reviewed guidance so managers can find the relevant policy quickly.",
+        "sourceTypes": [
+          "Event policy",
+          "Vendor packet",
+          "Insurance requirements",
+          "Permit checklist"
+        ],
+        "optionalAction": "Create a review task or route the proposed event details to leadership.",
+        "outcome": "Fewer undocumented exceptions and faster internal review.",
+        "icon": "FolderIcon",
+        "sourceIds": [
+          "src-national-ag-law-statutes"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the business’s own knowledge sources and answer in the company’s voice.",
+      "industryApplication": "Answer guest questions from farm FAQs, tour descriptions, maps, seasonal crop notes, ticket terms, farm store pages, and visitor rules.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Embeddable website widget",
+      "mainLandingPageContext": "DocsBot agents can appear in website or product chat experiences for customer self-service.",
+      "industryApplication": "Put a planning assistant on your farm website so guests can ask about hours, u-pick conditions, parking, accessibility, group bookings, and weather policies before calling.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded actions such as lookups, summaries, task creation, routing, record updates, and workflow triggers when configured.",
+      "industryApplication": "Let the agent collect booking details, create a staff task, route a field trip inquiry, summarize an incident note, or check approved live context from authorized systems.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as a private assistant trained on SOPs, policies, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other internal sources.",
+      "industryApplication": "Give seasonal staff a quick way to retrieve tour scripts, animal-area rules, emergency procedures, product information, and opening checklists.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which visitor questions spike before harvest weekends, which policies are unclear, and which staff training topics need better documentation.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved content.",
+      "industryApplication": "Support tourists, school families, and community visitors who need farm visit details in their preferred language.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, private event details, staff policies, and sensitive visitor workflows behind controlled access while still making approved answers easy to find.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Useful for travel-style enquiry-to-booking workflows where visitors need fast answers before committing to a visit.",
+      "Designed to train on your own content library and return source-grounded answers rather than generic responses.",
+      "Can support both visitor-facing self-service and internal staff knowledge workflows.",
+      "Backed by security and governance practices including SOC 2 Type II, GDPR-ready governance, encryption, access controls, and customer-defined permissions."
+    ],
+    "whyTheseReviewsFit": "Agro-tourism combines travel planning, visitor support, owned educational content, and seasonal staff training. The selected reviews emphasize travel enquiry conversion, training on owned content, common-query answering, and high-volume support proof without claiming an agro-tourism-specific customer.",
+    "trustClaimIcons": [
+      "TicketIcon",
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agent and internal knowledge automation for agro-tourism operations",
+    "audience": [
+      "Farm owners",
+      "Agritourism managers",
+      "Visitor services teams",
+      "Event coordinators",
+      "Farm educators",
+      "Seasonal staff"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HomeModernIcon"
+  },
+  "relatedIndustrySlugs": [
+    "agriculture-forestry-wildlife",
+    "farming",
+    "organic-farming",
+    "greenhouse-operations",
+    "beekeeping",
+    "farm-equipment-sales"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "agro-tourism",
+    "webSearchQueries": [
+      "USDA agritourism farms income statistics 2022 census",
+      "National Agricultural Law Center agritourism liability statutes states",
+      "USDA agritourism and recreational services farms sales 2022 census",
+      "agritourism travelers farm visits safety visitor management statistics"
+    ],
+    "sourceUrls": [
+      "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=110552",
+      "https://www.nrcs.usda.gov/sites/default/files/2025-04/usda-agritourism-resource-manual-final-4325.pdf",
+      "https://safeagritourism.org/",
+      "https://nationalaglawcenter.org/wp-content/uploads/assets/agritourism/",
+      "https://extension.psu.edu/u-s-agritourism-and-direct-to-consumer-sales-census-update"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40456,
+        "cachedInputTokens": 4736,
+        "billableInputTokens": 35720,
+        "outputTokens": 9016,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 49472,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.451448,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.461448
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20386,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20386,
+          "outputTokens": 5467,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 25853,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.26594,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.27594
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20070,
+          "cachedInputTokens": 4736,
+          "billableInputTokens": 15334,
+          "outputTokens": 3549,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23619,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.185508,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.185508
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1571091374658-6d880f0eab29?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQyODl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Agro-Tourism background image",
+    "source": "legacy-industry",
+    "query": "Agro-Tourism"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer questions about what is actually open today, or will it only repeat our static FAQ?",
+      "answer": "DocsBot can answer from your approved FAQs, tour pages, seasonal crop notes, maps, ticket policies, and safety rules. If you configure Skills, APIs, connectors, MCP servers, or another approved workflow, the agent can also reference live context such as event availability, daily crop status, pickup windows, or weather advisory text. If live data is not connected, it should clearly answer from the latest approved content and route time-sensitive questions to staff for confirmation.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this reduce phone calls and social messages during pumpkin season or u-pick weekends?",
+      "answer": "The strongest fit is repetitive pre-visit support: hours, parking, ticket rules, stroller access, pet policies, what to wear, crop availability, farm store questions, refunds, and rain plans. A DocsBot website agent can handle those questions from approved content before visitors call, while analytics show which topics keep coming up so the team can update pages before the next peak weekend. That matters in a market where U.S. farms and ranches generated $1.26 billion in agritourism income in 2022, so even small improvements in response speed and trip-pl",
+      "role": "Farm owners and agritourism operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-usda-ers-agritourism-income"
+      ]
+    },
+    {
+      "question": "Can DocsBot help qualify field trips, birthday parties, private events, and group tours before a staff member follows up?",
+      "answer": "Yes. The agent can collect structured details such as group size, age range, desired dates, arrival time, activity interests, mobility needs, lunch requirements, billing contact, and preferred follow-up channel. With customer-configured workflows, it can submit a custom form, create a task or ticket, notify the reservations team, or request a meeting through an approved scheduling process. Staff still own pricing exceptions, contracts, capacity decisions, and final booking confirmation.",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it work for both visitor-facing questions and internal staff procedures, or do we need separate tools?",
+      "answer": "DocsBot can support both use cases. A customer-facing agent can live on your website and answer guest planning questions from public content. A private internal knowledge agent can be trained on SOPs, opening and closing checklists, tour scripts, emergency procedures, animal-area rules, product notes, and staff policies. Access controls and role-based permissions help keep internal materials separate from public visitor answers.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the agent from making promises about safety, weather, refunds, or legal liability?",
+      "answer": "You can train the agent on approved policy language and set instructions that require cautious answers, source-grounded responses, and escalation for sensitive cases. For weather, refunds, injuries, waivers, animal interactions, legal interpretation, or unusual exceptions, the agent can summarize the relevant policy and route the visitor or staff member to a human. It should not make safety guarantees, provide legal advice, diagnose injuries, or override your managers’ judgment.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can seasonal employees use it on shift without reading through binders or shared drives?",
+      "answer": "Yes. DocsBot can act as a private staff knowledge agent trained on your internal documents, SOPs, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, and other approved sources. Seasonal staff can ask plain-language questions like where to send guests during lightning, what to say near restricted animal areas, or how to complete an incident report. Answers can include source grounding and escalation paths so frontline staff are not relying on memory or improvised instructions.",
+      "role": "Field guides, educators, and seasonal staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would the agent handle farm safety questions from parents, schools, or guests with toddlers?",
+      "answer": "The agent can summarize your approved family visit guidance, supervision rules, restricted areas, stroller notes, animal-interaction policies, accessibility content, and emergency procedures while avoiding guarantees. Safety-sensitive or accommodation-specific questions can be escalated to staff. Consistency is important because agritourism safety programs report more than 70 million annual farm visitors, including almost 24 million children.",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-safe-agritourism-visits"
+      ]
+    },
+    {
+      "question": "Our policies vary by state, insurer, event type, and attorney review. Can DocsBot handle that nuance?",
+      "answer": "DocsBot is best used as a retrieval and routing layer for your own approved guidance, not as a substitute for legal counsel. You can train a private agent on state-specific notes, attorney-reviewed policies, insurance checklists, signage requirements, waiver procedures, permit checklists, and internal escalation rules. That is useful because agritourism statutes vary by state and may cover topics such as liability protections, tax credits, and zoning requirements.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-national-ag-law-statutes"
+      ]
+    },
+    {
+      "question": "Can the agent connect with our ticketing, reservation, CRM, or task system?",
+      "answer": "DocsBot can take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, webhooks, or approved workflow automations. Depending on what you authorize, the agent can collect missing details, create a task or ticket, submit a lead form, route a group inquiry, look up approved live context, or notify the right team. You should frame these as scoped workflows with permissions and logs rather than giving the agent unrestricted access to operational systems.",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or our content is out of date?",
+      "answer": "DocsBot can be configured to avoid guessing, say when approved content is missing, and route the question to a person with a conversation summary. Its analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help show which answers need better documentation. For agro-tourism teams, that is especially useful around seasonal changes like blooms, harvest windows, animal births, holiday markets, parking overflow, and weather policies.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it answer farm store, CSA pickup, allergen, and product availability questions?",
+      "answer": "Yes, if those details are included in approved content or connected live systems. The agent can answer from farm store pages, product descriptions, allergen notes, pickup rules, shipping policies, CSA instructions, and seasonal availability updates. With authorized live lookups, it can check current product availability or pickup windows; without live data, it should clearly state that availability needs staff confirmation. This matters because USDA’s agritourism resource manual reports about $1.3 billion in agritourism receipts and about $3.3 billion in",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-nrcs-resource-manual"
+      ]
+    },
+    {
+      "question": "How quickly could we launch if our information is scattered across PDFs, website pages, spreadsheets, and staff documents?",
+      "answer": "A practical first launch usually starts with a focused knowledge base: public FAQs, ticket terms, farm maps, seasonal notes, group booking information, accessibility content, refund and weather policies, and the most-used staff SOPs. DocsBot can train on many common content types and internal sources, but the quality of answers depends on how current and approved those materials are. Many farms should start with the top repetitive visitor questions, then add internal procedures and live actions after staff trust the answers.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who on our team needs to own the agent after launch?",
+      "answer": "Most agro-tourism teams should assign one operational owner and a few content reviewers. The owner watches analytics, reviews escalations, and coordinates updates before seasonal peaks. Visitor services or events staff should review booking and policy answers. Farm educators or managers should review tour scripts, animal-area rules, and safety SOPs. If the agent uses actions or system lookups, a technical or operations administrator should manage permissions, secrets, and workflow boundaries.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use it for multilingual visitors without maintaining separate translated FAQ pages?",
+      "answer": "DocsBot can answer in more than 100 languages from approved content, which can help tourists, school families, and multilingual local visitors understand visit logistics. You should still review critical policies, safety signage, waiver language, and accessibility instructions with qualified humans where accuracy is essential. The agent can also collect a visitor’s language preference for follow-up by the reservations team.",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI beyond saying we added AI to the website?",
+      "answer": "Track operational metrics tied to actual workload and revenue: repetitive calls and emails deflected, response time outside office hours, completed group inquiry forms, booking handoff quality, unanswered question rate, visitor satisfaction, staff time spent searching for SOPs, and seasonal content gaps resolved. For revenue impact, compare abandoned group inquiries, farm store questions, event booking requests, and pre-visit support volume before and after launch.",
+      "role": "Farm owners and agritourism operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent be accurate enough for crop status, bloom conditions, and u-pick availability?",
+      "answer": "It can be accurate when the underlying source is accurate and current. For changing conditions, the safest approach is to connect approved live context or maintain a short daily update source that staff can refresh. The agent can then answer from that source and include caveats when conditions change quickly due to weather, crowding, or harvest volume. If no current source is available, the agent should route the visitor to staff rather than inventing availability.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does DocsBot protect internal SOPs, incident notes, private event details, and visitor information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer-defined permissions. Customer data is not used to train public models. For sensitive workflows, Skills can be configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls so the business manages what the agent can access and do.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it help with incident documentation without replacing our safety process?",
+      "answer": "Yes. A private internal agent can help staff capture structured details such as who, what, where, when, witnesses, and immediate actions taken, then prepare a summary for manager review. With an approved workflow, it can create an incident task or notify the proper manager. Human review should remain required for injuries, claims, medical concerns, legal issues, insurance communication, and any safety-sensitive decision.",
+      "role": "Field guides, educators, and seasonal staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is this different from putting a generic chatbot or AI assistant on our farm website?",
+      "answer": "DocsBot is designed to answer from your own approved knowledge sources rather than giving generic travel or agriculture advice. For an agro-tourism operation, that means responses can be grounded in your farm map, ticket policies, seasonal updates, event details, animal-area rules, waiver language, SOPs, and staff knowledge. It can also support structured intake, handoff summaries, analytics, knowledge-gap reporting, and scoped workflow actions when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we control which answers are public and which are only for employees?",
+      "answer": "Yes. You can separate public visitor content from private internal knowledge and use access controls and role-based permissions to govern who can see internal SOPs, staff policies, incident procedures, vendor rules, or private event details. This is important for farms that want guests to get clear planning help while keeping operational procedures, emergency scripts, and manager-only policies inside a private team experience.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent help us prepare for opening weekend, fall festival, or holiday market staffing?",
+      "answer": "Yes. DocsBot analytics and conversation review can show what visitors are asking before and during seasonal peaks, such as parking, ticket windows, accessibility, rain plans, stroller rules, crop status, food options, and refund policies. Internally, staff can use the agent to find opening checklists, daily readiness notes, vendor rules, tour scripts, and emergency procedures. The value is not just answering questions; it is spotting what needs to be clarified before the rush.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What if our staff are not technical and do not want another complicated system?",
+      "answer": "DocsBot can be introduced as a practical answer and handoff tool rather than a large software project. Start with a website widget for the highest-volume visitor questions and a private staff agent for the most-used SOPs. Keep workflows simple at first: answer, collect details, summarize, and route. More advanced actions such as live lookups, task creation, or system updates can be added later once managers trust the content and permissions.",
+      "role": "Field guides, educators, and seasonal staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can it support accessibility and special accommodation questions without overcommitting us?",
+      "answer": "Yes. The agent can answer from approved accessibility pages, path and terrain notes, restroom information, stroller and wheelchair guidance, service animal policies, sensory considerations, and group visit procedures. For individual accommodation requests, medical needs, or unclear situations, it can collect relevant details and route the request to staff instead of promising that a specific experience will be suitable.",
+      "role": "Visitor services, events, and reservations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How should we compare DocsBot with our existing website FAQ, ticketing FAQ, or social inbox replies?",
+      "answer": "A static FAQ only helps when visitors find and read the right page. A DocsBot agent lets visitors ask in their own words, can answer across multiple approved sources, can collect missing details, and can escalate with a useful summary. Compared with social inbox replies, it provides more consistent answers and reporting on repeated confusion. Your existing FAQ and policies still matter—they become the source material that makes the agent reliable.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What procurement or budget concerns should we expect from owners or family leadership?",
+      "answer": "The buying conversation usually comes down to whether the agent saves staff time, protects the guest experience, and avoids operational risk during peak seasons. Owners will want to know which questions it can deflect, how it handles exceptions, who maintains the content, what systems it needs to touch, how private information is protected, and whether it can start small before deeper integrations. A good pilot should focus on measurable workload reduction and cleaner booking intake, not vague AI transformation.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can we use conversation data to improve our website and staff training?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Agro-tourism teams can use that data to update visitor FAQs, ticket pages, seasonal crop updates, farm store descriptions, field trip materials, staff scripts, and SOPs. Over time, the agent becomes a feedback loop showing where guests and employees are confused.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What are the main risks if we deploy an AI agent too broadly on day one?",
+      "answer": "The main risks are stale source content, unclear escalation rules, over-permissioned actions, and staff assuming the agent can make judgment calls it should not make. A safer launch limits the first version to approved visitor questions, structured group intake, and internal SOP lookup. Then add live availability, task creation, CRM or ticketing handoffs, and other actions only after permissions, logs, review paths, and content ownership are clear.",
+      "role": "Farm owners and agritourism operators",
+      "category": "Implementation"
+    }
+  ]
+}

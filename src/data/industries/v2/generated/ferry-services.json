@@ -1,0 +1,727 @@
+{
+  "slug": "ferry-services",
+  "business": "Ferry Services",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Ferry Passenger Support and Operations",
+    "description": "DocsBot helps ferry services automate passenger answers, route issues, and keep crews aligned with source-grounded AI agents trained on your content.",
+    "canonicalPath": "/industry/ferry-services"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for ferry operators",
+    "headline": "Keep ferry passengers informed with DocsBot AI agents",
+    "subheadline": "DocsBot helps ferry services create AI agents trained on schedules, fare rules, vessel policies, terminal guides, accessibility details, FAQs, SOPs, and service alerts so passengers get fast answers and staff can focus on safe, reliable operations.",
+    "proofBullets": [
+      {
+        "text": "Answer route, fare, boarding, baggage, vehicle, bike, pet, and accessibility questions from approved ferry knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect trip details, route service issues, create tickets, summarize conversations, or hand off to staff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give captains, agents, dispatchers, and terminal teams a private knowledge assistant for SOPs, policies, checklists, and incident guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Review analytics, logs, topics, and unanswered questions to find passenger confusion, content gaps, and recurring service issues.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a ferry support agent",
+    "secondaryCta": "Explore DocsBot automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your ferry service knowledge into AI agents that can answer passenger questions, support internal teams, summarize context, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or approved workflows. Use it on your website, in a chat widget, through private team chat, or alongside helpdesk-style ticket workflows.",
+    "whoItHelps": [
+      {
+        "role": "Passenger experience and customer service leaders",
+        "roleContext": "Support teams need to answer the same schedule, fare, disruption, refund, terminal, and accessibility questions across busy commute periods, seasonal peaks, weather events, and late-night service windows.",
+        "bullets": [
+          {
+            "text": "Give passengers instant, source-grounded answers about sailing times, terminal procedures, fare rules, accessibility, and travel policies.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Collect missing trip context before escalation, such as route, date, ticket type, vehicle status, party size, and preferred contact method.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Use conversation analytics to identify recurring passenger confusion and improve website, FAQ, and alert content.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, dispatch, and terminal managers",
+        "roleContext": "Ferry operators coordinate vessel movements, crew communications, terminal procedures, passenger flow, and exception handling across land-side and water-side teams.",
+        "bullets": [
+          {
+            "text": "Make SOPs, terminal playbooks, service recovery steps, and internal policies searchable for staff in private chat experiences.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Route passenger or terminal issues into the right workflow with summaries, urgency labels, and clear handoff context.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Keep answers consistent when schedules, policies, or seasonal procedures change by training agents on approved sources.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Marketing, sales, and charter coordinators",
+        "roleContext": "Many ferry operators also support tourism routes, group travel, events, commuter products, and charter-style inquiries that require quick qualification and clean handoff.",
+        "bullets": [
+          {
+            "text": "Answer service-fit questions about routes, group travel, baggage, vehicles, events, seasonal service, and passenger amenities.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Collect lead details through structured intake flows and forward qualified inquiries to sales, operations, or reservations workflows when configured.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Draft follow-up summaries for human staff while keeping pricing, contracts, and operational commitments under human review.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bts-ncfo",
+      "metric": "BTS conducts a biennial census of U.S. ferry operators.",
+      "claim": "The Bureau of Transportation Statistics’ National Census of Ferry Operators collects operator, route segment, terminal, vessel, passenger volume, season, and trip-time data for ferry service analysis.",
+      "sourceTitle": "National Census of Ferry Operators (NCFO)",
+      "sourceUrl": "https://www.bts.gov/NCFO",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Ferry industry scale",
+        "Route and terminal complexity",
+        "Passenger volume and seasonal operations"
+      ]
+    },
+    {
+      "id": "src-fta-ntd",
+      "metric": "Transit agencies report passenger trips, service levels, operating expenses, and safety data to NTD.",
+      "claim": "The Federal Transit Administration’s National Transit Database records financial, operating, asset, service, passenger, employee, and safety information for U.S. transit systems, including ferryboat service where reported.",
+      "sourceTitle": "The National Transit Database (NTD)",
+      "sourceUrl": "https://www.transit.dot.gov/ntd",
+      "sourceDate": "Updated December 3, 2025",
+      "bestUsedFor": [
+        "Public transit reporting burden",
+        "Operational metrics",
+        "Ridership and service data"
+      ]
+    },
+    {
+      "id": "src-fta-2023-trends",
+      "metric": "Ferryboat is included as a reported transit mode in FTA’s national transit summaries.",
+      "claim": "FTA’s 2023 National Transit Summaries and Trends report includes ferryboat among the transit modes used to analyze national ridership and passenger miles traveled.",
+      "sourceTitle": "2023 National Transit Summaries and Trends (NTST)",
+      "sourceUrl": "https://www.transit.dot.gov/ntd/2023-national-transit-summaries-and-trends-ntst",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Ferry as part of public transit",
+        "Passenger trip reporting",
+        "Transportation operations context"
+      ]
+    },
+    {
+      "id": "src-uscg-passenger-vessels",
+      "metric": "Passenger vessel operations are governed by Coast Guard passenger vessel rules and guidance.",
+      "claim": "The U.S. Coast Guard maintains passenger vessel safety guidance, including navigation and vessel inspection circulars covering passenger vessel regulations and safety topics.",
+      "sourceTitle": "United States Coast Guard Passenger Vessel Safety NVIC Subject Page",
+      "sourceUrl": "https://www.dco.uscg.mil/Our-Organization/NVIC/Subject/Passenger-Vessel-Safety/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Safety-sensitive operating environment",
+        "Regulatory awareness",
+        "Passenger vessel compliance context"
+      ]
+    },
+    {
+      "id": "src-ecfr-passenger-vessels",
+      "metric": "46 CFR Subchapter H covers passenger vessels.",
+      "claim": "Federal passenger vessel rules in 46 CFR Chapter I, Subchapter H include parts for inspection, construction and arrangement, lifesaving equipment, fire protection, operations, and control systems.",
+      "sourceTitle": "46 CFR Chapter I, Subchapter H — Passenger Vessels",
+      "sourceUrl": "https://www.law.cornell.edu/cfr/text/46/chapter-I/subchapter-H",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Safety documentation",
+        "Regulated procedures",
+        "Crew knowledge needs"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Passenger trip planning and policy answers",
+      "problem": "Passengers ask recurring questions about departure times, fares, boarding windows, vehicle loading, bikes, pets, baggage, ADA access, route duration, and terminal facilities.",
+      "agentWorkflow": "A DocsBot AI support agent answers from your approved schedules, route pages, fare tables, travel policies, accessibility content, and FAQs. If the passenger needs help beyond self-service, the agent can collect trip details and prepare a clean handoff for a human agent.",
+      "liveContextOrTools": "When configured with approved APIs, Skills, or connectors, the agent can use live context such as current route status, ticket category rules, terminal notices, or service alerts.",
+      "exampleQuestionsOrRequests": [
+        "Can I bring my car and two bikes on the 7:30 sailing?",
+        "Where do foot passengers board at the downtown terminal?",
+        "What fare applies for a senior passenger with a vehicle?",
+        "Is this route accessible for a wheelchair user?"
+      ],
+      "businessOutcome": "Reduce repetitive pre-trip questions while giving passengers consistent, source-grounded guidance before they arrive at the terminal.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Service alert triage and disruption routing",
+      "problem": "Weather, maintenance, vessel swaps, terminal congestion, and missed departures can create spikes in calls, emails, and social messages.",
+      "agentWorkflow": "DocsBot can answer disruption FAQs, summarize the passenger’s route and issue, classify the request, and route it to customer support, dispatch, or a ticketing workflow through customer-configured AI Actions. Human escalation remains available for refunds, safety-sensitive issues, or complex exceptions.",
+      "liveContextOrTools": "Use customer-authorized live lookups for service alerts, terminal notices, helpdesk queues, or internal incident channels; trigger notifications or create tasks when configured.",
+      "exampleQuestionsOrRequests": [
+        "My ferry was canceled; what should I do now?",
+        "Can you notify support that I missed my vehicle reservation because of a delay?",
+        "Which team should handle a complaint about boarding at Terminal B?"
+      ],
+      "businessOutcome": "Keep passengers informed during service exceptions and help staff receive structured, prioritized handoffs instead of incomplete messages.",
+      "icon": "BellIcon"
+    },
+    {
+      "name": "Terminal and crew knowledge assistant",
+      "problem": "Frontline teams need fast access to operating procedures, passenger policies, emergency references, accessibility processes, lost-and-found steps, and terminal-specific instructions.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves answers from SOPs, manuals, PDFs, policies, wikis, checklists, and training documents. Staff can ask natural-language questions and receive source-grounded answers with links back to approved material.",
+      "liveContextOrTools": "Deploy in private team chat, Slack, Microsoft Teams, or other configured internal experiences. Sensitive procedures can be constrained with access controls and role-based permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is the procedure for an unaccompanied minor?",
+        "How do we handle a passenger who lost a bag on the last sailing?",
+        "Where is the wheelchair boarding checklist for Terminal 3?"
+      ],
+      "businessOutcome": "Reduce time spent searching for procedures and help terminal teams give consistent answers across shifts, routes, and seasonal staffing changes.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ecfr-passenger-vessels"
+      ]
+    },
+    {
+      "name": "Group travel, charter, and commercial inquiry qualification",
+      "problem": "Tour groups, schools, employers, event organizers, and commercial customers often need custom answers before a staff member can quote or schedule follow-up.",
+      "agentWorkflow": "A DocsBot presales agent answers approved service-fit questions, collects structured lead details, applies your qualification rules, and forwards summaries to sales, reservations, or operations through configured workflows.",
+      "liveContextOrTools": "With approved Skills or connectors, the agent can submit lead forms, create CRM-style records, request meetings through scheduling workflows, or draft follow-up emails for human review.",
+      "exampleQuestionsOrRequests": [
+        "Can you handle 120 passengers and 2 buses on a Saturday morning?",
+        "Do you offer recurring commuter passes for an employer group?",
+        "Please send this charter request to the right team."
+      ],
+      "businessOutcome": "Capture better-qualified inquiries and reduce back-and-forth before your team reviews availability, pricing, contracts, or operational feasibility.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Support analytics and documentation gaps",
+      "problem": "Ferry operators may not know which website pages, policies, or service alerts are failing to answer passenger questions until those questions become call volume.",
+      "agentWorkflow": "DocsBot provides logs, topic management, analytics, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so teams can see repeated questions and improve content.",
+      "liveContextOrTools": "Use reviewed conversation themes to update FAQs, route pages, terminal instructions, seasonal service notes, and agent training sources.",
+      "exampleQuestionsOrRequests": [
+        "Which passenger questions went unanswered this month?",
+        "What topics are causing the most escalations?",
+        "Which ferry policies should we clarify on the website?"
+      ],
+      "businessOutcome": "Turn real passenger questions into better knowledge base content, fewer repeat contacts, and more consistent self-service.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-bts-ncfo",
+        "src-fta-ntd"
+      ]
+    },
+    {
+      "name": "Public reporting and operations-data assistance",
+      "problem": "Public and commuter ferry operators track service, passenger trips, assets, costs, and safety information for planning and reporting; the FTA NTD records metrics such as passenger trips, passenger miles, service, operating expenses, employees, and safety data.",
+      "agentWorkflow": "An internal DocsBot agent can answer reporting-process questions from your internal instructions, NTD guidance, data dictionaries, and prior reporting notes, then summarize what information a staff member needs to review or collect.",
+      "liveContextOrTools": "When configured with approved systems, the agent can retrieve internal reference material, create follow-up tasks, or route a data question to finance, planning, safety, or operations staff.",
+      "exampleQuestionsOrRequests": [
+        "Where do we document ferryboat passenger counts for this route?",
+        "Which internal worksheet explains this monthly service metric?",
+        "Create a task for planning to review this missing terminal data."
+      ],
+      "businessOutcome": "Help reporting, planning, and operations teams find the right internal guidance faster while leaving official submissions and attestations to authorized staff.",
+      "icon": "CalculatorIcon",
+      "sourceIds": [
+        "src-fta-ntd",
+        "src-fta-2023-trends"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A passenger-facing AI agent for schedules, policies, alerts, and handoffs",
+    "intro": "Embed DocsBot on your ferry website or help center so passengers can ask trip questions in natural language and receive answers grounded in your approved content. When configured, the agent can collect details, summarize issues, and route complex requests to your team.",
+    "requests": [
+      {
+        "request": "“What time should I arrive if I’m bringing a vehicle?”",
+        "agentResponseStrategy": "Answer from your vehicle boarding policy, terminal instructions, route-specific timing guidance, and reservation rules, then suggest contacting staff if the case is unusual.",
+        "sourceTypes": [
+          "Fare rules",
+          "Vehicle boarding policies",
+          "Terminal pages",
+          "Route FAQs"
+        ],
+        "optionalAction": "Collect route, sailing date, reservation status, and vehicle type before escalating to support if needed.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Is today’s ferry delayed?”",
+        "agentResponseStrategy": "Use approved service-alert content or configured live context to provide the current published status, then explain next steps from your disruption policy.",
+        "sourceTypes": [
+          "Service alerts",
+          "Operations notices",
+          "Schedule feeds",
+          "Customer service playbooks"
+        ],
+        "optionalAction": "Create a ticket or notify a configured workflow when the passenger needs refund, rebooking, or missed-connection help.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“Can I travel with my dog, bicycle, and luggage?”",
+        "agentResponseStrategy": "Answer from travel policies and cite the relevant source content so the passenger can verify limits, fees, and boarding expectations.",
+        "sourceTypes": [
+          "Pet policies",
+          "Bicycle policies",
+          "Baggage rules",
+          "Fare pages"
+        ],
+        "optionalAction": "Ask clarifying questions and route edge cases to a human agent when policies depend on route, vessel, or passenger need.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“I left something on the ferry.”",
+        "agentResponseStrategy": "Guide the passenger through your lost-and-found process and gather the details your team needs to search efficiently.",
+        "sourceTypes": [
+          "Lost-and-found SOPs",
+          "Terminal contact pages",
+          "Customer support macros",
+          "Help center articles"
+        ],
+        "optionalAction": "Submit a configured lost-item form, create a support ticket, or send a summarized handoff to the correct terminal team.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "request": "“Do you have accessibility support at the terminal?”",
+        "agentResponseStrategy": "Answer from approved accessibility pages, boarding assistance policies, terminal-specific instructions, and contact guidance.",
+        "sourceTypes": [
+          "Accessibility policies",
+          "Terminal guides",
+          "Passenger assistance procedures",
+          "FAQ pages"
+        ],
+        "optionalAction": "Collect the route, date, terminal, and requested assistance before routing to staff for arrangements that require human coordination.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can I buy ferry tickets for a school group?”",
+        "agentResponseStrategy": "Answer from approved group-travel content and collect the details needed for sales or reservations to review the request.",
+        "sourceTypes": [
+          "Group travel pages",
+          "Sales FAQs",
+          "Fare policies",
+          "Reservation guidelines"
+        ],
+        "optionalAction": "Forward a qualified inquiry with passenger count, date, route, organization, contact details, and timing needs.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal ferry knowledge agent for crew, terminals, support, and operations",
+    "intro": "DocsBot can give employees a private assistant trained on your SOPs, vessel and terminal procedures, support playbooks, safety references, training content, policies, and reporting guidance. Answers stay grounded in approved sources and can be governed with permissions.",
+    "workflows": [
+      {
+        "name": "Shift-ready procedure lookup",
+        "problem": "Terminal and customer service staff need accurate answers during busy boarding windows, not after searching through folders or asking a manager.",
+        "agentWorkflow": "Staff ask the internal agent about a procedure, policy, or exception. DocsBot retrieves the answer from approved SOPs, manuals, PDFs, or wikis and points back to the source material.",
+        "sourceTypes": [
+          "SOPs",
+          "Terminal manuals",
+          "Training PDFs",
+          "Policy documents"
+        ],
+        "optionalAction": "Create a follow-up task when the question reveals outdated or missing documentation.",
+        "outcome": "Faster, more consistent staff answers across terminals, routes, and shifts.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Incident and complaint summaries",
+        "problem": "Passenger complaints, missed connections, accessibility concerns, and disruption issues often arrive with incomplete context spread across messages.",
+        "agentWorkflow": "DocsBot can summarize a conversation, extract route, date, passenger issue, urgency, requested resolution, and prior responses, then prepare a handoff for the right team.",
+        "sourceTypes": [
+          "Support tickets",
+          "Chat transcripts",
+          "Service recovery playbooks",
+          "Incident categories"
+        ],
+        "optionalAction": "Route the summary to a helpdesk-style workflow, create a task, or notify an approved operations channel when configured.",
+        "outcome": "Cleaner handoffs and less manual triage for support and operations teams.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Regulated safety knowledge navigation",
+        "problem": "Passenger vessel operations depend on structured safety procedures, inspection knowledge, lifesaving equipment references, fire-protection rules, and documented operating practices.",
+        "agentWorkflow": "Use DocsBot as a retrieval assistant for internal safety manuals, training references, and compliance documentation. The agent can surface source-grounded guidance while keeping operational decisions and official compliance signoff with authorized personnel.",
+        "sourceTypes": [
+          "Safety manuals",
+          "Crew training materials",
+          "Inspection checklists",
+          "Regulatory references"
+        ],
+        "optionalAction": "Flag a question for supervisor review when the topic is safety-critical, ambiguous, or outside the agent’s approved scope.",
+        "outcome": "Help teams find the right reference faster while maintaining human control over safety-sensitive decisions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-uscg-passenger-vessels",
+          "src-ecfr-passenger-vessels"
+        ]
+      },
+      {
+        "name": "Sales and reservations enablement",
+        "problem": "Staff handling group bookings, employer programs, tourism partnerships, and charter inquiries need quick access to service details, fare rules, constraints, and approved messaging.",
+        "agentWorkflow": "A DocsBot sales enablement agent retrieves answers from service catalogs, pricing guidance, proposal templates, FAQs, and internal notes, then drafts follow-up language for a human to review.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Pricing guidance",
+          "Proposal templates",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Prepare a lead summary, draft an email, or create an approved follow-up task through configured sales workflows.",
+        "outcome": "More complete inquiry handling without letting AI make final pricing, contract, or capacity commitments.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved business content so answers can be grounded in your own documentation, websites, help centers, and internal sources.",
+      "industryApplication": "Train a ferry support agent on schedules, route pages, fare rules, boarding policies, accessibility guidance, terminal maps, service notices, and FAQs.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents go beyond answers with customer-configured lookups, summaries, routing, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Use approved connections to look up route status, collect lost-item details, create support tickets, route disruption requests, notify a team, or pass a qualified group-travel lead to staff.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistants",
+      "mainLandingPageContext": "DocsBot can work as a private knowledge assistant for employees, trained on SOPs, policies, PDFs, wikis, Google Drive, Notion, Confluence, Word files, and more.",
+      "industryApplication": "Give crew, terminal agents, dispatchers, customer service, and reservations teams fast access to procedure answers and source links across shifts.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Multilingual passenger support",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages using the knowledge sources and instructions configured by the business.",
+      "industryApplication": "Support tourists, commuters, island residents, and international passengers with consistent answers about routes, boarding, policies, and terminal procedures.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Analytics, reports, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which ferry policies, routes, terminals, or disruptions are generating repeat questions so teams can improve FAQs, alerts, and staff documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect internal ferry procedures, staff-only policies, sales notes, and operational documentation while giving approved teams the knowledge access they need.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "russell-hablo-travel-training",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume passenger and customer support where fast, consistent answers matter.",
+      "Train agents on your own manuals, website, policies, and support content instead of relying on generic responses.",
+      "Support public self-service and internal staff workflows from the same source-grounded AI platform."
+    ],
+    "whyTheseReviewsFit": "Ferry operators need dependable self-service, multilingual passenger help, and staff support across routes, terminals, and seasonal demand. DocsBot proof spans scalable customer support, travel-industry training, embedded website assistance, and helpdesk-style workflows.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "BookOpenIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for ferry services",
+    "audience": [
+      "Ferry operators",
+      "Passenger experience leaders",
+      "Transit customer service teams",
+      "Terminal and operations managers",
+      "Reservations and group travel teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "boat-services",
+    "taxi-services",
+    "air-transportation",
+    "intermodal-transport",
+    "last-mile-delivery",
+    "third-party-logistics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "ferry-services",
+    "webSearchQueries": [
+      "Bureau of Transportation Statistics ferry passengers United States 2023 ferry operators",
+      "FTA National Transit Database ferryboat unlinked passenger trips 2023",
+      "U.S. Coast Guard passenger vessel safety ferries regulations Subchapter H T K",
+      "National Census of Ferry Operators 2020 ferry operators terminals vessels"
+    ],
+    "sourceUrls": [
+      "https://www.bts.gov/NCFO",
+      "https://www.transit.dot.gov/ntd",
+      "https://www.transit.dot.gov/ntd/2023-national-transit-summaries-and-trends-ntst",
+      "https://www.dco.uscg.mil/Our-Organization/NVIC/Subject/Passenger-Vessel-Safety/",
+      "https://www.law.cornell.edu/cfr/text/46/chapter-I/subchapter-H"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41254,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28710,
+        "outputTokens": 7975,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 49229,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.194537,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.204537
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21535,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14239,
+          "outputTokens": 5243,
+          "reasoningOutputTokens": 123,
+          "totalTokens": 26778,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116067,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126067
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19719,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14471,
+          "outputTokens": 2732,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22451,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07847,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07847
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1527797393658-6a8777f47011?ixid=M3w1OTc2MjN8MXwxfHNlYXJjaHwxfHxsb2dpc3RpY3N8ZW58MHwwfHx8MTcxNDg3ODA3M3ww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Ferry Services background image",
+    "source": "legacy-industry",
+    "query": "Ferry Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer passenger questions differently by route, terminal, season, or vessel type?",
+      "answer": "Yes. DocsBot can be trained on your approved route pages, terminal guides, fare tables, seasonal notices, vessel policies, and FAQs so answers reflect the right source material. For edge cases, the agent can ask for route, date, passenger type, vehicle status, and terminal before answering or handing off to staff.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help during weather delays, cancellations, or vessel swaps when call volume spikes?",
+      "answer": "DocsBot can provide disruption answers from your published service alerts and customer service playbooks, then collect route, sailing time, ticket type, contact details, and issue summary before escalation. With configured AI Actions, it can create a ticket, notify a team, or route the case to support, dispatch, or reservations.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we keep the AI from making refund, safety, capacity, or operational decisions on its own?",
+      "answer": "Yes. DocsBot is best used with customer-defined boundaries: answer from approved policies, collect context, summarize the request, and escalate when a decision requires human review. Ferry operators can reserve refunds, rebooking exceptions, accessibility arrangements, safety-sensitive guidance, pricing, and capacity commitments for authorized staff.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will the agent work for both public passenger self-service and private crew or terminal knowledge lookup?",
+      "answer": "Yes. You can use DocsBot for a passenger-facing website agent and a private internal knowledge agent. The public agent can answer schedules, fares, boarding, baggage, pets, bikes, and accessibility questions, while the internal agent can retrieve SOPs, terminal procedures, training docs, incident playbooks, and policy references for staff.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot reduce repetitive questions without frustrating passengers who still need a person?",
+      "answer": "DocsBot can resolve common questions instantly from approved content and escalate when the topic is complex, sensitive, missing information, or outside policy. Before handoff, it can gather structured trip details and summarize the conversation so staff receive a cleaner case instead of a vague “please call me” message.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kind of ROI should we look for in a ferry customer service operation?",
+      "answer": "Measure repetitive contact deflection, after-hours self-service, fewer incomplete tickets, faster first response, lower handle time, and reduced staff searching for policy answers. For ferry operators, the most visible gains often come during commuter peaks, tourism season, weather disruptions, reservation changes, and repeated pre-trip questions about boarding rules.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot connect to our service-alert feed, ticketing system, or reservations workflow?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP servers, or workflow automations to support approved lookups and actions. That can include checking live service context, creating a support ticket, submitting a lost-item form, forwarding a group-travel lead, or notifying the right team, depending on what your systems allow.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What if our schedules, fares, and terminal procedures change frequently?",
+      "answer": "DocsBot should be trained on the sources your team already treats as authoritative, such as route pages, fare documents, terminal notices, service alerts, and internal SOPs. When those sources are updated and re-synced, the agent can keep answers aligned with the latest approved content rather than relying on stale scripts.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent handle accessibility questions without overpromising assistance?",
+      "answer": "Yes, if your accessibility pages and passenger-assistance procedures are included as approved sources. The agent can explain published options, ask for route, date, terminal, mobility needs, and contact details, then route requests that require coordination to staff instead of making final service commitments automatically.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we protect internal operating procedures, crew guidance, and staff-only policies?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Internal ferry materials can be used in private knowledge agents while access to staff-only SOPs, policies, sales notes, and operational documents remains governed.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help staff find regulated safety references without turning AI into the decision maker?",
+      "answer": "Yes. DocsBot can act as a retrieval assistant for approved safety manuals, inspection checklists, training references, and compliance documentation. Passenger vessel operations are governed by U.S. Coast Guard safety guidance and federal passenger vessel rules, so safety-critical decisions and official signoff should remain with authorized personnel.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-uscg-passenger-vessels",
+        "src-ecfr-passenger-vessels"
+      ]
+    },
+    {
+      "question": "Can we use this for lost-and-found, complaints, and missed-connection cases?",
+      "answer": "Yes. DocsBot can guide passengers through your lost-and-found or service recovery process, collect key details, summarize the issue, classify urgency, and create or route a case through configured workflows. Staff can then review a complete handoff with route, sailing time, item details, prior responses, and requested resolution.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would marketing or charter teams use an AI agent without creating pricing or capacity risk?",
+      "answer": "DocsBot can answer approved service-fit questions, collect lead details, apply your qualification rules, and forward a summary to sales, reservations, or operations. Humans can stay responsible for quotes, contracts, custom capacity review, vessel availability, special events, school groups, employer programs, and charter commitments.",
+      "role": "Marketing, sales, and charter coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent support tourists and non-English-speaking passengers?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages using the knowledge sources and instructions your team configures. That can help tourists, island residents, commuters, and international passengers understand schedules, terminals, baggage rules, pet policies, accessibility details, and disruption instructions more consistently.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What analytics would our team get after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Ferry teams can see repeated questions by topic, unanswered questions, escalation drivers, confusing route or terminal content, and opportunities to improve FAQs, service alerts, and staff documentation.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use passenger questions to improve our website and service alerts?",
+      "answer": "Yes. Conversation logs and topic analytics can reveal which route pages, fare rules, terminal instructions, or disruption notices are not clear enough. Ferry operators can use those insights to update public FAQs, seasonal travel guidance, accessibility pages, vehicle boarding instructions, and internal support macros.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How hard is implementation if our knowledge lives across PDFs, web pages, shared drives, and wikis?",
+      "answer": "DocsBot can train on websites, help centers, PDFs, Word documents, text files, Google Drive, Notion, Confluence, wikis, and other configured knowledge sources. A practical rollout usually starts with high-volume passenger content, then expands to internal SOPs, terminal guides, sales enablement materials, and workflow actions.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own the rollout: customer service, operations, IT, or marketing?",
+      "answer": "Most ferry rollouts need shared ownership. Customer service owns passenger intents and escalation rules, operations validates route and terminal procedures, IT reviews security and integrations, and marketing or reservations manages public messaging and group-travel intake. DocsBot works best when one business owner coordinates source quality and approval.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this help with public transit reporting or internal data guidance?",
+      "answer": "DocsBot can help staff find internal reporting instructions, data dictionaries, prior notes, and task owners faster. The FTA National Transit Database records financial, operating, asset, service, passenger, employee, and safety information for U.S. transit systems, including ferryboat service where reported, but official submissions should remain with authorized staff.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fta-ntd"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or FAQ search tool?",
+      "answer": "DocsBot is designed as a source-grounded AI agent, not just a static FAQ widget. It can retrieve answers from approved ferry content, support internal knowledge lookup, summarize conversations, identify knowledge gaps, and take bounded actions through configured Skills, APIs, connectors, MCP servers, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What prevents the agent from giving outdated or unofficial answers from the internet?",
+      "answer": "DocsBot agents are trained on the knowledge sources you configure, such as your website, schedules, fare rules, SOPs, PDFs, and service content. For ferry use cases, the safest setup is to ground answers in approved sources, restrict unsupported topics, show source context when appropriate, and escalate uncertain cases.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can terminal agents use it during busy boarding windows without slowing down operations?",
+      "answer": "Yes. A private DocsBot internal agent can let staff ask natural-language questions about policies, boarding procedures, accessibility steps, lost-and-found, or terminal-specific rules. Instead of searching folders or interrupting a supervisor, agents can get a source-grounded answer and link back to the approved reference.",
+      "role": "Operations, dispatch, and terminal managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How should we phase the rollout to avoid overwhelming our small team?",
+      "answer": "Start with the highest-volume passenger questions: schedules, fares, boarding windows, vehicle rules, bikes, pets, baggage, accessibility, and terminal directions. Then add escalation workflows, service-alert handling, lost-and-found intake, internal SOP lookup, and group-travel qualification once your team has reviewed performance and content gaps.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support seasonal peaks, commuter rushes, and after-hours passenger questions?",
+      "answer": "Yes. DocsBot can provide always-available answers from approved passenger content and scale across repeated questions during seasonal tourism, commuter peaks, late-night service windows, and disruption events. The Bureau of Transportation Statistics’ ferry census collects operator, route, terminal, vessel, passenger volume, season, and trip-time data, reflecting the industry’s route and seasonal complexity.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bts-ncfo"
+      ]
+    },
+    {
+      "question": "What procurement or IT questions should we resolve before buying?",
+      "answer": "Confirm source ownership, approval workflows, access controls, data retention expectations, escalation rules, integration scope, and which actions the agent may perform. For ferry operators, also decide how safety-sensitive, refund, accessibility, charter, and operational exceptions will be routed to humans rather than automated.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can we review what the agent said if a passenger disputes an answer?",
+      "answer": "Yes. DocsBot provides logs and conversation review so teams can inspect questions, answers, source coverage, escalations, and unresolved topics. That helps managers investigate disputed answers, coach staff, refine instructions, update source content, and decide whether certain topics should require human escalation.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Will DocsBot replace our contact center or terminal staff?",
+      "answer": "No. DocsBot is best positioned as a support and knowledge layer: it answers repetitive questions, collects missing details, summarizes context, and routes work. Human staff remain essential for safety-sensitive situations, passenger care, exceptions, refunds, accessibility coordination, operational judgment, and final commitments.",
+      "role": "Passenger experience and customer service leaders",
+      "category": "Human oversight"
+    }
+  ]
+}

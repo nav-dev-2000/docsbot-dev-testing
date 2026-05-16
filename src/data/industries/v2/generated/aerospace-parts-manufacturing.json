@@ -1,0 +1,728 @@
+{
+  "slug": "aerospace-parts-manufacturing",
+  "business": "Aerospace Parts Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Aerospace Parts Manufacturing",
+    "description": "DocsBot helps aerospace parts manufacturers answer specs, retrieve approved procedures, and route quality-sensitive requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/aerospace-parts-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for regulated aerospace supply chains",
+    "headline": "DocsBot AI agents for aerospace parts manufacturers",
+    "subheadline": "Train AI agents on your approved drawings, work instructions, quality manuals, supplier documentation, product catalogs, and support history so buyers and employees can get faster answers while sensitive quality, pricing, and compliance decisions stay within your rules.",
+    "proofBullets": [
+      {
+        "text": "Answer part-fit, material, process, documentation, and lead-time questions from approved product and quality sources.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "text": "Give machinists, inspectors, engineers, sales, and customer service teams fast access to SOPs, specs, manuals, and internal guidance.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect RFQ details, summarize requirements, create tasks, route tickets, or prepare human handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Surface repeated buyer and employee questions so teams can improve catalogs, technical documentation, and support content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an aerospace parts AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps aerospace parts manufacturers create AI agents trained on company-controlled knowledge: product catalogs, quality manuals, inspection procedures, sales enablement content, FAQs, PDFs, SOPs, ticket exports, and internal documents. Agents provide source-grounded answers, summarize context, identify documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP Connectors, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and inside sales teams",
+        "roleContext": "Support reps and sales coordinators field repeated questions about part numbers, materials, documentation packages, order requirements, and RFQ intake while knowing when to escalate.",
+        "bullets": [
+          {
+            "text": "Answer common buyer questions from approved catalogs, FAQs, manuals, and policy pages before a rep opens another tab.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect RFQ details such as part number, revision, quantity, material, delivery target, compliance needs, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Prepare a concise handoff summary for sales, engineering, or quality when the request involves custom work, pricing, or controlled documentation.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Quality, compliance, and engineering teams",
+        "roleContext": "Aerospace parts work depends on controlled procedures, configuration discipline, supplier records, and careful treatment of unapproved or suspect components.",
+        "bullets": [
+          {
+            "text": "Make approved quality procedures, inspection checklists, nonconformance guidance, and training references easier to find.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support controlled responses for documentation questions while routing safety-critical, regulatory, or customer-specific decisions to the right human reviewer.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "The FAA says it investigates every suspected unapproved parts report and notifies affected owners, operators, manufacturers, suppliers, and distributors when a part is determined unapproved.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-faa-sup"
+            ]
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Operations, production, and training leaders",
+        "roleContext": "Shop-floor and back-office employees need fast access to current procedures without relying only on tribal knowledge or long document searches.",
+        "bullets": [
+          {
+            "text": "Help employees retrieve work instructions, onboarding material, tool procedures, and internal policies in private team chat experiences.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Summarize long internal documents into practical next steps while linking answers back to approved sources.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Boeing forecasts demand for 710,000 new commercial aviation maintenance technicians worldwide from 2025 through 2044, underscoring the need for scalable knowledge transfer across the aviation ecosystem.",
+            "icon": "AcademicCapIcon",
+            "sourceIds": [
+              "src-boeing-pto"
+            ]
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aia-impact",
+      "metric": "2.23 million U.S. A&D workers and $995 billion in 2024 sales revenue",
+      "claim": "AIA reports the U.S. aerospace and defense industry workforce stood at more than 2.23 million in 2024, with $995 billion in combined sales revenue and 59% of employment coming from the shared A&D supply chain.",
+      "sourceTitle": "Aerospace Industries Association: 2025 Facts & Figures: U.S. Aerospace & Defense",
+      "sourceUrl": "https://www.aia-aerospace.org/industry-impact/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "industry scale",
+        "supply chain importance",
+        "manufacturing workforce context"
+      ]
+    },
+    {
+      "id": "src-faa-sup",
+      "metric": "FAA Suspected Unapproved Parts program",
+      "claim": "The FAA states that it is committed to discovering and removing suspected unapproved parts, investigates every SUP report, and provides guidance for suppliers and maintenance facilities.",
+      "sourceTitle": "Federal Aviation Administration: Suspected Unapproved Parts Program",
+      "sourceUrl": "https://www.faa.gov/aircraft/safety/programs/sups",
+      "sourceDate": "Updated January 27, 2025",
+      "bestUsedFor": [
+        "parts traceability pressure",
+        "quality risk",
+        "supplier documentation expectations"
+      ]
+    },
+    {
+      "id": "src-boeing-pto",
+      "metric": "710,000 new maintenance technicians needed worldwide through 2044",
+      "claim": "Boeing’s 2025 Pilot and Technician Outlook forecasts 660,000 new pilots, 710,000 new maintenance technicians, and 1,000,000 cabin crew members will be needed globally over 20 years.",
+      "sourceTitle": "Boeing Pilot and Technician Outlook 2025-2044",
+      "sourceUrl": "https://www.boeing.com/commercial/market/pilot-technician-outlook",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce training demand",
+        "aviation labor pressure",
+        "knowledge transfer"
+      ]
+    },
+    {
+      "id": "src-iaqg-9100",
+      "metric": "9100-series aerospace quality management standards",
+      "claim": "IAQG identifies 9100 as the quality management systems requirements standard for aviation, space, and defense organizations and manages the aerospace quality management certification scheme.",
+      "sourceTitle": "IAQG: 9100 Quality Management Systems Requirements for Aviation, Space and Defense Organizations",
+      "sourceUrl": "https://iaqg.org/standard/9100-qms-requirements-for-aviation-space-and-defense-organizations/",
+      "sourceDate": "Current page accessed 2026",
+      "bestUsedFor": [
+        "quality management context",
+        "regulated manufacturing expectations",
+        "audit readiness"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "RFQ and specification intake agent",
+      "problem": "Aerospace buyers often arrive with partial part numbers, revision questions, drawing references, material requirements, documentation expectations, or urgent delivery needs.",
+      "agentWorkflow": "A DocsBot agent answers from approved catalogs, capability sheets, FAQs, and sales guidance, then collects missing RFQ fields through a structured intake flow. With configured AI Actions, it can create a task, send a summary to sales or engineering, or forward the lead to customer-approved sales systems.",
+      "liveContextOrTools": "Customer-configured Skills or APIs can look up approved catalog metadata, route the RFQ to a queue, create a ticket, or trigger a review workflow when the request involves controlled drawings, custom pricing, or export-sensitive context.",
+      "exampleQuestionsOrRequests": [
+        "Can you manufacture this bracket to revision C with a first article inspection report?",
+        "What information do you need to quote a CNC-machined aerospace component?",
+        "Send this RFQ to engineering with the drawing notes and required delivery date."
+      ],
+      "businessOutcome": "Fewer incomplete RFQs, faster triage, and better handoffs between sales, engineering, and quality without letting the agent make contractual or compliance commitments.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Quality procedure and audit support agent",
+      "problem": "Employees need consistent access to approved procedures, inspection steps, training references, and quality system guidance without searching across binders, PDFs, drives, and wikis.",
+      "agentWorkflow": "Train the agent on controlled internal documents, quality manuals, SOPs, work instructions, and training content. Employees ask natural-language questions and receive source-grounded answers with citations back to the approved material, plus escalation guidance for exceptions.",
+      "liveContextOrTools": "With approved workflow access, the agent can summarize a nonconformance description, create a follow-up task, or route a question to quality leadership for review.",
+      "exampleQuestionsOrRequests": [
+        "Where is the latest receiving inspection checklist for aerospace raw material?",
+        "Summarize the steps for handling a suspected nonconforming lot.",
+        "Which internal procedure covers certificate of conformity review?"
+      ],
+      "businessOutcome": "Reduces time spent searching for procedures and helps keep quality discussions anchored in current controlled knowledge.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-iaqg-9100"
+      ]
+    },
+    {
+      "name": "Suspected unapproved parts response assistant",
+      "problem": "Questions about provenance, documentation, supplier records, and suspect parts require careful routing and consistent internal guidance.",
+      "agentWorkflow": "The agent retrieves company procedures for quarantine, documentation review, reporting paths, supplier communication, and escalation. It can summarize the known facts and prepare a human-reviewed handoff without deciding airworthiness, regulatory findings, or final disposition.",
+      "liveContextOrTools": "Configured Skills can create an internal quality ticket, attach a conversation summary, notify the quality team, or check an approved internal status field for an existing investigation.",
+      "exampleQuestionsOrRequests": [
+        "What should receiving do if a material certificate looks inconsistent?",
+        "Create a quality review task for this lot and include the supplier, PO, part number, and concern.",
+        "Summarize our internal escalation procedure for suspected unapproved parts."
+      ],
+      "businessOutcome": "Improves consistency during sensitive quality events while keeping regulated judgments and external reporting under qualified human control.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-faa-sup"
+      ]
+    },
+    {
+      "name": "Technical support and documentation agent",
+      "problem": "Customers, distributors, and internal teams ask recurring questions about capabilities, tolerances, finish options, documentation packages, packaging, maintenance references, and order status vocabulary.",
+      "agentWorkflow": "DocsBot answers from approved public or private documentation, manuals, help articles, product pages, and ticket history when connected. It can draft support replies, suggest source links, summarize the issue, and escalate when a question is complex or sensitive.",
+      "liveContextOrTools": "A customer-configured helpdesk connection can help the agent summarize tickets, draft replies, route requests, or create follow-up tasks for support staff.",
+      "exampleQuestionsOrRequests": [
+        "What documentation can be included with this shipment?",
+        "Do you support passivation and serialized labeling for aerospace parts?",
+        "Draft a response explaining which details we need before engineering can answer."
+      ],
+      "businessOutcome": "Faster first responses and better documentation coverage while preserving human review for technical commitments, compliance language, and customer-specific exceptions.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Sales enablement and account preparation agent",
+      "problem": "Account managers need quick access to capability statements, approved differentiators, proposal language, past FAQs, and customer-specific notes before responding to OEMs, tier suppliers, distributors, or MRO buyers.",
+      "agentWorkflow": "The agent answers sales questions from approved internal materials, summarizes prospect context when configured with web search and approved Skills, drafts follow-up emails, and prepares objection-handling notes for human sellers.",
+      "liveContextOrTools": "With customer-authorized CRM, inbox, calendar, or proposal workflow access, the agent can retrieve context, create tasks, draft follow-ups, or update approved fields while leaving pricing, legal terms, and final outreach to the sales team.",
+      "exampleQuestionsOrRequests": [
+        "Summarize our approved response to questions about AS9100-aligned quality processes.",
+        "Draft a follow-up email after this RFQ call, using only approved capability language.",
+        "What should I ask before quoting a flight-critical machined component?"
+      ],
+      "businessOutcome": "More consistent sales responses and faster proposal preparation without inventing capabilities or committing to terms outside approved guidance.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Workforce onboarding and tribal-knowledge capture agent",
+      "problem": "Aerospace manufacturing depends on specialized knowledge spread across experienced employees, quality documents, engineering notes, and production procedures.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on onboarding materials, SOPs, tool instructions, HR policies, process notes, and internal FAQs. New hires and cross-trained employees can ask questions and receive answers grounded in approved sources.",
+      "liveContextOrTools": "Analytics and conversation review show repeated onboarding questions and documentation gaps so managers can improve training materials over time.",
+      "exampleQuestionsOrRequests": [
+        "What should a new inspector review before first-shift receiving inspection?",
+        "Where do I find the approved setup checklist for this process family?",
+        "Which questions are new hires asking most often this month?"
+      ],
+      "businessOutcome": "Scales knowledge transfer across shifts and locations as aviation and aerospace employers face long-term talent and training demand.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-boeing-pto"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give aerospace buyers faster answers without loosening control",
+    "intro": "Deploy a DocsBot AI support or presales agent on your website, portal, or product experience to answer from approved public documentation, collect structured RFQ details, and escalate controlled or sensitive questions to a qualified human.",
+    "requests": [
+      {
+        "request": "“Can you quote this part if I upload the drawing later?”",
+        "agentResponseStrategy": "Explain the intake requirements from approved sales guidance, collect available details, and offer a structured handoff to sales or engineering when configured.",
+        "sourceTypes": [
+          "RFQ guidance",
+          "Capability statements",
+          "Sales FAQs",
+          "Approved policy pages"
+        ],
+        "optionalAction": "Create a sales task or send a summarized RFQ intake to a configured workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“What certifications or documentation can ship with my order?”",
+        "agentResponseStrategy": "Answer only from approved documentation pages and quality policy content, cite sources, and escalate customer-specific certification commitments for review.",
+        "sourceTypes": [
+          "Quality manual excerpts",
+          "Documentation FAQs",
+          "Customer support articles",
+          "Product pages"
+        ],
+        "optionalAction": "Route the request to quality or customer service with the conversation summary.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Which material, finish, and tolerance options do you support?”",
+        "agentResponseStrategy": "Retrieve approved capability information, clarify that final manufacturability depends on drawing review, and collect required context for a human quote.",
+        "sourceTypes": [
+          "Capability sheets",
+          "Product catalogs",
+          "Manufacturing process pages",
+          "FAQs"
+        ],
+        "optionalAction": "Trigger a customer-configured lead form or engineering review queue.",
+        "icon": "CogIcon"
+      },
+      {
+        "request": "“I need help with an existing order or support issue.”",
+        "agentResponseStrategy": "Collect order context, answer general policy questions from approved sources, and escalate detailed status or quality issues to the appropriate support path.",
+        "sourceTypes": [
+          "Support FAQs",
+          "Ticket history exports",
+          "Order policy pages",
+          "Internal escalation rules"
+        ],
+        "optionalAction": "Create or route a helpdesk ticket through approved helpdesk software workflows.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Can you answer in our customer’s preferred language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to respond from the same approved source material while preserving escalation paths for nuanced technical or contractual questions.",
+        "sourceTypes": [
+          "Product documentation",
+          "FAQs",
+          "Support articles",
+          "Policy pages"
+        ],
+        "optionalAction": "Forward the conversation and language context to the assigned sales or support team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this part approved for my aircraft or installation?”",
+        "agentResponseStrategy": "Provide general source-grounded guidance from approved company materials, avoid making airworthiness determinations, and route the request to qualified staff for review.",
+        "sourceTypes": [
+          "Approved public documentation",
+          "Quality policy pages",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a reviewed handoff with part number, serial or lot details, and customer context.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-faa-sup"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make controlled manufacturing knowledge easier for employees to use",
+    "intro": "DocsBot can run as a private internal knowledge agent for quality, engineering, production, customer service, sales, and operations teams. Employees ask questions in a private chat experience and get answers grounded in approved internal sources.",
+    "workflows": [
+      {
+        "name": "Shop-floor procedure lookup",
+        "problem": "Operators and supervisors may need fast answers from SOPs, work instructions, tool notes, and packaging procedures during a busy shift.",
+        "agentWorkflow": "The agent retrieves relevant procedure passages, summarizes steps, and links back to the approved source so employees can verify the authoritative document.",
+        "sourceTypes": [
+          "SOPs",
+          "Work instructions",
+          "PDF manuals",
+          "Internal wikis",
+          "Training files"
+        ],
+        "optionalAction": "Create a task for a supervisor when a repeated question signals unclear documentation.",
+        "outcome": "Less time searching and fewer informal answers that drift from approved procedures.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Quality and inspection knowledge desk",
+        "problem": "Inspectors and quality coordinators need consistent access to receiving inspection rules, certificate review guidance, nonconformance procedures, and escalation paths.",
+        "agentWorkflow": "DocsBot answers from controlled quality documents, summarizes relevant steps, and recommends escalation when the question involves disposition, regulatory reporting, or customer commitments.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Inspection checklists",
+          "Nonconformance procedures",
+          "Training materials"
+        ],
+        "optionalAction": "Generate a quality-ticket summary or notify the configured review channel.",
+        "outcome": "Better consistency in routine quality questions while keeping high-impact decisions with qualified people.",
+        "icon": "CheckCircleIcon",
+        "sourceIds": [
+          "src-iaqg-9100"
+        ]
+      },
+      {
+        "name": "Support ticket drafting and routing",
+        "problem": "Support teams spend time re-reading past conversations, looking up policy language, and deciding which technical questions require engineering or quality input.",
+        "agentWorkflow": "When connected through approved Skills, APIs, connectors, exports, or workflows, the agent can summarize tickets, draft responses from approved content, route requests, and flag missing documentation topics.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Support articles",
+          "Product docs",
+          "Customer policies"
+        ],
+        "optionalAction": "Draft a reply for human review or route the ticket to sales, engineering, quality, or operations.",
+        "outcome": "Shorter response cycles and clearer handoffs for recurring customer questions.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Sales playbook and proposal assistance",
+        "problem": "Sales teams need approved wording for capabilities, lead times, quality positioning, objection handling, and proposal inputs.",
+        "agentWorkflow": "The agent searches approved sales enablement materials, case notes, FAQs, proposal templates, and capability statements to draft responses for human sellers.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Capability statements",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task through a configured workflow, or summarize account context.",
+        "outcome": "More consistent customer communication and less time spent hunting through sales documents.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Documentation gap reporting",
+        "problem": "Recurring questions from buyers and employees often reveal missing, outdated, or hard-to-find content.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help teams see what people are asking and where approved content is thin.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Reports",
+          "Topic analytics",
+          "Knowledge sources"
+        ],
+        "optionalAction": "Create a documentation improvement task for the owner of the relevant product, process, or policy.",
+        "outcome": "Continuous improvement for customer-facing and internal documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on company-selected sources and respond from that content instead of relying on generic knowledge alone.",
+      "industryApplication": "Answer aerospace part, RFQ, documentation, procedure, and support questions from approved catalogs, quality materials, PDFs, SOPs, and internal knowledge bases.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded tasks such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect RFQ fields, create quality review tasks, route support tickets, summarize suspect-part concerns, notify teams, or connect to remote Model Context Protocol servers where your approved systems expose tools.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can train on internal documents, wikis, Google Drive, Notion, Confluence, PDFs, Word files, and other company knowledge sources.",
+      "industryApplication": "Give production, quality, engineering, sales, and support employees instant access to controlled procedures, policies, onboarding content, and troubleshooting guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Customer-facing support and presales widget",
+      "mainLandingPageContext": "DocsBot agents can work in website or product chat widgets and support helpdesk-connected workflows with human escalation.",
+      "industryApplication": "Answer buyer questions, qualify RFQs, collect lead details, draft support replies, and escalate controlled technical or contractual questions to the right team.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated buyer questions, missing technical content, confusing procedures, and documentation topics that slow aerospace parts support and operations.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support private aerospace documentation, internal procedures, customer-specific context, and role-based access expectations for sensitive manufacturing knowledge.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for owned technical content, manuals, documentation, and support knowledge.",
+      "Proven in high-volume support environments where fast, consistent answers matter.",
+      "Helps teams understand what customers and employees are trying to learn from documentation."
+    ],
+    "whyTheseReviewsFit": "Aerospace parts manufacturers need AI agents that stay grounded in controlled content, scale repetitive support, and reveal where documentation is unclear. DocsBot proof spans multilingual manuals, owned content libraries, documentation engagement, and high-volume inquiry resolution.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "RocketLaunchIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for aerospace parts manufacturing",
+    "audience": [
+      "Aerospace parts manufacturers",
+      "A&D suppliers",
+      "Quality and compliance leaders",
+      "Inside sales and customer support teams",
+      "Manufacturing operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "additive-manufacturing",
+    "contract-manufacturing",
+    "industrial-manufacturing",
+    "industrial-parts-distribution",
+    "replacement-parts-sales",
+    "robotics-manufacturing",
+    "semiconductor-manufacturing",
+    "b2b-product-distributors"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "aerospace-parts-manufacturing",
+    "webSearchQueries": [
+      "FAA aerospace manufacturing supply chain parts traceability quality management AS9100 counterfeit parts statistics",
+      "Boeing Pilot and Technician Outlook 2025 aerospace workforce demand manufacturing",
+      "AIA Facts and Figures U.S. aerospace and defense industry 2024 sales exports jobs",
+      "FAA Suspected Unapproved Parts Program aircraft parts",
+      "IAQG 9100 standard counterfeit parts prevention aerospace quality management"
+    ],
+    "sourceUrls": [
+      "https://www.aia-aerospace.org/industry-impact/",
+      "https://www.faa.gov/aircraft/safety/programs/sups",
+      "https://www.boeing.com/commercial/market/pilot-technician-outlook",
+      "https://iaqg.org/standard/9100-qms-requirements-for-aviation-space-and-defense-organizations/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 50620,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 30908,
+        "outputTokens": 7951,
+        "reasoningOutputTokens": 226,
+        "totalTokens": 58571,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.201464,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.231464
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 30877,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 16413,
+          "outputTokens": 5317,
+          "reasoningOutputTokens": 226,
+          "totalTokens": 36194,
+          "webSearchCalls": 3,
+          "estimatedTokenCostUsd": 0.124404,
+          "estimatedWebSearchCostUsd": 0.03,
+          "estimatedTotalCostUsd": 0.154404
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19743,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14495,
+          "outputTokens": 2634,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22377,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07706,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07706
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1717386255767-52643970d483?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxBZXJvc3BhY2UlMjBQYXJ0cyUyME1hbnVmYWN0dXJpbmd8ZW58MHwwfHx8MTc3ODgyMzI2Nnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a factory with a lot of machines in it",
+    "source": "unsplash-search",
+    "query": "Aerospace Parts Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer RFQ questions without committing us to a price, lead time, or manufacturability decision?",
+      "answer": "Yes. Configure DocsBot to answer only from approved capability sheets, RFQ guidance, catalogs, and policy content, then collect missing details such as part number, revision, material, quantity, documentation needs, and target delivery date. Pricing, manufacturability, export-sensitive context, and contractual commitments can be routed to sales, engineering, or quality for human review.",
+      "role": "Customer service and inside sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our inside sales team handle incomplete aerospace RFQs?",
+      "answer": "DocsBot can walk buyers through a structured intake flow, ask for required RFQ fields, summarize the request, and forward it through customer-configured workflows. That helps reps spend less time chasing basics and more time on quote strategy, engineering clarification, and customer follow-up.",
+      "role": "Customer service and inside sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot answer questions from our approved quality manual, work instructions, and inspection procedures?",
+      "answer": "Yes. DocsBot can be trained on controlled internal documents such as quality manuals, SOPs, inspection checklists, PDFs, training files, and internal wikis. Employees can ask natural-language questions and receive source-grounded answers with links back to the approved material, while exceptions or disposition decisions stay with qualified reviewers.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the AI make airworthiness, conformity, or suspected unapproved parts decisions?",
+      "answer": "No. DocsBot should be configured to retrieve your approved procedure, summarize known facts, collect lot or serial context, and route the issue to qualified personnel. That separation matters because the FAA says it investigates every suspected unapproved parts report and provides guidance for suppliers and maintenance facilities.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-faa-sup"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from using obsolete revisions or uncontrolled documents?",
+      "answer": "Treat DocsBot’s knowledge sources like any controlled information set: connect or upload only approved sources, remove superseded documents, use role-based access where needed, and review conversation logs for drift or documentation gaps. The agent can cite the source it used so employees can verify the authoritative document before acting.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can different teams see different answers if some procedures or customer files are restricted?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, so private internal agents can be scoped around who should access particular knowledge. That is useful when sales, production, quality, engineering, and customer service need overlapping guidance but should not all see the same customer-specific, pricing, or controlled documentation.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot support AS9100-style audit readiness or quality management workflows?",
+      "answer": "DocsBot does not replace your quality management system, but it can make approved procedures, training references, inspection guidance, and escalation paths easier to retrieve. IAQG identifies 9100 as the quality management systems requirements standard for aviation, space, and defense organizations, so source-grounded access to controlled knowledge can support more consistent day-to-day quality conversations.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-iaqg-9100"
+      ]
+    },
+    {
+      "question": "Can the agent create a nonconformance, supplier issue, or quality review ticket?",
+      "answer": "When you configure the appropriate Skills, APIs, connectors, or workflow automations, DocsBot can create a task or ticket, attach a conversation summary, notify the right team, or update approved fields. High-impact decisions such as disposition, supplier corrective action approval, regulatory reporting, or customer commitments should remain human-controlled.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would this fit with our ERP, QMS, CRM, helpdesk, or shared-drive environment?",
+      "answer": "DocsBot can work from uploaded or connected knowledge sources and can use customer-configured Skills, APIs, connectors, MCP Connectors, or workflow automations for approved lookups and actions. Avoid assuming a native integration is required: many teams start with documents, catalogs, FAQs, SOPs, and ticket exports, then add live system context after governance is clear.",
+      "role": "Operations, production, and training leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we automate first: customer RFQs, support tickets, or internal procedures?",
+      "answer": "Start where answers are repetitive, source material is already approved, and risk boundaries are clear. Many aerospace parts manufacturers begin with RFQ intake, documentation-package questions, capability FAQs, or internal procedure lookup. Save live order status, quality events, pricing, and customer-specific commitments for later phases with stronger review paths.",
+      "role": "Operations, production, and training leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation take if our documents are scattered across PDFs, folders, and wikis?",
+      "answer": "Implementation depends less on AI setup and more on source readiness. A practical rollout starts by selecting high-value, approved documents, defining escalation rules, testing answers with real sales and quality questions, and reviewing gaps. DocsBot can train on PDFs, Word files, internal documents, wikis, Google Drive, Notion, Confluence, and other configured sources.",
+      "role": "Operations, production, and training leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can production employees use it on the shop floor without turning it into tribal knowledge 2.0?",
+      "answer": "Yes, if the agent is trained on approved procedures and instructed to cite sources instead of giving informal advice. DocsBot can summarize relevant steps, link back to the controlling document, and route uncertainty to a supervisor or quality owner. Conversation analytics can also reveal which procedures employees keep struggling to find or interpret.",
+      "role": "Operations, production, and training leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How can we measure ROI beyond fewer support tickets?",
+      "answer": "Track incomplete RFQs reduced, time to first response, handoff quality, repeated questions resolved, internal search time saved, ticket deflection, documentation gaps closed, onboarding questions answered, and escalation accuracy. For regulated manufacturing, ROI is not only speed; it is also consistency, fewer avoidable interruptions, and better use of engineering and quality time.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this help with workforce onboarding as experienced machinists, inspectors, and engineers retire or move roles?",
+      "answer": "DocsBot can preserve approved knowledge in a private internal agent for new hires and cross-trained employees. That matters in a constrained aviation talent environment: Boeing’s 2025 outlook forecasts demand for 710,000 new commercial aviation maintenance technicians worldwide from 2025 through 2044.",
+      "role": "Operations, production, and training leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-boeing-pto"
+      ]
+    },
+    {
+      "question": "Can the agent support multilingual customers, suppliers, or distributed facilities?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while grounding responses in the same approved source material. For nuanced technical, contractual, quality, or compliance questions, the agent can preserve the conversation context and route the handoff to the appropriate sales, support, engineering, or quality reviewer.",
+      "role": "Customer service and inside sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from exposing controlled drawings, customer-specific requirements, or sensitive supplier data?",
+      "answer": "Use private knowledge scopes, role-based permissions, approved source selection, and tightly defined Skills. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and does not use customer data to train public models. Sensitive documents should be available only to the roles and workflows that need them.",
+      "role": "Quality, compliance, and engineering teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent told a customer or employee after the fact?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That gives managers a way to inspect answers, find repeated buyer or employee questions, identify weak documentation, and tune instructions or sources over time.",
+      "role": "Operations, production, and training leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a customer asks whether a part is approved for a specific aircraft or installation?",
+      "answer": "The agent should avoid making airworthiness or installation determinations. It can provide general guidance from approved public materials, collect part number, serial or lot details, aircraft context, and documentation needs, then route the request to qualified staff. This is especially important because suspected unapproved parts and related determinations are handled through formal aviation safety processes.",
+      "role": "Customer service and inside sales teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-faa-sup"
+      ]
+    },
+    {
+      "question": "Can DocsBot draft customer replies for our team without sending them automatically?",
+      "answer": "Yes. DocsBot can draft support or sales responses from approved documentation, catalogs, policies, ticket exports, and sales enablement materials. Many aerospace teams will prefer a human-in-the-loop workflow where the agent prepares the response, cites sources, and flags uncertainty, while a rep, engineer, or quality leader approves the final message.",
+      "role": "Customer service and inside sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with asking employees to use a general-purpose AI tool?",
+      "answer": "DocsBot is built around company-controlled knowledge, source-grounded answers, access controls, logs, and scoped actions. A general-purpose AI tool may help with drafting, but aerospace parts teams usually need answers tied to approved procedures, current catalogs, customer rules, and human escalation paths rather than broad internet knowledge or unsourced suggestions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help us improve our catalogs, capability pages, and technical documentation?",
+      "answer": "Yes. DocsBot analytics and conversation review can show which part, material, finish, documentation, certification, lead-time, and procedure questions keep recurring. Those patterns help product, sales, support, and quality teams decide which FAQs, catalog pages, capability statements, or internal procedures need clearer wording or better coverage.",
+      "role": "Customer service and inside sales teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What is the safest way to pilot DocsBot in a regulated aerospace parts environment?",
+      "answer": "Choose a narrow use case, limit sources to approved content, define prohibited answers, set escalation rules, test with real RFQs and procedure questions, and review logs before expanding. A strong pilot might cover RFQ intake or internal procedure lookup first, then add workflow actions after stakeholders trust the answers and governance model.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who needs to be involved in the buying committee for an aerospace parts AI agent?",
+      "answer": "Expect input from inside sales, customer service, quality, engineering, operations, IT, security, and sometimes legal or compliance. Sales cares about RFQ speed, quality cares about controlled responses, operations cares about procedure access, IT cares about data and integrations, and leadership cares about measurable time savings without added regulatory risk.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot scale across multiple facilities, product families, or business units?",
+      "answer": "Yes. DocsBot can support customer-facing and private internal agents trained on different approved knowledge sets. Teams can segment sources and permissions by role, facility, product family, or workflow, then use analytics to see where questions differ and where documentation gaps are common across the organization.",
+      "role": "Operations, production, and training leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Why is source-grounding especially important for aerospace parts manufacturers?",
+      "answer": "Aerospace parts work depends on revision control, documentation discipline, supplier records, and quality procedures. The U.S. aerospace and defense industry is also large and supply-chain-heavy: AIA reported more than 2.23 million U.S. A&D workers and $995 billion in 2024 sales revenue, with 59% of employment in the shared A&D supply chain.",
+      "role": "General buyer",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-aia-impact"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "slug": "optometry-services",
+  "business": "Optometry Services",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Optometry Practice Automation",
+    "description": "DocsBot helps optometry services answer patient questions, guide appointment prep, and route requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/optometry-services"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for modern eye care teams",
+    "headline": "Automate optometry support without losing clinical control",
+    "subheadline": "DocsBot helps optometry practices turn approved FAQs, policies, care instructions, insurance guidance, frame and contact lens information, and internal SOPs into AI agents that answer routine questions, collect context, summarize requests, route handoffs, and escalate sensitive patient needs to staff.",
+    "proofBullets": [
+      {
+        "text": "Answer patient questions from your approved website, PDFs, intake instructions, eyewear policies, and care guides.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect appointment intent, preferred location, timing, and reason for visit before routing to your scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Help staff retrieve SOPs, billing policies, product notes, and patient communication templates without searching shared drives.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for bounded live lookups and workflow handoffs.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build an optometry AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your optometry practice’s approved knowledge. A patient-facing agent can explain services, exam preparation, insurance basics, eyewear policies, and post-visit instructions while escalating medical, billing, or privacy-sensitive questions. A private internal agent can help front desk, optical, billing, and provider teams find SOPs, scripts, and policies faster.",
+    "whoItHelps": [
+      {
+        "role": "Practice owners and administrators",
+        "roleContext": "Keep routine patient communication consistent across locations while preserving staff review for clinical judgment, diagnosis, treatment decisions, and protected health information workflows.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive calls about hours, appointment prep, accepted insurance guidance, forms, and eyewear policies.",
+            "icon": "PhoneIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which patient questions are missing from your website or internal knowledge base.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support HIPAA-aware workflows because HHS says the Privacy Rule protects individually identifiable health information held or transmitted by covered entities and business associates.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-hipaa-privacy"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Front desk and care coordination teams",
+        "roleContext": "Give reception and scheduling staff a searchable assistant for approved answers, intake checklists, handoff notes, and recurring patient requests.",
+        "bullets": [
+          {
+            "text": "Collect scheduling intent and route the patient to an approved booking, callback, or staff handoff workflow.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Summarize conversations before escalation so staff can see the reason for visit, missing details, and next step.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep appointment reminder language minimal and configurable; HHS notes providers may leave only the name, number, and information needed to confirm an appointment.",
+            "icon": "BellIcon",
+            "sourceIds": [
+              "src-hipaa-reminders"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Optical, contact lens, and billing staff",
+        "roleContext": "Help retail-optical and administrative teams answer policy questions from approved sources while keeping transactions and exceptions inside staff-controlled workflows.",
+        "bullets": [
+          {
+            "text": "Retrieve frame warranty, lens option, contact lens reorder, return, pickup, and payment policy answers from your own materials.",
+            "icon": "EyeIcon"
+          },
+          {
+            "text": "Draft staff responses for common billing or coverage questions, then route complex issues to the right human owner.",
+            "icon": "CreditCardIcon"
+          },
+          {
+            "text": "Train new team members on scripts, SOPs, product notes, and escalation boundaries with a private knowledge agent.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "ShoppingBagIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-vision-risk",
+      "metric": "93 million U.S. adults at high risk for serious vision loss",
+      "claim": "CDC reports that an estimated 93 million U.S. adults have a high risk for serious vision loss, but only half visited an eye doctor in the past 12 months.",
+      "sourceTitle": "CDC Fast Facts: Vision Loss",
+      "sourceUrl": "https://www.cdc.gov/vision-health/data-research/vision-loss-facts/index.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "patient demand",
+        "preventive care reminders",
+        "appointment education"
+      ]
+    },
+    {
+      "id": "src-vision-impairment",
+      "metric": "Approximately 7 million people in the United States have vision impairment",
+      "claim": "CDC estimates that approximately 7 million people in the United States have vision impairment.",
+      "sourceTitle": "CDC Fast Facts: Vision Loss",
+      "sourceUrl": "https://www.cdc.gov/vision-health/data-research/vision-loss-facts/index.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "accessibility need",
+        "patient education",
+        "public health burden"
+      ]
+    },
+    {
+      "id": "src-bls-optometrists",
+      "metric": "Optometrist employment projected to grow 8% from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects optometrist employment to grow 8% from 2024 to 2034 and lists about 3,800 openings per year on average.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Optometrists",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/optometrists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "practice growth",
+        "operational workload"
+      ]
+    },
+    {
+      "id": "src-hipaa-privacy",
+      "metric": "HIPAA protects individually identifiable health information",
+      "claim": "HHS states that the HIPAA Privacy Rule protects individually identifiable health information held or transmitted by covered entities or business associates.",
+      "sourceTitle": "HHS Summary of the HIPAA Privacy Rule",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "privacy governance",
+        "patient communications",
+        "regulated workflows"
+      ]
+    },
+    {
+      "id": "src-hipaa-reminders",
+      "metric": "HHS permits appointment reminders with appropriate communication limits",
+      "claim": "HHS says health care providers may communicate with patients about health care and should consider limiting reminder messages to information needed to confirm an appointment.",
+      "sourceTitle": "HHS FAQ: May health care providers leave messages for appointment reminders?",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/faq/198/may-health-care-providers-leave-messages/index.html",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "appointment reminders",
+        "privacy-aware messaging",
+        "front desk workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient FAQ and appointment preparation agent",
+      "problem": "Patients often ask the same questions about exam types, dilation, what to bring, insurance cards, contact lens fittings, pediatric visits, and post-visit instructions.",
+      "agentWorkflow": "DocsBot trains on your approved patient-facing pages, PDFs, intake forms, and care instructions. The agent answers in your practice voice, cites the relevant source, asks clarifying questions when needed, and escalates medical symptoms, urgent concerns, or account-specific questions to staff.",
+      "liveContextOrTools": "With approved Skills or workflow access, the agent can collect appointment intent, preferred office, callback details, and visit reason, then trigger a scheduling handoff or staff task.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first eye exam?",
+        "Can I drive after my eyes are dilated?",
+        "Do you see children, and what forms should I complete before the visit?"
+      ],
+      "businessOutcome": "Reduce repetitive front desk questions while giving patients consistent, approved preparation guidance before they arrive.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Preventive eye care education assistant",
+      "problem": "Many patients need help understanding why routine eye care matters, especially when they have no obvious symptoms or are managing chronic risk factors.",
+      "agentWorkflow": "Train DocsBot on approved educational pages about comprehensive eye exams, vision changes, dry eye care, contact lens hygiene, diabetic eye exam reminders, and when to call the office. The agent answers educational questions and routes symptom or diagnosis questions to staff.",
+      "liveContextOrTools": "Analytics can reveal repeated patient education gaps, such as confusion about dilation, contact lens wear, or exam intervals, so the practice can improve source content.",
+      "exampleQuestionsOrRequests": [
+        "Why do I need an eye exam if my vision seems fine?",
+        "What questions should I ask about dry eyes?",
+        "When should I call the office instead of waiting for my appointment?"
+      ],
+      "businessOutcome": "Support better patient understanding with approved education while keeping diagnosis and treatment decisions with licensed clinicians. CDC reports that 93 million U.S. adults are at high risk for serious vision loss, but only half visited an eye doctor in the past 12 months.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-vision-risk"
+      ]
+    },
+    {
+      "name": "Optical policy and product guidance agent",
+      "problem": "Optical teams answer recurring questions about frame warranties, lens options, contact lens orders, return windows, pickup timing, and adjustment policies.",
+      "agentWorkflow": "DocsBot can answer from your optical policies, product comparison sheets, pricing guidance, warranty PDFs, contact lens FAQs, and staff scripts. It can explain general options without making medical recommendations or promising coverage.",
+      "liveContextOrTools": "If configured through approved APIs or connectors, the agent can look up order status, create a follow-up task, summarize the request, or route it to the optical team for review.",
+      "exampleQuestionsOrRequests": [
+        "Are my glasses ready for pickup?",
+        "What is your policy if my frames need an adjustment?",
+        "How do I request a contact lens reorder?"
+      ],
+      "businessOutcome": "Help optical staff spend less time repeating policy answers and more time on fittings, adjustments, and patient-specific service.",
+      "icon": "EyeIcon"
+    },
+    {
+      "name": "Insurance, billing, and payment handoff agent",
+      "problem": "Patients need fast answers about payment policies, accepted plans, superbills, copays, financing, and out-of-pocket expectations, but coverage specifics often need human review.",
+      "agentWorkflow": "DocsBot answers from your approved billing FAQs and policy documents, collects missing details, explains what information staff may need, and routes account-specific or disputed questions to the billing team.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or forms, the agent can create a billing callback task, forward a conversation summary, or update approved non-sensitive fields inside a controlled workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you accept my insurance plan?",
+        "Can I use HSA or FSA funds for glasses?",
+        "Who should I contact about a billing question?"
+      ],
+      "businessOutcome": "Give patients clear next steps while keeping coverage verification, account details, refunds, and disputes inside staff-controlled processes.",
+      "icon": "CreditCardIcon"
+    },
+    {
+      "name": "Internal SOP and onboarding knowledge agent",
+      "problem": "Front desk, optical, billing, and clinical support staff need quick access to changing procedures, scripts, provider preferences, and escalation rules.",
+      "agentWorkflow": "A private DocsBot agent trains on SOPs, office manuals, training PDFs, policies, scripts, and internal wikis. Staff can ask operational questions in private chat, Slack, Microsoft Teams, or another configured experience and receive source-grounded answers.",
+      "liveContextOrTools": "Admins can review logs and knowledge gaps to identify outdated SOPs, missing scripts, or training content that needs revision.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for a late contact lens pickup?",
+        "How should I document a patient request for records?",
+        "When should a symptom call be escalated to a provider?"
+      ],
+      "businessOutcome": "Speed up onboarding and make daily procedures easier to follow across roles and locations.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Patient request triage and escalation assistant",
+      "problem": "Optometry websites receive requests that range from simple office questions to urgent eye symptoms, refill questions, record requests, and billing issues.",
+      "agentWorkflow": "DocsBot can classify the request using your instructions, ask for needed non-diagnostic context, provide approved general guidance, and escalate sensitive, urgent, medical, or account-specific situations to the correct human team.",
+      "liveContextOrTools": "Configured AI Actions can create a ticket, send a notification, route a summary to the right queue, or trigger a review workflow with customer-defined permissions and logs.",
+      "exampleQuestionsOrRequests": [
+        "I have sudden flashes and floaters. What should I do?",
+        "I need a copy of my prescription.",
+        "Can someone call me about redness after wearing contacts?"
+      ],
+      "businessOutcome": "Improve routing consistency while keeping urgent symptoms, medical advice, PHI, and records requests under appropriate staff review.",
+      "icon": "ExclamationCircleIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients instant answers from your approved optometry content",
+    "intro": "A DocsBot patient-facing AI support agent can live on your website and help people understand services, prepare for appointments, navigate optical policies, and request the right follow-up path. It should not diagnose, replace clinicians, or expose protected health information; it can escalate when a human is needed.",
+    "requests": [
+      {
+        "request": "“What happens during a comprehensive eye exam?”",
+        "agentResponseStrategy": "Answer from approved exam-prep pages, explain general steps in plain language, list what to bring, and clarify that the provider will decide which tests are needed.",
+        "sourceTypes": [
+          "Website service pages",
+          "Patient FAQ",
+          "Exam preparation PDFs"
+        ],
+        "optionalAction": "Offer to collect scheduling intent or route the patient to the practice’s approved appointment workflow.",
+        "icon": "EyeIcon"
+      },
+      {
+        "request": "“Do you take my vision insurance?”",
+        "agentResponseStrategy": "Share approved general insurance guidance, explain what information staff need for verification, and avoid promising coverage or final out-of-pocket costs.",
+        "sourceTypes": [
+          "Billing FAQ",
+          "Accepted plan policy",
+          "Front desk scripts"
+        ],
+        "optionalAction": "Create a billing verification callback task or forward a structured summary to staff when configured.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“My eye is painful and my vision changed suddenly.”",
+        "agentResponseStrategy": "Follow the practice’s escalation instructions, avoid diagnosis, provide approved urgent-contact guidance, and route the user to immediate human review or emergency directions as configured.",
+        "sourceTypes": [
+          "Urgent symptom policy",
+          "Clinical escalation rules",
+          "Office contact instructions"
+        ],
+        "optionalAction": "Notify the care team or create a high-priority handoff through a customer-approved workflow.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“How do I reorder my contact lenses?”",
+        "agentResponseStrategy": "Answer from contact lens reorder policies, explain eligibility and prescription requirements, and route exceptions or account-specific questions to staff.",
+        "sourceTypes": [
+          "Contact lens FAQ",
+          "Optical policies",
+          "Order workflow instructions"
+        ],
+        "optionalAction": "When authorized, collect reorder details or trigger an optical team follow-up task.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Can you remind me what I need before my appointment?”",
+        "agentResponseStrategy": "Use approved prep instructions and keep reminder-style content limited to practical appointment confirmation and preparation details.",
+        "sourceTypes": [
+          "Appointment prep checklist",
+          "Patient forms",
+          "HIPAA-aware communication scripts"
+        ],
+        "optionalAction": "Route patients to intake forms or ask them to contact the office for account-specific questions.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Can I access my records or prescription?”",
+        "agentResponseStrategy": "Explain the practice’s approved records-request process, required identity steps, timing expectations, and staff handoff path without revealing protected information in the chat.",
+        "sourceTypes": [
+          "Records request policy",
+          "Patient portal instructions",
+          "Privacy notices"
+        ],
+        "optionalAction": "Create a records-request task for staff review if the practice has configured that workflow.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make optometry operating knowledge searchable for every team member",
+    "intro": "DocsBot can also run as a private internal knowledge agent for staff. Train it on SOPs, policies, training documents, scripts, provider preferences, and approved billing guidance so teams can find answers faster while managers see where documentation is incomplete.",
+    "workflows": [
+      {
+        "name": "Front desk playbook retrieval",
+        "problem": "Reception staff need quick answers about scheduling rules, cancellation policies, new-patient forms, late arrivals, and provider-specific instructions.",
+        "agentWorkflow": "Staff ask the internal agent a question and receive a source-grounded answer with the relevant SOP or script. The agent can suggest escalation when the request involves symptoms, identity, billing, or records.",
+        "sourceTypes": [
+          "SOPs",
+          "Scheduling scripts",
+          "New patient checklists"
+        ],
+        "optionalAction": "Create a follow-up task or route a summary to a manager through an approved workflow.",
+        "outcome": "More consistent patient communication and fewer interruptions for supervisors.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Optical and contact lens training support",
+        "problem": "Optical staff need consistent policy answers while learning frame programs, lens options, remake policies, warranties, and contact lens workflows.",
+        "agentWorkflow": "DocsBot searches approved optical documents and explains the policy or comparison in plain language. It can surface the exact source so staff can verify the answer before communicating with a patient.",
+        "sourceTypes": [
+          "Optical manuals",
+          "Warranty PDFs",
+          "Contact lens policies"
+        ],
+        "optionalAction": "Draft a patient-safe response for staff review or summarize the policy for a team note.",
+        "outcome": "Faster staff training and more reliable policy communication across optical services.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Billing and privacy procedure guidance",
+        "problem": "Billing and records questions often require careful handling because health care providers may deal with protected health information and payment-related details.",
+        "agentWorkflow": "The internal agent retrieves approved procedures for billing questions, records requests, minimum necessary communication, and escalation to the privacy or billing owner.",
+        "sourceTypes": [
+          "Billing procedures",
+          "Privacy policies",
+          "Records request workflows"
+        ],
+        "optionalAction": "Route an internal question to a compliance owner or generate a summary for human review.",
+        "outcome": "Help teams follow approved procedures without turning the AI agent into the final decision-maker for sensitive matters.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Manager insight into knowledge gaps",
+        "problem": "Repeated staff and patient questions often reveal missing web content, unclear policies, or training gaps.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help managers identify patterns and update source content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Reports",
+          "Topic analytics"
+        ],
+        "optionalAction": "Export or review common question themes during operations meetings.",
+        "outcome": "Continuously improve patient education, staff training, and self-service content.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved content",
+      "mainLandingPageContext": "DocsBot trains AI agents on a business’s own knowledge sources so answers stay aligned with approved materials.",
+      "industryApplication": "Optometry practices can use their own FAQs, intake instructions, eyewear policies, billing guidance, care education, and SOPs as the agent’s answer base.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and patient-facing support",
+      "mainLandingPageContext": "DocsBot agents can be deployed in website or product chat experiences to answer customer questions instantly.",
+      "industryApplication": "Place an agent on the practice website to answer service, appointment prep, optical policy, and general education questions before patients call.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, summaries, routing, record updates, and workflow triggers.",
+      "industryApplication": "An optometry agent can collect callback details, create a staff task, route a billing question, summarize a patient request, or connect through approved APIs or remote Model Context Protocol servers where authorized.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or require a person.",
+      "industryApplication": "Escalate urgent symptoms, diagnosis questions, PHI, billing disputes, prescription records, and treatment decisions to the appropriate staff member instead of letting automation overstep.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as an internal knowledge agent trained on documents, SOPs, policies, wikis, PDFs, and team knowledge.",
+      "industryApplication": "Front desk, optical, billing, and care teams can ask procedure questions and retrieve approved scripts or policies without searching folders or interrupting managers.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides visibility into conversations, topics, satisfaction and resolution analysis, and gaps in source content.",
+      "industryApplication": "Practice leaders can spot recurring questions about dilation, forms, insurance, contacts, eyewear policies, and records requests, then update content or training materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Optometry teams can use scoped permissions, private sources, logs, and customer-defined controls when building agents for patient communication and internal workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams use DocsBot to streamline internal decision-making and reduce unnecessary human touchpoints.",
+      "DocsBot agents can answer from owned content libraries, making them practical for patient education and staff training.",
+      "Source-grounded responses help practices keep routine answers aligned with approved materials."
+    ],
+    "whyTheseReviewsFit": "Optometry practices need AI that is useful without acting outside approved knowledge. DocsBot proof from healthcare communications, education, and content-library teams shows how source-grounded agents can support patient education, internal knowledge access, and operational decision-making.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for optometry services",
+    "audience": [
+      "Optometry practice owners",
+      "Eye care administrators",
+      "Front desk and scheduling teams",
+      "Optical and billing staff"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "EyeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "dentistry",
+    "telehealth-services",
+    "chiropractic-office",
+    "home-health-services",
+    "cosmetic-surgery"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "optometry-services",
+    "webSearchQueries": [
+      "American Optometric Association comprehensive eye exam recommended frequency adults children",
+      "CDC vision impairment United States adults statistics",
+      "Bureau of Labor Statistics optometrists employment outlook offices of optometrists",
+      "HHS HIPAA Privacy Rule protected health information appointment reminders"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/vision-health/data-research/vision-loss-facts/index.html",
+      "https://www.bls.gov/ooh/healthcare/optometrists.htm",
+      "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html",
+      "https://www.hhs.gov/hipaa/for-professionals/faq/198/may-health-care-providers-leave-messages/index.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40942,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28398,
+        "outputTokens": 7880,
+        "reasoningOutputTokens": 104,
+        "totalTokens": 48822,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192332,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202332
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21701,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14405,
+          "outputTokens": 5064,
+          "reasoningOutputTokens": 104,
+          "totalTokens": 26765,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.113797,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.123797
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19241,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13993,
+          "outputTokens": 2816,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22057,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078535,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078535
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1604781099561-c70393a38a6d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDQ2MDh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Optometry Services background image",
+    "source": "legacy-industry",
+    "query": "Optometry Services"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without letting it give medical advice or diagnose eye symptoms?",
+      "answer": "Yes. DocsBot can be trained on your approved service pages, care instructions, and escalation policies, then configured to avoid diagnosis and route urgent, symptom-based, treatment, or patient-specific questions to staff. For optometry practices, that usually means the agent handles general education and logistics while licensed clinicians remain responsible for clinical judgment.",
+      "role": "Practice owners and administrators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot reduce front desk call volume without frustrating patients who still need a person?",
+      "answer": "A patient-facing agent can answer repetitive questions about hours, exam prep, forms, insurance basics, dilation, contact lens policies, and eyewear pickup from approved sources. When a request is urgent, account-specific, unclear, or sensitive, it can collect context, summarize the conversation, and route the handoff so staff start with the key details instead of asking everything again.",
+      "role": "Front desk and care coordination teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What kinds of optometry content should we train the agent on first?",
+      "answer": "Start with high-confidence, frequently used materials: website FAQs, exam preparation instructions, new-patient forms, contact lens reorder rules, frame and lens warranty policies, payment FAQs, records-request procedures, urgent symptom escalation language, and front desk scripts. Internal agents can also use SOPs, provider preferences, onboarding guides, and billing workflows.",
+      "role": "Practice owners and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the AI help with scheduling, or does it only answer questions?",
+      "answer": "DocsBot can collect scheduling intent, preferred location, timing, visit reason, and callback details, then route the request to your approved booking or staff follow-up workflow. With customer-configured Skills, APIs, connectors, forms, or MCP options, it can support bounded handoffs, but complex scheduling rules and patient-specific decisions should remain under practice control.",
+      "role": "Front desk and care coordination teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep HIPAA-sensitive information out of the wrong workflow?",
+      "answer": "DocsBot supports scoped permissions, role-based access, logs, encryption in transit and at rest, and customer-defined controls. For patient-facing use, practices should configure the agent to avoid exposing protected health information in chat and to escalate records, billing disputes, clinical questions, and identity-sensitive requests. HHS states that HIPAA protects individually identifiable health information held or transmitted by covered entities or business associates.",
+      "role": "Practice owners and administrators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-privacy"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer insurance questions without creating coverage problems for our billing team?",
+      "answer": "Yes, if the knowledge base and instructions are written carefully. The agent can explain accepted-plan guidance, what information staff need for verification, payment policies, HSA/FSA basics, and next steps. It should avoid promising eligibility, copays, reimbursements, or final out-of-pocket amounts, and route account-specific coverage questions to billing staff.",
+      "role": "Optical, contact lens, and billing staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for optical retail questions like frame warranties, remakes, adjustments, and contact lens reorders?",
+      "answer": "Yes. DocsBot is a strong fit for approved policy and product guidance. Optical teams can train it on warranty PDFs, remake rules, adjustment policies, lens option explainers, pickup instructions, and contact lens reorder procedures. The agent can explain the policy, collect missing context, and route exceptions to staff instead of making promises outside the documented rules.",
+      "role": "Optical, contact lens, and billing staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens if a patient says they have sudden flashes, floaters, pain, or vision loss?",
+      "answer": "The agent should follow your escalation policy, avoid diagnosis, provide only approved urgent-contact guidance, and route the request for immediate human review or emergency instructions as configured. DocsBot can classify the situation, collect non-diagnostic context, and notify the right team, but it should not decide treatment or replace your clinical triage process.",
+      "role": "Front desk and care coordination teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot internally for staff training and SOP lookup, not just on our website?",
+      "answer": "Yes. A private internal DocsBot agent can train on SOPs, office manuals, scripts, billing procedures, optical policies, provider preferences, and onboarding materials. Staff can ask questions like how to handle a late pickup, records request, missed appointment, or contact lens exception, then receive source-grounded answers with the relevant policy for verification.",
+      "role": "Optical, contact lens, and billing staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much content cleanup do we need before launch?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved, current source material for topics the agent will answer. Most practices should remove outdated PDFs, clarify escalation rules, separate patient-facing content from internal SOPs, and label policies by location if rules vary. DocsBot analytics can then show repeated questions and gaps to improve content over time.",
+      "role": "Practice owners and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping the practice?",
+      "answer": "Useful KPIs include repetitive-call reduction, after-hours questions answered, successful handoffs, appointment-prep completion, billing or optical requests routed correctly, staff time saved, patient satisfaction signals, unresolved topics, and knowledge gaps. DocsBot provides analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis to support operational review.",
+      "role": "Practice owners and administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent support multiple locations with different hours, providers, or optical policies?",
+      "answer": "Yes, if your sources are structured clearly. DocsBot can answer from location-specific pages, policies, and instructions, and can ask clarifying questions such as preferred office before giving the relevant answer. Practices should keep location rules current and route exceptions or ambiguous requests to staff rather than relying on a generic answer.",
+      "role": "Practice owners and administrators",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will patients trust answers from an AI agent on an eye care website?",
+      "answer": "Trust depends on boundaries and transparency. The agent should answer from approved practice content, keep the tone patient-friendly, cite or reflect the source material, explain when staff must review a request, and avoid sounding like a clinician. It is especially useful for preparation, policies, education, and routing—not for diagnosis or treatment decisions.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or form widget?",
+      "answer": "A basic widget usually captures messages or follows scripted paths. DocsBot can provide source-grounded answers from your approved content, summarize context, identify knowledge gaps, support internal staff knowledge retrieval, and take bounded actions when configured through Skills, APIs, connectors, or workflows. That makes it better suited for practices with detailed policies and recurring patient questions.",
+      "role": "Practice owners and administrators",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations to see what patients are asking before we expand automation?",
+      "answer": "Yes. DocsBot includes logs, conversation review, topic management, reports, analytics, satisfaction and resolution analysis, and knowledge-gap discovery. Practice leaders can start with a limited scope—such as appointment prep and optical policies—then review real questions before adding billing routing, internal SOP support, or configured workflow actions.",
+      "role": "Practice owners and administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should we tell providers who worry AI will interrupt clinical workflow or create liability?",
+      "answer": "Position the agent as an operational layer, not a clinical decision-maker. It answers from approved non-diagnostic content, reinforces escalation rules, and hands sensitive issues to staff. Providers can help define “never answer” topics, urgent symptom language, and handoff thresholds so automation reduces noise without making clinical commitments.",
+      "role": "Practice owners and administrators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with appointment reminders or preparation instructions in a privacy-aware way?",
+      "answer": "DocsBot can answer appointment-prep questions from approved checklists and route patients to forms or staff when needed. For reminder-style content, practices should keep messages minimal and configurable. HHS says providers may communicate about appointments and should consider limiting reminder messages to the name, number, and information needed to confirm the appointment.",
+      "role": "Front desk and care coordination teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-reminders"
+      ]
+    },
+    {
+      "question": "How can an AI agent support preventive eye care education without overstepping?",
+      "answer": "Train the agent on approved educational content about comprehensive exams, vision changes, dry eye, contact lens hygiene, diabetic eye exam reminders, and when to call the office. It can explain why routine care matters and route symptom or diagnosis questions to staff. CDC reports that 93 million U.S. adults are at high risk for serious vision loss, but only half visited an eye doctor in the past 12 months.",
+      "role": "Practice owners and administrators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-vision-risk"
+      ]
+    },
+    {
+      "question": "Can DocsBot make our website more accessible for patients who struggle to find information?",
+      "answer": "A source-grounded agent can help patients ask questions in plain language instead of navigating multiple pages or PDFs. That can be valuable for eye care audiences because CDC estimates that approximately 7 million people in the United States have vision impairment. Practices should still maintain accessible web design and offer human support for patients who need it.",
+      "role": "General buyer",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-vision-impairment"
+      ]
+    },
+    {
+      "question": "What implementation risks should we plan for before going live?",
+      "answer": "The biggest risks are outdated policies, unclear escalation rules, mixing internal and patient-facing sources, overbroad workflow permissions, and staff not knowing when to trust or override the agent. A safer rollout starts with limited topics, approved content, test conversations, human review paths, role-based permissions, and a clear process for updating sources.",
+      "role": "Practice owners and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent draft responses for staff instead of replying directly to patients?",
+      "answer": "Yes. DocsBot can be used as an internal assistant that drafts patient-safe responses from approved policies or summarizes a request for review. This is useful for billing questions, optical exceptions, records requests, and clinical-adjacent issues where the practice wants staff to approve the final message before anything is sent.",
+      "role": "Front desk and care coordination teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent the agent from giving different answers than our staff?",
+      "answer": "Use the same approved sources your team should follow: SOPs, scripts, web pages, policy PDFs, and escalation rules. DocsBot’s source-grounded answers help align responses, while analytics and conversation review reveal where the content is missing, outdated, or inconsistent. Staff training should include how to flag bad answers and update the underlying source.",
+      "role": "Optical, contact lens, and billing staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is this practical for a small independent optometry office, or only for large groups?",
+      "answer": "It can work for both. A small practice may start with website FAQs, appointment prep, optical policies, and callback routing. A larger group may add location-specific content, internal SOP agents, analytics review, and workflow handoffs. The key is matching scope to staffing capacity, documentation maturity, and risk tolerance.",
+      "role": "Practice owners and administrators",
+      "category": "Scalability"
+    },
+    {
+      "question": "What budget case should an administrator make to the owner or partners?",
+      "answer": "Frame the case around staff time, patient access, consistency, and fewer avoidable interruptions—not replacing clinicians. Useful evidence includes call types the front desk repeats daily, after-hours missed questions, onboarding burden, optical policy confusion, and the cost of inconsistent handoffs. Optometrist employment is projected to grow 8% from 2024 to 2034, indicating continued demand on eye care teams.",
+      "role": "Practice owners and administrators",
+      "category": "Pricing and procurement",
+      "sourceIds": [
+        "src-bls-optometrists"
+      ]
+    },
+    {
+      "question": "Can we connect DocsBot to systems we already use for tickets, forms, chat, or practice workflows?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, and MCP Connectors where authorized. Common patterns include creating a task, routing a summary, notifying a team, looking up approved status information, or updating approved non-sensitive fields. Named integrations should be validated during scoping rather than assumed.",
+      "role": "Practice owners and administrators",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should procurement or compliance ask before approving an optometry AI agent?",
+      "answer": "Ask what data the agent can access, whether patient-facing and internal sources are separated, how permissions are managed, whether conversations are logged, how PHI is avoided or escalated, what actions the agent can take, and who owns content updates. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption, access controls, and does not use customer data to train public models.",
+      "role": "Practice owners and administrators",
+      "category": "Security and compliance"
+    }
+  ]
+}

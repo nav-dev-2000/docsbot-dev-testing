@@ -1,0 +1,732 @@
+{
+  "slug": "fruit-vegetables",
+  "business": "Fruit & Vegetables",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Fruit & Vegetable Retail Operations",
+    "description": "DocsBot helps fruit and vegetable teams answer shopper questions, guide safe handling, and route availability requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/fruit-vegetables"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for fresh produce businesses",
+    "headline": "Keep fruit and vegetable answers as fresh as your inventory",
+    "subheadline": "DocsBot helps produce retailers, distributors, farm shops, and specialty grocers create AI agents trained on your catalogs, seasonal guides, handling instructions, sourcing notes, FAQs, and internal procedures so customers and staff get fast, consistent answers without digging through binders or spreadsheets.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about ripeness, storage, substitutions, preparation, delivery windows, and store policies from approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help staff retrieve SOPs, display standards, quality checks, receiving notes, and training guidance in a private team assistant.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect order details, route wholesale requests, create tasks, summarize inquiries, or hand off to a person.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build your produce AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your produce knowledge into AI agents that can support shoppers, wholesale buyers, managers, and frontline teams. Train agents on product pages, seasonal calendars, FAQs, food safety notes, sourcing stories, delivery policies, staff SOPs, PDFs, wikis, and other approved sources, then deploy them in a website widget, private team chat, Slack, Microsoft Teams, API, or configured workflows.",
+    "whoItHelps": [
+      {
+        "role": "Produce retailers and farm shops",
+        "roleContext": "For teams answering repetitive questions about what is in season, how to store delicate items, whether substitutions are available, and when local products arrive.",
+        "bullets": [
+          {
+            "text": "Give shoppers instant answers about varieties, ripeness, recipes, allergens in prepared items, pickup rules, and return policies.",
+            "icon": "FaceSmileIcon"
+          },
+          {
+            "text": "Collect special-order details and route them to the right team through approved forms, tickets, email, or workflow automations.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use analytics to spot repeated questions, missing product pages, and seasonal content gaps before the next rush.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Wholesale produce sellers and distributors",
+        "roleContext": "For sales and operations teams that need consistent answers about pack sizes, product specs, origin notes, delivery windows, claims, credits, and account handoffs.",
+        "bullets": [
+          {
+            "text": "Let buyers ask about current catalogs, case packs, handling notes, substitutions, and account procedures from approved materials.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Summarize inbound requests, qualify wholesale leads, and forward context to sales or support systems when customer-configured workflows allow it.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Keep humans responsible for pricing exceptions, claims, contracts, and sensitive account decisions while the agent prepares the handoff.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Operations, QA, and training leaders",
+        "roleContext": "For managers who need produce teams to follow consistent standards across receiving, culling, merchandising, cold holding, signage, and customer guidance.",
+        "bullets": [
+          {
+            "text": "Make SOPs, quality checklists, storage guides, recall instructions, and onboarding materials searchable for new and experienced staff.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support compliance training around produce safety because FDA’s Produce Safety Rule sets science-based minimum standards for growing, harvesting, packing, and holding covered produce.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-fda-produce-safety-rule"
+            ]
+          },
+          {
+            "text": "Review logs and knowledge gaps to see which procedures, product notes, or training documents need clarification.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fda-produce-safety-rule",
+      "metric": "FDA Produce Safety Rule sets minimum standards for covered produce.",
+      "claim": "The FDA says the FSMA Produce Safety Rule established science-based minimum standards for the safe growing, harvesting, packing, and holding of fruits and vegetables grown for human consumption.",
+      "sourceTitle": "FSMA Final Rule on Produce Safety",
+      "sourceUrl": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-produce-safety",
+      "sourceDate": "FDA page, crawled 2026",
+      "bestUsedFor": [
+        "Compliance pressure",
+        "Food safety training",
+        "Produce operations standards"
+      ]
+    },
+    {
+      "id": "src-usda-ams-market-news",
+      "metric": "USDA publishes market information for hundreds of specialty crops.",
+      "claim": "USDA Agricultural Marketing Service says Specialty Crops Market News disseminates detailed marketing-condition information for hundreds of commodities across wholesale markets, production areas, and ports of entry.",
+      "sourceTitle": "Specialty Crops Market News",
+      "sourceUrl": "https://www.ams.usda.gov/market-news/fruits-vegetables",
+      "sourceDate": "USDA AMS page, crawled 2026",
+      "bestUsedFor": [
+        "Price volatility",
+        "Market availability",
+        "Fresh produce operations"
+      ]
+    },
+    {
+      "id": "src-fda-selecting-serving-produce",
+      "metric": "Storage affects produce quality and safety.",
+      "claim": "FDA guidance notes that proper storage of fresh produce can affect both quality and safety, and it advises against washing fruits and vegetables with soap, detergent, or commercial produce wash.",
+      "sourceTitle": "Selecting and Serving Produce Safely",
+      "sourceUrl": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely",
+      "sourceDate": "FDA page, crawled 2026",
+      "bestUsedFor": [
+        "Consumer food safety questions",
+        "Storage guidance",
+        "Customer education"
+      ]
+    },
+    {
+      "id": "src-usda-ers-vegetables-pulses",
+      "metric": "USDA ERS tracks fresh and processed vegetable market data.",
+      "claim": "USDA ERS maintains Vegetables and Pulses Data with statistics on fresh and processed vegetables, including trade, prices, production, per capita utilization, and selected fresh-market movement and price data.",
+      "sourceTitle": "Vegetables and Pulses Data",
+      "sourceUrl": "https://www.ers.usda.gov/data-products/vegetables-and-pulses-data/",
+      "sourceDate": "Updated September 22, 2025",
+      "bestUsedFor": [
+        "Produce market complexity",
+        "Category planning",
+        "Commodity data needs"
+      ]
+    },
+    {
+      "id": "src-fmi-shopper-trends",
+      "metric": "FMI tracks grocery shopper technology and behavior trends.",
+      "claim": "FMI’s grocery shopper research covers consumer shopping behavior, food prices, household finances, and technology use in grocery shopping.",
+      "sourceTitle": "U.S. Grocery Shopper Trends",
+      "sourceUrl": "https://www.fmi.org/our-research/research-reports/u-s-grocery-shopper-trends",
+      "sourceDate": "FMI research hub, crawled 2026",
+      "bestUsedFor": [
+        "Shopper expectations",
+        "Digital grocery behavior",
+        "Customer experience"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Seasonal availability and product guidance agent",
+      "problem": "Produce questions change by day, season, supplier, and weather. Staff may answer the same questions about varieties, ripeness, substitutions, and storage dozens of times.",
+      "agentWorkflow": "Train a DocsBot agent on product pages, seasonal calendars, variety notes, sourcing stories, FAQs, store policies, and preparation guides. The agent answers shopper questions in your voice, cites approved content, and escalates unusual requests to staff.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or approved runtime bindings, the agent can look up live availability, collect missing details, create a task, or route a wholesale inquiry to the right team.",
+      "exampleQuestionsOrRequests": [
+        "Are local strawberries available today, and how should I store them?",
+        "What can I substitute for fennel in a salad order?",
+        "Do you have organic kale in bunches or cases this week?"
+      ],
+      "businessOutcome": "Reduce repetitive front-line questions while giving shoppers more confidence to buy seasonal, unfamiliar, or delicate items.",
+      "icon": "SunIcon"
+    },
+    {
+      "name": "Food safety and storage answer agent",
+      "problem": "Customers often ask how to wash, store, cut, and serve produce safely, and inconsistent answers can undermine trust.",
+      "agentWorkflow": "Build an agent from your approved handling policies, consumer guidance, prepared-food notes, and public safety references you choose to include. The agent can answer routine storage and preparation questions while escalating illness, recall, or complaint issues to a human.",
+      "liveContextOrTools": "AI Actions can collect complaint details, summarize the conversation, create a ticket, notify a manager, or trigger a review workflow for sensitive food safety issues.",
+      "exampleQuestionsOrRequests": [
+        "Should I wash berries before storing them?",
+        "How long can cut melon stay refrigerated?",
+        "The lettuce in my order looks damaged. What should I do?"
+      ],
+      "businessOutcome": "Provide consistent consumer guidance while keeping safety-sensitive situations visible to trained staff. FDA says proper produce storage can affect both quality and safety and advises against washing produce with soap or commercial washes.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-selecting-serving-produce"
+      ]
+    },
+    {
+      "name": "Wholesale buyer qualification and handoff agent",
+      "problem": "Restaurants, caterers, schools, and retailers need quick answers about case sizes, delivery areas, availability, substitutions, and account setup, but sales teams cannot always respond instantly.",
+      "agentWorkflow": "Use DocsBot as a presales agent trained on wholesale catalogs, product specs, service areas, credit policies, delivery windows, FAQs, and sales playbooks. It can answer fit questions, collect structured lead details, qualify requests using your rules, and prepare a handoff summary.",
+      "liveContextOrTools": "Through customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors for remote Model Context Protocol servers, the agent can forward qualified leads, create tasks, or update approved fields in systems your team authorizes.",
+      "exampleQuestionsOrRequests": [
+        "Can you supply 20 cases of romaine twice a week to a restaurant in my area?",
+        "What pack sizes do you offer for mixed citrus?",
+        "I need a wholesale account for a school lunch program. What information do you need?"
+      ],
+      "businessOutcome": "Capture more qualified buyer intent without forcing sales reps to manually triage every early-stage inquiry.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Receiving, merchandising, and quality SOP assistant",
+      "problem": "Produce teams rely on detailed procedures for receiving, rotation, display, trimming, culling, cold holding, signage, and cleaning, but those procedures are often scattered across PDFs, binders, and manager notes.",
+      "agentWorkflow": "Create a private internal knowledge agent trained on SOPs, onboarding materials, quality standards, vendor notes, safety checklists, and shift procedures. Staff can ask natural-language questions and get source-grounded answers instead of searching through documents.",
+      "liveContextOrTools": "With approved workflows, the agent can summarize a quality issue, draft a manager note, create a task, or route an unresolved procedure question for review.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for receiving berries with condensation?",
+        "How should we rotate wet-rack greens before close?",
+        "Where is the checklist for trimming and culling displays?"
+      ],
+      "businessOutcome": "Help new and experienced staff follow consistent procedures across locations and shifts.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "name": "Market and pricing intelligence knowledge agent",
+      "problem": "Fresh produce pricing and availability are affected by shipments, weather, imports, promotions, and labor disruptions, making it hard for sales and managers to find the right context quickly.",
+      "agentWorkflow": "Train a DocsBot internal agent on your market reports, purchasing notes, pricing guidance, supplier updates, sales briefs, and approved external references. Teams can ask for summaries, compare notes, and prepare customer-facing explanations.",
+      "liveContextOrTools": "When configured with approved sources and Skills, the agent can retrieve the latest authorized reports, summarize changes, and draft account-manager talking points for human review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this week’s tomato market update for sales reps.",
+        "What changed in our avocado availability notes since last week?",
+        "Draft a short explanation for buyers about a temporary substitution."
+      ],
+      "businessOutcome": "Turn scattered market updates into faster, more consistent communication. USDA AMS publishes detailed specialty-crop market information for hundreds of commodities across markets, production areas, and ports.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-usda-ams-market-news"
+      ]
+    },
+    {
+      "name": "Multilingual shopper and staff support",
+      "problem": "Produce businesses often serve multilingual customers and employ diverse teams, but translating every seasonal guide, policy, and training document can be difficult.",
+      "agentWorkflow": "Deploy a DocsBot agent trained on approved produce content and configure it to answer in more than 100 languages. Customers can ask about items, policies, and safe handling in their preferred language, while employees can retrieve procedures more easily.",
+      "liveContextOrTools": "For complex or sensitive issues, the agent can collect the request, summarize it in the team’s working language, and hand it to a person.",
+      "exampleQuestionsOrRequests": [
+        "¿Cómo debo guardar los aguacates maduros?",
+        "Do you have a delivery minimum for restaurants?",
+        "Translate the display reset checklist for a new employee."
+      ],
+      "businessOutcome": "Improve access to product and policy knowledge without creating separate support processes for every language.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give shoppers confident produce answers before they leave the page",
+    "intro": "A DocsBot customer-facing agent can sit on your website or product pages and answer from the materials you approve: seasonal lists, storage tips, delivery rules, farm stories, FAQs, recipes, promotions, and return policies. When the request needs a person, it can collect the context and hand it off.",
+    "requests": [
+      {
+        "request": "“What fruit is ripe enough for a party tomorrow?”",
+        "agentResponseStrategy": "Answer from ripeness notes, seasonal guides, and product descriptions, then suggest approved substitutions or ask the shopper to confirm pickup or delivery timing.",
+        "sourceTypes": [
+          "Seasonal calendars",
+          "Product pages",
+          "Ripeness guides",
+          "Pickup policies"
+        ],
+        "optionalAction": "Collect event date, quantity, and contact details, then route the request to staff for a custom recommendation.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do I store leafy greens so they last longer?”",
+        "agentResponseStrategy": "Use approved care instructions and food safety content to explain storage, washing, and freshness tips without inventing unsupported claims.",
+        "sourceTypes": [
+          "Storage guides",
+          "Food safety notes",
+          "FAQs",
+          "Prepared-food policies"
+        ],
+        "optionalAction": "Offer links to related guides or escalate damaged-item concerns to customer support.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can I order a mixed case for my restaurant?”",
+        "agentResponseStrategy": "Ask structured qualification questions about business type, location, volume, delivery timing, and product interests, then summarize the lead for sales.",
+        "sourceTypes": [
+          "Wholesale catalog",
+          "Service area notes",
+          "Delivery policies",
+          "Account setup FAQs"
+        ],
+        "optionalAction": "Submit a custom lead form or forward the summary through a configured CRM, helpdesk, email, or workflow connection.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Is this item local, organic, or currently on promotion?”",
+        "agentResponseStrategy": "Answer from approved sourcing, certification, product, and promotion content, and avoid making claims not present in the source material.",
+        "sourceTypes": [
+          "Product attributes",
+          "Supplier notes",
+          "Promotion pages",
+          "Sourcing FAQs"
+        ],
+        "optionalAction": "If live inventory or promotion data is connected, look up current status before answering.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“My order has bruised peaches. What happens next?”",
+        "agentResponseStrategy": "Follow the return or claims policy, collect order details, summarize the issue, and escalate when a refund, credit, or quality decision requires staff.",
+        "sourceTypes": [
+          "Return policies",
+          "Quality policies",
+          "Order FAQs",
+          "Support procedures"
+        ],
+        "optionalAction": "Create a ticket, notify a manager, or prepare a handoff with photos and order details when configured.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“What should I buy for a low-waste vegetable soup?”",
+        "agentResponseStrategy": "Use approved recipes, preparation guides, and seasonal product pages to suggest relevant items, storage tips, and substitutions.",
+        "sourceTypes": [
+          "Recipe library",
+          "Seasonal produce pages",
+          "Preparation guides",
+          "Store policies"
+        ],
+        "optionalAction": "Collect a shopping list or hand off bulk-prep requests to catering, wholesale, or store staff.",
+        "icon": "CakeIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give produce teams one trusted place to ask how work gets done",
+    "intro": "DocsBot can also run as a private internal knowledge agent for managers, buyers, QA, customer support, and floor teams. It retrieves answers from SOPs, vendor notes, training files, policies, and other approved sources, then highlights gaps when employees keep asking for information that is not documented.",
+    "workflows": [
+      {
+        "name": "New employee onboarding",
+        "problem": "New produce clerks need to learn product handling, culling standards, display resets, customer answers, safety notes, and store policies quickly.",
+        "agentWorkflow": "Train a private agent on onboarding materials, SOPs, checklists, manager notes, and HR policies so employees can ask questions during shifts and get consistent, source-grounded answers.",
+        "sourceTypes": [
+          "Training manuals",
+          "SOPs",
+          "Checklists",
+          "HR policies"
+        ],
+        "optionalAction": "Generate a shift-ready summary or route unanswered onboarding questions to a manager.",
+        "outcome": "Reduce manager interruptions and help new staff follow the same procedures from day one.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Support ticket and complaint triage",
+        "problem": "Quality complaints, missed items, delivery questions, and substitution issues can arrive through email, forms, chat, and phone notes.",
+        "agentWorkflow": "When connected through customer-configured helpdesk workflows, DocsBot can summarize tickets, draft responses from policy, route issues by category, and escalate sensitive complaints for human review.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Return policies",
+          "Quality procedures",
+          "Delivery FAQs"
+        ],
+        "optionalAction": "Create or update tickets, add a conversation summary, or notify the right team when authorized.",
+        "outcome": "Make support handoffs faster while keeping customer-facing decisions aligned with your policies.",
+        "icon": "TicketIcon"
+      },
+      {
+        "name": "Buyer and sales enablement",
+        "problem": "Sales reps and buyers need fast context on product specs, supplier changes, market notes, promotions, and account policies before talking with customers.",
+        "agentWorkflow": "Train an internal sales enablement agent on catalogs, pricing guidance, product specs, market updates, objection handling, case studies, and proposal templates. Reps can ask for summaries and draft replies for human review.",
+        "sourceTypes": [
+          "Wholesale catalogs",
+          "Market updates",
+          "Sales playbooks",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a buyer email, create a follow-up task, or prepare an account summary through approved sales workflows.",
+        "outcome": "Help reps respond with consistent product and policy information without searching across documents.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Compliance and recall readiness",
+        "problem": "Produce businesses need fast access to food safety procedures, supplier documentation, recall steps, and staff instructions when an issue arises.",
+        "agentWorkflow": "Create a governed knowledge agent trained on your food safety plan, recall procedures, supplier documentation, cleaning logs, and approved regulatory references. Use permissions so sensitive workflows stay within the right roles.",
+        "sourceTypes": [
+          "Food safety plan",
+          "Recall SOPs",
+          "Supplier documents",
+          "Regulatory references"
+        ],
+        "optionalAction": "Prepare a manager checklist, summarize affected-product notes, or route a recall-related question to the designated review path.",
+        "outcome": "Keep critical procedures findable when speed and accuracy matter.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on your own approved knowledge sources and provide instant answers in your company’s voice.",
+      "industryApplication": "Answer shopper and buyer questions about varieties, storage, ripeness, substitutions, delivery, wholesale account setup, and policies from the content your produce team controls.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can be deployed in customer-facing experiences and private team environments, including chat widgets, Slack, Microsoft Teams, and API-based workflows.",
+      "industryApplication": "Put a produce guide on your website for shoppers and a separate SOP assistant in private team channels for managers, clerks, QA, and sales staff.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot can use customer-configured Skills and approved connections to perform bounded actions such as lookups, summaries, routing, record creation, and workflow triggers.",
+      "industryApplication": "Look up authorized availability context, collect wholesale lead details, create support tasks, summarize quality complaints, or route special orders to the right person.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, analytics, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which produce items, policies, recipes, storage instructions, and wholesale questions customers or employees ask about most often, then improve the underlying content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages using the approved knowledge sources you provide.",
+      "industryApplication": "Support multilingual shoppers, staff, and wholesale buyers with consistent answers about produce care, ordering, delivery, and policies.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, supplier notes, customer conversations, and account procedures available to the right users while protecting private business knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the produce content your team already maintains, from product pages to training materials.",
+      "Support both website self-service and human support teams with source-grounded drafts, summaries, and handoffs.",
+      "Scale repetitive question handling while keeping staff available for quality, pricing, safety, and account decisions."
+    ],
+    "whyTheseReviewsFit": "Produce businesses win trust through accurate, timely answers. DocsBot proof shows teams using owned content libraries, embedded assistants, support workflows, and training materials to make knowledge easier to access for customers and employees without replacing human judgment where it matters.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ArrowTrendingUpIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for fruit and vegetable businesses",
+    "audience": [
+      "Produce retailers",
+      "Farm shops",
+      "Wholesale produce distributors",
+      "Specialty grocers",
+      "Fresh food operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "grocery-convenience-store",
+    "farm-to-table-restaurants",
+    "food-beverage-manufacturing",
+    "caterer",
+    "food-hospitality",
+    "bakery"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "fruit-vegetables",
+    "webSearchQueries": [
+      "USDA ERS food retail fresh fruits vegetables sales consumer demand produce",
+      "FDA FSMA Produce Safety Rule fruits vegetables official",
+      "USDA AMS Specialty Crops Market News fresh fruits vegetables",
+      "CDC food safety fruits vegetables produce washing storage official",
+      "FMI grocery shopper fresh produce department consumer trends 2025",
+      "USDA ERS fruit and tree nuts vegetables pulses data fresh produce consumption"
+    ],
+    "sourceUrls": [
+      "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-produce-safety",
+      "https://www.ams.usda.gov/market-news/fruits-vegetables",
+      "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-produce-safely",
+      "https://www.ers.usda.gov/data-products/vegetables-and-pulses-data/",
+      "https://www.fmi.org/our-research/research-reports/u-s-grocery-shopper-trends"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47414,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 26678,
+        "outputTokens": 8430,
+        "reasoningOutputTokens": 209,
+        "totalTokens": 55844,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.198329,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.218329
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27734,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 12246,
+          "outputTokens": 5331,
+          "reasoningOutputTokens": 209,
+          "totalTokens": 33065,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.114452,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.134452
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19680,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14432,
+          "outputTokens": 3099,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22779,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.083877,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.083877
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1528820540591-4d090b2f6e3c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU1NzB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Fruit & Vegetables background image",
+    "source": "legacy-industry",
+    "query": "Fruit & Vegetables"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer questions about what is ripe, local, organic, or in season without making things up?",
+      "answer": "Yes, as long as those details are in the approved sources you train it on, such as product pages, seasonal calendars, sourcing notes, promotion pages, and store FAQs. If live availability or promotion data is connected through an approved Skill, API, connector, or workflow, the agent can use that authorized context before answering. If the source does not support a claim, it should avoid inventing one or hand off to staff.",
+      "role": "Produce retailers and farm shops",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our produce team during peak weekend or holiday traffic?",
+      "answer": "DocsBot can deflect repetitive questions about storage, ripeness, substitutions, pickup rules, delivery windows, recipes, and return policies so staff can focus on merchandising, order picking, quality checks, and in-person service. It can also collect special-order details and route them to the right person instead of forcing customers to call or wait for a manager.",
+      "role": "Produce retailers and farm shops",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can we use one agent for shoppers and another private agent for staff SOPs?",
+      "answer": "Yes. A customer-facing agent can answer from public materials like product pages, seasonal guides, FAQs, and policies, while a private internal agent can be trained on SOPs, receiving notes, quality standards, training files, and manager procedures. Access controls and role-based permissions help keep internal operating knowledge separate from shopper-facing answers.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent understand produce-specific language like case packs, wet rack, culling, cold holding, substitutions, and shrink?",
+      "answer": "DocsBot learns from the terminology in your own catalogs, SOPs, product specs, training documents, and policies. If your sources explain pack sizes, display standards, rotation rules, culling thresholds, or substitution guidelines, the agent can answer in that language and point staff or buyers back to the approved materials.",
+      "role": "Wholesale produce sellers and distributors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep food safety answers consistent without letting AI handle sensitive complaints on its own?",
+      "answer": "Train the agent on approved handling policies, storage guidance, recall procedures, and public safety references you choose to include. It can answer routine storage or washing questions, but illness reports, recall issues, refund decisions, and serious quality complaints should trigger a human handoff with a conversation summary and collected details. FDA guidance notes that proper produce storage can affect both quality and safety.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-selecting-serving-produce"
+      ]
+    },
+    {
+      "question": "Can DocsBot support FSMA and produce safety training for employees?",
+      "answer": "DocsBot can make your food safety plan, recall SOPs, supplier documentation, cleaning procedures, and training materials easier for employees to search and apply during shifts. It does not replace your compliance program or qualified food safety staff, but it can help teams find approved procedures faster. FDA says the FSMA Produce Safety Rule established science-based minimum standards for growing, harvesting, packing, and holding covered produce.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-produce-safety-rule"
+      ]
+    },
+    {
+      "question": "Can the agent tell customers whether an item is actually available today?",
+      "answer": "It can if you connect an approved source of live or regularly updated availability data through a Skill, API, connector, metadata binding, or customer-defined workflow. Without that connection, it should answer from the latest content it was trained on, clearly avoid unsupported real-time claims, and offer to collect the request for staff follow-up.",
+      "role": "Produce retailers and farm shops",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would this work for wholesale buyers asking about case sizes, delivery areas, and account setup?",
+      "answer": "A DocsBot presales agent can be trained on wholesale catalogs, product specs, delivery rules, service areas, credit policies, and account setup FAQs. It can ask structured questions about business type, location, volume, delivery timing, and product interests, then prepare a qualified handoff for sales through a customer-configured form, email, CRM workflow, helpdesk, Slack, Microsoft Teams, webhook, API, or connector.",
+      "role": "Wholesale produce sellers and distributors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help sales explain price swings or temporary substitutions to restaurant and retail buyers?",
+      "answer": "Yes. An internal sales enablement agent can summarize approved market reports, purchasing notes, supplier updates, pricing guidance, and sales briefs, then draft customer-facing explanations for human review. This is especially useful in produce, where USDA AMS publishes detailed specialty-crop market information for hundreds of commodities across wholesale markets, production areas, and ports of entry.",
+      "role": "Wholesale produce sellers and distributors",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-ams-market-news"
+      ]
+    },
+    {
+      "question": "What systems would we need to connect for this to be useful?",
+      "answer": "Many teams can start with existing product pages, PDFs, SOPs, catalogs, FAQs, wikis, Google Drive folders, Notion, Confluence, Word documents, or text files. For more advanced use cases, you can configure Skills, APIs, connectors, webhooks, or MCP Connectors to retrieve approved live context or trigger bounded actions such as creating a ticket, submitting a lead form, routing a request, or updating approved fields.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much cleanup do our documents need before launch?",
+      "answer": "You do not need perfect documentation, but the agent performs best when source materials are current, clear, and approved. Most produce teams should start with high-volume topics: availability rules, storage guidance, delivery policies, returns, wholesale account setup, receiving SOPs, quality standards, and recall procedures. DocsBot analytics can then reveal repeated questions and missing content so documentation improves over time.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we prevent the agent from giving discounts, credits, or pricing exceptions?",
+      "answer": "Yes. You can define boundaries so the agent explains policy, collects order or account details, summarizes the issue, and routes it to a person for decisions. That is important for produce because quality credits, substitutions, contract pricing, and account exceptions often require judgment from sales, operations, or management.",
+      "role": "Wholesale produce sellers and distributors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure whether the agent is actually reducing workload?",
+      "answer": "Track repetitive questions answered, common topics, escalation volume, resolution or deflection trends, satisfaction signals, and knowledge gaps. For internal agents, review what employees ask about most often, where SOPs are unclear, and which procedures require manager follow-up. For customer-facing agents, compare call, email, form, and chat volume around peak seasonal questions before and after launch.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help with multilingual shopper and employee questions?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the approved sources you provide. That can help multilingual shoppers ask about storage, varieties, delivery, and policies, and it can help staff retrieve SOPs or training guidance in a language they understand. For sensitive issues, the agent can summarize the conversation for a manager rather than making the final decision.",
+      "role": "Produce retailers and farm shops",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our customer and supplier data be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions, which are important when the agent has access to internal SOPs, supplier notes, account procedures, or customer conversations.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can store managers review what the agent said after a complaint or safety-sensitive conversation?",
+      "answer": "Yes. DocsBot provides logs, analytics, topic management, reports, conversation review, and knowledge-gap discovery. Managers can review conversations, see where the agent escalated, identify missing or unclear policies, and update the underlying source content so future answers are more consistent.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep answers current when produce availability changes by supplier, weather, and season?",
+      "answer": "Use a mix of maintained source content and approved live context. Seasonal calendars, product pages, sourcing notes, and FAQs can cover stable guidance, while connected availability feeds, purchasing notes, or authorized reports can support more current answers. USDA ERS maintains vegetable market data covering trade, prices, production, per capita utilization, and selected fresh-market movement and price data, which reflects how data-heavy this category can be.",
+      "role": "Wholesale produce sellers and distributors",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-usda-ers-vegetables-pulses"
+      ]
+    },
+    {
+      "question": "What should stay with humans instead of the AI agent?",
+      "answer": "Humans should remain responsible for foodborne illness reports, recall decisions, refund or credit approvals, pricing exceptions, supplier disputes, contract terms, sensitive account decisions, and any situation where policy is unclear. DocsBot is strongest when it answers routine questions, prepares summaries, collects missing details, and routes the issue to the right person with context.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can this work across multiple stores or distribution branches with different policies?",
+      "answer": "Yes, but it should be designed around permissions, source organization, and location-specific content. You can separate public shopper content from internal SOPs, and maintain different knowledge sources for store policies, delivery zones, branch catalogs, or regional availability. Role-based permissions help ensure employees see the right internal guidance for their location or responsibility.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How quickly can a small farm shop or produce retailer start without an IT team?",
+      "answer": "A smaller team can start with existing website pages, FAQs, seasonal lists, PDFs, policies, and product guides, then deploy a website widget for shopper questions. More advanced workflows like live availability lookups, ticket creation, wholesale lead routing, or system updates may require help from whoever manages your ecommerce, POS, inventory, CRM, or workflow tools.",
+      "role": "Produce retailers and farm shops",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot replace our ecommerce search or online ordering system?",
+      "answer": "No. DocsBot should complement those systems, not replace them. It can answer questions, guide shoppers to the right product information, collect special-order details, explain policies, and use approved connections for bounded lookups or routing. Checkout, inventory management, payments, final order confirmation, and pricing logic should remain in your dedicated commerce or operations systems.",
+      "role": "Produce retailers and farm shops",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How do we avoid bad advice about washing, storing, or serving produce?",
+      "answer": "Keep the agent grounded in approved storage guides, food safety notes, prepared-food policies, and public references you trust. Review logs for risky or repeated questions, and set escalation rules for illness, recall, allergen, or complaint scenarios. FDA guidance says proper storage can affect produce quality and safety and advises against washing fruits and vegetables with soap, detergent, or commercial produce wash.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-selecting-serving-produce"
+      ]
+    },
+    {
+      "question": "Can the agent help identify content gaps in our produce pages and SOPs?",
+      "answer": "Yes. DocsBot analytics and knowledge-gap discovery can show what shoppers, buyers, or employees keep asking when the answer is missing or unclear. That helps prioritize updates to product pages, seasonal guides, storage instructions, wholesale FAQs, receiving procedures, quality standards, and training materials before the next busy period.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What is the business case if our team already answers questions by phone, email, and in-store?",
+      "answer": "The business case is not just replacing conversations; it is reducing repeat work, improving answer consistency, capturing after-hours buyer intent, speeding handoffs, and making internal procedures easier to find. In a category where FMI tracks grocery shopper behavior, food prices, household finances, and technology use, digital self-service can support customers who research before calling or visiting.",
+      "role": "Produce retailers and farm shops",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-fmi-shopper-trends"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot for employee onboarding and shift training?",
+      "answer": "Yes. A private internal agent can be trained on onboarding documents, SOPs, checklists, display standards, HR policies, safety notes, and manager procedures. New clerks can ask how to rotate greens, receive berries, handle bruised fruit, reset displays, or answer common shopper questions without interrupting a manager every time.",
+      "role": "Operations, QA, and training leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How should we pilot this before rolling it out broadly?",
+      "answer": "Start with a focused use case such as shopper storage questions, wholesale lead qualification, or internal receiving SOPs. Load a controlled set of approved sources, define escalation rules, test real questions from staff and customers, review logs, fix missing content, and only then add live lookups, workflow actions, or more locations.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with building our own AI assistant?",
+      "answer": "Building your own assistant may offer full control, but it usually requires engineering, retrieval tuning, hosting, permissions, analytics, evaluation, workflow design, and ongoing maintenance. DocsBot gives produce teams a configurable path to source-grounded agents, website and private team deployment, analytics, multilingual support, governance, and customer-defined Actions without starting from scratch.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can our IT or security team control what actions the agent can take?",
+      "answer": "Yes. DocsBot Skills are configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls. That allows teams to scope what the agent can access or do, such as looking up approved records, creating a task, routing a request, or triggering a workflow, while keeping credentials out of chats and generated copy.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    }
+  ]
+}

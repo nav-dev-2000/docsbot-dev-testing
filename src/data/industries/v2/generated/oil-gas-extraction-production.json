@@ -1,0 +1,746 @@
+{
+  "slug": "oil-gas-extraction-production",
+  "business": "Oil and Gas Extraction & Production",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Oil and Gas Production Operations",
+    "description": "DocsBot helps oil and gas teams turn SOPs, manuals, permits, and tickets into AI agents that speed field answers and operational handoffs.",
+    "canonicalPath": "/industry/oil-gas-extraction-production"
+  },
+  "hero": {
+    "eyebrow": "AI knowledge and workflow agents for upstream energy teams",
+    "headline": "Keep oil and gas crews aligned with source-grounded AI agents",
+    "subheadline": "DocsBot turns your approved operating procedures, equipment manuals, HSE guidance, environmental notes, training content, ticket history, and field documentation into AI agents that answer questions, summarize context, route requests, and trigger bounded workflows with human review where work is safety-critical.",
+    "proofBullets": [
+      {
+        "text": "Answer field, HSE, maintenance, and compliance questions from approved company documents with source-grounded responses.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Give office and field teams a private internal knowledge agent for SOPs, onboarding, troubleshooting, and policy lookup.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect missing details, create tasks or tickets, route handoffs, and summarize incidents or work requests.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support sensitive workflows with permissions, logs, escalation paths, and boundaries defined by your organization.",
+        "icon": "LockClosedIcon"
+      }
+    ],
+    "primaryCta": "Build an oilfield knowledge agent",
+    "secondaryCta": "See how DocsBot handles internal support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps oil and gas extraction and production companies create AI agents trained on their own content. Teams can use those agents in private chat, team channels, websites, helpdesk-style workflows, or API-connected tools to retrieve source-grounded answers, summarize operational context, spot documentation gaps, and take approved actions such as routing a request or creating a handoff.",
+    "whoItHelps": [
+      {
+        "role": "Operations and production leaders",
+        "roleContext": "For leaders coordinating production assets, field crews, maintenance priorities, and documentation updates across dispersed sites.",
+        "bullets": [
+          {
+            "text": "Make current SOPs, shift notes, operating limits, and troubleshooting guides easier to find before a small issue becomes a costly delay.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use agent analytics to see repeated questions, outdated procedures, and documentation gaps that slow supervisors and coordinators.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route operational requests with summaries and required context to the right internal team when a person needs to decide the next step.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "HSE and compliance teams",
+        "roleContext": "For safety and environmental teams that need consistent access to procedures, training materials, regulatory references, and internal escalation paths.",
+        "bullets": [
+          {
+            "text": "OSHA identifies highway vehicle crashes as the leading cause of oil and gas extraction worker fatalities, making consistent access to site and journey-management guidance critical.",
+            "icon": "TruckIcon",
+            "sourceIds": [
+              "src-osha-hazards"
+            ]
+          },
+          {
+            "text": "Keep safety-critical answers tied to approved sources, with escalation for ambiguous, incident-related, or high-impact questions.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Summarize reports, capture missing information, and route follow-up tasks through customer-configured Skills, APIs, connectors, or review workflows.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Field service, maintenance, and reliability teams",
+        "roleContext": "For technicians, mechanics, engineers, and contractors who need fast access to manuals, checklists, job plans, parts notes, and maintenance history context.",
+        "bullets": [
+          {
+            "text": "Retrieve equipment procedures, maintenance instructions, and troubleshooting references from PDFs, manuals, wikis, and internal files.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Create scoped workflows that collect asset ID, location, symptoms, photos or notes, then prepare a ticket or handoff for review.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Give new hires and rotating crews a consistent place to ask procedure questions without searching through scattered drives and binders.",
+            "icon": "UserGroupIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Commercial, land, and stakeholder teams",
+        "roleContext": "For teams that answer recurring questions from partners, vendors, landowners, contractors, and internal business units.",
+        "bullets": [
+          {
+            "text": "Use a customer-facing or partner-facing agent to answer approved questions about service areas, documentation requirements, onboarding steps, and contact paths.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured intake details and qualify requests by region, asset, urgency, project type, or internal rules before forwarding to the right team.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Prepare sales or partner enablement summaries from approved materials while keeping humans responsible for commitments, contracts, and pricing.",
+            "icon": "BriefcaseIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-oil-gas-employment",
+      "metric": "276,540 workers in support activities for mining in May 2024",
+      "claim": "BLS reported that support activities for mining was the largest of five oil-and-gas-related industries it analyzed, with 276,540 workers in May 2024.",
+      "sourceTitle": "Occupational employment and wages in oil and gas industries, May 2024",
+      "sourceUrl": "https://www.bls.gov/opub/mlr/2026/article/occupational-employment-and-wages-in-oil-and-gas-industries-may-2024.htm",
+      "sourceDate": "February 2026",
+      "bestUsedFor": [
+        "Labor scale",
+        "distributed workforce",
+        "training and knowledge access pressure"
+      ]
+    },
+    {
+      "id": "src-osha-hazards",
+      "metric": "Highway vehicle crashes are the leading fatality cause",
+      "claim": "OSHA states that highway vehicle crashes are the leading cause of worker fatalities in oil and gas extraction and highlights the use of JSA/JHA processes to identify hazards and controls.",
+      "sourceTitle": "Oil and Gas Extraction - Hazards",
+      "sourceUrl": "https://osha.prod.pace.dol.gov/oil-and-gas-extraction/hazards",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Safety risk",
+        "field operations",
+        "hazard communication",
+        "JSA support"
+      ]
+    },
+    {
+      "id": "src-cdc-niosh-oil-gas",
+      "metric": "NIOSH tracks oil and gas extraction fatality risks",
+      "claim": "CDC/NIOSH maintains oil and gas extraction resources covering fatality surveillance and hazards such as manual tank gauging, sampling, hazardous gases, vapors, fires, and explosions.",
+      "sourceTitle": "Oil and Gas Extraction Resources",
+      "sourceUrl": "https://www.cdc.gov/niosh/oil-gas/resources/index.html",
+      "sourceDate": "Updated March 2024",
+      "bestUsedFor": [
+        "Worker safety",
+        "hazard exposure",
+        "training references",
+        "field risk context"
+      ]
+    },
+    {
+      "id": "src-epa-methane-final-rule",
+      "metric": "EPA finalized oil and gas methane rules in 2023 and later technical actions",
+      "claim": "EPA’s oil and natural gas rules target methane and other harmful air pollution from new and existing oil and gas operations, increasing the documentation burden around emissions-related practices.",
+      "sourceTitle": "EPA's Final Rule to Reduce Methane and Other Harmful Pollution from Oil and Natural Gas Operations and Related Actions",
+      "sourceUrl": "https://www.epa.gov/controlling-air-pollution-oil-and-natural-gas-operations/epas-final-rule-reduce-methane-and-other",
+      "sourceDate": "December 2024",
+      "bestUsedFor": [
+        "Environmental compliance",
+        "methane programs",
+        "regulatory documentation",
+        "emissions workflows"
+      ]
+    },
+    {
+      "id": "src-bls-naics-211",
+      "metric": "BLS tracks fatalities and injury rates for NAICS 211",
+      "claim": "BLS maintains industry data for oil and gas extraction, including workplace fatalities and injury and illness rates per 100 full-time workers.",
+      "sourceTitle": "Oil and Gas Extraction: NAICS 211",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag211.htm",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Industry risk profile",
+        "workforce safety",
+        "operations leadership"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Field SOP and JSA knowledge agent",
+      "problem": "Field teams often work across dispersed leases, pads, and facilities where the right procedure, hazard analysis, or equipment instruction may be buried in binders, PDFs, shared drives, or ticket history.",
+      "agentWorkflow": "DocsBot trains on approved SOPs, JSAs, training materials, equipment manuals, policies, and internal notes. A worker or supervisor asks a question, the agent responds with source-grounded guidance, highlights the source material, and escalates uncertain or safety-critical questions to the responsible human role.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can collect site, asset, task, and crew details, then create a ticket, prepare a handoff, or notify a supervisor through an approved workflow.",
+      "exampleQuestionsOrRequests": [
+        "What does the current procedure say before opening this separator for inspection?",
+        "Summarize the JSA for hot work near this production equipment.",
+        "Create a supervisor handoff with the asset ID, location, and missing permit details."
+      ],
+      "businessOutcome": "Reduces time spent hunting for procedures while keeping decisions grounded in approved sources and appropriate human oversight.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Maintenance troubleshooting and work-request intake",
+      "problem": "Reliability teams need accurate equipment references and complete intake details, but field requests often arrive with missing symptoms, locations, asset IDs, or prior troubleshooting context.",
+      "agentWorkflow": "The agent answers from manuals, maintenance standards, troubleshooting guides, parts notes, and past ticket exports when connected. It asks follow-up questions, summarizes the issue, and prepares a structured maintenance request for the appropriate team.",
+      "liveContextOrTools": "Configured AI Actions can look up approved asset metadata, create a task or ticket, route by facility or equipment class, and update approved fields when the customer authorizes the connection.",
+      "exampleQuestionsOrRequests": [
+        "What checks should I perform before escalating this pump vibration issue?",
+        "Draft a work request from these notes and include missing information I still need.",
+        "Summarize prior troubleshooting steps for this recurring compressor alarm."
+      ],
+      "businessOutcome": "Improves intake quality and gives maintenance coordinators clearer context before assigning work.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Environmental and emissions documentation assistant",
+      "problem": "Environmental teams must answer recurring questions about monitoring procedures, emissions records, inspection notes, and regulatory documentation while rules and internal practices evolve.",
+      "agentWorkflow": "DocsBot can train on environmental procedures, permit guidance, monitoring checklists, incident response steps, and internal compliance notes. The agent answers routine questions, points users to the governing document, and identifies knowledge gaps where employees repeatedly ask unanswered questions.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved record status, summarize emissions-related notes, route review tasks, or trigger a documentation workflow. EPA’s methane rules for oil and gas operations add pressure to keep emissions-related procedures findable and current.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current methane inspection checklist for this facility type?",
+        "Summarize the emissions documentation needed before submitting this review packet.",
+        "Route this monitoring question to environmental compliance with the conversation summary."
+      ],
+      "businessOutcome": "Helps teams keep environmental procedures searchable while preserving review paths for regulated submissions and interpretations.",
+      "icon": "CloudIcon",
+      "sourceIds": [
+        "src-epa-methane-final-rule"
+      ]
+    },
+    {
+      "name": "Contractor and vendor onboarding support",
+      "problem": "Contractors, vendors, and short-term crews need site-specific instructions, document requirements, and orientation answers, but coordinator teams often repeat the same information manually.",
+      "agentWorkflow": "A DocsBot agent can answer approved onboarding questions from orientation packets, site access rules, forms, training materials, and FAQs. It can collect missing details, summarize the request, and route the handoff to the right coordinator.",
+      "liveContextOrTools": "Configured forms, APIs, or workflow automations can capture company, worker role, location, required documents, and preferred follow-up channel before forwarding the request.",
+      "exampleQuestionsOrRequests": [
+        "What documents are required before a contractor can access this site?",
+        "Which training materials apply to a third-party electrical crew?",
+        "Collect my onboarding details and send them to the regional coordinator."
+      ],
+      "businessOutcome": "Reduces repetitive coordinator work and gives outside teams a clearer path to approved information.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Operations knowledge-gap reporting",
+      "problem": "Repeated field questions reveal missing, confusing, or outdated documentation, but those patterns are difficult to see across chats, tickets, and team conversations.",
+      "agentWorkflow": "DocsBot logs questions, conversation outcomes, and unresolved topics so operations, HSE, and training teams can review where documentation is unclear. Teams can use those insights to improve SOPs, onboarding content, and internal knowledge bases.",
+      "liveContextOrTools": "Analytics, reports, conversation review, and topic management help managers prioritize updates. Where connected, ticket summaries can show recurring issue categories without requiring every stakeholder to read every thread.",
+      "exampleQuestionsOrRequests": [
+        "Which production procedures are employees asking about most often this month?",
+        "Show unresolved questions that should become training updates.",
+        "Summarize repeated maintenance questions by asset type."
+      ],
+      "businessOutcome": "Turns everyday questions into a practical backlog for documentation, training, and process improvement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Commercial request qualification and account handoffs",
+      "problem": "Business development, land, and partner teams field inquiries that require approved information, structured intake, and careful handoff before a human negotiates commitments.",
+      "agentWorkflow": "A presales or stakeholder agent answers from approved service pages, operating regions, FAQs, policies, and sales enablement materials. It collects structured information, applies customer-defined qualification rules, and forwards the conversation summary for follow-up.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or MCP Connectors for remote Model Context Protocol servers, DocsBot can send lead details, create a task, draft a follow-up, or update approved CRM-style fields through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Do you operate in this basin, and who should I contact about a partnership?",
+        "Collect my company details and route this vendor inquiry to procurement.",
+        "Draft a follow-up summary for the account manager from this conversation."
+      ],
+      "businessOutcome": "Improves response consistency while keeping humans in control of pricing, contracts, land agreements, and commercial commitments.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give partners, contractors, and stakeholders a clearer path to approved answers",
+    "intro": "DocsBot can power an external-facing AI support agent trained on approved public or gated materials, such as contractor onboarding FAQs, vendor instructions, service information, safety orientation content, and stakeholder contact paths. Sensitive, commercial, or safety-critical requests can be escalated to people with the conversation context attached.",
+    "requests": [
+      {
+        "request": "A contractor asks what documents and training are required before arriving on site.",
+        "agentResponseStrategy": "Answer from approved onboarding materials, ask for missing company and role details, and prepare a coordinator handoff when the request needs review.",
+        "sourceTypes": [
+          "Contractor onboarding packets",
+          "Training requirements",
+          "Site access FAQs"
+        ],
+        "optionalAction": "Create an onboarding task or forward the intake summary through a configured workflow.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "A vendor wants to know which procurement path applies to a service offering.",
+        "agentResponseStrategy": "Provide approved routing information, collect service category and region, and avoid making procurement commitments without human review.",
+        "sourceTypes": [
+          "Procurement FAQs",
+          "Vendor policies",
+          "Approved contact directories"
+        ],
+        "optionalAction": "Route the request to procurement or supplier management with a structured summary.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "A landowner or community stakeholder asks who handles a facility-related concern.",
+        "agentResponseStrategy": "Answer from approved public guidance, identify the location and issue type, and escalate anything urgent, legal, environmental, or safety-related.",
+        "sourceTypes": [
+          "Stakeholder FAQs",
+          "Contact matrices",
+          "Public response guidance"
+        ],
+        "optionalAction": "Create a routed notification for the appropriate internal team if configured.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "A prospective partner asks about operating regions, capabilities, and next steps.",
+        "agentResponseStrategy": "Answer from approved business development materials, qualify the inquiry by region and project type, and forward qualified conversations to the responsible team.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales enablement content",
+          "Regional capability notes"
+        ],
+        "optionalAction": "Submit a lead form, draft a follow-up email, or create a CRM-style task through approved workflows.",
+        "icon": "ArrowTrendingUpIcon"
+      },
+      {
+        "request": "A multilingual contractor needs help understanding a basic equipment or site orientation document.",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answer capability to explain approved source material while escalating safety-critical interpretation or authorization questions.",
+        "sourceTypes": [
+          "User manuals",
+          "Orientation materials",
+          "Safety FAQs"
+        ],
+        "optionalAction": "Send unresolved language or interpretation issues to a human coordinator.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "A customer or partner asks about an incident, outage, spill, or emergency condition.",
+        "agentResponseStrategy": "Avoid unauthorized commitments, provide only approved response instructions, collect critical context, and escalate immediately to the configured human response path.",
+        "sourceTypes": [
+          "Incident response instructions",
+          "Escalation matrices",
+          "Public communications guidance"
+        ],
+        "optionalAction": "Trigger an urgent handoff or notification through customer-defined rules.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Equip field, HSE, engineering, and support teams with one governed knowledge layer",
+    "intro": "DocsBot can act as a private internal knowledge agent trained on SOPs, manuals, wikis, PDFs, policies, historical tickets, training files, and approved operational content. Employees can ask questions in private chat or team workflows and receive source-grounded answers, summaries, and routed next steps.",
+    "workflows": [
+      {
+        "name": "Shift handover summaries",
+        "problem": "Important context can be scattered across notes, emails, tickets, and verbal updates between rotations.",
+        "agentWorkflow": "The agent summarizes approved shift notes, open issues, unresolved questions, and follow-up items so supervisors and coordinators can start with a clearer operating picture.",
+        "sourceTypes": [
+          "Shift reports",
+          "Ticket exports",
+          "Operations notes",
+          "Daily logs"
+        ],
+        "optionalAction": "Create a handover task or notify the next responsible team when configured.",
+        "outcome": "Improves continuity between crews without replacing supervisor judgment.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "HSE procedure lookup",
+        "problem": "Safety teams need employees to find current procedures quickly while still escalating ambiguous or high-risk situations.",
+        "agentWorkflow": "DocsBot answers from approved safety manuals, JSA/JHA libraries, training content, and incident response guidance, then points users to the source and flags questions that require a person.",
+        "sourceTypes": [
+          "Safety manuals",
+          "JSA/JHA libraries",
+          "Training content",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Route a safety question with site, task, and worker-provided context to the designated reviewer.",
+        "outcome": "Supports consistent access to HSE information in an industry where OSHA highlights vehicle crashes, hazardous exposures, and other serious risks.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-hazards",
+          "src-cdc-niosh-oil-gas"
+        ]
+      },
+      {
+        "name": "Engineering and production document search",
+        "problem": "Engineers and production staff lose time searching across manuals, design notes, operating envelopes, and historical explanations.",
+        "agentWorkflow": "The agent retrieves answers from approved technical documents, explains where the answer came from, and summarizes long references for faster review.",
+        "sourceTypes": [
+          "Engineering notes",
+          "Operating procedures",
+          "Equipment manuals",
+          "Internal wikis"
+        ],
+        "optionalAction": "Draft an internal question, task, or documentation update request when the answer is missing.",
+        "outcome": "Reduces search time and exposes documentation gaps that should be fixed.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Employee onboarding and training support",
+        "problem": "New hires and transferring employees need consistent answers about policies, tools, procedures, and role-specific expectations.",
+        "agentWorkflow": "DocsBot trains on onboarding guides, HR policies, IT instructions, training modules, and team playbooks so employees can get answers without waiting for a manager.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training files",
+          "HR policies",
+          "Team playbooks"
+        ],
+        "optionalAction": "Route unresolved policy, access, or tool questions to HR, IT, or operations support.",
+        "outcome": "Helps distributed teams preserve institutional knowledge as the workforce changes.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Ticket triage for operations support",
+        "problem": "Internal support queues can fill with incomplete requests for access, maintenance, documentation, and policy clarification.",
+        "agentWorkflow": "A DocsBot agent can learn from approved ticket sources, draft responses, summarize prior context, ask for missing details, and route tickets according to customer-defined rules.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Support tickets",
+          "Policy docs",
+          "Runbooks"
+        ],
+        "optionalAction": "Draft a response, assign a category, create a task, or escalate to a human support owner.",
+        "outcome": "Gives support teams clearer, more complete tickets and faster first responses.",
+        "icon": "TicketIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from owned knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, internal documents, websites, PDFs, wikis, ticket exports, and other configured knowledge sources.",
+      "industryApplication": "Train an oil and gas agent on SOPs, HSE manuals, maintenance guides, environmental procedures, onboarding content, and operational references so teams get answers tied to approved sources.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can be used by operations, compliance, HR, IT, finance, legal, and other internal teams to retrieve procedures, policies, and troubleshooting guidance.",
+      "industryApplication": "Give field supervisors, engineers, HSE staff, maintenance planners, and coordinators a governed place to ask about current procedures and internal practices.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, routing, task creation, record updates, and workflow triggers when customers configure the right access.",
+      "industryApplication": "Collect site, asset, job type, priority, and requester details; prepare maintenance tickets; route incident handoffs; or notify the right team through approved workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access.",
+      "industryApplication": "Summarize recurring field support tickets, draft internal responses, identify missing request details, and route operational support questions by facility, topic, or urgency.",
+      "icon": "TicketIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which SOPs, maintenance tasks, environmental procedures, or onboarding topics generate repeated questions so documentation owners know what to improve.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer data training of public models.",
+      "industryApplication": "Use role-based access and customer-defined boundaries for sensitive operational, commercial, environmental, and safety-related knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect approved company knowledge, not generic web results.",
+      "Use conversation analytics to see what employees, contractors, or customers are trying to learn from your documentation.",
+      "Apply DocsBot to high-volume support and internal decision workflows where fast, source-grounded answers save team time."
+    ],
+    "whyTheseReviewsFit": "Oil and gas teams depend on trusted manuals, procedures, training files, and internal documentation. DocsBot proof shows teams using owned content libraries, training materials, documentation assistants, and high-volume support workflows to deliver faster answers while preserving visibility into what people are asking.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "ClockIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for oil and gas extraction and production knowledge operations",
+    "audience": [
+      "Oil and gas operations leaders",
+      "HSE and compliance teams",
+      "Maintenance and reliability teams",
+      "Field service coordinators",
+      "Commercial and stakeholder teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "oil-gas-distribution",
+    "pipeline",
+    "mineral-resource-extraction",
+    "environmental-monitoring",
+    "environmental-consultancy",
+    "carbon-accounting",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "oil-gas-extraction-production",
+    "webSearchQueries": [
+      "BLS oil and gas extraction employment fatal injuries 2023 2024",
+      "OSHA oil and gas extraction hazards fatalities",
+      "EPA oil and natural gas methane final rule 2024",
+      "BLS oil and gas extraction NAICS employment May 2024"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/opub/mlr/2026/article/occupational-employment-and-wages-in-oil-and-gas-industries-may-2024.htm",
+      "https://osha.prod.pace.dol.gov/oil-and-gas-extraction/hazards",
+      "https://www.cdc.gov/niosh/oil-gas/resources/index.html",
+      "https://www.epa.gov/controlling-air-pollution-oil-and-natural-gas-operations/epas-final-rule-reduce-methane-and-other",
+      "https://www.bls.gov/iag/tgs/iag211.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41967,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 29423,
+        "outputTokens": 8260,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 50227,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.200594,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.210594
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21623,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14327,
+          "outputTokens": 5537,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 27160,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.120697,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.130697
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20344,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15096,
+          "outputTokens": 2723,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23067,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079897,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079897
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1562237553-36ad661d6f2c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDAyODd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Oil and Gas Extraction & Production background image",
+    "source": "legacy-industry",
+    "query": "Oil and Gas Extraction & Production"
+  },
+  "faq": [
+    {
+      "question": "How do we keep an AI agent from giving unsafe field instructions when a job should be escalated to a supervisor or HSE lead?",
+      "answer": "DocsBot should be configured around approved SOPs, JSA/JHA libraries, HSE manuals, and escalation matrices—not open-ended advice. For safety-critical, ambiguous, incident-related, or high-impact questions, the agent can provide source-grounded context, collect site and task details, and route the conversation to the responsible human reviewer instead of pretending to authorize the work.",
+      "role": "HSE and compliance teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help crews find the current procedure without searching through binders, shared drives, and old PDFs?",
+      "answer": "Yes. DocsBot can train on approved SOPs, manuals, policies, PDFs, wikis, training files, and internal notes so field and office teams can ask natural-language questions and get answers tied back to source material. This is especially useful across dispersed pads, leases, and facilities where the right document may be hard to locate quickly.",
+      "role": "Operations and production leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What would a realistic first use case be for production operations rather than a broad AI transformation project?",
+      "answer": "A strong starting point is a field SOP and JSA knowledge agent. Limit the first rollout to approved procedures, safety references, equipment manuals, and escalation paths for a defined asset group or region. That lets operations validate answer quality, source coverage, user adoption, unresolved questions, and escalation behavior before expanding into maintenance intake or environmental workflows.",
+      "role": "Operations and production leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent summarize shift notes and open issues for handover between rotations?",
+      "answer": "Yes, if those notes and logs are available as approved knowledge sources or connected through customer-configured workflows. DocsBot can summarize open issues, unresolved questions, follow-up items, and relevant context so supervisors start the next rotation with a clearer picture. It should support—not replace—the supervisor’s operating judgment.",
+      "role": "Operations and production leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle maintenance requests that arrive without asset IDs, location, symptoms, or prior troubleshooting details?",
+      "answer": "DocsBot can ask follow-up questions, collect structured details, summarize the issue, and prepare a maintenance ticket or handoff through customer-configured Skills, APIs, connectors, or workflow automations. The goal is to improve intake quality before a planner, reliability engineer, or maintenance coordinator decides the next action.",
+      "role": "Field service, maintenance, and reliability teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we connect DocsBot to our CMMS, ticketing system, or asset database?",
+      "answer": "DocsBot can support approved live lookups, ticket creation, routing, record updates, and workflow triggers when your team configures the right Skills, APIs, connectors, metadata, or MCP Connectors. It should be scoped carefully: for example, look up asset metadata, draft a work request, or update approved fields without giving the agent unrestricted system access.",
+      "role": "Field service, maintenance, and reliability teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if the agent is mostly helping employees find procedures and ask better questions?",
+      "answer": "Track reduced search time, fewer incomplete requests, faster first response for internal support, lower coordinator workload, repeat-question reduction, and documentation gaps resolved. For operations leaders, also measure adoption by asset, region, or crew; unanswered topics; escalation volume; and whether maintenance or HSE handoffs arrive with better context.",
+      "role": "Operations and production leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help with environmental and methane documentation questions without acting like a regulatory interpreter?",
+      "answer": "Yes. DocsBot can answer routine questions from approved environmental procedures, permit guidance, monitoring checklists, and internal compliance notes while routing interpretation, submission, or exception questions to compliance reviewers. EPA oil and natural gas rules target methane and other harmful air pollution from new and existing operations, which increases pressure to keep emissions procedures findable and current.",
+      "role": "HSE and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-methane-final-rule"
+      ]
+    },
+    {
+      "question": "How do we prevent contractors or vendors from seeing internal procedures they should not access?",
+      "answer": "Use separate agents, knowledge scopes, granular access controls, and role-based permissions. A contractor-facing agent can answer from approved onboarding packets, site access FAQs, and public or gated orientation content, while internal SOPs, commercial terms, incident notes, and sensitive operational material remain restricted to authorized users.",
+      "role": "Commercial, land, and stakeholder teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can a partner- or contractor-facing agent collect intake details before routing someone to procurement, land, or operations?",
+      "answer": "Yes. DocsBot can collect structured details such as company, region, service category, site, urgency, worker role, required documents, and preferred follow-up channel. With approved workflows, it can route the summary to the right internal team while keeping humans responsible for procurement decisions, land agreements, pricing, and contractual commitments.",
+      "role": "Commercial, land, and stakeholder teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security controls matter most for an upstream operator evaluating an internal AI knowledge agent?",
+      "answer": "Buyers should look for source-grounded answers, role-based access, granular permissions, encryption in transit and at rest, logging, review paths, and clear data-use boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will DocsBot train public AI models on our operating procedures, tickets, manuals, or internal knowledge base?",
+      "answer": "No. Based on the DocsBot product context, customer data is not used to train public models. For sensitive upstream use cases, teams should still configure access controls, keep credentials out of chats, scope Skills carefully, and decide which SOPs, tickets, manuals, and commercial documents each audience is allowed to query.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much cleanup do our SOPs and manuals need before launching an AI agent?",
+      "answer": "You do not need perfect documentation, but you do need approved, current, and clearly scoped source material. A practical implementation starts with a document inventory, removes obsolete versions, separates internal and external content, defines escalation rules, and uses DocsBot analytics to identify repeated unanswered questions and documentation gaps after launch.",
+      "role": "Operations and production leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support new hires, rotating crews, and contractors who do not know where knowledge is stored?",
+      "answer": "Yes. DocsBot can act as an onboarding and training assistant trained on orientation guides, HR policies, IT instructions, safety training, team playbooks, and role-specific procedures. In oil and gas, this helps distributed workers get consistent answers while still escalating access, authorization, safety, or site-specific questions to the correct person.",
+      "role": "Field service, maintenance, and reliability teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we handle vehicle safety, journey management, and other high-risk field topics in the agent?",
+      "answer": "Treat those as governed HSE knowledge workflows. The agent can retrieve approved journey-management guidance, site instructions, JSA/JHA references, and escalation contacts, but should route uncertainty or incident conditions to HSE. OSHA identifies highway vehicle crashes as the leading cause of worker fatalities in oil and gas extraction.",
+      "role": "HSE and compliance teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-hazards"
+      ]
+    },
+    {
+      "question": "Can DocsBot help HSE teams see which procedures employees keep asking about?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. HSE teams can review repeated questions, unresolved topics, and confusing procedure areas to prioritize training updates, JSA improvements, or document revisions.",
+      "role": "HSE and compliance teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with putting our SOPs into a generic AI chatbot?",
+      "answer": "DocsBot is designed for agents trained on your owned knowledge with source-grounded answers, access controls, analytics, and customer-configured actions. For upstream operations, that matters because buyers need traceability to approved SOPs, manuals, HSE content, and escalation paths—not generic answers that cannot show where guidance came from.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent answer questions in multiple languages for contractors or multilingual field teams?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help contractors and employees understand approved onboarding, orientation, or equipment reference material. For safety-critical interpretation, authorization, or incident-related questions, the workflow should escalate to a qualified human rather than relying only on translation.",
+      "role": "Commercial, land, and stakeholder teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent cannot find an answer or finds conflicting procedures?",
+      "answer": "DocsBot should be configured to say when it does not know, show the sources it used, and escalate the conversation with context. Conflicting procedures are also a documentation-quality signal: analytics and conversation review can help owners identify duplicate, outdated, or unclear materials that need revision.",
+      "role": "Operations and production leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support incident, spill, outage, or emergency questions from external stakeholders?",
+      "answer": "It can support carefully bounded workflows: provide only approved public response instructions, collect critical context such as location and issue type, and trigger an urgent handoff through customer-defined rules. It should not make unauthorized commitments, speculate about causes, or replace emergency response, legal, environmental, or communications teams.",
+      "role": "Commercial, land, and stakeholder teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How scalable is this across basins, business units, and different operating practices?",
+      "answer": "DocsBot can scale by separating knowledge sources, permissions, agents, and workflows by region, asset, team, or audience. Many upstream buyers start with one operational domain, then add maintenance, HSE, environmental, contractor onboarding, and stakeholder workflows once governance, ownership, and document update processes are proven.",
+      "role": "Operations and production leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can maintenance and reliability teams use DocsBot with historical ticket exports?",
+      "answer": "Yes, when historical tickets are approved as a knowledge source or connected through configured workflows. The agent can summarize recurring issues, draft responses, surface prior troubleshooting context, and identify missing request details. Teams should filter sensitive or low-quality records and avoid letting outdated ticket notes override current procedures.",
+      "role": "Field service, maintenance, and reliability teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Who needs to be involved in the buying committee for an upstream AI agent rollout?",
+      "answer": "A realistic buying group includes operations leadership, HSE or compliance, maintenance or reliability, IT/security, document owners, and possibly procurement, legal, land, or stakeholder relations. The key decision is not just the software purchase—it is who owns source content, permissions, escalation rules, workflow actions, and success metrics after launch.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help reduce repeated coordinator questions from vendors and contractors?",
+      "answer": "Yes. A contractor or vendor agent can answer from approved onboarding packets, document requirements, procurement FAQs, training materials, and contact paths. It can also collect missing details and route a structured handoff, reducing repetitive email or phone follow-up while preserving human review for exceptions and approvals.",
+      "role": "Commercial, land, and stakeholder teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we keep answers current when procedures, permits, contacts, or operating limits change?",
+      "answer": "Assign content owners, connect approved source repositories where possible, retire outdated files, and review analytics for questions that produce weak or unresolved answers. DocsBot works best when the agent reflects governed knowledge-management practices: current sources, clear permissions, review cycles, and escalation paths for anything uncertain.",
+      "role": "Operations and production leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Why is source grounding especially important for oil and gas extraction teams?",
+      "answer": "Upstream teams operate in a high-risk environment where procedures, hazards, and approvals matter. NIOSH oil and gas resources cover fatality surveillance and hazards including hazardous gases, vapors, fires, explosions, manual tank gauging, and sampling. Source-grounded answers help users see which approved document supports the response and when to escalate.",
+      "role": "HSE and compliance teams",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-cdc-niosh-oil-gas"
+      ]
+    }
+  ]
+}

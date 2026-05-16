@@ -1,0 +1,718 @@
+{
+  "slug": "gaming",
+  "business": "Gaming",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Gaming Support and Player Operations",
+    "description": "DocsBot helps gaming teams deliver source-grounded player support, route issues, and surface documentation gaps across games, platforms, and communities.",
+    "canonicalPath": "/industry/gaming"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for studios, publishers, and gaming communities",
+    "headline": "DocsBot AI agents keep gaming support fast, accurate, and scalable",
+    "subheadline": "Train DocsBot on your game guides, patch notes, support docs, community policies, known issues, and internal runbooks so players and teams get instant, source-grounded answers. Add scoped AI Actions to collect ticket details, route issues, summarize player reports, and hand off complex cases to humans.",
+    "proofBullets": [
+      {
+        "text": "Answer gameplay, account, purchase, technical, and policy questions from approved game knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Summarize bug reports, player feedback, and support conversations so teams can triage faster.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or workflows for status lookups, ticket creation, routing, and handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Reveal repeated player questions and missing documentation through analytics, logs, reports, and knowledge-gap discovery.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a gaming AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps gaming businesses create AI agents trained on their own knowledge: player support articles, game documentation, patch notes, FAQs, moderation policies, launch checklists, internal SOPs, and community guidance. Agents can answer in a website or product chat widget, assist support teams privately, summarize context, escalate sensitive issues, and take bounded actions when configured.",
+    "whoItHelps": [
+      {
+        "role": "Player support and community teams",
+        "roleContext": "Give players faster answers while keeping policy, bug, and account guidance consistent across launch spikes, updates, and regional communities.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions about gameplay systems, known issues, purchases, bans, refunds, and platform requirements.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Collect missing details such as platform, build version, account region, error code, and steps to reproduce before escalation.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Answer in more than 100 languages from approved content so global players receive consistent support.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Live ops, QA, and production teams",
+        "roleContext": "Turn scattered player reports and internal procedures into searchable operational knowledge that helps teams respond during patches, incidents, and events.",
+        "bullets": [
+          {
+            "text": "Summarize ticket clusters and player feedback so producers can see recurring issues without reading every thread.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Help teams retrieve launch runbooks, escalation paths, moderation rules, and incident response notes from private sources.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Support bounded workflow triggers such as creating a task, routing a report, or notifying the right internal channel when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Marketing, publishing, and player growth teams",
+        "roleContext": "Help prospects and returning players understand editions, compatibility, events, DLC, seasonal content, and community programs using current approved materials.",
+        "bullets": [
+          {
+            "text": "Answer pre-purchase questions about features, platforms, editions, controller support, system requirements, and launch timing.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Qualify press, creator, partnership, or community requests through structured intake forms and customer-defined routing rules.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Draft handoff summaries for sales, partnerships, community, or support teams with the conversation context preserved.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "RocketLaunchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-esa-economic-impact-2026",
+      "metric": "U.S. video game industry supported 250,838 jobs and $95.8 billion in output.",
+      "claim": "The Entertainment Software Association’s 2026 economic impact report estimated that the U.S. video game industry supported 250,838 jobs and $95.8 billion in total output.",
+      "sourceTitle": "Video Games in the 21st Century: The 2026 Economic Impact Report",
+      "sourceUrl": "https://www.theesa.com/wp-content/uploads/2026/04/EIR_2026_FINAL.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "labor scale",
+        "economic impact",
+        "industry importance"
+      ]
+    },
+    {
+      "id": "src-esa-essential-facts-2024",
+      "metric": "Video games are a mainstream U.S. entertainment channel.",
+      "claim": "ESA’s 2024 Essential Facts report describes video games as a broad U.S. entertainment activity across adults and children, supporting the need for accessible player information and support.",
+      "sourceTitle": "2024 Essential Facts About the U.S. Video Game Industry",
+      "sourceUrl": "https://www.theesa.com/wp-content/uploads/2024/05/Essential-Facts-2024-FINAL.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "player reach",
+        "customer expectations",
+        "mainstream adoption"
+      ]
+    },
+    {
+      "id": "src-newzoo-2025-market",
+      "metric": "Global games revenue was projected at $188.8 billion in 2025.",
+      "claim": "Newzoo’s 2025 market reporting projected the global games market at $188.8 billion in revenue, underscoring the scale of player-facing operations.",
+      "sourceTitle": "Newzoo: Global games market set to hit $188.8bn in 2025",
+      "sourceUrl": "https://www.pocketgamer.biz/newzoo-global-games-market-set-to-hit-1888bn-in-2025/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "global demand",
+        "support volume pressure"
+      ]
+    },
+    {
+      "id": "src-gdc-2025-layoffs",
+      "metric": "11% of surveyed game developers said they were laid off in 2024.",
+      "claim": "GDC’s 2025 State of the Game Industry survey, reported by VGC, found that 11% of surveyed game developers were laid off in the prior year and 29% saw direct colleagues laid off.",
+      "sourceTitle": "11% of game developers surveyed by GDC were laid off in the past year",
+      "sourceUrl": "https://www.videogameschronicle.com/news/gdc-survey-finds-11-of-game-developers-were-laid-off-in-the-past-year/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "staffing pressure",
+        "knowledge retention",
+        "operational efficiency"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Player support agent for game, account, and technical questions",
+      "problem": "Players expect fast answers during launches, content drops, outages, and seasonal events, but support teams cannot manually repeat the same troubleshooting and policy answers at every spike.",
+      "agentWorkflow": "DocsBot answers from approved player guides, FAQs, patch notes, platform requirements, known-issue pages, refund policies, and community rules. When a case is complex, account-specific, or sensitive, the agent collects details and prepares a concise handoff for the support team.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or helpdesk workflows, the agent can look up approved status fields, create or route a ticket, attach a summary, and escalate to a human queue.",
+      "exampleQuestionsOrRequests": [
+        "Why am I getting error code 30005 after the latest patch?",
+        "Which edition includes the new expansion?",
+        "How do I appeal a moderation action?",
+        "Can you file a bug report with my platform and build number?"
+      ],
+      "businessOutcome": "Players get faster, consistent guidance while support teams receive cleaner escalations with the context they need to resolve edge cases.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "name": "Launch and live-ops incident assistant",
+      "problem": "Launch days and live-service incidents create a flood of status questions, bug reports, and internal coordination needs across support, community, QA, and production.",
+      "agentWorkflow": "DocsBot retrieves current runbooks, incident communication templates, escalation paths, patch notes, and known issues. It can summarize incoming conversations, group repeated symptoms, and help team members find the approved next step.",
+      "liveContextOrTools": "Scoped AI Actions can trigger a workflow, notify an internal channel, create a task, or route an issue when connected through customer-approved APIs, connectors, or MCP-enabled tool access.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved player message for today’s matchmaking outage?",
+        "Summarize the top crash reports mentioning version 1.4.2.",
+        "Create a task for QA with these repro steps.",
+        "Which team owns progression rollback escalations?"
+      ],
+      "businessOutcome": "Support, QA, and community teams respond from the same source of truth instead of chasing scattered updates during high-pressure moments.",
+      "icon": "SignalIcon"
+    },
+    {
+      "name": "Community policy and moderation guidance agent",
+      "problem": "Moderation, creator programs, player conduct, and appeal workflows require consistent wording, but policies are often split between public rules and internal enforcement notes.",
+      "agentWorkflow": "DocsBot can answer player-facing policy questions from public community standards while helping internal teams retrieve escalation criteria, appeal procedures, and approved language from private sources.",
+      "liveContextOrTools": "When configured, the agent can collect appeal details, route a moderation review, summarize the case history, or hand off to a human reviewer without making high-impact enforcement decisions on its own.",
+      "exampleQuestionsOrRequests": [
+        "What behavior violates the clan naming policy?",
+        "What information do I need to submit an appeal?",
+        "Summarize this appeal for the moderation review queue.",
+        "Which cases require trust and safety escalation?"
+      ],
+      "businessOutcome": "Players receive clearer explanations, and moderators spend less time searching policy documents before making human-reviewed decisions.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "name": "Game documentation and onboarding assistant",
+      "problem": "Complex games bury critical information across wikis, patch notes, tutorials, forums, and support articles, making it hard for new and returning players to find accurate answers.",
+      "agentWorkflow": "DocsBot trains on official documentation, beginner guides, mechanic explainers, release notes, and technical references. It answers with grounded information and helps teams see which topics players keep asking about.",
+      "liveContextOrTools": "Analytics, logs, topic management, reports, and conversation review help documentation teams identify missing pages, confusing mechanics, and outdated support content.",
+      "exampleQuestionsOrRequests": [
+        "How does cross-progression work between PC and console?",
+        "What changed about crafting in the latest patch?",
+        "Where do I unlock ranked mode?",
+        "Which documentation topics are players asking about most this week?"
+      ],
+      "businessOutcome": "Players learn faster and documentation teams get practical insight into where official content needs improvement.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-esa-essential-facts-2024"
+      ]
+    },
+    {
+      "name": "Partner, creator, and presales qualification agent",
+      "problem": "Studios and publishers receive recurring questions from creators, press, esports organizers, licensors, and business partners that require intake, qualification, and routing.",
+      "agentWorkflow": "DocsBot answers from approved media kits, partnership FAQs, event requirements, creator program rules, platform specs, and sales enablement materials. It collects structured details such as organization, audience, region, timeline, budget range, and requested collaboration type.",
+      "liveContextOrTools": "With approved Skills, forms, APIs, or workflow automations, the agent can qualify requests using customer-defined rules and forward summaries to CRM, email, helpdesk, or team channels.",
+      "exampleQuestionsOrRequests": [
+        "Can our tournament use your game commercially?",
+        "What are the creator program requirements?",
+        "Collect my event details and send them to partnerships.",
+        "Does this prospect fit our publisher services criteria?"
+      ],
+      "businessOutcome": "Business and community teams get better-qualified inbound requests with less manual back-and-forth.",
+      "icon": "TrophyIcon"
+    },
+    {
+      "name": "Internal knowledge retention for lean game teams",
+      "problem": "The U.S. video game industry supported 250,838 jobs in ESA’s 2026 economic impact report, while GDC survey reporting found 11% of surveyed developers were laid off in 2024, making knowledge retention a real operational risk.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, wikis, Confluence-style content, Notion pages, Google Drive files, PDFs, onboarding docs, support playbooks, and production notes so remaining and new team members can quickly retrieve institutional knowledge.",
+      "liveContextOrTools": "Team members can use private chat, Slack, Microsoft Teams, or internal workflows when configured, with granular access controls and role-based permissions for private sources.",
+      "exampleQuestionsOrRequests": [
+        "Where is the release certification checklist?",
+        "What is our process for hotfix approval?",
+        "Summarize the support escalation playbook for new hires.",
+        "Which internal page explains localization handoff?"
+      ],
+      "businessOutcome": "Teams preserve operational knowledge, reduce time spent searching, and onboard contributors faster during reorganizations or production changes.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-esa-economic-impact-2026",
+        "src-gdc-2025-layoffs"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give players an always-available support agent trained on your official game knowledge",
+    "intro": "DocsBot can sit in a website, help center, product, or community support flow to answer player questions in your voice. It stays grounded in the sources you approve, collects the details your team needs, and escalates complex account, policy, payment, or safety issues to humans.",
+    "requests": [
+      {
+        "request": "“Why did my progress not sync after switching platforms?”",
+        "agentResponseStrategy": "Search approved cross-progression docs, known-issue notes, account-linking instructions, and troubleshooting steps; ask for platform and account details only if needed for escalation.",
+        "sourceTypes": [
+          "Account linking docs",
+          "Known issues",
+          "Troubleshooting articles",
+          "Patch notes"
+        ],
+        "optionalAction": "Create a support ticket with the player’s platform, region, build version, and a summary when a customer-configured workflow is available.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Which edition should I buy if I want the expansion and early access?”",
+        "agentResponseStrategy": "Answer from approved product pages, edition comparison docs, store FAQs, and launch materials without inventing pricing or availability.",
+        "sourceTypes": [
+          "Store FAQs",
+          "Edition guides",
+          "Launch announcements",
+          "Product pages"
+        ],
+        "optionalAction": "Collect purchase intent or region and route qualified questions to support, sales, or publishing teams when configured.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“I think I found an exploit. How do I report it?”",
+        "agentResponseStrategy": "Provide the official reporting path, explain what evidence to include, and avoid exposing sensitive internal enforcement or vulnerability details.",
+        "sourceTypes": [
+          "Security policy",
+          "Community rules",
+          "Bug reporting guide",
+          "Support policy"
+        ],
+        "optionalAction": "Submit a structured report or prepare a human handoff through an approved workflow with appropriate permissions.",
+        "icon": "BugAntIcon"
+      },
+      {
+        "request": "“Can I appeal a ban or moderation action?”",
+        "agentResponseStrategy": "Explain the public appeal process, collect required information, and make clear that enforcement decisions remain with the responsible human team.",
+        "sourceTypes": [
+          "Moderation policy",
+          "Appeals FAQ",
+          "Community standards"
+        ],
+        "optionalAction": "Route a complete appeal packet to the correct queue with a conversation summary if the customer has configured that workflow.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“Is the game available in my language?”",
+        "agentResponseStrategy": "Answer from localization notes, supported-language pages, platform pages, and release announcements, using DocsBot’s multilingual answer capabilities for accessible support.",
+        "sourceTypes": [
+          "Localization docs",
+          "Platform pages",
+          "Release notes",
+          "Support FAQs"
+        ],
+        "optionalAction": "Capture unmet localization requests as feedback for community or product teams.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What is happening with the server outage?”",
+        "agentResponseStrategy": "Use approved status messaging, incident notes, and support macros so players receive consistent information without speculation.",
+        "sourceTypes": [
+          "Status updates",
+          "Incident templates",
+          "Support macros",
+          "Known issues"
+        ],
+        "optionalAction": "Notify players where to follow updates or create a ticket only when the issue requires account-specific follow-up.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep studio, support, and publishing teams aligned with a private gaming knowledge agent",
+    "intro": "DocsBot can be trained on internal documentation, support playbooks, launch plans, community policies, QA notes, sales enablement materials, and operational procedures. Employees get instant, permission-aware answers while leaders see documentation gaps and repeated internal questions.",
+    "workflows": [
+      {
+        "name": "Support macro and ticket response drafting",
+        "problem": "Agents often rewrite the same troubleshooting or policy response while checking multiple sources for the latest approved wording.",
+        "agentWorkflow": "DocsBot retrieves the relevant help article, known issue, patch note, and escalation policy, then drafts a response a human support agent can review and send.",
+        "sourceTypes": [
+          "Help articles",
+          "Support macros",
+          "Ticket exports",
+          "Known issues"
+        ],
+        "optionalAction": "When connected to helpdesk software through customer-configured workflows, DocsBot can summarize, route, or draft ticket responses.",
+        "outcome": "Support teams respond faster while keeping player communication grounded in approved sources.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "QA and bug triage summaries",
+        "problem": "Player bug reports arrive with inconsistent detail, forcing QA and production teams to manually reconstruct platform, build, reproduction steps, and impact.",
+        "agentWorkflow": "DocsBot can summarize incoming reports, identify missing fields, retrieve known bug references, and format a concise triage summary for humans.",
+        "sourceTypes": [
+          "Bug report forms",
+          "Known issue logs",
+          "Patch notes",
+          "QA runbooks"
+        ],
+        "optionalAction": "Create a task or route a summarized report to the appropriate queue when an approved workflow is configured.",
+        "outcome": "QA receives cleaner reports and support teams spend less time reformatting player feedback.",
+        "icon": "BugAntIcon"
+      },
+      {
+        "name": "Launch readiness and incident runbook lookup",
+        "problem": "During launches, teams need current answers about escalation paths, communication rules, rollback procedures, and platform-specific processes.",
+        "agentWorkflow": "DocsBot answers internal questions from launch checklists, runbooks, incident response docs, approval paths, and communication templates.",
+        "sourceTypes": [
+          "Launch plans",
+          "Incident runbooks",
+          "Communication templates",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Trigger a notification, create a task, or prepare an incident summary through approved Skills, APIs, connectors, or workflow automations.",
+        "outcome": "Teams move quickly without relying on memory or stale copies of launch documents.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "Onboarding for distributed game teams",
+        "problem": "New developers, support agents, community managers, and external partners need to learn tools, terminology, policies, and production workflows quickly.",
+        "agentWorkflow": "DocsBot gives role-specific answers from onboarding guides, SOPs, tool documentation, brand rules, and project wikis, with source-grounded responses for follow-up reading.",
+        "sourceTypes": [
+          "Onboarding docs",
+          "Internal wikis",
+          "SOPs",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Recommend the next internal document or training step based on the employee’s question and configured knowledge sources.",
+        "outcome": "New contributors ramp faster and senior staff answer fewer repetitive onboarding questions.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Publishing and partnership enablement",
+        "problem": "Business teams need accurate answers about game positioning, platform details, pricing guidance, creator terms, case studies, and objection handling.",
+        "agentWorkflow": "DocsBot acts as an internal sales enablement agent trained on product docs, pitch materials, partner FAQs, creator program rules, proposal templates, and approved competitive notes.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Partner FAQs",
+          "Proposal templates",
+          "Creator program docs"
+        ],
+        "optionalAction": "Draft follow-up emails, prepare account summaries, or route qualified opportunities to sales systems when configured by the customer.",
+        "outcome": "Publishing and partnership teams respond consistently while keeping humans in control of pricing, contracts, and commitments.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded player support",
+      "mainLandingPageContext": "DocsBot agents answer from the knowledge sources a business provides, including help centers, documentation, websites, internal content, and other configured sources.",
+      "industryApplication": "Train an agent on patch notes, gameplay guides, account policies, known issues, moderation rules, and support FAQs so players receive answers grounded in official game information.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for live workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-defined rules, APIs, connectors, metadata, secrets, logging, and approved workflow access.",
+      "industryApplication": "Use scoped actions to collect repro steps, look up approved status fields, create a task or ticket, route an appeal, notify a team, or prepare a support handoff.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk workflows through customer-configured Skills, APIs, connectors, exports, or approved access to learn from, summarize, route, answer, or draft responses.",
+      "industryApplication": "Let support agents summarize player tickets, draft replies from official content, identify missing details, and escalate technical, account, purchase, or policy cases to humans.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which mechanics, errors, editions, policies, or patch changes are confusing players so support and documentation teams can improve official content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for game operations",
+      "mainLandingPageContext": "DocsBot can serve as a private internal knowledge assistant trained on internal documents, SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and more.",
+      "industryApplication": "Help support, QA, live ops, community, localization, publishing, and leadership teams retrieve the right runbook, policy, checklist, or approved messaging instantly.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Protect unreleased content, internal playbooks, moderation notes, partner materials, and operational procedures while giving each team access to the knowledge they are allowed to use.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where fast, consistent answers matter.",
+      "Trains on your owned content library so responses stay grounded in official knowledge.",
+      "Supports player-facing widgets and human support teams working from helpdesk-style workflows."
+    ],
+    "whyTheseReviewsFit": "Gaming teams need dependable support during spikes, launches, and live-service updates. DocsBot’s customer proof shows source-grounded answers at scale, practical training on owned content, and support workflows that assist both self-service players and human agents.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for gaming companies",
+    "audience": [
+      "Game studios",
+      "Publishers",
+      "Player support teams",
+      "Community and moderation teams",
+      "Live operations teams",
+      "Esports and creator program teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "casino-and-video-gaming",
+    "online-gaming",
+    "e-sports-organization",
+    "game-development",
+    "board-game-publishing",
+    "tabletop-rpg-design"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "gaming",
+    "webSearchQueries": [
+      "Entertainment Software Association 2024 essential facts video game players United States percentage adults play video games",
+      "Newzoo global games market 2025 revenue players report",
+      "U.S. video game industry employment economic impact Entertainment Software Association report",
+      "GDC State of Game Industry 2024 layoffs developers report"
+    ],
+    "sourceUrls": [
+      "https://www.theesa.com/wp-content/uploads/2026/04/EIR_2026_FINAL.pdf",
+      "https://www.theesa.com/wp-content/uploads/2024/05/Essential-Facts-2024-FINAL.pdf",
+      "https://www.pocketgamer.biz/newzoo-global-games-market-set-to-hit-1888bn-in-2025/",
+      "https://www.videogameschronicle.com/news/gdc-survey-finds-11-of-game-developers-were-laid-off-in-the-past-year/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41404,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28860,
+        "outputTokens": 8176,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 49580,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.197926,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.207926
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21628,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14332,
+          "outputTokens": 5300,
+          "reasoningOutputTokens": 123,
+          "totalTokens": 26928,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.117154,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.127154
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19776,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14528,
+          "outputTokens": 2876,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22652,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080772,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080772
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1513366884929-f0b3bedfb653?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU4NTB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Gaming background image",
+    "source": "legacy-industry",
+    "query": "Gaming"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle launch-day spikes without giving players outdated patch or outage information?",
+      "answer": "Yes—DocsBot is designed to answer from the sources you approve, such as patch notes, known-issue pages, status messaging, support macros, and incident runbooks. For launch events, teams can update the source of truth and use the agent to provide consistent player-facing answers, collect missing context, and escalate account-specific or sensitive cases to humans.",
+      "role": "Player support and community teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the AI from inventing gameplay answers or promising fixes that production has not approved?",
+      "answer": "DocsBot should be trained on official game guides, release notes, support articles, moderation policies, and internal runbooks—not open community speculation. Its value for gaming teams is source-grounded answers: when information is missing or ambiguous, the agent can be instructed to say so, ask clarifying questions, or hand off to a human instead of making unsupported claims.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support both player self-service and our internal support agents?",
+      "answer": "Yes. A player-facing agent can answer in a website, help center, product, or community support flow, while a private internal agent can help support teams retrieve macros, known issues, policy notes, and escalation steps. The same approved knowledge strategy can reduce repetitive player questions and give human agents faster context for cases that still need review.",
+      "role": "Player support and community teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of player questions are realistic to automate, and which should still go to humans?",
+      "answer": "Good automation candidates include gameplay explanations, platform requirements, edition comparisons, troubleshooting steps, known issues, appeal intake, creator program FAQs, and bug-report collection. Humans should remain in control for account-specific decisions, payments or refunds requiring judgment, moderation outcomes, safety issues, exploit handling, legal commitments, and anything not covered by approved sources.",
+      "role": "Player support and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent collect better bug reports before they reach QA?",
+      "answer": "Yes. DocsBot can ask for structured details such as platform, build version, account region, error code, steps to reproduce, screenshots or logs if your process allows them, and expected versus actual behavior. With customer-configured workflows, it can summarize the report, identify missing fields, and route or create a task for the appropriate QA or production queue.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot fit with our helpdesk or ticketing workflow?",
+      "answer": "DocsBot can support helpdesk-connected workflows when your team configures the right Skills, APIs, connectors, exports, or approved access. Common patterns include drafting source-grounded replies, summarizing long ticket threads, routing issues by game, platform, region, or severity, and preparing human handoffs. It should be scoped around your existing queues and escalation rules.",
+      "role": "Player support and community teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot look up live account status, entitlements, or ticket status?",
+      "answer": "It can when your team authorizes a bounded lookup through customer-configured Skills, APIs, connectors, metadata, or MCP-enabled tool access. Buyers usually start with low-risk actions such as status checks, ticket creation, routing, and summary generation, then add stricter permissions, logging, and human review for anything involving accounts, purchases, moderation, or player data.",
+      "role": "Player support and community teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we protect unreleased content, internal moderation notes, and partner materials?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. For gaming teams, that matters because public patch notes, private live-ops plans, enforcement guidance, creator terms, and unreleased content often need different access boundaries.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different knowledge sources?",
+      "answer": "Yes. DocsBot can be configured as a permission-aware internal knowledge agent with granular access controls and role-based permissions. A support agent might access macros and player-facing policies, while live ops sees incident runbooks, QA sees triage notes, and publishing teams see partner or creator materials. That separation helps avoid exposing private or premature information.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will DocsBot work for global player communities and localized support?",
+      "answer": "DocsBot can answer in more than 100 languages from the approved content you provide. For gaming teams, the key implementation step is deciding which localized materials, regional policies, platform pages, and support macros are authoritative. The agent can help players in their language while staying grounded in your current source material rather than unofficial translations.",
+      "role": "Player support and community teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we measure whether an AI support agent is actually helping player operations?",
+      "answer": "Track metrics your support and live-ops leaders already care about: repetitive ticket deflection, resolution rate, first-response time, escalation quality, missing-field reduction in bug reports, CSAT trends, ticket backlog during content drops, and top unresolved question themes. DocsBot analytics, logs, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can support those reviews.",
+      "role": "Player support and community teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot show us which game systems or patch changes are confusing players?",
+      "answer": "Yes. DocsBot can surface repeated questions, conversation patterns, documentation gaps, and topics that need clearer official content. For a live-service game, that can reveal confusion around balance changes, cross-progression, ranked unlocks, DLC access, platform requirements, error codes, or moderation policy. Those insights can feed documentation, community posts, support macros, and product follow-up.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What internal work is required before implementation?",
+      "answer": "The highest-leverage work is knowledge preparation: decide which help articles, patch notes, game guides, FAQs, known issues, SOPs, runbooks, and policies are authoritative. Then define escalation rules, restricted topics, required intake fields, and owner workflows. Teams can start with read-only answers and summaries before adding scoped actions such as ticket creation or routing.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does it take to start with one game or support queue?",
+      "answer": "A practical rollout often starts with one focused use case: player FAQs for a launch, known-issue support, bug-report intake, or an internal support-macro assistant. The timeline depends less on AI complexity and more on source quality, permissions, review cycles, and integration scope. Read-only pilots are usually simpler than live account lookups or workflow automation.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot during an outage without making community backlash worse?",
+      "answer": "Yes, if you constrain it to approved status messaging, incident templates, known-issue pages, and escalation rules. The agent should avoid speculation, avoid giving unsupported ETAs, and point players to the official update channel. Internally, it can help teams retrieve the current runbook, summarize incoming reports, and keep support, community, and live ops aligned.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does DocsBot handle moderation appeals or player conduct questions?",
+      "answer": "DocsBot can explain public policies, collect appeal details, summarize case context, and route the request to a human review queue when configured. It should not be positioned as making high-impact enforcement decisions on its own. For internal teams, it can retrieve private escalation criteria and approved wording while keeping final moderation judgment with responsible reviewers.",
+      "role": "Player support and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support creator, press, esports, or partnership inquiries too?",
+      "answer": "Yes. DocsBot can answer from approved media kits, creator program rules, event requirements, platform specs, partnership FAQs, and sales enablement materials. It can collect structured intake details such as organization, audience size, region, timeline, request type, and budget range, then route a qualified summary to the right business, community, or publishing team when configured.",
+      "role": "Marketing, publishing, and player growth teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should we expect beyond ticket deflection?",
+      "answer": "Gaming teams often evaluate ROI across support capacity, escalation quality, faster triage, documentation improvement, multilingual coverage, and internal knowledge retention. The global games market was projected at $188.8 billion in 2025, so even modest improvements in high-volume player operations can matter when support demand spikes across regions, platforms, launches, and live events.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-newzoo-2025-market"
+      ]
+    },
+    {
+      "question": "How does DocsBot help lean teams after reorganizations or staff turnover?",
+      "answer": "DocsBot can serve as a private internal knowledge agent trained on SOPs, wikis, runbooks, onboarding docs, support playbooks, and production notes. That helps preserve operational knowledge when teams change. This is relevant in a sector where ESA estimated 250,838 U.S. video game industry jobs in 2026 and GDC survey reporting found 11% of surveyed developers were laid off in 2024.",
+      "role": "Live ops, QA, and production teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-esa-economic-impact-2026",
+        "src-gdc-2025-layoffs"
+      ]
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or an internally built RAG tool?",
+      "answer": "Compare on source governance, permission controls, analytics, workflow actions, support handoffs, multilingual coverage, implementation effort, and whether non-technical teams can maintain the knowledge base. DocsBot is positioned for owned-content AI agents and bounded workflows, not just open-ended chat. A build decision should include maintenance, security review, evaluation, monitoring, and documentation ownership costs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can our support and community managers update answers without engineering every time?",
+      "answer": "Yes, the operating model should let business owners maintain approved source content—support articles, macros, FAQs, policies, patch notes, and known issues—while engineering only supports deeper integrations or custom actions. That division is important for live games because messaging changes quickly during patches, incidents, balance updates, creator campaigns, and platform-specific issues.",
+      "role": "Player support and community teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if players ask about refunds, purchases, or platform-store issues?",
+      "answer": "DocsBot can answer from approved refund policies, store FAQs, entitlement explanations, and platform guidance, but it should escalate anything requiring account verification, payment judgment, or platform-specific intervention. With configured workflows, it can collect order context, region, platform, edition, and error details so human agents receive a cleaner case.",
+      "role": "Player support and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help players choose editions, DLC, or expansions before they buy?",
+      "answer": "Yes. A presales-style DocsBot agent can answer from product pages, edition comparison docs, launch announcements, system requirements, platform pages, and store FAQs. It can clarify compatibility, included content, controller support, language availability, and upgrade paths without inventing pricing or availability. Qualified purchase or partner questions can be routed to the right team when configured.",
+      "role": "Marketing, publishing, and player growth teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep responses aligned across Discord, help center, website, and support tickets?",
+      "answer": "Use DocsBot around a shared approved knowledge base rather than letting each channel rely on separate copied answers. The agent can power a website or help-center experience, assist human support teams privately, and summarize or draft ticket responses from the same source material. Teams should still define channel-specific tone, escalation paths, and restricted topics.",
+      "role": "Player support and community teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement and security teams ask before approving an AI agent for player operations?",
+      "answer": "They should ask what data is ingested, which sources are public or private, how access controls work, whether customer data trains public models, how secrets and API permissions are handled, what logs are available, and which actions require human review. DocsBot supports SOC 2 Type II, GDPR-ready governance, encryption, granular permissions, and customer-defined controls for Skills.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support a mainstream audience that includes new, returning, casual, and hardcore players?",
+      "answer": "Yes. DocsBot can answer from beginner guides, mechanic explainers, patch notes, technical references, and support FAQs, then use analytics to reveal where official content is missing or confusing. ESA’s 2024 Essential Facts report describes video games as a broad U.S. entertainment activity across adults and children, which reinforces the need for accessible, consistent player support.",
+      "role": "Marketing, publishing, and player growth teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-esa-essential-facts-2024"
+      ]
+    }
+  ]
+}

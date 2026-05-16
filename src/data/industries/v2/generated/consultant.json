@@ -1,0 +1,730 @@
+{
+  "slug": "consultant",
+  "business": "Consultant",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Consultants and Advisory Firms",
+    "description": "DocsBot helps consultants turn firm knowledge into AI agents that answer client questions, support proposals, and reduce time spent searching.",
+    "canonicalPath": "/industry/consultant"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for advisory teams",
+    "headline": "Give every consultant an AI agent trained on your firm’s expertise",
+    "subheadline": "DocsBot helps consulting firms turn proposals, playbooks, research, SOPs, client FAQs, service catalogs, and internal knowledge into AI agents that answer questions, summarize context, qualify opportunities, route requests, and support client-facing work without replacing expert judgment.",
+    "proofBullets": [
+      {
+        "text": "Answer client and prospect questions from approved firm content, with human escalation for sensitive pricing, legal, or strategic commitments.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help consultants retrieve past methodology, proposal language, onboarding steps, and delivery guidance without digging through folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use AI Actions to collect intake details, draft handoffs, create tasks, route requests, or trigger approved workflows when configured.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Expose knowledge gaps from repeated questions so your team can improve playbooks, FAQs, onboarding materials, and client documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a consulting AI agent",
+    "secondaryCta": "Explore firm knowledge automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your consulting firm’s own knowledge sources. Agents can support website visitors, clients, partners, and internal teams with source-grounded answers, summaries, intake flows, lead qualification, multilingual responses, analytics, and bounded workflow actions through customer-configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Managing partners and practice leaders",
+        "roleContext": "Keep institutional knowledge accessible as your firm grows, especially when methodologies, proposal examples, and delivery standards are spread across people, tools, and client teams.",
+        "bullets": [
+          {
+            "text": "Standardize answers about services, engagement models, discovery steps, and delivery approach from approved materials.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Identify recurring prospect or client questions and turn them into stronger sales enablement, onboarding, and delivery documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support faster ramp-up for new consultants by making playbooks, templates, and internal guidance searchable in natural language.",
+            "icon": "RocketLaunchIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Consultants, analysts, and delivery teams",
+        "roleContext": "Reduce the time spent searching across folders, decks, notes, and wikis so consultants can focus more attention on diagnosis, stakeholder management, analysis, and recommendations.",
+        "bullets": [
+          {
+            "text": "Ask for the latest approved framework, meeting checklist, workshop agenda, or client onboarding step before a call.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize long internal documents, research notes, and recorded-source content into working context for a project team.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Get private team answers in chat experiences such as Slack, Microsoft Teams, or a DocsBot private interface when configured.",
+            "icon": "UserGroupIcon"
+          }
+        ],
+        "roleIcon": "LightBulbIcon"
+      },
+      {
+        "role": "Sales, growth, and client success teams",
+        "roleContext": "Help commercial teams respond consistently to service-fit questions, capture qualified opportunities, and prepare better handoffs to consultants without promising work outside firm boundaries.",
+        "bullets": [
+          {
+            "text": "Qualify leads using customer-defined rules such as company size, urgency, budget range, service need, region, or implementation timeline.",
+            "icon": "FlagIcon"
+          },
+          {
+            "text": "Collect structured intake details and forward summaries to CRM, email, forms, Slack, Teams, or other approved systems when configured.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Draft follow-up notes or proposal starting points from approved service descriptions, case studies, templates, and discovery answers.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-management-analysts-growth",
+      "metric": "9% projected employment growth for management analysts from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects management analyst employment to grow 9% from 2024 to 2034, faster than the average for all occupations.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Management Analysts",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "consulting market growth",
+        "capacity pressure"
+      ]
+    },
+    {
+      "id": "src-bls-management-analysts-rfp",
+      "metric": "Organizations often request proposals from multiple consultants",
+      "claim": "BLS notes that organizations needing management analyst help typically request proposals from several consultants or consulting companies that specialize in the needed work.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Management Analysts",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "proposal workflows",
+        "competitive presales",
+        "lead qualification"
+      ]
+    },
+    {
+      "id": "src-source-ai-expectations",
+      "metric": "Around 90% of clients expect AI to dramatically change professional services",
+      "claim": "Source Global Research reported that around 90% of clients think AI will dramatically change the professional services sector.",
+      "sourceTitle": "How to Harness the Power of AI in Professional Services",
+      "sourceUrl": "https://sourceglobalresearch.com/blog-post/how-to-harness-the-power-of-ai-in-professional-services",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "client expectations",
+        "AI adoption pressure",
+        "professional services change"
+      ]
+    },
+    {
+      "id": "src-mckinsey-search-knowledge-work",
+      "metric": "Knowledge workers spend about five hours per week searching for information",
+      "claim": "A McKinsey report on search and knowledge work cited research indicating knowledge workers spend on average about five hours per week on online and offline search.",
+      "sourceTitle": "The Impact of Internet Technologies: Search",
+      "sourceUrl": "https://www.mckinsey.com/~/media/mckinsey/dotcom/client_service/high%20tech/pdfs/impact_of_internet_technologies_search_final2.aspx",
+      "sourceDate": "2011",
+      "bestUsedFor": [
+        "knowledge retrieval",
+        "time lost searching",
+        "internal knowledge agents"
+      ]
+    },
+    {
+      "id": "src-usitc-management-consulting-revenue",
+      "metric": "IBISWorld estimated global management consulting revenue at $1.0 trillion in 2024",
+      "claim": "The U.S. International Trade Commission cited IBISWorld estimates that global revenue from management consulting services reached $1.0 trillion in 2024.",
+      "sourceTitle": "U.S. International Trade Commission: Recent Trends in U.S. Services Trade 2025 Annual Report",
+      "sourceUrl": "https://www.usitc.gov/sites/default/files/publications/332/pub5643.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "competitive pressure",
+        "consulting industry context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client intake and opportunity qualification agent",
+      "problem": "Consulting buyers often compare several firms before choosing a partner, which makes slow or inconsistent qualification a revenue risk.",
+      "agentWorkflow": "A DocsBot agent answers service-fit questions from your website, service pages, FAQs, case studies, and approved sales materials. It collects project goals, industry, timeline, budget range, stakeholder role, current systems, and preferred follow-up channel, then applies your qualification rules before preparing a handoff.",
+      "liveContextOrTools": "With approved AI Actions, Skills, APIs, forms, webhooks, or CRM workflows, the agent can submit a lead form, create a task, forward a summary, request a meeting, or route the opportunity to the right practice lead.",
+      "exampleQuestionsOrRequests": [
+        "Do you help SaaS companies reduce churn after onboarding?",
+        "We need a discovery call for a post-merger operations project.",
+        "Can you summarize our needs and send them to your healthcare practice lead?"
+      ],
+      "businessOutcome": "Respond faster to high-intent prospects, capture cleaner discovery data, and give consultants better context before the first conversation.",
+      "icon": "FlagIcon",
+      "sourceIds": [
+        "src-bls-management-analysts-rfp"
+      ]
+    },
+    {
+      "name": "Proposal and statement-of-work knowledge assistant",
+      "problem": "Proposal teams reuse approved language, methodologies, pricing assumptions, biographies, and delivery examples, but those assets are often scattered across past decks and folders.",
+      "agentWorkflow": "Train DocsBot on proposal templates, service catalogs, approved case studies, methodology notes, implementation guides, and internal FAQs. Team members can ask for relevant language, compare approaches, summarize requirements, and draft first-pass sections for human review.",
+      "liveContextOrTools": "The agent can use customer-configured Skills to retrieve approved account or opportunity context, draft a task, generate a proposal outline, or route the draft to a review workflow. Humans remain responsible for final pricing, legal terms, and contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Find approved wording for a six-week operating model assessment.",
+        "Draft a discovery agenda for a CFO transformation proposal.",
+        "What case study proof can we use for a data governance pitch?"
+      ],
+      "businessOutcome": "Reduce repetitive proposal assembly while keeping expert consultants in control of scope, commitments, and final recommendations.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Internal methodology and delivery playbook agent",
+      "problem": "As consulting teams grow, important delivery know-how lives in senior consultants’ heads, old project folders, recorded training, SOPs, and practice-specific wikis.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on playbooks, workshop guides, onboarding docs, checklists, policy notes, templates, and internal knowledge bases. Consultants ask natural-language questions and receive source-grounded answers they can verify.",
+      "liveContextOrTools": "Deploy in a private chat experience, Slack, Microsoft Teams, or internal portal. Analytics and conversation review help practice leaders see what consultants ask most and which materials need updates.",
+      "exampleQuestionsOrRequests": [
+        "What is our standard stakeholder interview script for ERP readiness?",
+        "Where is the latest workshop checklist for operating model design?",
+        "Summarize our onboarding steps for a new retail client project."
+      ],
+      "businessOutcome": "Make firm expertise easier to reuse, improve onboarding consistency, and reduce the search burden that slows delivery teams.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-mckinsey-search-knowledge-work"
+      ]
+    },
+    {
+      "name": "Client portal support and project FAQ agent",
+      "problem": "Clients repeatedly ask about project logistics, deliverable status, terminology, meeting preparation, and next steps, pulling consultants away from billable analysis.",
+      "agentWorkflow": "A DocsBot support agent can answer from client-facing FAQs, onboarding guides, project documentation, meeting notes approved for sharing, timelines, and policy documents. It can explain next steps, point to source materials, and escalate sensitive or out-of-scope questions.",
+      "liveContextOrTools": "When configured with scoped live context, Skills, APIs, or connectors, the agent can look up approved project status, collect missing information, create a ticket or task, notify the delivery team, or prepare a handoff summary.",
+      "exampleQuestionsOrRequests": [
+        "What should our team prepare before next week’s workshop?",
+        "Where can I find the latest implementation checklist?",
+        "Can you send my question about scope changes to the engagement manager?"
+      ],
+      "businessOutcome": "Give clients timely self-service support while preserving consultant time for high-value judgment, facilitation, and analysis.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "name": "Research, briefing, and account preparation assistant",
+      "problem": "Consultants and account teams need fast context before meetings, but unmanaged research can become inconsistent, duplicated, or disconnected from firm methodology.",
+      "agentWorkflow": "DocsBot can summarize approved internal research, prior account notes, industry briefs, sales playbooks, competitive notes, and public research when web search is configured. It helps prepare briefing notes, likely pain points, discovery questions, and follow-up drafts for human review.",
+      "liveContextOrTools": "With approved sales enablement Skills, the agent can retrieve CRM context, summarize account notes, create a prep task, draft a follow-up email, or use an MCP Connector to access tools exposed by a remote Model Context Protocol server your team authorizes.",
+      "exampleQuestionsOrRequests": [
+        "Summarize what we know about this prospect before the partner call.",
+        "Draft five discovery questions for a manufacturing cost-transformation meeting.",
+        "Create a follow-up email based on our approved transformation service overview."
+      ],
+      "businessOutcome": "Help commercial and delivery teams prepare more consistently without making the AI responsible for final outreach, claims, or recommendations.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for consulting content",
+      "problem": "Repeated questions from prospects, clients, and staff reveal missing documentation, unclear service packaging, and training gaps, but those signals are easy to miss.",
+      "agentWorkflow": "DocsBot provides logs, analytics, reports, topic management, conversation review, and knowledge-gap discovery. Practice leaders can review unanswered questions, repeated topics, satisfaction trends, and common handoffs to decide which content needs improvement.",
+      "liveContextOrTools": "Use reports to prioritize new FAQs, client onboarding guides, proposal snippets, internal SOPs, training modules, and helpdesk responses. Sensitive conversations can be escalated or reviewed according to firm policy.",
+      "exampleQuestionsOrRequests": [
+        "Which service questions are prospects asking most often?",
+        "What internal playbook topics are consultants struggling to find?",
+        "Which client FAQ should we update before the next onboarding cohort?"
+      ],
+      "businessOutcome": "Turn real questions into better sales assets, project documentation, onboarding materials, and internal knowledge coverage.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing AI support agent for prospects, buyers, and project stakeholders",
+    "intro": "DocsBot can power a website or portal agent that answers from your firm’s approved knowledge, captures structured intake, supports multilingual conversations, routes complex requests, and keeps consultants involved when questions require judgment or commitment.",
+    "requests": [
+      {
+        "request": "“Do you offer strategy support for our industry and company size?”",
+        "agentResponseStrategy": "Answer from service pages, practice descriptions, case studies, and qualification rules; ask follow-up questions when fit is unclear; route qualified opportunities to the right team.",
+        "sourceTypes": [
+          "Service pages",
+          "Case studies",
+          "Qualification rules",
+          "FAQs"
+        ],
+        "optionalAction": "Submit a lead form, create a CRM or task record, or notify a sales channel through an approved workflow.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“What should we prepare before our discovery session?”",
+        "agentResponseStrategy": "Provide a source-grounded checklist from onboarding guides, meeting-prep documents, and engagement FAQs, then offer to send the client’s question to the engagement team if needed.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Client FAQs",
+          "Workshop checklists",
+          "Project documents"
+        ],
+        "optionalAction": "Collect missing context and create a handoff summary for the consultant or project coordinator.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you explain this deliverable in plain language?”",
+        "agentResponseStrategy": "Use approved client-facing documentation and glossary content to explain terms, link back to source materials, and escalate questions about recommendations, scope, or contract changes.",
+        "sourceTypes": [
+          "Client deliverable notes",
+          "Glossaries",
+          "Project FAQs",
+          "Approved documentation"
+        ],
+        "optionalAction": "Route sensitive or out-of-scope questions to the engagement manager with conversation context.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can we book a consultation with the right practice lead?”",
+        "agentResponseStrategy": "Collect scheduling intent, project type, company details, timeline, and preferred contact method before using customer-configured scheduling or handoff workflows.",
+        "sourceTypes": [
+          "Intake forms",
+          "Practice routing rules",
+          "Scheduling instructions",
+          "Sales enablement content"
+        ],
+        "optionalAction": "Request a meeting through Calendly, Cal.com, TidyCal, or a similar approved scheduling workflow when configured.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can you answer in our preferred language?”",
+        "agentResponseStrategy": "Respond in the user’s language from the same approved sources, preserving consistent firm messaging while supporting international buyers and stakeholders.",
+        "sourceTypes": [
+          "Multilingual website content",
+          "Approved FAQs",
+          "Service documentation",
+          "Policy notes"
+        ],
+        "optionalAction": "Escalate to a bilingual consultant or regional contact when the conversation requires human follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“How is your firm using AI in engagements?”",
+        "agentResponseStrategy": "Answer from approved AI policy, service descriptions, security notes, and engagement methodology so prospects receive a consistent explanation of where AI supports—not replaces—consultant judgment.",
+        "sourceTypes": [
+          "AI policy notes",
+          "Methodology documents",
+          "Security FAQs",
+          "Service descriptions"
+        ],
+        "optionalAction": "Route detailed governance, procurement, or data-security questions to the right internal reviewer.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-source-ai-expectations"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private consulting knowledge agent for delivery, sales, and operations",
+    "intro": "DocsBot can serve as an internal assistant that helps consultants find answers across firm knowledge, summarize project context, draft routine materials, and trigger approved handoffs while keeping sensitive client and contractual decisions with the right people.",
+    "workflows": [
+      {
+        "name": "Consultant onboarding and enablement",
+        "problem": "New hires need fast access to firm methodology, proposal examples, tool guidance, policies, and delivery standards without interrupting senior staff for every question.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, practice playbooks, SOPs, training decks, brand guidelines, tool documentation, and policy content. Consultants ask questions and receive source-grounded answers with links to the underlying material.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "SOPs",
+          "Training decks",
+          "Practice playbooks"
+        ],
+        "optionalAction": "Create an onboarding task, route a policy question to HR or operations, or log missing documentation for review.",
+        "outcome": "Accelerate ramp-up and make expert knowledge easier to access across offices, practices, and time zones.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Delivery team project support",
+        "problem": "Project teams need repeatable access to agendas, checklists, templates, stakeholder interview guides, and delivery standards while working under tight client timelines.",
+        "agentWorkflow": "DocsBot retrieves approved materials, summarizes relevant notes, answers procedural questions, and helps consultants locate the right template or checklist for the stage of work.",
+        "sourceTypes": [
+          "Project templates",
+          "Workshop guides",
+          "Meeting notes",
+          "Delivery checklists"
+        ],
+        "optionalAction": "Generate a meeting summary, draft a task list, or notify the project team through a configured workflow.",
+        "outcome": "Keep delivery teams aligned on firm standards while reducing time spent hunting for reusable materials.",
+        "icon": "FolderIcon",
+        "sourceIds": [
+          "src-mckinsey-search-knowledge-work"
+        ]
+      },
+      {
+        "name": "Sales enablement and account preparation",
+        "problem": "Growth teams need quick access to service positioning, objections, proposal language, case studies, pricing guidance, and account context before buyer conversations.",
+        "agentWorkflow": "DocsBot answers seller questions from approved enablement assets, summarizes account or prospect research when configured, and drafts follow-up messages for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Case studies",
+          "Competitive notes"
+        ],
+        "optionalAction": "Retrieve approved CRM context, create a follow-up task, or draft an email through customer-configured Skills, APIs, or connectors.",
+        "outcome": "Improve consistency across sales conversations without allowing AI to make final pricing, legal, or procurement commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Operations, policy, and compliance support",
+        "problem": "Consulting firms handle internal policies, client confidentiality expectations, data handling instructions, expense rules, and approval paths that employees must follow accurately.",
+        "agentWorkflow": "A private DocsBot agent can answer from internal policies, finance guidance, security notes, HR documents, and client-specific operating instructions that the firm chooses to include.",
+        "sourceTypes": [
+          "HR policies",
+          "Finance rules",
+          "Security guidance",
+          "Client operating procedures"
+        ],
+        "optionalAction": "Route exceptions to the right reviewer, create a ticket, or prepare a summary for compliance, finance, or operations.",
+        "outcome": "Give staff faster access to operational guidance while respecting role-based permissions and review boundaries.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from firm knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved websites, documents, wikis, knowledge bases, internal content, and other configured sources to provide answers grounded in the business’s own materials.",
+      "industryApplication": "Consulting firms can make service descriptions, methodologies, project FAQs, proposal templates, and delivery playbooks searchable for clients and staff.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing support widget and portal assistant",
+      "mainLandingPageContext": "DocsBot agents can work in embeddable website or product chat widgets and support helpdesk-connected workflows when configured by the customer.",
+      "industryApplication": "Use a client-facing agent to answer prospect questions, explain engagement logistics, collect intake details, and escalate strategic or contractual questions to consultants.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for teams",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees across HR, IT, operations, sales, finance, legal, compliance, and other internal teams.",
+      "industryApplication": "Consultants can ask for the right workshop checklist, methodology note, policy, proposal example, or onboarding step without searching across scattered repositories.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, routing, ticket or task creation, record updates, and workflow triggers inside customer-defined rules.",
+      "industryApplication": "A consulting agent can qualify leads, route client requests, create follow-up tasks, retrieve approved account context, or trigger handoffs through authorized systems and MCP-connected tools.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, topic management, satisfaction and resolution analysis, and discovery of unanswered or recurring questions.",
+      "industryApplication": "Practice leaders can see what prospects, clients, and consultants keep asking, then improve service pages, FAQs, onboarding guides, sales enablement, and delivery playbooks.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for private consulting knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Firms can deploy AI agents around sensitive client, proposal, and internal operating knowledge with permissions, boundaries, and review expectations appropriate to the use case.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own consulting knowledge instead of relying on generic AI answers.",
+      "Support high-volume questions, internal decision support, and source-grounded self-service workflows.",
+      "Move from custom RAG experimentation to a maintained AI agent platform your team can deploy faster."
+    ],
+    "whyTheseReviewsFit": "Consulting teams need trusted answers from their own materials, fast summaries of complex content, and practical automation without building every retrieval workflow from scratch. DocsBot proof spans owned-content training, time-saving summaries, build-versus-buy confidence, high-volume support, and internal decision workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agent platform for consulting firm knowledge, client support, presales intake, and workflow automation",
+    "audience": [
+      "Consulting firm partners",
+      "Practice leaders",
+      "Independent consultants",
+      "Sales and growth teams",
+      "Client success and delivery teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BriefcaseIcon"
+  },
+  "relatedIndustrySlugs": [
+    "ai-consulting",
+    "ai-automation-agency",
+    "big-data-analytics",
+    "cloud-migration-services",
+    "business-information"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "consultant",
+    "webSearchQueries": [
+      "consulting industry revenue United States IBISWorld management consulting 2024",
+      "consultants billable hours knowledge work search for information statistics McKinsey",
+      "BLS management analysts employment outlook 2024 2034",
+      "Source Global Research consulting client expectations AI consulting 2024"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/business-and-financial/management-analysts.htm",
+      "https://sourceglobalresearch.com/blog-post/how-to-harness-the-power-of-ai-in-professional-services",
+      "https://www.mckinsey.com/~/media/mckinsey/dotcom/client_service/high%20tech/pdfs/impact_of_internet_technologies_search_final2.aspx",
+      "https://www.usitc.gov/sites/default/files/publications/332/pub5643.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41495,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28951,
+        "outputTokens": 8139,
+        "reasoningOutputTokens": 127,
+        "totalTokens": 49634,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.197599,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.207599
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21653,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14357,
+          "outputTokens": 5318,
+          "reasoningOutputTokens": 127,
+          "totalTokens": 26971,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.117487,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.127487
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19842,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14594,
+          "outputTokens": 2821,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22663,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080112,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080112
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1532102235608-dc8fc689c9ab?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDQ3ODB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Consultant background image",
+    "source": "legacy-industry",
+    "query": "Consultant"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot without exposing client-confidential project materials to the wrong practice or office?",
+      "answer": "Yes. DocsBot is designed for private firm knowledge with granular access controls, role-based permissions, encryption in transit and at rest, and SOC 2 Type II governance. Many firms start with approved, non-client-specific materials, then add scoped client or practice content once permissions and review paths are clear.",
+      "role": "Managing partners and practice leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this help partners and managers protect billable time instead of creating another tool consultants have to maintain?",
+      "answer": "DocsBot is most useful when trained on assets consultants already reuse: proposals, service catalogs, workshop guides, SOPs, onboarding docs, case studies, and internal FAQs. It reduces repeated searching and “who has that deck?” interruptions. Knowledge workers spend about five hours per week searching for information, so even modest search reduction can protect delivery capacity.",
+      "role": "Managing partners and practice leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-search-knowledge-work"
+      ]
+    },
+    {
+      "question": "Can the agent help with proposals without generating risky pricing, legal terms, or scope commitments?",
+      "answer": "Yes. DocsBot can retrieve approved proposal language, summarize requirements, suggest outlines, and draft first-pass sections from your firm’s sources. You can keep pricing assumptions, legal terms, SOW language, and final recommendations behind human review so the agent accelerates assembly without becoming the decision-maker.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will it answer from our methodology, or will it give generic consulting advice?",
+      "answer": "DocsBot agents are trained on your approved consulting knowledge: methodologies, playbooks, templates, service descriptions, FAQs, policies, and client-facing documentation. The goal is source-grounded answers that reflect your firm’s language and operating model, not generic AI responses that consultants have to reinterpret.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we qualify inbound leads before a partner spends time on a discovery call?",
+      "answer": "Yes. A DocsBot agent can ask structured intake questions such as company size, industry, service need, urgency, budget range, region, current systems, and preferred follow-up. It can apply customer-defined qualification rules and route a summary to the right practice lead through approved workflows. This matters because consulting buyers often request proposals from several firms.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-management-analysts-rfp"
+      ]
+    },
+    {
+      "question": "How does DocsBot fit with our CRM, Slack, Teams, forms, or project management workflows?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, Slack, Microsoft Teams, or approved workflow automations to forward summaries, create tasks, route requests, retrieve authorized context, or trigger handoffs. It should be scoped to the systems and actions your team explicitly authorizes.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we deploy one agent for prospects and another private agent for consultants?",
+      "answer": "Yes. Many consulting use cases separate a public website or client-portal agent from a private internal knowledge agent. The prospect-facing agent can answer service-fit and intake questions, while the internal agent can search methodology, policies, proposal examples, playbooks, and delivery templates with stricter permissions.",
+      "role": "Managing partners and practice leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we train the first version on if our knowledge is spread across decks, drives, wikis, and old proposals?",
+      "answer": "Start with high-confidence, high-reuse content: service pages, current proposal templates, approved case studies, onboarding guides, delivery checklists, FAQs, SOPs, and methodology documents. Avoid dumping every historical client file into the first version. A curated pilot improves answer quality and makes governance easier.",
+      "role": "Managing partners and practice leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can consultants verify where an answer came from before using it with a client?",
+      "answer": "Yes. DocsBot is built around source-grounded answers from approved firm content, so consultants can review the underlying material before reusing an answer in a deliverable, proposal, workshop, or client email. That verification step is especially important for strategic recommendations and client-specific commitments.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent outdated proposal language or retired frameworks from showing up in answers?",
+      "answer": "Treat the agent like a governed knowledge channel. Train it on approved sources, remove or archive retired materials, assign owners for high-risk content, and use conversation review to find outdated or confusing answers. DocsBot analytics and knowledge-gap discovery can show which topics need better documentation or cleanup.",
+      "role": "Managing partners and practice leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will this help new consultants ramp faster across our methods, templates, and client delivery standards?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions from training decks, SOPs, playbooks, policies, proposal examples, and delivery checklists. New hires can ask in natural language instead of interrupting senior staff for every template, framework, or internal process question.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent support client portal questions during an active engagement?",
+      "answer": "Yes, if you provide approved client-facing sources. DocsBot can answer questions about meeting preparation, project FAQs, deliverable terminology, next steps, timelines, and policies. For scope changes, contractual questions, sensitive findings, or recommendations, it can escalate to the engagement manager with conversation context.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually improving consulting operations?",
+      "answer": "Track time saved searching, intake completion quality, qualified lead routing, proposal reuse, unanswered questions, escalation rates, satisfaction, and documentation gaps. DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery so practice leaders can improve content based on real questions.",
+      "role": "Managing partners and practice leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot handle multilingual clients or international delivery teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved knowledge sources. For consulting firms, that can help prospects, regional stakeholders, and delivery teams get consistent explanations while still escalating nuanced legal, procurement, or engagement-specific issues to the right human reviewer.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if a client asks the agent for advice that should come from a consultant?",
+      "answer": "You can set expectations and escalation rules. The agent can answer factual questions from approved materials, explain process, collect context, and prepare handoffs, but it should not make final recommendations, negotiate scope, approve pricing, or provide legal or regulated advice. Sensitive questions can be routed to a consultant.",
+      "role": "Managing partners and practice leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How long does implementation take if we do not have a dedicated AI engineering team?",
+      "answer": "Implementation depends on content readiness, permissions, and workflow complexity, but DocsBot is intended as a maintained AI agent platform rather than a custom RAG build. A practical rollout usually starts with a focused knowledge set, tests common buyer or consultant questions, then expands sources and actions after review.",
+      "role": "Managing partners and practice leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Why buy a platform instead of asking our data team to build an internal RAG system?",
+      "answer": "Building can make sense for highly custom requirements, but consulting teams often need governed knowledge ingestion, source-grounded answers, permissions, analytics, review workflows, and bounded actions quickly. DocsBot gives firms a maintained platform so consultants and operations teams can deploy practical agents without owning every retrieval and workflow layer.",
+      "role": "Managing partners and practice leaders",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent create tasks or update systems, or is it limited to answering questions?",
+      "answer": "DocsBot can go beyond answers when configured with AI Actions, Skills, APIs, connectors, or MCP-connected tools. It can collect missing information, create a task or ticket, route a request, generate a handoff summary, update approved fields, or notify a team—within customer-defined permissions and logging.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How should we handle client data, NDAs, and procurement reviews?",
+      "answer": "Use a scoped rollout: define which materials are allowed, separate public and private agents, apply role-based permissions, document escalation rules, and review security requirements early. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "Managing partners and practice leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot show us what prospects and clients keep asking so we can improve our service pages and onboarding materials?",
+      "answer": "Yes. DocsBot analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can reveal repeated questions, unanswered topics, and common handoffs. Those signals can guide better FAQs, proposal snippets, onboarding guides, and delivery documentation.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this work for a boutique consultancy as well as a multi-practice advisory firm?",
+      "answer": "Yes. A boutique firm might start with lead qualification, service FAQs, and proposal reuse. A larger advisory firm may add practice-specific agents, private delivery playbooks, client portal support, and stricter permission boundaries. The value comes from matching sources, roles, and actions to the firm’s operating model.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we avoid consultants distrusting the tool because answers are incomplete or too polished?",
+      "answer": "Pilot with real consultant questions, show source links, keep answers grounded in approved documents, and invite consultants to flag gaps. Avoid positioning the agent as a replacement for expertise. It should help locate, summarize, and operationalize firm knowledge while consultants remain accountable for judgment and client-facing recommendations.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Is AI adoption becoming a client expectation in professional services?",
+      "answer": "Yes. Source Global Research reported that around 90% of clients think AI will dramatically change professional services. For consulting firms, that creates pressure to use AI responsibly in sales, delivery, knowledge management, and client support while being clear that expert judgment still governs recommendations.",
+      "role": "Managing partners and practice leaders",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-source-ai-expectations"
+      ]
+    },
+    {
+      "question": "Can this help us respond faster when consulting demand increases but senior expertise is constrained?",
+      "answer": "DocsBot can make senior-approved knowledge easier to reuse across proposals, onboarding, delivery, and client support. That matters in a growing market: BLS projects management analyst employment to grow 9% from 2024 to 2034, faster than the average for all occupations, increasing pressure to scale expertise efficiently.",
+      "role": "Managing partners and practice leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-management-analysts-growth"
+      ]
+    },
+    {
+      "question": "What content should stay out of the AI agent?",
+      "answer": "Exclude anything the intended users should not access: sensitive client files, confidential pricing exceptions, privileged legal communications, unapproved recommendations, outdated deliverables, or raw notes that lack context. Start with approved knowledge, then add higher-sensitivity sources only with clear permissions, review paths, and content ownership.",
+      "role": "Managing partners and practice leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent help commercial teams prepare for account meetings?",
+      "answer": "Yes. With approved sources and configured Skills, DocsBot can summarize internal account notes, service positioning, case studies, competitive notes, and public research when web search is enabled. It can draft discovery questions or follow-up notes for human review, but sellers remain responsible for outreach, claims, pricing, and commitments.",
+      "role": "Sales, growth, and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does pricing evaluation usually tie back to consulting KPIs?",
+      "answer": "Buyers usually compare cost against reduced search time, faster proposal assembly, better qualified intake, fewer repeated client questions, faster onboarding, and improved content reuse. The cleanest business case starts with one or two measurable workflows, such as proposal support or internal methodology search, before expanding firmwide.",
+      "role": "Managing partners and practice leaders",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "What happens when the agent cannot answer a question confidently?",
+      "answer": "Design the workflow so the agent says when it does not have enough approved information, asks clarifying questions, or escalates to the right person. Conversation logs and unanswered-question reports then become useful inputs for improving FAQs, playbooks, proposal language, and client documentation.",
+      "role": "Consultants, analysts, and delivery teams",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

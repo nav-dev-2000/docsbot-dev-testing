@@ -1,0 +1,709 @@
+{
+  "slug": "cryptocurrency-trading",
+  "business": "Cryptocurrency Trading",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Cryptocurrency Trading Support",
+    "description": "DocsBot helps cryptocurrency trading teams answer user questions, route sensitive issues, and surface knowledge gaps from approved platform content.",
+    "canonicalPath": "/industry/cryptocurrency-trading"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for always-on digital asset markets",
+    "headline": "DocsBot AI Agents for Cryptocurrency Trading Platforms",
+    "subheadline": "Give traders faster answers from your help center, product policies, risk disclosures, wallet guides, API docs, and internal procedures. DocsBot helps support, compliance, and operations teams respond consistently while keeping sensitive account, trading, and regulated decisions inside customer-defined boundaries.",
+    "proofBullets": [
+      {
+        "text": "Answer funding, withdrawal, staking, order-type, wallet, fee, and platform navigation questions from approved documentation.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use configured Skills or APIs to look up allowed status context, collect missing details, route tickets, and prepare human handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Help support and compliance teams review recurring questions, unanswered topics, and documentation gaps across trader conversations.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "text": "Support global trader communities with source-grounded answers in more than 100 languages and escalation for sensitive requests.",
+        "icon": "GlobeAltIcon"
+      }
+    ],
+    "primaryCta": "Build a crypto trading support agent",
+    "secondaryCta": "Explore AI workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets cryptocurrency trading platforms create AI agents trained on their own knowledge sources: help centers, policy pages, API docs, onboarding guides, internal SOPs, ticket exports, PDFs, and team knowledge. Agents answer in your voice, summarize context, discover knowledge gaps, and can take bounded AI Actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Support and community operations leaders",
+        "roleContext": "Crypto markets run around the clock, but many trader questions repeat: deposits, chain confirmations, limits, fees, KYC steps, account access, and platform navigation. DocsBot gives frontline teams a consistent first response layer and clearer handoffs when a person is needed.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive platform questions with source-grounded answers from your help center and policy library.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Collect wallet address, transaction hash, order ID, region, and device details before routing a complex support ticket.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Analyze repeated conversation topics so documentation teams know which exchange, wallet, or funding articles need improvement.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, risk, and legal operations teams",
+        "roleContext": "Trading platforms need careful handling of disclosures, communications, account restrictions, and scam-related questions. DocsBot can keep public-facing answers grounded in approved content and escalate regulated, identity, financial-loss, or legal questions to the right team.",
+        "bullets": [
+          {
+            "text": "FINRA found a 70% potential violation rate in a 2024 review of more than 500 crypto asset retail communications, underscoring the need for controlled, reviewable messaging.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-finra-communications"
+            ]
+          },
+          {
+            "text": "Guide users to approved risk disclosures, eligibility rules, and support steps without letting the agent invent investment advice.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Maintain logs, permissions, and customer-defined action boundaries for sensitive account or financial workflows.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Product, documentation, and developer experience teams",
+        "roleContext": "Crypto trading products often include API access, advanced order types, staking or rewards terms, wallet workflows, and region-specific rules. DocsBot turns those materials into an always-available documentation assistant and shows what users cannot find.",
+        "bullets": [
+          {
+            "text": "Answer developer and trader questions from API references, tutorials, release notes, status guidance, and product docs.",
+            "icon": "CodeBracketIcon"
+          },
+          {
+            "text": "Surface missing documentation when users repeatedly ask about unsupported assets, order behavior, fee tiers, or transfer delays.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Provide internal teams with quick answers about launch checklists, incident procedures, support macros, and escalation paths.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "CpuChipIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fbi-crypto-fraud-2024",
+      "metric": "$9.3 billion in reported cryptocurrency-related losses in 2024",
+      "claim": "The FBI’s IC3 reported that cryptocurrency-related complaints accounted for more than $9.3 billion in losses in 2024, showing why trading platforms need clear education, scam reporting paths, and support escalation.",
+      "sourceTitle": "FBI IC3 2024 Annual Report",
+      "sourceUrl": "https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf?cid=SM1900055582",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fraud-risk education",
+        "scam escalation",
+        "customer safety messaging"
+      ]
+    },
+    {
+      "id": "src-finra-communications",
+      "metric": "70% potential violation rate in reviewed crypto asset retail communications",
+      "claim": "FINRA reviewed more than 500 crypto asset retail communications and identified a 70% potential violation rate, including failures to fairly present risks and misleading comparisons.",
+      "sourceTitle": "FINRA Publishes Crypto Asset Communications Sweep Update",
+      "sourceUrl": "https://www.finra.org/media-center/newsreleases/2024/finra-publishes-crypto-asset-communications-sweep-update",
+      "sourceDate": "January 23, 2024",
+      "bestUsedFor": [
+        "controlled communications",
+        "compliance pressure",
+        "risk disclosures"
+      ]
+    },
+    {
+      "id": "src-esma-mica-register",
+      "metric": "MiCA central register required by December 30, 2024",
+      "claim": "ESMA states that MiCA empowers it to publish a central register of crypto-asset white papers, authorized crypto-asset service providers, and non-compliant entities, adding new reference obligations for EU-facing firms.",
+      "sourceTitle": "Markets in Crypto-Assets Regulation (MiCA)",
+      "sourceUrl": "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "EU regulatory references",
+        "authorized provider checks",
+        "compliance content"
+      ]
+    },
+    {
+      "id": "src-sec-investor-complaints",
+      "metric": "7,057 crypto-related investor contacts closed by SEC OIEA in FY 2025",
+      "claim": "The SEC’s Office of Investor Education and Advocacy listed crypto-related matters as the top complaint or question category for FY 2025, with 7,057 files closed.",
+      "sourceTitle": "SEC Investor Complaints and Questions Data",
+      "sourceUrl": "https://www.sec.gov/news/data.htm",
+      "sourceDate": "Fiscal Year 2025",
+      "bestUsedFor": [
+        "customer confusion",
+        "investor support demand",
+        "education content"
+      ]
+    },
+    {
+      "id": "src-fsoc-2024-crypto-risks",
+      "metric": "FSOC continued monitoring spot crypto products and crypto-asset market risks",
+      "claim": "The Financial Stability Oversight Council’s 2024 Annual Report discusses monitoring crypto-asset markets, spot bitcoin and ether exchange-traded products, investor protection risks, and market integrity concerns.",
+      "sourceTitle": "Financial Stability Oversight Council 2024 Annual Report",
+      "sourceUrl": "https://home.treasury.gov/system/files/261/FSOC2024AnnualReport.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market integrity risk",
+        "policy monitoring",
+        "risk education"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "24/7 trader support for deposits, withdrawals, and platform navigation",
+      "problem": "Crypto traders expect immediate answers when deposits are pending, withdrawals are delayed, or order workflows are unclear, especially during volatile markets.",
+      "agentWorkflow": "A DocsBot support agent answers from approved help articles, wallet guides, fee pages, product terms, and incident updates. When configured, AI Actions can collect transaction hashes, account context, device details, and screenshots, then create or route a ticket with a concise summary for support.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or helpdesk workflows can provide approved status lookups, ticket creation, routing, and escalation without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Why is my ETH deposit still pending after 30 confirmations?",
+        "What information do you need to investigate a failed withdrawal?",
+        "How do I change from a market order to a limit order on mobile?"
+      ],
+      "businessOutcome": "Reduce repetitive ticket volume while giving support agents cleaner context for high-stress account and transaction issues.",
+      "icon": "WalletIcon"
+    },
+    {
+      "name": "Scam education and suspicious activity triage",
+      "problem": "Users often contact trading platforms after phishing, impersonation, fake investment schemes, or wallet-draining attempts, and the wrong response can increase loss or liability.",
+      "agentWorkflow": "DocsBot can answer from approved safety articles, scam-reporting instructions, account-lock procedures, and risk disclosures. It can collect structured incident details, recommend official reporting paths from your content, and escalate financial-loss, identity, or law-enforcement matters to human teams.",
+      "liveContextOrTools": "Configured workflows can open a security ticket, notify a fraud queue, attach conversation summaries, and apply customer-defined review boundaries for high-impact issues.",
+      "exampleQuestionsOrRequests": [
+        "I think I sent crypto to a scammer. What should I do now?",
+        "Someone pretending to be support asked for my seed phrase.",
+        "Can you help me report a suspicious token listing or fake app?"
+      ],
+      "businessOutcome": "Give users calm, consistent safety guidance while routing urgent fraud and account-protection cases to trained reviewers.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fbi-crypto-fraud-2024"
+      ]
+    },
+    {
+      "name": "Compliance-aware answers for risk disclosures and eligibility rules",
+      "problem": "Crypto asset communications are scrutinized, and users may ask questions that drift into investment advice, eligibility, or legal interpretation.",
+      "agentWorkflow": "Train a DocsBot agent on approved disclosures, product availability pages, jurisdiction rules, fee schedules, and internal escalation criteria. The agent can answer factual policy questions, cite approved sources, decline prohibited advice, and hand off requests that need compliance, legal, or licensed review.",
+      "liveContextOrTools": "Permissions, logs, scoped Skills, and review workflows help keep sensitive financial or regulated responses inside company-defined boundaries.",
+      "exampleQuestionsOrRequests": [
+        "Is this staking product available in my state?",
+        "What are the risks of trading leveraged crypto products?",
+        "Can you tell me whether this token is a good investment?"
+      ],
+      "businessOutcome": "Improve consistency in user-facing explanations while reducing the chance that support teams improvise on regulated or high-impact topics.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-finra-communications"
+      ]
+    },
+    {
+      "name": "Developer and API documentation assistant",
+      "problem": "Active traders, market makers, and partners need fast answers about API authentication, rate limits, order endpoints, webhooks, sandbox environments, and error codes.",
+      "agentWorkflow": "DocsBot answers from API references, developer docs, changelogs, SDK examples, and troubleshooting articles. It can summarize the relevant endpoint, point to exact docs, identify missing context, and create a docs-gap report when users repeatedly ask unanswered questions.",
+      "liveContextOrTools": "Private or public docs assistants can run in an embedded widget, product portal, or internal team chat, with source citations and analytics on repeated API questions.",
+      "exampleQuestionsOrRequests": [
+        "What does this order rejection error mean?",
+        "How do I subscribe to websocket fills for a trading pair?",
+        "Where is the sandbox API rate-limit documentation?"
+      ],
+      "businessOutcome": "Help technical users self-serve faster and give product teams clearer evidence for developer documentation improvements.",
+      "icon": "CodeBracketIcon"
+    },
+    {
+      "name": "Internal incident and operations knowledge agent",
+      "problem": "During volatility, downtime, asset pauses, or blockchain congestion, teams need the same playbooks, macros, and escalation steps without searching across wikis and documents.",
+      "agentWorkflow": "DocsBot can act as a private internal agent trained on incident SOPs, support macros, release notes, escalation matrices, status-page procedures, and postmortems. It retrieves the approved process, summarizes the situation, and drafts internal updates for human review.",
+      "liveContextOrTools": "Configured Skills can trigger tasks, route to Slack or Microsoft Teams, prepare status summaries, or update approved operational fields when the customer authorizes those actions.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a suspected stuck withdrawal batch?",
+        "Which macro should support use during a chain halt?",
+        "Summarize the latest incident notes for the night-shift handoff."
+      ],
+      "businessOutcome": "Keep operations, support, and communications aligned when response speed and message consistency matter most.",
+      "icon": "BellIcon"
+    },
+    {
+      "name": "Presales and onboarding qualification for institutional or advanced traders",
+      "problem": "Prospective high-volume traders, API users, and institutional accounts often need precise product-fit answers before a sales or onboarding conversation.",
+      "agentWorkflow": "A DocsBot presales agent answers from approved product pages, fee schedules, custody descriptions, API docs, onboarding requirements, and sales enablement materials. It can collect company, region, trading volume, asset interest, implementation timeline, and preferred follow-up channel.",
+      "liveContextOrTools": "With approved workflows, the agent can submit a lead form, forward a qualified summary to CRM or helpdesk software, or request a meeting through a scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you support institutional API access and subaccounts?",
+        "What information do you need to onboard our trading desk?",
+        "Can someone contact us about custody, limits, and fee tiers?"
+      ],
+      "businessOutcome": "Capture better-fit prospects while keeping pricing, contracts, regulated claims, and onboarding approvals with the right human team.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give traders instant answers without letting the agent become a financial adviser",
+    "intro": "A DocsBot customer-facing agent can live in your website, help center, product portal, or support flow. It answers from your approved content, cites the underlying source, collects structured details, and escalates sensitive account, fraud, legal, or investment-advice questions to humans.",
+    "requests": [
+      {
+        "request": "“Why is my deposit not showing?”",
+        "agentResponseStrategy": "Explain normal confirmation and processing steps from your funding docs, ask for the transaction hash and asset network if configured, and route unresolved cases to support.",
+        "sourceTypes": [
+          "Funding help articles",
+          "Wallet network guides",
+          "Support intake forms"
+        ],
+        "optionalAction": "Create a ticket with the transaction hash, asset, network, user-provided notes, and conversation summary.",
+        "icon": "WalletIcon"
+      },
+      {
+        "request": "“Is this token safe to buy?”",
+        "agentResponseStrategy": "Avoid investment advice, point to approved risk disclosures and education content, and explain that users must make their own decisions or consult qualified advisers where appropriate.",
+        "sourceTypes": [
+          "Risk disclosures",
+          "Education articles",
+          "Terms and policies"
+        ],
+        "optionalAction": "Escalate if the user reports fraud, account compromise, or a platform-specific issue requiring review.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“How do I report a phishing message?”",
+        "agentResponseStrategy": "Use your official security guidance to list safe reporting steps, remind users not to share credentials or seed phrases, and collect incident details if your workflow allows.",
+        "sourceTypes": [
+          "Security center",
+          "Scam reporting SOPs",
+          "Account protection FAQs"
+        ],
+        "optionalAction": "Open a security queue ticket and notify the configured team with a structured incident summary.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fbi-crypto-fraud-2024"
+        ]
+      },
+      {
+        "request": "“What are your fees and limits for my region?”",
+        "agentResponseStrategy": "Answer from fee schedules, eligibility pages, and region-specific product terms, then explain where policies may vary by account status or verification level.",
+        "sourceTypes": [
+          "Fee schedules",
+          "Eligibility pages",
+          "KYC and limits policies"
+        ],
+        "optionalAction": "Collect region and account-type details, then route edge cases to the appropriate support or onboarding team.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“How do I connect to your trading API?”",
+        "agentResponseStrategy": "Summarize authentication, sandbox setup, rate limits, websocket behavior, and common errors from approved developer documentation.",
+        "sourceTypes": [
+          "API reference",
+          "Developer tutorials",
+          "Release notes"
+        ],
+        "optionalAction": "Create a developer support ticket when the user provides endpoint, error response, request ID, and environment details.",
+        "icon": "CodeBracketIcon"
+      },
+      {
+        "request": "“Is your EU service authorized under MiCA?”",
+        "agentResponseStrategy": "Answer only from your approved regulatory, licensing, and availability materials, and direct users to official register or legal-contact paths when needed.",
+        "sourceTypes": [
+          "Regulatory pages",
+          "Legal disclosures",
+          "Regional availability docs"
+        ],
+        "optionalAction": "Escalate jurisdiction-specific, legal, or licensing questions to compliance or legal operations.",
+        "icon": "BuildingLibraryIcon",
+        "sourceIds": [
+          "src-esma-mica-register"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Equip support, compliance, and product teams with one approved knowledge layer",
+    "intro": "DocsBot can also run as a private internal knowledge agent for crypto trading teams. Train it on policies, SOPs, incident playbooks, ticket history exports, release notes, sales materials, and compliance guidance so employees can get fast, consistent answers without digging through scattered systems.",
+    "workflows": [
+      {
+        "name": "Support ticket drafting and routing",
+        "problem": "Frontline agents need to respond quickly, but account, transaction, and product questions often require several pieces of context.",
+        "agentWorkflow": "DocsBot can summarize a user’s issue, draft a source-grounded response, identify missing details, and route the case through customer-configured helpdesk workflows.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Help center articles",
+          "Support macros",
+          "Escalation SOPs"
+        ],
+        "optionalAction": "Draft a response, create a task, update an approved ticket field, or route the ticket to funding, fraud, API, or compliance queues.",
+        "outcome": "Faster handoffs and more consistent support responses for repetitive but high-pressure trader issues.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Compliance content review assistant",
+        "problem": "Teams need to keep risk disclosures, help articles, retail communications, and product explanations aligned with approved language.",
+        "agentWorkflow": "DocsBot can retrieve approved language, summarize policy differences, and help employees find the governing source before publishing or responding.",
+        "sourceTypes": [
+          "Disclosures",
+          "Legal-approved FAQs",
+          "Policy manuals",
+          "Communications guidelines"
+        ],
+        "optionalAction": "Route uncertain content to a review workflow with the article, draft answer, and source references attached.",
+        "outcome": "Support and content teams can find approved language faster while leaving final compliance judgment with reviewers.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-finra-communications"
+        ]
+      },
+      {
+        "name": "Incident response and status communication",
+        "problem": "Asset pauses, network congestion, exchange maintenance, and degraded services create spikes in user questions and internal coordination needs.",
+        "agentWorkflow": "The internal agent answers from runbooks, status procedures, incident notes, and postmortems. It can summarize the current playbook, draft shift handoffs, and identify which user-facing docs need temporary updates.",
+        "sourceTypes": [
+          "Incident runbooks",
+          "Status-page SOPs",
+          "Postmortems",
+          "Release notes"
+        ],
+        "optionalAction": "Notify the configured channel, create an incident task, or prepare a human-reviewed customer update.",
+        "outcome": "Reduce confusion during volatile periods and keep teams aligned on what to say and do next.",
+        "icon": "BellIcon"
+      },
+      {
+        "name": "Sales enablement for advanced trading accounts",
+        "problem": "Sales and account teams need quick access to accurate answers about APIs, fee tiers, onboarding documents, asset coverage, and product fit.",
+        "agentWorkflow": "DocsBot can answer from approved sales playbooks, product docs, pricing guidance, case studies, implementation notes, and onboarding checklists, then draft follow-up emails for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product documentation",
+          "Onboarding checklists",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Create a CRM task or forward a qualified lead summary through customer-configured sales workflows.",
+        "outcome": "Give human sellers faster preparation while keeping commitments, pricing, contracts, and regulated claims under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on your approved knowledge sources and deliver instant answers in your company voice.",
+      "industryApplication": "Answer trader questions from funding guides, fee schedules, order documentation, risk disclosures, developer docs, and platform policies instead of relying on generic model knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions let agents take bounded steps through customer-defined Skills, APIs, connectors, workflow automations, and remote Model Context Protocol servers when configured.",
+      "industryApplication": "Look up approved status context, collect transaction details, create support tickets, route fraud cases, notify teams, or prepare onboarding handoffs without giving the agent unrestricted access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation and governed boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation for complex, sensitive, or high-impact questions and can operate with role-based permissions and customer-defined controls.",
+      "industryApplication": "Escalate account compromise, financial loss, legal, identity, eligibility, or investment-advice requests to trained human teams while still answering factual documentation questions.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, reports, topic management, satisfaction and resolution analysis, and visibility into unanswered questions.",
+      "industryApplication": "See which token, wallet, order, fee, compliance, or API topics drive support demand so product and documentation teams can improve self-service content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual website, product, and team access",
+      "mainLandingPageContext": "DocsBot agents can support users in more than 100 languages and appear through chat widgets, private team chat, APIs, helpdesk-connected workflows, Slack, and Microsoft Teams when configured.",
+      "industryApplication": "Support global trader communities and distributed operations teams with consistent answers while routing sensitive local, legal, or account-specific questions appropriately.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "musa-40k-traders-self-service",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support scale, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for self-service experiences where users need fast answers from the business’s own knowledge base.",
+      "Useful both on public websites and beside human support teams that need faster email or ticket responses."
+    ],
+    "whyTheseReviewsFit": "Crypto trading platforms need support that can scale during market spikes, answer from approved content, and assist human teams without replacing judgment on sensitive issues. DocsBot proof spans high-volume customer support, self-service knowledge access, and helpdesk-assisted workflows.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for cryptocurrency trading platforms",
+    "audience": [
+      "Crypto exchange support leaders",
+      "Digital asset compliance teams",
+      "Trading platform product teams",
+      "Developer relations and API support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "finance-insurance",
+    "investment-advisory",
+    "investor",
+    "bank-credit-union",
+    "financial-consulting",
+    "auditing-finance-insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "cryptocurrency-trading",
+    "webSearchQueries": [
+      "SEC 2024 cryptocurrency market report investor complaints crypto assets",
+      "FBI 2024 cryptocurrency investment fraud losses report",
+      "ESMA crypto assets investor protection MiCA 2024 crypto asset service providers",
+      "FINRA crypto asset communications retail investors 2024"
+    ],
+    "sourceUrls": [
+      "https://www.ic3.gov/AnnualReport/Reports/2024_IC3Report.pdf?cid=SM1900055582",
+      "https://www.finra.org/media-center/newsreleases/2024/finra-publishes-crypto-asset-communications-sweep-update",
+      "https://www.esma.europa.eu/esmas-activities/digital-finance-and-innovation/markets-crypto-assets-regulation-mica",
+      "https://www.sec.gov/news/data.htm",
+      "https://home.treasury.gov/system/files/261/FSOC2024AnnualReport.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41197,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28653,
+        "outputTokens": 8337,
+        "reasoningOutputTokens": 139,
+        "totalTokens": 49534,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.199824,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.209824
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21557,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14261,
+          "outputTokens": 5290,
+          "reasoningOutputTokens": 139,
+          "totalTokens": 26847,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116827,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126827
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19640,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14392,
+          "outputTokens": 3047,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22687,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.082997,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.082997
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1636953099671-481a72803051?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUxNzd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cryptocurrency Trading background image",
+    "source": "legacy-industry",
+    "query": "Cryptocurrency Trading"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for deposit and withdrawal questions without giving the agent direct custody or trading permissions?",
+      "answer": "Yes. A DocsBot agent can answer from your funding guides, wallet-network articles, fee pages, and incident notices, then collect details such as asset, network, transaction hash, order ID, device, or region. Live lookups and ticket creation can be added only through customer-configured Skills, APIs, connectors, or workflows with scoped permissions and logs, so sensitive account or financial actions stay inside your boundaries.",
+      "role": "Support and community operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we keep the agent from giving investment advice when users ask whether to buy, sell, stake, or hold a token?",
+      "answer": "Train the agent on approved risk disclosures, eligibility pages, education content, and escalation rules. DocsBot can answer factual policy questions, cite your approved sources, decline investment-advice requests, and hand off high-impact questions to human support, compliance, legal, or licensed review teams. That matters in crypto, where FINRA found a 70% potential violation rate in reviewed crypto asset retail communications.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-finra-communications"
+      ]
+    },
+    {
+      "question": "Will DocsBot work during market spikes when ticket volume jumps because an asset is halted, a chain is congested, or withdrawals are delayed?",
+      "answer": "DocsBot is well suited to recurring, high-volume questions during volatile periods. You can train it on status guidance, incident runbooks, withdrawal-delay macros, chain-confirmation articles, and escalation paths. It can answer common questions instantly, collect structured case details, and route unresolved or account-specific issues to humans with a summary instead of leaving agents to reconstruct context from scratch.",
+      "role": "Support and community operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can we make answers region-specific for KYC, limits, staking eligibility, and product availability?",
+      "answer": "Yes, if your knowledge base and workflows define the region-specific rules clearly. DocsBot can answer from eligibility pages, KYC policies, limits tables, fee schedules, and approved jurisdictional disclosures. For ambiguous cases, the agent can ask for region or account-type details and escalate rather than guessing. EU-facing teams can also use approved MiCA-related content and official register guidance where relevant.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-esma-mica-register"
+      ]
+    },
+    {
+      "question": "How would DocsBot fit with our existing helpdesk, fraud queue, CRM, or internal ops tools?",
+      "answer": "DocsBot can support customer-configured helpdesk connections, APIs, connectors, Skills, webhooks, workflow automations, and MCP options. Typical workflows include creating a support ticket, routing a case to funding or fraud, notifying Slack or Microsoft Teams, forwarding a qualified institutional lead, or updating approved fields. DocsBot should be scoped to the actions you authorize rather than treated as an unrestricted system operator.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What kind of content should we train the agent on before launching it to traders?",
+      "answer": "Start with high-confidence, approved content: deposit and withdrawal guides, supported networks, fee schedules, order-type docs, KYC and limits policies, risk disclosures, scam-reporting instructions, API references, release notes, status procedures, and support macros. For internal agents, add SOPs, incident playbooks, escalation matrices, postmortems, and compliance guidance. Avoid training on outdated drafts or unresolved policy discussions.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with scam, phishing, impersonation, and wallet-drainer reports?",
+      "answer": "Yes. DocsBot can answer from your official security center, scam-reporting SOPs, account-lock steps, and risk education content. It can remind users not to share credentials or seed phrases, collect structured incident details, and escalate financial-loss, identity, account-compromise, or law-enforcement matters. This is especially important because the FBI reported $9.3 billion in cryptocurrency-related losses in 2024.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fbi-crypto-fraud-2024"
+      ]
+    },
+    {
+      "question": "How do we measure ROI beyond just “chat deflection”?",
+      "answer": "Crypto support teams should measure avoided repetitive tickets, first-contact resolution, escalation quality, time to collect required transaction details, reduction in duplicate incident questions, agent handle-time savings, customer satisfaction, and documentation gaps closed. DocsBot’s analytics, logs, reports, topic management, satisfaction and resolution analysis, and unanswered-question visibility help connect AI performance to support, product, and documentation outcomes.",
+      "role": "Support and community operations leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can our compliance team review what the agent said after the fact?",
+      "answer": "Yes. DocsBot provides conversation review, logs, reports, topic management, and analytics so teams can inspect answers, identify risky patterns, and improve source content. You can also design escalation rules for regulated, identity, financial-loss, legal, or investment-advice questions. For crypto trading platforms, reviewability is important because regulators continue to scrutinize crypto communications and investor-protection risks.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-fsoc-2024-crypto-risks"
+      ]
+    },
+    {
+      "question": "What happens when a trader asks about a live account issue that is not fully covered in the help center?",
+      "answer": "DocsBot should not invent account-specific answers. It can explain the general process from approved documentation, ask for missing details such as transaction hash, asset, network, order ID, region, screenshot, or device, and then route the case to the correct support queue. If you configure approved Skills or APIs, the agent can use allowed live context while keeping credentials and sensitive actions out of chat.",
+      "role": "Support and community operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support API users, market makers, and institutional traders who ask technical questions?",
+      "answer": "Yes. DocsBot can power a public or private documentation assistant trained on API references, authentication guides, rate limits, websocket docs, sandbox instructions, SDK examples, release notes, and troubleshooting articles. It can summarize relevant endpoints, explain error codes from your docs, collect request IDs or environment details, and surface repeated docs gaps for product and developer-experience teams.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much human oversight should we keep for fraud, legal, account restriction, or financial-loss conversations?",
+      "answer": "Keep humans in the loop for high-impact cases. DocsBot can provide calm, approved first-step guidance, collect structured details, and route the case, but account compromise, identity issues, suspected fraud, law-enforcement requests, legal interpretations, eligibility disputes, and financial-loss claims should escalate to trained reviewers. The goal is faster triage and consistency, not replacing judgment on sensitive matters.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for our global trader community?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved content, which is useful for global exchanges, wallets, brokerages, and developer communities. For regulated or region-specific topics, you should still maintain approved localized source content and escalation rules so the agent does not generalize across jurisdictions, product availability, disclosures, or eligibility requirements.",
+      "role": "Support and community operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What prevents the agent from hallucinating unsupported assets, fee tiers, promotions, or policy exceptions?",
+      "answer": "DocsBot is designed around source-grounded answers from your approved knowledge sources. You can train it on current fee schedules, asset-support pages, promotions, terms, API docs, and policy libraries, then configure it to cite sources and escalate when the answer is missing or uncertain. Analytics also reveal repeated unanswered questions so teams can close documentation gaps instead of letting users rely on guesses.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we deploy DocsBot internally before putting it in front of customers?",
+      "answer": "Yes. Many crypto teams would start with an internal knowledge agent for support, compliance, product, security, and operations. Train it on SOPs, macros, incident playbooks, escalation matrices, release notes, and policy guidance. Teams can use it to draft responses, summarize tickets, find approved language, and test knowledge coverage before exposing a customer-facing agent in the help center or product portal.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot help documentation teams decide what to improve?",
+      "answer": "DocsBot provides analytics, reports, topic management, conversation review, and knowledge-gap discovery. Documentation teams can see repeated questions about pending deposits, withdrawal limits, unsupported networks, order rejections, staking terms, API errors, or regional availability. That gives product and docs owners evidence for which articles, release notes, troubleshooting guides, and developer references need clearer coverage.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security and data-governance posture can we present to our security review team?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy of not using customer data to train public models. For Skills and live actions, customers manage environment values, secrets, metadata bindings, network policy, logging, and action boundaries so access can be scoped to the use case.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent help qualify institutional, OTC, API, or high-volume trader inquiries without making pricing or contract commitments?",
+      "answer": "Yes. A DocsBot presales agent can answer from approved product pages, fee schedules, custody descriptions, API docs, onboarding requirements, and sales enablement materials. It can collect company, region, expected volume, asset interest, implementation timeline, and preferred follow-up channel, then forward a qualified summary through customer-configured CRM, helpdesk, email, form, or scheduling workflows. Humans remain responsible for pricing, contracts, and regulated commitments.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How long does implementation take if our content is spread across help centers, PDFs, wikis, and internal SOPs?",
+      "answer": "Implementation depends less on file format and more on content readiness. DocsBot can train on websites, help centers, PDFs, Word documents, text files, Google Drive, Notion, Confluence, internal SOPs, ticket exports, and other configured sources. The main buyer task is deciding which sources are approved, current, and safe for each audience, then defining escalation rules and any scoped actions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How should we compare DocsBot with building our own RAG assistant for crypto support?",
+      "answer": "A build decision usually means owning ingestion, retrieval quality, permissions, prompt governance, evaluations, logging, analytics, escalation, multilingual behavior, and action safety. DocsBot gives teams a packaged way to create source-grounded support, documentation, internal knowledge, and workflow agents from approved content. Build may fit highly specialized infrastructure needs; DocsBot is attractive when speed, governance, and operational maintainability matter.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help us manage spikes in investor confusion or complaints about crypto products?",
+      "answer": "Yes. DocsBot can provide consistent education and routing from approved disclosures, help articles, account policies, and escalation procedures. It can also surface recurring confusion through analytics and unanswered-topic reports. The need is real: the SEC’s Office of Investor Education and Advocacy listed crypto-related matters as its top complaint or question category for FY 2025, with 7,057 files closed.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-sec-investor-complaints"
+      ]
+    },
+    {
+      "question": "What should we not automate with DocsBot in a crypto trading environment?",
+      "answer": "Do not automate judgment-heavy or high-impact decisions such as approving withdrawals, reversing trades, deciding legal eligibility, resolving fraud claims, making investment recommendations, changing account restrictions, or promising regulatory status unless those actions are handled by tightly controlled human review workflows. DocsBot is strongest for source-grounded answers, detail collection, summaries, routing, approved status context, and bounded workflow steps.",
+      "role": "Compliance, risk, and legal operations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support both customer-facing agents and employee-only agents with different permissions?",
+      "answer": "Yes. You can use DocsBot for a public support or documentation agent and a private internal knowledge agent. Each should be trained on the sources appropriate for its audience. Public agents can answer from help content and policies, while internal agents can include SOPs, macros, incident notes, compliance guidance, sales materials, and escalation matrices with role-based permissions and governed access.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we handle answer quality when policies change quickly because of new listings, delistings, incidents, or regulatory updates?",
+      "answer": "Keep the agent connected to the approved sources that your teams already update: status guidance, policy pages, release notes, eligibility docs, fee schedules, asset-support pages, and internal SOPs. Use conversation review and unanswered-topic analytics to catch drift. For urgent changes, publish approved temporary guidance and require escalation where the agent lacks current, explicit source material.",
+      "role": "Product, documentation, and developer experience teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot replace our support agents?",
+      "answer": "No. In crypto trading, the safer goal is to remove repetitive search and intake work while keeping people responsible for sensitive judgment. DocsBot can answer common questions, collect required details, summarize conversations, draft responses, and route cases. Human teams still handle account-specific exceptions, fraud, financial loss, legal issues, compliance decisions, and complex escalations.",
+      "role": "Support and community operations leaders",
+      "category": "Human oversight"
+    }
+  ]
+}

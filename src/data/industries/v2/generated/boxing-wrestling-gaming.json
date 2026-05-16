@@ -1,0 +1,750 @@
+{
+  "slug": "boxing-wrestling-gaming",
+  "business": "Boxing & Wrestling",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Boxing and Wrestling Game Platforms",
+    "description": "DocsBot helps boxing and wrestling gaming teams answer player questions, surface event content, and route support faster with grounded AI agents.",
+    "canonicalPath": "/industry/boxing-wrestling-gaming"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for combat-sports gaming teams",
+    "headline": "DocsBot AI agents keep boxing and wrestling players informed",
+    "subheadline": "Train DocsBot on your game guides, roster notes, event pages, rules, store policies, patch notes, community FAQs, and support history so players and staff can get fast answers, smarter handoffs, and practical workflow automation from approved sources.",
+    "proofBullets": [
+      {
+        "text": "Answer player questions about modes, moves, events, account policies, DLC, merchandise, and ticketed experiences from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use AI Actions to collect issue details, summarize player context, create support tasks, route escalations, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give support, community, and live-ops teams a private knowledge agent for SOPs, release notes, brand guidance, and moderation playbooks.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated questions, confusing patch notes, content gaps, and emerging player-support trends.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a combat-sports gaming agent",
+    "secondaryCta": "Explore DocsBot automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps boxing and wrestling gaming businesses create AI agents trained on their own knowledge. The agent can answer player and fan questions, retrieve approved information, summarize conversations, qualify requests, identify documentation gaps, and take bounded actions through configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Player support and community teams",
+        "roleContext": "For studios, publishers, tournament operators, and fan platforms handling repeated questions across game rules, account issues, updates, events, merch, and gameplay guides.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions with source-grounded answers before tickets reach the support queue.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Collect platform, account, build, and issue details before escalating complex or sensitive cases to a human.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Review conversation logs to spot unclear FAQs, confusing event rules, and recurring player frustration.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Live-ops, events, and marketing leaders",
+        "roleContext": "For teams promoting fighter drops, wrestling seasons, title updates, limited-time modes, pay-per-view tie-ins, community contests, and merchandise campaigns.",
+        "bullets": [
+          {
+            "text": "Answer time-sensitive event and promotion questions from current landing pages, FAQs, schedules, and approved campaign copy.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Qualify partnership, sponsorship, influencer, or group-sales inquiries with structured intake fields and routing rules.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Summarize player feedback after events so teams can improve documentation, rewards, and support messaging.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "RocketLaunchIcon"
+      },
+      {
+        "role": "Game operations and production teams",
+        "roleContext": "For distributed teams that need quick access to release notes, internal SOPs, localization guidance, moderation rules, monetization policies, and platform requirements.",
+        "bullets": [
+          {
+            "text": "Make internal policies, runbooks, launch checklists, and known-issue notes searchable in private team chat.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Help agents draft consistent responses using the latest approved guidance while preserving human review for edge cases.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support multilingual player communities with answers in more than 100 languages from the same approved knowledge base.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-esa-2025-gaming-scale",
+      "metric": "205.1 million Americans play video games",
+      "claim": "The Entertainment Software Association reported that 64% of the U.S. population ages 5 through 90, or 205.1 million people, actively play video games in 2025.",
+      "sourceTitle": "2025 Essential Facts About the U.S. Video Game Industry",
+      "sourceUrl": "https://www.theesa.com/wp-content/uploads/2025/06/2025-Essential-Facts-Booklet-05-30-25-RGB.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "gaming audience scale",
+        "player support volume",
+        "mainstream gaming adoption"
+      ]
+    },
+    {
+      "id": "src-esa-sports-games",
+      "metric": "56% of adult players who play real-life sports play a video game version",
+      "claim": "ESA’s 2025 release says 56% of adult players who play real-life sports also play video game versions of those sports, with many saying games improve real-life performance.",
+      "sourceTitle": "Annual ESA Study Reveals Video Games’ Universal Appeal Across Generations",
+      "sourceUrl": "https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/",
+      "sourceDate": "June 3, 2025",
+      "bestUsedFor": [
+        "sports-game audience behavior",
+        "combat-sports crossover interest",
+        "fan engagement"
+      ]
+    },
+    {
+      "id": "src-pew-teen-gaming",
+      "metric": "85% of U.S. teens say they play video games",
+      "claim": "Pew Research Center reported in 2024 that 85% of U.S. teens say they play video games, including 41% who play daily.",
+      "sourceTitle": "Teens and Video Games Today",
+      "sourceUrl": "https://www.pewresearch.org/internet/2024/05/09/teens-and-video-games-today/",
+      "sourceDate": "May 9, 2024",
+      "bestUsedFor": [
+        "youth audience expectations",
+        "parent and safety questions",
+        "player community scale"
+      ]
+    },
+    {
+      "id": "src-esrb-ratings",
+      "metric": "ESRB ratings guide age and content decisions",
+      "claim": "ESRB provides rating categories, content descriptors, and interactive elements that help families evaluate video game content and online features.",
+      "sourceTitle": "Video Game Ratings",
+      "sourceUrl": "https://www.esrb.org/ratings/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "ratings questions",
+        "parent support",
+        "content policy explanations"
+      ]
+    },
+    {
+      "id": "src-ftc-loot-boxes",
+      "metric": "FTC scrutiny of loot boxes and in-game purchases",
+      "claim": "The FTC has examined consumer protection issues around loot boxes and in-game purchases, including cost transparency and children’s interactions with paid mechanics.",
+      "sourceTitle": "Loot boxes: What’s in play?",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/blog/2020/08/loot-boxes-whats-play",
+      "sourceDate": "August 27, 2020",
+      "bestUsedFor": [
+        "monetization transparency",
+        "purchase support",
+        "policy-sensitive workflows"
+      ]
+    },
+    {
+      "id": "src-igda-crunch",
+      "metric": "28% of surveyed game developers reported crunch time",
+      "claim": "The IGDA 2023 Developer Satisfaction Survey reported that 28% of respondents said their job involved crunch time, highlighting production pressure in game development.",
+      "sourceTitle": "The IGDA and Western University Release 2023 Developer Satisfaction Survey",
+      "sourceUrl": "https://www.gamespress.com/The-IGDA-and-Western-University-Release-2023-Developer-Satisfaction-Su",
+      "sourceDate": "May 2, 2024",
+      "bestUsedFor": [
+        "internal operations pressure",
+        "knowledge access for production teams",
+        "support workload"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Player rules and roster support agent",
+      "problem": "Combat-sports games create repeated questions about controls, stamina systems, fighter ratings, wrestling move sets, online modes, unlocks, patches, and platform differences.",
+      "agentWorkflow": "DocsBot answers from approved guides, patch notes, FAQs, roster pages, and help articles. When the answer is missing or the player reports a bug, the agent can collect details, summarize the issue, and route it to support through a configured workflow.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up known-issue status, route a ticket, create a task, or attach a conversation summary to helpdesk software.",
+      "exampleQuestionsOrRequests": [
+        "Why did my wrestler’s signature move change after the update?",
+        "Which boxing controls changed in the latest patch?",
+        "I lost a reward after an online match. Can you help?"
+      ],
+      "businessOutcome": "Reduce repetitive support load while giving players clearer, source-grounded answers and better handoffs for unresolved issues.",
+      "icon": "TrophyIcon"
+    },
+    {
+      "name": "Live event and promotion concierge",
+      "problem": "Fighter drops, tournament brackets, seasonal wrestling events, pay-per-view tie-ins, merchandise offers, and limited-time rewards generate urgent questions across web, app, and social traffic.",
+      "agentWorkflow": "DocsBot uses event pages, promotion rules, campaign FAQs, store policies, and schedule content to answer questions and collect missing information. It can qualify sponsorship, creator, or group-event inquiries using customer-defined rules before forwarding them to the right team.",
+      "liveContextOrTools": "Approved AI Actions can submit lead forms, notify marketing or sales channels, request a meeting through scheduling workflows, or trigger follow-up tasks.",
+      "exampleQuestionsOrRequests": [
+        "When does the championship event start in my region?",
+        "Which rewards are included with the premium wrestling season pass?",
+        "I want to sponsor a tournament stream. Who should I contact?"
+      ],
+      "businessOutcome": "Keep campaign traffic informed, capture higher-intent opportunities, and reduce manual routing during time-sensitive launches.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-esa-sports-games"
+      ]
+    },
+    {
+      "name": "Parent, rating, and purchase-policy assistant",
+      "problem": "Boxing and wrestling games often raise questions about age ratings, online play, purchases, cosmetics, subscriptions, refund rules, and randomized rewards.",
+      "agentWorkflow": "DocsBot answers from your policies, store FAQs, ESRB rating explanations, refund guidance, and account-safety articles. For account-specific payment or identity issues, it collects context and escalates to a human or approved support workflow.",
+      "liveContextOrTools": "Configured Skills can create a support ticket, route payment issues, summarize policy context, or flag sensitive cases for review without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Is this wrestling game appropriate for my 12-year-old?",
+        "How do I disable in-game purchases?",
+        "What is your refund policy for virtual currency?"
+      ],
+      "businessOutcome": "Provide clearer policy answers while keeping purchase, child-safety, and account matters inside defined support boundaries.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-esrb-ratings",
+        "src-ftc-loot-boxes"
+      ]
+    },
+    {
+      "name": "Internal live-ops knowledge agent",
+      "problem": "Game teams move quickly during launches, patches, tournaments, and content seasons, while answers are scattered across docs, chats, spreadsheets, QA notes, and release plans.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, launch checklists, known-issue notes, localization guidance, moderation playbooks, and brand rules. Staff can ask for procedures, summaries, escalation paths, or approved response language from a private knowledge agent.",
+      "liveContextOrTools": "When configured, Skills can retrieve live status, create follow-up tasks, draft internal summaries, or trigger operational workflows with logs and scoped permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a tournament reward outage?",
+        "Summarize the known issues for today’s patch.",
+        "Which moderation rule applies to fighter-name impersonation?"
+      ],
+      "businessOutcome": "Help distributed teams move faster, reduce searching, and keep player-facing responses consistent during high-pressure releases.",
+      "icon": "CommandLineIcon",
+      "sourceIds": [
+        "src-igda-crunch"
+      ]
+    },
+    {
+      "name": "Documentation gap and player insight reporting",
+      "problem": "Players often ask the same questions when tutorials, move lists, monetization language, or event terms are unclear, but teams may not see patterns until tickets accumulate.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams identify repeated questions and missing documentation. Teams can turn those insights into better FAQs, patch notes, tutorials, and support macros.",
+      "liveContextOrTools": "Conversation summaries can be routed to documentation, community, product, or QA workflows through configured connectors or approved automation.",
+      "exampleQuestionsOrRequests": [
+        "What are players asking about most after the roster update?",
+        "Which event rules need clearer documentation?",
+        "Show common unanswered questions about ranked matchmaking."
+      ],
+      "businessOutcome": "Improve self-service content and reduce future ticket volume by turning real player questions into documentation priorities.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Multilingual fan and player self-service",
+      "problem": "Combat-sports gaming communities often span countries, promotions, creators, and fan bases, so support teams need consistent answers without rewriting every FAQ manually.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from the same approved knowledge base, helping players understand support policies, events, gameplay basics, and troubleshooting steps in their preferred language.",
+      "liveContextOrTools": "Teams can pair multilingual answers with configured escalation workflows for regional support, account-specific questions, or complex cases.",
+      "exampleQuestionsOrRequests": [
+        "Explain the tournament rules in Spanish.",
+        "How do I redeem my fighter skin code in Japanese?",
+        "Can I get refund policy details in Portuguese?"
+      ],
+      "businessOutcome": "Serve a broader player base with consistent answers while preserving approved source material and escalation paths.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give players and fans one reliable place to ask before they submit a ticket",
+    "intro": "Embed a DocsBot agent on your website, help center, product experience, or event page so fans can ask natural-language questions about boxing and wrestling gameplay, schedules, store policies, promotions, and support issues.",
+    "requests": [
+      {
+        "request": "“How do I unlock the new heavyweight fighter?”",
+        "agentResponseStrategy": "Answer from roster notes, progression guides, DLC pages, and patch notes, then link the player to the relevant source or collect details if the unlock appears broken.",
+        "sourceTypes": [
+          "Roster pages",
+          "Progression guides",
+          "Patch notes",
+          "Support FAQs"
+        ],
+        "optionalAction": "Create a support ticket with platform, account, build, and missing reward details when configured.",
+        "icon": "TrophyIcon"
+      },
+      {
+        "request": "“What time does tonight’s wrestling tournament start?”",
+        "agentResponseStrategy": "Use the approved event schedule, regional time-zone notes, promotion rules, and reward terms to answer clearly and reduce duplicate live-event questions.",
+        "sourceTypes": [
+          "Event pages",
+          "Promotion FAQs",
+          "Reward terms",
+          "Schedule documents"
+        ],
+        "optionalAction": "Route sponsorship, creator, or group-sales inquiries to the right team with a summarized lead form.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Is this game okay for my child, and can I block purchases?”",
+        "agentResponseStrategy": "Explain your rating, content descriptors, online features, parental control guidance, and purchase policy from approved sources, then escalate account-specific payment issues.",
+        "sourceTypes": [
+          "Ratings guidance",
+          "Parent FAQs",
+          "Store policies",
+          "Account safety articles"
+        ],
+        "optionalAction": "Escalate refund, identity, or unauthorized-purchase cases to a human support workflow.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-pew-teen-gaming"
+        ]
+      },
+      {
+        "request": "“Why did my online match disconnect?”",
+        "agentResponseStrategy": "Provide troubleshooting steps from help articles and known-issue notes, then collect platform, connection, match type, region, and timestamp if the player still needs help.",
+        "sourceTypes": [
+          "Troubleshooting guides",
+          "Known issues",
+          "Network FAQs",
+          "Support macros"
+        ],
+        "optionalAction": "Summarize the case and create or route a ticket through approved helpdesk workflows.",
+        "icon": "WifiIcon"
+      },
+      {
+        "request": "“Can I buy the championship hoodie with my preorder discount?”",
+        "agentResponseStrategy": "Answer from merchandise terms, preorder benefits, discount rules, and fulfillment policies while making clear when a human must verify order-specific details.",
+        "sourceTypes": [
+          "Merchandise FAQs",
+          "Promotion terms",
+          "Store policies",
+          "Order support articles"
+        ],
+        "optionalAction": "Collect order context and hand off to support or ecommerce staff when configured.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Explain the stamina system for boxing matches.”",
+        "agentResponseStrategy": "Answer from gameplay guides, tutorials, move lists, and patch notes, then suggest the most relevant documentation for deeper learning.",
+        "sourceTypes": [
+          "Gameplay guides",
+          "Tutorials",
+          "Move lists",
+          "Patch notes"
+        ],
+        "optionalAction": "Log repeated tutorial questions so the content team can improve onboarding materials.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help game, support, and community teams move faster from approved knowledge",
+    "intro": "A private DocsBot internal knowledge agent gives employees instant answers from SOPs, release notes, policies, playbooks, and internal documentation so teams can respond consistently during launches, patches, and live events.",
+    "workflows": [
+      {
+        "name": "Support response drafting",
+        "problem": "Agents need to answer gameplay, account, event, and purchase questions consistently while adapting to each player’s issue.",
+        "agentWorkflow": "DocsBot retrieves the approved policy or help article, summarizes the player’s issue, drafts a response, and identifies when escalation or human review is needed.",
+        "sourceTypes": [
+          "Help articles",
+          "Support macros",
+          "Policy docs",
+          "Ticket exports"
+        ],
+        "optionalAction": "Draft a helpdesk response or route the ticket through a configured helpdesk connection.",
+        "outcome": "Faster first responses with fewer policy inconsistencies and cleaner escalation notes.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Launch and patch command center",
+        "problem": "During roster updates, balance patches, and tournament weekends, team members need fast access to current known issues and approved language.",
+        "agentWorkflow": "DocsBot answers from release notes, known-issue trackers, QA notes, internal FAQs, and incident runbooks so staff can find the latest guidance without searching across tools.",
+        "sourceTypes": [
+          "Release notes",
+          "QA notes",
+          "Incident runbooks",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Create tasks, notify channels, or summarize incident context through configured Skills and connectors.",
+        "outcome": "Keep live-ops, support, community, and production aligned when player volume spikes.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "Community moderation guidance",
+        "problem": "Boxing and wrestling games can create heated community conversations around ranked play, fighter likeness, names, promotions, and competitive disputes.",
+        "agentWorkflow": "DocsBot retrieves moderation policies, escalation criteria, brand voice guidance, and community rules so moderators can respond consistently and know when to escalate.",
+        "sourceTypes": [
+          "Moderation rules",
+          "Community guidelines",
+          "Brand voice docs",
+          "Escalation SOPs"
+        ],
+        "optionalAction": "Prepare a case summary for a senior moderator or trust-and-safety reviewer.",
+        "outcome": "More consistent moderation decisions and clearer handoffs for sensitive player issues.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "name": "Sales and partnership enablement",
+        "problem": "Sponsorship, creator, esports, licensing, and venue inquiries often require fast answers from campaign details, audience materials, pricing guidance, and contract boundaries.",
+        "agentWorkflow": "DocsBot helps staff retrieve approved sales materials, qualify inquiries, summarize prospect context, and draft follow-up messages for human review.",
+        "sourceTypes": [
+          "Sales enablement docs",
+          "Campaign briefs",
+          "Case studies",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Forward qualified leads, summaries, and requested next steps to CRM, email, or team channels through configured workflows.",
+        "outcome": "Capture more qualified opportunities without letting the agent make final pricing, legal, or partnership commitments.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded player support agents",
+      "mainLandingPageContext": "DocsBot trains on websites, help centers, documentation, internal content, and other approved knowledge sources to deliver instant answers in the company’s voice.",
+      "industryApplication": "Use one agent to answer combat-sports gameplay, roster, event, purchase, merch, and troubleshooting questions from approved sources instead of generic AI responses.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, ticket creation, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Collect issue details, look up configured status context, create support tasks, route partnership leads, trigger event workflows, or summarize player cases when the customer has approved the connection.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for teams, trained on SOPs, policies, wikis, PDFs, documents, and operational knowledge.",
+      "industryApplication": "Give support, live-ops, QA, marketing, community, and production teams fast answers from launch checklists, moderation rules, patch notes, and incident procedures.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what players ask after each fighter drop, patch, tournament, or promotion so teams can improve guides, FAQs, tutorials, and support macros.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual website and team deployment",
+      "mainLandingPageContext": "DocsBot agents can work through website or product widgets, private team chat, helpdesk-connected workflows, Slack, Microsoft Teams, APIs, and multilingual experiences.",
+      "industryApplication": "Support global combat-sports fans with multilingual answers and give internal teams an accessible knowledge agent where they already work.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where fast, consistent answers matter.",
+      "Trains on your owned content library so player answers stay grounded in approved sources.",
+      "Works across embedded player-facing experiences and human support workflows."
+    ],
+    "whyTheseReviewsFit": "Boxing and wrestling gaming teams need reliable answers during launches, events, and support spikes. DocsBot proof shows high-volume inquiry handling, owned-content training, and support-team assistance that maps directly to player self-service and live-ops workflows.",
+    "trustClaimIcons": [
+      "ArrowTrendingUpIcon",
+      "BookOpenIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for boxing and wrestling gaming platforms",
+    "audience": [
+      "Game publishers and studios",
+      "Combat-sports gaming platforms",
+      "Player support teams",
+      "Live-ops and community teams",
+      "Gaming event and merchandise teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TrophyIcon"
+  },
+  "relatedIndustrySlugs": [
+    "e-sports-organization",
+    "online-gaming",
+    "game-development",
+    "fantasy-sports-management",
+    "casino-and-video-gaming",
+    "gaming"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "boxing-wrestling-gaming",
+    "webSearchQueries": [
+      "Entertainment Software Association 2025 essential facts video games players United States statistics",
+      "Pew Research Center teens and video games today 2024",
+      "ESRB ratings guide video games parents purchases source",
+      "Federal Trade Commission video games loot boxes children in-game purchases report",
+      "International Game Developers Association developer satisfaction survey overtime crunch 2023"
+    ],
+    "sourceUrls": [
+      "https://www.theesa.com/wp-content/uploads/2025/06/2025-Essential-Facts-Booklet-05-30-25-RGB.pdf",
+      "https://www.theesa.com/annual-esa-study-reveals-video-games-universal-appeal-across-generations/",
+      "https://www.pewresearch.org/internet/2024/05/09/teens-and-video-games-today/",
+      "https://www.esrb.org/ratings/",
+      "https://www.ftc.gov/business-guidance/blog/2020/08/loot-boxes-whats-play",
+      "https://www.gamespress.com/The-IGDA-and-Western-University-Release-2023-Developer-Satisfaction-Su"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 58751,
+        "cachedInputTokens": 19840,
+        "billableInputTokens": 38911,
+        "outputTokens": 8131,
+        "reasoningOutputTokens": 291,
+        "totalTokens": 66882,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.224202,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.254202
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 15518,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 8222,
+          "outputTokens": 96,
+          "reasoningOutputTokens": 96,
+          "totalTokens": 15614,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.023819,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.033819
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 23717,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 16421,
+          "outputTokens": 5281,
+          "reasoningOutputTokens": 195,
+          "totalTokens": 28998,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.122091,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.142091
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19516,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14268,
+          "outputTokens": 2754,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22270,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078292,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078292
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1606335543042-57c525922933?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU4MDV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Boxing & Wrestling background image",
+    "source": "legacy-industry",
+    "query": "Boxing & Wrestling"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer detailed player questions about boxing controls, wrestling move sets, roster ratings, and patch changes without making things up?",
+      "answer": "Yes. DocsBot is trained on your approved guides, move lists, roster notes, release notes, FAQs, and help articles, so answers stay grounded in the content your team controls. If the information is missing, outdated, or account-specific, the agent can say so, collect context, and route the player to support instead of guessing.",
+      "role": "Player support and community teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this reduce support volume during a fighter drop, tournament weekend, or major roster update?",
+      "answer": "DocsBot can handle repetitive questions about event times, rewards, eligibility, DLC, patch notes, known issues, and troubleshooting before they become tickets. Gaming has broad mainstream reach, with ESA reporting 205.1 million Americans actively playing video games in 2025, so even small self-service improvements can matter during launch spikes.",
+      "role": "Player support and community teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-esa-2025-gaming-scale"
+      ]
+    },
+    {
+      "question": "Can the agent support both casual fans and competitive players who ask very different questions?",
+      "answer": "Yes. You can train DocsBot on beginner tutorials, advanced mechanics, ranked-mode rules, tournament policies, and platform-specific support content. Casual players can get plain-language explanations, while competitive players can ask more precise questions about stamina, matchmaking, scoring, disconnects, reward eligibility, and rule changes.",
+      "role": "Player support and community teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help with parent questions about ratings, online play, purchases, and refunds?",
+      "answer": "Yes. DocsBot can answer from your parent FAQs, account-safety docs, store policies, refund guidance, and rating explanations. That matters because Pew reported that 85% of U.S. teens play video games, and ESRB ratings include categories, content descriptors, and interactive elements that help families evaluate games and online features.",
+      "role": "Player support and community teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-pew-teen-gaming",
+        "src-esrb-ratings"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from giving the wrong answer about virtual currency, loot boxes, subscriptions, or refunds?",
+      "answer": "Train it only on approved monetization, store, and refund policies, then set escalation rules for unauthorized purchases, identity concerns, chargebacks, and child-safety issues. The FTC has examined consumer-protection concerns around loot boxes and in-game purchases, so these workflows should use clear source-grounded language and human review for sensitive cases.",
+      "role": "Game operations and production teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ftc-loot-boxes"
+      ]
+    },
+    {
+      "question": "Can DocsBot handle time-sensitive event questions, such as regional start times, tournament rules, and limited-time rewards?",
+      "answer": "Yes, if those details are present in your approved event pages, campaign FAQs, reward terms, and schedule documents. DocsBot can answer from that content, clarify eligibility or time-zone language, and route unresolved issues or high-intent sponsorship and creator inquiries through configured workflows.",
+      "role": "Live-ops, events, and marketing leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for global boxing and wrestling fan communities that need multilingual answers?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge base. That helps global player communities get consistent explanations of gameplay, events, account policies, refund rules, and troubleshooting steps without your team rewriting every support article manually for each market.",
+      "role": "Game operations and production teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent create tickets or route cases into our existing support workflow?",
+      "answer": "Yes, when you configure the right Skills, APIs, connectors, or workflow automations. DocsBot can collect platform, account, build, region, timestamp, match type, missing reward, or error details; summarize the conversation; and create or route a support task through your approved helpdesk-connected process.",
+      "role": "Player support and community teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we have to replace our help center, community team, or human support agents?",
+      "answer": "No. DocsBot is designed to support your existing operation. It can answer repetitive questions, draft responses, summarize cases, surface relevant articles, and escalate complex or sensitive issues to humans. Your team still controls policies, final decisions, account-specific actions, legal commitments, and high-impact player outcomes.",
+      "role": "Player support and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can live-ops teams use DocsBot internally during launch week or a patch incident?",
+      "answer": "A private internal DocsBot agent can answer staff questions from SOPs, launch checklists, incident runbooks, known-issue notes, QA updates, moderation playbooks, and approved response language. When configured, Skills can create tasks, notify channels, summarize incident context, or trigger bounded workflows with logs and scoped permissions.",
+      "role": "Game operations and production teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us find gaps in tutorials, move lists, patch notes, or event terms?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Teams can see repeated unanswered questions after a roster update, tournament, or balance patch and turn those patterns into better FAQs, tutorials, patch notes, and support macros.",
+      "role": "Game operations and production teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What KPIs should we track to prove this is working for player support?",
+      "answer": "Common KPIs include ticket deflection, resolution rate, escalation rate, first-response time, repeated-question volume, player satisfaction, answer helpfulness, unresolved topics, and support hours saved. For launch periods, also track event-question volume, reward-issue intake quality, known-issue routing speed, and documentation gaps discovered from conversations.",
+      "role": "Player support and community teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How quickly can we launch an agent if our content is spread across help articles, PDFs, release notes, spreadsheets, and internal docs?",
+      "answer": "DocsBot can train on websites, help centers, documents, PDFs, internal content, wikis, and other configured knowledge sources. A practical rollout usually starts with high-volume public FAQs and support policies, then expands to internal SOPs, ticket exports, event rules, and automation workflows once stakeholders approve boundaries.",
+      "role": "Game operations and production teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can marketing use DocsBot to qualify sponsorship, creator, tournament, or merchandise inquiries?",
+      "answer": "Yes. DocsBot can collect structured details such as company, creator channel, audience, event interest, region, budget range, timeline, and preferred follow-up path. With approved Skills, APIs, connectors, forms, or workflow automations, it can forward qualified leads and summaries to the right sales, partnerships, or marketing team.",
+      "role": "Live-ops, events, and marketing leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from promising pricing, licensing terms, sponsorship approvals, or legal commitments?",
+      "answer": "You can train DocsBot on approved sales and partnership materials while instructing it to qualify, summarize, and route inquiries rather than make final commitments. Human review should remain in place for pricing exceptions, fighter likeness rights, sponsorship contracts, licensing terms, refunds, legal language, and regulated or sensitive decisions.",
+      "role": "Live-ops, events, and marketing leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Is DocsBot secure enough for internal release notes, moderation guidance, support macros, and incident playbooks?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It does not use customer data to train public models. Teams can separate public player content from private internal knowledge and control what each agent can access.",
+      "role": "Game operations and production teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent use live account, order, or known-issue status instead of only static documentation?",
+      "answer": "Yes, when you authorize the connection. DocsBot Skills, APIs, connectors, MCP Connectors, and workflow automations can provide approved live lookups or bounded actions, such as checking a known-issue status, creating a ticket, updating approved fields, notifying a team, or preparing a handoff without exposing credentials in chat.",
+      "role": "Game operations and production teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot handle moderation-sensitive questions around fighter names, impersonation, ranked disputes, harassment, or heated fan debates?",
+      "answer": "DocsBot can retrieve your moderation rules, community guidelines, brand voice docs, escalation criteria, and trust-and-safety playbooks. It can help moderators apply consistent guidance, draft responses for review, and summarize cases for senior review, while humans remain responsible for enforcement decisions and sensitive community calls.",
+      "role": "Player support and community teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What happens when players ask about a bug that is not documented yet?",
+      "answer": "DocsBot can acknowledge that the approved sources do not contain a confirmed answer, ask for useful details, and route the case to support or QA. It can collect platform, build, region, mode, timestamp, connection details, screenshots, and reproduction steps, then summarize the issue for the next team.",
+      "role": "Player support and community teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support staff who are overwhelmed during crunch, certification, or launch preparation?",
+      "answer": "Yes. Internal teams can use DocsBot to find SOPs, release notes, incident procedures, localization guidance, policy language, and known-issue updates faster. That is relevant in game operations where IGDA’s 2023 Developer Satisfaction Survey reported that 28% of surveyed developers said their job involved crunch time.",
+      "role": "Game operations and production teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-igda-crunch"
+      ]
+    },
+    {
+      "question": "How is DocsBot different from putting a generic AI chatbot on our game site?",
+      "answer": "DocsBot is built around your approved knowledge, source-grounded answers, analytics, human escalation, and bounded actions. Instead of free-form generic responses, it can answer from your guides, event rules, policies, and internal docs, then collect details, summarize context, route cases, or trigger approved workflows when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations before expanding the agent to more channels or automations?",
+      "answer": "Yes. DocsBot includes logs, analytics, conversation review, satisfaction and resolution analysis, topic management, and knowledge-gap discovery. Many teams start with read-only answers in a help center or event page, review performance and escalations, then add ticket routing, lead capture, or internal workflow actions later.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will DocsBot work for both player-facing support and internal team knowledge, or do we need separate tools?",
+      "answer": "DocsBot can support both. You can create player-facing agents for gameplay, events, policies, and troubleshooting, plus private internal agents for SOPs, release notes, moderation rules, launch plans, and sales enablement. Access controls and source selection help keep public answers and internal guidance appropriately separated.",
+      "role": "Game operations and production teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we involve legal, brand, support, and live-ops stakeholders before launch?",
+      "answer": "Start by agreeing on approved sources, escalation triggers, tone, restricted topics, sensitive workflows, and reporting needs. Legal and brand can review policy and promotional language; support can define ticket handoff requirements; live-ops can maintain event and known-issue content; operations can approve access controls and action boundaries.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help explain combat-sports promotions to sports fans who may not be regular gamers?",
+      "answer": "Yes. DocsBot can answer from campaign pages, gameplay explainers, fighter-drop notes, season-pass terms, and event FAQs in plain language. ESA reported that 56% of adult players who play real-life sports also play video game versions of those sports, making clear crossover messaging useful for sports-game audiences.",
+      "role": "Live-ops, events, and marketing leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-esa-sports-games"
+      ]
+    },
+    {
+      "question": "What procurement or risk questions should we resolve before buying an AI agent platform?",
+      "answer": "Confirm data handling, SOC 2 Type II status, GDPR-ready governance, encryption, role-based permissions, whether customer data trains public models, source controls, human escalation, auditability of actions, and how integrations are scoped. Also define success metrics, content ownership, implementation resources, and who approves automation beyond answering questions.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

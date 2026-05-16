@@ -1,0 +1,731 @@
+{
+  "slug": "risk-management",
+  "business": "Risk Management",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Risk Management Teams",
+    "description": "DocsBot helps risk management teams answer policy questions, retrieve controls, summarize issues, and route escalations from approved sources.",
+    "canonicalPath": "/industry/risk-management"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for finance and insurance risk teams",
+    "headline": "Put Risk Knowledge, Controls, and Escalations Within Reach",
+    "subheadline": "DocsBot helps risk management teams create AI agents trained on policies, procedures, control libraries, vendor files, regulatory notes, FAQs, and internal playbooks so employees and clients get faster, more consistent answers with clear handoff paths for sensitive decisions.",
+    "proofBullets": [
+      {
+        "text": "Answer risk, policy, control, and documentation questions from approved internal and client-facing sources.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Summarize issues, route requests, create tasks, or trigger handoffs through customer-configured AI Actions and Skills.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support regulated workflows with source-grounded responses, role-based access controls, logs, and human escalation.",
+        "icon": "LockClosedIcon"
+      }
+    ],
+    "primaryCta": "Build a risk knowledge agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets risk management organizations deploy AI support agents and internal knowledge agents trained on their own risk frameworks, policies, SOPs, FAQs, assessment templates, vendor due diligence files, and reporting guidance. Agents can answer questions, retrieve source material, summarize context, identify documentation gaps, and take bounded actions when configured through Skills, APIs, connectors, MCP, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Risk, compliance, and control owners",
+        "roleContext": "Teams responsible for policy interpretation, control evidence, risk registers, incident intake, third-party oversight, and operational resilience can give staff one governed place to ask questions before escalating to specialists.",
+        "bullets": [
+          {
+            "text": "Make procedures, control narratives, exceptions, and review criteria easier to find across approved documents.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize intake details and route issues to the right owner through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Use conversation analytics to see repeated risk questions and missing guidance that should become formal documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Client service and advisory teams",
+        "roleContext": "Finance and insurance teams that field recurring risk, coverage, onboarding, or due-diligence questions can use a DocsBot agent to provide fast, source-grounded responses while keeping regulated advice and commitments with humans.",
+        "bullets": [
+          {
+            "text": "Answer FAQs about assessment processes, documentation requirements, service scope, and next steps from approved materials.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured intake details for reviews, consultations, or follow-up without promising outcomes automatically.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate sensitive, legal, financial, or high-impact questions with conversation context for the human reviewer.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, audit, and executive reporting teams",
+        "roleContext": "Risk programs depend on consistent evidence, timely summaries, and clear reporting. DocsBot can help teams retrieve approved guidance, summarize conversation or ticket context, and surface recurring gaps that slow reporting cycles.",
+        "bullets": [
+          {
+            "text": "Find risk methodology, reporting definitions, approval paths, and evidence requirements without searching multiple repositories.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Prepare concise summaries for follow-up, audit requests, internal tickets, or management review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support operational resilience documentation as regulators emphasize critical operations, ICT, cybersecurity, and third-party dependencies.",
+            "icon": "BuildingLibraryIcon",
+            "sourceIds": [
+              "src-basel-operational-resilience",
+              "src-fed-third-party-risk"
+            ]
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-finra-2025-oversight",
+      "metric": "FINRA 2025 report added third-party risk landscape as a topic",
+      "claim": "FINRA’s 2025 Annual Regulatory Oversight Report includes cybersecurity and cyber-enabled fraud, AI, communications, and a new third-party risk landscape topic for member firms.",
+      "sourceTitle": "2025 FINRA Annual Regulatory Oversight Report",
+      "sourceUrl": "https://www.finra.org/rules-guidance/guidance/reports/2025-finra-annual-regulatory-oversight-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Regulatory pressure",
+        "Third-party risk",
+        "Cyber-enabled fraud",
+        "Financial services risk operations"
+      ]
+    },
+    {
+      "id": "src-finra-cyber-fraud",
+      "metric": "Cyber incidents can create financial, reputational, operational, and compliance exposure",
+      "claim": "FINRA states that account takeovers, ransomware, network intrusions, exposure of customer information, and fraudulent financial activity can compromise firms’ ability to meet multiple regulatory obligations.",
+      "sourceTitle": "Cybersecurity and Cyber-Enabled Fraud, 2025 FINRA Annual Regulatory Oversight Report",
+      "sourceUrl": "https://www.finra.org/rules-guidance/guidance/reports/2025-finra-annual-regulatory-oversight-report/cybersecurity",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Cyber risk",
+        "Fraud risk",
+        "Escalation boundaries",
+        "Compliance obligations"
+      ]
+    },
+    {
+      "id": "src-fed-third-party-risk",
+      "metric": "Federal banking agencies highlight vendor policies, SOC reports, audits, insurance, and controls in TPRM",
+      "claim": "The Federal Reserve’s third-party risk management discussion highlights due diligence areas such as third-party policies, AML/CFT controls, SOC reports, independent assessments, insurance coverage, audit results, and contractual obligations.",
+      "sourceTitle": "Third Party Risk Management: A Guide for Community Banks",
+      "sourceUrl": "https://www.federalreserve.gov/publications/2024-may-third-party-risk-management.htm",
+      "sourceDate": "May 2024",
+      "bestUsedFor": [
+        "Vendor due diligence",
+        "Third-party oversight",
+        "Evidence collection",
+        "Bank risk operations"
+      ]
+    },
+    {
+      "id": "src-basel-operational-resilience",
+      "metric": "Operational resilience is defined around delivering critical operations through disruption",
+      "claim": "The Basel Committee’s operational resilience principles define operational resilience as a bank’s ability to deliver critical operations through disruption and connect resilience with operational risk management.",
+      "sourceTitle": "Principles for Operational Resilience – Executive Summary",
+      "sourceUrl": "https://www.bis.org/fsi/fsisummaries/op_resilience.htm",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "Operational resilience",
+        "Critical operations",
+        "Risk governance",
+        "Banking risk management"
+      ]
+    },
+    {
+      "id": "src-basel-principles",
+      "metric": "Basel principles address governance, operational risk management, and tolerance for disruption",
+      "claim": "Basel Committee principles for operational risk and operational resilience cover governance, risk management environment, and tolerance for disruption as part of sound operational risk management.",
+      "sourceTitle": "Principles for the Sound Management of Operational Risk",
+      "sourceUrl": "https://www.bis.org/bcbs/publ/d515.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "Operational risk governance",
+        "Risk framework documentation",
+        "Control environments"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Risk policy and control knowledge agent",
+      "problem": "Risk analysts, business owners, and client-facing staff lose time searching policy PDFs, SOPs, control libraries, and exception guidance before they can answer routine questions.",
+      "agentWorkflow": "Train DocsBot on approved policies, risk taxonomy, control descriptions, FAQs, templates, and procedure documents. The agent answers in plain language, cites the underlying source content, and prompts the user to escalate when the question asks for judgment, approval, or regulated advice.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved record status, collect missing fields, create a follow-up task, or route the request to the responsible risk owner.",
+      "exampleQuestionsOrRequests": [
+        "Which policy explains our vendor review threshold for critical suppliers?",
+        "What evidence do I need for this quarterly control attestation?",
+        "Summarize the exception request and prepare a handoff for the risk owner."
+      ],
+      "businessOutcome": "Reduces repeat questions to specialists while helping teams apply current, approved guidance consistently.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Third-party risk intake and due diligence assistant",
+      "problem": "Vendor risk workflows involve scattered questionnaires, SOC reports, insurance details, audit findings, and contractual obligations that must be reviewed consistently. The Federal Reserve highlights these as key third-party risk due diligence areas.",
+      "agentWorkflow": "Use DocsBot as an internal assistant trained on vendor due diligence procedures, questionnaire guidance, review checklists, contract playbooks, and risk-rating criteria. It can explain required evidence, summarize submitted materials, and prepare a reviewer-ready intake summary.",
+      "liveContextOrTools": "Through customer-configured AI Actions, the agent can create a task, route the intake to procurement or risk, update approved fields, or notify a team when documents are missing.",
+      "exampleQuestionsOrRequests": [
+        "What documents are required before onboarding a critical technology vendor?",
+        "Summarize this vendor review against our due diligence checklist.",
+        "Create a follow-up task for missing SOC and insurance documentation."
+      ],
+      "businessOutcome": "Helps standardize vendor intake and keeps specialists focused on review, judgment, and exceptions instead of repetitive document chasing.",
+      "icon": "BuildingOffice2Icon",
+      "sourceIds": [
+        "src-fed-third-party-risk"
+      ]
+    },
+    {
+      "name": "Cyber and operational incident triage assistant",
+      "problem": "Cyber incidents and technology outages can create customer information, financial, reputational, operational, and compliance exposure for financial firms.",
+      "agentWorkflow": "Train a private DocsBot agent on incident intake playbooks, escalation matrices, notification procedures, business continuity plans, and post-incident review templates. The agent guides staff through intake questions, summarizes facts, and routes the issue to the proper human team.",
+      "liveContextOrTools": "Configured Skills can create an incident ticket, notify security or operations, attach a summary, and apply customer-defined boundaries so the agent does not make legal, regulatory, or customer-impact decisions on its own.",
+      "exampleQuestionsOrRequests": [
+        "Which incident severity level applies if a vendor outage affects client reporting?",
+        "Collect the required facts for a suspected account takeover escalation.",
+        "Draft a concise incident summary for the operational risk team."
+      ],
+      "businessOutcome": "Improves the first minutes of response by making procedures easier to follow and handoffs more complete.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-finra-cyber-fraud"
+      ]
+    },
+    {
+      "name": "Operational resilience documentation assistant",
+      "problem": "Risk teams must keep critical operations, disruption tolerances, dependencies, testing procedures, and recovery guidance understandable across business and technology teams.",
+      "agentWorkflow": "DocsBot can answer questions from resilience plans, impact assessment documents, continuity procedures, service dependency maps, and tabletop exercise notes. It can summarize approved guidance for business users and surface repeated questions that reveal documentation gaps.",
+      "liveContextOrTools": "With approved connectors or Model Context Protocol servers, teams can expose bounded tools for retrieving approved status, creating review tasks, or triggering documentation update workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is the documented escalation path for a critical operations disruption?",
+        "Which teams are listed in the recovery procedure for client reporting?",
+        "Summarize recurring questions about disruption tolerance for the documentation owner."
+      ],
+      "businessOutcome": "Helps risk and operations teams keep resilience knowledge usable before, during, and after disruption events.",
+      "icon": "BoltIcon",
+      "sourceIds": [
+        "src-basel-operational-resilience",
+        "src-basel-principles"
+      ]
+    },
+    {
+      "name": "Risk advisory presales and client intake agent",
+      "problem": "Prospects and clients often need to know which assessments, advisory services, documentation, or review steps fit their situation before they speak with a risk professional.",
+      "agentWorkflow": "Deploy a customer-facing DocsBot agent trained on service pages, approved FAQs, onboarding requirements, data request lists, engagement descriptions, and scheduling instructions. The agent answers fit questions, collects structured intake details, and hands off qualified conversations to a human advisor.",
+      "liveContextOrTools": "AI Actions can forward the lead summary to CRM, helpdesk software, email, Slack, Microsoft Teams, or a configured scheduling workflow while keeping pricing, legal terms, and final recommendations with the human team.",
+      "exampleQuestionsOrRequests": [
+        "Do you help with enterprise risk assessment preparation?",
+        "What information should I gather before a third-party risk consultation?",
+        "I’d like to schedule a call about operational resilience readiness."
+      ],
+      "businessOutcome": "Shortens the path from research to qualified conversation without turning the agent into an automated advisor.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Audit request and evidence preparation assistant",
+      "problem": "Audit and regulatory response work often stalls when employees cannot find the latest policy, control owner, evidence requirement, or explanation for a repeat request.",
+      "agentWorkflow": "Train DocsBot on audit playbooks, evidence matrices, control owner directories, prior response templates, and approved language. Employees can ask what is needed, receive source-grounded guidance, and generate a concise evidence-request summary for the responsible team.",
+      "liveContextOrTools": "Customer-configured workflows can create evidence tasks, route requests to control owners, or update approved tracking fields after human review.",
+      "exampleQuestionsOrRequests": [
+        "Who owns evidence for the access review control?",
+        "What artifact is required for this quarterly operational risk test?",
+        "Draft a task for the control owner with the requested evidence and due date."
+      ],
+      "businessOutcome": "Reduces back-and-forth during evidence collection and keeps audit response work aligned with approved procedures.",
+      "icon": "ArchiveBoxIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give Clients Fast Answers Without Automating Regulated Judgment",
+    "intro": "A DocsBot customer-facing agent can answer from approved risk service pages, FAQs, onboarding documents, policy summaries, and client instructions. It can collect structured information and route sensitive questions to experts instead of making financial, legal, underwriting, or compliance determinations.",
+    "requests": [
+      {
+        "request": "“What documents do I need before a risk assessment call?”",
+        "agentResponseStrategy": "Answer from the approved onboarding checklist, explain the purpose of each document, and offer to collect basic project context for a human follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Onboarding checklists",
+          "Client FAQs"
+        ],
+        "optionalAction": "Submit a structured intake form or forward a summary to the advisory team through a configured workflow.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you tell me whether this exposure is acceptable?”",
+        "agentResponseStrategy": "Explain general process and relevant policy definitions from approved sources, then escalate because acceptance, pricing, coverage, legal, or financial determinations require human review.",
+        "sourceTypes": [
+          "Risk policies",
+          "Service disclaimers",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a review request with the client’s facts, attachments, and preferred follow-up channel.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Do you support third-party risk reviews for technology vendors?”",
+        "agentResponseStrategy": "Answer from approved service descriptions and due diligence materials, then collect vendor type, business impact, timeline, and current documentation status.",
+        "sourceTypes": [
+          "Service catalog",
+          "Due diligence checklists",
+          "FAQ pages"
+        ],
+        "optionalAction": "Forward a qualified inquiry to sales or client service with the full conversation summary.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“Where can I find your incident response or resilience readiness guidance?”",
+        "agentResponseStrategy": "Retrieve approved public guidance, summarize available services, and clarify which next steps require a specialist consultation.",
+        "sourceTypes": [
+          "Public guides",
+          "Resilience service pages",
+          "Client education content"
+        ],
+        "optionalAction": "Offer a configured scheduling flow for a readiness discussion.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you explain this policy term in plain language?”",
+        "agentResponseStrategy": "Provide a source-grounded explanation based on approved policy or FAQ content and avoid expanding beyond the documented language.",
+        "sourceTypes": [
+          "Policy summaries",
+          "Glossaries",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Escalate if the user asks how the term applies to a specific claim, investment, contract, or regulated decision.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“What is the status of my submitted review?”",
+        "agentResponseStrategy": "If the customer has configured an approved lookup, retrieve limited status information and explain next steps from the workflow guide.",
+        "sourceTypes": [
+          "Workflow status data",
+          "Client portal guidance",
+          "Review procedures"
+        ],
+        "optionalAction": "Create a follow-up task or route the request if the status is blocked, overdue, or missing documents.",
+        "icon": "ClockIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A Private Risk Knowledge Agent for Employees, Analysts, and Control Owners",
+    "intro": "Risk teams can use DocsBot internally to answer policy questions, summarize procedures, support onboarding, prepare handoffs, and reduce repetitive questions across risk, compliance, audit, operations, sales, and client service teams.",
+    "workflows": [
+      {
+        "name": "Policy interpretation support",
+        "problem": "Employees ask specialists the same questions about thresholds, evidence, approvals, exceptions, and definitions.",
+        "agentWorkflow": "DocsBot answers from approved policy documents, SOPs, risk taxonomy, and exception procedures, with citations so employees can verify the source.",
+        "sourceTypes": [
+          "Policies",
+          "SOPs",
+          "Control libraries",
+          "Risk taxonomies"
+        ],
+        "optionalAction": "Escalate unclear or high-impact interpretations to the policy owner with the question and source context.",
+        "outcome": "Improves consistency while keeping formal interpretation and approval with accountable humans.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Control owner onboarding",
+        "problem": "New control owners need to understand testing cadence, required evidence, review criteria, and reporting paths without waiting for a specialist walkthrough.",
+        "agentWorkflow": "Train the agent on control owner guides, testing templates, attestation instructions, and past approved examples. Employees can ask procedural questions in private chat, Slack, Microsoft Teams, or other configured access points.",
+        "sourceTypes": [
+          "Training materials",
+          "Testing templates",
+          "Attestation guides",
+          "Approved examples"
+        ],
+        "optionalAction": "Generate an onboarding checklist or create a reminder task through a configured workflow.",
+        "outcome": "Speeds time to productive control ownership and reduces preventable process errors.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Ticket and request summarization",
+        "problem": "Risk, compliance, and audit queues receive incomplete requests that require manual triage before anyone can act.",
+        "agentWorkflow": "A DocsBot agent can summarize incoming request context, identify missing information based on approved intake guidance, and draft a response or handoff for human review.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Intake checklists",
+          "Routing matrices",
+          "Team playbooks"
+        ],
+        "optionalAction": "Route the ticket, draft a response, create a task, or notify the responsible queue when configured.",
+        "outcome": "Makes handoffs cleaner and helps teams spend less time reconstructing context.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "Repeated unanswered questions signal missing procedures, outdated documentation, or unclear ownership.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis to identify recurring risk questions and content gaps.",
+        "sourceTypes": [
+          "Agent logs",
+          "Conversation reports",
+          "Knowledge base analytics",
+          "Topic reports"
+        ],
+        "optionalAction": "Create documentation update tasks for repeated gaps through a customer-defined workflow.",
+        "outcome": "Turns support and employee questions into a roadmap for clearer risk documentation.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Sales and relationship manager enablement",
+        "problem": "Client-facing teams need quick, approved answers about risk services, documentation requests, engagement scope, and objection handling.",
+        "agentWorkflow": "Train DocsBot on service catalogs, FAQs, case studies, proposal templates, onboarding materials, and approved sales enablement notes so representatives can prepare accurate responses before sending them.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Sales playbooks",
+          "Proposal templates",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare a meeting brief, or create a CRM task through configured systems for human review.",
+        "outcome": "Helps client-facing teams respond faster while keeping commitments, pricing, and regulated advice under human control.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved risk content",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s own documents, websites, help centers, PDFs, Word files, wikis, and other configured knowledge sources.",
+      "industryApplication": "Risk teams can train agents on policies, control libraries, procedures, service FAQs, reporting guidance, and client-facing education so answers stay tied to approved sources.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can serve employees across HR, IT, operations, compliance, finance, legal, sales, and other internal teams with instant answers from private company knowledge.",
+      "industryApplication": "Risk, compliance, audit, operations, and relationship teams can ask procedural questions without exposing sensitive internal material to a public knowledge base.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record updates, task creation, and workflow triggers when configured by the customer.",
+      "industryApplication": "Risk programs can configure approved lookups, evidence tasks, review handoffs, intake summaries, or notifications while preserving human review for sensitive determinations.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Risk leaders can see which policies, controls, vendor reviews, or resilience procedures generate repeated questions and prioritize documentation improvements.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Customer-facing widget and private team access",
+      "mainLandingPageContext": "DocsBot agents can work through website or product chat widgets, private team chat, helpdesk-connected workflows, Slack, Microsoft Teams, APIs, and other configured access points.",
+      "industryApplication": "Deploy one agent for client intake and another private agent for employees who need controlled access to internal policies, playbooks, and procedures.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Finance and insurance risk teams can align agent access with internal permissions and sensitive workflow boundaries.",
+      "icon": "FingerPrintIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "musa-40k-traders-self-service",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect approved risk knowledge, not generic web responses.",
+      "Use DocsBot for self-service experiences that help clients and employees get faster answers from trusted materials.",
+      "See what people are trying to learn from your documentation and improve the guidance that creates repeated questions."
+    ],
+    "whyTheseReviewsFit": "Risk management buyers need governed knowledge access, source-grounded answers, and visibility into what users cannot find. DocsBot proof spans owned-content training, finance-oriented self-service, documentation analytics, high-volume support, and internal decision support—practical signals for teams that must balance speed with control.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ShieldCheckIcon",
+      "MagnifyingGlassIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for risk management knowledge, support, intake, and internal operations",
+    "audience": [
+      "Risk management teams",
+      "Compliance and control owners",
+      "Insurance and financial services operations",
+      "Client service and advisory teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScaleIcon"
+  },
+  "relatedIndustrySlugs": [
+    "wealth-management",
+    "auditing-finance-insurance",
+    "bank-credit-union",
+    "finance-insurance",
+    "financial-consulting",
+    "insurance",
+    "insurance-brokerage",
+    "investment-advisory"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "risk-management",
+    "webSearchQueries": [
+      "risk management finance insurance operational resilience third party risk management regulatory guidance 2024",
+      "NAIC State of Insurance Fraud Technology risk management report",
+      "Basel Committee principles operational resilience risk management banks 2021",
+      "FINRA 2025 regulatory oversight report cybersecurity third-party risk"
+    ],
+    "sourceUrls": [
+      "https://www.finra.org/rules-guidance/guidance/reports/2025-finra-annual-regulatory-oversight-report",
+      "https://www.finra.org/rules-guidance/guidance/reports/2025-finra-annual-regulatory-oversight-report/cybersecurity",
+      "https://www.federalreserve.gov/publications/2024-may-third-party-risk-management.htm",
+      "https://www.bis.org/fsi/fsisummaries/op_resilience.htm",
+      "https://www.bis.org/bcbs/publ/d515.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41357,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20621,
+        "outputTokens": 8039,
+        "reasoningOutputTokens": 113,
+        "totalTokens": 49396,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.177322,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.187322
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21586,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6098,
+          "outputTokens": 5315,
+          "reasoningOutputTokens": 113,
+          "totalTokens": 26901,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.098842,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.108842
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19771,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14523,
+          "outputTokens": 2724,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22495,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07848,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07848
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1516841273335-e39b37888115?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUxOTR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Risk Management background image",
+    "source": "legacy-industry",
+    "query": "Risk Management"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer risk policy questions without becoming the final decision-maker?",
+      "answer": "Yes. DocsBot can answer from approved policies, SOPs, control libraries, risk taxonomies, and FAQs, then point users to the source material. For approvals, exceptions, regulated advice, pricing, coverage, legal interpretation, or other high-impact determinations, you can configure the agent to escalate with the conversation context instead of making the decision.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would we use an AI agent for control evidence and audit requests?",
+      "answer": "Risk and audit teams can train DocsBot on evidence matrices, control owner directories, testing instructions, prior approved examples, and audit playbooks. Employees can ask what artifact is required, who owns it, and how to prepare the request. With configured workflows, the agent can create an evidence task or route a summary for human review.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent help with third-party risk intake and vendor due diligence?",
+      "answer": "Yes. DocsBot can guide requesters through required vendor documents, due diligence checklists, risk-rating criteria, contract playbooks, and review steps. That fits common third-party risk workflows where banking agencies highlight due diligence areas such as SOC reports, independent assessments, insurance coverage, audit results, controls, and contractual obligations.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fed-third-party-risk"
+      ]
+    },
+    {
+      "question": "What should stay with a human reviewer in a risk management deployment?",
+      "answer": "Keep human review for risk acceptance, exception approval, legal or regulatory interpretation, underwriting or coverage decisions, customer-impacting commitments, incident materiality, and any action that changes an official risk rating. DocsBot is best used to retrieve approved guidance, collect facts, summarize context, identify missing information, and route the matter to the right owner.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support cyber or operational incident triage?",
+      "answer": "DocsBot can be trained on incident intake playbooks, severity guidance, escalation matrices, business continuity procedures, and post-incident templates. It can collect required facts, summarize the issue, and route it to security, operations, or risk. FINRA notes that cyber events such as account takeovers, ransomware, intrusions, exposed customer information, and fraudulent activity can create regulatory exposure, so escalation boundaries matter.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-finra-cyber-fraud"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated policy guidance?",
+      "answer": "Use approved, version-controlled sources and define ownership for policy, SOP, control, and FAQ updates. DocsBot answers from the content you train it on, so the rollout should include source hygiene, review cadence, stale-content ownership, and escalation language for ambiguous questions. Conversation analytics can also reveal repeated questions where guidance is missing or unclear.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use different agents for employees and clients?",
+      "answer": "Yes. Many risk teams would separate a private internal knowledge agent from a customer-facing intake or FAQ agent. The internal agent can access policies, procedures, control guidance, and playbooks. The external agent should be limited to approved service pages, onboarding instructions, public guidance, and escalation paths, with no access to confidential internal material.",
+      "role": "Client service and advisory teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would DocsBot fit into our existing risk workflow tools?",
+      "answer": "DocsBot can work alongside existing repositories, ticketing systems, CRM, team chat, helpdesk software, and workflow tools through customer-configured Skills, APIs, connectors, forms, webhooks, or MCP Connectors. Typical actions include looking up approved status, creating a task, routing an intake, notifying a team, summarizing a request, or updating approved fields within defined permissions.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent help relationship managers answer risk service questions without overpromising?",
+      "answer": "Yes. Train DocsBot on approved service descriptions, onboarding checklists, proposal language, FAQs, and sales enablement notes. It can draft source-grounded answers and collect client context, while instructions reserve pricing, final recommendations, contractual commitments, and regulated advice for a human advisor.",
+      "role": "Client service and advisory teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should a risk leader expect from this kind of AI agent?",
+      "answer": "The strongest ROI usually comes from reducing repetitive specialist questions, shortening intake triage, improving evidence request completeness, and helping employees find approved guidance faster. Track avoided escalations, faster time to first answer, fewer incomplete requests, shorter audit evidence cycles, deflected client FAQs, and documentation gaps closed from agent analytics.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support operational resilience documentation and disruption response?",
+      "answer": "Yes. DocsBot can answer from resilience plans, impact assessments, recovery procedures, dependency maps, tabletop notes, and escalation guides. Basel defines operational resilience around a bank’s ability to deliver critical operations through disruption, so making approved resilience knowledge easier to find can help teams act from the same playbook during stressful events.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-basel-operational-resilience"
+      ]
+    },
+    {
+      "question": "How do access controls work when risk content is confidential?",
+      "answer": "DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no use of customer data to train public models. For risk teams, that means you can design separate access patterns for employees, control owners, executives, client-facing teams, and public users.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent cite where its answer came from?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved content. For risk teams, citations are important because employees need to verify the policy, control narrative, procedure, FAQ, or checklist behind an answer before acting. This is especially useful for policy thresholds, evidence requirements, exception procedures, and onboarding instructions.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How much work is required before launch?",
+      "answer": "Most of the work is deciding what the agent is allowed to know and do. Start with a narrow use case, such as policy Q&A, vendor intake, audit evidence support, or client onboarding FAQs. Then gather approved sources, remove outdated files, define escalation rules, test common questions, assign content owners, and review early conversation logs before expanding.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us see which risk procedures are unclear?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Risk leaders can use that data to identify repeated questions about policies, vendor reviews, controls, incident handling, or resilience procedures and prioritize documentation improvements.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What if the user asks a question that combines policy, judgment, and missing facts?",
+      "answer": "That is a common risk-management edge case. DocsBot can answer the procedural part from approved sources, ask for missing intake details, and route the full context to a human owner. The agent should be configured not to infer risk acceptance, approve exceptions, determine materiality, or make client-impacting recommendations when the facts are incomplete.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for regulatory or board reporting preparation?",
+      "answer": "DocsBot can help retrieve definitions, summarize approved procedures, prepare issue summaries, and organize recurring questions for reporting teams. It should not independently produce final regulatory submissions, board conclusions, or official management attestations. Use it to speed drafting and evidence collection while keeping review, sign-off, and accountability with humans.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant internally?",
+      "answer": "Building internally may offer control, but it also means owning ingestion, permissions, retrieval quality, testing, analytics, escalation design, maintenance, and user experience. DocsBot gives teams a purpose-built way to create agents trained on approved knowledge, with source-grounded answers, access controls, analytics, and configurable actions without starting from a custom RAG project.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent work for both high-volume FAQs and specialist risk workflows?",
+      "answer": "Yes, if you separate the workflows clearly. A client-facing agent can answer repeat questions about documentation, scope, scheduling, and next steps. An internal agent can help specialists with policies, controls, intake summaries, and evidence routing. Sensitive workflows should use tighter instructions, narrower sources, role-based access, logs, and escalation paths.",
+      "role": "Client service and advisory teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we evaluate answer quality before giving employees access?",
+      "answer": "Create a test set from real risk questions: policy thresholds, vendor intake, control evidence, incident escalation, client onboarding, and exception scenarios. Review whether answers use approved sources, avoid unsupported advice, ask for missing facts, and escalate correctly. Include risk, compliance, audit, legal, security, and business owners in acceptance testing.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with AI governance questions from compliance teams?",
+      "answer": "DocsBot can support an AI governance process by limiting answers to approved sources, logging conversations, respecting role-based permissions, and escalating sensitive decisions. For firms under financial services oversight, AI is already a supervisory topic: FINRA’s 2025 report includes AI alongside cybersecurity, communications, and third-party risk landscape topics for member firms.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-finra-2025-oversight"
+      ]
+    },
+    {
+      "question": "What training will our employees need to use the agent correctly?",
+      "answer": "Training should focus less on prompting tricks and more on boundaries: what sources the agent uses, when to trust citations, when to escalate, how to report a bad answer, and which decisions remain human-owned. Teams should also teach users to ask for procedures, evidence requirements, definitions, and handoff summaries rather than final risk approvals.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot route requests to different risk owners based on the topic?",
+      "answer": "Yes, with customer-configured Skills, APIs, connectors, or workflows, DocsBot can collect the right fields, summarize the request, and route it to the appropriate queue or owner. For example, vendor risk, control evidence, cyber incident, resilience, compliance policy, and client-service questions can each have different handoff instructions.",
+      "role": "Risk, compliance, and control owners",
+      "category": "Integrations"
+    },
+    {
+      "question": "How should procurement and security evaluate DocsBot for a regulated risk team?",
+      "answer": "Procurement and security should review data handling, access controls, encryption, SOC 2 Type II status, GDPR-ready governance, permission design, logging, and whether customer data is used to train public models. They should also review the scope of any Skills or API actions, including secrets handling, network policy, metadata bindings, and approval boundaries.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can we start without connecting DocsBot to live systems?",
+      "answer": "Yes. Many risk teams should begin with retrieval and summarization from approved documents before enabling live actions. A first phase might answer policy, control, vendor intake, or audit evidence questions. After quality and governance are proven, you can add scoped lookups, task creation, routing, notifications, or approved field updates.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What metrics should we report after rollout?",
+      "answer": "Useful metrics include question volume, resolution or deflection rate, escalation rate, unanswered topics, satisfaction, repeated policy questions, evidence requests created, incomplete intakes reduced, average time to answer, and documentation gaps closed. For executives, connect those metrics to reduced specialist interruptions, faster triage, improved consistency, and audit readiness.",
+      "role": "Operations, audit, and executive reporting teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

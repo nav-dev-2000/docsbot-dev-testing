@@ -1,0 +1,740 @@
+{
+  "slug": "carbon-accounting",
+  "business": "Carbon Accounting",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Carbon Accounting Workflows",
+    "description": "DocsBot helps carbon accounting teams answer methodology questions, collect client inputs, and route emissions reporting work from trusted sources.",
+    "canonicalPath": "/industry/carbon-accounting"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for emissions data, disclosures, and client support",
+    "headline": "Make carbon accounting knowledge easier to find, explain, and act on",
+    "subheadline": "DocsBot helps carbon accounting firms, ESG teams, and sustainability software providers create AI agents trained on their own methodologies, factor libraries, client FAQs, SOPs, and reporting guidance. Answer recurring questions, collect missing details, summarize evidence, and hand off sensitive work to the right human reviewer.",
+    "proofBullets": [
+      {
+        "text": "Answer client and employee questions from approved carbon accounting guides, FAQs, reporting instructions, and internal SOPs.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured Skills or APIs to collect missing activity data, summarize records, create tasks, and route requests to analysts.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give consultants and support teams a private knowledge agent for methodology, onboarding, review checklists, and client communication.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate assumptions, assurance-sensitive disclosures, contractual questions, or high-impact reporting decisions to human experts.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a carbon accounting AI agent",
+    "secondaryCta": "Explore source-grounded automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your carbon accounting knowledge into a governed AI agent that can answer from approved sources, support client self-service, assist analysts, summarize context, identify documentation gaps, and trigger bounded workflow actions through customer-configured Skills, APIs, connectors, MCP servers, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Carbon accounting firms and ESG consultants",
+        "roleContext": "Consulting teams can make methodology notes, evidence requests, onboarding packets, and client FAQs easier to access without relying on senior analysts for every repeat question.",
+        "bullets": [
+          {
+            "text": "Answer client questions about data templates, calculation boundaries, factor sources, evidence requests, and reporting timelines.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured intake details for new engagements and route qualified requests to the right consultant or sales owner.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Summarize client conversations and prepare human-ready handoffs for assumptions, exclusions, and assurance-sensitive topics.",
+            "icon": "ArchiveBoxIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Corporate sustainability and finance teams",
+        "roleContext": "Internal teams can give facilities, procurement, finance, and operations staff one place to ask how to submit emissions data and find the latest approved guidance.",
+        "bullets": [
+          {
+            "text": "Explain Scope 1, Scope 2, and Scope 3 data collection steps from your internal reporting playbooks and policy documents.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Help employees find approved templates, deadlines, ownership rules, and evidence requirements without searching shared drives.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Surface recurring unanswered questions so sustainability leaders can improve internal documentation before reporting cycles peak.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "GlobeAltIcon"
+      },
+      {
+        "role": "Carbon accounting software and data platforms",
+        "roleContext": "Software teams can support users inside documentation, onboarding flows, and helpdesk-connected workflows while preserving escalation for complex account, data, or methodology issues.",
+        "bullets": [
+          {
+            "text": "Answer product, setup, import, API, calculation, and troubleshooting questions from docs, manuals, help articles, and release notes.",
+            "icon": "ComputerDesktopIcon"
+          },
+          {
+            "text": "Draft or route helpdesk responses when connected to approved ticketing workflows, exports, APIs, or customer-defined connectors.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to discover documentation gaps around integrations, data mapping, and report generation.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "CpuChipIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ghg-protocol-scopes",
+      "metric": "GHG Protocol defines Scope 1, Scope 2, and Scope 3 accounting concepts.",
+      "claim": "The GHG Protocol Corporate Standard is a widely used framework for corporate greenhouse gas inventories and separates emissions into direct, purchased-energy, and value-chain categories.",
+      "sourceTitle": "GHG Protocol: Corporate Standard Frequently Asked Questions",
+      "sourceUrl": "https://ghgprotocol.org/corporate-standard-frequently-asked-questions",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "methodology complexity",
+        "scope terminology",
+        "source-grounded guidance"
+      ]
+    },
+    {
+      "id": "src-epa-ghgrp",
+      "metric": "EPA GHGRP collects annual facility-level greenhouse gas data from large U.S. emitting sectors.",
+      "claim": "EPA describes GHGRP as the only dataset containing facility-level GHG emissions data from large industrial sources across the United States.",
+      "sourceTitle": "US EPA: GHGRP Reported Data",
+      "sourceUrl": "https://www.epa.gov/ghgreporting/ghgrp-reported-data",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "public emissions data",
+        "facility reporting",
+        "external data references"
+      ]
+    },
+    {
+      "id": "src-ifrs-s2",
+      "metric": "IFRS S2 requires Scope 1, Scope 2, and Scope 3 greenhouse gas emissions disclosures using GHG Protocol measurement.",
+      "claim": "IFRS says IFRS S2 requires companies to measure Scope 1, Scope 2, and Scope 3 greenhouse gas emissions in accordance with the GHG Protocol Corporate Standard.",
+      "sourceTitle": "IFRS: Introduction to the ISSB and IFRS Sustainability Disclosure Standards",
+      "sourceUrl": "https://www.ifrs.org/sustainability/knowledge-hub/introduction-to-issb-and-ifrs-sustainability-disclosure-standards/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "disclosure pressure",
+        "global reporting standards",
+        "scope 3 complexity"
+      ]
+    },
+    {
+      "id": "src-eu-csrd",
+      "metric": "EU sustainability reporting rules continue to shape large-company disclosure obligations.",
+      "claim": "The Council of the EU describes corporate sustainability reporting rules that require covered large companies to report on sustainability areas, with the scope narrowed under newer policy changes.",
+      "sourceTitle": "Council of the EU: Corporate sustainability",
+      "sourceUrl": "https://www.consilium.europa.eu/en/policies/corporate-sustainability/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "regulatory complexity",
+        "large-company reporting",
+        "EU disclosure requirements"
+      ]
+    },
+    {
+      "id": "src-sec-climate-status",
+      "metric": "The SEC adopted U.S. climate disclosure rules in 2024 and later ended its legal defense in 2025.",
+      "claim": "The SEC climate disclosure rule environment has been unsettled; the Commission adopted final rules in March 2024 and later voted to stop defending them in pending litigation.",
+      "sourceTitle": "Deloitte DART: SEC Ends Defense of Climate Disclosure Rule",
+      "sourceUrl": "https://dart.deloitte.com/USDART/home/news/all-news/2025/mar/sec-ends-defense-climate-disclosure-rule",
+      "sourceDate": "March 2025",
+      "bestUsedFor": [
+        "regulatory uncertainty",
+        "U.S. disclosure context",
+        "buyer caution"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client reporting intake agent",
+      "problem": "Carbon accounting projects often stall when clients submit incomplete facility, utility, travel, procurement, or supplier data across different templates and definitions.",
+      "agentWorkflow": "A DocsBot agent answers intake questions from your onboarding guides, asks for missing context, explains required evidence, and creates a structured handoff for the analyst. With approved AI Actions, it can create a task, notify a team, or update permitted fields in a customer-configured workflow.",
+      "liveContextOrTools": "Use configured Skills, APIs, connectors, forms, or webhooks to look up project status, submit intake details, and route incomplete data requests.",
+      "exampleQuestionsOrRequests": [
+        "Which electricity bills do you need for our Scope 2 calculation?",
+        "Can I upload spend data instead of supplier-specific emissions data?",
+        "Create a task for the analyst because our logistics data is incomplete."
+      ],
+      "businessOutcome": "Reduce repetitive intake back-and-forth while keeping methodology choices and assumptions under human review.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "name": "Methodology and factor guidance assistant",
+      "problem": "Analysts and clients need fast answers about scopes, boundaries, emission factors, calculation methods, exclusions, and documentation requirements.",
+      "agentWorkflow": "Train DocsBot on internal methodology memos, approved factor guidance, client instructions, SOPs, and reporting manuals. The agent gives source-grounded answers and escalates when a question involves a new assumption, conflicting standard, or assurance-sensitive judgment.",
+      "liveContextOrTools": "Connect approved knowledge sources such as PDFs, Word files, internal wikis, Google Drive, Notion, Confluence, and websites.",
+      "exampleQuestionsOrRequests": [
+        "How do we treat leased vehicles in this inventory?",
+        "Where is our approved factor source for U.S. grid electricity?",
+        "What evidence do we need for market-based Scope 2 claims?"
+      ],
+      "businessOutcome": "Improve consistency across analysts, offices, and client teams while reducing time spent searching for methodology notes.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-ghg-protocol-scopes"
+      ]
+    },
+    {
+      "name": "Disclosure-readiness knowledge agent",
+      "problem": "Companies face overlapping and changing disclosure expectations, including IFRS S2, EU reporting rules, U.S. state requirements, voluntary frameworks, and unsettled federal rules.",
+      "agentWorkflow": "A private DocsBot agent can answer internal questions from your disclosure calendar, reporting responsibility matrix, approved legal guidance, and sustainability reporting playbooks. It can summarize relevant source passages and route legal, assurance, or filing questions to the right reviewer.",
+      "liveContextOrTools": "Use permissions, logs, and review boundaries for regulated disclosure work; connect only approved internal sources and customer-authorized systems.",
+      "exampleQuestionsOrRequests": [
+        "Which teams own Scope 3 category evidence this quarter?",
+        "Summarize the disclosure checklist for our reporting committee.",
+        "Route this question to legal because it affects external filing language."
+      ],
+      "businessOutcome": "Help teams coordinate disclosure preparation without treating the AI agent as the final authority for legal or assurance decisions.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ifrs-s2",
+        "src-eu-csrd",
+        "src-sec-climate-status"
+      ]
+    },
+    {
+      "name": "Support agent for carbon accounting platforms",
+      "problem": "Users of carbon software repeatedly ask about imports, mapping, emission-factor logic, permissions, reports, integrations, and troubleshooting.",
+      "agentWorkflow": "DocsBot can power a website or in-product support agent trained on help docs, knowledge bases, release notes, tutorials, API references, and ticket exports. When configured, it can draft ticket replies, summarize cases, route issues, or escalate complex data and account problems.",
+      "liveContextOrTools": "Deploy through an embedded widget, private support workflow, helpdesk-connected process, API, Slack, or Microsoft Teams where configured.",
+      "exampleQuestionsOrRequests": [
+        "Why did my Scope 2 total change after updating the factor set?",
+        "How do I import supplier activity data?",
+        "Summarize this support ticket for the implementation team."
+      ],
+      "businessOutcome": "Give users faster first-line answers and help support teams see which documentation topics need improvement.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "name": "Sales enablement and RFP response agent",
+      "problem": "Carbon accounting buyers ask detailed questions about methodology, data security, supported workflows, implementation, reporting outputs, and fit for their footprint boundaries.",
+      "agentWorkflow": "Train an internal DocsBot agent on sales enablement materials, product docs, case studies, security notes, proposal templates, and implementation guidance. Reps can ask for source-grounded answers, draft follow-up emails, and prepare handoffs for technical or compliance review.",
+      "liveContextOrTools": "With approved Skills, the agent can research public account context, summarize prospect needs, create a CRM task, or forward a qualified lead to the configured sales workflow.",
+      "exampleQuestionsOrRequests": [
+        "Draft a response about our Scope 3 data collection process for this RFP.",
+        "What implementation questions should we ask a manufacturing prospect?",
+        "Summarize this prospect’s likely disclosure drivers from public sources."
+      ],
+      "businessOutcome": "Help sales teams respond faster while keeping pricing, legal terms, and regulated claims under human control.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Public emissions data explainer",
+      "problem": "Teams often need to explain how public datasets relate to a facility, supplier, or industry benchmark without making unsupported claims.",
+      "agentWorkflow": "A DocsBot agent can answer from approved public-data explainers, internal interpretation notes, and client-facing FAQs. When configured with live lookup access, it can retrieve a record status or dataset reference and prepare a summary for expert review.",
+      "liveContextOrTools": "Use customer-authorized APIs, connectors, or MCP-based tools for approved lookup workflows; avoid letting the agent make final compliance interpretations.",
+      "exampleQuestionsOrRequests": [
+        "What does EPA facility-level data include and not include?",
+        "Summarize this facility emissions record for an analyst review.",
+        "Create a follow-up task to verify the parent-company mapping."
+      ],
+      "businessOutcome": "Make external emissions data easier to interpret while preserving reviewer control over client conclusions.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-epa-ghgrp"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and software users a clearer path through carbon accounting questions",
+    "intro": "A DocsBot customer-facing agent can live on your website, portal, documentation, or product experience to answer from approved sources, collect context, and escalate complex questions. It is especially useful when clients need help understanding data requests, onboarding steps, reporting outputs, or support documentation.",
+    "requests": [
+      {
+        "request": "“What data do you need from our facilities this month?”",
+        "agentResponseStrategy": "Answer from the approved intake guide, list required datasets, explain evidence expectations, ask clarifying questions, and offer a structured handoff if the client is missing records.",
+        "sourceTypes": [
+          "Client onboarding guides",
+          "Data templates",
+          "Evidence checklists",
+          "Project FAQs"
+        ],
+        "optionalAction": "Create a task or route the incomplete intake request to the assigned analyst when the workflow is configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do you define Scope 1, Scope 2, and Scope 3 in our reporting process?”",
+        "agentResponseStrategy": "Use approved methodology content to explain the company’s definitions, link to source passages, and clarify when an analyst should review boundary or category decisions.",
+        "sourceTypes": [
+          "Methodology memos",
+          "Reporting playbooks",
+          "GHG guidance summaries",
+          "Client FAQs"
+        ],
+        "optionalAction": "Escalate to a human reviewer when the question involves a new boundary, exclusion, or assurance-sensitive judgment.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-ghg-protocol-scopes"
+        ]
+      },
+      {
+        "request": "“Can I book a consultation about our disclosure readiness?”",
+        "agentResponseStrategy": "Collect company, region, reporting driver, timeline, footprint scope, and preferred follow-up details, then qualify the request using customer-defined instructions.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales FAQs",
+          "Qualification rules",
+          "Booking instructions"
+        ],
+        "optionalAction": "Use an approved scheduling workflow or forward the lead summary to sales, CRM, email, Slack, or Microsoft Teams where configured.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“Why did this platform import fail?”",
+        "agentResponseStrategy": "Answer from troubleshooting docs, ask for safe non-secret context, summarize the issue, and escalate to support if account-specific investigation is needed.",
+        "sourceTypes": [
+          "Help center articles",
+          "API docs",
+          "Release notes",
+          "Support macros"
+        ],
+        "optionalAction": "Draft a helpdesk response or create a support ticket through a configured connector, API, or workflow.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Which reporting rules apply to us?”",
+        "agentResponseStrategy": "Provide a source-grounded summary from approved educational content and clarify that legal applicability and filing decisions require qualified human review.",
+        "sourceTypes": [
+          "Disclosure guides",
+          "Legal-approved FAQs",
+          "Reporting calendars",
+          "Policy summaries"
+        ],
+        "optionalAction": "Route the conversation to legal, sustainability leadership, or an external advisor based on configured escalation rules.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-ifrs-s2",
+          "src-eu-csrd"
+        ]
+      },
+      {
+        "request": "“Can you summarize our last conversation and next steps?”",
+        "agentResponseStrategy": "Summarize the conversation, highlight unresolved data gaps, list owner actions, and preserve context for the human team.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Project instructions",
+          "Client communication templates"
+        ],
+        "optionalAction": "Send the summary to an approved inbox, ticket, task system, or collaboration channel when configured.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give sustainability, finance, sales, and support teams one trusted emissions knowledge layer",
+    "intro": "Carbon accounting work depends on consistent definitions, documented assumptions, clear evidence trails, and fast collaboration. DocsBot can act as a private internal knowledge agent trained on approved company content, helping teams retrieve answers, summarize context, and route work without exposing decisions that require expert review.",
+    "workflows": [
+      {
+        "name": "Analyst methodology lookup",
+        "problem": "Analysts lose time searching for the latest approach to boundaries, activity data, factor sources, QA checks, and client-specific assumptions.",
+        "agentWorkflow": "The agent answers from approved SOPs, methodology notes, reporting manuals, prior guidance, and reviewer checklists, with source references so analysts can verify the underlying material.",
+        "sourceTypes": [
+          "SOPs",
+          "Methodology notes",
+          "Reviewer checklists",
+          "Internal wikis"
+        ],
+        "optionalAction": "Flag unanswered or conflicting questions for documentation owners through analytics and review workflows.",
+        "outcome": "More consistent analyst answers and fewer interruptions for senior reviewers.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Cross-functional data collection support",
+        "problem": "Facilities, procurement, finance, fleet, and travel teams may not understand what emissions data they need to submit or why it matters.",
+        "agentWorkflow": "A private DocsBot agent explains internal requirements, points users to templates, answers deadline questions, and summarizes unresolved data gaps for sustainability program managers.",
+        "sourceTypes": [
+          "Internal policies",
+          "Submission templates",
+          "Reporting calendars",
+          "Training materials"
+        ],
+        "optionalAction": "Create a task, notify an owner, or update approved status fields through customer-configured Skills or APIs.",
+        "outcome": "Cleaner intake cycles and less repetitive support from the sustainability team.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Disclosure committee preparation",
+        "problem": "Reporting committees need concise summaries of evidence status, unresolved assumptions, open review items, and source materials before meetings.",
+        "agentWorkflow": "The agent summarizes approved documents, prior conversations, checklists, and open questions, then prepares a human-readable briefing for committee review.",
+        "sourceTypes": [
+          "Meeting notes",
+          "Disclosure checklists",
+          "Evidence logs",
+          "Approved legal guidance"
+        ],
+        "optionalAction": "Route sensitive filing, legal, or assurance questions to human reviewers with scoped permissions and logs.",
+        "outcome": "Faster meeting preparation while preserving human accountability for external disclosures.",
+        "icon": "PresentationChartBarIcon",
+        "sourceIds": [
+          "src-sec-climate-status"
+        ]
+      },
+      {
+        "name": "Support and implementation team copilot",
+        "problem": "Implementation and support teams need fast answers across onboarding docs, product guides, import templates, account notes, and historical ticket patterns.",
+        "agentWorkflow": "DocsBot can retrieve answers, summarize tickets, draft support responses, and identify recurring knowledge gaps when connected to approved helpdesk exports or workflows.",
+        "sourceTypes": [
+          "Help docs",
+          "Implementation guides",
+          "Ticket exports",
+          "Release notes"
+        ],
+        "optionalAction": "Draft a ticket reply or route a complex issue to product, engineering, or customer success through configured workflows.",
+        "outcome": "Faster first response and better visibility into support topics that need clearer documentation.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Sales and proposal assistance",
+        "problem": "Sales teams need accurate responses to RFPs and buyer questions about methodology, data handling, implementation, reporting outputs, and service fit.",
+        "agentWorkflow": "Train DocsBot on approved proposal language, sales playbooks, security notes, product documentation, case studies, and objection handling so reps can draft grounded responses for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Security notes",
+          "Product docs"
+        ],
+        "optionalAction": "Research public prospect context with approved web search, draft follow-up emails, or create CRM tasks through customer-configured workflows.",
+        "outcome": "More consistent sales communication without letting AI finalize pricing, contracts, or regulated claims.",
+        "icon": "RocketLaunchIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from owned knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s selected sources and answer from approved content such as websites, documents, help centers, wikis, and internal files.",
+      "industryApplication": "Use carbon accounting methodologies, factor guidance, reporting playbooks, client FAQs, onboarding materials, and product documentation as the knowledge base for consistent answers.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Customer-facing support widget and documentation assistant",
+      "mainLandingPageContext": "DocsBot can run in a website or product chat widget and support documentation experiences where users need answers without reading every page.",
+      "industryApplication": "Help clients, platform users, and prospects understand data requests, setup steps, reporting outputs, troubleshooting guidance, and service fit from approved content.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect missing emissions data, look up project status, summarize intake gaps, create analyst tasks, route disclosure questions, or notify teams through customer-authorized workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for employees",
+      "mainLandingPageContext": "DocsBot can support private team assistants trained on SOPs, policies, wikis, documents, and other internal knowledge sources.",
+      "industryApplication": "Give sustainability, finance, operations, procurement, sales, and support teams a trusted place to ask about reporting procedures, templates, responsibilities, and review steps.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides conversation review, analytics, topic management, reports, and visibility into unanswered or repeated questions.",
+      "industryApplication": "Spot repeated confusion around Scope 3 categories, imports, evidence requests, factor changes, onboarding, or disclosure calendar responsibilities.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governed access",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Support private methodology content, client materials, internal policies, and workflow credentials with permissioned access and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "liza-sentry-docs",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect approved methodology, documentation, and client guidance.",
+      "Use documentation analytics to understand what users and employees are trying to learn from complex knowledge bases.",
+      "Deploy AI knowledge workflows without building and maintaining a custom RAG system from scratch."
+    ],
+    "whyTheseReviewsFit": "Carbon accounting buyers need accuracy, source control, and practical adoption across clients and internal teams. DocsBot’s proof shows owned-content training, documentation engagement, high-volume support experience, and internal decision support that map naturally to emissions reporting workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for carbon accounting, emissions reporting support, and sustainability knowledge operations",
+    "audience": [
+      "Carbon accounting consultants",
+      "Corporate sustainability teams",
+      "ESG and finance leaders",
+      "Carbon accounting software providers",
+      "Customer support and implementation teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "GlobeAltIcon"
+  },
+  "relatedIndustrySlugs": [
+    "carbon-offset-trading",
+    "environmental-consultancy",
+    "environmental-monitoring",
+    "conservation-organizations",
+    "natural-resources-environmental",
+    "energy-storage-systems"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "carbon-accounting",
+    "webSearchQueries": [
+      "SEC climate disclosure rule greenhouse gas emissions March 2024 official",
+      "EU Corporate Sustainability Reporting Directive number of companies sustainability reporting official",
+      "EPA Greenhouse Gas Reporting Program suppliers facilities report GHG data official",
+      "GHG Protocol corporate standard scope 1 scope 2 scope 3 official",
+      "SEC climate disclosure rules end defense 2025 official SEC",
+      "ISSB IFRS S2 climate-related disclosures greenhouse gas emissions scope 1 2 3 official"
+    ],
+    "sourceUrls": [
+      "https://ghgprotocol.org/corporate-standard-frequently-asked-questions",
+      "https://www.epa.gov/ghgreporting/ghgrp-reported-data",
+      "https://www.ifrs.org/sustainability/knowledge-hub/introduction-to-issb-and-ifrs-sustainability-disclosure-standards/",
+      "https://www.consilium.europa.eu/en/policies/corporate-sustainability/",
+      "https://dart.deloitte.com/USDART/home/news/all-news/2025/mar/sec-ends-defense-climate-disclosure-rule"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44892,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 25180,
+        "outputTokens": 8095,
+        "reasoningOutputTokens": 191,
+        "totalTokens": 52987,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.189303,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.209303
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24846,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 10382,
+          "outputTokens": 5480,
+          "reasoningOutputTokens": 191,
+          "totalTokens": 30326,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.111771,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.131771
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20046,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14798,
+          "outputTokens": 2615,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22661,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077532,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077532
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxDYXJib24lMjBBY2NvdW50aW5nfGVufDB8MHx8fDE3Nzg4MjQ1MTd8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "black Android smartphone near ballpoint pen, tax withholding certificate on top of white folder",
+    "source": "unsplash-search",
+    "query": "Carbon Accounting"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer methodology questions without inventing accounting treatment or emission-factor logic?",
+      "answer": "Yes. DocsBot is designed to answer from the sources you approve, such as methodology memos, factor guidance, SOPs, reviewer checklists, and client instructions. For questions involving new assumptions, conflicting guidance, exclusions, or assurance-sensitive judgment, you can configure the agent to explain what the source says and route the issue to a qualified reviewer instead of making the decision.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help when clients submit incomplete utility, travel, procurement, or supplier data?",
+      "answer": "A DocsBot agent can guide clients through your intake instructions, explain required evidence, ask clarifying questions, and summarize what is still missing. With configured Skills, APIs, connectors, forms, or webhooks, it can create a task, notify the assigned analyst, or update permitted intake fields while keeping methodology decisions under human review.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it internally for facilities, procurement, finance, fleet, and travel teams that do not understand emissions terminology?",
+      "answer": "Yes. Corporate teams can train a private DocsBot agent on reporting calendars, submission templates, ownership matrices, training materials, and internal policies. Employees can ask practical questions like which bill to upload, who owns a Scope 3 category, or what evidence is required, while sustainability managers use analytics to see where guidance is unclear.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot support Scope 1, Scope 2, and Scope 3 explanations using our approved language?",
+      "answer": "Yes. You can train the agent on your own reporting playbooks and methodology summaries so answers reflect your preferred definitions, examples, and escalation rules. That matters because the GHG Protocol Corporate Standard separates corporate inventories into direct emissions, purchased-energy emissions, and value-chain emissions categories.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ghg-protocol-scopes"
+      ]
+    },
+    {
+      "question": "Can a client-facing agent help prospects understand which reporting rules may apply to them?",
+      "answer": "It can provide source-grounded educational guidance from your approved disclosure guides, policy summaries, and legal-reviewed FAQs, then route applicability, filing, or legal interpretation questions to a human reviewer. This is important because IFRS S2, EU sustainability reporting rules, U.S. state requirements, and unsettled federal rules can create overlapping obligations.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ifrs-s2",
+        "src-eu-csrd",
+        "src-sec-climate-status"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving legal, assurance, or filing advice?",
+      "answer": "You can define boundaries in the agent instructions, restrict knowledge sources, use role-based access, review logs, and configure escalation paths for high-impact topics. A common pattern is to let the agent summarize approved guidance and collect context, but require legal, assurance, or senior sustainability review before external disclosure language is finalized.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help our analysts find the latest approved factor source or calculation note?",
+      "answer": "Yes. DocsBot can train on selected internal files, wikis, PDFs, Word documents, websites, Google Drive, Notion, Confluence, and other approved knowledge sources. Analysts can ask where a factor source, boundary note, evidence rule, or QA checklist lives and receive a source-grounded answer with references they can verify before using it in a client deliverable.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit into a carbon accounting software support experience?",
+      "answer": "For software providers, DocsBot can power a website or in-product support agent trained on help docs, release notes, tutorials, API references, import templates, and support knowledge. It can answer setup, import, mapping, permissions, and troubleshooting questions, then draft or route ticket responses through customer-configured helpdesk workflows when account-specific review is needed.",
+      "role": "Carbon accounting software and data platforms",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent explain why a Scope 2 total changed after a factor-set or data update?",
+      "answer": "If your help docs, release notes, methodology notes, and calculation explanations cover that scenario, the agent can summarize likely reasons and point users to the relevant source material. If the answer requires account-specific data inspection or a calculation audit, it should collect safe context and escalate to support, implementation, or an analyst.",
+      "role": "Carbon accounting software and data platforms",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What systems can DocsBot connect to for intake, routing, and workflow actions?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, and MCP servers to support bounded actions such as lookups, task creation, routing, summaries, notifications, and approved field updates. It should be scoped to the systems and permissions you authorize rather than treated as an unrestricted automation layer.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we keep client files, methodology notes, and credentials secure?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. Skills can be configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls so credentials do not need to appear in chats.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much work is required before the agent gives reliable answers?",
+      "answer": "The main implementation work is knowledge curation: deciding which playbooks, SOPs, FAQs, help articles, factor guidance, templates, and escalation rules are authoritative. Many teams start with a narrow workflow such as client intake, analyst methodology lookup, or software support, review conversations, close content gaps, and expand once answers are trusted.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with disclosure committee preparation without replacing accountable reviewers?",
+      "answer": "Yes. A private agent can summarize approved checklists, evidence logs, meeting notes, open questions, and responsibility matrices into a human-readable briefing. It can also route legal, assurance, or filing questions to the right reviewer. The agent supports preparation and retrieval; it should not be the final authority for external disclosures.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI for a carbon accounting AI agent?",
+      "answer": "Track the operational bottlenecks you want to reduce: repetitive intake questions, analyst interruptions, unresolved support tickets, time spent searching methodology notes, incomplete data submissions, and documentation gaps. DocsBot analytics, conversation review, reports, satisfaction or resolution analysis, and topic trends can help show where the agent is deflecting work or improving guidance.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent support multilingual clients or global subsidiaries?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help global sustainability, finance, facilities, and supplier teams understand your approved intake instructions or support documentation. For regulated disclosures and nuanced methodology questions, teams should still define review paths for translated or jurisdiction-specific answers.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help us see which Scope 3 categories or data templates are confusing people?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Sustainability leaders, consultants, or software product teams can review repeated questions about supplier data, spend-based methods, imports, evidence rules, or deadlines and improve the underlying documentation.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can a public-facing agent explain EPA facility emissions data without overclaiming?",
+      "answer": "Yes, if you train it on approved public-data explainers and internal interpretation notes. The agent can clarify what a dataset includes, summarize a record for human review, and route parent-company mapping or compliance interpretation questions to an expert. EPA describes GHGRP as facility-level GHG emissions data from large U.S. emitting sources.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-epa-ghgrp"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant for carbon accounting knowledge?",
+      "answer": "DocsBot is a build-vs-buy option for teams that want governed knowledge retrieval, source-grounded answers, chat experiences, analytics, access controls, and workflow actions without maintaining a custom RAG stack. Your team still owns source quality, permissions, escalation rules, and review processes, but you avoid starting from a blank engineering project.",
+      "role": "Carbon accounting software and data platforms",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can our sales team use it for RFPs and disclosure-readiness conversations?",
+      "answer": "Yes. An internal sales enablement agent can be trained on proposal templates, approved service descriptions, security notes, product docs, case studies, and objection handling. Reps can draft grounded responses and follow-ups, while pricing, contracts, regulated claims, and methodology commitments remain subject to human review.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement and IT ask before approving an AI agent for emissions reporting workflows?",
+      "answer": "Ask which sources the agent will use, who can access each workspace, whether customer data trains public models, how data is encrypted, how actions are scoped, where logs are reviewed, and when humans are required. Also confirm whether integrations are customer-configured through approved Skills, APIs, connectors, webhooks, or MCP servers.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can we separate what clients see from what internal analysts see?",
+      "answer": "Yes. DocsBot supports customer-facing and private internal agent patterns with governed access. You can expose approved onboarding FAQs, data templates, service pages, and help docs to clients while keeping internal methodology notes, reviewer checklists, account context, and escalation guidance limited to authorized teams.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent stay useful when regulations and disclosure expectations change?",
+      "answer": "It can, as long as your approved sources and escalation rules are maintained. DocsBot answers from the knowledge you select, so teams should assign owners for policy updates, review unanswered questions, and retire outdated guidance. This is especially important in carbon accounting because disclosure expectations and federal climate-rule status can change over time.",
+      "role": "Corporate sustainability and finance teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-sec-climate-status"
+      ]
+    },
+    {
+      "question": "Can DocsBot help onboard new analysts or client success staff before reporting season?",
+      "answer": "Yes. A private knowledge agent can answer questions from SOPs, onboarding guides, reporting calendars, client communication templates, review checklists, and historical support patterns. New staff can learn where to find approved guidance and when to escalate, reducing dependence on senior analysts for repeat questions.",
+      "role": "Carbon accounting firms and ESG consultants",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent cannot answer from approved sources?",
+      "answer": "You can configure it to say it does not have enough approved information, ask for safe clarifying details, create a handoff, or route the question to an analyst, support owner, legal reviewer, or documentation owner. Those unresolved questions are valuable because they reveal gaps in client instructions, methodology notes, or product documentation.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support both consulting services and a carbon accounting SaaS product at the same company?",
+      "answer": "Yes. You can use different agents, sources, permissions, and workflows for different audiences: a client intake agent for consulting, a support agent for software users, an internal methodology assistant for analysts, and a sales enablement agent for RFPs. The key is separating source libraries and escalation paths by use case.",
+      "role": "Carbon accounting software and data platforms",
+      "category": "Scalability"
+    }
+  ]
+}

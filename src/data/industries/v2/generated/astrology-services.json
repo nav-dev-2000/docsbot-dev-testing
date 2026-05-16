@@ -1,0 +1,704 @@
+{
+  "slug": "astrology-services",
+  "business": "Astrology Services",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Astrology Client Support & Bookings",
+    "description": "DocsBot helps astrology services answer client questions, qualify readings, schedule sessions, and surface knowledge gaps from your own content.",
+    "canonicalPath": "/industry/astrology-services"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for modern astrology practices",
+    "headline": "Let DocsBot handle astrology inquiries before the reading begins",
+    "subheadline": "Train an AI agent on your service menu, consultation policies, intake forms, educational content, FAQs, and brand voice so clients get instant answers while sensitive interpretation, paid readings, and personal guidance stay with your human astrologers.",
+    "proofBullets": [
+      {
+        "text": "Answer service, pricing, format, preparation, and policy questions from your approved astrology content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect birth data, reading goals, preferred session type, and follow-up details through structured intake flows.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Route complex, emotional, or paid interpretation requests to the right astrologer with a concise summary.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated client questions and missing educational content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your astrology AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps astrology practices create AI agents trained on their own knowledge: service pages, consultation packages, FAQs, blog posts, preparation guides, cancellation policies, intake instructions, and internal SOPs. The agent can answer routine questions, qualify client intent, summarize requests, trigger approved handoffs, and help your team keep guidance consistent without replacing the astrologer-client relationship.",
+    "whoItHelps": [
+      {
+        "role": "Solo astrologers and spiritual advisors",
+        "roleContext": "Independent practitioners often manage bookings, intake, content, and client follow-up alongside readings. DocsBot can reduce repetitive admin while keeping personal interpretation with the practitioner.",
+        "bullets": [
+          {
+            "text": "Explain natal chart, transit, synastry, solar return, and coaching package options from your own service descriptions.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Collect the details needed before a session, such as birth date, birth time, location, topic, and preferred format.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate emotional, sensitive, or paid reading requests to the astrologer instead of attempting unsupported advice.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "SparklesIcon"
+      },
+      {
+        "role": "Astrology studios and online reading platforms",
+        "roleContext": "Multi-reader teams need consistent answers about reader availability, reading types, fulfillment times, refund policies, and what clients should expect before purchasing.",
+        "bullets": [
+          {
+            "text": "Give instant, source-grounded answers about services, reader specialties, booking rules, and client preparation.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Qualify new prospects by reading type, urgency, topic, budget range, and preferred follow-up channel.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Create concise handoff summaries for human readers or support staff through approved workflows.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Content-led astrology brands",
+        "roleContext": "Astrology creators, newsletter operators, and educators can turn a large archive of articles, courses, horoscopes, and FAQs into a searchable client education experience.",
+        "bullets": [
+          {
+            "text": "Help visitors find explanations of houses, aspects, retrogrades, signs, and chart terminology from your own library.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Surface the topics people repeatedly ask about so your team can improve guides, newsletters, and course material.",
+            "icon": "LightBulbIcon"
+          },
+          {
+            "text": "Support more than 100 languages for visitors exploring your educational astrology content globally.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "NewspaperIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-pew-astrology-usage-2025",
+      "metric": "30% consult astrology, tarot cards, or fortune tellers at least yearly",
+      "claim": "Pew Research Center found that 30% of U.S. adults consult astrology or a horoscope, tarot cards, or a fortune teller at least once a year; 27% say they believe in astrology.",
+      "sourceTitle": "30% of Americans Consult Astrology, Tarot Cards or Fortune Tellers",
+      "sourceUrl": "https://www.pewresearch.org/religion/2025/05/21/3-in-10-americans-consult-astrology-tarot-cards-or-fortune-tellers/",
+      "sourceDate": "May 21, 2025",
+      "bestUsedFor": [
+        "Client demand",
+        "Audience behavior",
+        "Astrology service interest"
+      ]
+    },
+    {
+      "id": "src-pew-younger-women-astrology",
+      "metric": "43% of women ages 18 to 49 believe in astrology",
+      "claim": "Pew reported that women are about twice as likely as men to believe in astrology, and 43% of women ages 18 to 49 say they believe in astrology.",
+      "sourceTitle": "30% of Americans Consult Astrology, Tarot Cards or Fortune Tellers",
+      "sourceUrl": "https://www.pewresearch.org/religion/2025/05/21/3-in-10-americans-consult-astrology-tarot-cards-or-fortune-tellers/",
+      "sourceDate": "May 21, 2025",
+      "bestUsedFor": [
+        "Audience segmentation",
+        "Marketing context",
+        "Client expectations"
+      ]
+    },
+    {
+      "id": "src-bbb-psychic-social-scams",
+      "metric": "BBB warns about no-show psychic services on social media",
+      "claim": "The Better Business Bureau warns that no-show psychics are the most common version of a social media psychic-services scam reported to BBB Scam Tracker.",
+      "sourceTitle": "BBB Scam Alert: Watch out for no-show psychics on social media",
+      "sourceUrl": "https://www.bbb.org/article/news-releases/24259-scam-alert-buying-psychic-services-on-social-media",
+      "sourceDate": "May 29, 2020",
+      "bestUsedFor": [
+        "Trust and credibility",
+        "Booking transparency",
+        "Consumer protection"
+      ]
+    },
+    {
+      "id": "src-ftc-endorsement-guides",
+      "metric": "FTC endorsement guides were revised in 2023",
+      "claim": "The FTC’s Endorsement Guides provide guidance for reviews, testimonials, influencer endorsements, and clear disclosure of material connections.",
+      "sourceTitle": "Endorsements, Influencers, and Reviews",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews",
+      "sourceDate": "2023 guidance page",
+      "bestUsedFor": [
+        "Marketing compliance",
+        "Testimonials and reviews",
+        "Creator partnerships"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Reading package and booking guidance",
+      "problem": "Visitors often arrive from social media with quick questions about which reading to book, what information is needed, and whether a session fits their situation.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages, FAQs, preparation guides, and policies. It compares approved package descriptions, asks clarifying questions, collects scheduling intent, and prepares a handoff or booking request through a customer-configured scheduling workflow.",
+      "liveContextOrTools": "Use AI Actions to collect intake details, trigger a booking workflow, create a task for staff, or notify the practitioner when a client is ready for follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Which reading should I book if I want to understand a career change?",
+        "Do you need my exact birth time for a natal chart reading?",
+        "Can I book a compatibility session for two people?"
+      ],
+      "businessOutcome": "More qualified bookings with fewer repetitive pre-session messages and clearer expectations before clients pay.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Transparent intake and expectation setting",
+      "problem": "Astrology clients may share sensitive life questions before understanding the boundaries, format, refund policy, or difference between education and a paid reading.",
+      "agentWorkflow": "The agent explains your terms, preparation steps, privacy language, entertainment or spiritual guidance disclaimers, and refund rules from approved sources. It can collect the client’s goals and route sensitive or high-impact topics to a human reader for review.",
+      "liveContextOrTools": "Use scoped Skills to submit intake forms, summarize client goals, tag urgency, and escalate messages that mention crisis, medical, legal, or financial decisions.",
+      "exampleQuestionsOrRequests": [
+        "Can you tell me if my partner will come back?",
+        "Is this reading a substitute for therapy or financial advice?",
+        "What happens if I do not know my exact birth time?"
+      ],
+      "businessOutcome": "Clients understand what your service can and cannot provide, helping build trust before the session.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-bbb-psychic-social-scams"
+      ]
+    },
+    {
+      "name": "Astrology education from your content library",
+      "problem": "Many clients need basic context about signs, houses, aspects, retrogrades, and chart terminology before they can choose or understand a reading.",
+      "agentWorkflow": "DocsBot trains on your articles, course material, glossary, newsletters, PDFs, and website pages, then answers with source-grounded explanations in your voice. Analytics reveal repeated questions and missing content topics.",
+      "liveContextOrTools": "Deploy the agent in a website widget, private team chat, or API-powered experience; use reports and conversation review to prioritize new guides.",
+      "exampleQuestionsOrRequests": [
+        "What does my rising sign mean?",
+        "What is the difference between transits and progressions?",
+        "Why do astrologers ask for birth time and birthplace?"
+      ],
+      "businessOutcome": "Clients self-educate before purchasing, while your team learns which topics deserve better content.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Lead qualification for consultations and events",
+      "problem": "Studios, creators, and event readers may receive mixed inquiries for private readings, workshops, parties, podcast appearances, courses, and collaborations.",
+      "agentWorkflow": "The agent asks structured questions about event type, audience size, date, location, budget range, service interest, and follow-up channel. AI instructions can qualify the lead and send a summary to the right inbox, CRM, or ticketing workflow when configured.",
+      "liveContextOrTools": "Use DocsBot AI Actions, APIs, connectors, or MCP Connectors for approved lead forms, CRM field updates, notifications, and sales handoffs.",
+      "exampleQuestionsOrRequests": [
+        "Can you do mini-readings at a wellness event next month?",
+        "Do you offer astrology workshops for teams?",
+        "I want a recurring horoscope column for my app."
+      ],
+      "businessOutcome": "Higher-quality inquiries reach the right person with context, reducing back-and-forth and missed opportunities.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Review, testimonial, and content policy assistant",
+      "problem": "Astrology businesses often market through social proof, creator partnerships, and social media, where review and endorsement expectations can be easy to overlook.",
+      "agentWorkflow": "An internal DocsBot agent can answer staff questions from your brand guidelines, testimonial policy, FTC notes, disclosure templates, and approval rules. It can draft review-request language and flag copy that needs human review before publication.",
+      "liveContextOrTools": "Use private team chat for marketing staff and optional workflow triggers for review queues, task creation, or manager approval.",
+      "exampleQuestionsOrRequests": [
+        "Can we repost this client testimonial on Instagram?",
+        "What disclosure should we include for a paid creator collaboration?",
+        "Where is our policy for before-and-after style claims?"
+      ],
+      "businessOutcome": "Marketing stays faster and more consistent while humans retain final approval for public claims and testimonials.",
+      "icon": "MegaphoneIcon",
+      "sourceIds": [
+        "src-ftc-endorsement-guides"
+      ]
+    },
+    {
+      "name": "Client support triage after purchase",
+      "problem": "After clients purchase a reading, they may ask about delivery timing, missing birth data, rescheduling, recordings, follow-up questions, or refund rules.",
+      "agentWorkflow": "DocsBot can answer from order support FAQs and policies, collect missing information, summarize the issue, and route it to support staff or the assigned reader when the question requires human judgment.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up permitted order status, create a support ticket, update approved fields, or notify the team.",
+      "exampleQuestionsOrRequests": [
+        "I forgot to include my birth time. Can I add it?",
+        "When will my written reading be delivered?",
+        "Can I reschedule my live session?"
+      ],
+      "businessOutcome": "Routine support is handled quickly while nuanced client concerns are escalated with context.",
+      "icon": "EnvelopeIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give astrology clients clear answers before they book",
+    "intro": "A customer-facing DocsBot agent can sit on your website, landing pages, course portal, or client support flow. It answers from your approved knowledge, collects structured details, and hands off anything that needs an astrologer’s personal interpretation.",
+    "requests": [
+      {
+        "request": "“Which reading is best for a relationship question?”",
+        "agentResponseStrategy": "Explain package differences from your service catalog, ask whether the client wants individual, compatibility, or timing guidance, and suggest the next booking step without making unsupported promises.",
+        "sourceTypes": [
+          "Service pages",
+          "Package descriptions",
+          "Booking FAQs"
+        ],
+        "optionalAction": "Collect booking intent and pass a qualified summary to a scheduling workflow or staff inbox.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“What information do you need for my chart?”",
+        "agentResponseStrategy": "List the details your practice requires, explain why birth time and birthplace matter if your content says so, and provide a checklist the client can complete before the session.",
+        "sourceTypes": [
+          "Preparation guide",
+          "Intake form instructions",
+          "Client FAQs"
+        ],
+        "optionalAction": "Submit a structured intake form or create a task when required fields are missing.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can I get an answer right now about my future?”",
+        "agentResponseStrategy": "Clarify the boundary between general educational content and paid personal interpretation, then route the visitor to booking or human review when the request is personal or sensitive.",
+        "sourceTypes": [
+          "Disclaimers",
+          "Service boundaries",
+          "Escalation rules"
+        ],
+        "optionalAction": "Escalate to a human reader with the visitor’s topic, emotional tone, and preferred follow-up channel.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Is this reader legitimate?”",
+        "agentResponseStrategy": "Point to your practitioner bio, credentials, code of ethics, refund policy, testimonials policy, and secure booking instructions so clients can evaluate the service transparently.",
+        "sourceTypes": [
+          "Practitioner bios",
+          "Policies",
+          "Trust pages",
+          "Testimonials policy"
+        ],
+        "optionalAction": "Route suspicious impersonation or payment concerns to support for review.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-bbb-psychic-social-scams"
+        ]
+      },
+      {
+        "request": "“Do you offer readings in my language?”",
+        "agentResponseStrategy": "Answer from your language availability and service policies, and use DocsBot multilingual support to help visitors understand your approved content in their preferred language.",
+        "sourceTypes": [
+          "Language policy",
+          "Service catalog",
+          "FAQs"
+        ],
+        "optionalAction": "Collect preferred language and notify the team if a human reader must confirm availability.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What do people usually use astrology for?”",
+        "agentResponseStrategy": "Explain your services and boundaries while noting that Pew found 30% of U.S. adults consult astrology, tarot cards, or fortune tellers at least yearly, often for fun rather than major decisions.",
+        "sourceTypes": [
+          "Educational content",
+          "Service pages",
+          "Public audience research"
+        ],
+        "optionalAction": "Suggest beginner-friendly educational resources or a consultation type based on the visitor’s stated goal.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-pew-astrology-usage-2025"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep your astrology team aligned on policies, content, and client handoffs",
+    "intro": "DocsBot can also work privately for practitioners, assistants, support teams, and marketers. Train it on internal SOPs, templates, brand guidelines, pricing notes, reader availability rules, and content libraries so staff can find the right answer fast.",
+    "workflows": [
+      {
+        "name": "Reader handoff summaries",
+        "problem": "Practitioners lose time piecing together client goals, birth details, booking context, and prior support messages before a session.",
+        "agentWorkflow": "The internal agent summarizes approved client intake, highlights missing information, and prepares a concise pre-session brief for the assigned reader.",
+        "sourceTypes": [
+          "Intake forms",
+          "Booking notes",
+          "Support history exports",
+          "Reader SOPs"
+        ],
+        "optionalAction": "Create a task or notify the reader when intake is incomplete, using a customer-configured workflow.",
+        "outcome": "Readers start sessions with cleaner context and fewer last-minute admin messages.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Support policy answers",
+        "problem": "Assistants need consistent answers about refunds, late arrivals, rescheduling, delivery timelines, session recordings, and follow-up boundaries.",
+        "agentWorkflow": "DocsBot answers from internal policies, public FAQs, and escalation rules so staff can respond consistently or draft replies for human review.",
+        "sourceTypes": [
+          "Refund policy",
+          "Cancellation policy",
+          "Support macros",
+          "Escalation rules"
+        ],
+        "optionalAction": "Draft a ticket response or route policy exceptions to the owner for approval.",
+        "outcome": "Support replies are more consistent across readers, channels, and busy launch periods.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Content gap discovery",
+        "problem": "Astrology brands publish large libraries, but client questions reveal which explanations are missing, unclear, or hard to find.",
+        "agentWorkflow": "Conversation logs, topic management, reports, and knowledge-gap discovery show repeated unanswered questions across client and prospect conversations.",
+        "sourceTypes": [
+          "Website content",
+          "Blog archives",
+          "Course material",
+          "Conversation analytics"
+        ],
+        "optionalAction": "Create editorial tasks for high-volume missing topics or route them to a writer.",
+        "outcome": "Your next articles, guides, and FAQs reflect what clients are actually asking.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Marketing review helper",
+        "problem": "Teams need fast access to testimonial rules, disclosure language, and brand-safe wording before posting offers or client stories.",
+        "agentWorkflow": "Train DocsBot on your marketing policy, approval checklist, FTC reference notes, and brand voice. Staff can ask whether draft copy needs review and get a source-grounded checklist.",
+        "sourceTypes": [
+          "Brand guidelines",
+          "Approval checklists",
+          "FTC notes",
+          "Social media SOPs"
+        ],
+        "optionalAction": "Send flagged draft copy to a manager, legal reviewer, or approval queue through a configured workflow.",
+        "outcome": "Campaign production moves faster while public claims and endorsements stay under human control.",
+        "icon": "MegaphoneIcon",
+        "sourceIds": [
+          "src-ftc-endorsement-guides"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own astrology knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, websites, PDFs, internal content, documentation, and other configured knowledge sources.",
+      "industryApplication": "Train the agent on service menus, reading descriptions, birth chart education, cancellation rules, intake instructions, practitioner bios, and content archives.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers from approved sources in the company’s voice and can escalate when a question is complex or sensitive.",
+      "industryApplication": "Give clients reliable answers about session types and policies without letting the agent invent personal readings or unsupported predictions.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record creation, record updates, and workflow triggers under customer-defined rules.",
+      "industryApplication": "Collect intake details, request missing birth information, create support tasks, summarize client goals, notify readers, or trigger approved booking and lead workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which services, chart topics, policies, or educational concepts confuse clients, then improve FAQs, packages, and content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private internal assistant trained on SOPs, policies, wikis, documents, onboarding material, and team knowledge.",
+      "industryApplication": "Help assistants, readers, and marketers find studio policies, templates, brand rules, and approved response guidance without searching folders.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data.",
+      "industryApplication": "Protect private business knowledge and client support context while controlling which sources, Skills, and workflows your astrology agent can access.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train an agent on the content and policies that make your astrology practice distinctive.",
+      "Give clients consistent answers while preserving human judgment for personal readings.",
+      "Use conversation analytics to learn what prospects and clients need clarified next."
+    ],
+    "whyTheseReviewsFit": "Astrology buyers need more than a generic bot. DocsBot proof shows teams using their own content libraries and training materials to deliver useful, consistent answers, while high-volume support results demonstrate that AI agents can handle repetitive inquiries at scale.",
+    "trustClaimIcons": [
+      "ArchiveBoxIcon",
+      "UserCircleIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for astrology services",
+    "audience": [
+      "Astrologers",
+      "Astrology studios",
+      "Spiritual service brands",
+      "Online reading platforms",
+      "Astrology educators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "personal-services",
+    "event-planning",
+    "beauty-salon",
+    "fitness-trainer",
+    "florist"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "astrology-services",
+    "webSearchQueries": [
+      "astrology services market size IBISWorld psychic services United States",
+      "Pew Research astrology belief adults United States 2018 new age beliefs",
+      "Federal Trade Commission psychics scams impersonators astrology complaints",
+      "site:pewresearch.org 2024 believe in astrology 27% U.S. adults astrology",
+      "FTC health claims advertising substantiation guide testimonials disclosures",
+      "Federal Trade Commission Guides Concerning the Use of Endorsements and Testimonials in Advertising 2023 disclosures",
+      "BBB no show psychics social media astrology readings scam tracker"
+    ],
+    "sourceUrls": [
+      "https://www.pewresearch.org/religion/2025/05/21/3-in-10-americans-consult-astrology-tarot-cards-or-fortune-tellers/",
+      "https://www.bbb.org/article/news-releases/24259-scam-alert-buying-psychic-services-on-social-media",
+      "https://www.ftc.gov/business-guidance/advertising-marketing/endorsements-influencers-reviews"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 48608,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 36064,
+        "outputTokens": 7654,
+        "reasoningOutputTokens": 285,
+        "totalTokens": 56262,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.208106,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.238106
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 29602,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 22306,
+          "outputTokens": 5086,
+          "reasoningOutputTokens": 285,
+          "totalTokens": 34688,
+          "webSearchCalls": 3,
+          "estimatedTokenCostUsd": 0.133879,
+          "estimatedWebSearchCostUsd": 0.03,
+          "estimatedTotalCostUsd": 0.163879
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19006,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13758,
+          "outputTokens": 2568,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21574,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074227,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074227
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1515942661900-94b3d1972591?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxhc3Ryb2xvZ3l8ZW58MHwwfHx8MTcxNDg3ODA2OHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Astrology Services background image",
+    "source": "legacy-industry",
+    "query": "Astrology Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent help clients choose a reading without giving away a free personal interpretation?",
+      "answer": "Yes. Configure DocsBot to explain your approved package descriptions, ask clarifying questions about the client’s goal, and recommend the appropriate booking path. It can keep the line clear between general service guidance and paid personal interpretation, then escalate anything emotional, sensitive, or chart-specific to a human astrologer.",
+      "role": "Solo astrologers and spiritual advisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this reduce the back-and-forth we get before every natal chart or compatibility session?",
+      "answer": "DocsBot can collect structured intake details such as birth date, birth time, birthplace, reading topic, preferred format, and missing information before the session. The agent can summarize the request for the astrologer or create a follow-up task through a customer-configured workflow when required fields are incomplete.",
+      "role": "Solo astrologers and spiritual advisors",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will DocsBot invent predictions or answer questions we only want handled in a paid session?",
+      "answer": "DocsBot should be trained on your approved content and instructed to stay within your boundaries. It can answer policy, preparation, education, and package questions while refusing or routing unsupported prediction requests, crisis language, medical/legal/financial decisions, or paid interpretation requests to a human reader.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use this across a studio with multiple readers, specialties, calendars, and policies?",
+      "answer": "Yes. DocsBot can be trained on reader bios, specialties, booking rules, service menus, availability guidance, fulfillment timelines, and internal SOPs. For live availability or calendar actions, use approved Skills, APIs, connectors, or customer-configured scheduling workflows rather than relying on static text alone.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when a client asks a vulnerable question like whether a partner will return or whether to make a major life decision?",
+      "answer": "You can define escalation rules for emotionally sensitive or high-impact topics. The agent can acknowledge the question, explain your service boundaries, avoid unsupported advice, collect context if appropriate, and hand the conversation to a human astrologer with a concise summary for review.",
+      "role": "Solo astrologers and spiritual advisors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support clients who arrive from TikTok, Instagram, newsletters, or a course portal with very different levels of astrology knowledge?",
+      "answer": "Yes. Train DocsBot on your glossary, beginner guides, course material, blog archive, service pages, and FAQs. It can explain houses, aspects, retrogrades, rising signs, synastry, or transits from your own content, then guide visitors toward the right reading or educational resource.",
+      "role": "Content-led astrology brands",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether an astrology AI agent is actually helping bookings and support?",
+      "answer": "Track repeated pre-booking questions, qualified booking handoffs, missing-intake reductions, support deflection, escalation reasons, satisfaction signals, and knowledge gaps. DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to guide improvements.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us build trust with clients who are worried about scams or fake readers?",
+      "answer": "Yes. The agent can point clients to your practitioner bios, code of ethics, secure booking instructions, refund policy, testimonials policy, and official payment channels. This matters because BBB has warned that no-show psychics are the most common social-media psychic-services scam reported to BBB Scam Tracker.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-bbb-psychic-social-scams"
+      ]
+    },
+    {
+      "question": "Can we use the agent for order support after someone buys a written reading?",
+      "answer": "Yes. DocsBot can answer from your delivery timelines, rescheduling rules, refund policy, recording policy, follow-up boundaries, and missing-information instructions. With approved workflows, it can create a support ticket, notify the assigned reader, or update approved fields when a client needs help.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work if our knowledge lives in service pages, PDFs, Google Drive folders, Notion pages, and old course content?",
+      "answer": "DocsBot can train on websites, PDFs, Word documents, text files, internal documents, wikis, Google Drive, Notion, Confluence, and other configured knowledge sources. For best results, clean up outdated package descriptions, duplicate policies, and conflicting reader instructions before launch.",
+      "role": "Content-led astrology brands",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help us qualify event, workshop, podcast, or brand-collaboration inquiries?",
+      "answer": "Yes. DocsBot can ask for event type, date, location, audience size, budget range, service interest, collaboration scope, and preferred follow-up channel. AI instructions can qualify the lead against your rules and route a summary to your inbox, CRM, ticketing system, or workflow when configured.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much human review do we need before launching this on our website?",
+      "answer": "Plan a short review cycle with real client questions: package selection, birth-time uncertainty, refund requests, sensitive relationship questions, and booking issues. Review answer accuracy, escalation behavior, tone, source coverage, and whether the agent clearly separates education from personal interpretation.",
+      "role": "Solo astrologers and spiritual advisors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot protect our private client context and internal policies?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data. You can also scope Skills and workflows so the agent only accesses approved sources and actions.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use DocsBot internally for assistants, marketers, and junior readers, not just website visitors?",
+      "answer": "Yes. A private internal DocsBot agent can answer staff questions from SOPs, reader policies, refund rules, brand guidelines, testimonial rules, pricing notes, and onboarding material. It can help teams draft consistent replies while leaving exceptions, public claims, and client-sensitive decisions to humans.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it help us stay consistent with testimonials, influencer posts, and social proof?",
+      "answer": "Yes. Train an internal agent on your testimonial policy, disclosure templates, approval checklist, brand guidelines, and FTC notes. The FTC’s Endorsement Guides provide guidance for reviews, testimonials, influencer endorsements, and clear disclosure of material connections, so human approval should remain part of the workflow.",
+      "role": "Content-led astrology brands",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-endorsement-guides"
+      ]
+    },
+    {
+      "question": "What if our astrology brand has a very specific voice and we do not want generic AI answers?",
+      "answer": "DocsBot is designed to answer from your own content in your company’s voice. Use your service descriptions, client preparation language, ethical boundaries, newsletter archive, course material, and preferred phrases as sources, then review conversations to refine tone and fill content gaps.",
+      "role": "Content-led astrology brands",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent answer in other languages for international astrology clients?",
+      "answer": "Yes. DocsBot supports more than 100 languages, so visitors can explore your approved astrology content in their preferred language. For human readings, the agent should still answer from your language availability policy and escalate when a reader must confirm service availability.",
+      "role": "Content-led astrology brands",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does this help a solo astrologer who cannot afford a support team?",
+      "answer": "A solo practitioner can use DocsBot to handle repetitive questions about services, pricing, birth data, preparation, rescheduling, delivery timing, and boundaries. That reduces administrative interruption while preserving the practitioner’s time for readings, client judgment, content creation, and exceptions.",
+      "role": "Solo astrologers and spiritual advisors",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent integrate with our booking, forms, CRM, or helpdesk tools?",
+      "answer": "DocsBot can support approved actions through Skills, APIs, connectors, webhooks, forms, customer-configured workflows, and MCP Connectors where your team authorizes access. It is best to start with scoped actions such as collecting intake, creating a task, routing a lead, or triggering a booking request.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we prevent the agent from seeing internal notes or reader-only policies that clients should not see?",
+      "answer": "Yes. Use granular access controls, role-based permissions, source scoping, and separate customer-facing versus internal agents. Public agents should only be trained on content approved for client answers, while private agents can access internal SOPs, reader notes, escalation rules, and marketing policies.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What should we prepare before implementation so the agent is useful quickly?",
+      "answer": "Gather your service menu, package descriptions, practitioner bios, FAQs, refund and cancellation policies, intake form instructions, preparation guides, delivery timelines, escalation rules, and brand voice examples. Also identify questions the agent must never answer directly, such as crisis, medical, legal, financial, or paid interpretation requests.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us decide what new content or FAQs to create?",
+      "answer": "Yes. DocsBot’s analytics, reports, conversation review, topic management, and knowledge-gap discovery can show which chart concepts, service types, policies, or booking questions clients ask repeatedly. That helps prioritize new guides, landing page copy, course lessons, and support macros.",
+      "role": "Content-led astrology brands",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is there enough client demand to justify automating astrology inquiry handling?",
+      "answer": "For many brands, yes: Pew Research Center found that 30% of U.S. adults consult astrology or a horoscope, tarot cards, or a fortune teller at least once a year, and 27% say they believe in astrology. Automation is most valuable when that interest turns into repeated booking, intake, and policy questions.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-pew-astrology-usage-2025"
+      ]
+    },
+    {
+      "question": "Can we tailor the experience for the audiences most likely to ask astrology questions?",
+      "answer": "Yes. DocsBot can answer from different content paths for beginners, returning clients, event leads, course students, or newsletter subscribers. Audience-specific education may matter because Pew reported that 43% of women ages 18 to 49 say they believe in astrology.",
+      "role": "Content-led astrology brands",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-pew-younger-women-astrology"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or FAQ plugin?",
+      "answer": "A generic chatbot usually answers static questions or collects basic contact details. DocsBot is built as a source-grounded AI agent trained on your knowledge, with analytics, conversation review, knowledge-gap discovery, human escalation, internal assistant use cases, and bounded actions through configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What if the agent gives an answer that is technically from our content but outdated or no longer our policy?",
+      "answer": "That is a content governance issue to manage during setup and ongoing review. Remove outdated sources, define source priority, keep pricing and policies current, review conversation logs, and use knowledge-gap insights to find confusing or conflicting content before it creates client friction.",
+      "role": "Astrology studios and online reading platforms",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

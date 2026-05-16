@@ -1,0 +1,723 @@
+{
+  "slug": "cybersecurity-consulting",
+  "business": "Cybersecurity Consulting",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Cybersecurity Consulting Workflows",
+    "description": "DocsBot helps cybersecurity consulting firms deliver source-grounded client answers, streamline intake, and reduce repetitive analyst work.",
+    "canonicalPath": "/industry/cybersecurity-consulting"
+  },
+  "hero": {
+    "eyebrow": "AI knowledge and workflow agents for security consultants",
+    "headline": "Scale cybersecurity consulting with source-grounded AI agents",
+    "subheadline": "DocsBot helps security firms turn policies, reports, playbooks, service catalogs, FAQs, and onboarding materials into AI agents that answer client questions, support analysts, qualify new engagements, summarize context, and route sensitive requests to the right expert.",
+    "proofBullets": [
+      {
+        "text": "Answer client questions from approved security guidance, reports, onboarding docs, and service FAQs.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Collect incident, audit, or assessment intake details before routing the request to a consultant.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "text": "Give analysts a private knowledge agent for SOPs, frameworks, templates, and client-specific procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to create tasks, draft handoffs, summarize tickets, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a cybersecurity AI agent",
+    "secondaryCta": "Explore secure knowledge automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your firm’s approved knowledge sources. For cybersecurity consultants, that can include client onboarding guides, incident response playbooks, NIST or ISO mapping notes, report templates, remediation FAQs, service descriptions, internal SOPs, and ticket exports. Agents provide source-grounded answers, summarize context, reveal knowledge gaps, and take bounded actions when configured through Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Managing partners and practice leads",
+        "roleContext": "Give clients faster access to approved guidance while keeping consultants focused on complex advisory work, assessments, incident response, and executive communication.",
+        "bullets": [
+          {
+            "text": "Standardize answers about assessment scope, deliverables, timelines, and client responsibilities.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Route high-risk, legal, contractual, or incident-related questions to the appropriate human expert.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics to see repeated client questions and improve onboarding content or advisory packages.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Security analysts and consultants",
+        "roleContext": "Make internal procedures, evidence checklists, control mappings, and remediation guidance easier to retrieve during assessments and client support.",
+        "bullets": [
+          {
+            "text": "Ask natural-language questions across SOPs, templates, technical notes, and prior approved knowledge.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize client context, open questions, and next steps before a review call or handoff.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Reduce repetitive searching while preserving human review for sensitive security judgments.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "ComputerDesktopIcon"
+      },
+      {
+        "role": "Sales and client success teams",
+        "roleContext": "Help prospects understand your services, prepare discovery calls, and move qualified opportunities to a consultant with clean context.",
+        "bullets": [
+          {
+            "text": "Answer approved presales questions about security assessments, vCISO services, compliance support, and retainers.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect company size, environment, urgency, compliance drivers, and desired timeline through structured intake.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to CRM, ticketing, email, Slack, or Teams through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fbi-ic3-2024-losses",
+      "metric": "$16 billion in reported 2024 cybercrime losses",
+      "claim": "The FBI reported 859,532 suspected internet crime complaints in 2024, with losses exceeding $16 billion and a 33% increase in losses from 2023.",
+      "sourceTitle": "FBI Releases Annual Internet Crime Report",
+      "sourceUrl": "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "client urgency",
+        "security demand",
+        "cybercrime pressure"
+      ]
+    },
+    {
+      "id": "src-ibm-breach-cost-2024",
+      "metric": "$4.88 million average global breach cost",
+      "claim": "IBM reported that the average global cost of a data breach reached USD 4.88 million in 2024, based on breaches experienced by 604 organizations.",
+      "sourceTitle": "IBM Report: Escalating Data Breach Disruption Pushes Costs to New Highs",
+      "sourceUrl": "https://newsroom.ibm.com/2024-07-30-ibm-report-escalating-data-breach-costs-to-new-highs",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "breach cost pressure",
+        "incident response urgency",
+        "security investment"
+      ]
+    },
+    {
+      "id": "src-isc2-workforce-gap-2024",
+      "metric": "4.8 million global cybersecurity workforce gap",
+      "claim": "ISC2 estimated that 4.8 million additional cybersecurity professionals were needed worldwide in 2024 to effectively secure organizations.",
+      "sourceTitle": "CybersecurityAwarenessMonth: Cybersecurity Needs You!",
+      "sourceUrl": "https://www.isc2.org/Insights/2024/10/CybersecurityAwarenessMonth-Cybersecurity-Needs-You",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "labor shortage",
+        "analyst workload",
+        "knowledge access"
+      ]
+    },
+    {
+      "id": "src-nist-csf-2",
+      "metric": "NIST CSF 2.0 risk management guidance",
+      "claim": "NIST describes the Cybersecurity Framework 2.0 as guidance for industry, government agencies, and other organizations to manage cybersecurity risks.",
+      "sourceTitle": "The NIST Cybersecurity Framework (CSF) 2.0",
+      "sourceUrl": "https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "framework complexity",
+        "control guidance",
+        "assessment workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client security guidance agent",
+      "problem": "Clients repeatedly ask about MFA rollout, incident triage, phishing reports, endpoint hardening, audit evidence, retainer scope, and remediation priorities.",
+      "agentWorkflow": "Train a DocsBot AI support agent on your approved client-facing guidance, service pages, onboarding documents, response playbooks, and FAQs. The agent answers routine questions with source-grounded responses, asks clarifying questions when context is missing, and escalates sensitive issues to a consultant.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can collect incident intake details, create a ticket, notify the right team, or attach a summary to a helpdesk workflow.",
+      "exampleQuestionsOrRequests": [
+        "What should our IT team collect before the tabletop exercise?",
+        "How do we report a suspected phishing incident to your retainer team?",
+        "Which evidence do you need for our access control review?"
+      ],
+      "businessOutcome": "Clients get faster, consistent guidance while consultants preserve time for analysis, remediation planning, and high-impact advisory work.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Assessment intake and scoping assistant",
+      "problem": "Discovery calls can stall when prospects do not provide environment size, compliance drivers, systems in scope, timeline, or current security maturity.",
+      "agentWorkflow": "Use DocsBot as a presales intake agent trained on your service catalog, qualification rules, scoping questions, and proposal prerequisites. It gathers structured details, explains approved service options, and prepares a concise handoff for sales or a senior consultant.",
+      "liveContextOrTools": "Customer-configured AI Actions can submit a lead form, create or update an approved CRM record, send a summary to email or Slack, and request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do we need a penetration test, risk assessment, or vCISO engagement?",
+        "Can you scope a SOC 2 readiness project for a 120-person SaaS company?",
+        "Book a consultation and send our environment details to your team."
+      ],
+      "businessOutcome": "Sales conversations start with cleaner context, and consultants spend less time reconstructing basic facts.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Internal control mapping and framework knowledge agent",
+      "problem": "Consultants often need to search across framework notes, client procedures, evidence checklists, report language, and internal templates while under deadline pressure.",
+      "agentWorkflow": "Create a private DocsBot internal knowledge agent trained on firm-approved SOPs, control mapping guides, remediation language, templates, and knowledge bases. Analysts ask questions in plain language and receive answers grounded in your maintained sources.",
+      "liveContextOrTools": "Teams can access the agent in private chat experiences, Slack, Microsoft Teams, or API-driven workflows when configured. Model Context Protocol connectors can be used where your team exposes approved tools through remote MCP servers.",
+      "exampleQuestionsOrRequests": [
+        "Which evidence usually supports this access review control?",
+        "Where is our standard ransomware readiness interview script?",
+        "Summarize the difference between these two remediation templates."
+      ],
+      "businessOutcome": "Analysts retrieve institutional knowledge faster and reduce inconsistent interpretation across engagements.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-nist-csf-2"
+      ]
+    },
+    {
+      "name": "Incident handoff and ticket summarization",
+      "problem": "During suspected incidents, clients and internal teams need fast triage context, but repetitive fact collection and status summaries consume consultant time.",
+      "agentWorkflow": "A DocsBot agent can collect initial facts, summarize client messages, identify missing details, draft response notes, and route the issue based on your firm’s escalation rules. Human consultants remain responsible for incident decisions, legal guidance, and final client communication.",
+      "liveContextOrTools": "With scoped Skills, APIs, or connectors, the agent can create a task, update approved ticket fields, notify the on-call team, or prepare a handoff summary for review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this suspected business email compromise report for the incident lead.",
+        "What details are missing before escalation?",
+        "Create a handoff note for the on-call consultant."
+      ],
+      "businessOutcome": "Incident teams receive clearer context sooner while maintaining boundaries for sensitive, high-impact security work.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fbi-ic3-2024-losses",
+        "src-ibm-breach-cost-2024"
+      ]
+    },
+    {
+      "name": "Knowledge gap and content improvement reporting",
+      "problem": "Consulting firms may not know which client questions are missing from onboarding guides, FAQs, security awareness content, or assessment documentation.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see repeated questions and unanswered topics. Those insights can inform new articles, playbooks, sales collateral, and client onboarding updates.",
+      "liveContextOrTools": "Reports can be reviewed by practice leads and content owners before adding new approved sources or revising agent instructions.",
+      "exampleQuestionsOrRequests": [
+        "Which client questions were not answered this month?",
+        "What onboarding topic keeps recurring across vCISO clients?",
+        "Which service page should we update based on prospect questions?"
+      ],
+      "businessOutcome": "Documentation improves over time, reducing repeated explanations and helping clients self-serve approved guidance.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Analyst onboarding and service delivery coach",
+      "problem": "Cybersecurity talent remains constrained, and new consultants need faster access to firm-specific methods, templates, and engagement expectations.",
+      "agentWorkflow": "Train an internal DocsBot agent on onboarding materials, role guides, service delivery checklists, reporting standards, and approved examples. New analysts can ask procedural questions and get grounded answers without interrupting senior staff for every detail.",
+      "liveContextOrTools": "The agent can summarize training material, point to the right source, and surface unanswered questions that indicate onboarding gaps.",
+      "exampleQuestionsOrRequests": [
+        "How do we run the kickoff for a cloud security review?",
+        "Which report template should I use for a policy gap assessment?",
+        "What should I prepare before joining a vCISO client call?"
+      ],
+      "businessOutcome": "Firms preserve senior expertise and help new team members become productive faster.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-isc2-workforce-gap-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and prospects a secure first place to ask",
+    "intro": "A DocsBot customer-facing agent can sit on your website, client portal, or product experience as a source-grounded guide. It answers from approved content, collects the facts your team needs, and escalates sensitive or complex questions instead of improvising beyond its boundaries.",
+    "requests": [
+      {
+        "request": "“What should we do after an employee reports a suspicious email?”",
+        "agentResponseStrategy": "Provide approved first-response guidance from your playbook, ask for non-sensitive context, and route urgent incident indicators to the designated consultant or ticket queue.",
+        "sourceTypes": [
+          "Incident response playbooks",
+          "Client onboarding guides",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create an intake ticket or notify the configured incident response channel for human review.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Do you help with NIST CSF 2.0 assessments?”",
+        "agentResponseStrategy": "Answer from your service catalog and framework notes, explain the engagement type at a high level, and collect company size, systems in scope, and timeline.",
+        "sourceTypes": [
+          "Service pages",
+          "Framework mapping notes",
+          "Presales FAQs"
+        ],
+        "optionalAction": "Submit a qualified lead summary to the sales or consulting team through an approved workflow.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-nist-csf-2"
+        ]
+      },
+      {
+        "request": "“What evidence do we need before our readiness review?”",
+        "agentResponseStrategy": "Return the relevant evidence checklist from your approved assessment materials and clarify which items depend on the client’s environment.",
+        "sourceTypes": [
+          "Assessment checklists",
+          "Client prep guides",
+          "Report templates"
+        ],
+        "optionalAction": "Send a preparation summary to the client success team or create a task for follow-up.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you explain your retainer response times and scope?”",
+        "agentResponseStrategy": "Answer only from approved retainer documentation, clarify plan differences, and hand off pricing, contract, or guarantee questions to a person.",
+        "sourceTypes": [
+          "Retainer documentation",
+          "Contract FAQs",
+          "Service descriptions"
+        ],
+        "optionalAction": "Collect contact details and preferred follow-up channel for the account owner.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Our company may have had a data breach. What information should we prepare?”",
+        "agentResponseStrategy": "Gather initial non-sensitive facts, explain your approved intake process, and escalate immediately according to firm-defined incident boundaries.",
+        "sourceTypes": [
+          "Incident intake forms",
+          "Escalation policies",
+          "Client communication templates"
+        ],
+        "optionalAction": "Create a high-priority handoff summary for the incident team when configured.",
+        "icon": "FireIcon",
+        "sourceIds": [
+          "src-ibm-breach-cost-2024"
+        ]
+      },
+      {
+        "request": "“Do you work with companies in our industry and size?”",
+        "agentResponseStrategy": "Use approved ICP, service-fit, and case-study style materials to explain fit without making unsupported promises.",
+        "sourceTypes": [
+          "ICP rules",
+          "Service catalog",
+          "Sales enablement notes"
+        ],
+        "optionalAction": "Qualify the prospect and route the summary to sales or a consultant.",
+        "icon": "UserCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put your firm’s security knowledge where consultants already work",
+    "intro": "DocsBot can also operate as a private internal knowledge agent for analysts, consultants, sales, client success, and operations. It retrieves answers from approved internal sources, summarizes context, and helps teams find the right process without digging through scattered files.",
+    "workflows": [
+      {
+        "name": "Report writing support",
+        "problem": "Consultants need consistent language for findings, risk descriptions, remediation steps, and executive summaries.",
+        "agentWorkflow": "Ask DocsBot to find approved report language, summarize supporting context, or draft a starting point from your templates and knowledge base. Consultants review and finalize all client-facing deliverables.",
+        "sourceTypes": [
+          "Report templates",
+          "Remediation libraries",
+          "Engagement notes"
+        ],
+        "optionalAction": "Generate a draft summary or route a review task to a senior consultant through an approved workflow.",
+        "outcome": "Faster drafting with more consistent firm-approved language.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Policy and procedure lookup",
+        "problem": "Security teams lose time searching for the latest internal method, escalation rule, or client delivery standard.",
+        "agentWorkflow": "Train DocsBot on SOPs, internal wikis, PDFs, Confluence, Notion, Google Drive, Word documents, and other approved sources. The agent answers procedural questions and cites the source material.",
+        "sourceTypes": [
+          "SOPs",
+          "Internal wikis",
+          "Delivery playbooks"
+        ],
+        "optionalAction": "Flag missing or outdated knowledge for documentation owners during conversation review.",
+        "outcome": "Less repetitive searching and fewer inconsistent process answers.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Sales enablement for technical services",
+        "problem": "Sales teams need accurate service-fit answers without overpromising technical outcomes or contract terms.",
+        "agentWorkflow": "Use a DocsBot sales enablement agent trained on service catalogs, pricing guidance, objection handling, case studies, proposal templates, and implementation notes. It can prepare talking points and draft follow-up emails for human review.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Objection handling notes"
+        ],
+        "optionalAction": "Create a follow-up task, draft an email, or forward a qualified opportunity summary to configured sales systems.",
+        "outcome": "Prospects receive clearer answers while consultants stay involved in technical commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Client account context summaries",
+        "problem": "Account teams may need to quickly understand prior questions, open tasks, recurring risks, and next steps before a meeting.",
+        "agentWorkflow": "When configured with approved sources and workflows, DocsBot can summarize account notes, tickets, prior Q&A, and project documentation into a concise briefing for the human team.",
+        "sourceTypes": [
+          "Client notes",
+          "Ticket exports",
+          "Project documentation"
+        ],
+        "optionalAction": "Send the briefing to Slack, Teams, email, or a task system through customer-configured actions.",
+        "outcome": "Better-prepared client conversations with less manual context gathering.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents",
+      "mainLandingPageContext": "DocsBot agents are trained on your own approved content so answers are grounded in business-specific knowledge rather than generic web responses.",
+      "industryApplication": "Cybersecurity firms can train agents on service documentation, client onboarding materials, remediation guidance, incident playbooks, assessment templates, and internal SOPs.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record creation, updates, and workflow triggers when configured by the customer.",
+      "industryApplication": "Use approved actions to collect incident intake, create support tasks, route leads, draft handoffs, summarize tickets, or notify the right security consultant.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge access",
+      "mainLandingPageContext": "DocsBot can act as a private employee assistant trained on internal documents, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other company sources.",
+      "industryApplication": "Analysts can ask about control mapping, evidence expectations, reporting standards, client delivery steps, and firm procedures without searching scattered repositories.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Practice leads can see which client questions repeat, which content is missing, and where onboarding or service documentation should be improved.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Cybersecurity consulting buyers can align agent access with sensitive client work, internal procedures, role boundaries, and review expectations.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual support and deployment options",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages and can be used through website widgets, private team chat, API-driven experiences, helpdesk-connected workflows, Slack, and Microsoft Teams when configured.",
+      "industryApplication": "Support global clients, distributed analyst teams, and multilingual security awareness or onboarding questions from a consistent approved knowledge base.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "wingarc-ai-operations",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high interaction volume, including 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for owned knowledge libraries, source-grounded answers, and operational AI agent workflows.",
+      "Supports internal decision-making patterns for teams that need faster access to trusted knowledge."
+    ],
+    "whyTheseReviewsFit": "Cybersecurity consulting firms need dependable answers, controlled knowledge access, and scalable workflows. DocsBot proof spans high-volume support, AI operations, owned-content training, and internal decision support, giving security practices a practical foundation for client-facing and internal agents.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "BuildingOffice2Icon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for cybersecurity consulting firms",
+    "audience": [
+      "Cybersecurity consulting firms",
+      "vCISO providers",
+      "Security assessment teams",
+      "Managed security advisory practices"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ShieldCheckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "ai-consulting",
+    "data-privacy-consulting",
+    "digital-transformation-consulting",
+    "ai-automation-agency",
+    "big-data-analytics",
+    "business-information"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14",
+    "sourceIndustrySlug": "cybersecurity-consulting",
+    "webSearchQueries": [
+      "cybersecurity workforce gap 2024 ISC2 report number professionals needed",
+      "IBM cost of a data breach report 2024 average cost data breach",
+      "FBI Internet Crime Report 2024 losses cybercrime",
+      "NIST Cybersecurity Framework 2.0 official 2024"
+    ],
+    "sourceUrls": [
+      "https://www.fbi.gov/news/press-releases/fbi-releases-annual-internet-crime-report",
+      "https://newsroom.ibm.com/2024-07-30-ibm-report-escalating-data-breach-costs-to-new-highs",
+      "https://www.isc2.org/Insights/2024/10/CybersecurityAwarenessMonth-Cybersecurity-Needs-You",
+      "https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 60022,
+        "cachedInputTokens": 7296,
+        "billableInputTokens": 52726,
+        "outputTokens": 19761,
+        "reasoningOutputTokens": 232,
+        "totalTokens": 79783,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.860108,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.880108
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 21527,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14231,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 119,
+          "totalTokens": 33527,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.434803,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.444803
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 19576,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 19576,
+          "outputTokens": 4871,
+          "reasoningOutputTokens": 113,
+          "totalTokens": 24447,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.24401,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.25401
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 18919,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 18919,
+          "outputTokens": 2890,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21809,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.181295,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.181295
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ2MDN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cybersecurity Consulting background image",
+    "source": "legacy-industry",
+    "query": "Cybersecurity Consulting"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from giving security advice that goes beyond our approved playbooks?",
+      "answer": "Train the agent only on approved client guidance, service documentation, onboarding materials, and internal playbooks. DocsBot should be configured to answer from those sources, ask clarifying questions when context is missing, and escalate incident, legal, contractual, or high-risk security judgment calls to a consultant instead of improvising.",
+      "role": "Managing partners and practice leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help clients self-serve routine questions without weakening our advisory relationship?",
+      "answer": "Yes. A customer-facing agent can answer repetitive questions about evidence requests, kickoff preparation, retainer scope, phishing-report steps, MFA rollout guidance, or assessment logistics from your approved materials. Consultants still handle interpretation, prioritization, executive communication, and sensitive decisions, so the agent supports the relationship rather than replacing it.",
+      "role": "Managing partners and practice leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Where would this fit in a cybersecurity consulting firm’s current workflow?",
+      "answer": "Common starting points are website presales intake, client portal guidance, internal analyst knowledge lookup, assessment evidence checklists, incident intake summaries, and service delivery SOP search. DocsBot can also support Slack, Microsoft Teams, private chat, API-driven experiences, and customer-configured ticketing or CRM workflows when your team authorizes the right connections.",
+      "role": "Managing partners and practice leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent handle incident intake, or is that too risky for a client-facing AI system?",
+      "answer": "It can help with bounded intake: collect non-sensitive facts, identify missing details, summarize what the client reported, and route the handoff to the designated incident lead. It should not make breach determinations, legal judgments, containment decisions, or final client communications. That boundary is especially important when breach costs and cybercrime losses remain high.",
+      "role": "Managing partners and practice leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fbi-ic3-2024-losses",
+        "src-ibm-breach-cost-2024"
+      ]
+    },
+    {
+      "question": "What kind of ROI should a practice lead expect from an internal knowledge agent?",
+      "answer": "The strongest ROI usually comes from reducing repetitive search, shortening onboarding, standardizing report language, and making senior expertise reusable. For firms facing analyst capacity constraints, even modest time savings across scoping, evidence review, control mapping, and report drafting can free consultants for higher-value client work.",
+      "role": "Managing partners and practice leads",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-isc2-workforce-gap-2024"
+      ]
+    },
+    {
+      "question": "Can DocsBot help new analysts learn our assessment methods without constantly interrupting senior consultants?",
+      "answer": "Yes. An internal knowledge agent can be trained on onboarding guides, delivery checklists, report templates, control mapping notes, client meeting scripts, and approved examples. New analysts can ask procedural questions and get source-grounded answers, while unanswered or repeated questions reveal where your training materials need improvement.",
+      "role": "Security analysts and consultants",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would analysts use this during NIST, ISO, SOC 2, or other framework-heavy work?",
+      "answer": "Analysts can ask natural-language questions across your control mapping notes, evidence checklists, SOPs, and reporting templates. For example, the agent can point to the approved evidence language for an access review or summarize the difference between two remediation templates. Human reviewers still validate the final control interpretation and client recommendation.",
+      "role": "Security analysts and consultants",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nist-csf-2"
+      ]
+    },
+    {
+      "question": "Will the agent cite where an answer came from so consultants can verify it?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved knowledge base. For consulting work, that matters because analysts need to confirm whether an answer came from a current SOP, a client-specific procedure, a report template, or a framework mapping note before using it in a deliverable or client conversation.",
+      "role": "Security analysts and consultants",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we separate client-facing knowledge from internal-only methodology and sensitive client notes?",
+      "answer": "Yes. Use separate agents, approved source sets, granular access controls, and role-based permissions so client-facing answers come from sanitized materials while internal agents can access private SOPs, templates, and delivery guidance. Sensitive repositories should be scoped deliberately, with review paths for any action that could expose confidential information.",
+      "role": "Managing partners and practice leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security posture can we show our own security review team before adopting DocsBot?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a commitment that customer data is not used to train public models. For higher-risk workflows, Skills can be configured with secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "Managing partners and practice leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot connect to the systems our consultants already use, or does it require a new work queue?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, webhooks, and MCP Connectors where your team exposes approved tools. Typical actions include creating a task, updating approved ticket fields, forwarding a qualified lead summary, notifying Slack or Teams, or attaching a handoff summary to a helpdesk-style workflow.",
+      "role": "Security analysts and consultants",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the agent from using outdated policies, old report language, or retired service descriptions?",
+      "answer": "Treat the agent like a governed knowledge channel. Assign content owners, connect only approved repositories, remove obsolete materials, review conversation logs, and use knowledge-gap reporting to see where answers fail or drift. The best implementations pair AI rollout with a documentation maintenance process rather than uploading everything once and forgetting it.",
+      "role": "Managing partners and practice leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can a presales agent qualify cybersecurity leads without overpromising scope, pricing, or outcomes?",
+      "answer": "Yes, if it is trained on approved service catalogs, qualification rules, proposal prerequisites, and objection-handling guidance. It can collect company size, compliance drivers, systems in scope, urgency, timeline, and preferred follow-up channel, then route a structured summary to sales or a senior consultant. Pricing, contracts, and technical commitments should stay human-reviewed.",
+      "role": "Sales and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this improve discovery calls for assessments, vCISO services, or incident retainers?",
+      "answer": "The agent can gather basic context before the call: environment size, cloud providers, regulatory drivers, current tooling, incident urgency, target deadline, and decision stakeholders. Sales and consultants start with cleaner notes instead of spending the first meeting reconstructing fundamentals, while prospects get faster answers about approved service options.",
+      "role": "Sales and client success teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent route urgent client issues differently from normal advisory questions?",
+      "answer": "Yes. You can define escalation rules so suspected incidents, breach language, legal questions, contract disputes, or executive-sensitive issues are routed to the right human path. With approved actions, the agent can create a high-priority handoff, notify the designated channel, or collect missing intake details before escalation.",
+      "role": "Managing partners and practice leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What reporting would help us prove the agent is improving service delivery?",
+      "answer": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can show what clients and employees ask, what goes unanswered, and which topics repeat. Practice leads can use that data to improve onboarding content, assessment prep guides, service pages, and internal delivery playbooks.",
+      "role": "Managing partners and practice leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we measure success after launch?",
+      "answer": "Track reduced repetitive consultant questions, faster intake completion, fewer incomplete discovery forms, lower time spent searching SOPs, improved consistency in client-facing answers, faster analyst onboarding, and knowledge gaps closed. For client-facing use, also review escalation quality and whether high-risk conversations are correctly handed to humans.",
+      "role": "Managing partners and practice leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will clients trust an AI agent in a cybersecurity consulting context?",
+      "answer": "Trust depends on positioning and boundaries. Present it as a secure first place to ask for approved guidance, not as an autonomous security advisor. Make clear when answers come from your firm’s documentation, when the agent is collecting intake, and when a consultant will review or take over sensitive issues.",
+      "role": "Sales and client success teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot support both public website questions and private client portal questions?",
+      "answer": "Yes. A public agent can answer service-fit and presales questions from approved website and sales materials, while a private client-facing agent can use onboarding guides, retainer FAQs, preparation checklists, and client-specific procedures if you configure the right access boundaries. Many firms should start with lower-risk public or internal use cases first.",
+      "role": "Sales and client success teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much implementation effort should we expect before the agent is useful?",
+      "answer": "The work is less about model tuning and more about source readiness. You need to identify approved documents, separate internal from client-facing content, define escalation rules, write instructions, test real questions, and decide which actions are allowed. A focused first use case, such as assessment intake or internal SOP lookup, is usually easier than a broad all-purpose rollout.",
+      "role": "Managing partners and practice leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "What if our knowledge is spread across Google Drive, Confluence, PDFs, tickets, and old templates?",
+      "answer": "That is common in consulting firms. DocsBot can train on internal documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, websites, and other approved sources. The key is curation: connect the maintained materials first, exclude stale or client-confidential documents where inappropriate, and use analytics to decide what to improve next.",
+      "role": "Security analysts and consultants",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent draft report sections or remediation language for consultants?",
+      "answer": "It can draft starting points from approved report templates, remediation libraries, engagement notes, and firm language. Consultants should review, tailor, and finalize anything client-facing, especially risk ratings, remediation prioritization, and executive summaries. The value is faster retrieval and consistency, not removing professional judgment.",
+      "role": "Security analysts and consultants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with building our own retrieval-augmented AI assistant?",
+      "answer": "A custom build may offer deep control, but it requires ongoing work for ingestion, permissions, prompting, evaluation, analytics, UI, logging, workflow actions, and governance. DocsBot gives consulting firms a productized path for source-grounded agents, internal knowledge access, analytics, and bounded actions without making your team maintain the full AI application stack.",
+      "role": "Managing partners and practice leads",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can sales use this without exposing internal security methodology to prospects?",
+      "answer": "Yes. Create a sales enablement or public presales agent trained only on approved service descriptions, FAQs, case-study style materials, proposal language, and qualification rules. Keep internal testing methodology, exploit details, client notes, and delivery SOPs in a separate private agent with role-based access.",
+      "role": "Sales and client success teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What procurement concerns should we address before involving our CISO or legal team?",
+      "answer": "Prepare answers around data handling, access controls, source governance, human escalation, auditability, approved actions, and whether customer data trains public models. DocsBot’s SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and no-public-model-training stance are typically relevant to that review.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can this scale across multiple practices, such as vCISO, GRC, cloud security, and incident response?",
+      "answer": "Yes, but scale works best with deliberate separation. Use distinct source collections, instructions, permissions, and escalation paths for each practice area. A vCISO knowledge agent, a GRC evidence assistant, a cloud review SOP agent, and an incident intake agent may share a platform while operating under different boundaries.",
+      "role": "Managing partners and practice leads",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we reduce hallucination risk when clients ask vague or incomplete security questions?",
+      "answer": "Configure the agent to ask clarifying questions, answer only from approved sources, cite or point back to source material, and escalate when context is missing or the request is sensitive. For cybersecurity consulting, a safe answer often means narrowing the question, collecting intake, or routing to a consultant rather than guessing.",
+      "role": "Security analysts and consultants",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help us identify which client education content we should create next?",
+      "answer": "Yes. Conversation review, analytics, topic management, and knowledge-gap discovery can show repeated unanswered questions about evidence prep, assessment scope, phishing reporting, retainer terms, remediation ownership, or compliance readiness. Those patterns help practice leads prioritize new FAQs, onboarding pages, templates, and client education materials.",
+      "role": "Managing partners and practice leads",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

@@ -1,0 +1,741 @@
+{
+  "slug": "meat-industry",
+  "business": "Meat Industry",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Meat Businesses and Processors",
+    "description": "DocsBot helps meat industry teams answer product, handling, order, and SOP questions with source-grounded AI agents that reduce repetitive support.",
+    "canonicalPath": "/industry/meat-industry"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for butchers, processors, meat brands, and retailers",
+    "headline": "Give meat customers and teams answers they can trust",
+    "subheadline": "DocsBot helps meat businesses create AI agents trained on approved product catalogs, cut sheets, cooking guides, storage instructions, SOPs, policies, FAQs, and internal documents. Use them on your website, in team chat, or through customer-configured workflows to answer questions, collect details, route requests, and escalate sensitive issues.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about cuts, cooking guidance, storage, pickup details, subscriptions, and product fit from your approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give staff instant access to SOPs, HACCP references, sanitation procedures, allergen notes, and training content without digging through binders.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect order details, create handoff summaries, route wholesale inquiries, or trigger approved workflows when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review analytics and logs to spot repeated questions, missing product documentation, and confusing customer instructions.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a meat industry AI agent",
+    "secondaryCta": "Explore workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your meat business knowledge into AI agents that answer from the sources you approve. Teams can train agents on websites, PDFs, SOPs, policies, product sheets, manuals, FAQs, ticket exports, and internal docs, then deploy them as website support, private team assistants, documentation helpers, or bounded workflow agents with configured Skills and AI Actions.",
+    "whoItHelps": [
+      {
+        "role": "Butcher shops and specialty meat retailers",
+        "roleContext": "Customer-facing teams handle repeat questions about cuts, cooking, storage, pickup, specials, sourcing, subscriptions, and product availability while keeping staff focused on counter service.",
+        "bullets": [
+          {
+            "text": "Guide shoppers to the right cut using your catalog, service policies, cooking notes, and preparation FAQs.",
+            "icon": "ShoppingBagIcon"
+          },
+          {
+            "text": "Collect custom order details such as occasion, serving count, preferred cut, pickup timing, and follow-up channel before staff respond.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate allergy, recall, complaint, safety, or custom-pricing questions to a person with a concise conversation summary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Meat processors and packers",
+        "roleContext": "Operations, QA, and training teams need consistent access to procedures, sanitation records, regulatory references, and production knowledge across shifts.",
+        "bullets": [
+          {
+            "text": "Make approved SOPs, SSOPs, HACCP plan references, equipment guides, and corrective-action playbooks searchable for employees.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Help supervisors answer training and process questions consistently during onboarding and shift handoffs.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Use scoped Skills to summarize an internal request, create a task, route a QA question, or look up approved status data when connected.",
+            "icon": "CogIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Wholesale meat brands and foodservice suppliers",
+        "roleContext": "Sales and support teams need fast, consistent answers about specs, pack sizes, lead times, certifications, preparation guidance, and account handoffs.",
+        "bullets": [
+          {
+            "text": "Support presales conversations with answers from spec sheets, product catalogs, certifications, fulfillment policies, and sales enablement content.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Qualify restaurant, grocery, and distributor inquiries with structured intake fields and customer-defined lead rules.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified inquiries, summaries, and next steps to sales, support, email, CRM-style systems, or helpdesk workflows when configured.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-meat-availability",
+      "metric": "USDA projected 227 pounds of red meat and poultry available per U.S. consumer in 2026.",
+      "claim": "USDA ERS projects high U.S. red meat and poultry availability, reinforcing the volume of product, preparation, and handling questions meat businesses must support.",
+      "sourceTitle": "Per capita availability of red meat and poultry projected higher in 2025 and 2026",
+      "sourceUrl": "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=113119",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "consumer demand",
+        "product question volume",
+        "meat market scale"
+      ]
+    },
+    {
+      "id": "src-fsis-haccp",
+      "metric": "FSIS HACCP rules require meat and poultry establishments to control food safety hazards through HACCP systems.",
+      "claim": "USDA FSIS describes HACCP as a framework for reducing pathogenic microorganisms and foodborne illness risks in meat, poultry, and egg products.",
+      "sourceTitle": "HACCP Guidance",
+      "sourceUrl": "https://www.fsis.usda.gov/inspection/compliance-guidance/haccp",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "compliance pressure",
+        "food safety procedures",
+        "quality assurance workflows"
+      ]
+    },
+    {
+      "id": "src-fsis-validation",
+      "metric": "9 CFR 417.4 requires establishments to validate HACCP plans for identified food safety hazards.",
+      "claim": "FSIS guidance states meat and poultry establishments must validate the adequacy of HACCP plans in controlling hazards identified during hazard analysis.",
+      "sourceTitle": "HACCP Validation",
+      "sourceUrl": "https://www.fsis.usda.gov/inspection/compliance-guidance/haccp/haccp-validation",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "HACCP validation",
+        "QA documentation",
+        "regulated operations"
+      ]
+    },
+    {
+      "id": "src-fda-safe-handling",
+      "metric": "FDA says a food thermometer is the only way to ensure safety of meat, poultry, seafood, and egg products across cooking methods.",
+      "claim": "Consumer handling guidance from FDA emphasizes thermometer-based cooking safety, supporting clear public-facing preparation instructions.",
+      "sourceTitle": "Safe Food Handling",
+      "sourceUrl": "https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "consumer education",
+        "safe cooking guidance",
+        "customer support content"
+      ]
+    },
+    {
+      "id": "src-cdc-outbreaks-2024",
+      "metric": "CDC confirmed 62 enteric outbreaks in 2024 with state and regulatory public health partners.",
+      "claim": "CDC’s 2024 outbreak summary identified chicken among the leading food categories involved and noted that two “other meat, not poultry” Listeria outbreaks accounted for 68% of deaths from solved foodborne outbreaks.",
+      "sourceTitle": "Summary of Possible Multistate Enteric Disease Outbreaks in 2024",
+      "sourceUrl": "https://www.cdc.gov/foodborne-outbreaks/php/data-research/summary-2024.html",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "food safety risk",
+        "recall sensitivity",
+        "escalation boundaries"
+      ]
+    },
+    {
+      "id": "src-bls-worker-safety",
+      "metric": "BLS reported upper-extremity injuries were 49% of injuries in animal slaughtering and processing.",
+      "claim": "BLS analysis highlights injury patterns in animal slaughtering and processing, showing why training and procedure access matter in production environments.",
+      "sourceTitle": "How safe are the workers who process our food?",
+      "sourceUrl": "https://www.bls.gov/opub/mlr/2017/article/pdf/how-safe-are-the-workers-who-process-our-food.pdf",
+      "sourceDate": "2017",
+      "bestUsedFor": [
+        "worker safety",
+        "training needs",
+        "operations risk"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product, cut, and cooking support agent",
+      "problem": "Shoppers ask similar questions about cuts, tenderness, serving size, preparation methods, storage, pickup windows, and substitutions, often while staff are serving in person.",
+      "agentWorkflow": "DocsBot answers from approved product pages, cut sheets, FAQs, cooking guides, storage policies, and brand voice instructions. If the request involves food safety concerns, allergy risk, complaint handling, or custom pricing, the agent can collect details and escalate to a human.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved product status, route a special-order request, or create a handoff summary for the counter or support team.",
+      "exampleQuestionsOrRequests": [
+        "Which roast should I buy for eight people?",
+        "How long can I keep these sausages refrigerated before cooking?",
+        "Do you have a lean cut that works for slow cooking?",
+        "Can I place a custom holiday order for pickup Friday?"
+      ],
+      "businessOutcome": "Customers get faster, consistent answers while staff spend less time repeating preparation and policy information.",
+      "icon": "ShoppingCartIcon",
+      "sourceIds": [
+        "src-fda-safe-handling"
+      ]
+    },
+    {
+      "name": "Wholesale lead qualification and sales handoff",
+      "problem": "Restaurants, caterers, grocers, and distributors need pack sizes, specs, delivery regions, minimums, certifications, and pricing follow-up before a salesperson can qualify the opportunity.",
+      "agentWorkflow": "A DocsBot presales agent answers from catalogs, spec sheets, wholesale FAQs, sales playbooks, and fulfillment policies. It collects account type, volume, location, product interest, delivery needs, timeline, and preferred follow-up channel, then applies customer-defined qualification rules.",
+      "liveContextOrTools": "Approved AI Actions can submit a custom lead form, forward a summary to email or CRM-style workflows, create a task, or request a meeting through a configured scheduling tool.",
+      "exampleQuestionsOrRequests": [
+        "Do you supply restaurants in my region?",
+        "What is the case pack and minimum order for brisket?",
+        "Can you send a salesperson our weekly volume requirements?",
+        "Do you offer portion-cut steaks for hospitality groups?"
+      ],
+      "businessOutcome": "Sales teams receive cleaner, more complete inquiries and can prioritize high-fit wholesale opportunities.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Internal SOP and HACCP knowledge assistant",
+      "problem": "Meat operations rely on HACCP plans, SSOPs, sanitation procedures, corrective-action steps, equipment guidance, and shift knowledge that may be scattered across binders and shared drives.",
+      "agentWorkflow": "DocsBot trains on approved SOPs, PDFs, Word documents, internal wikis, policies, and QA references so employees can ask procedural questions and get source-grounded answers. The agent can cite the relevant internal document and suggest escalation for safety-critical judgment calls.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved live context, route a QA question, summarize an incident note, or create a review task while respecting customer-defined permissions.",
+      "exampleQuestionsOrRequests": [
+        "Where is the sanitation checklist for grinder teardown?",
+        "What is the corrective-action procedure for a missed temperature log?",
+        "Which SOP covers receiving checks for boxed beef?",
+        "What training materials should a new cutter review today?"
+      ],
+      "businessOutcome": "Supervisors and employees can find approved procedures faster, supporting more consistent training and documentation practices.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fsis-haccp",
+        "src-fsis-validation"
+      ]
+    },
+    {
+      "name": "Recall, complaint, and sensitive inquiry triage",
+      "problem": "Customer complaints, illness reports, allergen concerns, and recall-related questions require careful routing, complete context, and human review rather than casual automated answers.",
+      "agentWorkflow": "DocsBot can gather structured details such as product, lot code, purchase date, symptoms described by the customer, photos provided, contact information, and store location. It can provide approved next-step language and route the case to the right team for review.",
+      "liveContextOrTools": "Customer-configured workflows can create a ticket, notify QA, generate a summary, and attach conversation context. Boundaries can prevent the agent from making medical, legal, or liability determinations.",
+      "exampleQuestionsOrRequests": [
+        "I think this product made me sick. What should I do?",
+        "Where do I find the lot code on this package?",
+        "Is this product included in a recall?",
+        "I found a labeling issue on an allergen statement."
+      ],
+      "businessOutcome": "Sensitive issues are captured consistently and escalated quickly with the details staff need to respond.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-cdc-outbreaks-2024"
+      ]
+    },
+    {
+      "name": "Employee onboarding and safety training support",
+      "problem": "New hires and seasonal staff need fast access to role-specific training, equipment guidance, cold-chain procedures, sanitation reminders, and workplace safety expectations.",
+      "agentWorkflow": "DocsBot acts as a private training assistant trained on onboarding checklists, safety documents, SOPs, equipment manuals, and internal policies. Employees can ask questions in plain language and receive answers grounded in the latest approved materials.",
+      "liveContextOrTools": "Analytics reveal repeated training questions and documentation gaps so managers can improve onboarding content and shift briefings.",
+      "exampleQuestionsOrRequests": [
+        "What do I need to review before working the saw?",
+        "Where is the PPE policy for cutting room work?",
+        "How do I report an equipment issue?",
+        "What should I do if a cooler temperature is out of range?"
+      ],
+      "businessOutcome": "Teams reduce time spent searching for training answers and improve consistency across locations and shifts.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-bls-worker-safety"
+      ]
+    },
+    {
+      "name": "Support analytics and knowledge-gap discovery",
+      "problem": "Repeated questions about cooking, pickup, subscriptions, specifications, and policies reveal where customers or employees cannot find the right information.",
+      "agentWorkflow": "DocsBot provides conversation logs, topic reporting, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can review unanswered questions, update source documents, and improve product pages, FAQs, SOPs, and training guides.",
+      "liveContextOrTools": "Reports can inform content updates, support macros, sales enablement materials, and customer education pages.",
+      "exampleQuestionsOrRequests": [
+        "Which customer questions are not answered by our current FAQ?",
+        "What product topics are customers asking about most this month?",
+        "Which SOP questions appear repeatedly during onboarding?",
+        "Where should we add clearer cooking or storage guidance?"
+      ],
+      "businessOutcome": "Meat businesses turn support conversations into practical improvements for documentation, training, and customer education.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing meat support agent that knows your products and policies",
+    "intro": "DocsBot can power a website or product support experience trained on your approved meat catalog, preparation guides, storage instructions, FAQs, subscriptions, shipping or pickup policies, and customer service playbooks. The agent answers routine questions instantly and hands off complex or sensitive requests with context.",
+    "requests": [
+      {
+        "request": "“What cut should I buy for pulled beef, and how much do I need for 12 guests?”",
+        "agentResponseStrategy": "Answer from your cut guide and serving-size content, explain options in your brand voice, and suggest staff follow-up if the customer wants a custom order.",
+        "sourceTypes": [
+          "Cut sheets",
+          "Cooking guides",
+          "Product catalog",
+          "FAQ"
+        ],
+        "optionalAction": "Collect event date, serving count, preferred pickup time, and contact details for a custom order handoff.",
+        "icon": "CakeIcon"
+      },
+      {
+        "request": "“Is this steak still safe if it has been in my fridge since Monday?”",
+        "agentResponseStrategy": "Use approved storage and handling guidance, avoid medical or safety guarantees, and escalate if the customer describes illness, spoilage, or a complaint.",
+        "sourceTypes": [
+          "Storage guide",
+          "Customer policy",
+          "Food safety FAQ"
+        ],
+        "optionalAction": "Create a support ticket or notify a manager with product, purchase, and contact details when configured.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-safe-handling"
+        ]
+      },
+      {
+        "request": "“Do you sell wholesale to restaurants?”",
+        "agentResponseStrategy": "Answer from wholesale FAQs, catalogs, service-region policies, and account requirements, then collect qualifying details for the sales team.",
+        "sourceTypes": [
+          "Wholesale catalog",
+          "Spec sheets",
+          "Sales FAQ",
+          "Delivery policies"
+        ],
+        "optionalAction": "Forward a qualified lead summary to email, sales software, or a customer-configured CRM-style workflow.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Where is my pickup order?”",
+        "agentResponseStrategy": "Provide general pickup instructions from policy content, then use live order lookup only if the customer has configured an approved Skill or API connection.",
+        "sourceTypes": [
+          "Pickup policy",
+          "Order FAQ",
+          "Store locations"
+        ],
+        "optionalAction": "Look up approved order status, update a ticket, or route the request to the correct location when authorized.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Do your products contain allergens or added ingredients?”",
+        "agentResponseStrategy": "Answer only from approved ingredient, label, and product specification content, then escalate if the question requires a safety, medical, or regulatory judgment.",
+        "sourceTypes": [
+          "Labels",
+          "Ingredient sheets",
+          "Product specs",
+          "Allergen FAQ"
+        ],
+        "optionalAction": "Collect product name and lot details for staff review when the customer needs confirmation.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Can I get preparation instructions in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer in the customer’s preferred language while grounding the response in the same approved source materials.",
+        "sourceTypes": [
+          "Cooking guides",
+          "FAQs",
+          "Product pages"
+        ],
+        "optionalAction": "Route follow-up to bilingual staff if the request becomes sensitive or custom.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for meat operations, QA, sales, and training",
+    "intro": "DocsBot gives employees a private assistant for SOPs, policies, training materials, product specs, sales playbooks, and internal documentation. Teams can ask questions in natural language, receive source-grounded answers, and use configured Actions for bounded workflows.",
+    "workflows": [
+      {
+        "name": "QA and operations procedure lookup",
+        "problem": "Employees need quick access to the correct SOP, SSOP, HACCP reference, checklist, or corrective-action procedure during daily operations.",
+        "agentWorkflow": "The agent searches approved internal documents and returns the relevant procedure with source context, helping employees find the right document without relying on memory or informal messages.",
+        "sourceTypes": [
+          "SOPs",
+          "SSOPs",
+          "HACCP references",
+          "QA manuals",
+          "PDFs"
+        ],
+        "optionalAction": "Create a QA review task or route the question to a supervisor when configured.",
+        "outcome": "Faster procedure access and fewer interruptions for managers during production or shift handoffs.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-fsis-haccp"
+        ]
+      },
+      {
+        "name": "New employee onboarding assistant",
+        "problem": "New cutters, counter staff, drivers, production employees, and support reps often ask the same training and policy questions.",
+        "agentWorkflow": "DocsBot answers from onboarding checklists, training manuals, policies, safety reminders, product guides, and role-specific instructions so employees can self-serve routine knowledge.",
+        "sourceTypes": [
+          "Training guides",
+          "Employee handbook",
+          "Equipment manuals",
+          "Policies"
+        ],
+        "optionalAction": "Summarize common onboarding questions for managers to improve training materials.",
+        "outcome": "New hires ramp faster and receive more consistent answers across teams and locations.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales and account enablement",
+        "problem": "Sales reps need accurate product, spec, fulfillment, and objection-handling information while responding to restaurants, retailers, distributors, and catering accounts.",
+        "agentWorkflow": "The agent retrieves answers from sales playbooks, product sheets, contract language, implementation notes, customer-facing FAQs, and proposal templates. Human sellers remain responsible for final pricing, terms, and commitments.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Spec sheets",
+          "Proposal templates",
+          "FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a task, or summarize account context through approved Skills, APIs, connectors, or MCP Connectors for remote Model Context Protocol servers when configured.",
+        "outcome": "Sales teams respond faster with consistent, source-backed information while keeping final commercial decisions in human hands.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Support ticket summarization and routing",
+        "problem": "Customer service teams may receive recurring questions through email, forms, chat, phone notes, and helpdesk-style systems.",
+        "agentWorkflow": "DocsBot can learn from approved ticket exports or connected helpdesk workflows, draft responses from source materials, summarize customer context, and route requests by topic, urgency, location, or product line.",
+        "sourceTypes": [
+          "Ticket history",
+          "Support macros",
+          "FAQs",
+          "Policies"
+        ],
+        "optionalAction": "Create or update a ticket, notify the right team, or prepare a human handoff when the customer configures the workflow.",
+        "outcome": "Support teams spend less time rewriting routine answers and more time resolving exceptions.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the business knowledge you approve, then answer customer and employee questions with source-grounded responses.",
+      "industryApplication": "Train an agent on product catalogs, cut sheets, cooking guides, storage FAQs, SOPs, sanitation procedures, policies, and sales materials for consistent meat industry answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can be deployed where people need answers, including customer-facing chat widgets and private internal team experiences.",
+      "industryApplication": "Put a product support agent on a butcher shop website, or give operations, QA, and sales teams a private assistant for SOPs, specs, and policies.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured steps such as lookups, summaries, routing, record updates, and workflow triggers.",
+      "industryApplication": "Collect custom order details, qualify wholesale leads, look up approved order status, create QA review tasks, or route sensitive complaints when your systems and permissions allow it.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides reporting, conversation review, topic analysis, and knowledge-gap discovery to improve documentation and support content.",
+      "industryApplication": "Find recurring questions about cuts, storage, subscriptions, pickup, allergens, wholesale specs, or SOPs, then update your source materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and governed boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation for complex or sensitive questions and can operate within customer-defined permissions and review paths.",
+      "industryApplication": "Route illness reports, allergen questions, recall concerns, custom pricing, or legal/compliance issues to the right human with a concise summary.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Security and private knowledge handling",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect internal SOPs, QA records, sales materials, and operational policies while giving approved teams fast access to the knowledge they need.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own product, policy, and training content instead of relying on generic answers.",
+      "Support high-volume customer questions with source-grounded responses and clear escalation paths.",
+      "Deploy across customer-facing and internal workflows, from website support to team knowledge access."
+    ],
+    "whyTheseReviewsFit": "Meat businesses need reliable answers from owned materials, scalable customer support, and practical access for busy staff. DocsBot proof spans multilingual manuals, content-library training, website assistants, support-team workflows, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for meat retailers, processors, packers, and wholesale suppliers",
+    "audience": [
+      "Butcher shop owners",
+      "Meat processors",
+      "Wholesale meat suppliers",
+      "Foodservice sales teams",
+      "QA and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "food-beverage-manufacturing",
+    "grocery-convenience-store",
+    "caterer",
+    "farm-to-table-restaurants",
+    "food-hospitality",
+    "alcoholic-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "meat-industry",
+    "webSearchQueries": [
+      "USDA ERS meat food availability pounds per capita beef pork poultry 2023",
+      "USDA FSIS HACCP meat poultry inspection establishment requirements",
+      "CDC foodborne outbreaks meat poultry food safety consumer handling statistics",
+      "BLS meat poultry and fish cutters processing employment injuries"
+    ],
+    "sourceUrls": [
+      "https://ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=113119",
+      "https://www.fsis.usda.gov/inspection/compliance-guidance/haccp",
+      "https://www.fsis.usda.gov/inspection/compliance-guidance/haccp/haccp-validation",
+      "https://www.fda.gov/food/buy-store-serve-safe-food/safe-food-handling",
+      "https://www.cdc.gov/foodborne-outbreaks/php/data-research/summary-2024.html",
+      "https://www.bls.gov/opub/mlr/2017/article/pdf/how-safe-are-the-workers-who-process-our-food.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41737,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 21001,
+        "outputTokens": 8194,
+        "reasoningOutputTokens": 115,
+        "totalTokens": 49931,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.180597,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.190597
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21653,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6165,
+          "outputTokens": 5401,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 27054,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.1003,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.1103
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20084,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14836,
+          "outputTokens": 2793,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22877,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080297,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080297
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1568014446393-31ba258dad32?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU2NDN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Meat Industry background image",
+    "source": "legacy-industry",
+    "query": "Meat Industry"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer customer questions about cuts, cooking methods, storage, and pickup without giving unsafe food advice?",
+      "answer": "Yes. DocsBot can be trained on your approved cut guides, cooking instructions, storage policies, FAQs, and pickup rules so routine answers stay grounded in your own content. For food-safety-sensitive questions, you can instruct the agent to use cautious approved language, avoid guarantees, collect context, and escalate to staff. FDA guidance says a food thermometer is the only way to ensure meat, poultry, seafood, and egg products are safely cooked across methods.",
+      "role": "Butcher shops and specialty meat retailers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-safe-handling"
+      ]
+    },
+    {
+      "question": "How would DocsBot help our counter staff during busy weekends or holiday order periods?",
+      "answer": "A customer-facing agent can answer repetitive questions about serving sizes, roast selection, pickup windows, subscriptions, and preparation instructions before staff get involved. It can also collect custom-order details such as occasion, number of guests, preferred cut, pickup time, and contact information, then create a clean handoff summary for your team when configured.",
+      "role": "Butcher shops and specialty meat retailers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use this internally for SOPs, SSOPs, HACCP references, and corrective-action procedures?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on approved SOPs, SSOPs, HACCP plan references, QA manuals, PDFs, Word documents, and policies. Employees can ask natural-language questions and receive source-grounded answers. FSIS describes HACCP as a framework for meat, poultry, and egg product establishments to control food safety hazards, which makes fast access to approved procedures especially important.",
+      "role": "Meat processors and packers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fsis-haccp"
+      ]
+    },
+    {
+      "question": "Will the agent make compliance decisions for us, or can we keep QA in control?",
+      "answer": "You can keep QA in control. DocsBot is best used to retrieve approved procedures, summarize context, collect missing details, and route questions to the right person. For safety-critical, regulatory, legal, recall, allergen, or liability-sensitive situations, you can define boundaries so the agent escalates rather than making determinations or commitments.",
+      "role": "Meat processors and packers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent the agent from using outdated product specs, labels, or allergen information?",
+      "answer": "DocsBot answers from the sources you approve, so implementation should start with a controlled source set: current labels, ingredient sheets, product specs, allergen FAQs, and change-control ownership. Teams should assign document owners, remove obsolete files, review logs, and update sources when formulations, suppliers, packaging, or policies change.",
+      "role": "Wholesale meat brands and foodservice suppliers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot qualify wholesale leads from restaurants, caterers, grocers, and distributors?",
+      "answer": "Yes. A DocsBot presales agent can answer from your wholesale catalog, spec sheets, case-pack details, delivery policies, certifications, and sales FAQs. It can collect account type, location, volume, product interest, timeline, delivery needs, and preferred follow-up channel, then apply your qualification rules and forward a summary through approved workflows when configured.",
+      "role": "Wholesale meat brands and foodservice suppliers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent look up live order status, inventory availability, or customer account information?",
+      "answer": "DocsBot can use live context only when you configure an approved Skill, API, connector, MCP Connector, or workflow with the right permissions. That means it can be scoped to look up approved order status, product availability, or account details without giving the agent open-ended system access. If no live connection is configured, it should answer from static policies and route the request to staff.",
+      "role": "Butcher shops and specialty meat retailers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What systems would we need to connect for a useful meat industry agent?",
+      "answer": "Many teams start without complex integrations by training on websites, PDFs, product catalogs, SOPs, policies, FAQs, and training documents. Higher-value workflows may connect approved forms, email, helpdesk software, CRM-style systems, order platforms, inventory data, team chat, or QA task workflows through Skills, APIs, connectors, webhooks, or customer-configured automation.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI if our support requests come through phone calls, counter conversations, email, and web forms?",
+      "answer": "Start with measurable deflection and time-savings targets: fewer repetitive web inquiries, more complete custom-order requests, faster wholesale qualification, reduced manager interruptions, and fewer internal document searches. DocsBot analytics, logs, topic reporting, satisfaction and resolution analysis, and knowledge-gap discovery can show what people ask, what was answered, what escalated, and where documentation needs improvement.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can this reduce interruptions to supervisors during production shifts?",
+      "answer": "Yes, especially when recurring answers live in binders, shared drives, or informal messages. An internal DocsBot agent can help employees find approved SOPs, sanitation checklists, equipment guidance, receiving procedures, training materials, and corrective-action references faster. It should not replace supervisor judgment, but it can reduce routine lookup questions and create cleaner escalation paths.",
+      "role": "Meat processors and packers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is DocsBot appropriate for recall, illness complaint, or allergen-related conversations?",
+      "answer": "DocsBot can help triage sensitive conversations by collecting structured details such as product name, lot code, purchase date, store location, photos, symptoms described, and contact information. It can provide approved next-step language and escalate to QA or management. CDC confirmed 62 possible multistate enteric disease outbreaks in 2024 with state and regulatory partners, underscoring why complaint and recall workflows need careful human review.",
+      "role": "Meat processors and packers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-cdc-outbreaks-2024"
+      ]
+    },
+    {
+      "question": "How secure is our internal QA, SOP, and sales information in DocsBot?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For connected actions, Skills can be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls so access is scoped to approved use cases.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we restrict different employees or locations to different information?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so internal agents can be designed around who should see specific SOPs, policies, sales materials, or operational documents. During implementation, teams should map roles, locations, departments, and source collections before making the agent broadly available.",
+      "role": "Meat processors and packers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when the agent does not know an answer or the source material is incomplete?",
+      "answer": "DocsBot should be configured to say when it does not have enough approved information, ask clarifying questions when useful, and escalate to a person for unresolved or sensitive requests. Its analytics and knowledge-gap reporting can then show which questions were unanswered, helping your team improve product pages, FAQs, SOPs, training documents, or sales enablement materials.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it support multilingual customers or employees?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while grounding responses in the same approved source materials. For meat businesses, that can help customers ask preparation or pickup questions in their preferred language and help multilingual teams access policies or training content more easily. Sensitive, legal, medical, or food-safety-specific questions can still be routed to qualified staff.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How would we roll this out without overwhelming our team or exposing messy documents?",
+      "answer": "A practical rollout starts with one narrow use case: customer cut-and-cooking support, wholesale intake, SOP lookup, or onboarding help. Choose approved documents, define escalation rules, test common questions, review answer quality, and launch to a small group or website segment. After reviewing logs and knowledge gaps, expand sources, workflows, and access permissions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with employee onboarding and safety training for cutters, production staff, drivers, and counter teams?",
+      "answer": "Yes. A private internal agent can answer from onboarding checklists, equipment manuals, PPE policies, safety reminders, SOPs, and role-specific training content. BLS reported that upper-extremity injuries represented 49% of injuries in animal slaughtering and processing, which reinforces the value of making approved training and procedure information easier to find.",
+      "role": "Meat processors and packers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-worker-safety"
+      ]
+    },
+    {
+      "question": "Can the agent handle custom order intake without promising price or availability?",
+      "answer": "Yes. You can configure the agent to collect the details your staff need—occasion, serving count, preferred cut, budget range, pickup date, location, preparation needs, and contact information—while avoiding final pricing or availability commitments. It can then route the request to counter staff, sales, or a manager with a structured summary.",
+      "role": "Butcher shops and specialty meat retailers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot embedded on our website?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent, not a generic scripted chatbot. It can train on your approved product catalogs, cut sheets, policies, SOPs, FAQs, sales materials, and internal documents; provide citations or source-grounded answers; escalate sensitive issues; report knowledge gaps; and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can sales reps use DocsBot for specs, pack sizes, fulfillment policies, and objection handling?",
+      "answer": "Yes. An internal sales enablement agent can retrieve answers from spec sheets, product catalogs, certifications, sales playbooks, proposal templates, implementation notes, and customer-facing FAQs. It can also draft follow-up language or summarize account context through approved workflows, while keeping final pricing, terms, commitments, and contracts with human sellers.",
+      "role": "Wholesale meat brands and foodservice suppliers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What reporting will management get after launch?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see repeated questions about cuts, storage, pickup, subscriptions, allergens, wholesale specs, SOPs, or onboarding, then decide which pages, documents, training materials, or policies need clearer wording.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support both a public website agent and a private operations agent?",
+      "answer": "Yes. DocsBot can be deployed as a customer-facing website support agent and as a private internal team assistant. The public agent might use product catalogs, preparation guides, pickup policies, and FAQs, while the internal agent uses SOPs, QA references, training materials, sales playbooks, and policies with appropriate access controls.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we handle HACCP validation or audit-related questions inside the agent?",
+      "answer": "Use DocsBot to help employees find the approved HACCP plan reference, validation document, SOP, checklist, or corrective-action procedure, not to replace QA review. FSIS guidance states establishments must validate HACCP plans for identified food safety hazards, so audit-sensitive answers should cite internal source documents and route judgment calls to qualified personnel.",
+      "role": "Meat processors and packers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fsis-validation"
+      ]
+    },
+    {
+      "question": "Will this work for a small butcher shop, or is it only for large processors?",
+      "answer": "It can work for both if the scope is right. A small shop may start with website support for cuts, cooking, pickup, holiday orders, subscriptions, and sourcing policies. A larger processor may prioritize SOP lookup, QA routing, onboarding, sales enablement, and helpdesk-style workflows. The key is training the agent on clean, approved knowledge and expanding gradually.",
+      "role": "Butcher shops and specialty meat retailers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What does procurement need to know before approving DocsBot?",
+      "answer": "Procurement usually evaluates data handling, access control, security posture, implementation effort, support model, pricing fit, and whether the tool reduces measurable workload. DocsBot’s relevant points include SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, customer-controlled sources, and the ability to start with a limited pilot before expanding.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

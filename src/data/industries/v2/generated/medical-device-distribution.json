@@ -1,0 +1,714 @@
+{
+  "slug": "medical-device-distribution",
+  "business": "Medical Device Distribution",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Medical Device Distribution Teams",
+    "description": "DocsBot helps medical device distributors answer product, order, recall, and SOP questions faster with source-grounded AI agents.",
+    "canonicalPath": "/industry/medical-device-distribution"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for regulated distribution workflows",
+    "headline": "Move device questions, orders, and documentation faster with DocsBot",
+    "subheadline": "DocsBot helps medical device distributors create AI agents trained on catalogs, IFUs, SOPs, policies, pricing guidance, service notes, and customer support history so teams can answer faster, qualify requests, summarize context, and route sensitive issues to the right human.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions from approved product catalogs, manuals, policies, FAQs, and service documentation.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Help sales and support teams retrieve compatibility, availability, lead-time, and ordering guidance from trusted sources.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect details, create tasks or tickets, summarize requests, and route handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Escalate recall, complaint, contract, or patient-impacting issues to human review with clear boundaries.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a device distribution AI agent",
+    "secondaryCta": "Explore support automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your approved distribution knowledge into AI agents for customer support, sales enablement, operations, and internal SOP lookup. Agents can answer with source-grounded context, summarize conversations, find gaps in documentation, and take scoped actions through Skills, APIs, connectors, MCP servers, or customer-defined workflows when your team authorizes them.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and inside sales teams",
+        "roleContext": "Teams handling recurring questions about SKUs, substitutes, availability, ordering rules, documentation, returns, warranty routing, and escalation paths.",
+        "bullets": [
+          {
+            "text": "Answer routine product and policy questions from approved sources before a ticket reaches a specialist.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect account, facility, product, lot, and urgency details before routing a request into helpdesk or sales workflows.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft response summaries so reps can review faster while staying responsible for regulated or contractual commitments.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, quality, and compliance leaders",
+        "roleContext": "Leaders who need consistent access to SOPs, recall procedures, product identifiers, complaint routing rules, shipping guidance, and audit-ready operational knowledge.",
+        "bullets": [
+          {
+            "text": "Make SOPs, quality notes, and escalation policies searchable for warehouse, service, and support staff.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Support UDI-aware workflows; the FDA says UDI is intended to create a standardized identification system for medical devices through distribution and use.",
+            "icon": "HashtagIcon",
+            "sourceIds": [
+              "src-fda-udi"
+            ]
+          },
+          {
+            "text": "Use logs, permissions, and customer-defined action boundaries for sensitive workflows that require human oversight.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Field sales, account managers, and distributor reps",
+        "roleContext": "Revenue teams that need fast access to product fit, approved positioning, pricing guidance, contracts, substitutes, implementation notes, and account-specific follow-up context.",
+        "bullets": [
+          {
+            "text": "Retrieve product documentation, sales playbooks, objection handling, and proposal language from approved materials.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Qualify inbound requests with structured intake fields such as facility type, product interest, region, urgency, and follow-up channel.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Prepare account summaries and follow-up drafts while keeping humans in control of pricing, contracts, and regulated claims.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fda-udi",
+      "metric": "UDI standardizes device identification through distribution and use",
+      "claim": "FDA guidance describes the UDI system as a standardized identification system for medical devices used through distribution and use.",
+      "sourceTitle": "FDA: Unique Device Identifier Requirements for Combination Products",
+      "sourceUrl": "https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/FDA/unique_device_identifier_udi_requirements_for_combination_products_june_2025.pdf",
+      "sourceDate": "June 2025",
+      "bestUsedFor": [
+        "UDI traceability",
+        "regulated product identification",
+        "distribution documentation"
+      ]
+    },
+    {
+      "id": "src-fda-recalls",
+      "metric": "FDA publishes serious medical device recalls and early alerts",
+      "claim": "The FDA maintains a public page for the most serious medical device recalls and early alert communications about corrective actions.",
+      "sourceTitle": "FDA: Medical Device Recalls and Early Alerts",
+      "sourceUrl": "https://www.fda.gov/medical-devices/medical-device-safety/medical-device-recalls-and-early-alerts",
+      "sourceDate": "Updated 2025",
+      "bestUsedFor": [
+        "recall workflows",
+        "customer safety escalation",
+        "quality and compliance pressure"
+      ]
+    },
+    {
+      "id": "src-openfda-recalls",
+      "metric": "Recalls address devices that violate FDA law or may pose health risk",
+      "claim": "openFDA defines a device recall as an action to address a device problem that violates FDA law, is defective, may pose health risk, or both.",
+      "sourceTitle": "openFDA: Device Recall Data",
+      "sourceUrl": "https://open.fda.gov/data/device-recall/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "recall seriousness",
+        "quality workflows",
+        "risk-aware escalation"
+      ]
+    },
+    {
+      "id": "src-bls-naics423",
+      "metric": "Medical equipment distributors operate within durable goods wholesale trade",
+      "claim": "BLS classifies professional and commercial equipment and supplies merchant wholesalers within durable goods merchant wholesale trade.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Merchant Wholesalers, Durable Goods, NAICS 423",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag423.htm",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "industry definition",
+        "labor scale",
+        "distribution operations"
+      ]
+    },
+    {
+      "id": "src-plante-moran-supply-chain",
+      "metric": "Medical device supply chains face shortages, delays, stockouts, backorders, and excess inventory",
+      "claim": "Plante Moran notes that medical device OEMs, suppliers, and contract manufacturers are affected by raw material shortages, product delays, stockouts, backorders, and excess inventory.",
+      "sourceTitle": "Plante Moran: Medical Device Supply Chain Challenges? Best Practices to Improve Resilience",
+      "sourceUrl": "https://www.plantemoran.com/explore-our-thinking/insight/2024/10/medical-device-supply-chain-challenges-best-practices-to-improve-resilience",
+      "sourceDate": "October 17, 2024",
+      "bestUsedFor": [
+        "supply chain disruption",
+        "inventory visibility",
+        "backorder communication"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product documentation and compatibility answers",
+      "problem": "Customers and reps need quick answers about device specifications, accessories, substitutes, IFUs, warranty paths, and ordering rules without searching across PDFs, catalogs, and shared drives.",
+      "agentWorkflow": "Train a DocsBot agent on approved catalogs, product pages, manuals, IFUs, FAQs, internal notes, and sales enablement documents. The agent answers with source-grounded responses, asks clarifying questions when product fit is unclear, and escalates high-impact or clinical-use questions to a human specialist.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up current product records, approved substitute lists, or account-specific ordering notes before drafting a response.",
+      "exampleQuestionsOrRequests": [
+        "Which replacement tubing set works with this pump model?",
+        "Do we have approved substitute items for this backordered SKU?",
+        "Send me the warranty and return path for this device family."
+      ],
+      "businessOutcome": "Reduce repetitive documentation searches while keeping product-fit and clinical-use boundaries clear.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Order status, backorder, and availability triage",
+      "problem": "Medical device distributors often face time-sensitive questions when shortages, delays, stockouts, backorders, or excess inventory affect customers and internal teams.",
+      "agentWorkflow": "DocsBot can collect the customer, account, SKU, order number, location, requested delivery date, and urgency. It can answer policy questions from approved sources, summarize the request, and route it to customer service, supply chain, or sales when live review is needed.",
+      "liveContextOrTools": "Customer-configured AI Actions can perform approved order-status lookups, create a ticket or task, notify a team channel, or update allowed fields in connected systems.",
+      "exampleQuestionsOrRequests": [
+        "What is the status of order 45821 for our surgery center?",
+        "This item is backordered. What information do you need to find a substitute?",
+        "Create a supply-chain follow-up for this delayed implant tray request."
+      ],
+      "businessOutcome": "Give customers faster acknowledgement and give staff cleaner context before they act on urgent supply issues.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-plante-moran-supply-chain"
+      ]
+    },
+    {
+      "name": "Recall and field action routing",
+      "problem": "Recall and field action questions require speed, accuracy, documentation, and human oversight because device recalls can address defective products or health risks.",
+      "agentWorkflow": "Train an internal or customer-facing agent on recall SOPs, field action playbooks, customer notification templates, device identifiers, and escalation rules. The agent can ask for product, UDI, lot, serial, facility, contact, and issue details, then route the case for quality or regulatory review.",
+      "liveContextOrTools": "With approved workflows, DocsBot can create a quality task, attach a conversation summary, notify a recall coordinator, or hand off to helpdesk software without making final regulatory judgments.",
+      "exampleQuestionsOrRequests": [
+        "Is this lot included in the current field action?",
+        "Collect details for a suspected recalled device and route it to quality.",
+        "Summarize this customer’s recall-related questions for the regulatory team."
+      ],
+      "businessOutcome": "Improve intake consistency while keeping recall decisions, customer notifications, and regulatory responses under human control.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fda-recalls",
+        "src-openfda-recalls"
+      ]
+    },
+    {
+      "name": "Distributor sales enablement and lead qualification",
+      "problem": "Prospects ask detailed questions about product fit, contract eligibility, service levels, delivery regions, and implementation timing before a sales rep has enough context to respond.",
+      "agentWorkflow": "A DocsBot presales agent can answer from approved product and service materials, collect structured lead details, apply customer-defined qualification rules, and prepare a concise handoff for a human rep.",
+      "liveContextOrTools": "With configured Skills, APIs, forms, or workflow automations, the agent can forward qualified leads, conversation summaries, and requested follow-up details to CRM, email, helpdesk, or scheduling workflows.",
+      "exampleQuestionsOrRequests": [
+        "We’re opening an ASC in Texas. Which product categories can you support?",
+        "Can someone contact me about orthopedic implant distribution?",
+        "Qualify this hospital purchasing inquiry and prepare a sales handoff."
+      ],
+      "businessOutcome": "Help sales teams prioritize ready buyers without letting AI make binding pricing, contract, or compliance commitments.",
+      "icon": "ArrowTrendingUpIcon"
+    },
+    {
+      "name": "Internal SOP and onboarding assistant",
+      "problem": "Warehouse, customer service, field sales, and quality teams need consistent answers about receiving, returns, temperature-sensitive handling, complaint routing, customer terms, and documentation rules.",
+      "agentWorkflow": "Train a private DocsBot internal knowledge agent on SOPs, onboarding guides, policies, training files, wikis, PDFs, and team knowledge. Employees can ask plain-language questions and get source-grounded answers with links back to the approved material.",
+      "liveContextOrTools": "The agent can be deployed in private chat experiences, Slack, Microsoft Teams, or internal portals when configured, with analytics showing repeated questions and missing documentation.",
+      "exampleQuestionsOrRequests": [
+        "What is the SOP for a returned sterile device with damaged packaging?",
+        "How do I route a potential product complaint?",
+        "What should new reps know before supporting our cardiology line?"
+      ],
+      "businessOutcome": "Shorten onboarding and reduce inconsistent process answers across distributed teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Support ticket summarization and response drafting",
+      "problem": "Recurring distributor tickets often include long order histories, product notes, customer constraints, and policy questions that slow down first response and escalation.",
+      "agentWorkflow": "DocsBot can learn from approved support sources and, when connected through customer-configured helpdesk workflows, summarize incoming tickets, suggest routing, draft responses, and identify missing details for the human agent to request.",
+      "liveContextOrTools": "Customer-authorized helpdesk connections, exports, Skills, APIs, or connectors can provide ticket context for summarization, response drafting, routing, or escalation.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this customer’s last three messages and draft a response.",
+        "Route this case to quality if it mentions a suspected device malfunction.",
+        "What details are missing before we can process this return request?"
+      ],
+      "businessOutcome": "Help support teams respond more consistently while preserving human review for complaints, recalls, pricing, and contract-sensitive issues.",
+      "icon": "EnvelopeIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give hospitals, clinics, and dealers a faster first answer",
+    "intro": "A DocsBot customer-facing agent can live on your website, portal, or product experience to answer from approved distribution knowledge, collect structured details, and route requests when a human needs to step in. It is especially useful for repetitive product, order, documentation, and support-intake questions.",
+    "requests": [
+      {
+        "request": "“Do you carry this device, and what accessories are compatible?”",
+        "agentResponseStrategy": "Ask for model, SKU, facility type, and intended category; answer from approved catalog and documentation sources; flag uncertain product-fit or clinical-use questions for a specialist.",
+        "sourceTypes": [
+          "Product catalogs",
+          "IFUs and manuals",
+          "Accessory matrices",
+          "Sales-approved FAQs"
+        ],
+        "optionalAction": "Create a qualified product inquiry or handoff summary for inside sales.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“Where is my order, and what can I do if the item is backordered?”",
+        "agentResponseStrategy": "Collect order number, account, SKU, urgency, and delivery location; explain approved backorder or substitution policy; route to operations when live inventory or account review is required.",
+        "sourceTypes": [
+          "Ordering policies",
+          "Customer service FAQs",
+          "Inventory notes",
+          "Account procedures"
+        ],
+        "optionalAction": "Use an approved lookup or create a ticket for supply-chain follow-up.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“I received a recall or field action notice. What should I provide?”",
+        "agentResponseStrategy": "Avoid final regulatory or safety determinations; collect product, UDI, lot, serial, facility, contact, and issue details; summarize and escalate to the quality or regulatory team.",
+        "sourceTypes": [
+          "Recall SOPs",
+          "Field action playbooks",
+          "Customer notification templates",
+          "Quality routing rules"
+        ],
+        "optionalAction": "Create a quality-review task and notify the assigned recall coordinator through a configured workflow.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-recalls"
+        ]
+      },
+      {
+        "request": "“Can we schedule a distribution consultation or product demo?”",
+        "agentResponseStrategy": "Collect buyer role, facility type, product area, region, timeline, and preferred follow-up channel, then apply customer-defined qualification instructions.",
+        "sourceTypes": [
+          "Service pages",
+          "Product line summaries",
+          "Sales qualification rules",
+          "Regional coverage notes"
+        ],
+        "optionalAction": "Forward the lead summary to sales or use an approved scheduling workflow when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you send the latest documentation for this product family?”",
+        "agentResponseStrategy": "Answer from approved document libraries, provide the right source reference, and ask clarifying questions when the product family, version, or model is ambiguous.",
+        "sourceTypes": [
+          "PDF manuals",
+          "Product documentation",
+          "Knowledge base articles",
+          "Document control notes"
+        ],
+        "optionalAction": "Create a follow-up task if the requested document is missing or outdated.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“Who should handle this complaint or service issue?”",
+        "agentResponseStrategy": "Identify whether the request appears to involve service, warranty, return, complaint, or quality review, then route according to approved policies rather than making a final classification.",
+        "sourceTypes": [
+          "Complaint intake SOPs",
+          "Warranty policies",
+          "Return workflows",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Generate a structured handoff with customer details, device identifiers, urgency, and conversation summary.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep distributor teams aligned on SOPs, product knowledge, and customer handoffs",
+    "intro": "DocsBot can work as a private internal knowledge agent for sales, support, operations, warehouse, quality, and leadership teams. Staff can ask natural-language questions and get source-grounded answers from the materials you approve.",
+    "workflows": [
+      {
+        "name": "Quality and complaint intake guidance",
+        "problem": "Frontline teams may not know whether a customer message should be handled as service, return, warranty, complaint, recall, or regulatory escalation.",
+        "agentWorkflow": "The agent answers from complaint intake SOPs, recall playbooks, quality escalation matrices, and approved scripts. It can ask for missing details and prepare a summary for quality review.",
+        "sourceTypes": [
+          "Quality SOPs",
+          "Complaint procedures",
+          "Recall playbooks",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Create a review task, notify a quality mailbox or team channel, and attach the structured intake summary when configured.",
+        "outcome": "Reduce inconsistent routing while keeping regulated decisions with qualified personnel.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales rep answer desk",
+        "problem": "Reps need fast, consistent answers about product lines, substitute items, account terms, approved positioning, and proposal language before responding to customers.",
+        "agentWorkflow": "Train DocsBot on product docs, sales playbooks, pricing guidance, contract language, competitive notes, case studies, and customer-facing FAQs. The agent can draft responses that reps review before sending.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product catalogs",
+          "Proposal templates",
+          "Approved messaging"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM task through customer-configured sales workflows.",
+        "outcome": "Help reps respond faster without letting AI finalize pricing, legal terms, or regulated product claims.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Warehouse and operations SOP lookup",
+        "problem": "Distribution staff need immediate guidance on receiving, shipping, returns, temperature-sensitive handling, damaged packaging, and documentation requirements.",
+        "agentWorkflow": "A private agent trained on SOPs and training materials gives employees plain-language answers with source references, then points to escalation rules when a situation falls outside the documented process.",
+        "sourceTypes": [
+          "Warehouse SOPs",
+          "Training manuals",
+          "Return policies",
+          "Shipping procedures"
+        ],
+        "optionalAction": "Create a task for supervisor review or log a documentation gap if employees repeatedly ask about the same missing procedure.",
+        "outcome": "Support consistent execution across facilities, shifts, and new hires.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Knowledge gap and topic reporting",
+        "problem": "Repeated customer and employee questions reveal where catalogs, SOPs, and FAQs are unclear or missing.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see what people ask and where answers need improvement.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base articles",
+          "Support FAQs"
+        ],
+        "optionalAction": "Turn repeated unanswered topics into documentation tasks or content-review workflows.",
+        "outcome": "Improve self-service and internal enablement by prioritizing the content gaps that create the most friction.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved knowledge",
+      "mainLandingPageContext": "DocsBot agents train on company knowledge sources and answer in the organization’s voice with source-grounded context.",
+      "industryApplication": "Use catalogs, IFUs, manuals, SOPs, policies, service notes, and approved sales materials to answer device distribution questions consistently.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-defined rules, live context, APIs, connectors, and remote Model Context Protocol servers when configured.",
+      "industryApplication": "Support approved order lookups, task creation, ticket routing, lead forwarding, handoff summaries, field updates, notifications, and review workflows without giving the agent unrestricted control.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or approved workflows to summarize, route, answer, or draft ticket responses.",
+      "industryApplication": "Summarize product, order, recall, return, and complaint-related tickets so human agents start with cleaner context and clearer next steps.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant for private teams",
+      "mainLandingPageContext": "DocsBot can train on SOPs, policies, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other internal knowledge sources.",
+      "industryApplication": "Give warehouse, operations, quality, sales, and support teams a private source-grounded answer desk for procedures and product knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated questions about substitutes, backorders, documentation, returns, or recall intake so teams can improve the content behind the agent.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and does not use customer data to train public models.",
+      "industryApplication": "Use scoped permissions, logs, secrets handling, and human escalation for regulated product, complaint, recall, pricing, and contract workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health",
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Healthcare communications teams use DocsBot to streamline internal decision-making and reduce direct human interaction.",
+      "High-volume support teams have used DocsBot to handle tens of thousands of inquiries in a month.",
+      "DocsBot is built for teams that need answers grounded in their own content library, not generic responses."
+    ],
+    "whyTheseReviewsFit": "Medical device distributors need reliable answers across product documentation, customer support, internal procedures, and regulated handoffs. DocsBot proof spans healthcare communications, high-volume support automation, and source-grounded knowledge retrieval from owned content.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "RocketLaunchIcon",
+      "DocumentTextIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, sales enablement, and internal knowledge agents for medical device distribution teams",
+    "audience": [
+      "Medical device distributors",
+      "Healthcare supply chain teams",
+      "Distributor customer support teams",
+      "Quality and compliance leaders",
+      "Medical device sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "home-medical-equipment",
+    "wholesale-drug-distribution",
+    "medical-office",
+    "emergency-medical-services",
+    "medical-transcription"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "medical-device-distribution",
+    "webSearchQueries": [
+      "FDA medical device recalls database annual report 2024 medical devices",
+      "FDA unique device identification UDI final guidance medical devices distributors",
+      "medical device distribution market supply chain challenges inventory backorders hospitals 2024 report",
+      "BLS medical equipment supplies merchant wholesalers employment NAICS 423450"
+    ],
+    "sourceUrls": [
+      "https://www.hhs.gov/guidance/sites/default/files/hhs-guidance-documents/FDA/unique_device_identifier_udi_requirements_for_combination_products_june_2025.pdf",
+      "https://www.fda.gov/medical-devices/medical-device-safety/medical-device-recalls-and-early-alerts",
+      "https://open.fda.gov/data/device-recall/",
+      "https://www.bls.gov/iag/tgs/iag423.htm",
+      "https://www.plantemoran.com/explore-our-thinking/insight/2024/10/medical-device-supply-chain-challenges-best-practices-to-improve-resilience"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40583,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28039,
+        "outputTokens": 7733,
+        "reasoningOutputTokens": 130,
+        "totalTokens": 48316,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.189229,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.199229
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20859,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 13563,
+          "outputTokens": 5248,
+          "reasoningOutputTokens": 130,
+          "totalTokens": 26107,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114452,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124452
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19724,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14476,
+          "outputTokens": 2485,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22209,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074777,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074777
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1603398938378-e54eab446dde?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxNZWRpY2FsJTIwRGV2aWNlJTIwRGlzdHJpYnV0aW9ufGVufDB8MHx8fDE3Nzg4MjIzODZ8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "white and black earbuds on white textile",
+    "source": "unsplash-search",
+    "query": "Medical Device Distribution"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer product and compatibility questions without making clinical recommendations?",
+      "answer": "Yes. You can train the agent on approved catalogs, IFUs, manuals, accessory matrices, FAQs, and internal guidance, then instruct it to answer only from those sources. For uncertain product-fit, clinical-use, or patient-impacting questions, it can ask clarifying questions and route the conversation to a qualified human instead of improvising.",
+      "role": "Customer service and inside sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our reps when customers ask about backorders or substitute items?",
+      "answer": "DocsBot can collect the account, SKU, order number, location, requested delivery date, and urgency, then answer policy questions from approved sources or create a handoff for supply chain review. That matters because medical device supply chains continue to face shortages, delays, stockouts, backorders, and excess inventory.",
+      "role": "Customer service and inside sales teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-plante-moran-supply-chain"
+      ]
+    },
+    {
+      "question": "Can the agent look up live order status or inventory availability?",
+      "answer": "It can when your team configures an approved Skill, API, connector, MCP server, or workflow with the right permissions. A common setup is to let DocsBot collect missing details, perform a scoped lookup, summarize the result, and create a ticket or task when a human needs to confirm allocation, substitutions, or account-specific terms.",
+      "role": "Customer service and inside sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What guardrails are available for recall, complaint, and field action workflows?",
+      "answer": "DocsBot should be configured to gather the right details—product, UDI, lot, serial, facility, contact, issue description, and urgency—then escalate to quality or regulatory review. The FDA maintains public information on serious medical device recalls and early alerts, so distributors should keep final recall decisions and customer notifications under human control.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-recalls"
+      ]
+    },
+    {
+      "question": "Can DocsBot support UDI-aware intake and traceability questions?",
+      "answer": "DocsBot can help employees and customers provide UDI, lot, serial, model, and facility details in a structured way, then route the case based on your SOPs. FDA guidance describes UDI as a standardized identification system for medical devices through distribution and use, which makes consistent intake especially important.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fda-udi"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our quality or regulatory team?",
+      "answer": "No. DocsBot is best used as an intake, retrieval, summarization, and routing layer. It can make SOPs easier to find, collect missing details, and prepare handoffs, but your qualified personnel should remain responsible for complaint classification, recall decisions, regulatory communications, and any patient-impacting judgment.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated product documentation?",
+      "answer": "DocsBot answers from the sources you approve, so implementation should include ownership for catalogs, IFUs, manuals, SOPs, document-control notes, and retirement of obsolete files. The agent can also surface repeated unanswered or conflicting questions through analytics and knowledge-gap reporting so your team can prioritize cleanup.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot internally for warehouse and operations SOP lookup?",
+      "answer": "Yes. A private internal agent can be trained on warehouse SOPs, receiving rules, return procedures, shipping guidance, temperature-sensitive handling instructions, training files, and escalation matrices. Employees can ask natural-language questions and get source-grounded answers with references back to the approved procedure.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle sensitive workflows like pricing, contract terms, and special account rules?",
+      "answer": "You can limit what the agent can access and what actions it can take using role-based permissions, granular access controls, scoped Skills, logs, secrets handling, and customer-defined boundaries. For pricing, contracts, regulated claims, or account-specific commitments, DocsBot should draft or summarize for human review rather than finalize the decision.",
+      "role": "Field sales, account managers, and distributor reps",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can field reps use DocsBot to prepare customer follow-ups faster?",
+      "answer": "Yes. Sales teams can train an internal agent on product docs, service catalogs, pricing guidance, proposal templates, approved messaging, case studies, competitive notes, and customer-facing FAQs. The agent can draft follow-up emails, summarize product questions, and prepare account handoffs while reps stay responsible for final outreach and commitments.",
+      "role": "Field sales, account managers, and distributor reps",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot qualify inbound hospital, ASC, or clinic inquiries before sales gets involved?",
+      "answer": "Yes. A customer-facing or presales agent can ask for buyer role, facility type, region, product category, timeline, urgency, and preferred follow-up channel. Using your qualification rules, it can prepare a lead summary and forward it through customer-configured CRM, email, helpdesk, form, or scheduling workflows.",
+      "role": "Field sales, account managers, and distributor reps",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect with in our distribution stack?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, webhooks, exports, and MCP options to support approved lookups, ticket creation, CRM handoffs, notifications, summaries, or field updates. Avoid giving the agent broad system access; start with bounded actions like order-status lookup, task creation, lead forwarding, and escalation routing.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much work is required before launch?",
+      "answer": "Most of the work is deciding which knowledge sources are approved, who owns them, which questions the agent may answer, and which workflows require escalation. A practical first phase is product documentation, customer service FAQs, returns/warranty policies, and SOP lookup before adding live actions such as order lookups or ticket creation.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI for a medical device distribution AI agent?",
+      "answer": "Track the workflows that currently consume specialist time: repetitive product questions, order-status inquiries, documentation requests, return questions, backorder triage, and internal SOP searches. Useful metrics include ticket deflection, first-response time, time to route quality cases, rep search time saved, unanswered-topic volume, and reduction in duplicate escalations.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What reporting will managers get after the agent is live?",
+      "answer": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For distributors, those reports can show repeated questions about substitutes, availability, documentation, returns, recall intake, or unclear SOPs so leaders can improve the underlying content and workflows.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review conversations for audit readiness and coaching?",
+      "answer": "DocsBot supports logs and conversation review, which can help managers inspect how the agent answered, what sources were used, and where escalation happened. For regulated workflows, pair that with internal procedures for quality review, complaint handling, and documentation retention rather than treating the AI log as the final compliance record.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot reduce hallucination risk?",
+      "answer": "DocsBot is designed around source-grounded answers from your approved knowledge instead of generic responses. You can also narrow the source set by use case, write instructions for what the agent must not answer, require clarifying questions, and route low-confidence or sensitive topics to a person.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens when the agent cannot find an approved answer?",
+      "answer": "You can configure the agent to say it does not have enough approved information, ask for missing details, suggest the right escalation path, or create a ticket for a human. Those unanswered questions can then feed knowledge-gap reporting so your team knows which catalogs, SOPs, or FAQs need improvement.",
+      "role": "Customer service and inside sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can customers use the agent outside business hours without creating compliance risk?",
+      "answer": "Yes, if the scope is clear. The agent can provide approved documentation answers, collect structured details, and acknowledge requests after hours, while routing recalls, complaints, clinical-use questions, urgent supply issues, pricing, and contract matters to human review. This gives customers a faster first response without removing escalation controls.",
+      "role": "Customer service and inside sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we roll this out across customer service, sales, operations, and quality?",
+      "answer": "Start with one high-volume, low-risk workflow such as product documentation lookup or internal SOP search. Then add structured intake for order, return, and quality cases. Once teams trust the answers and escalation paths, expand into approved live actions like ticket creation, lead handoff, notifications, or order-status lookups.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Is DocsBot suitable for distributors with multiple branches, shifts, or product lines?",
+      "answer": "Yes. A private knowledge agent can help standardize answers across branches, shifts, and teams by grounding responses in the same approved SOPs, catalogs, policies, and training materials. Permissions and source organization can help separate internal-only guidance, customer-facing answers, and specialized product-line knowledge.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What security posture can we present to IT and procurement?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a commitment that customer data is not used to train public models. For connected workflows, Skills can use secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is better positioned as a source-grounded AI agent for support, sales enablement, SOP lookup, and workflow handoffs—not just a generic chat box. It can train on your approved content, cite internal sources, summarize requests, identify missing documentation, and take bounded actions through workflows you authorize.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help during staffing shortages or new-hire onboarding?",
+      "answer": "Yes. New customer service reps, warehouse staff, and field sellers can ask plain-language questions about ordering rules, returns, product lines, complaint routing, documentation, and SOPs. That reduces dependence on tribal knowledge and helps experienced staff spend less time answering the same internal questions repeatedly.",
+      "role": "Operations, quality, and compliance leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should we avoid automating in the first phase?",
+      "answer": "Avoid giving the agent final authority over complaint classification, recall eligibility, substitute approval, clinical guidance, pricing exceptions, contract terms, or regulated customer notifications. A safer first phase is retrieval, summarization, structured intake, and routing, with humans approving high-impact actions until governance and source quality are proven.",
+      "role": "General buyer",
+      "category": "Implementation",
+      "sourceIds": [
+        "src-openfda-recalls"
+      ]
+    }
+  ]
+}

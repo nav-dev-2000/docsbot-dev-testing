@@ -1,0 +1,779 @@
+{
+  "slug": "plumbing-hvac-supply",
+  "business": "Plumbing & HVAC Supply",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Plumbing & HVAC Supply Teams",
+    "description": "DocsBot helps plumbing and HVAC supply distributors answer spec questions, qualify counter requests, and reduce repetitive support from one trusted knowledge agent.",
+    "canonicalPath": "/industry/plumbing-hvac-supply"
+  },
+  "hero": {
+    "eyebrow": "AI automation for supply houses, distributor branches, and inside sales teams",
+    "headline": "Keep plumbing and HVAC buyers moving with source-grounded AI agents",
+    "subheadline": "DocsBot turns your catalogs, line cards, manuals, policies, FAQs, training files, and internal procedures into AI agents that help contractors, counter teams, sales reps, and support staff find trusted answers, route requests, and hand off complex questions with context.",
+    "proofBullets": [
+      {
+        "text": "Answer contractor questions from approved product documentation, compatibility notes, warranty policies, and service catalogs.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect job details, identify missing information, and route quote, stock, or technical requests to the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give branch, counter, and inside sales staff a private assistant for SOPs, product families, returns, and onboarding.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for approved live lookups, summaries, and workflow triggers.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build your supply knowledge agent",
+    "secondaryCta": "Explore DocsBot for distribution"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps plumbing and HVAC supply businesses create AI agents trained on the knowledge they already trust: catalogs, PDFs, manuals, training materials, websites, help content, policies, and internal SOPs. The agent can answer in your voice, cite approved sources, support website and team chat experiences, summarize context, identify documentation gaps, and take bounded actions when you configure Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Branch and counter teams",
+        "roleContext": "Counter staff often need quick answers while contractors are waiting for part matches, return rules, warranty details, and product alternatives.",
+        "bullets": [
+          {
+            "text": "Search branch procedures, vendor manuals, product notes, and service policies from one internal assistant.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize a customer’s request before escalating a technical or pricing decision to a specialist.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Reduce repeated questions during onboarding by making SOPs and product training searchable.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Inside sales and account managers",
+        "roleContext": "Sales teams need fast access to product details, account context, proposal language, and qualification rules without digging through shared drives or old email threads.",
+        "bullets": [
+          {
+            "text": "Answer compatibility, spec, availability, pricing-policy, and fit questions from approved sales and product sources.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Collect lead or project details through structured intake and forward summaries to sales systems when configured.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Prepare follow-up drafts while keeping humans responsible for final pricing, contract, and procurement commitments.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Operations, ecommerce, and support leaders",
+        "roleContext": "Distributor leaders are expected to improve digital self-service while protecting the accuracy of technical, compliance, and branch policy information.",
+        "bullets": [
+          {
+            "text": "Gartner reported that 61% of surveyed B2B buyers prefer a rep-free buying experience, making accurate self-service support more important for distributors.",
+            "icon": "ComputerDesktopIcon",
+            "sourceIds": [
+              "src-gartner-b2b-self-service"
+            ]
+          },
+          {
+            "text": "Review analytics, logs, topics, and unresolved questions to find catalog, FAQ, and training gaps.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Use role-based permissions, encryption, SOC 2 Type II controls, and GDPR-ready governance for private knowledge sources.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon",
+        "sourceIds": [
+          "src-gartner-b2b-self-service"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-census-plumbing-hydronics-establishments",
+      "metric": "6,410 U.S. employer establishments in NAICS 423720",
+      "claim": "The U.S. Census Bureau profile for plumbing and heating equipment and supplies merchant wholesalers reported 6,410 employer establishments in 2023 County Business Patterns data.",
+      "sourceTitle": "U.S. Census Bureau: 423720 Plumbing and Heating Equipment and Supplies Merchant Wholesalers Profile",
+      "sourceUrl": "https://data.census.gov/profile/423720_-_Plumbing_and_heating_equipment_and_supplies_%28hydronics%29_merchant_wholesalers?codeset=naics~423720&g=010XX00US",
+      "sourceDate": "2023 data, accessed 2026",
+      "bestUsedFor": [
+        "market scale",
+        "multi-branch distributor complexity",
+        "industry specificity"
+      ]
+    },
+    {
+      "id": "src-bls-hvac-outlook",
+      "metric": "8% projected HVAC mechanic and installer employment growth from 2024 to 2034",
+      "claim": "BLS projects employment of heating, air conditioning, and refrigeration mechanics and installers to grow 8% from 2024 to 2034, with about 40,100 openings each year on average.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Heating, Air Conditioning, and Refrigeration Mechanics and Installers",
+      "sourceUrl": "https://www.bls.gov/ooh/Installation-Maintenance-and-Repair/Heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "contractor demand",
+        "technical support volume",
+        "after-hours and peak-season pressure"
+      ]
+    },
+    {
+      "id": "src-epa-hfc-phasedown",
+      "metric": "85% HFC phasedown by 2036",
+      "claim": "EPA states that the AIM Act mandates an 85% phasedown of HFCs from historic baseline levels by 2036 and authorizes EPA to address production, transitions, reclamation, and releases.",
+      "sourceTitle": "U.S. EPA: Frequent Questions on the Phasedown of Hydrofluorocarbons",
+      "sourceUrl": "https://www.epa.gov/climate-hfcs-reduction/phasedown-hydrofluorocarbons-final-rule-frequently-asked-questions",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "refrigerant transition questions",
+        "compliance pressure",
+        "training and documentation needs"
+      ]
+    },
+    {
+      "id": "src-epa-refrigerant-sales-restriction",
+      "metric": "EPA Section 608 refrigerant sales restrictions",
+      "claim": "EPA explains that refrigerant sales restrictions are established by regulations under Section 608 of the Clean Air Act.",
+      "sourceTitle": "U.S. EPA: Refrigerant Sales Restriction",
+      "sourceUrl": "https://www.epa.gov/section608/refrigerant-sales-restriction",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "regulated product workflows",
+        "certification reminders",
+        "human review boundaries"
+      ]
+    },
+    {
+      "id": "src-gartner-b2b-self-service",
+      "metric": "61% of surveyed B2B buyers prefer a rep-free buying experience",
+      "claim": "Gartner reported in 2025 that 61% of surveyed B2B buyers prefer a rep-free buying experience, while still valuing seller input for contextual fit decisions.",
+      "sourceTitle": "Gartner Sales Survey Finds 61% of B2B Buyers Prefer a Rep-Free Buying Experience",
+      "sourceUrl": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "digital self-service expectations",
+        "presales support",
+        "buyer behavior"
+      ]
+    },
+    {
+      "id": "src-naw-distribution-technology",
+      "metric": "Distribution described as an $8 trillion sector",
+      "claim": "The National Association of Wholesaler-Distributors describes distribution as an $8 trillion industry and highlights technology investment, customer experience optimization, and digital transformation needs.",
+      "sourceTitle": "National Association of Wholesaler-Distributors: Revolutionizing Distribution",
+      "sourceUrl": "https://www.naw.org/updates/revolutionizing-distribution/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "distribution scale",
+        "digital transformation",
+        "operations modernization"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Contractor product and compatibility assistant",
+      "problem": "Contractors and installers ask fast-moving questions about product specs, alternates, documentation, warranties, and fit while your team is balancing counter traffic, calls, and emails.",
+      "agentWorkflow": "A DocsBot agent answers from approved catalog pages, vendor PDFs, product manuals, warranty content, line cards, and FAQs. It can cite the source used, ask clarifying questions such as model number or application, and escalate uncertain or high-impact recommendations to a person with the conversation summary.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can perform approved live lookups such as account status, branch routing, quote intake, or ticket creation, without inventing unsupported product claims.",
+      "exampleQuestionsOrRequests": [
+        "Which expansion tank works with this boiler family?",
+        "Do you carry an equivalent valve for this application?",
+        "What information do you need before quoting a commercial water heater package?"
+      ],
+      "businessOutcome": "Faster answers for contractors and fewer repetitive interruptions for counter, support, and inside sales teams.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Refrigerant transition and policy guidance agent",
+      "problem": "The refrigerant transition creates recurring questions about HFC phasedown timelines, eligible products, sales restrictions, certification requirements, and what should be handled by trained professionals.",
+      "agentWorkflow": "Train DocsBot on your refrigerant FAQs, EPA guidance summaries, vendor transition bulletins, product change notices, and internal escalation policies. The agent can answer routine policy questions, cite approved materials, and route regulated or certification-sensitive requests to staff.",
+      "liveContextOrTools": "Configured workflows can collect license or account details for human review, create a ticket, notify a branch specialist, or update an approved status field when your systems allow it.",
+      "exampleQuestionsOrRequests": [
+        "Can I still buy refrigerant for servicing existing equipment?",
+        "What documents do you need before selling this refrigerant?",
+        "Which new refrigerant product bulletin should our team use for this line?"
+      ],
+      "businessOutcome": "Keeps fast-changing regulatory and product-transition guidance consistent while preserving human control for restricted sales and technical judgments.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-epa-hfc-phasedown",
+        "src-epa-refrigerant-sales-restriction"
+      ]
+    },
+    {
+      "name": "Quote and project intake automation",
+      "problem": "Inside sales teams often receive incomplete quote requests for fixture packages, hydronics jobs, replacement equipment, and HVAC components, leading to back-and-forth before a salesperson can act.",
+      "agentWorkflow": "A DocsBot presales agent asks structured intake questions, captures job type, quantities, model numbers, delivery location, timeline, account details, and special requirements. It can summarize the request and route it to the right branch, product specialist, or sales queue.",
+      "liveContextOrTools": "Using customer-defined AI Actions, Skills, forms, APIs, or connectors, the agent can create a task, forward a qualified lead, trigger an email notification, or hand off a clean summary to CRM, helpdesk, or ticketing software configured by your team.",
+      "exampleQuestionsOrRequests": [
+        "I need a quote for a school restroom renovation package.",
+        "Can you help me gather details for a boiler replacement order?",
+        "Route this commercial HVAC request to the right branch specialist."
+      ],
+      "businessOutcome": "Cleaner intake reduces manual triage, improves response speed, and gives salespeople better context before they quote.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Internal branch knowledge and onboarding assistant",
+      "problem": "Supply houses depend on experienced employees who know vendor lines, return rules, special order procedures, freight policies, and branch-specific workflows, but that knowledge is often scattered.",
+      "agentWorkflow": "DocsBot can train a private internal knowledge agent on SOPs, training guides, vendor notes, PDFs, Word documents, Google Drive, Notion, Confluence, and other approved sources. Employees ask natural-language questions and get source-grounded answers with logs and analytics showing gaps.",
+      "liveContextOrTools": "The agent can be available in private team chat, Slack, Microsoft Teams, or other configured team experiences, and can summarize unanswered topics for documentation owners.",
+      "exampleQuestionsOrRequests": [
+        "How do we process a warranty claim for this vendor?",
+        "What is the branch procedure for a special-order return?",
+        "Where is the training guide for new counter associates?"
+      ],
+      "businessOutcome": "Shortens onboarding, preserves institutional knowledge, and helps managers see which procedures need clearer documentation.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-census-plumbing-hydronics-establishments"
+      ]
+    },
+    {
+      "name": "Digital self-service support for ecommerce buyers",
+      "problem": "B2B buyers increasingly expect online answers before they contact sales, but distributor sites can struggle with dense catalogs, technical terms, and account-specific workflows.",
+      "agentWorkflow": "Embed a DocsBot website agent trained on product pages, shipping policies, FAQs, service coverage, brand lines, credit application instructions, and support content. The agent answers routine questions, collects missing details, and escalates sales-ready or complex requests.",
+      "liveContextOrTools": "When approved, Skills and connectors can help the agent check configured live context, create a helpdesk ticket, request a meeting through scheduling workflows, or hand off a lead summary to a human team.",
+      "exampleQuestionsOrRequests": [
+        "Do you stock this brand in my region?",
+        "How do I open a trade account?",
+        "Can someone contact me about a multi-branch purchasing program?"
+      ],
+      "businessOutcome": "Meets self-service expectations while giving human sales and support teams better-qualified conversations.",
+      "icon": "ShoppingCartIcon",
+      "sourceIds": [
+        "src-gartner-b2b-self-service"
+      ]
+    },
+    {
+      "name": "Sales enablement for complex product lines",
+      "problem": "Account managers need quick, accurate answers across product families, vendor changes, objection handling, proposal language, and branch policies.",
+      "agentWorkflow": "A DocsBot sales enablement agent can answer from product docs, sales playbooks, pricing guidance, implementation notes, proposal templates, case studies, testimonials, and customer-facing FAQs. Reps can ask for source-grounded talking points and draft follow-up language for human review.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or web search, the agent can research public account context, summarize likely needs, create a task, draft an email, or prepare a handoff while the seller owns final outreach and terms.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the differences between these two pump lines for a contractor conversation.",
+        "Draft a follow-up after a facilities buyer asked about water heater replacement options.",
+        "What objections should I expect from a customer comparing us to a direct manufacturer site?"
+      ],
+      "businessOutcome": "Helps sales teams respond consistently and spend less time searching for product and policy information.",
+      "icon": "PresentationChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give contractors a smarter front door for product, policy, and project questions",
+    "intro": "A DocsBot customer-facing agent can support contractors, facilities teams, builders, and purchasing staff from your website or product experience. It answers from approved supply knowledge, collects the details your team needs, and escalates when the request requires pricing judgment, regulated product handling, or technical review.",
+    "requests": [
+      {
+        "request": "“Do you have an equivalent part for this model number?”",
+        "agentResponseStrategy": "Ask for brand, model, application, and constraints; answer from approved product references when possible; explain uncertainty; and hand off to a specialist with the collected details.",
+        "sourceTypes": [
+          "Catalogs",
+          "Vendor manuals",
+          "Product cross-reference notes",
+          "FAQs"
+        ],
+        "optionalAction": "Create a ticket or route a summary to the right branch or product specialist when configured.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“What do I need to open a contractor account?”",
+        "agentResponseStrategy": "Explain the account application process from approved policy pages, collect basic lead details, and identify whether the buyer needs credit, tax exemption, delivery, or multi-branch purchasing help.",
+        "sourceTypes": [
+          "Account policies",
+          "Credit application instructions",
+          "Website FAQs",
+          "Sales enablement content"
+        ],
+        "optionalAction": "Forward the completed lead form or intake summary to sales, email, CRM, or helpdesk software through customer-configured workflows.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Can I buy this refrigerant from you?”",
+        "agentResponseStrategy": "Provide approved high-level policy guidance, ask for required details, and route restricted or certification-sensitive requests to trained staff rather than making the final determination.",
+        "sourceTypes": [
+          "Internal refrigerant policy",
+          "EPA guidance summaries",
+          "Vendor bulletins",
+          "Branch procedures"
+        ],
+        "optionalAction": "Collect documentation details for review, create a follow-up task, or notify a designated compliance or branch contact.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-epa-refrigerant-sales-restriction"
+        ]
+      },
+      {
+        "request": "“Can someone quote a fixture package for this job?”",
+        "agentResponseStrategy": "Use a structured intake flow to capture project type, quantities, drawings or notes, delivery timeline, location, and preferred contact method before routing the request.",
+        "sourceTypes": [
+          "Quote intake rules",
+          "Service catalogs",
+          "Branch coverage pages",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Submit a custom lead form, trigger a sales notification, or request a meeting through approved scheduling workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where can I find the installation manual for this unit?”",
+        "agentResponseStrategy": "Search approved documentation sources, return the most relevant answer with source context, and suggest next steps if the request involves installation, code, or safety decisions outside the agent’s boundaries.",
+        "sourceTypes": [
+          "Installation manuals",
+          "Product documentation",
+          "Technical bulletins",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Escalate to technical support with the product, model, and conversation summary attached.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you deliver to my jobsite?”",
+        "agentResponseStrategy": "Answer from delivery policy, service area, and branch content; ask for address, timing, order type, and unloading constraints when needed.",
+        "sourceTypes": [
+          "Delivery policies",
+          "Branch pages",
+          "Shipping FAQs",
+          "Operations SOPs"
+        ],
+        "optionalAction": "Route a delivery question or special handling request to operations through a configured workflow.",
+        "icon": "TruckIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make branch procedures and product knowledge searchable for every employee",
+    "intro": "DocsBot can also work as a private knowledge agent for counter associates, branch managers, sales reps, operations teams, ecommerce teams, and support staff. It keeps approved internal knowledge accessible while giving leaders logs, reports, and knowledge-gap insights.",
+    "workflows": [
+      {
+        "name": "Counter desk answer assistant",
+        "problem": "Counter associates need immediate answers while a contractor is waiting, but product and policy information may live in different folders, PDFs, vendor portals, and team conversations.",
+        "agentWorkflow": "The agent searches approved internal and public knowledge sources, answers with citations, asks clarifying questions, and recommends escalation when the question is uncertain or high-impact.",
+        "sourceTypes": [
+          "SOPs",
+          "Vendor PDFs",
+          "Catalogs",
+          "Return policies",
+          "Training guides"
+        ],
+        "optionalAction": "Create a follow-up task or notify a specialist through customer-configured Skills, APIs, or connectors.",
+        "outcome": "Faster answers at the counter and more consistent guidance across branches.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "name": "Returns, warranty, and special-order routing",
+        "problem": "Returns, warranties, and special orders are policy-heavy and vary by vendor, branch, account type, or product category.",
+        "agentWorkflow": "DocsBot answers from approved policy documents, asks for required fields, summarizes the case, and routes exceptions to a human reviewer rather than making unsupported commitments.",
+        "sourceTypes": [
+          "Warranty policies",
+          "Return SOPs",
+          "Vendor terms",
+          "Special-order procedures"
+        ],
+        "optionalAction": "Open a ticket, prepare an email draft, or update an approved field when your workflow permits it.",
+        "outcome": "Less back-and-forth and cleaner handoffs for policy-sensitive requests.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "New hire training and branch onboarding",
+        "problem": "New employees must learn product families, safety expectations, branch procedures, credit rules, vendor lines, and escalation paths before they can work independently.",
+        "agentWorkflow": "A private DocsBot agent answers onboarding questions from training files, HR policies, internal wikis, PDFs, and manager-approved materials, while analytics show which topics employees keep asking about.",
+        "sourceTypes": [
+          "Training manuals",
+          "HR policies",
+          "Branch SOPs",
+          "Product primers",
+          "Internal wikis"
+        ],
+        "optionalAction": "Send recurring unanswered topics to documentation owners for review.",
+        "outcome": "Reduces repetitive manager questions and helps preserve institutional knowledge as teams grow.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-hvac-outlook"
+        ]
+      },
+      {
+        "name": "Ecommerce and support content improvement",
+        "problem": "Repeated buyer questions reveal missing or unclear product content, but those questions are often buried in calls, tickets, and chats.",
+        "agentWorkflow": "DocsBot logs conversations, topics, reports, satisfaction signals, and unresolved questions so teams can identify which catalog pages, FAQs, and knowledge articles need improvement.",
+        "sourceTypes": [
+          "Website content",
+          "Help articles",
+          "Conversation logs",
+          "Ticket exports",
+          "Product pages"
+        ],
+        "optionalAction": "Generate summaries of knowledge gaps for ecommerce, marketing, or product content owners.",
+        "outcome": "Turns support demand into a practical roadmap for better self-service content.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Operations playbook assistant",
+        "problem": "Distribution operations involve delivery constraints, branch transfers, freight handling, receiving, inventory procedures, and exception workflows that can be hard to memorize.",
+        "agentWorkflow": "The agent answers operational questions from SOPs, branch documents, approved policies, and internal notes, then points employees to the source material used.",
+        "sourceTypes": [
+          "Operations SOPs",
+          "Delivery policies",
+          "Receiving procedures",
+          "Branch transfer rules"
+        ],
+        "optionalAction": "Trigger a workflow, create a task, or route an exception summary to operations when configured.",
+        "outcome": "Improves consistency for routine operational questions without replacing manager judgment for exceptions.",
+        "icon": "CogIcon",
+        "sourceIds": [
+          "src-naw-distribution-technology"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot trains AI agents on your selected websites, documents, knowledge bases, PDFs, internal content, and other approved sources so answers stay grounded in what your team trusts.",
+      "industryApplication": "Use approved catalogs, manuals, warranty policies, product bulletins, branch FAQs, and service documents to answer contractor and staff questions with source context.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Presales intake and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through forms or structured intake, apply customer-defined qualification instructions, and forward summaries through approved workflows.",
+      "industryApplication": "Capture quote requests, jobsite needs, account applications, product interest, timeline, region, and preferred follow-up channel before routing to inside sales or a branch team.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot Skills can give agents reusable instructions, reference material, and optional executable functions for lookups, summaries, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Configure approved actions for stock-request intake, ticket creation, lead forwarding, meeting requests, branch routing, or live context from systems exposed through APIs, connectors, or Model Context Protocol servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can work as an internal assistant trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company knowledge sources.",
+      "industryApplication": "Give branch staff, counter associates, ecommerce teams, and sales reps a searchable assistant for procedures, product families, vendor rules, and onboarding content.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which products, policies, refrigerant questions, delivery topics, and quote details cause repeated confusion, then improve your catalog, FAQ, and training content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for business knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Protect internal pricing guidance, SOPs, account procedures, and private product notes while giving authorized employees access to the answers they need.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions, internal knowledge retrieval, and source-grounded answers from your own content.",
+      "Deploy agents where teams need them: website widget, private team chat, helpdesk-connected workflows, Slack, Teams, or API-driven experiences.",
+      "Support governed automation with scoped Skills, logs, permissions, encryption, SOC 2 Type II controls, and GDPR-ready practices."
+    ],
+    "whyTheseReviewsFit": "Plumbing and HVAC supply teams need accurate answers from owned product content, manuals, and support workflows. DocsBot proof spans scalable customer support, multilingual manual-based assistance, embedded website help, and helpdesk-assisted human teams—patterns that match distributor support, ecommerce, and branch operations.",
+    "trustClaimIcons": [
+      "BoltIcon",
+      "ChatBubbleLeftIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for plumbing and HVAC supply distributors",
+    "audience": [
+      "Plumbing supply distributors",
+      "HVAC supply houses",
+      "Hydronics wholesalers",
+      "Industrial and building materials distributors",
+      "Branch operations and inside sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "electrical-supply-distribution",
+    "b2b-product-distributors",
+    "building-materials-suppliers",
+    "industrial-parts-distribution",
+    "industrial-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "plumbing-hvac-supply",
+    "webSearchQueries": [
+      "HVACR distributors market report skilled labor shortage customer service 2024",
+      "U.S. Census NAICS 423720 Plumbing and heating equipment supplies merchant wholesalers annual sales",
+      "EPA AIM Act HFC refrigerant phasedown HVAC distributors requirements",
+      "B2B buyers prefer digital self service product information distributors study",
+      "BLS HVAC mechanics installers employment outlook 2024 2034",
+      "National Association of Wholesaler-Distributors digital transformation AI distribution report"
+    ],
+    "sourceUrls": [
+      "https://data.census.gov/profile/423720_-_Plumbing_and_heating_equipment_and_supplies_%28hydronics%29_merchant_wholesalers?codeset=naics~423720&g=010XX00US",
+      "https://www.bls.gov/ooh/Installation-Maintenance-and-Repair/Heating-air-conditioning-and-refrigeration-mechanics-and-installers.htm",
+      "https://www.epa.gov/climate-hfcs-reduction/phasedown-hydrofluorocarbons-final-rule-frequently-asked-questions",
+      "https://www.epa.gov/section608/refrigerant-sales-restriction",
+      "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience",
+      "https://www.naw.org/updates/revolutionizing-distribution/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47768,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 28056,
+        "outputTokens": 9035,
+        "reasoningOutputTokens": 250,
+        "totalTokens": 56803,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.210593,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.230593
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 26578,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 12114,
+          "outputTokens": 6026,
+          "reasoningOutputTokens": 250,
+          "totalTokens": 32604,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.124291,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.144291
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21190,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15942,
+          "outputTokens": 3009,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 24199,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.086302,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.086302
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1615309662243-70f6df917b59?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxQbHVtYmluZyUyMCUyNiUyMEhWQUMlMjBTdXBwbHl8ZW58MHwwfHx8MTc3ODgyMjg0NHww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "black and gray metal pipe",
+    "source": "unsplash-search",
+    "query": "Plumbing & HVAC Supply"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer contractor questions without making unsafe product recommendations?",
+      "answer": "Yes. DocsBot answers from approved sources such as catalogs, vendor manuals, warranty documents, FAQs, and internal compatibility notes. You can instruct the agent to ask for model number, application, dimensions, fuel type, refrigerant type, or other missing details, and to escalate uncertain, code-sensitive, regulated, or high-impact recommendations to a person with the conversation summary.",
+      "role": "Branch and counter teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our counter team when contractors are waiting at the branch?",
+      "answer": "A private DocsBot agent gives counter staff one place to search SOPs, vendor PDFs, product notes, return rules, service policies, and training materials. Instead of digging through shared drives or calling a senior employee, staff can ask a natural-language question, get a source-grounded answer, and hand off edge cases to a specialist.",
+      "role": "Branch and counter teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent handle part cross-reference or equivalent-product questions?",
+      "answer": "DocsBot can help when your approved catalogs, line cards, cross-reference notes, product pages, or vendor documents contain the needed information. It should be configured to ask clarifying questions, cite the source used, explain uncertainty, and route final substitution decisions to a knowledgeable employee when fit, warranty, code, or safety risk is involved.",
+      "role": "Branch and counter teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will DocsBot replace our inside sales reps or just qualify requests before they quote?",
+      "answer": "DocsBot is best used to reduce manual triage, not replace sales judgment. It can collect project type, quantities, model numbers, delivery location, timeline, account details, drawings or notes, and special requirements, then send a clean summary to the right branch or inside sales queue. Your team still owns final pricing, alternates, terms, and commitments.",
+      "role": "Inside sales and account managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it improve quote intake for fixture packages, hydronics jobs, and replacement equipment?",
+      "answer": "Yes. You can configure structured intake flows that ask for the details your sales team needs before quoting: job type, products, quantities, model numbers, location, timeline, delivery constraints, account status, and contact preference. With approved Skills, APIs, connectors, forms, or workflows, DocsBot can route the completed summary to sales, CRM, helpdesk, email, or ticketing software you authorize.",
+      "role": "Inside sales and account managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot check live inventory, account status, or branch availability?",
+      "answer": "DocsBot can use live context only when you configure an approved Skill, API, connector, MCP option, metadata binding, or workflow that exposes that information. Many teams start with source-grounded answers from static documents, then add scoped lookups for stock-request intake, branch routing, account status, ticket creation, or approved field updates after governance is defined.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot handle refrigerant sales questions and Section 608 restrictions?",
+      "answer": "DocsBot can provide approved high-level guidance from your refrigerant policy, EPA summaries, vendor bulletins, and branch procedures, then collect required details for human review. It should not make the final eligibility decision for restricted products. EPA explains that refrigerant sales restrictions are established under Section 608 of the Clean Air Act.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-refrigerant-sales-restriction"
+      ]
+    },
+    {
+      "question": "Can it help us keep up with refrigerant transition questions from contractors?",
+      "answer": "Yes. You can train the agent on your HFC phasedown FAQs, vendor transition bulletins, product change notices, and internal escalation rules. EPA states that the AIM Act mandates an 85% phasedown of HFCs from historic baseline levels by 2036, so keeping approved guidance searchable can reduce repeated branch and support questions.",
+      "role": "Branch and counter teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-epa-hfc-phasedown"
+      ]
+    },
+    {
+      "question": "Will answers include citations so employees know where the information came from?",
+      "answer": "Yes. DocsBot is designed for source-grounded answers from your selected knowledge sources. For plumbing and HVAC supply teams, that means answers can point back to the catalog page, vendor PDF, return policy, installation manual, SOP, warranty document, or training guide used, helping employees verify details before acting.",
+      "role": "Branch and counter teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we separate what contractors see from what employees can ask internally?",
+      "answer": "Yes. You can run customer-facing agents for website or ecommerce questions and private internal agents for branch procedures, pricing guidance, SOPs, onboarding, and vendor rules. DocsBot supports granular access controls and role-based permissions, so private internal knowledge can be kept separate from public-facing self-service content.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What knowledge sources would we need before implementation?",
+      "answer": "Most teams start with the highest-volume and highest-confidence materials: product catalogs, vendor manuals, line cards, warranty policies, return procedures, delivery policies, account-opening instructions, FAQs, training documents, SOPs, and ecommerce product content. DocsBot can also train on internal documents, PDFs, Word files, Google Drive, Notion, Confluence, websites, and other approved sources.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does rollout usually take if our documentation is scattered across branches?",
+      "answer": "A practical rollout usually starts with one focused use case, such as counter support, quote intake, refrigerant policy guidance, or ecommerce self-service. You do not need perfect documentation to begin. DocsBot analytics and unresolved-question logs can show which files, branch rules, catalog pages, or FAQs need cleanup after employees and buyers start asking real questions.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support onboarding for new counter associates and branch employees?",
+      "answer": "Yes. A private internal knowledge agent can answer onboarding questions from SOPs, training guides, HR policies, vendor notes, product primers, internal wikis, and branch procedures. That helps new employees learn where to find return rules, warranty steps, escalation paths, freight policies, product families, and account procedures without repeatedly interrupting managers.",
+      "role": "Branch and counter teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Why is self-service worth prioritizing for a traditional contractor customer base?",
+      "answer": "Self-service does not have to replace counter relationships. It can answer routine account, delivery, product-documentation, and quote-intake questions before a buyer calls. Gartner reported in 2025 that 61% of surveyed B2B buyers prefer a rep-free buying experience, which makes accurate digital answers increasingly important even for relationship-driven distributors.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-gartner-b2b-self-service"
+      ]
+    },
+    {
+      "question": "What ROI should we measure beyond “chat deflection”?",
+      "answer": "Useful metrics include fewer repetitive calls to senior staff, faster quote intake, reduced back-and-forth on incomplete requests, shorter onboarding time, fewer policy mistakes, higher ecommerce self-service completion, lower support volume on known topics, and better visibility into content gaps. DocsBot analytics, logs, topic reporting, satisfaction signals, and unresolved questions can help track those patterns.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help account managers prepare for contractor or facility buyer conversations?",
+      "answer": "Yes. A sales enablement agent can answer from product docs, service catalogs, pricing guidance, proposal templates, case studies, sales playbooks, competitive notes, and FAQs. Reps can ask for source-grounded talking points, product-family summaries, objection-handling notes, or follow-up drafts while remaining responsible for final outreach, pricing, and terms.",
+      "role": "Inside sales and account managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot avoid giving outdated answers when vendor PDFs and product bulletins change?",
+      "answer": "DocsBot should be connected to your approved, current knowledge sources and governed by a content owner. Teams can retire outdated documents, refresh catalogs and bulletins, review conversation logs, and use unresolved questions to identify stale or missing content. For high-risk topics, configure the agent to cite sources, show uncertainty, and escalate to a person.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it support multiple branches with different policies or service areas?",
+      "answer": "Yes, if your source content and permissions reflect those differences. DocsBot can be trained on branch pages, delivery policies, region-specific service content, SOPs, and internal notes. You can configure instructions that ask for location, account type, branch, or jobsite details before answering or routing the request.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will our private pricing guidance, account procedures, and internal SOPs be protected?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For action workflows, Skills can be scoped with customer-defined controls, secrets handling, network policy, metadata bindings, and logging.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can employees use it in Slack, Microsoft Teams, or private team chat?",
+      "answer": "Yes. DocsBot can be deployed for private team chat experiences, including Slack and Microsoft Teams when configured. That is useful for branch managers, counter associates, inside sales, ecommerce teams, and support staff who need quick answers from internal SOPs, product documents, policies, and training content during the workday.",
+      "role": "Branch and counter teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot connect with our ERP, CRM, ecommerce platform, or ticketing system?",
+      "answer": "DocsBot can connect to business systems through customer-configured Skills, APIs, connectors, forms, webhooks, workflows, or MCP servers where you authorize access. Buyers should scope the first integrations carefully: start with routing, ticket creation, lead forwarding, summary handoffs, approved lookups, or limited field updates before allowing broader automation.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the agent from promising delivery dates, stock, or pricing it cannot verify?",
+      "answer": "Use clear instructions and scoped live actions. If the agent does not have authorized real-time inventory, pricing, or delivery data, it should collect the request, explain what it can verify from approved sources, and route the summary to a person. If live lookups are configured, limit them to approved systems and log the interaction.",
+      "role": "Inside sales and account managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot reduce pressure from HVAC contractor demand and peak-season support volume?",
+      "answer": "It can help absorb repetitive product, policy, documentation, and intake questions so staff can focus on urgent or complex work. BLS projects HVAC mechanic and installer employment to grow 8% from 2024 to 2034, with about 40,100 openings each year on average, which points to continued contractor demand for supply support.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-hvac-outlook"
+      ]
+    },
+    {
+      "question": "What should procurement compare when evaluating DocsBot against a generic chatbot or AI search tool?",
+      "answer": "Compare whether the tool can ground answers in your approved sources, cite documents, support private internal knowledge, collect structured intake, escalate to humans, provide analytics and knowledge-gap reporting, enforce permissions, and trigger bounded workflows through approved Skills, APIs, connectors, or MCP options. For distributors, governance and handoff quality matter as much as answer speed.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can managers see what contractors and employees are asking so we can improve content?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Ecommerce and operations leaders can use those insights to identify confusing product pages, missing manuals, unclear delivery policies, repeated refrigerant questions, and training topics that need better documentation.",
+      "role": "Operations, ecommerce, and support leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we involve branch managers and senior counter staff before launch?",
+      "answer": "Include them early as source reviewers and escalation-rule owners. They know which questions are routine, which product substitutions are risky, which policies vary by branch, and when a human must decide. Their feedback helps shape the agent’s instructions, approved sources, intake questions, and boundaries so employees trust it instead of working around it.",
+      "role": "Branch and counter teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both plumbing and HVAC product lines without mixing up terminology?",
+      "answer": "Yes, but the quality depends on source organization and instructions. Separate or clearly labeled catalogs, vendor manuals, product families, refrigerant policies, hydronics documents, plumbing fixture content, and branch SOPs help the agent retrieve the right context. For ambiguous questions, configure it to ask clarifying questions before answering.",
+      "role": "Inside sales and account managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is the plumbing and HVAC supply market large enough to justify purpose-built AI workflows?",
+      "answer": "Yes. The U.S. Census Bureau reported 6,410 employer establishments in NAICS 423720 for plumbing and heating equipment and supplies merchant wholesalers in 2023 County Business Patterns data. That scale, combined with multi-branch policies, dense catalogs, and technical product questions, makes repeatable knowledge workflows valuable.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-census-plumbing-hydronics-establishments"
+      ]
+    }
+  ]
+}

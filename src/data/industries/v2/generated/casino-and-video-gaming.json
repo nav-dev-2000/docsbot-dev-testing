@@ -1,0 +1,718 @@
+{
+  "slug": "casino-and-video-gaming",
+  "business": "Casino & Video Gaming",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Casino and Video Gaming Operations",
+    "description": "DocsBot helps casino and video gaming teams answer player questions, surface policies, route support, and improve knowledge across gaming operations.",
+    "canonicalPath": "/industry/casino-and-video-gaming"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for gaming support and operations",
+    "headline": "Run sharper casino and video gaming support with DocsBot AI agents",
+    "subheadline": "DocsBot helps gaming companies turn help centers, game guides, policy pages, knowledge bases, SOPs, and support history into AI agents that answer players, assist employees, summarize issues, and trigger bounded workflows when configured with approved Skills, APIs, connectors, or MCP tools.",
+    "proofBullets": [
+      {
+        "text": "Answer player questions from approved game rules, account help, promotion terms, FAQs, and support articles.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Route sensitive account, payment, responsible gaming, identity, or compliance requests to the right human team.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Give support agents and casino operations staff fast access to SOPs, troubleshooting steps, and policy guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect details, create tickets, summarize conversations, and trigger approved handoff workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your gaming AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your gaming knowledge: help centers, website pages, support docs, game guides, responsible play policies, internal SOPs, PDFs, and other approved sources. Agents provide source-grounded answers, work through embedded chat or private team chat, support more than 100 languages, and can take bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+    "whoItHelps": [
+      {
+        "role": "Player support and VIP service teams",
+        "roleContext": "Support teams field repeat questions about accounts, bonuses, gameplay, refunds, technical issues, and policy terms while protecting escalations for sensitive cases.",
+        "bullets": [
+          {
+            "text": "Give players instant answers from approved help content instead of forcing them to search long policy pages.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft or summarize support ticket replies when connected to helpdesk-style workflows through customer-configured access.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate high-risk requests such as payments, identity, responsible gaming, or disputes with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Casino operations, compliance, and responsible gaming leaders",
+        "roleContext": "Gaming operators need consistent policy communication across fast-moving floor operations, online channels, support teams, and jurisdiction-specific requirements.",
+        "bullets": [
+          {
+            "text": "Make SOPs, responsible play guidance, promotional terms, and escalation paths searchable for internal teams.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use role-based access and customer-defined boundaries so agents only answer from approved sources and workflows.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Review conversation logs and analytics to find repeated policy questions, unclear content, and training gaps.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Game studios, publishers, and live ops teams",
+        "roleContext": "Video game teams support players across releases, patches, seasonal events, entitlements, known issues, and in-game purchase questions.",
+        "bullets": [
+          {
+            "text": "Answer gameplay, account, patch note, event, and troubleshooting questions from docs, release notes, and knowledge bases.",
+            "icon": "PuzzlePieceIcon"
+          },
+          {
+            "text": "Collect structured issue details before handoff so human agents receive platform, version, region, account, and reproduction context.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Identify unanswered topics so documentation and community teams know where players are getting stuck.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "ComputerDesktopIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aga-2025-commercial-gaming",
+      "metric": "U.S. commercial gaming revenue reached about $72.04 billion in 2024.",
+      "claim": "The American Gaming Association’s State of the States 2025 report covers 38 commercial gaming jurisdictions and reported record 2024 commercial gaming revenue, underscoring the scale of casino operations and player demand.",
+      "sourceTitle": "State of the States 2025: The AGA Survey of the Commercial Casino Industry",
+      "sourceUrl": "https://www.americangaming.org/resources/state-of-the-states-2025/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "casino operations demand",
+        "commercial gaming growth"
+      ]
+    },
+    {
+      "id": "src-aga-igaming-2024",
+      "metric": "Online casino revenue grew 28.7% year over year to $8.41 billion in 2024 in seven full-scale legal iGaming states.",
+      "claim": "AGA’s 2024 revenue release shows online casino growth is increasing digital support and policy communication needs for operators.",
+      "sourceTitle": "2024 Commercial Gaming Revenue Reaches $71.9B, Marking Fourth-Straight Year of Record Revenue",
+      "sourceUrl": "https://americangaming.org/2024-commercial-gaming-revenue-reaches-71-9b-marking-fourth-straight-year-of-record-revenue/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "iGaming growth",
+        "digital support demand",
+        "online casino scale"
+      ]
+    },
+    {
+      "id": "src-esa-2024-essential-facts",
+      "metric": "ESA’s 2024 report is based on a large consumer survey of video game players across 21 countries.",
+      "claim": "ESA’s Essential Facts research highlights the broad consumer reach of video games and the importance of accessible player-facing information.",
+      "sourceTitle": "2024 Essential Facts About the U.S. Video Game Industry",
+      "sourceUrl": "https://www.theesa.com/resources/essential-facts-about-the-us-video-game-industry/2024-data/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "video game audience scale",
+        "player behavior",
+        "consumer gaming reach"
+      ]
+    },
+    {
+      "id": "src-ftc-gaming-consumer-issues",
+      "metric": "The FTC maintains gaming guidance and cases covering privacy, in-app purchases, online safety, and unwanted charges.",
+      "claim": "FTC gaming enforcement and guidance show why payment, privacy, refund, and child-safety questions need careful escalation and accurate policy responses.",
+      "sourceTitle": "Gaming | Federal Trade Commission",
+      "sourceUrl": "https://www.ftc.gov/industry/entertainment/gaming",
+      "sourceDate": "Updated regularly",
+      "bestUsedFor": [
+        "consumer protection",
+        "privacy risk",
+        "payment disputes",
+        "child safety"
+      ]
+    },
+    {
+      "id": "src-ftc-epic-settlement",
+      "metric": "FTC announced a $245 million settlement related to alleged unwanted Fortnite charges and dark patterns.",
+      "claim": "FTC’s Epic Games settlement illustrates how purchase, refund, and billing experiences can become major consumer protection issues in video gaming.",
+      "sourceTitle": "$245 million FTC settlement alleges Fortnite owner Epic Games used digital dark patterns to charge players for unwanted in-game purchases",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/blog/2022/12/245-million-ftc-settlement-alleges-fortnite-owner-epic-games-used-digital-dark-patterns-charge",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "billing disputes",
+        "refund workflow risk",
+        "consumer protection"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Player support agent for account, game, and policy questions",
+      "problem": "Players ask repeat questions about login issues, bonus terms, gameplay rules, account settings, refunds, and troubleshooting across websites, apps, and game portals.",
+      "agentWorkflow": "DocsBot answers from approved help centers, FAQs, rules pages, patch notes, policy documents, and support articles. When a question is too complex or sensitive, the agent collects missing details, summarizes the issue, and prepares a handoff for human support.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or helpdesk workflows, the agent can create a ticket, route by issue type, attach a summary, or look up approved status fields.",
+      "exampleQuestionsOrRequests": [
+        "Why did my bonus expire before I could use it?",
+        "How do I fix this error code after the latest patch?",
+        "Can you help me recover access to my account?",
+        "Where can I read the rules for this table game or tournament?"
+      ],
+      "businessOutcome": "Reduce repetitive frontline contacts while giving players faster, more consistent answers and clearer escalation paths.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Responsible play and sensitive request triage",
+      "problem": "Casino and iGaming teams need fast, consistent responses for responsible play, self-exclusion, payment, identity, and dispute questions without letting automation overstep sensitive decisions.",
+      "agentWorkflow": "DocsBot answers general questions from responsible play pages, terms, and approved policy content. For high-impact requests, it explains next steps, collects required context, and escalates to trained staff with a concise summary.",
+      "liveContextOrTools": "AI Actions can route to the responsible gaming, compliance, payments, or account security queue and trigger an approved notification or ticket creation workflow.",
+      "exampleQuestionsOrRequests": [
+        "How do I set deposit or time limits?",
+        "Where do I request self-exclusion information?",
+        "Why is my withdrawal under review?",
+        "I want to dispute a charge on my account."
+      ],
+      "businessOutcome": "Keep policy communication consistent while preserving human review for regulated, financial, identity, and responsible gaming workflows.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-gaming-consumer-issues"
+      ]
+    },
+    {
+      "name": "Live ops assistant for updates, events, and promotions",
+      "problem": "Game launches, seasonal events, casino promotions, tournaments, and patch changes create spikes in player questions and internal confusion.",
+      "agentWorkflow": "DocsBot trains on event rules, promotion terms, patch notes, known issues, game guides, eligibility pages, and internal launch briefs. It answers players or staff with source-grounded context and highlights unclear or missing documentation through analytics.",
+      "liveContextOrTools": "When configured, the agent can check approved live metadata such as event status, route promotion questions, create follow-up tasks, or notify a team channel.",
+      "exampleQuestionsOrRequests": [
+        "Am I eligible for this weekend tournament?",
+        "What changed in the latest balance update?",
+        "Why is this promotion not appearing in my account?",
+        "What known issues are affecting console players today?"
+      ],
+      "businessOutcome": "Shorten launch-support queues and help live ops teams spot documentation gaps before they become repeated tickets.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Internal SOP and floor operations knowledge agent",
+      "problem": "Casino employees, call center agents, moderation teams, and live ops staff need quick answers from policy binders, SOPs, training materials, and escalation guides.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, wikis, PDFs, training materials, policy docs, and operational playbooks. Employees ask questions in private chat and receive source-grounded answers with approved references.",
+      "liveContextOrTools": "Through customer-defined Skills and connectors, including MCP connections where appropriate, teams can allow approved lookups, task creation, summaries, or handoffs while preserving permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a payment dispute?",
+        "How should support respond to a suspected account takeover?",
+        "Where is the latest tournament operations checklist?",
+        "What information should I collect before sending this to compliance?"
+      ],
+      "businessOutcome": "Reduce time spent searching internal knowledge and help teams apply policies consistently across shifts and channels.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Billing, refunds, and purchase issue intake",
+      "problem": "In-game purchases, wallet transactions, subscriptions, refunds, and disputed charges can generate high-friction tickets and regulatory scrutiny.",
+      "agentWorkflow": "DocsBot answers from approved billing policies, refund FAQs, entitlement docs, and account help content. It collects transaction context, clarifies policy language, and escalates disputes or regulated requests to the right human workflow.",
+      "liveContextOrTools": "With approved APIs or helpdesk workflows, the agent can gather order IDs, create a ticket, summarize the request, and route by payment, refund, entitlement, or account-security category.",
+      "exampleQuestionsOrRequests": [
+        "I was charged for an item I did not mean to buy.",
+        "Where is my purchased skin or currency bundle?",
+        "What is your refund policy for in-game purchases?",
+        "Can you help me cancel a recurring subscription?"
+      ],
+      "businessOutcome": "Improve billing intake quality and reduce back-and-forth while keeping final refund and account decisions under approved human or system controls.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-ftc-epic-settlement"
+      ]
+    },
+    {
+      "name": "Multilingual player and guest assistance",
+      "problem": "Casinos, online gaming platforms, and global game communities support players across regions, languages, platforms, and time zones.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from the same approved knowledge base, helping players find localized guidance for account help, game rules, policies, troubleshooting, and support next steps.",
+      "liveContextOrTools": "Teams can deploy the agent through an embedded widget, private team chat, API-based experience, or customer-configured support workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain this promotion in Spanish?",
+        "How do I change my account language?",
+        "Where are the rules for this game in my language?",
+        "How do I contact support from my region?"
+      ],
+      "businessOutcome": "Expand self-service coverage without maintaining separate frontline scripts for every language and support channel.",
+      "icon": "LanguageIcon",
+      "sourceIds": [
+        "src-esa-2024-essential-facts"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give players faster answers without turning risky decisions over to automation",
+    "intro": "A DocsBot customer-facing agent helps players understand rules, account help, gameplay, promotions, troubleshooting, and policies from your approved content. For sensitive issues such as payments, identity, disputes, responsible play, or child-safety concerns, it can collect context and escalate instead of making final decisions.",
+    "requests": [
+      {
+        "request": "“Why can’t I withdraw my balance yet?”",
+        "agentResponseStrategy": "Answer from approved withdrawal, verification, and account policy content, then escalate if the request involves account-specific review or financial decisioning.",
+        "sourceTypes": [
+          "Payment policy pages",
+          "KYC or verification FAQs",
+          "Support escalation rules"
+        ],
+        "optionalAction": "Create a payment-support ticket with player-provided details and a concise conversation summary when configured.",
+        "icon": "WalletIcon"
+      },
+      {
+        "request": "“What are the rules and eligibility requirements for this promotion?”",
+        "agentResponseStrategy": "Retrieve the current promotion terms, eligibility limits, timing, wagering rules, or event instructions from approved source documents.",
+        "sourceTypes": [
+          "Promotion terms",
+          "Tournament rules",
+          "Event pages"
+        ],
+        "optionalAction": "Route unclear eligibility questions to support or VIP service with the promotion name and player context attached.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“The latest update broke my game. What should I do?”",
+        "agentResponseStrategy": "Search release notes, troubleshooting guides, known issue pages, and platform-specific instructions before asking for reproduction details.",
+        "sourceTypes": [
+          "Patch notes",
+          "Known issue articles",
+          "Troubleshooting docs"
+        ],
+        "optionalAction": "Collect platform, version, region, error code, and steps to reproduce before creating a support ticket.",
+        "icon": "BugAntIcon"
+      },
+      {
+        "request": "“How do I set limits or get responsible play help?”",
+        "agentResponseStrategy": "Provide source-grounded information from responsible play content and route urgent or account-specific requests to trained staff or approved support paths.",
+        "sourceTypes": [
+          "Responsible play pages",
+          "Self-exclusion information",
+          "Escalation policies"
+        ],
+        "optionalAction": "Trigger an approved responsible-gaming handoff workflow with the player’s requested next step.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“I bought currency but it never appeared.”",
+        "agentResponseStrategy": "Explain entitlement, receipt, platform-store, and refund guidance from approved policy content, then collect the details support needs.",
+        "sourceTypes": [
+          "Billing FAQs",
+          "Refund policies",
+          "Entitlement troubleshooting docs"
+        ],
+        "optionalAction": "Create a purchase-issue ticket with transaction ID, platform, timestamp, and player-provided account details when configured.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Can you recommend where to start?”",
+        "agentResponseStrategy": "Guide players to approved beginner resources, game descriptions, tutorials, or support articles without making unsupported personal or financial claims.",
+        "sourceTypes": [
+          "Game guides",
+          "Tutorials",
+          "Help center articles"
+        ],
+        "optionalAction": "Offer links to getting-started pages, rules, tutorials, or support options based on the player’s stated interest.",
+        "icon": "SparklesIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put casino, support, and live ops knowledge where teams already work",
+    "intro": "DocsBot can serve as a private internal knowledge agent for casino operations, video game support, compliance, marketing, live ops, and customer service teams. Staff get source-grounded answers from approved internal knowledge instead of searching across scattered SOPs, PDFs, wikis, and ticket history.",
+    "workflows": [
+      {
+        "name": "Support ticket drafting and routing",
+        "problem": "Agents lose time gathering policy references, reproducing known issues, and deciding which queue should own a player request.",
+        "agentWorkflow": "DocsBot can summarize ticket context, suggest source-grounded draft responses, identify missing details, and route by customer-defined issue categories when connected to helpdesk-style workflows.",
+        "sourceTypes": [
+          "Ticket history exports",
+          "Help center docs",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Draft a response or route a ticket through configured Skills, APIs, connectors, or workflows for human review.",
+        "outcome": "Improve first-response consistency and reduce repetitive research for support agents.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Compliance and policy lookup",
+        "problem": "Teams need fast access to approved language for responsible play, payments, privacy, promotion terms, and account restrictions.",
+        "agentWorkflow": "DocsBot answers internal questions from policy documents, SOPs, training materials, and compliance references, with source citations so staff can verify the guidance before acting.",
+        "sourceTypes": [
+          "Compliance SOPs",
+          "Responsible play policies",
+          "Promotion approval docs"
+        ],
+        "optionalAction": "Escalate unresolved questions to compliance or legal review with the employee’s question and source context attached.",
+        "outcome": "Help staff communicate approved policy language consistently across channels and shifts.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Launch and incident knowledge hub",
+        "problem": "During game launches, tournaments, outages, or promotions, updates live in multiple places and frontline teams ask the same questions repeatedly.",
+        "agentWorkflow": "DocsBot retrieves current launch notes, known issues, status explanations, approved player messaging, and internal action steps from connected knowledge sources.",
+        "sourceTypes": [
+          "Launch briefs",
+          "Known issue docs",
+          "Internal updates"
+        ],
+        "optionalAction": "Create follow-up tasks, summarize repeated questions, or notify the right team when configured with approved actions.",
+        "outcome": "Keep support, marketing, community, and live ops aligned during high-volume moments.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New support agents, dealers, moderators, and operations employees must learn policies, tools, escalation rules, and game-specific terminology quickly.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training materials, SOPs, product docs, and internal wikis, then analytics reveal where new hires need clearer documentation.",
+        "sourceTypes": [
+          "Training guides",
+          "Internal wikis",
+          "SOP libraries"
+        ],
+        "optionalAction": "Generate study summaries or route unanswered onboarding questions to documentation owners.",
+        "outcome": "Help new team members ramp faster while keeping answers grounded in current company knowledge.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Content gap and player issue reporting",
+        "problem": "Repeated unanswered questions show where help articles, game guides, policy pages, or promotion terms are unclear.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review help teams identify common player questions and knowledge gaps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Help center analytics",
+          "Support reports"
+        ],
+        "optionalAction": "Create documentation tasks or send summaries to knowledge owners through configured workflows.",
+        "outcome": "Turn support demand into a practical roadmap for better self-service content.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved gaming knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on help centers, websites, product documentation, internal content, PDFs, wikis, and other configured knowledge sources.",
+      "industryApplication": "Train a gaming support agent on account FAQs, promotion terms, responsible play pages, patch notes, game guides, known issues, and internal SOPs.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded player answers",
+      "mainLandingPageContext": "DocsBot agents answer from configured sources in the company’s voice and can surface knowledge gaps from repeated questions.",
+      "industryApplication": "Give players consistent answers about rules, troubleshooting, purchases, and policies while showing teams which content needs improvement.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, and workflow triggers when configured.",
+      "industryApplication": "Collect player details, create support tickets, route sensitive cases, summarize conversations, check approved status fields, or notify live ops through customer-defined workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports escalation when a request is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate responsible play, payment, identity, dispute, privacy, and account-security cases instead of letting automation make high-impact decisions.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which bonus terms, patch notes, error codes, refund policies, or onboarding topics create repeated questions across player and employee conversations.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls.",
+      "industryApplication": "Protect private gaming knowledge, support workflows, and internal policies while controlling which sources and actions each agent can access.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where players expect fast, accurate answers.",
+      "Train agents on your own content library so responses stay grounded in approved gaming knowledge.",
+      "Support human teams with website self-service, helpdesk-style workflows, summaries, and draft responses."
+    ],
+    "whyTheseReviewsFit": "Gaming teams need fast support, trusted knowledge, and practical workflows that fit existing operations. DocsBot proof spans high-volume inquiry handling, owned-content training, embedded website assistance, and support-team augmentation—patterns that map directly to casino, iGaming, and video game player service.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for casino, iGaming, and video game operations",
+    "audience": [
+      "Casino operators",
+      "iGaming support teams",
+      "Video game publishers",
+      "Live ops teams",
+      "Gaming compliance and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PuzzlePieceIcon"
+  },
+  "relatedIndustrySlugs": [
+    "gaming",
+    "online-gaming",
+    "arcade-management",
+    "e-sports-organization",
+    "game-development",
+    "fantasy-sports-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "casino-and-video-gaming",
+    "webSearchQueries": [
+      "American Gaming Association State of the States 2024 commercial gaming revenue casino report",
+      "American Gaming Association responsible gaming 2024 online gaming statistics",
+      "FTC video games in-app purchases complaints gaming consumer support",
+      "ESA Essential Facts 2024 video game players United States"
+    ],
+    "sourceUrls": [
+      "https://www.americangaming.org/resources/state-of-the-states-2025/",
+      "https://americangaming.org/2024-commercial-gaming-revenue-reaches-71-9b-marking-fourth-straight-year-of-record-revenue/",
+      "https://www.theesa.com/resources/essential-facts-about-the-us-video-game-industry/2024-data/",
+      "https://www.ftc.gov/industry/entertainment/gaming",
+      "https://www.ftc.gov/business-guidance/blog/2022/12/245-million-ftc-settlement-alleges-fortnite-owner-epic-games-used-digital-dark-patterns-charge"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 39226,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 26682,
+        "outputTokens": 7802,
+        "reasoningOutputTokens": 109,
+        "totalTokens": 47028,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.186872,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.196872
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19505,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12209,
+          "outputTokens": 5242,
+          "reasoningOutputTokens": 109,
+          "totalTokens": 24747,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.110977,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.120977
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19721,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14473,
+          "outputTokens": 2560,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22281,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075895,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075895
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1582603518944-5b55c828487e?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU4MzB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Casino & Video Gaming background image",
+    "source": "legacy-industry",
+    "query": "Casino & Video Gaming"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for player questions without letting it make account, payment, or responsible gaming decisions?",
+      "answer": "Yes. DocsBot is best positioned as a source-grounded support layer for approved answers and structured intake. It can explain policies, collect missing details, summarize the conversation, and route sensitive requests—such as withdrawals, identity review, disputes, or responsible play—to trained staff instead of making final decisions.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot handle bonus, promotion, and tournament questions where terms change frequently?",
+      "answer": "DocsBot can be trained on approved promotion terms, tournament rules, eligibility pages, launch briefs, and internal updates. Buyers usually start by defining source ownership, refresh processes, and escalation rules for unclear eligibility questions so the agent answers from current content and routes edge cases to support or VIP service.",
+      "role": "Player support and VIP service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot support both casino guest service and video game player support from the same platform?",
+      "answer": "Yes. Separate agents or permissioned knowledge sets can be configured for different audiences: casino guests, online players, support agents, live ops teams, compliance staff, or internal operations. Each agent can be trained on the relevant help center, SOPs, game guides, patch notes, policy pages, and approved workflows.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kinds of support volume should make us consider an AI support agent?",
+      "answer": "AI agents become especially useful when repetitive questions are crowding out human work: account access, bonus terms, rules, error codes, purchases, refunds, and known issues. The scale is material: U.S. commercial gaming revenue reached about $72.04 billion in 2024, and online casino revenue grew 28.7% year over year to $8.41 billion in seven full-scale legal iGaming states.",
+      "role": "Player support and VIP service teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-aga-2025-commercial-gaming",
+        "src-aga-igaming-2024"
+      ]
+    },
+    {
+      "question": "How do we keep the AI from giving outdated patch, event, or promotion information?",
+      "answer": "DocsBot should be connected only to approved sources with clear owners, such as release notes, known-issue pages, event terms, promotion pages, and internal launch briefs. Teams can review logs and knowledge gaps to spot stale or missing content, then update the source material rather than relying on one-off prompt fixes.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent collect useful troubleshooting details before handing a player to a human?",
+      "answer": "Yes. With customer-configured workflows, DocsBot can ask for structured details such as platform, region, game version, error code, device, transaction ID, reproduction steps, or promotion name. It can then summarize the issue and create or prepare a ticket so human agents spend less time on back-and-forth intake.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot work with our existing helpdesk, CRM, or internal tools?",
+      "answer": "DocsBot can support helpdesk-style and operations workflows through customer-configured Skills, APIs, connectors, webhooks, and MCP connections where appropriate. That can include creating tickets, routing requests, drafting replies, looking up approved status fields, notifying teams, or attaching summaries—without claiming a fixed native integration unless your team configures it.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for international players and casino guests?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved knowledge base. That is useful for global game communities, resort guests, and regional support teams that need consistent explanations of account help, game rules, policies, troubleshooting steps, and support paths without maintaining separate scripts for every language.",
+      "role": "Player support and VIP service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help compliance teams review what the AI told players or employees?",
+      "answer": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Compliance and operations leaders can use those records to review sensitive interactions, find confusing policy language, and decide where human escalation rules or source content need tightening.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we restrict internal SOPs so only the right teams can access them?",
+      "answer": "Yes. DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and customer-defined controls. That matters when internal agents are trained on private SOPs, compliance procedures, escalation matrices, VIP service rules, or support history.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we handle responsible play, self-exclusion, or player harm language?",
+      "answer": "Treat those as high-sensitivity workflows. DocsBot can provide source-grounded information from approved responsible play pages and policies, but should be configured to route urgent, account-specific, or self-exclusion requests to trained staff or approved support paths with a concise summary and clear escalation context.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help reduce risk around billing, refunds, and unwanted purchase complaints?",
+      "answer": "DocsBot can explain approved billing and refund policies, collect transaction context, and route disputes to the correct human workflow. That controlled intake is important because gaming payment experiences can carry consumer protection risk; the FTC announced a $245 million Epic Games settlement related to alleged unwanted Fortnite charges and dark patterns.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-epic-settlement"
+      ]
+    },
+    {
+      "question": "What does implementation usually require from our team?",
+      "answer": "Most teams start by selecting trusted sources: help articles, rules, promotion terms, responsible play pages, SOPs, game guides, patch notes, known issues, and ticket examples. Then they define audience permissions, escalation triggers, tone, no-answer behavior, and any approved actions such as ticket creation or routing.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prove ROI beyond saying the agent answered questions?",
+      "answer": "Track deflection of repetitive contacts, first-response time, resolution rate, escalation quality, intake completeness, agent handle time, support backlog during launches or promotions, and documentation gaps closed. DocsBot analytics and logs help connect conversation patterns to operational outcomes, not just chat volume.",
+      "role": "Player support and VIP service teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support internal floor operations and shift teams, not just player-facing chat?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, policy binders, training materials, escalation guides, PDFs, wikis, and internal updates. Staff can ask where to find a tournament checklist, how to escalate a payment dispute, or what information to collect before compliance review.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source content is incomplete?",
+      "answer": "DocsBot should be configured to avoid guessing, explain that it does not have enough approved information, and route the question to a human or documentation owner. Its analytics and knowledge-gap reporting help teams see repeated unanswered questions so help articles, SOPs, or promotion terms can be improved.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can support agents use DocsBot to draft responses without sending them automatically?",
+      "answer": "Yes. DocsBot can assist human agents by summarizing ticket context, finding relevant policy references, identifying missing details, and drafting source-grounded replies for review. This is useful when teams want consistency and speed but still require human approval for refunds, account actions, disputes, or regulated issues.",
+      "role": "Player support and VIP service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot help during a game launch, outage, tournament, or seasonal event spike?",
+      "answer": "DocsBot can be trained on launch briefs, status explanations, known issues, patch notes, event rules, and approved player messaging. It can answer repeated questions, collect issue details, route affected cases, notify teams through configured workflows, and show live ops which topics are creating the most confusion.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help us identify which help articles or policies need rewriting?",
+      "answer": "Yes. DocsBot conversation logs, topic reporting, satisfaction and resolution analysis, and knowledge-gap discovery can show where players repeatedly ask about the same bonus rule, error code, refund policy, eligibility term, or onboarding step. Teams can use that evidence to prioritize content updates.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How is DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is designed around AI agents trained on your approved knowledge, not generic responses. It can provide source-grounded answers, support internal knowledge use cases, escalate sensitive requests, analyze gaps, and take bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start with a limited pilot before rolling this out to all players or properties?",
+      "answer": "Yes. A practical pilot might focus on one knowledge base, one game, one promotion type, one support queue, or one internal SOP library. Buyers often measure answer quality, escalation accuracy, deflection, agent feedback, content gaps, and security review outcomes before expanding to more channels or teams.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What security questions should procurement and IT ask before approving DocsBot?",
+      "answer": "Ask how sources are permissioned, how roles are managed, how conversations are logged, how secrets are handled for Skills, what actions the agent can take, and whether customer data trains public models. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help with child-safety, privacy, or in-app purchase inquiries in video games?",
+      "answer": "DocsBot can answer from approved policies and route sensitive cases to the right team rather than improvising. That governance matters because the FTC maintains gaming guidance and cases covering privacy, in-app purchases, online safety, and unwanted charges.",
+      "role": "Game studios, publishers, and live ops teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-gaming-consumer-issues"
+      ]
+    },
+    {
+      "question": "What training is needed for support, compliance, and live ops teams to use it well?",
+      "answer": "Teams need a clear operating model: which sources are authoritative, which questions require escalation, how to review answers, how to flag bad or missing content, and how configured actions work. DocsBot can also support onboarding by answering internal questions from training guides, SOPs, and wikis.",
+      "role": "Casino operations, compliance, and responsible gaming leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we use DocsBot for both public player self-service and private employee knowledge without mixing the two?",
+      "answer": "Yes. Public and private use cases can be separated through different agents, knowledge sources, permissions, and workflows. A player-facing agent might answer account and gameplay questions, while an internal agent can access SOPs, escalation matrices, training materials, and policy references intended only for employees.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    }
+  ]
+}

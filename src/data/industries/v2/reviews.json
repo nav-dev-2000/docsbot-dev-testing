@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "reviews": [
+    {
+      "id": "sony-nuro-resolution-rate",
+      "quote": "Within just one month of deployment, DocsBot successfully handled over 30,000 customer inquiries, demonstrating its ability to handle a high volume of interactions. The chatbot achieved an impressive resolution rate of approximately 80%.",
+      "author": "NURO Hikari",
+      "role": "Sony Network Communications Inc.",
+      "company": "Sony Network Communications",
+      "themes": ["customer-support", "analytics-and-reports", "source-grounded-answers"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Telecommunications", "Customer Support"],
+      "sourceComponent": "src/components/Testimonials.jsx"
+    },
+    {
+      "id": "wingarc-ai-operations",
+      "quote": "DocsBot has perfectly understood our needs in AI bot operations and is adding new features at an incredible speed. We are truly grateful for this wonderful partnership!",
+      "author": "Yukitoshi Aoyagi",
+      "role": "GM, Customer Success @ WingArc1st Inc.",
+      "company": "WingArc1st",
+      "themes": ["customer-support", "analytics-and-reports", "ai-actions"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Customer Support"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "jack-arturo-wordpress-support",
+      "quote": "Really excited to see what this can do for WordPress support. The chat responses are already saving us time, I'm looking forward to getting it integrated with Help Scout as well. Very promising, worth a watch!",
+      "author": "Jack Arturo",
+      "role": "Founder and CEO of Very Good Plugins",
+      "company": "Very Good Plugins",
+      "themes": ["customer-support", "helpdesk-integrations", "widget"],
+      "bestForIndustryCategories": ["Business & Information", "Software", "E-Commerce"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "brian-avery-education",
+      "quote": "DocsBot has become an essential part of my courses, assisting students with assignments, exams, and projects, while reinforcing key concepts from our lecture discussions.",
+      "author": "Brian D. Avery",
+      "role": "Instructional Associate Professor",
+      "company": "University education",
+      "themes": ["internal-knowledge", "documentation-chatbot", "source-grounded-answers"],
+      "bestForIndustryCategories": ["Education", "Health Services", "Business & Information"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "matt-cromwell-content-library",
+      "quote": "The ability to train the bot on your own content library in really intuitive ways sets DocsBot apart. Love it!",
+      "author": "Matt Cromwell",
+      "role": "Customer Experience at StellarWP",
+      "company": "StellarWP",
+      "themes": ["source-grounded-answers", "no-code", "documentation-chatbot"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Customer Support"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "gareth-it-marketing",
+      "quote": "DocsBot is amazing! I want to thank you for your great work on this product. I have tried a few others, and nothing compares.",
+      "author": "Gareth P.",
+      "role": "IT & Marketing Manager",
+      "company": "Unknown",
+      "themes": ["internal-knowledge", "customer-support", "no-code"],
+      "bestForIndustryCategories": ["Business & Information", "Personal Services", "Real Estate & Housing"],
+      "sourceComponent": "src/components/Testimonials.jsx"
+    },
+    {
+      "id": "simon-gaggle-mail-help-scout",
+      "quote": "We've been using DocsBot for just over a week now, and I'm really loving it. We have an AI assistant integrated on our website, and also a bot assisting our human support team answer support emails via Help Scout.",
+      "author": "Simon",
+      "role": "Founder",
+      "company": "Gaggle Mail",
+      "themes": ["customer-support", "helpdesk-integrations", "widget"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Customer Support", "SaaS"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "anders-boligsiden-communication",
+      "quote": "DocsBot has helped us improve our communication to our customers and stakeholders.",
+      "author": "Anders",
+      "role": "Boligsiden",
+      "company": "Boligsiden",
+      "themes": ["customer-support", "internal-knowledge", "source-grounded-answers"],
+      "bestForIndustryCategories": ["Real Estate & Housing", "Business & Information", "Customer Support"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "musa-40k-traders-self-service",
+      "quote": "I have been using DocsBot for my business self-service and it sure works well, and I really recommend it.",
+      "author": "Musa Sithole",
+      "role": "Founder of The @40k_Traders",
+      "company": "The @40k_Traders",
+      "themes": ["customer-support", "source-grounded-answers", "no-code"],
+      "bestForIndustryCategories": ["Business & Information", "Finance & Investment", "Education & Training"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "sanchay-indned-ebike-support",
+      "quote": "Since the bikes are sold online and need to be assembled and maintained by the customer, we needed a support solution to help our customers 24/7 that was easy to deploy and scalable. DocsBot could train on our multilingual user manuals and the website.",
+      "author": "Sanchay Roy",
+      "role": "Co-Founder",
+      "company": "Indned BV",
+      "themes": ["customer-support", "multilingual-support", "documentation-chatbot", "widget"],
+      "bestForIndustryCategories": ["Retail & E-Commerce", "Automotive & Transportation", "Manufacturing", "Customer Support"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "amol-easyrfp-youtube-summaries",
+      "quote": "Absolutely loved the summary of YouTube videos. Saved a lot of my time.",
+      "author": "Amol Parikh",
+      "role": "Founder",
+      "company": "EasyRFP",
+      "themes": ["internal-knowledge", "analytics-and-reports", "source-grounded-answers"],
+      "bestForIndustryCategories": ["Business & Information", "Professional Services", "Sales & Marketing"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "russell-hablo-travel-training",
+      "quote": "We've integrated DocsBot into our travel industry training platform since September 2023 and it has helped our community access the information they need to help convert enquiries into bookings. It's a great tool, very easy to integrate and maintain.",
+      "author": "Russell",
+      "role": "Managing Director",
+      "company": "Hablo Ltd",
+      "themes": ["internal-knowledge", "customer-support", "no-code"],
+      "bestForIndustryCategories": ["Travel & Hospitality", "Education & Training", "Sales & Marketing"],
+      "sourceComponent": "testimonials-in-docsbot.csv"
+    },
+    {
+      "id": "geovanny-rag-build-vs-buy",
+      "quote": "We were invested in building our own RAG, but the ease of use of your service made me stop our efforts, even though we're all technical people here! Good job.",
+      "author": "Geovanny Tejeda",
+      "role": "CTO @ BotPro",
+      "company": "BotPro",
+      "themes": ["source-grounded-answers", "api", "no-code"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Software"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "gobinda-training-materials",
+      "quote": "It's an amazing tool to create your own AI bot that will give answers based on your training materials; you can train this bot to answer your common queries.",
+      "author": "Gobinda Tarafdar",
+      "role": "Senior Digital Strategist - Product Co-Ordinator",
+      "company": "Unknown",
+      "themes": ["internal-knowledge", "source-grounded-answers", "no-code"],
+      "bestForIndustryCategories": ["Business & Information", "Education & Training", "Personal Services"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "david-sacks-frontline-support",
+      "quote": "This is a very natural application for AI... saving on frontline customer support... I think the AI will do a really good job eliminating level one, it'll start to eating into level two.",
+      "author": "David Sacks",
+      "role": "All-In Podcast, VC Craft Ventures",
+      "company": "Craft Ventures",
+      "themes": ["customer-support", "human-escalation", "ai-actions"],
+      "bestForIndustryCategories": ["Business & Information", "Customer Support", "SaaS"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "liza-sentry-docs",
+      "quote": "We've had DocsBot on our docs site for the last couple of months and our users are definitely engaging with it. It's been a great tool for understanding what our users are interested in learning from our docs!",
+      "author": "Liza Mock",
+      "role": "Manager Docs & Technical Writing @ Sentry.io",
+      "company": "Sentry",
+      "themes": ["documentation-chatbot", "analytics-and-reports", "knowledge-gaps"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Software"],
+      "sourceComponent": "src/components/Testimonials.jsx"
+    },
+    {
+      "id": "bowe-dollie-support",
+      "quote": "We're using it for our product Dollie, to index our knowledge base and our site to provide first line of support for our customers and help them get started faster with our product using the embedded widget.",
+      "author": "Bowe Frankema",
+      "role": "Founder Dollie",
+      "company": "Dollie",
+      "themes": ["customer-support", "widget", "documentation-chatbot"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "SaaS"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "zach-katz-gravitykit",
+      "quote": "In my experience, it's about 60 percent in terms of giving a really good answer. That's not to say it isn't incredible, because it is, and DocsBot still saves us a ton of time.",
+      "author": "Zach Katz",
+      "role": "Founder of Gravity Kit",
+      "company": "Gravity Kit",
+      "themes": ["customer-support", "source-grounded-answers", "analytics-and-reports"],
+      "bestForIndustryCategories": ["Business & Information", "Technology", "Software"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "steve-burge-publishpress",
+      "quote": "We've been testing DocsBot and the results are really quite impressive. The answer isn't in our docs, but DocsBot did great!",
+      "author": "Steve Burge",
+      "role": "PublishPress",
+      "company": "PublishPress",
+      "themes": ["source-grounded-answers", "documentation-chatbot", "customer-support"],
+      "bestForIndustryCategories": ["Business & Information", "Education & Training", "Software"],
+      "sourceComponent": "src/components/customer-support/Testimonials.jsx"
+    },
+    {
+      "id": "jpa-health-internal-decisioning",
+      "quote": "Over 90% of chatbot queries originated from agents JPA developed, reducing the need for direct human interaction and streamlining internal decision-making.",
+      "author": "JPA Health",
+      "role": "Healthcare communications case study",
+      "company": "JPA Health",
+      "themes": ["internal-knowledge", "customer-support", "analytics-and-reports"],
+      "bestForIndustryCategories": ["Health Services", "Business & Information", "Safety/Security & Legal"],
+      "sourceComponent": "src/components/internal-knowledge/CaseStudies.jsx"
+    }
+  ]
+}

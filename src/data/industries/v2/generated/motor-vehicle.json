@@ -1,0 +1,703 @@
+{
+  "slug": "motor-vehicle",
+  "business": "Motor Vehicle",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Motor Vehicle Sales and Service",
+    "description": "DocsBot helps motor vehicle teams answer buyer, service, parts, fleet, and ownership questions faster with source-grounded AI agents.",
+    "canonicalPath": "/industry/motor-vehicle"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded automation for vehicle buyers, owners, and teams",
+    "headline": "DocsBot AI agents keep motor vehicle customers moving",
+    "subheadline": "Train DocsBot on your vehicle pages, manuals, service policies, finance FAQs, parts catalogs, SOPs, and support history so customers and employees can get fast, accurate answers with scoped handoffs when a specialist is needed.",
+    "proofBullets": [
+      {
+        "text": "Answer shopper questions about models, trim differences, warranties, availability, service options, and ownership policies from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead, service, parts, or fleet request details and route qualified conversations to sales, support, or operations workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give employees a private knowledge agent for SOPs, sales playbooks, service procedures, onboarding, and policy guidance.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions for live lookups, ticket creation, summaries, approved record updates, and human handoffs.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a motor vehicle AI agent",
+    "secondaryCta": "See how DocsBot automates support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets motor vehicle businesses create AI agents trained on their own approved knowledge. Use it on a website, in a support workflow, or as a private team assistant to answer source-grounded questions, summarize context, qualify requests, identify documentation gaps, and trigger bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Dealership and digital retail teams",
+        "roleContext": "Vehicle shoppers move between research sites, dealer pages, phone calls, and in-store visits. DocsBot helps sales and BDC teams keep answers consistent while collecting the context a human seller needs for the next step.",
+        "bullets": [
+          {
+            "text": "Answer questions about inventory pages, trims, accessories, trade-in steps, test-drive requests, incentives, and financing FAQs from approved content.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Qualify shoppers with custom intake fields such as model interest, timeline, budget range, location, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Prepare a conversation summary for sales handoff so staff can follow up without asking the customer to repeat the same details.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Service, parts, and ownership support teams",
+        "roleContext": "Owners expect quick help with maintenance intervals, warranty coverage, accessories, parts compatibility, repair status, and safety notices. DocsBot gives teams a governed AI support layer trained on the knowledge they trust.",
+        "bullets": [
+          {
+            "text": "Guide owners to the right service, maintenance, warranty, parts, and recall-related resources while escalating safety-critical or account-specific issues.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "When configured with approved APIs or workflows, look up order, appointment, ticket, or repair-status context and summarize the next step.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use analytics and logs to discover repeated ownership questions and improve help articles, SOPs, and product documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Fleet, rental, leasing, and operations managers",
+        "roleContext": "Motor vehicle operations teams need quick access to policies, vehicle records, driver instructions, inspection steps, and exception handling. DocsBot can centralize those answers for frontline staff and back-office teams.",
+        "bullets": [
+          {
+            "text": "Make inspection checklists, rental policies, leasing FAQs, fleet procedures, and escalation rules searchable in a private team agent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route damage, maintenance, billing, or vehicle availability questions to the right queue with a structured summary.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Support multilingual customer and employee questions from manuals, policies, and website content in more than 100 languages.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cox-buyer-journey-2026",
+      "metric": "Average vehicle buyers visited 4.6 sites in the 2026 Car Buyer Journey release.",
+      "claim": "Cox Automotive reported that buyers increasingly use a seamless omnichannel journey and that new-vehicle buyers are willing to use third-party platforms for research, comparisons, and cross-shopping.",
+      "sourceTitle": "Cox Automotive Car Buyer Journey Study Finds Efficiency, Digital Tools and AI Drive Record Satisfaction",
+      "sourceUrl": "https://www.coxautoinc.com/insights-hub/cox-automotive-car-buyer-journey-study-finds-efficiency-digital-tools-and-ai-drive-record-satisfaction",
+      "sourceDate": "January 13, 2026",
+      "bestUsedFor": [
+        "Digital retail complexity",
+        "Buyer research behavior",
+        "Need for consistent online answers"
+      ]
+    },
+    {
+      "id": "src-nada-service-parts-2026",
+      "metric": "Average dealership service and parts sales were $20,396,977 in NADA’s annual financial profile.",
+      "claim": "NADA’s annual financial profile reports large service and parts operations, including average repair orders, technician counts, labor rates, and service and parts sales per dealership.",
+      "sourceTitle": "NADA Annual Financial Profile",
+      "sourceUrl": "https://www.nada.org/media/5008",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "Service department workload",
+        "Parts and repair order volume",
+        "Dealership operations scale"
+      ]
+    },
+    {
+      "id": "src-bls-auto-techs-2024",
+      "metric": "Automotive service technicians and mechanics earned a median annual wage of $49,670 in May 2024.",
+      "claim": "The Bureau of Labor Statistics projects employment for automotive service technicians and mechanics to grow 4 percent from 2024 to 2034.",
+      "sourceTitle": "Automotive Service Technicians and Mechanics: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-service-technicians-and-mechanics.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Service labor pressure",
+        "Technician support",
+        "Training and knowledge access"
+      ]
+    },
+    {
+      "id": "src-nhtsa-recalls-lookup",
+      "metric": "NHTSA provides a VIN lookup tool for unrepaired safety recalls.",
+      "claim": "NHTSA explains that recalls are issued when a manufacturer or NHTSA determines that a vehicle, equipment, car seat, or tire creates an unreasonable safety risk or fails to meet minimum safety standards.",
+      "sourceTitle": "Check for Recalls: Vehicle, Car Seat, Tire, Equipment",
+      "sourceUrl": "https://www.nhtsa.gov/recalls",
+      "sourceDate": "Current government resource",
+      "bestUsedFor": [
+        "Recall support",
+        "Safety-sensitive escalation",
+        "VIN lookup workflow context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Vehicle shopper and lead qualification agent",
+      "problem": "Shoppers compare models, pricing, availability, trade-in steps, finance options, and appointment choices before speaking with sales. Cox Automotive reported an average of 4.6 sites visited in its 2026 buyer journey release.",
+      "agentWorkflow": "DocsBot answers from approved inventory pages, model comparisons, pricing guidance, incentive FAQs, financing policies, trade-in instructions, and sales playbooks. It can collect lead details, apply customer-defined qualification rules, and prepare a concise handoff for a human seller.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or forms, the agent can submit a lead, trigger a follow-up workflow, request a test-drive booking, or forward context to sales software configured by the customer.",
+      "exampleQuestionsOrRequests": [
+        "Which trims of this SUV support all-wheel drive and towing?",
+        "I’m comparing two models and want a payment estimate conversation with sales.",
+        "Can I book a test drive this Saturday and include my trade-in details?"
+      ],
+      "businessOutcome": "More complete shopper conversations reach sales with the buyer’s intent, model interest, timeline, and questions already summarized.",
+      "icon": "ShoppingBagIcon",
+      "sourceIds": [
+        "src-cox-buyer-journey-2026"
+      ]
+    },
+    {
+      "name": "Owner support for service, warranty, parts, and policies",
+      "problem": "Service and parts departments operate at high volume; NADA reported average dealership service and parts sales of $20,396,977 in its annual financial profile.",
+      "agentWorkflow": "DocsBot can answer routine owner questions from maintenance schedules, warranty guides, service menus, parts FAQs, accessory catalogs, repair policies, and customer-facing help articles. Sensitive, account-specific, or safety-critical issues can be escalated with context.",
+      "liveContextOrTools": "When configured, AI Actions can look up appointment status, create a support ticket, route a parts request, summarize a service concern, or notify a human advisor through approved workflows.",
+      "exampleQuestionsOrRequests": [
+        "What maintenance is recommended at 60,000 miles?",
+        "Does my warranty cover this component?",
+        "I need the right accessory part for my vehicle and want a parts advisor to confirm."
+      ],
+      "businessOutcome": "Advisors spend less time re-answering common questions and receive cleaner requests when a human needs to review the case.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-nada-service-parts-2026"
+      ]
+    },
+    {
+      "name": "Recall and safety information guidance",
+      "problem": "Recall questions require careful handling because NHTSA says recalls are issued for unreasonable safety risk or failure to meet minimum safety standards.",
+      "agentWorkflow": "DocsBot can explain the company’s recall communication process, point customers to approved VIN lookup resources, gather vehicle and contact details, and escalate cases requiring safety, legal, manufacturer, or service department review.",
+      "liveContextOrTools": "A customer-configured Skill can trigger an intake form, create a case, route the request to a recall coordinator, or provide links to approved official resources without making final safety determinations.",
+      "exampleQuestionsOrRequests": [
+        "How do I check whether my vehicle has an open recall?",
+        "What information should I bring for a recall appointment?",
+        "I received a recall notice and need a service team member to contact me."
+      ],
+      "businessOutcome": "Customers get clearer next steps while the business keeps safety-sensitive answers inside approved boundaries and human review paths.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nhtsa-recalls-lookup"
+      ]
+    },
+    {
+      "name": "Internal technician and advisor knowledge assistant",
+      "problem": "The Bureau of Labor Statistics projects 4 percent employment growth for automotive service technicians and mechanics from 2024 to 2034, making consistent training and knowledge access important for service operations.",
+      "agentWorkflow": "DocsBot can serve as a private knowledge agent trained on SOPs, onboarding materials, warranty procedures, service bulletins the business is authorized to use, parts policies, internal process docs, and advisor scripts.",
+      "liveContextOrTools": "In private chat, Slack, Microsoft Teams, or internal workflows, employees can ask questions, retrieve cited procedures, summarize long documents, and flag missing or outdated knowledge for review.",
+      "exampleQuestionsOrRequests": [
+        "What is our escalation process for a repeat repair complaint?",
+        "Where is the advisor checklist for warranty documentation?",
+        "Summarize the delivery steps for a new service hire."
+      ],
+      "businessOutcome": "Staff can find consistent process guidance faster and managers can see which procedures need better documentation.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-auto-techs-2024"
+      ]
+    },
+    {
+      "name": "Fleet, leasing, rental, and vehicle operations requests",
+      "problem": "Vehicle operations teams handle recurring questions about vehicle availability, usage rules, inspections, claims, billing, maintenance, and driver responsibilities across many locations or accounts.",
+      "agentWorkflow": "DocsBot can answer from rental policies, leasing terms, fleet SOPs, inspection checklists, driver guides, account FAQs, and internal procedures. It can collect missing details and route exceptions to the right team.",
+      "liveContextOrTools": "With customer-approved Skills, APIs, connectors, or MCP-connected tools, the agent can use live context for permitted lookups, create tasks, update approved fields, or trigger handoff workflows.",
+      "exampleQuestionsOrRequests": [
+        "What do I do if a vehicle is returned with damage?",
+        "Summarize this fleet customer’s maintenance request for operations.",
+        "Which policy applies when a driver needs an after-hours vehicle swap?"
+      ],
+      "businessOutcome": "Frontline staff and customers get consistent guidance while exceptions are documented and routed with context.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for documentation and support leaders",
+      "problem": "Motor vehicle teams maintain many moving sources: brochures, finance FAQs, service policies, ownership guides, parts information, and internal SOPs. Gaps create repeated calls, emails, and escalations.",
+      "agentWorkflow": "DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so teams can see what customers and employees are trying to learn.",
+      "liveContextOrTools": "Teams can review recurring topics, update source content, refine instructions, and use customer-defined workflows to notify documentation, sales, or service leaders about high-friction questions.",
+      "exampleQuestionsOrRequests": [
+        "What unanswered questions are shoppers asking about EV charging?",
+        "Which service policy topics generated the most escalations this month?",
+        "Show repeated parts compatibility questions that need a better article."
+      ],
+      "businessOutcome": "The knowledge base improves over time, reducing repeat confusion and giving leaders clearer insight into buyer and owner friction.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guided vehicle experience from first research to ownership support",
+    "intro": "Put a DocsBot AI support agent on your website or customer portal to answer from approved vehicle pages, manuals, FAQs, service policies, and ownership content. The agent can qualify requests, collect details, and hand off complex conversations to sales, service, parts, or fleet staff.",
+    "requests": [
+      {
+        "request": "“Help me compare these two models and decide what to ask sales.”",
+        "agentResponseStrategy": "Answer from approved model pages, comparison content, specification PDFs, incentives guidance, and sales FAQs, then collect budget, timeline, location, and follow-up preference if the shopper wants human help.",
+        "sourceTypes": [
+          "Vehicle pages",
+          "Brochures and PDFs",
+          "Sales FAQs",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Submit a structured lead form or forward a summarized conversation to the sales workflow configured by the customer.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“What maintenance does my vehicle need before a road trip?”",
+        "agentResponseStrategy": "Use manuals, maintenance schedules, service menus, and dealership policies to explain general guidance, while encouraging human review for safety-sensitive symptoms or account-specific recommendations.",
+        "sourceTypes": [
+          "Owner manuals",
+          "Maintenance schedules",
+          "Service policy pages",
+          "Help articles"
+        ],
+        "optionalAction": "Collect vehicle details and service intent, then request an appointment or create a ticket through approved scheduling or helpdesk workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you have the right part or accessory for my vehicle?”",
+        "agentResponseStrategy": "Use parts catalogs, accessory guides, fitment FAQs, and company policies to gather vehicle details and narrow the request before a parts specialist confirms final compatibility.",
+        "sourceTypes": [
+          "Parts catalogs",
+          "Accessory guides",
+          "Fitment FAQs",
+          "Return policies"
+        ],
+        "optionalAction": "Route the request with VIN or vehicle details, requested part, urgency, and contact information to a parts queue or configured workflow.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“How do I check a recall notice?”",
+        "agentResponseStrategy": "Explain the company’s approved recall process and direct the customer to official or company-approved lookup steps while escalating safety-critical questions to a qualified person.",
+        "sourceTypes": [
+          "Recall process pages",
+          "Official safety resources",
+          "Service FAQs",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a recall inquiry, collect contact details, or route the case to a service or recall coordinator through an approved workflow.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-nhtsa-recalls-lookup"
+        ]
+      },
+      {
+        "request": "“Can you help with a fleet policy, lease question, or rental issue?”",
+        "agentResponseStrategy": "Answer from approved account policies, rental rules, leasing FAQs, driver instructions, and support articles, then gather the account, vehicle, location, and issue type for routing.",
+        "sourceTypes": [
+          "Fleet policies",
+          "Rental rules",
+          "Lease FAQs",
+          "Driver guides"
+        ],
+        "optionalAction": "Create a task, notify operations, or route the issue with a structured summary when the customer has configured the workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“I need this in another language.”",
+        "agentResponseStrategy": "Use DocsBot multilingual answer capabilities to respond from the same approved sources while preserving the company’s boundaries and escalation rules.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website content",
+          "Customer FAQs",
+          "Support policies"
+        ],
+        "optionalAction": "Escalate to a human team member with the translated conversation summary when configured.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private AI knowledge agent for sales, service, parts, and operations",
+    "intro": "DocsBot can give employees instant answers from internal SOPs, playbooks, policies, onboarding docs, manuals, PDFs, wikis, and team knowledge. Staff can ask natural-language questions, receive cited answers, summarize long documents, and surface gaps that leaders need to fix.",
+    "workflows": [
+      {
+        "name": "Sales and BDC enablement",
+        "problem": "Sales teams need fast, consistent answers about model specs, packages, policies, objections, incentives, handoff steps, and follow-up language.",
+        "agentWorkflow": "Train DocsBot on sales enablement materials, product guides, comparison sheets, objection handling, proposal templates, and customer-facing FAQs. Reps can ask questions and draft follow-ups for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Model guides",
+          "Objection handling docs",
+          "Proposal templates"
+        ],
+        "optionalAction": "With approved workflows, create a task, draft an email, or update permitted CRM fields after a human reviews the response.",
+        "outcome": "Sellers respond with more complete context and less time spent searching through scattered documents.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "name": "Service advisor process assistant",
+        "problem": "Advisors handle repetitive questions about warranty steps, repair documentation, loaner rules, customer communication, and escalation procedures.",
+        "agentWorkflow": "DocsBot answers from SOPs, service policies, warranty procedures, advisor scripts, customer communication templates, and internal checklists with source-grounded citations.",
+        "sourceTypes": [
+          "Service SOPs",
+          "Warranty procedures",
+          "Advisor scripts",
+          "Internal checklists"
+        ],
+        "optionalAction": "Summarize a customer concern, draft a ticket response, or route a case to a manager using customer-configured helpdesk or workflow connections.",
+        "outcome": "Advisors get faster process guidance while managers maintain control over policy-sensitive decisions.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Parts and accessory knowledge retrieval",
+        "problem": "Parts teams need to resolve fitment, ordering, return, and availability questions without relying only on tribal knowledge.",
+        "agentWorkflow": "Train DocsBot on parts policies, catalog excerpts, accessory guides, compatibility FAQs, shipping rules, and return policies so staff can quickly narrow the issue and prepare a specialist handoff.",
+        "sourceTypes": [
+          "Parts policies",
+          "Catalog PDFs",
+          "Accessory guides",
+          "Return rules"
+        ],
+        "optionalAction": "Create a parts request, notify the appropriate queue, or append a summary to an internal ticket when configured.",
+        "outcome": "Parts requests arrive with cleaner context, reducing back-and-forth with customers and internal teams.",
+        "icon": "CubeIcon"
+      },
+      {
+        "name": "Operations onboarding and policy search",
+        "problem": "Motor vehicle businesses depend on many location-specific policies and role-specific procedures that new employees struggle to find.",
+        "agentWorkflow": "DocsBot trains on onboarding docs, HR policies, location procedures, safety checklists, finance policies, and operational playbooks so employees can ask questions in private chat, Slack, or Microsoft Teams.",
+        "sourceTypes": [
+          "Onboarding docs",
+          "HR policies",
+          "Location SOPs",
+          "Operational playbooks"
+        ],
+        "optionalAction": "Flag unanswered questions for documentation owners or route requests to HR, IT, finance, or operations through approved workflows.",
+        "outcome": "New and existing employees find the right procedure faster, and leaders see where documentation needs improvement.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your own vehicle knowledge",
+      "mainLandingPageContext": "DocsBot agents train on websites, help centers, documentation, PDFs, Word documents, internal content, and other configured knowledge sources to produce grounded answers.",
+      "industryApplication": "Train agents on vehicle pages, owner manuals, service policies, parts guides, finance FAQs, rental or fleet rules, and internal SOPs so customers and employees get consistent answers.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, ticket creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved live context to look up appointment status, submit a lead, route a recall inquiry, create a parts request, summarize a support case, or connect to remote Model Context Protocol servers your team already governs.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Customer-facing widget and helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot can work in a website or product chat widget and can support helpdesk-connected workflows through customer-configured Skills, APIs, connectors, exports, or approved access.",
+      "industryApplication": "Deploy an agent on dealership, OEM, aftermarket, rental, leasing, fleet, or service websites while letting support teams review escalations and ticket summaries in their existing process.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for HR, IT, sales, support, operations, compliance, finance, legal, and other internal teams.",
+      "industryApplication": "Give sales, service, parts, finance, fleet, and operations employees a governed assistant for SOPs, policy questions, onboarding, troubleshooting, and internal process guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which vehicle, service, warranty, parts, financing, rental, or fleet topics create repeated confusion, then improve the underlying content and escalation paths.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for business knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep sensitive operational knowledge, customer conversations, internal policies, and configured action permissions governed while teams automate routine answers and handoffs.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Deploy customer support agents trained on manuals, websites, and owned content instead of generic answers.",
+      "Handle high-volume support conversations while preserving human escalation for complex or sensitive issues.",
+      "Use owned knowledge libraries to keep vehicle, service, and support answers aligned with your business."
+    ],
+    "whyTheseReviewsFit": "Motor vehicle buyers and owners need practical answers from trusted manuals, support content, and policies. DocsBot proof spans 24/7 product support, high-volume inquiry handling, multilingual manuals, and source-grounded knowledge retrieval, making it well suited for sales, service, parts, fleet, and ownership workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents, internal knowledge agents, and workflow automation for motor vehicle businesses",
+    "audience": [
+      "Motor vehicle dealerships",
+      "OEM and aftermarket support teams",
+      "Service and parts departments",
+      "Fleet, rental, and leasing operators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "motor-vehicle-rental",
+    "motor-vehicle-repair",
+    "new-motor-vehicle-sales",
+    "used-car-sales",
+    "vehicle-leasing",
+    "automotive-part-sales",
+    "car-auction-house",
+    "fleet-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "motor-vehicle",
+    "webSearchQueries": [
+      "NADA 2024 average dealership employees payroll sales service departments statistics",
+      "Cox Automotive car buyer journey 2024 consumers visit dealership websites online research",
+      "BLS automotive service technicians employment May 2024",
+      "NHTSA recalls vehicle safety recalls consumers lookup VIN"
+    ],
+    "sourceUrls": [
+      "https://www.coxautoinc.com/insights-hub/cox-automotive-car-buyer-journey-study-finds-efficiency-digital-tools-and-ai-drive-record-satisfaction",
+      "https://www.nada.org/media/5008",
+      "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-service-technicians-and-mechanics.htm",
+      "https://www.nhtsa.gov/recalls"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 39294,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 26750,
+        "outputTokens": 7830,
+        "reasoningOutputTokens": 120,
+        "totalTokens": 47124,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.187462,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.197462
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19403,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12107,
+          "outputTokens": 5347,
+          "reasoningOutputTokens": 120,
+          "totalTokens": 24750,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.112297,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.122297
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19891,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14643,
+          "outputTokens": 2483,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22374,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075165,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075165
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1592840062661-a5a7f78e2056?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzkzNzl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Motor Vehicle background image",
+    "source": "legacy-industry",
+    "query": "Motor Vehicle"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer shopper questions without giving unofficial pricing, incentive, or financing promises?",
+      "answer": "Yes. DocsBot can be trained on approved inventory pages, pricing guidance, finance FAQs, incentive rules, and sales playbooks, then instructed to stay within those sources. For payment, trade-in, credit, or deal-specific questions, it can collect context and hand off the conversation to sales or finance with a summary instead of making final commitments.",
+      "role": "Dealership and digital retail teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help when shoppers research across multiple sites before contacting us?",
+      "answer": "DocsBot gives your own website or portal a consistent source-grounded answer layer for model comparisons, trim questions, availability, service options, warranty basics, and next steps. That matters because Cox Automotive reported that average vehicle buyers visited 4.6 sites in its 2026 Car Buyer Journey release, increasing the need for consistent answers when shoppers return to your owned channels.",
+      "role": "Dealership and digital retail teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cox-buyer-journey-2026"
+      ]
+    },
+    {
+      "question": "Can the agent qualify a lead before it reaches our sales or BDC team?",
+      "answer": "Yes. DocsBot can collect structured fields such as model interest, budget range, trade-in intent, location, timeline, preferred contact method, and appointment request. Customer-defined instructions can qualify the lead and route the summary through approved forms, APIs, connectors, Skills, or workflows configured by your team.",
+      "role": "Dealership and digital retail teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our salespeople still control follow-up, pricing, and negotiation?",
+      "answer": "Yes. DocsBot is best used to answer approved factual questions, gather intent, summarize the conversation, and prepare handoff context. Human staff should remain responsible for final pricing, finance terms, trade-in decisions, legal disclosures, and relationship-based follow-up.",
+      "role": "Dealership and digital retail teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support service and parts teams without overwhelming advisors with low-quality tickets?",
+      "answer": "Yes. The agent can ask for the missing details advisors usually need: vehicle, mileage, symptom, preferred location, warranty concern, part or accessory request, urgency, and contact information. It can then route a cleaner summary to the right queue instead of forwarding vague “I need help” messages.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What service department workload problem is this really addressing?",
+      "answer": "Service and parts operations are large, high-volume businesses: NADA reported average dealership service and parts sales of $20,396,977 in its annual financial profile. DocsBot helps by answering repeat questions from maintenance schedules, service menus, warranty guides, parts FAQs, and policies while escalating cases that need an advisor.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nada-service-parts-2026"
+      ]
+    },
+    {
+      "question": "Can the agent answer recall questions safely?",
+      "answer": "DocsBot can explain your approved recall process, point customers to official or company-approved lookup steps, gather vehicle and contact details, and escalate safety-sensitive questions. Because NHTSA says recalls are issued for unreasonable safety risk or failure to meet minimum safety standards, recall workflows should keep human review paths clear.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nhtsa-recalls-lookup"
+      ]
+    },
+    {
+      "question": "Can DocsBot check live appointment, order, repair, or ticket status?",
+      "answer": "It can when your team configures approved Skills, APIs, connectors, or workflows with the right permissions. DocsBot can use live context for permitted lookups, summarize the result, create or update approved records, and route next steps. It should be scoped so the agent only accesses the systems and fields you authorize.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot avoid giving the wrong maintenance or warranty advice?",
+      "answer": "DocsBot answers from the manuals, warranty guides, service policies, and help articles you approve. You can define instructions for uncertainty, exclusions, safety symptoms, account-specific coverage, and escalation. For high-impact questions, the agent can gather details and hand off to a qualified service advisor instead of pretending to make a final determination.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use this internally for advisors, technicians, parts staff, and new hires?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, onboarding docs, warranty procedures, advisor scripts, parts policies, internal checklists, wikis, PDFs, and approved manuals. Employees can ask natural-language questions, get source-grounded answers, summarize long documents, and flag gaps in the knowledge base.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Why would a technician or advisor knowledge assistant matter for staffing and training?",
+      "answer": "BLS projects employment for automotive service technicians and mechanics to grow 4 percent from 2024 to 2034, while the role continues to require technical process knowledge. DocsBot can help teams make SOPs, warranty steps, escalation rules, and onboarding content easier to find so staff do not depend only on tribal knowledge.",
+      "role": "Service, parts, and ownership support teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-auto-techs-2024"
+      ]
+    },
+    {
+      "question": "Can the agent support fleet, rental, or leasing operations rather than just dealership sales?",
+      "answer": "Yes. DocsBot can answer from fleet policies, rental rules, lease FAQs, inspection checklists, driver instructions, billing procedures, and exception-handling SOPs. It can collect account, vehicle, location, issue type, and urgency, then route damage, maintenance, availability, billing, or after-hours requests to the right workflow.",
+      "role": "Fleet, rental, leasing, and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot handle multilingual customers and employees?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved vehicle pages, manuals, service policies, rental rules, and support content. For complex or sensitive issues, it can escalate to a human with a summarized conversation so the customer or employee does not need to repeat everything.",
+      "role": "Fleet, rental, leasing, and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What systems can DocsBot connect to in a motor vehicle business?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, and MCP-connected tools. Common patterns include lead submission, test-drive requests, ticket creation, appointment or order lookups, parts request routing, approved field updates, Slack or Microsoft Teams notifications, and helpdesk-style handoffs.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need a perfect knowledge base before launching?",
+      "answer": "No, but you need approved starting sources and clear boundaries. Many teams begin with vehicle pages, manuals, FAQs, service policies, parts guides, finance guidance, rental or fleet rules, and key SOPs. DocsBot analytics and conversation logs can then reveal repeated unanswered questions and documentation gaps to improve over time.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation usually take operationally?",
+      "answer": "The practical work is usually source selection, access control, answer instructions, escalation rules, test conversations, and any approved Skills or API workflows. A simple source-grounded website agent can start with existing content; live lookups, record updates, or multi-location routing need more planning, permissions, and stakeholder review.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI without assuming the agent replaces staff?",
+      "answer": "Measure deflected repeat questions, completed lead intakes, cleaner handoffs, reduced advisor back-and-forth, faster internal policy lookup, multilingual coverage, after-hours request capture, and documentation gaps resolved. For service and parts, ROI often comes from protecting advisor time and improving request quality, not removing human judgment.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What reporting will managers actually see?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can review frequent shopper questions, service escalations, parts compatibility confusion, policy topics, unanswered questions, and source content that needs improvement.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we restrict what different teams or locations can access?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. That helps separate public customer answers from private SOPs, location-specific policies, internal finance guidance, warranty procedures, or operational content that should only be available to authorized employees.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle customer data and security reviews?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep humans in the loop for legal, finance, safety, and customer complaint issues?",
+      "answer": "Yes. DocsBot can be instructed to escalate regulated, safety-critical, account-specific, or high-impact conversations. It can collect the facts, provide approved general guidance, create a ticket or task when configured, and hand off a concise summary so sales, finance, service, legal, or management can decide.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not a generic script. It can answer from manuals, vehicle pages, SOPs, service policies, parts guides, and FAQs; identify knowledge gaps; support internal teams; and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support multiple brands, rooftops, departments, or business lines?",
+      "answer": "Yes. DocsBot can support customer-facing and private internal agents across sales, service, parts, fleet, rental, leasing, and operations workflows. The key is organizing sources, permissions, instructions, and routing rules so each audience gets the right approved answer and escalation path.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the customer asks something that is not in our approved sources?",
+      "answer": "DocsBot can be configured to acknowledge uncertainty, ask clarifying questions, suggest approved next steps, or escalate to a human. Those unanswered or low-confidence topics can also appear in logs and knowledge-gap reporting so your team can improve the underlying documentation.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Who should own the project internally?",
+      "answer": "Most successful buying committees include sales or BDC leadership, service and parts leaders, operations, IT, and the person responsible for website, CRM, helpdesk, or knowledge content. Business teams define use cases and escalation rules, while IT and security review access, permissions, data handling, and approved integrations.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,724 @@
+{
+  "slug": "mineral-resource-extraction",
+  "business": "Mineral Resource Extraction",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Mineral Extraction Operations",
+    "description": "DocsBot helps mineral extraction teams answer site, safety, vendor, and stakeholder questions from approved mine documentation with faster handoffs.",
+    "canonicalPath": "/industry/mineral-resource-extraction"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for mining teams and stakeholders",
+    "headline": "DocsBot AI agents for mineral extraction knowledge and workflows",
+    "subheadline": "Give mine operations, safety, environmental, procurement, and community-facing teams a governed AI agent trained on your approved SOPs, manuals, permits, training content, product data, and stakeholder FAQs. DocsBot helps people find the right answer faster, summarize context, route requests, and escalate sensitive issues to qualified staff.",
+    "proofBullets": [
+      {
+        "text": "Answer questions from SOPs, MSHA training materials, equipment manuals, environmental plans, PDFs, wikis, and approved internal documents.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Support internal teams in private chat, Slack, Microsoft Teams, or embedded experiences with source-grounded responses and citations.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, create tasks or tickets, route vendor and community requests, and prepare human handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Track repeated questions, unresolved topics, and documentation gaps so safety, operations, and compliance content keeps improving.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a mining knowledge agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your mineral extraction company’s approved knowledge sources. Teams can use those agents to retrieve procedures, summarize long documents, answer stakeholder questions, draft support or vendor responses, identify knowledge gaps, and trigger scoped workflows through customer-configured Skills, APIs, connectors, or MCP-connected tools when authorized.",
+    "whoItHelps": [
+      {
+        "role": "Operations and site supervisors",
+        "roleContext": "Supervisors need fast access to current procedures without searching through scattered binders, file drives, PDFs, and shift notes.",
+        "bullets": [
+          {
+            "text": "Retrieve approved SOPs, shift-start checklists, equipment references, and escalation paths from controlled knowledge sources.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Summarize incident notes, maintenance context, or recurring crew questions before a supervisor reviews next steps.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route questions that involve safety-critical judgment, permitting, or production commitments to the accountable human owner.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Safety, training, and compliance teams",
+        "roleContext": "Mining teams operate in a high-scrutiny environment where training plans, hazard communication, and documentation accuracy matter.",
+        "bullets": [
+          {
+            "text": "MSHA reported 2,201 injuries since October 1, 2024, as of April 1, 2025, including 14 fatal injuries, reinforcing the need for disciplined access to safety information.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-msha-2025-alert"
+            ]
+          },
+          {
+            "text": "Make Part 46 or Part 48 training references, emergency procedures, toolbox talks, and policy updates easier for employees to find.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Review conversation logs and unresolved questions to spot training content gaps before they become repeated field confusion.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Environmental, community, and permitting staff",
+        "roleContext": "Extraction projects often generate detailed questions from regulators, landowners, communities, suppliers, and internal executives.",
+        "bullets": [
+          {
+            "text": "Answer approved questions about operating hours, reclamation commitments, community notices, mineral products, and permit documentation.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Collect structured intake details for community, media, vendor, or regulator requests and route them to the right team.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support multilingual stakeholder communication from your approved source materials when teams need consistent public-facing answers.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Sales, procurement, and investor relations teams",
+        "roleContext": "Commercial teams field repetitive questions about mineral specifications, availability, logistics, quality documents, and company positioning.",
+        "bullets": [
+          {
+            "text": "Help sales and account teams retrieve approved mineral specs, product sheets, logistics constraints, and proposal language.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Qualify inbound buyer, supplier, or partnership requests through structured forms and customer-defined routing rules.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Prepare summaries for CRM, email, or ticketing workflows through approved Skills, APIs, connectors, or workflow automations.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usgs-mcs-2026",
+      "metric": "150,000 U.S. nonfuel mining employees in 2025",
+      "claim": "USGS Mineral Commodity Summaries 2026 reports U.S. nonfuel mining employment of 150,000 employees and provides production value and commodity data for mineral markets.",
+      "sourceTitle": "Mineral Commodity Summaries 2026",
+      "sourceUrl": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "industry scale",
+        "market importance",
+        "commercial and operations context"
+      ]
+    },
+    {
+      "id": "src-msha-2025-alert",
+      "metric": "2,201 MSHA-reported injuries since October 1, 2024, as of April 1, 2025",
+      "claim": "MSHA reported 2,201 injuries, including 14 fatal injuries, and identified fall protection, powered haulage, machinery, and roof and rib control as focus areas.",
+      "sourceTitle": "MSHA Information Alert: Violations, Injuries, & Fatalities",
+      "sourceUrl": "https://www.msha.gov/news-and-updates/alerts-hazards/filter/information-alert",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "safety risk",
+        "training urgency",
+        "operations risk"
+      ]
+    },
+    {
+      "id": "src-niosh-respiratory-hazards",
+      "metric": "Mining workers can be exposed to diesel particulate matter, elongate mineral particles, and toxic gases",
+      "claim": "NIOSH describes respiratory hazards in mining beyond coal dust and silica, including diesel particulate matter, elongate mineral particles, and toxic gases with potential health effects.",
+      "sourceTitle": "Mining and Other Respiratory Hazards",
+      "sourceUrl": "https://www.cdc.gov/niosh/mining/topics/respiratory-hazards.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "health and safety risk",
+        "training content",
+        "industrial hygiene workflows"
+      ]
+    },
+    {
+      "id": "src-msha-part46-part48",
+      "metric": "MSHA Part 46 and Part 48 training obligations vary by mine type and worker status",
+      "claim": "MSHA guidance explains Part 46 and Part 48 training-plan requirements, including rules for new miners, experienced miners, and mine operators.",
+      "sourceTitle": "MSHA Program Policy Manual: 30 CFR Parts 40 through 50 and Parts 62 and 100",
+      "sourceUrl": "https://www.msha.gov/program-policy-manual/program-policy-manual-1",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "training compliance",
+        "workforce onboarding",
+        "site access questions"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Mine SOP and equipment knowledge agent",
+      "problem": "Crews and supervisors lose time searching through disconnected SOPs, equipment manuals, PDFs, file drives, and site-specific work instructions.",
+      "agentWorkflow": "DocsBot trains on approved procedures, manuals, maintenance notes, wikis, and documents. The agent answers with source-grounded references, asks clarifying questions when the task or site is ambiguous, and escalates safety-critical or conflicting answers to the responsible supervisor.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up a current asset, location, or work-order reference and include that context in a handoff summary.",
+      "exampleQuestionsOrRequests": [
+        "Which lockout procedure applies before servicing this conveyor?",
+        "Summarize the approved startup checklist for the crusher circuit.",
+        "Where is the latest maintenance manual for this haul truck model?"
+      ],
+      "businessOutcome": "Reduce time spent searching for documentation while keeping answers tied to approved internal sources and human review for high-impact decisions.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Safety and training support agent",
+      "problem": "Mining safety teams manage complex training references, recurring hazard questions, and changing site procedures across contractors, new hires, and experienced workers.",
+      "agentWorkflow": "DocsBot can answer from training plans, toolbox talks, hazard bulletins, emergency procedures, and policy documents. It can identify repeated questions, summarize training gaps, and route unresolved or sensitive items to safety leaders.",
+      "liveContextOrTools": "A configured action can collect worker role, site, task, and training topic, then create a ticket or notify the safety team for follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What refresher material covers powered haulage around this area?",
+        "Which emergency contact process should contractors follow on this site?",
+        "Create a follow-up task for safety to review this repeated PPE question."
+      ],
+      "businessOutcome": "Support consistent safety communication and faster access to training references in an industry where MSHA identified fall protection, powered haulage, machinery, and roof and rib control as focus areas.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-msha-2025-alert"
+      ]
+    },
+    {
+      "name": "Environmental and community response agent",
+      "problem": "Community, landowner, media, and regulator questions often require careful answers from approved permits, public notices, reclamation plans, and operating commitments.",
+      "agentWorkflow": "A customer-facing DocsBot agent can answer approved public questions, collect structured details, summarize the request, and escalate anything involving complaints, legal commitments, media statements, or regulator interaction.",
+      "liveContextOrTools": "AI Actions can route requests by location, project, issue type, urgency, or stakeholder category into email, ticketing, forms, or other customer-configured systems.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the public reclamation plan for this site?",
+        "Who should I contact about blasting notice questions?",
+        "I’m a landowner with a dust concern—send my details to the right team."
+      ],
+      "businessOutcome": "Give stakeholders a faster first response while preserving review paths for sensitive community, environmental, and regulatory communication.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "name": "Respiratory hazard documentation assistant",
+      "problem": "Industrial hygiene and health teams must keep respiratory hazard guidance easy to find across dust, diesel, gas, monitoring, and control documentation.",
+      "agentWorkflow": "DocsBot can train on internal exposure-control plans, sampling procedures, monitoring instructions, training materials, and approved public guidance. It answers employee questions with cited sources and flags unclear or outdated content for review.",
+      "liveContextOrTools": "A configured Skill can collect the site, material, equipment type, or shift context and generate a summary for an industrial hygiene review queue.",
+      "exampleQuestionsOrRequests": [
+        "Which document explains diesel particulate monitoring at underground sites?",
+        "Summarize the approved dust-control steps for this processing area.",
+        "Log this question as a content gap for the hygiene team."
+      ],
+      "businessOutcome": "Improve access to health and exposure-control information where NIOSH notes mining workers can encounter diesel particulate matter, elongate mineral particles, toxic gases, and other airborne hazards.",
+      "icon": "CloudIcon",
+      "sourceIds": [
+        "src-niosh-respiratory-hazards"
+      ]
+    },
+    {
+      "name": "Mineral product presales and supplier intake agent",
+      "problem": "Commercial teams receive repetitive questions about specifications, production locations, shipping constraints, documentation, certifications, and supplier qualification.",
+      "agentWorkflow": "DocsBot answers from approved product sheets, technical documents, FAQs, contract guidance, and sales enablement materials. It can collect buyer or supplier details, apply customer-defined qualification rules, and prepare a summary for sales, procurement, or legal review.",
+      "liveContextOrTools": "Through customer-configured CRM, form, inbox, scheduling, or ticketing workflows, the agent can forward qualified leads, create a task, or request a meeting while humans retain control over pricing and contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Do you supply this mineral grade for battery material applications?",
+        "Collect my company details and route this offtake inquiry to sales.",
+        "Prepare a supplier qualification summary for procurement."
+      ],
+      "businessOutcome": "Shorten first-response time for commercial inquiries while keeping pricing, legal terms, and high-value commitments with human owners.",
+      "icon": "BanknotesIcon"
+    },
+    {
+      "name": "Knowledge gap analytics for mine documentation",
+      "problem": "Repeated employee, contractor, vendor, and stakeholder questions often reveal missing or hard-to-find documentation, but those patterns are easy to miss.",
+      "agentWorkflow": "DocsBot provides logs, analytics, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review unanswered questions, improve source content, and update instructions for the agent.",
+      "liveContextOrTools": "Configured workflows can create documentation tasks, notify content owners, or route recurring issue summaries to operations, safety, HR, or environmental teams.",
+      "exampleQuestionsOrRequests": [
+        "Show the most common unanswered contractor questions this month.",
+        "Which SOP topics are causing repeated escalations?",
+        "Create a documentation task for this missing vendor onboarding answer."
+      ],
+      "businessOutcome": "Turn everyday questions into a practical improvement loop for SOPs, training, onboarding, stakeholder FAQs, and support content.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A governed front door for community, vendor, buyer, and contractor questions",
+    "intro": "DocsBot can power a website or portal AI support agent trained on approved public pages, FAQs, product sheets, permit summaries, contractor instructions, and stakeholder communication. The agent answers routine questions, collects intake details, and escalates sensitive or high-impact requests to the right team.",
+    "requests": [
+      {
+        "request": "“I’m a nearby resident. Where can I find information about blasting notices?”",
+        "agentResponseStrategy": "Answer from approved public notices and community FAQs, clarify the site or project, and route unresolved concerns to the community relations team.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Community notices",
+          "Permit summaries",
+          "Contact policies"
+        ],
+        "optionalAction": "Create a structured handoff with location, contact details, concern type, and the source documents already reviewed.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "request": "“Can your operation supply this mineral specification for our manufacturing process?”",
+        "agentResponseStrategy": "Respond from approved product data, technical sheets, shipping information, and sales FAQs, then collect company and use-case details for qualification.",
+        "sourceTypes": [
+          "Product sheets",
+          "Technical specifications",
+          "Sales FAQs",
+          "Logistics notes"
+        ],
+        "optionalAction": "Forward a qualified inquiry summary to a customer-configured CRM, email inbox, form, or ticketing workflow.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“I’m a contractor coming on site. What do I need before arrival?”",
+        "agentResponseStrategy": "Answer from contractor onboarding documents, site-access instructions, required forms, training references, and escalation paths.",
+        "sourceTypes": [
+          "Contractor packets",
+          "Site access rules",
+          "Training references",
+          "Safety policies"
+        ],
+        "optionalAction": "Collect missing contractor details and create a pre-arrival checklist task for the site coordinator.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Who handles a complaint about noise, dust, traffic, or water?”",
+        "agentResponseStrategy": "Use approved stakeholder instructions to classify the issue, provide the right contact path, and avoid making commitments that require environmental, legal, or management review.",
+        "sourceTypes": [
+          "Community response policy",
+          "Environmental FAQs",
+          "Escalation rules",
+          "Public contact pages"
+        ],
+        "optionalAction": "Route the request to the accountable team with a concise summary and urgency signal.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "request": "“Can I get this information in another language?”",
+        "agentResponseStrategy": "Provide multilingual answers from approved source material while preserving the company’s intended wording and escalation rules.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Translated manuals",
+          "Website content",
+          "Approved policy documents"
+        ],
+        "optionalAction": "Escalate if a translation involves a legal, regulatory, emergency, or contractual statement that requires review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What documentation do you have about reclamation or environmental commitments?”",
+        "agentResponseStrategy": "Point to approved public documents, summarize high-level information, and route project-specific or regulatory questions to qualified staff.",
+        "sourceTypes": [
+          "Reclamation plans",
+          "Public permit files",
+          "Environmental summaries",
+          "Stakeholder FAQs"
+        ],
+        "optionalAction": "Prepare a handoff summary with the stakeholder’s question and the documents already surfaced.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Internal AI agents for mine knowledge, training, and controlled workflow automation",
+    "intro": "DocsBot helps employees and teams find approved information across SOPs, policies, training materials, manuals, PDFs, wikis, and shared drives. When configured, agents can also use live context and bounded AI Actions to summarize, route, create tasks, or trigger workflows.",
+    "workflows": [
+      {
+        "name": "Shift and supervisor knowledge retrieval",
+        "problem": "Supervisors need fast answers across mine plans, maintenance notes, equipment references, and operating procedures without relying on memory or informal messages.",
+        "agentWorkflow": "The agent answers questions from approved internal sources, cites the supporting documents, asks clarifying questions, and prepares escalation notes when a decision needs a qualified person.",
+        "sourceTypes": [
+          "SOPs",
+          "Equipment manuals",
+          "Shift notes",
+          "Maintenance procedures"
+        ],
+        "optionalAction": "Create a task or ticket with the question, site context, and documents consulted.",
+        "outcome": "Faster access to approved knowledge for routine operational questions and cleaner handoffs for decisions that require human authority.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New hires, contractors, and transferred employees need role-specific guidance on training requirements, site procedures, and who to contact.",
+        "agentWorkflow": "DocsBot can answer from onboarding packets, HR policies, training plans, safety materials, and site-access instructions while directing sensitive or unclear questions to the right owner.",
+        "sourceTypes": [
+          "Training plans",
+          "HR policies",
+          "Contractor onboarding",
+          "Site procedures"
+        ],
+        "optionalAction": "Collect role, site, and task details and notify training staff when the user needs confirmation.",
+        "outcome": "Reduce repetitive onboarding questions and help workers locate the correct training references for their site and role.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-msha-part46-part48"
+        ]
+      },
+      {
+        "name": "Industrial hygiene and exposure-control support",
+        "problem": "Health and safety teams maintain specialized documentation for airborne contaminants, monitoring, ventilation, PPE, and engineering controls.",
+        "agentWorkflow": "The agent retrieves approved procedures, summarizes monitoring instructions, and flags ambiguous or outdated answers for industrial hygiene review.",
+        "sourceTypes": [
+          "Exposure-control plans",
+          "Monitoring procedures",
+          "Ventilation references",
+          "Safety bulletins"
+        ],
+        "optionalAction": "Generate a review-ready summary with site, hazard, source documents, and unanswered questions.",
+        "outcome": "Make specialized health guidance easier to find while keeping review paths for technical or safety-critical interpretation.",
+        "icon": "CloudIcon"
+      },
+      {
+        "name": "Commercial and procurement enablement",
+        "problem": "Sales, procurement, logistics, and leadership teams need consistent answers about mineral products, supplier requirements, proposal language, and account context.",
+        "agentWorkflow": "DocsBot retrieves approved commercial knowledge, summarizes buyer or supplier conversations, drafts follow-up language, and prepares CRM or inbox handoffs through configured workflows.",
+        "sourceTypes": [
+          "Product specs",
+          "Sales enablement",
+          "Supplier policies",
+          "Proposal templates"
+        ],
+        "optionalAction": "Use approved Skills, APIs, connectors, or Model Context Protocol tools to create a task, update an approved field, or forward a summary.",
+        "outcome": "Give commercial teams faster access to approved details while keeping final pricing, contracts, and commitments with people.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved mining knowledge",
+      "mainLandingPageContext": "DocsBot agents train on company knowledge sources and respond from approved documents, websites, internal content, PDFs, and other configured sources.",
+      "industryApplication": "Use an AI agent to answer questions from mine SOPs, equipment manuals, training references, environmental FAQs, contractor instructions, and product data without forcing teams to search manually.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform customer-configured lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs within defined rules.",
+      "industryApplication": "Route community concerns, create safety follow-up tasks, forward qualified buyer inquiries, summarize contractor intake, or notify the right site owner through approved workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge access for employees and teams",
+      "mainLandingPageContext": "DocsBot can work as a private internal knowledge assistant across SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company knowledge sources.",
+      "industryApplication": "Give operations, safety, environmental, HR, procurement, and commercial teams a single AI agent for approved mine procedures, onboarding content, and policy answers.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated questions about training, site access, equipment, environmental communication, vendor requirements, and mineral product specifications so teams know what to improve.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Governance for private and sensitive knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Support controlled use of private mine documents, contractor procedures, commercial information, and stakeholder communication while setting permissions and boundaries for sensitive workflows.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual and multi-surface deployment",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages and can be used in website widgets, private team chat, Slack, Microsoft Teams, API-connected experiences, and helpdesk-connected workflows when configured.",
+      "industryApplication": "Support multilingual contractors, vendors, buyers, and community stakeholders from approved source material while giving internal teams access where they already work.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "liza-sentry-docs",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers stay aligned with approved mine documentation.",
+      "Use question analytics to understand what employees, customers, and stakeholders are trying to learn.",
+      "Support high-volume service operations with source-grounded first responses and human handoffs."
+    ],
+    "whyTheseReviewsFit": "Mineral extraction teams depend on controlled documentation, repeatable answers, and clear escalation paths. DocsBot proof spans owned-content training, documentation analytics, support-team assistance, high-volume inquiry handling, and internal decision support for teams that need reliable knowledge access.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for mineral resource extraction knowledge, support, training, and stakeholder workflows",
+    "audience": [
+      "Mine operators and site supervisors",
+      "Safety and training teams",
+      "Environmental and community relations teams",
+      "Commercial, procurement, and support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CubeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "oil-gas-extraction-production",
+    "environmental-monitoring",
+    "environmental-consultancy",
+    "land-surveying",
+    "pipeline",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "mineral-resource-extraction",
+    "webSearchQueries": [
+      "MSHA mining fatalities 2024 mining industry fatal injuries source",
+      "NIOSH mining program health safety hazards mining workers silica dust diesel noise",
+      "USGS mineral commodity summaries 2025 mining value United States minerals",
+      "MSHA Part 46 Part 48 training miners regulations"
+    ],
+    "sourceUrls": [
+      "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026.pdf",
+      "https://www.msha.gov/news-and-updates/alerts-hazards/filter/information-alert",
+      "https://www.cdc.gov/niosh/mining/topics/respiratory-hazards.html",
+      "https://www.msha.gov/program-policy-manual/program-policy-manual-1"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46883,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 26659,
+        "outputTokens": 8057,
+        "reasoningOutputTokens": 195,
+        "totalTokens": 54940,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.192559,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.212559
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27218,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12242,
+          "outputTokens": 5364,
+          "reasoningOutputTokens": 195,
+          "totalTokens": 32582,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.114809,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.134809
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19665,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14417,
+          "outputTokens": 2693,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22358,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07775,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07775
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1523848309072-c199db53f137?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxtaW5pbmd8ZW58MHwwfHx8MTcxNDg3ODA2NHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Mineral Resource Extraction background image",
+    "source": "legacy-industry",
+    "query": "Mineral Resource Extraction"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent the agent from giving unsafe operational instructions or replacing supervisor judgment?",
+      "answer": "DocsBot should be configured as a source-grounded knowledge and handoff layer, not an autonomous decision-maker for safety-critical work. It can answer from approved SOPs, training materials, and manuals, cite the source, ask clarifying questions, and escalate ambiguous, conflicting, emergency, or high-risk situations to qualified staff.",
+      "role": "Safety, training, and compliance teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot handle site-specific SOPs when every mine, pit, mill, and contractor process is different?",
+      "answer": "Yes. DocsBot trains on the knowledge sources you approve, so you can separate content by site, role, asset, department, or document set. A well-scoped deployment can keep a contractor onboarding agent distinct from an underground procedure agent or a commercial product-spec agent, with access controls and escalation rules matching each audience.",
+      "role": "Operations and site supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What documents would we need to provide for a useful mining operations pilot?",
+      "answer": "A practical pilot usually starts with high-use, controlled documents: SOPs, equipment manuals, shift-start checklists, emergency procedures, contractor packets, training references, environmental FAQs, and product sheets. The goal is not to upload everything first; it is to prove that crews, supervisors, or support teams can get reliable answers from a defined knowledge set.",
+      "role": "Operations and site supervisors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer MSHA training and site-access questions for new miners, experienced miners, and contractors?",
+      "answer": "DocsBot can answer from your approved Part 46 or Part 48 training plans, onboarding packets, site-access rules, and safety policies. It should route questions needing official confirmation to training staff because MSHA guidance distinguishes requirements by mine type, worker status, and operator responsibilities.",
+      "role": "Safety, training, and compliance teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-msha-part46-part48"
+      ]
+    },
+    {
+      "question": "How would this help safety teams without adding another system people have to check?",
+      "answer": "DocsBot can be used in private chat, Slack, Microsoft Teams, embedded portals, or other configured experiences, so teams can ask questions where they already work. It can surface cited answers, collect role and site context, and create a follow-up task or handoff when a question reveals a training gap or needs safety review.",
+      "role": "Safety, training, and compliance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kind of ROI can we expect if our main problem is people searching for documents?",
+      "answer": "ROI usually comes from reduced search time, fewer repetitive supervisor questions, faster onboarding, better first responses to contractors or stakeholders, and clearer documentation gaps. For mineral extraction, the business case is strongest when you target high-frequency questions across SOPs, equipment manuals, training references, site access, and product documentation.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help with safety communication in an industry where injuries and fatalities remain a major concern?",
+      "answer": "DocsBot can make approved safety procedures, toolbox talks, emergency contacts, and training references easier to find, while preserving escalation paths for judgment calls. That matters in a sector where MSHA reported 2,201 injuries since October 1, 2024, including 14 fatal injuries as of April 1, 2025.",
+      "role": "Safety, training, and compliance teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-msha-2025-alert"
+      ]
+    },
+    {
+      "question": "How do we make sure outdated SOPs or superseded manuals do not keep showing up in answers?",
+      "answer": "Treat the agent like a governed knowledge layer: connect only approved sources, remove or archive superseded files, assign content owners, and review unresolved or low-confidence questions. DocsBot’s logs, reports, topic management, and knowledge-gap discovery can help teams identify where source material is stale, missing, duplicated, or confusing.",
+      "role": "Operations and site supervisors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot route community complaints about blasting, dust, traffic, noise, or water to the right team?",
+      "answer": "Yes. A public-facing agent can answer from approved notices, permit summaries, community FAQs, and contact policies. For complaints or sensitive issues, it can collect structured details such as location, concern type, urgency, and contact information, then route a summary to environmental, community relations, legal, or site leadership through configured workflows.",
+      "role": "Environmental, community, and permitting staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent make public commitments about reclamation, permitting, production, or environmental compliance?",
+      "answer": "It should not be configured to make commitments on behalf of the company. DocsBot can summarize approved public documents and direct stakeholders to the right contact path, but questions involving legal commitments, regulator interaction, media statements, complaints, or project-specific interpretations should escalate to qualified staff.",
+      "role": "Environmental, community, and permitting staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use one agent for both internal mine procedures and public stakeholder questions?",
+      "answer": "It is usually better to separate them. Internal agents may access SOPs, manuals, training documents, and private procedures, while public agents should use only approved public pages, FAQs, product sheets, notices, and permit summaries. DocsBot supports governed knowledge sources, role-based permissions, and separate deployment surfaces for different audiences.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot protect private mine documents, contractor procedures, and commercial information?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Teams can also configure Skills with secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent connect to work orders, asset records, CRM, ticketing, or permitting systems?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP-connected tools, or workflow automations to perform approved lookups and actions. For example, it can include a work-order reference in a handoff, create a documentation task, forward a qualified buyer inquiry, or route a stakeholder request, subject to your permissions and system access.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should remain under human control even after we deploy AI Actions?",
+      "answer": "Pricing, contracts, production commitments, regulator responses, emergency decisions, safety-critical interpretations, legal positions, media statements, and disciplinary or HR decisions should remain with accountable people. DocsBot can collect context, cite documents, draft summaries, and route requests, but high-impact decisions need explicit human review paths.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support industrial hygiene questions about dust, diesel particulate, gases, or exposure-control procedures?",
+      "answer": "Yes, when trained on your approved exposure-control plans, monitoring procedures, ventilation references, PPE guidance, and safety bulletins. It can retrieve cited guidance and flag unclear questions for review. NIOSH notes that mining workers can encounter respiratory hazards including diesel particulate matter, elongate mineral particles, and toxic gases.",
+      "role": "Safety, training, and compliance teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-niosh-respiratory-hazards"
+      ]
+    },
+    {
+      "question": "How do we measure whether the agent is actually improving documentation and not just answering chats?",
+      "answer": "Use DocsBot analytics to review repeated questions, unresolved topics, satisfaction and resolution patterns, escalation rates, and knowledge gaps. Mining teams can turn those insights into content tasks for SOP owners, training teams, environmental staff, procurement, or sales enablement instead of relying on anecdotal feedback from the field.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can it support multilingual contractors, crews, vendors, or community stakeholders?",
+      "answer": "DocsBot can answer in more than 100 languages from approved source material. For routine questions, that can improve access to site instructions, public FAQs, or onboarding content. For legal, regulatory, emergency, contractual, or safety-critical wording, teams should define escalation rules so translated responses get reviewed when needed.",
+      "role": "Environmental, community, and permitting staff",
+      "category": "Scalability"
+    },
+    {
+      "question": "How would a commercial team use this for mineral specifications and offtake inquiries?",
+      "answer": "A DocsBot presales or commercial agent can answer from approved product sheets, technical specs, logistics notes, sales FAQs, and proposal language. It can collect buyer details, company, use case, region, timeline, and required grade, then route a qualified summary to sales or procurement while leaving price and contract terms with humans.",
+      "role": "Sales, procurement, and investor relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can procurement use DocsBot for supplier onboarding and vendor qualification questions?",
+      "answer": "Yes. DocsBot can answer from supplier policies, onboarding packets, required forms, safety requirements, insurance instructions, and site-access documentation. With configured workflows, it can collect missing supplier details, create a task, forward a summary, or route exceptions to procurement, legal, safety, or site administration.",
+      "role": "Sales, procurement, and investor relations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will this work for both corporate teams and remote mine sites with different information needs?",
+      "answer": "Yes, if the deployment is scoped by audience and source set. Corporate teams may need commercial, investor, procurement, or policy knowledge, while sites need procedures, manuals, training references, and escalation paths. DocsBot can support multiple agents or governed knowledge collections so each group sees relevant answers.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent finds conflicting procedures or cannot answer confidently?",
+      "answer": "The agent should be instructed to avoid guessing, cite what it found, ask clarifying questions, and escalate conflicts or uncertainty to the accountable owner. Conversation review and knowledge-gap reporting then help content owners fix the underlying issue, such as duplicated SOPs, unclear site naming, or missing revision control.",
+      "role": "Operations and site supervisors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How much IT involvement is needed to launch?",
+      "answer": "A basic knowledge-agent pilot can start with approved documents, URLs, PDFs, wikis, or shared knowledge sources. IT becomes more involved when you need identity controls, private deployment, API-connected lookups, Skills, MCP connectors, ticket creation, CRM updates, or workflow triggers. The safest path is to pilot retrieval first, then add actions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we compare DocsBot with building our own RAG system or using a generic AI assistant?",
+      "answer": "The key comparison is governance and time-to-value. DocsBot is designed to train on approved business knowledge, provide source-grounded answers, support analytics and knowledge-gap discovery, and enable bounded actions. A generic assistant may not respect your controlled sources, while a custom build requires ongoing retrieval, security, evaluation, logging, and workflow maintenance.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support a large mining organization with many commodities, regions, and business units?",
+      "answer": "DocsBot can be structured around approved source collections, permissions, deployment surfaces, and workflows for different groups. For large operators, a phased rollout is usually best: start with one site, department, or stakeholder workflow, then expand once naming conventions, source ownership, access rules, and escalation paths are proven.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "Why should leadership care about knowledge access in mineral extraction specifically?",
+      "answer": "Mining depends on distributed crews, contractors, regulated procedures, specialized equipment, and high-consequence communication. The U.S. nonfuel mining sector employed 150,000 people in 2025, according to USGS, so even small improvements in document access, onboarding, and repeat-question handling can matter across large workforces.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-usgs-mcs-2026"
+      ]
+    },
+    {
+      "question": "What would a successful 60- to 90-day pilot look like?",
+      "answer": "A strong pilot defines one audience, one knowledge set, and measurable outcomes. Examples include reducing repeated contractor onboarding questions, improving access to crusher-circuit SOPs, routing community inquiries faster, or finding training documentation gaps. Success metrics can include answer quality, escalation rate, unresolved topics, adoption, and content improvements completed.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

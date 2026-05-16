@@ -1,0 +1,742 @@
+{
+  "slug": "auctioneer",
+  "business": "Auctioneer",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Auctioneer Bidder Support",
+    "description": "DocsBot helps auctioneers automate bidder support, catalog questions, registration guidance, and staff knowledge access before, during, and after sales.",
+    "canonicalPath": "/industry/auctioneer"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for auction houses and online sales",
+    "headline": "Run clearer auctions with DocsBot AI agents for auctioneers",
+    "subheadline": "Train DocsBot on your terms of sale, catalogs, bidder FAQs, pickup rules, buyer premium policies, consignor guides, and staff SOPs so bidders and employees can get fast, consistent answers without pulling your auction team away from live operations.",
+    "proofBullets": [
+      {
+        "text": "Answer bidder questions from approved catalogs, auction terms, pickup instructions, payment policies, and FAQ pages.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect registration, consignor, or estimate-request details through structured intake and route qualified requests to your team.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured AI Actions to look up approved lot, invoice, ticket, or pickup status and prepare handoffs when a person is needed.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, seller agreements, compliance notes, marketing checklists, and post-sale workflows.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build an auction AI agent",
+    "secondaryCta": "Explore bidder support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps auctioneers create AI agents trained on their own auction knowledge. Agents can answer source-grounded bidder questions, support consignor intake, summarize conversations, identify repeated knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Auction owners and principals",
+        "roleContext": "For firms balancing live events, online bidding, consignor relations, and post-sale administration, DocsBot creates a consistent front door for recurring questions and internal procedures.",
+        "bullets": [
+          {
+            "text": "Explain buyer premiums, reserve language, payment deadlines, pickup windows, and shipping rules from your approved terms.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route estimate requests, estate inquiries, and consignor leads with summaries so specialists can respond faster.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Review analytics to see which auction terms, lot categories, or policies create the most confusion.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Bidder support and registration teams",
+        "roleContext": "Bidders often need help quickly before a lot closes. DocsBot can handle repeat questions while preserving escalation for sensitive payment, identity, legal, or dispute issues.",
+        "bullets": [
+          {
+            "text": "Guide bidders through registration steps, deposit requirements, account questions, and accepted payment information.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Create support tickets or handoff summaries when a bidder asks about a disputed charge, failed payment, or condition concern.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Answer in more than 100 languages for remote and international bidders using the knowledge sources you approve.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Catalog, marketing, and operations staff",
+        "roleContext": "Auction teams need fast access to lot details, sale schedules, photography notes, pickup instructions, and seller-specific rules without searching across folders and spreadsheets.",
+        "bullets": [
+          {
+            "text": "Retrieve approved catalog descriptions, sale notes, marketing copy, and FAQ language from internal sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize bidder conversations and surface repeated questions that may require clearer listing language.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Make SOPs searchable for clerking, cashiering, settlement, shipping, pickup, and post-auction communication.",
+            "icon": "CogIcon"
+          }
+        ],
+        "roleIcon": "FolderIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ucc-auction-rules",
+      "metric": "UCC §2-328 defines reserve and without-reserve auction rules.",
+      "claim": "The Uniform Commercial Code explains when auction sales are complete and how reserve versus without-reserve auctions work, making clear terms important for bidder communication.",
+      "sourceTitle": "Uniform Commercial Code § 2-328. Sale by Auction",
+      "sourceUrl": "https://www.law.cornell.edu/ucc/2/2-328",
+      "sourceDate": "Current legal reference",
+      "bestUsedFor": [
+        "auction terms",
+        "reserve language",
+        "bidder communication",
+        "legal clarity"
+      ]
+    },
+    {
+      "id": "src-ftc-online-marketplaces",
+      "metric": "FTC consumer guidance emphasizes safer payments and checking sellers before buying online.",
+      "claim": "The FTC advises online marketplace buyers to compare sellers, review protections, and use safer payment methods such as credit cards or secure payment systems.",
+      "sourceTitle": "Buying From an Online Marketplace | Federal Trade Commission Consumer Advice",
+      "sourceUrl": "https://consumer.ftc.gov/articles/buying-online-marketplace",
+      "sourceDate": "Current consumer guidance",
+      "bestUsedFor": [
+        "buyer trust",
+        "online auction risk",
+        "payment guidance",
+        "customer education"
+      ]
+    },
+    {
+      "id": "src-naaa-2024-volume",
+      "metric": "NAAA member auctions reported nearly 7.6 million vehicles sold in 2024.",
+      "claim": "The National Auto Auction Association reported that member auctions sold nearly 7.6 million vehicles in 2024, the highest sales volume since 2020.",
+      "sourceTitle": "NAAA Member Auctions Report Biggest Sales Volume Since 2020 | Automotive Fleet",
+      "sourceUrl": "https://www.automotive-fleet.com/10237721/naaa-member-auctions-report-biggest-sales-volume-since-2020",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "auction volume",
+        "auto auction demand",
+        "high-volume support"
+      ]
+    },
+    {
+      "id": "src-nalloa-licensing",
+      "metric": "NALLOA supports communication among state auction licensing boards and regulators.",
+      "claim": "NALLOA describes its role as supporting state licensing board members, reciprocity communication, and regulation of the auction profession.",
+      "sourceTitle": "National Auctioneers License Law Officials Association",
+      "sourceUrl": "https://nalloa.org/",
+      "sourceDate": "Current association page",
+      "bestUsedFor": [
+        "licensing complexity",
+        "regulated profession",
+        "compliance operations"
+      ]
+    },
+    {
+      "id": "src-naa-industry-scope",
+      "metric": "NAA describes auction sectors including fine art, collectibles, estates, and online bidding.",
+      "claim": "The National Auction Association describes auctioneering as spanning multiple asset classes and bidding formats, from estates and collectibles to online bidding.",
+      "sourceTitle": "Scope and Sophistication of the Industry | National Auction Association",
+      "sourceUrl": "https://www.auctioneers.org/scope-and-sophistication-of-the-industry",
+      "sourceDate": "Current association page",
+      "bestUsedFor": [
+        "industry breadth",
+        "multi-category auctions",
+        "online bidding"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Bidder FAQ and terms-of-sale agent",
+      "problem": "Auction staff field repeat questions about registration, buyer premiums, reserves, taxes, payment deadlines, pickup windows, shipping, and what happens after a winning bid.",
+      "agentWorkflow": "DocsBot answers from your approved terms of sale, bidder FAQs, catalog pages, pickup instructions, and policy documents. If the question involves a dispute, legal interpretation, identity issue, or payment exception, the agent can collect context and escalate to a human with a summary.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved sale, lot, invoice, or pickup-window status and route the conversation to ticketing or email workflows.",
+      "exampleQuestionsOrRequests": [
+        "What does the buyer premium include for this sale?",
+        "Can I bid if I cannot pick up until next week?",
+        "Is this auction with reserve or without reserve?",
+        "What payment methods do you accept after I win?"
+      ],
+      "businessOutcome": "Reduces repetitive front-desk and email volume while helping bidders understand the rules before they place a bid.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-ucc-auction-rules"
+      ]
+    },
+    {
+      "name": "Catalog navigation and lot-detail assistant",
+      "problem": "Large catalogs make it hard for bidders to find the right lots, understand condition notes, compare similar items, or locate inspection and pickup information quickly.",
+      "agentWorkflow": "DocsBot can be trained on catalog exports, lot descriptions, inspection notes, photos metadata when represented in text, FAQs, and sale pages. It answers source-grounded questions and points bidders back to the relevant lot or policy source.",
+      "liveContextOrTools": "Configured live lookups can retrieve approved lot status, bidding links, or sale metadata. The agent can also create a staff follow-up ticket when bidders ask for information not yet documented.",
+      "exampleQuestionsOrRequests": [
+        "Show me lots that include vintage arcade cabinets.",
+        "Which lots mention missing parts or condition issues?",
+        "Where can I inspect the equipment before bidding?",
+        "Does this lot include shipping or local pickup only?"
+      ],
+      "businessOutcome": "Improves catalog self-service and reveals where descriptions, condition notes, or pickup instructions need to be clearer.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Consignor and estate intake agent",
+      "problem": "Potential sellers may contact an auctioneer with incomplete item details, photos, timelines, location constraints, and expectations, creating back-and-forth before a specialist can evaluate the opportunity.",
+      "agentWorkflow": "DocsBot can ask structured intake questions, explain your consignment process from approved materials, collect item category, location, timeline, photo availability, and contact details, then qualify the lead using your rules.",
+      "liveContextOrTools": "Through configured forms, webhooks, CRM workflows, email, or helpdesk software, the agent can forward qualified consignor summaries to the right specialist or create a task for review.",
+      "exampleQuestionsOrRequests": [
+        "I have an estate collection. What information do you need first?",
+        "Do you handle coin, game, or memorabilia consignments?",
+        "Can I schedule a valuation conversation?",
+        "What seller fees should I understand before consigning?"
+      ],
+      "businessOutcome": "Captures seller opportunities consistently while keeping appraisal, pricing, and contract commitments in human hands.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Pickup, shipping, and post-sale workflow agent",
+      "problem": "After the auction closes, teams face a rush of questions about invoices, payment confirmation, removal deadlines, shipping quotes, storage fees, and missed pickup appointments.",
+      "agentWorkflow": "DocsBot answers from post-sale instructions, invoice FAQs, pickup maps, shipping policies, storage terms, and removal schedules. It can summarize the bidder’s issue and hand off exceptions to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, DocsBot can look up order or invoice status, create a pickup-support ticket, update an approved field, or trigger a notification to operations.",
+      "exampleQuestionsOrRequests": [
+        "Where do I pick up lot 143?",
+        "Has my payment cleared?",
+        "Can someone else pick up my items?",
+        "What happens if I miss the removal deadline?"
+      ],
+      "businessOutcome": "Keeps post-sale operations moving by giving buyers clear next steps and giving staff cleaner exception queues.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-ftc-online-marketplaces"
+      ]
+    },
+    {
+      "name": "Internal auction operations knowledge agent",
+      "problem": "Auction houses run on specialized procedures for cataloging, clerking, cashiering, bidder approval, seller settlement, advertising, compliance, and event staffing that are often scattered across documents and inboxes.",
+      "agentWorkflow": "DocsBot acts as a private staff assistant trained on SOPs, templates, state-specific notes, training files, checklists, and internal policies. Employees can ask procedural questions and receive source-grounded answers with links back to the source material.",
+      "liveContextOrTools": "The agent can be available in private chat experiences, Slack, Microsoft Teams, or internal workflows when configured by the customer.",
+      "exampleQuestionsOrRequests": [
+        "What is our cashiering checklist for a live estate sale?",
+        "Which staff member reviews bidder approval exceptions?",
+        "What language do we use for reserve disclosures?",
+        "Where is the seller settlement template?"
+      ],
+      "businessOutcome": "Speeds staff onboarding, reduces procedural inconsistency, and helps leadership spot documentation gaps through conversation analytics.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-nalloa-licensing"
+      ]
+    },
+    {
+      "name": "Bidder trust and fraud-awareness guidance agent",
+      "problem": "Online auction buyers may worry about seller legitimacy, payment safety, item condition, fees, and what protections apply if something goes wrong.",
+      "agentWorkflow": "DocsBot can explain your verified payment instructions, buyer protections, inspection options, condition-report process, dispute path, and safe communication rules from approved policies. It avoids making promises beyond your stated terms and escalates sensitive claims.",
+      "liveContextOrTools": "Configured workflows can route fraud concerns, suspicious activity reports, or high-risk payment questions to a designated staff queue with a conversation summary.",
+      "exampleQuestionsOrRequests": [
+        "How do I know the payment link is legitimate?",
+        "What should I do if a message asks me to pay outside your platform?",
+        "Where can I read the condition report policy?",
+        "Who reviews a suspicious bidder or seller issue?"
+      ],
+      "businessOutcome": "Builds bidder confidence by making safety, payment, and dispute information easy to find before problems become support escalations.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-ftc-online-marketplaces"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give every bidder a clear answer before the hammer falls",
+    "intro": "A DocsBot customer-facing agent can sit on your auction website, catalog pages, help center, or bidder portal to answer questions from your own terms, catalogs, and policies. It can collect details, summarize requests, and escalate issues that need staff review.",
+    "requests": [
+      {
+        "request": "“Can I bid from another state, and how do pickup and shipping work?”",
+        "agentResponseStrategy": "Answer from approved bidder eligibility, shipping, pickup, tax, and removal policies, then point the bidder to the relevant sale terms or staff contact if the answer depends on the lot.",
+        "sourceTypes": [
+          "Terms of sale",
+          "Pickup instructions",
+          "Shipping policy",
+          "Bidder FAQ"
+        ],
+        "optionalAction": "Create a support ticket with sale, lot, bidder contact, and requested pickup or shipping details when configured.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“What fees are added to my winning bid?”",
+        "agentResponseStrategy": "Explain buyer premium, taxes, payment fees, storage fees, and shipping or handling rules only from the firm’s approved policy sources, with escalation for exceptions.",
+        "sourceTypes": [
+          "Buyer premium policy",
+          "Invoice FAQ",
+          "Payment rules",
+          "Sale-specific terms"
+        ],
+        "optionalAction": "Look up approved invoice status or route a billing question to staff through a configured helpdesk workflow.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do you auction collections like mine?”",
+        "agentResponseStrategy": "Use consignment guides and category pages to explain what the firm sells, what information is needed, and how the review process works without promising a valuation.",
+        "sourceTypes": [
+          "Consignor guide",
+          "Category pages",
+          "Intake forms",
+          "Seller FAQ"
+        ],
+        "optionalAction": "Collect photos, category, location, timeline, and contact details, then forward a qualified lead summary for human review.",
+        "icon": "CameraIcon"
+      },
+      {
+        "request": "“Is this auction with reserve?”",
+        "agentResponseStrategy": "Answer from the specific sale terms and approved glossary. When legal or sale-specific judgment is needed, the agent escalates instead of interpreting beyond the source.",
+        "sourceTypes": [
+          "Auction terms",
+          "Sale listing",
+          "Policy glossary",
+          "Staff escalation notes"
+        ],
+        "optionalAction": "Route ambiguous reserve, bid retraction, or contract questions to an auction manager with the bidder’s conversation history.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-ucc-auction-rules"
+        ]
+      },
+      {
+        "request": "“Can you help me find game cabinets, collectibles, or memorabilia in this sale?”",
+        "agentResponseStrategy": "Search approved catalog text and sale metadata to suggest relevant lots, then point the bidder back to official catalog pages for bidding and final details.",
+        "sourceTypes": [
+          "Catalog export",
+          "Lot descriptions",
+          "Sale pages",
+          "Inspection notes"
+        ],
+        "optionalAction": "Log repeated catalog-search terms so staff can improve tagging, descriptions, and FAQ content.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“How do I know this online auction is safe?”",
+        "agentResponseStrategy": "Explain your official communication channels, payment instructions, bidder protections, and dispute process from approved sources; the FTC advises buyers to use safer payment methods and review seller protections online.",
+        "sourceTypes": [
+          "Payment policy",
+          "Security FAQ",
+          "Dispute policy",
+          "Official contact page"
+        ],
+        "optionalAction": "Route suspicious-message reports or payment-safety questions to a designated staff queue for review.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-online-marketplaces"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make auction know-how searchable for every department",
+    "intro": "Auction teams move between appraisal, cataloging, marketing, bidder support, clerking, cashiering, pickup, shipping, and settlement. A DocsBot internal knowledge agent gives staff one trusted place to ask procedural questions and find approved sources.",
+    "workflows": [
+      {
+        "name": "Sale setup and cataloging SOPs",
+        "problem": "Catalogers and coordinators need consistent guidance for lot numbering, description standards, photography notes, condition language, reserves, and sale-specific instructions.",
+        "agentWorkflow": "Train DocsBot on SOPs, catalog templates, internal guidelines, sale checklists, and policy documents. Staff can ask questions and get source-grounded answers with the relevant procedure attached.",
+        "sourceTypes": [
+          "Catalog SOPs",
+          "Condition templates",
+          "Photography checklists",
+          "Sale setup guides"
+        ],
+        "optionalAction": "Create a documentation-gap task when employees repeatedly ask for missing guidance.",
+        "outcome": "Improves consistency across catalogs and helps new team members follow the same process.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Bidder support handoff summaries",
+        "problem": "Support conversations can span registration, payment, pickup, and condition questions, making it hard for managers to see the full context quickly.",
+        "agentWorkflow": "DocsBot can summarize conversations, extract sale and lot references, identify the unresolved issue, and prepare a handoff for a staff member.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support policies",
+          "Escalation rules",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Route the summary into helpdesk software, email, Slack, or Microsoft Teams through customer-configured workflows.",
+        "outcome": "Gives human staff cleaner context for exceptions and reduces repetitive internal back-and-forth.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Licensing, policy, and disclosure reference",
+        "problem": "Auction laws and licensing expectations vary by jurisdiction, and firms need staff to use approved policy language rather than informal explanations.",
+        "agentWorkflow": "DocsBot can retrieve internal compliance notes, state-specific licensing references, approved disclosure language, and escalation rules. It should not replace legal advice, but it can help staff find the right internal source.",
+        "sourceTypes": [
+          "Compliance notes",
+          "Licensing references",
+          "Approved disclosure language",
+          "Manager escalation rules"
+        ],
+        "optionalAction": "Flag questions involving legal interpretation, reserve disputes, or regulated sale categories for human review.",
+        "outcome": "Keeps staff aligned with approved language in a profession where licensing and regulation are state-sensitive.",
+        "icon": "BuildingLibraryIcon",
+        "sourceIds": [
+          "src-nalloa-licensing"
+        ]
+      },
+      {
+        "name": "Post-sale settlement and operations checklist",
+        "problem": "After a sale closes, operations teams need accurate steps for invoices, payments, seller settlements, release paperwork, shipping, storage, and unresolved pickup issues.",
+        "agentWorkflow": "DocsBot answers staff questions from settlement procedures, finance policies, pickup workflows, shipping instructions, and exception checklists.",
+        "sourceTypes": [
+          "Settlement SOPs",
+          "Finance policies",
+          "Pickup workflows",
+          "Shipping procedures"
+        ],
+        "optionalAction": "Trigger a task, ticket, or notification for missing paperwork, pickup exceptions, or buyer follow-up when configured.",
+        "outcome": "Helps teams move from bidding to fulfillment with fewer missed steps and clearer accountability.",
+        "icon": "CheckCircleIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded auction support agent",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s own knowledge sources and deliver instant answers in the company’s voice.",
+      "industryApplication": "Train an auction agent on terms of sale, catalog pages, bidder FAQs, shipping rules, pickup instructions, seller guides, and post-sale policies so bidders get consistent answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Website widget and helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot can work in website chat widgets and support helpdesk-connected workflows through customer-configured access.",
+      "industryApplication": "Place a bidder support agent on sale pages and route unanswered, sensitive, or account-specific questions into your ticketing or email workflow with a summary.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, task creation, record updates, workflow triggers, and handoffs under customer-defined rules.",
+      "industryApplication": "Use approved live context to look up lot, invoice, registration, or pickup status; create support tickets; update approved fields; or trigger staff notifications through Skills, APIs, connectors, or Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent for auction teams",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant trained on SOPs, policies, wikis, documents, and other company knowledge sources.",
+      "industryApplication": "Give catalogers, clerks, cashiers, support staff, and managers fast access to auction procedures, compliance notes, templates, and onboarding material.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which lots, fees, registration steps, pickup rules, or sale terms create repeated bidder confusion, then improve catalogs and help content before the next auction.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private consignor files, internal SOPs, bidder communications, and staff-only policies while limiting what each agent can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "bowe-dollie-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support: Sony NURO reported over 30,000 inquiries handled in one month with about 80% resolution.",
+      "Train agents on your own content library so answers reflect your auction terms, policies, and knowledge base.",
+      "Deploy an embedded website widget for first-line support while keeping escalation paths available for staff review."
+    ],
+    "whyTheseReviewsFit": "Auctioneers need fast, trustworthy answers when bidders are deciding whether to register, bid, pay, or consign. DocsBot proof highlights high-volume support, training on owned content, and embedded first-line help—practical needs for auction firms running catalog pages, online bidding, and post-sale workflows.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "ComputerDesktopIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for auctioneers",
+    "audience": [
+      "Auction house owners",
+      "Bidder support teams",
+      "Catalog and operations managers",
+      "Consignment and estate intake teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "arcade-management",
+    "board-game-publishing",
+    "casino-and-video-gaming",
+    "online-gaming",
+    "toy-development",
+    "racetrack-gaming"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "auctioneer",
+    "webSearchQueries": [
+      "National Auction Association auction industry report online bidding statistics",
+      "FTC auction guide buyer's guide online auctions complaints",
+      "Uniform Commercial Code auction sale with reserve without reserve auctioneer",
+      "IBISWorld auction houses in the US market size",
+      "BLS auctioneers employment auctioneers occupational outlook",
+      "National Auction Association licensing auctioneer state laws online auctions",
+      "FTC consumer advice online auctions sellers buyers fraud",
+      "Statista online auction market growth global"
+    ],
+    "sourceUrls": [
+      "https://www.law.cornell.edu/ucc/2/2-328",
+      "https://consumer.ftc.gov/articles/buying-online-marketplace",
+      "https://www.automotive-fleet.com/10237721/naaa-member-auctions-report-biggest-sales-volume-since-2020",
+      "https://nalloa.org/",
+      "https://www.auctioneers.org/scope-and-sophistication-of-the-industry"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47392,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 27168,
+        "outputTokens": 8095,
+        "reasoningOutputTokens": 190,
+        "totalTokens": 55487,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.194401,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.214401
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27660,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12684,
+          "outputTokens": 5357,
+          "reasoningOutputTokens": 190,
+          "totalTokens": 33017,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.115809,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.135809
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19732,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14484,
+          "outputTokens": 2738,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22470,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078592,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078592
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1514195037031-83d60ed3b448?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU3ODF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Auctioneer background image",
+    "source": "legacy-industry",
+    "query": "Auctioneer"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer bidder questions differently for each sale, especially when buyer premiums, reserves, pickup windows, and shipping rules change?",
+      "answer": "Yes. Train the agent on sale-specific terms, catalog pages, pickup instructions, shipping policies, and bidder FAQs, then keep those sources updated as each sale changes. DocsBot answers from approved content rather than making up general auction rules, and it can escalate when a bidder asks for an exception, legal interpretation, or staff approval.",
+      "role": "Auction owners and principals",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI agent from giving legal advice about reserve auctions, bid retractions, or when a sale is final?",
+      "answer": "Use DocsBot as a source-grounded information layer, not a legal decision-maker. The agent can quote or summarize your approved terms and route ambiguous questions to an auction manager. That matters because UCC §2-328 defines how reserve and without-reserve auctions work and when auction sales are complete, so policy language should stay controlled.",
+      "role": "Auction owners and principals",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ucc-auction-rules"
+      ]
+    },
+    {
+      "question": "Will this work for both live auction days and online timed auctions?",
+      "answer": "Yes. DocsBot can support bidders before, during, and after a sale through a website widget, help center, catalog page, or bidder portal. For live events, it can reduce repeated front-desk questions. For timed online sales, it can answer registration, lot, payment, and pickup questions when staff are not immediately available.",
+      "role": "Bidder support and registration teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot look up a bidder’s invoice, pickup status, or lot information instead of only answering static FAQs?",
+      "answer": "Yes, when you configure approved Skills, APIs, connectors, MCP servers, or workflow automations. DocsBot can use bounded live context to look up allowed sale, lot, invoice, registration, ticket, or pickup information, then prepare a handoff if the request involves a dispute, payment exception, identity issue, or staff-only decision.",
+      "role": "Bidder support and registration teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would this fit with our auction platform, catalog system, CRM, or helpdesk if DocsBot does not have a named native integration?",
+      "answer": "DocsBot can work through customer-configured Skills, APIs, connectors, webhooks, forms, exported sources, and workflow automations. Buyers typically start by training on public terms, catalogs, and policy documents, then add scoped live lookups or ticket creation where their auction platform, CRM, or helpdesk allows authorized access.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent help bidders find relevant lots without accidentally becoming the official catalog of record?",
+      "answer": "Yes. DocsBot can search approved catalog text, lot descriptions, sale metadata, and inspection notes, then point bidders back to the official lot page for bidding, condition details, and final terms. That keeps discovery convenient while preserving your catalog, auction platform, and terms of sale as the authoritative sources.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a bidder asks about item condition, authenticity, missing parts, or a dispute after pickup?",
+      "answer": "DocsBot should answer only from approved condition reports, listing language, inspection policies, and dispute procedures. If the question requires judgment, a promise, an exception, or a staff review, the agent can collect the lot number, bidder details, issue summary, and photos or context, then route the case to your team.",
+      "role": "Bidder support and registration teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot reduce the post-sale surge of questions about invoices, payment confirmation, pickup appointments, and storage fees?",
+      "answer": "Yes. Post-sale support is a strong fit because many questions are repetitive and policy-driven. Train DocsBot on invoice FAQs, accepted payments, removal deadlines, pickup maps, storage terms, release rules, and shipping instructions. With configured actions, it can look up allowed status fields or create exception tickets for staff.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we measure ROI if our pain is not just ticket volume but auction-day chaos?",
+      "answer": "Track repeated-question deflection, response time during sale windows, percentage of questions resolved without staff, registration completion support, post-sale exception volume, staff hours saved, and recurring knowledge gaps by sale or lot category. DocsBot analytics, logs, topic reports, satisfaction and resolution analysis help show where support demand is dropping or shifting.",
+      "role": "Auction owners and principals",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent qualify consignor and estate inquiries without making valuation promises?",
+      "answer": "Yes. DocsBot can ask structured intake questions about category, location, timeline, photos, ownership context, and contact details, then summarize the lead for a specialist. It can explain your consignment process and seller fees from approved materials, while keeping valuation, reserve recommendations, contracts, and acceptance decisions with humans.",
+      "role": "Auction owners and principals",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we protect private consignor information, bidder communications, and staff-only SOPs?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. You can separate public bidder agents from private staff knowledge agents so each only accesses approved sources and actions.",
+      "role": "Auction owners and principals",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we give staff an internal agent without exposing seller agreements or compliance notes to bidders?",
+      "answer": "Yes. Create separate agents or permissioned experiences for different audiences. A public bidder support agent can use terms, catalog pages, and FAQs, while an internal knowledge agent can use SOPs, seller templates, settlement procedures, licensing notes, and escalation rules with role-based access controls.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much cleanup do our documents need before implementation?",
+      "answer": "You do not need perfect documentation, but you do need approved source material. Start with terms of sale, buyer premium policies, pickup and shipping instructions, payment rules, bidder FAQs, and current catalog exports. DocsBot analytics can then reveal missing or confusing content so your team improves sources over time.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will DocsBot handle multilingual bidders, especially remote or international buyers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the knowledge sources you approve. For auctioneers, that is useful for registration guidance, pickup and shipping rules, payment instructions, and catalog navigation. Sensitive issues such as identity checks, disputes, and payment exceptions should still escalate to staff.",
+      "role": "Bidder support and registration teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent help with online auction trust and payment-safety questions?",
+      "answer": "Yes. Train DocsBot on your official payment instructions, contact channels, dispute process, bidder protections, and fraud-reporting workflow. The FTC advises online marketplace buyers to compare sellers, review protections, and use safer payment methods such as credit cards or secure payment systems, so clear guidance can reduce confusion and risky off-platform behavior.",
+      "role": "Bidder support and registration teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-online-marketplaces"
+      ]
+    },
+    {
+      "question": "What if a bidder asks the agent to make an exception to a pickup deadline, waive storage fees, or approve a different payment method?",
+      "answer": "DocsBot can explain the published policy and collect the details needed for review, but it should not approve exceptions unless you configure a very specific bounded workflow. Most auction teams use escalation for fee waivers, deadline changes, payment exceptions, charge disputes, identity issues, and legal questions.",
+      "role": "Bidder support and registration teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support high-volume auction categories like auto auctions as well as smaller estate or collectibles sales?",
+      "answer": "Yes. The same pattern applies: source-grounded answers, sale-specific policies, lot or invoice lookups when configured, and escalation for exceptions. High-volume environments make automation especially valuable; NAAA member auctions reported nearly 7.6 million vehicles sold in 2024, showing how much bidder and post-sale communication large auction operations may face.",
+      "role": "Auction owners and principals",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-naaa-2024-volume"
+      ]
+    },
+    {
+      "question": "How does DocsBot help our catalog and marketing team improve future auctions?",
+      "answer": "DocsBot can surface repeated questions about lot descriptions, condition language, buyer premiums, pickup instructions, shipping limits, and inspection times. Those analytics help catalog and marketing teams see which terms or categories cause confusion, then update listing language, FAQs, email reminders, and sale pages before the next auction.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can staff use DocsBot during setup, clerking, cashiering, settlement, and pickup instead of searching folders and old emails?",
+      "answer": "Yes. A private DocsBot knowledge agent can be trained on SOPs, checklists, templates, finance policies, settlement procedures, pickup workflows, and escalation rules. Staff can ask procedural questions and get source-grounded answers with links back to approved internal material.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we keep the agent current when catalogs, invoices, and pickup windows change quickly?",
+      "answer": "Use a mix of refreshed knowledge sources and live lookups. Static policy content can come from approved documents and pages, while fast-changing fields such as lot status, invoice status, or pickup appointments can be retrieved through configured Skills, APIs, connectors, or workflow automations where your systems allow it.",
+      "role": "Catalog, marketing, and operations staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will the agent understand that auction firms operate across very different asset classes and bidding formats?",
+      "answer": "DocsBot is trained on your own sources, so it can reflect whether you sell estates, fine art, collectibles, equipment, vehicles, gaming items, or other categories. The National Auction Association describes the industry as spanning multiple asset classes and bidding formats, including online bidding, which makes firm-specific training important.",
+      "role": "Auction owners and principals",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-naa-industry-scope"
+      ]
+    },
+    {
+      "question": "How should we handle licensing, state-specific rules, and regulated auction language inside the agent?",
+      "answer": "Use DocsBot to retrieve approved internal compliance notes, licensing references, disclosure language, and escalation rules—not to create legal interpretations. Auction regulation can be state-sensitive; NALLOA supports communication among state auction licensing boards and regulators, which reinforces the need for controlled, jurisdiction-aware source material.",
+      "role": "Auction owners and principals",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nalloa-licensing"
+      ]
+    },
+    {
+      "question": "What does implementation look like for a small auction house with limited IT support?",
+      "answer": "Start narrow: publish a bidder FAQ agent trained on your terms, payment rules, pickup instructions, shipping policy, and current sale pages. Then add consignor intake, post-sale handoffs, and internal SOP search. More advanced live lookups can come later through customer-configured APIs, connectors, Skills, or workflow automations.",
+      "role": "Auction owners and principals",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with adding more website FAQ pages or hiring temporary auction-day support?",
+      "answer": "FAQ pages help when bidders know where to look, and temporary staff help with exceptions. DocsBot fills the gap between them: it gives immediate, conversational answers from approved sources, summarizes issues for humans, works outside office hours, and shows analytics on what bidders and staff keep asking.",
+      "role": "Auction owners and principals",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations to make sure the agent is behaving appropriately?",
+      "answer": "Yes. DocsBot provides logs, conversation review, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery. For auction teams, those reviews help monitor sensitive themes like payment questions, reserve language, pickup exceptions, suspicious messages, condition disputes, and undocumented catalog questions.",
+      "role": "Bidder support and registration teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should remain human even after we deploy an auction AI agent?",
+      "answer": "Keep humans responsible for legal interpretations, bid disputes, payment exceptions, identity verification concerns, valuation promises, reserve recommendations, seller contracts, chargebacks, fraud investigations, and final customer commitments. DocsBot is strongest when it handles repeat information, collects context, summarizes issues, and routes the cases that need judgment.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    }
+  ]
+}

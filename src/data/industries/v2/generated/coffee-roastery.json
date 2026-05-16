@@ -1,0 +1,760 @@
+{
+  "slug": "coffee-roastery",
+  "business": "Coffee Roastery",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Coffee Roastery Support and Operations",
+    "description": "DocsBot helps coffee roasteries automate bean, brew, wholesale, and order support with source-grounded AI agents that reduce repetitive questions.",
+    "canonicalPath": "/industry/coffee-roastery"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for specialty coffee teams",
+    "headline": "DocsBot AI agents keep roastery knowledge ready for every customer and team member",
+    "subheadline": "Train an AI support agent on your roast profiles, brew guides, subscription policies, wholesale catalog, SOPs, cupping notes, and FAQs. DocsBot gives coffee buyers fast answers, helps staff find internal knowledge, and can trigger approved follow-ups or handoffs when a request needs a person.",
+    "proofBullets": [
+      {
+        "text": "Answer origin, roast level, grind, brew ratio, subscription, shipping, freshness, and wholesale questions from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details for cafés, offices, restaurants, and retailers, then route qualified wholesale inquiries to your sales workflow.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "text": "Give production, retail, and support staff instant access to SOPs, packaging notes, equipment checklists, and training documents.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to look up order status, summarize requests, create tickets or tasks, notify a team, and escalate sensitive issues.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your roastery AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns the knowledge your roastery already maintains—web pages, product descriptions, PDFs, Google Drive files, Notion pages, SOPs, brew guides, policies, and internal notes—into AI agents for customer support, sales qualification, documentation discovery, and internal operations. Agents answer from approved sources, show consistent guidance, and can use customer-configured Skills, APIs, connectors, or workflows for bounded actions.",
+    "whoItHelps": [
+      {
+        "role": "Founder or general manager",
+        "roleContext": "Keep a small team responsive while customers ask detailed questions about origins, subscriptions, shipping, wholesale, café service, and brewing at home.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive inbox and website questions without losing the nuance of your brand voice.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Use conversation analytics to see which coffees, policies, or brew topics need clearer documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route high-value wholesale, office coffee, and private-label inquiries to the right person with the conversation summary attached.",
+            "icon": "ArrowTrendingUpIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Customer support and e-commerce teams",
+        "roleContext": "Give shoppers quick, accurate answers while protecting human time for refunds, damaged shipments, complex subscriptions, and taste-sensitive recommendations.",
+        "bullets": [
+          {
+            "text": "Answer freshness windows, grind-size guidance, shipping cutoffs, gift questions, brewing recipes, and return-policy questions from approved sources.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect missing order details before a handoff so human support starts with context.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support customers in more than 100 languages when your roastery sells beyond one local market.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "EnvelopeIcon"
+      },
+      {
+        "role": "Wholesale, café, and account teams",
+        "roleContext": "Help sales reps and account managers respond quickly with current coffee specs, case-pack details, training resources, pricing guidance, and onboarding steps.",
+        "bullets": [
+          {
+            "text": "Prepare account-ready summaries from catalogs, service notes, onboarding docs, and sales enablement materials.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Qualify café, restaurant, hotel, office, and grocery leads with customer-defined rules before a human follows up.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Draft follow-up emails or handoff notes for a salesperson to review before sending.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Roasting, production, and training leads",
+        "roleContext": "Make internal procedures easier to find for staff who need consistent answers during roasting, packaging, retail service, training, and shift handoffs.",
+        "bullets": [
+          {
+            "text": "Surface SOPs, cleaning checklists, packaging instructions, roast-profile notes, and onboarding materials in private team chat.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Help new hires learn tasting language, product stories, brewing standards, and customer service procedures from your training library.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Keep safety and quality guidance accessible while humans remain responsible for production decisions and final checks.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nca-2026-consumption",
+      "metric": "66% of U.S. adults drink coffee daily; 73% drink it weekly.",
+      "claim": "The National Coffee Association reported that nearly 195 million American adults drink coffee each week, with past-day and past-week drinking at 66% and 73% in Spring 2026.",
+      "sourceTitle": "Coffee tops Americans' beverage choices",
+      "sourceUrl": "https://www.prnewswire.com/news-releases/coffee-tops-americans-beverage-choices-302741422.html",
+      "sourceDate": "April 14, 2026",
+      "bestUsedFor": [
+        "consumer demand",
+        "support volume",
+        "coffee subscription education",
+        "home brewing demand"
+      ]
+    },
+    {
+      "id": "src-nca-specialty-2026",
+      "metric": "58% of U.S. adults had specialty coffee in the past week in Spring 2026.",
+      "claim": "NCA data summarized by Daily Coffee News reported that specialty coffee reached 58% past-week consumption among American adults, up from 57% in Fall 2025.",
+      "sourceTitle": "Two-Thirds of Americans Said They Drank Coffee Yesterday, NCA Report Finds",
+      "sourceUrl": "https://dailycoffeenews.com/2026/04/14/two-thirds-of-americans-drank-coffee-yesterday-nca-report-finds/",
+      "sourceDate": "April 14, 2026",
+      "bestUsedFor": [
+        "specialty coffee education",
+        "consumer choice complexity",
+        "product discovery"
+      ]
+    },
+    {
+      "id": "src-bls-food-manufacturing",
+      "metric": "Food manufacturing employed about 1.78 million U.S. workers in early 2026.",
+      "claim": "BLS industry data for NAICS 311 food manufacturing showed about 1.78 million seasonally adjusted employees in early 2026 and 142,000 food batchmakers in 2024.",
+      "sourceTitle": "Food Manufacturing: NAICS 311",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag311.htm",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "operations scale",
+        "employee training",
+        "manufacturing workforce"
+      ]
+    },
+    {
+      "id": "src-fda-preventive-controls",
+      "metric": "Registered food facilities generally need a food safety plan unless exempt.",
+      "claim": "FDA explains that facilities required to register under the FD&C Act generally must follow FSMA preventive controls rules and maintain a food safety plan with hazard analysis and risk-based controls unless an exemption applies.",
+      "sourceTitle": "FSMA Final Rule for Preventive Controls for Human Food",
+      "sourceUrl": "https://www.fda.gov/pchfrule",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "food safety documentation",
+        "SOP accessibility",
+        "regulated operations"
+      ]
+    },
+    {
+      "id": "src-osha-flavorings",
+      "metric": "OSHA identifies flavoring-related respiratory hazards involving diacetyl and 2,3-pentanedione.",
+      "claim": "OSHA’s flavorings-related lung disease overview references NIOSH recommendations for controlling exposure to diacetyl and 2,3-pentanedione and includes evaluations involving coffee processing facilities.",
+      "sourceTitle": "Flavorings-Related Lung Disease - Overview",
+      "sourceUrl": "https://www.osha.gov/flavorings-related-lung-disease",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "worker safety",
+        "production training",
+        "hazard communication"
+      ]
+    },
+    {
+      "id": "src-square-automation-2024",
+      "metric": "Square surveyed 2,000 restaurant and retail owners and 4,000 customers on automation.",
+      "claim": "Square’s 2024 automation report studied how restaurant and retail owners and consumers think about automation for efficiency and customer experience.",
+      "sourceTitle": "The Future of Automation: 2024 Edition",
+      "sourceUrl": "https://squareup.com/us/en/the-bottom-line/operating-your-business/future-of-automation-2024",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "automation adoption",
+        "retail customer experience",
+        "small business efficiency"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product, origin, and brew-guide support",
+      "problem": "Specialty shoppers compare beans by origin, process, roast level, tasting notes, brew method, grind size, freshness, and price before buying.",
+      "agentWorkflow": "A DocsBot website agent answers from your product pages, cupping notes, brew guides, subscription FAQ, shipping policy, and blog posts. It can recommend the relevant guide, explain differences between coffees, and escalate taste-specific or order-specific questions when a human should help.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can check approved product metadata such as availability, grind options, roast date notes, or subscription rules before responding.",
+      "exampleQuestionsOrRequests": [
+        "Which coffee should I choose for espresso if I like chocolate notes?",
+        "How should I brew this washed Ethiopia on a V60?",
+        "Is this bag whole bean, and can you grind it for French press?"
+      ],
+      "businessOutcome": "Help customers choose confidently while reducing repetitive education questions that usually land in chat, email, or social messages.",
+      "icon": "SparklesIcon",
+      "sourceIds": [
+        "src-nca-specialty-2026"
+      ]
+    },
+    {
+      "name": "Subscription and order self-service",
+      "problem": "Recurring customers often ask about shipping timing, skipped shipments, grind changes, gift subscriptions, damaged bags, and delivery status.",
+      "agentWorkflow": "DocsBot can answer policy questions from your subscription and shipping documentation, collect missing details, summarize the issue, and prepare a support handoff. Where you authorize live access, AI Actions can look up order status or create a ticket for human review.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, helpdesk workflows, or e-commerce connectors can support approved lookups, ticket creation, status summaries, and team notifications.",
+      "exampleQuestionsOrRequests": [
+        "Where is my latest subscription shipment?",
+        "Can I switch next month’s coffee to decaf?",
+        "My bag arrived damaged. What information do you need?"
+      ],
+      "businessOutcome": "Give customers faster first answers and send your team cleaner handoffs for refund, replacement, or account-change decisions.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Wholesale lead qualification and account routing",
+      "problem": "Roasteries serving cafés, restaurants, grocery, offices, and hotels need to separate serious opportunities from general inquiries without slowing down buyers.",
+      "agentWorkflow": "A DocsBot presales agent answers wholesale FAQs from your catalog, service areas, minimums, training materials, equipment notes, and onboarding docs. It can collect lead details, apply your qualification rules, summarize the request, and route the handoff to sales.",
+      "liveContextOrTools": "Configured forms, CRM workflows, inboxes, Slack, Microsoft Teams, scheduling tools, or APIs can receive the qualified lead and conversation summary.",
+      "exampleQuestionsOrRequests": [
+        "Do you supply cafés in our city, and what are your weekly minimums?",
+        "Can we book a tasting for our restaurant group?",
+        "What information do you need for a wholesale account?"
+      ],
+      "businessOutcome": "Capture more qualified wholesale opportunities while keeping humans responsible for pricing, contracts, credit terms, and final commitments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Internal SOP and food-safety knowledge access",
+      "problem": "Roastery teams juggle production procedures, packaging instructions, cleaning schedules, equipment notes, and food-safety documentation that can be hard to find during busy shifts.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent answers staff questions from SOPs, training manuals, PDFs, equipment documentation, policies, and quality notes. It can summarize procedures, point to source documents, and identify repeated unanswered questions for documentation updates.",
+      "liveContextOrTools": "Team members can access the agent through private chat experiences, Slack, Microsoft Teams, or configured internal workflows with role-based permissions.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current grinder cleaning checklist?",
+        "What is our procedure for labeling a seasonal blend?",
+        "Which document explains our allergen and food-safety training steps?"
+      ],
+      "businessOutcome": "Reduce searching, improve consistency, and keep operational knowledge available without replacing supervisor judgment or required quality checks.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-preventive-controls",
+        "src-bls-food-manufacturing"
+      ]
+    },
+    {
+      "name": "Training for retail, café, and wholesale support staff",
+      "problem": "New staff need to learn product stories, tasting language, brewing standards, customer scripts, and account procedures quickly.",
+      "agentWorkflow": "DocsBot can train on onboarding materials, brew recipes, product sheets, brand guidelines, sales playbooks, and service policies, then answer staff questions in a private workspace. Managers can review logs to see which training topics need improvement.",
+      "liveContextOrTools": "The agent can be configured with source libraries by role, so retail staff, wholesale reps, and production teams see guidance appropriate to their work.",
+      "exampleQuestionsOrRequests": [
+        "How do we describe natural process coffee to a new customer?",
+        "What should I say when a café asks about dialing in espresso?",
+        "Where is the latest training sheet for our espresso blend?"
+      ],
+      "businessOutcome": "Help teams deliver a more consistent customer experience across retail, online support, and wholesale accounts.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Safety and production question triage",
+      "problem": "Roasting and packaging environments involve equipment, heat, cleaning chemicals, air-quality concerns, and documented procedures that staff must not improvise.",
+      "agentWorkflow": "DocsBot can make safety manuals, maintenance checklists, incident procedures, and training documents searchable. For sensitive or safety-critical questions, the agent can provide source-grounded guidance, create a supervisor task, and escalate instead of making unsupported decisions.",
+      "liveContextOrTools": "AI Actions can notify a manager, create a maintenance ticket, or summarize a reported issue within customer-defined permissions and logs.",
+      "exampleQuestionsOrRequests": [
+        "Where is the PPE checklist for packaging?",
+        "What do I do if the roaster ventilation alarm goes off?",
+        "Create a task for maintenance to inspect the destoner."
+      ],
+      "businessOutcome": "Make safety documentation easier to access while keeping humans accountable for inspections, corrective action, and production approvals.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-osha-flavorings"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give coffee buyers answers that sound like your roastery and stay grounded in your sources",
+    "intro": "DocsBot can power an embeddable website or store support agent trained on your roastery’s own content. Customers get quick answers about beans, brewing, subscriptions, shipping, gifts, and wholesale fit, while complex issues move to your team with context.",
+    "requests": [
+      {
+        "request": "“Which coffee is best for cold brew?”",
+        "agentResponseStrategy": "Compare coffees using approved product descriptions, tasting notes, roast levels, and brew guides, then link the customer to the right bag or recipe.",
+        "sourceTypes": [
+          "Product pages",
+          "Brew guides",
+          "Cupping notes",
+          "Blog posts"
+        ],
+        "optionalAction": "If configured, check current availability or collect the customer’s preferences before routing to support.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Can I change my subscription before it ships?”",
+        "agentResponseStrategy": "Answer from subscription policies and help articles, ask for missing details, and clarify when a human must make the account change.",
+        "sourceTypes": [
+          "Subscription FAQ",
+          "Shipping policy",
+          "Help center",
+          "Support macros"
+        ],
+        "optionalAction": "Create a ticket, summarize the request, or look up permitted order context through an approved Skill or API.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Do you offer wholesale coffee for cafés?”",
+        "agentResponseStrategy": "Explain service areas, minimums, training support, product categories, and onboarding steps from the wholesale knowledge base.",
+        "sourceTypes": [
+          "Wholesale catalog",
+          "Sales FAQ",
+          "Account onboarding docs",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Collect business name, location, volume estimate, equipment needs, and preferred follow-up channel, then forward a qualified lead.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "request": "“Is this coffee good for a gift?”",
+        "agentResponseStrategy": "Use gift guides, freshness guidance, roast preferences, grind options, and packaging notes to help the shopper choose confidently.",
+        "sourceTypes": [
+          "Gift guide",
+          "Product descriptions",
+          "Shipping cutoff page",
+          "FAQ"
+        ],
+        "optionalAction": "Route special fulfillment questions to a human if the request involves custom packaging or guaranteed delivery timing.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish?”",
+        "agentResponseStrategy": "Respond in the customer’s language while staying grounded in the same approved roastery sources.",
+        "sourceTypes": [
+          "Website copy",
+          "FAQs",
+          "Product pages",
+          "Policies"
+        ],
+        "optionalAction": "Escalate to a bilingual team member when a policy exception or sensitive order issue needs human review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What makes this coffee specialty?”",
+        "agentResponseStrategy": "Explain your quality standards, sourcing notes, roast approach, and tasting language from approved educational content without overclaiming certifications.",
+        "sourceTypes": [
+          "Sourcing pages",
+          "Education articles",
+          "Cupping notes",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Recommend a starter bundle or tasting set if your configured catalog source supports it.",
+        "icon": "StarIcon",
+        "sourceIds": [
+          "src-nca-specialty-2026"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make roastery operations searchable for production, retail, support, and sales",
+    "intro": "A private DocsBot knowledge agent helps employees find the right procedure, policy, product note, or sales answer without digging through folders. It can support onboarding, shift questions, wholesale enablement, and documentation-gap analysis from the sources you approve.",
+    "workflows": [
+      {
+        "name": "Production SOP retrieval",
+        "problem": "Roasting, grinding, packaging, and fulfillment teams need fast access to current procedures and checklists.",
+        "agentWorkflow": "Train DocsBot on SOPs, equipment manuals, cleaning schedules, packaging standards, PDFs, and shared-drive documents. Staff ask questions in plain language and get source-grounded answers with references to the underlying document.",
+        "sourceTypes": [
+          "SOPs",
+          "Equipment manuals",
+          "Cleaning schedules",
+          "Packaging docs"
+        ],
+        "optionalAction": "Create a task or notify a supervisor when a question suggests missing documentation or a maintenance issue.",
+        "outcome": "Reduce time spent searching and improve consistency across production shifts.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Wholesale sales enablement",
+        "problem": "Sales reps and account managers need quick access to current product specs, service policies, onboarding steps, and objection handling.",
+        "agentWorkflow": "DocsBot can answer from catalogs, pricing guidance, account playbooks, case studies, FAQs, and proposal templates. It can draft response notes for human review and prepare account summaries from approved materials.",
+        "sourceTypes": [
+          "Wholesale catalog",
+          "Sales playbooks",
+          "Proposal templates",
+          "Account onboarding docs"
+        ],
+        "optionalAction": "With configured CRM or inbox workflows, send a lead summary, create a follow-up task, or draft an email for approval.",
+        "outcome": "Help sales teams respond faster while keeping final pricing, terms, and commitments with people.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "New retail, support, and production employees need repeated guidance on products, processes, customer language, and internal policies.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training decks, brand guidelines, brew standards, policy documents, and role-specific FAQs. Managers can review common questions and update missing training content.",
+        "sourceTypes": [
+          "Training manuals",
+          "Brand guidelines",
+          "Brew standards",
+          "HR policies"
+        ],
+        "optionalAction": "Generate a summary of recurring onboarding questions for the training lead.",
+        "outcome": "Shorten ramp time and keep staff aligned on product knowledge and customer experience.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Food-safety and documentation gap review",
+        "problem": "Food businesses must maintain clear procedures, training records, and quality documentation, but teams often discover gaps only after questions repeat.",
+        "agentWorkflow": "DocsBot analytics and conversation review can reveal repeated questions about cleaning, labeling, storage, allergens, recalls, supplier docs, and packaging. The team can use those insights to improve documentation and escalation paths.",
+        "sourceTypes": [
+          "Food-safety plan",
+          "Quality manuals",
+          "Training records",
+          "Supplier documentation"
+        ],
+        "optionalAction": "Create documentation tasks for unresolved topics or route sensitive compliance questions to a designated manager.",
+        "outcome": "Make operational documentation easier to improve while preserving human oversight for compliance and quality decisions.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-fda-preventive-controls"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "AI agents trained on roastery knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on company-controlled sources such as websites, help centers, documents, PDFs, Google Drive, Notion, Confluence, and other approved knowledge bases.",
+      "industryApplication": "Train agents on coffee product pages, origin stories, brew recipes, subscription rules, wholesale materials, packaging instructions, retail training, and SOPs.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer support",
+      "mainLandingPageContext": "DocsBot support agents provide instant answers in the company’s voice and can escalate complex or sensitive questions to humans.",
+      "industryApplication": "Answer bean, brew, order, subscription, gift, shipping, and wholesale questions while handing off refunds, complaints, exceptions, and account-specific issues.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record creation, record updates, workflow triggers, and handoffs through customer-configured systems, including MCP Connectors for remote Model Context Protocol servers when appropriate.",
+      "industryApplication": "Look up approved order context, create support tickets, notify fulfillment, collect wholesale lead details, update permitted fields, or trigger a manager review within rules you define.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can support employees with private, role-aware access to internal documents, policies, procedures, onboarding content, and operational knowledge.",
+      "industryApplication": "Give roasters, packers, retail staff, support agents, and sales reps quick access to SOPs, product specs, brew standards, safety notes, and account guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, satisfaction and resolution analysis, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See which coffees, brewing methods, policies, wholesale terms, or training topics customers and staff ask about most, then improve the content behind the agent.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for business knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private supplier notes, wholesale playbooks, internal SOPs, and customer conversations while giving each team access to the knowledge they need.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect the coffees, policies, and workflows you actually use.",
+      "Deploy customer support on your website while also helping human support teams answer emails faster.",
+      "Use training materials as the foundation for common internal and customer questions.",
+      "DocsBot has handled high-volume support environments, including 30,000 inquiries in one month for Sony NURO."
+    ],
+    "whyTheseReviewsFit": "Coffee roasteries rely on owned knowledge: product stories, brew guides, training materials, subscription policies, and wholesale documentation. DocsBot’s proof shows teams using that content for self-service support, embedded website help, and faster human-assisted responses without starting from scratch.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "EnvelopeIcon",
+      "AcademicCapIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, presales, and internal knowledge agents for coffee roasteries",
+    "audience": [
+      "Coffee roastery owners",
+      "Specialty coffee e-commerce teams",
+      "Wholesale coffee sales teams",
+      "Roastery operations managers",
+      "Customer support and training leads"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "bakery",
+    "food-beverage-manufacturing",
+    "farm-to-table-restaurants",
+    "caterer",
+    "grocery-convenience-store",
+    "alcoholic-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "coffee-roastery",
+    "webSearchQueries": [
+      "National Coffee Association coffee consumption 2024 specialty coffee report Americans drink coffee daily percentage",
+      "IBISWorld coffee production in the US market size 2024 coffee roasting",
+      "FDA FSMA food traceability rule roasted coffee exemption coffee roasters food safety plan",
+      "Square Future of Commerce restaurants AI automation customer preferences 2024",
+      "BLS food batchmakers employment coffee roasting NAICS 311920",
+      "OSHA coffee roasting diacetyl NIOSH coffee processing facilities health hazard evaluation",
+      "National Coffee Association Spring 2026 National Coffee Data Trends 66% adults coffee past day",
+      "Specialty Coffee Association coffee retail market report specialty coffee consumers sustainability"
+    ],
+    "sourceUrls": [
+      "https://www.prnewswire.com/news-releases/coffee-tops-americans-beverage-choices-302741422.html",
+      "https://dailycoffeenews.com/2026/04/14/two-thirds-of-americans-drank-coffee-yesterday-nca-report-finds/",
+      "https://www.bls.gov/iag/tgs/iag311.htm",
+      "https://www.fda.gov/pchfrule",
+      "https://www.osha.gov/flavorings-related-lung-disease",
+      "https://squareup.com/us/en/the-bottom-line/operating-your-business/future-of-automation-2024"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46122,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 25386,
+        "outputTokens": 8516,
+        "reasoningOutputTokens": 242,
+        "totalTokens": 54638,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.19639,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.21639
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25603,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10115,
+          "outputTokens": 5766,
+          "reasoningOutputTokens": 242,
+          "totalTokens": 31369,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.11565,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.13565
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20519,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15271,
+          "outputTokens": 2750,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23269,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08074,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08074
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1510682999913-847a6d3cf221?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUzOTd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Coffee Roastery background image",
+    "source": "legacy-industry",
+    "query": "Coffee Roastery"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer detailed coffee questions without flattening our brand voice or making up tasting notes?",
+      "answer": "Yes. DocsBot trains on the sources you approve, such as product pages, cupping notes, brew guides, origin stories, FAQs, and brand guidelines. The agent can explain roast level, process, tasting notes, grind size, freshness, and brew method from that content, and escalate when a recommendation is too subjective or not documented.",
+      "role": "Founder or general manager",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our small support team during subscription, gift, and holiday order spikes?",
+      "answer": "DocsBot can answer common questions about shipping cutoffs, skipped shipments, grind changes, gift subscriptions, freshness, and damaged deliveries before they become tickets. Coffee is a high-frequency category: NCA reported that 66% of U.S. adults drank coffee daily and 73% drank it weekly in Spring 2026, so even modest conversion and repeat-order volume can create repetitive support work.",
+      "role": "Customer support and e-commerce teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nca-2026-consumption"
+      ]
+    },
+    {
+      "question": "Can the agent look up a customer’s order status or subscription details?",
+      "answer": "It can when you configure approved Skills, APIs, connectors, or workflows that expose the right order context. Many roasteries start with policy answers and ticket creation, then add scoped lookups such as shipment status or subscription metadata. Refunds, replacements, account exceptions, and charge decisions can remain routed to humans.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot work with the e-commerce, helpdesk, CRM, or team chat tools we already use?",
+      "answer": "DocsBot can support customer-configured connections through Skills, APIs, connectors, forms, webhooks, and workflow automations. That can include routing a wholesale lead, creating a support ticket, notifying Slack or Microsoft Teams, drafting a helpdesk response, or using MCP Connectors where appropriate. You control which systems and actions are allowed.",
+      "role": "Founder or general manager",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the AI from promising wholesale pricing, credit terms, free equipment, or guaranteed delivery dates?",
+      "answer": "Use source-grounded instructions, approved wholesale documents, and escalation rules. DocsBot can answer general minimums, service areas, onboarding steps, and equipment-support language, but route pricing exceptions, contract terms, credit decisions, and guaranteed fulfillment commitments to a salesperson or manager with the conversation summary attached.",
+      "role": "Wholesale, café, and account teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot qualify café, restaurant, office, or grocery wholesale leads before a salesperson follows up?",
+      "answer": "Yes. A DocsBot presales agent can collect business name, location, weekly volume estimate, equipment needs, current supplier, timeline, account type, and preferred follow-up channel. It can apply your qualification rules and send the summary to your configured CRM, inbox, form, Slack, Microsoft Teams, or sales workflow for human review.",
+      "role": "Wholesale, café, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use one agent for shoppers and another private agent for staff?",
+      "answer": "Yes. Roasteries often need different knowledge boundaries for public buyers, retail staff, production teams, and wholesale reps. DocsBot can support customer-facing agents trained on public policies and product education, plus private internal knowledge agents trained on SOPs, training docs, wholesale playbooks, equipment notes, and operations materials.",
+      "role": "Founder or general manager",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot handle food-safety, labeling, cleaning, or production SOP questions?",
+      "answer": "DocsBot can make your SOPs, cleaning schedules, packaging instructions, equipment manuals, training records, and food-safety documentation searchable for staff. It should not replace supervisor judgment or required checks. FDA explains that registered food facilities generally must follow preventive controls rules and maintain a food-safety plan unless exempt, so source control and escalation matter.",
+      "role": "Roasting, production, and training leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-preventive-controls"
+      ]
+    },
+    {
+      "question": "Can the agent help with worker safety questions in the roastery?",
+      "answer": "DocsBot can retrieve approved safety manuals, PPE checklists, maintenance procedures, incident steps, and ventilation or cleaning guidance. For safety-critical questions, it can point to source documents and trigger a supervisor task instead of improvising. OSHA identifies flavoring-related respiratory hazards involving diacetyl and 2,3-pentanedione, including coffee-processing evaluations, which makes controlled guidance important.",
+      "role": "Roasting, production, and training leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-flavorings"
+      ]
+    },
+    {
+      "question": "What content do we need before launching a useful roastery AI agent?",
+      "answer": "Start with the knowledge customers and staff already ask for: current product pages, brew guides, subscription rules, shipping and return policies, wholesale FAQs, training docs, SOPs, packaging instructions, and escalation rules. You do not need perfect documentation on day one; DocsBot analytics can show repeated unanswered questions so you can improve the source library over time.",
+      "role": "Founder or general manager",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long should implementation take if our documentation is spread across our website, PDFs, Google Drive, and Notion?",
+      "answer": "Implementation depends less on the number of sources and more on source quality, ownership, and permissions. DocsBot can train on websites, PDFs, Google Drive files, Notion pages, Confluence, Word documents, text files, and other approved knowledge sources. A practical rollout usually starts with one audience, one source set, and a clear human handoff path.",
+      "role": "Founder or general manager",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep seasonal coffee information current as lots, roast profiles, and availability change?",
+      "answer": "Use source ownership and update routines. Keep product availability, roast notes, processing details, and brew recommendations in the source systems your team already maintains, then refresh the agent’s knowledge from approved sources. For live availability or order context, use scoped Skills, APIs, or connectors so the agent does not rely on stale static content.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support customers in languages beyond English without us maintaining separate FAQ libraries?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in the same approved sources. That is useful when shoppers, gift buyers, tourists, or wholesale prospects ask in another language. For policy exceptions, sensitive order issues, or nuanced account conversations, the agent can escalate to a bilingual team member or human support queue.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What reporting will show whether the agent is actually reducing support work?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For roasteries, useful measures include repetitive question deflection, ticket handoff quality, unresolved topics, top coffees asked about, subscription-policy confusion, wholesale lead volume, and documentation gaps by product or team.",
+      "role": "Founder or general manager",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can managers review conversations to improve product pages, brew guides, and support macros?",
+      "answer": "Yes. Conversation review and knowledge-gap discovery can show where shoppers are confused about roast level, grind size, subscription timing, shipping cutoffs, brew ratios, gifts, or wholesale minimums. That gives your team a practical content backlog instead of guessing which FAQ, product page, or training document needs attention.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot protect supplier notes, wholesale playbooks, SOPs, and customer conversations?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. DocsBot also does not use customer data to train public models. Teams can separate public shopper content from private operational, supplier, pricing, and account materials.",
+      "role": "Founder or general manager",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can production employees ask questions from the floor without seeing private sales or finance information?",
+      "answer": "Yes. DocsBot supports private, role-aware access patterns using granular access controls and role-based permissions. A production-focused agent can answer from SOPs, cleaning checklists, packaging docs, equipment manuals, and training materials, while wholesale pricing, account notes, supplier contracts, or management documents remain limited to approved users.",
+      "role": "Roasting, production, and training leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this replace our baristas, roasters, or customer support people?",
+      "answer": "No. DocsBot is best positioned as a first-answer, knowledge-retrieval, and handoff system. It helps customers and employees find approved information faster, but humans should still handle sensory judgment, roasting decisions, quality checks, refunds, account exceptions, complaints, pricing commitments, and anything involving safety or compliance.",
+      "role": "Founder or general manager",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help train new retail, support, and wholesale staff on coffee language and procedures?",
+      "answer": "Yes. DocsBot can train on onboarding manuals, brew standards, product sheets, brand guidelines, customer scripts, sales playbooks, and service policies. New employees can ask practical questions like how to describe natural process coffee, where to find the espresso blend sheet, or what to say when a café asks about dialing in.",
+      "role": "Roasting, production, and training leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic website chatbot or AI search widget?",
+      "answer": "A generic widget may answer basic questions, but roasteries usually need source-grounded responses, private internal knowledge, human escalation, analytics, and scoped workflow actions. DocsBot can support customer support, wholesale lead qualification, employee SOP lookup, and bounded actions from approved sources rather than acting only as a public chat box.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What kinds of questions should we still route to a person immediately?",
+      "answer": "Route refunds, charge disputes, damaged-order exceptions, safety incidents, allergen concerns, suspected quality defects, legal or compliance questions, wholesale pricing, contract terms, credit requests, and sensitive customer complaints. DocsBot can still collect details, summarize the issue, attach source context, and notify the right person to reduce back-and-forth.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us serve both direct-to-consumer shoppers and wholesale accounts without confusing the two?",
+      "answer": "Yes. You can separate source collections, instructions, and escalation paths by audience. A DTC agent can focus on products, brewing, shipping, gifts, and subscriptions. A wholesale or internal sales agent can use catalogs, service-area rules, onboarding docs, account playbooks, and qualification flows, while keeping final commercial decisions with humans.",
+      "role": "Wholesale, café, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot support growth if we add more cafés, retail locations, or online order volume?",
+      "answer": "DocsBot can scale by adding source libraries, role-specific agents, and scoped actions as your operating model grows. Coffee demand is broad—NCA reported nearly 195 million American adults drink coffee each week—so growing roasteries can use agents to keep answers consistent across online support, retail training, wholesale inquiries, and production documentation.",
+      "role": "Founder or general manager",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nca-2026-consumption"
+      ]
+    },
+    {
+      "question": "Can the agent help customers choose between specialty coffees without overclaiming certifications or sourcing details?",
+      "answer": "Yes. DocsBot can compare coffees using only your approved sourcing pages, product descriptions, cupping notes, roast profiles, and education content. It can explain documented terms like origin, process, tasting notes, and brew fit while avoiding unsupported claims. Specialty coffee choice is a real education burden: 58% of U.S. adults had specialty coffee in the past week in Spring 2026.",
+      "role": "Customer support and e-commerce teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-nca-specialty-2026"
+      ]
+    },
+    {
+      "question": "What budget justification usually resonates with an owner or finance-minded buyer?",
+      "answer": "Frame ROI around fewer repetitive support questions, faster wholesale follow-up, cleaner handoffs, reduced staff search time, stronger onboarding, and better documentation visibility. The strongest business case usually starts with one measurable queue—such as subscription support, product education, or wholesale intake—then expands after analytics show what the agent resolved or escalated.",
+      "role": "Founder or general manager",
+      "category": "ROI and business impact"
+    }
+  ]
+}

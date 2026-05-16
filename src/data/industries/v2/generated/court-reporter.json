@@ -1,0 +1,750 @@
+{
+  "slug": "court-reporter",
+  "business": "Court Reporter",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Court Reporting Workflow Automation",
+    "description": "DocsBot helps court reporters automate client intake, transcript order answers, internal SOP lookup, and secure handoffs from approved firm knowledge.",
+    "canonicalPath": "/industry/court-reporter"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for court reporting teams",
+    "headline": "Keep transcript requests, client questions, and office knowledge moving",
+    "subheadline": "DocsBot helps court reporting firms create AI agents trained on their own procedures, rate sheets, transcript policies, scheduling instructions, deposition FAQs, and internal knowledge so clients and staff get consistent answers without exposing sensitive work to unmanaged tools.",
+    "proofBullets": [
+      {
+        "text": "Answer transcript order, scheduling, rate, delivery, and process questions from approved firm materials.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Route complex, privileged, urgent, or court-specific requests to the right human with conversation context.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give reporters, scopists, and coordinators private access to SOPs, formatting rules, onboarding guides, and client preferences.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or workflows for bounded actions such as intake summaries, task creation, notifications, and approved record updates.",
+        "icon": "CogIcon"
+      }
+    ],
+    "primaryCta": "Build a court reporting AI agent",
+    "secondaryCta": "Explore secure workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets court reporting firms train AI agents on approved knowledge sources such as service pages, transcript order instructions, internal SOPs, rate policies, scheduling playbooks, deposition logistics, FAQs, PDFs, and team documentation. The agent can answer, summarize, collect missing details, surface knowledge gaps, and trigger bounded workflows when your team configures Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Firm owners and agency managers",
+        "roleContext": "Court reporting firms balance client responsiveness, reporter availability, transcript delivery expectations, and sensitive legal records. DocsBot centralizes approved answers and keeps repeat questions from interrupting production work.",
+        "bullets": [
+          {
+            "text": "Give clients instant answers about ordering, appearance coverage, rough drafts, realtime requests, expedited delivery, and copy procedures.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured intake details before a coordinator reviews the assignment, including date, venue, parties, remote platform, service type, and urgency.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which policies, fees, or ordering steps clients ask about most often.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Scheduling and transcript coordinators",
+        "roleContext": "Coordinators need quick access to assignment instructions, reporter preferences, court rules, delivery expectations, and client-specific procedures while keeping humans in control of commitments.",
+        "bullets": [
+          {
+            "text": "Search internal SOPs and client notes for routing guidance, delivery language, standing orders, and escalation rules.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft handoff summaries for urgent jobs, unusual formats, missing exhibits, or requests that need manager review.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Create or update approved tasks through customer-configured workflows after the agent gathers required details.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Reporters, scopists, proofreaders, and production staff",
+        "roleContext": "Production teams need fast access to formatting standards, terminology resources, delivery procedures, proofreading checklists, and internal best practices without searching through folders or old messages.",
+        "bullets": [
+          {
+            "text": "Ask a private knowledge agent for firm-specific formatting, file naming, turnaround, exhibit, and delivery procedures.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Summarize lengthy internal notes or production instructions into checklists before a transcript moves to the next step.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Find onboarding and training answers from approved PDFs, Word documents, wikis, Google Drive, Notion, Confluence, or other configured sources.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-court-reporters",
+      "metric": "17,700 U.S. jobs and about 1,700 openings per year",
+      "claim": "The U.S. Bureau of Labor Statistics reported that court reporters and simultaneous captioners held about 17,700 jobs in 2024 and projected about 1,700 openings per year on average from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Court Reporters and Simultaneous Captioners",
+      "sourceUrl": "https://www.bls.gov/ooh/legal/court-reporters.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "staffing pressure",
+        "workflow bottlenecks"
+      ]
+    },
+    {
+      "id": "src-bls-stress-accuracy",
+      "metric": "Speed, accuracy, and time-sensitive legal proceedings create stressful work",
+      "claim": "BLS notes that court reporting can be stressful because of the speed and accuracy required to capture a verbatim record and the time-sensitive nature of legal proceedings.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Court Reporters and Simultaneous Captioners",
+      "sourceUrl": "https://www.bls.gov/ooh/legal/court-reporters.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "accuracy pressure",
+        "time-sensitive workflow",
+        "staff support"
+      ]
+    },
+    {
+      "id": "src-uscourts-transcripts",
+      "metric": "Federal transcript ordering and copy-fee rules depend on Judicial Conference policy",
+      "claim": "The U.S. Courts Federal Court Reporting Program explains that court reporters and transcribers may charge and collect fees for transcripts, with the first requester paying the original rate and later requesters paying copy rates under Judicial Conference policy.",
+      "sourceTitle": "U.S. Courts: Federal Court Reporting Program",
+      "sourceUrl": "https://www.uscourts.gov/court-programs/federal-court-reporting-program",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "transcript ordering",
+        "rate policy questions",
+        "client communication"
+      ]
+    },
+    {
+      "id": "src-aaert-trends",
+      "metric": "76% of surveyed end users reported scheduling difficulties due to stenographer availability",
+      "claim": "AAERT’s 2025 Court Reporting Industry Trends summary reported that 76% of end users surveyed experienced scheduling difficulties associated with stenographer availability.",
+      "sourceTitle": "AAERT: 2025 Court Reporting Industry Trends Summary",
+      "sourceUrl": "https://aaert.org/wp-content/uploads/2025/04/Court-Reporting-Industry-Trends_Summary-FINAL.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "scheduling pressure",
+        "coverage demand",
+        "operations bottlenecks"
+      ]
+    },
+    {
+      "id": "src-aaert-certification",
+      "metric": "AAERT provides certification exams for digital reporters and transcriptionists",
+      "claim": "AAERT describes its certification exams as testing professional skills for digital reporters and transcribers and provides federal formatting examples, templates, and practice materials.",
+      "sourceTitle": "AAERT Certification Exams",
+      "sourceUrl": "https://aaert.org/become-certified/certification-program/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "training requirements",
+        "digital reporting operations",
+        "staff onboarding"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Transcript order and delivery policy agent",
+      "problem": "Clients often ask the same questions about transcript availability, rates, copy requests, expedited delivery, rough drafts, realtime services, and ordering steps.",
+      "agentWorkflow": "Train a DocsBot support agent on firm FAQs, transcript order instructions, service descriptions, rate policies, court-specific pages, and delivery language. The agent answers routine questions, asks for missing request details, and escalates questions involving legal advice, disputed fees, sealed matters, or privileged facts.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up allowed order status fields, create a follow-up task, notify a coordinator, or prepare a handoff summary for review.",
+      "exampleQuestionsOrRequests": [
+        "How do I order a copy of a deposition transcript?",
+        "Can I request expedited delivery for tomorrow?",
+        "What information do you need before scheduling a realtime reporter?",
+        "Who should I contact about a sealed transcript request?"
+      ],
+      "businessOutcome": "Reduce repetitive calls and emails while keeping sensitive transcript decisions with trained staff.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-uscourts-transcripts"
+      ]
+    },
+    {
+      "name": "Scheduling intake and assignment triage",
+      "problem": "Reporter availability, remote proceeding details, venue changes, service type, exhibits, and rush requests create constant coordination work, especially when coverage is tight.",
+      "agentWorkflow": "A DocsBot agent collects structured job details, applies your intake rules, summarizes the request, and routes it to the correct coordinator or assignment queue. It can distinguish standard deposition requests from urgent, multi-day, realtime, CART, remote, or court-specific needs that require human confirmation.",
+      "liveContextOrTools": "Customer-configured workflows can create a task, send a notification, update approved scheduling fields, or request a meeting through a scheduling tool. AAERT reported that 76% of surveyed end users experienced scheduling difficulties related to stenographer availability, underscoring the value of cleaner intake before staff review.",
+      "exampleQuestionsOrRequests": [
+        "I need a reporter for a remote deposition next Wednesday.",
+        "Can you cover a same-week realtime request?",
+        "Here are the case caption, venue, Zoom link, and expected duration.",
+        "Please route this to someone who handles federal matters."
+      ],
+      "businessOutcome": "Improve intake completeness and help coordinators spend more time confirming coverage instead of chasing missing details.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-aaert-trends"
+      ]
+    },
+    {
+      "name": "Private production knowledge assistant",
+      "problem": "Reporters, scopists, proofreaders, and production staff need quick answers from formatting rules, delivery SOPs, client preferences, templates, and training materials.",
+      "agentWorkflow": "DocsBot acts as an internal knowledge agent trained on approved production documentation. Staff can ask natural-language questions, retrieve source-grounded answers, summarize long procedures, and identify gaps when the answer is missing from the knowledge base.",
+      "liveContextOrTools": "The agent can run inside private team chat experiences such as Slack or Microsoft Teams when configured, with role-based permissions and scoped access to internal sources.",
+      "exampleQuestionsOrRequests": [
+        "What is our file naming convention for rough drafts?",
+        "Which proofreading checklist applies before certified delivery?",
+        "Where is the onboarding guide for new scopists?",
+        "Summarize the delivery steps for this client’s standing order."
+      ],
+      "businessOutcome": "Reduce searching, preserve institutional knowledge, and make production procedures easier to follow consistently.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-stress-accuracy"
+      ]
+    },
+    {
+      "name": "Client-facing deposition services presales agent",
+      "problem": "Law firms and legal departments compare service options before booking, but agency websites often leave them with follow-up questions about realtime, remote proceedings, captioning, videography, rough drafts, and geography.",
+      "agentWorkflow": "Train a DocsBot presales agent on service pages, coverage areas, FAQs, policies, pricing guidance, and sales enablement notes. The agent explains service fit from approved sources, collects lead details, qualifies urgency and job type using your instructions, and forwards the summary to the right person.",
+      "liveContextOrTools": "With configured forms, webhooks, CRM or helpdesk workflows, or MCP connectors to approved internal tools, the agent can pass qualified inquiries and conversation context to your sales or operations systems.",
+      "exampleQuestionsOrRequests": [
+        "Do you support realtime for complex litigation depositions?",
+        "Can you provide remote reporting and exhibit handling?",
+        "What should I include when requesting a quote?",
+        "Please have someone contact me about a recurring deposition schedule."
+      ],
+      "businessOutcome": "Turn website traffic into cleaner, better-qualified booking conversations without letting the agent make binding legal, pricing, or availability commitments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap and policy analytics",
+      "problem": "Repeated client and staff questions reveal unclear ordering pages, missing SOPs, outdated rate explanations, or training gaps, but those patterns are easy to miss across emails and calls.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, review workflows, satisfaction analysis, and knowledge-gap discovery help managers see what people ask and where approved documentation needs improvement.",
+      "liveContextOrTools": "Teams can review unanswered questions, update source documents, refine agent instructions, and create follow-up tasks through approved workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which transcript-order questions are appearing most often this month?",
+        "What did the agent escalate because the answer was missing?",
+        "Which internal SOPs need clearer delivery instructions?",
+        "Show repeated questions from new staff during onboarding."
+      ],
+      "businessOutcome": "Improve documentation quality over time and reduce avoidable interruptions across client service and production teams.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Security-aware legal operations assistant",
+      "problem": "Court reporting work involves party names, case information, draft records, transcript status, and client communications that should be handled with clear boundaries.",
+      "agentWorkflow": "DocsBot can be configured with approved sources, role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II controls, GDPR-ready governance, and instructions that keep sensitive or high-impact requests on a human review path.",
+      "liveContextOrTools": "Skills can use environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls so the firm manages what the agent may access or do.",
+      "exampleQuestionsOrRequests": [
+        "Can this staff member access the internal production SOP?",
+        "Escalate this sealed-matter transcript request to a manager.",
+        "Summarize this client request without exposing credentials or privileged instructions.",
+        "Create a review task for a disputed delivery issue."
+      ],
+      "businessOutcome": "Support faster answers while maintaining clear permissions, logs, and human oversight for sensitive legal workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give attorneys and clients a faster front door for transcript and scheduling questions",
+    "intro": "A DocsBot customer-facing agent can sit on your website or client portal and answer from your approved policies, service descriptions, transcript ordering instructions, rate guidance, and FAQs. It can collect missing details and hand off complex requests to your team with context.",
+    "requests": [
+      {
+        "request": "“How do I request an expedited transcript?”",
+        "agentResponseStrategy": "Explain the firm’s approved ordering steps, ask for required case and proceeding details, describe any published delivery options, and escalate if the request involves sealed, disputed, or court-specific requirements.",
+        "sourceTypes": [
+          "Transcript order pages",
+          "Rate policies",
+          "Client FAQs",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a coordinator task or send a structured request summary through an approved workflow.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can you cover a remote deposition next week?”",
+        "agentResponseStrategy": "Collect date, time zone, expected duration, platform, parties, service type, realtime needs, exhibit process, and contact details before routing the request to scheduling staff.",
+        "sourceTypes": [
+          "Scheduling intake forms",
+          "Service descriptions",
+          "Coverage rules",
+          "Remote proceeding instructions"
+        ],
+        "optionalAction": "Forward a qualified intake summary to scheduling software, helpdesk software, email, Slack, or Microsoft Teams when configured.",
+        "icon": "VideoCameraIcon"
+      },
+      {
+        "request": "“What is the difference between original and copy transcript charges?”",
+        "agentResponseStrategy": "Answer from approved firm language and point to applicable policy pages. For federal matters, teams can align public explanations with Judicial Conference transcript policy and have staff review unusual billing questions.",
+        "sourceTypes": [
+          "Rate sheets",
+          "Federal transcript policy references",
+          "Firm billing FAQs",
+          "Client service scripts"
+        ],
+        "optionalAction": "Route disputed, sealed, or court-specific billing questions to a human reviewer.",
+        "icon": "CreditCardIcon",
+        "sourceIds": [
+          "src-uscourts-transcripts"
+        ]
+      },
+      {
+        "request": "“Do you offer realtime, CART, captioning, or digital reporting support?”",
+        "agentResponseStrategy": "Explain the services your firm offers, qualification requirements, scheduling prerequisites, and what details are needed for a quote or coverage review.",
+        "sourceTypes": [
+          "Service catalog",
+          "Certification notes",
+          "Reporter qualifications",
+          "Sales enablement materials"
+        ],
+        "optionalAction": "Capture lead details and send a service-fit summary to sales or operations.",
+        "icon": "MicrophoneIcon"
+      },
+      {
+        "request": "“I need help finding the right contact for my matter.”",
+        "agentResponseStrategy": "Ask structured routing questions, identify the likely department from approved rules, and prepare a concise handoff without asking for unnecessary sensitive information.",
+        "sourceTypes": [
+          "Contact routing rules",
+          "Department playbooks",
+          "Client intake instructions",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Create a ticket or notify the right team through a customer-configured helpdesk workflow.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish for our client contact?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer from the same approved knowledge sources while keeping escalation rules consistent across languages.",
+        "sourceTypes": [
+          "Approved FAQs",
+          "Service pages",
+          "Transcript instructions",
+          "Language-specific guidance"
+        ],
+        "optionalAction": "Escalate to bilingual staff when the matter is complex or requires human confirmation.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put firm procedures, production rules, and training answers where staff already work",
+    "intro": "DocsBot can serve as a private internal knowledge agent for court reporting firms, helping managers, coordinators, reporters, scopists, proofreaders, and support teams find source-grounded answers from approved SOPs, templates, policies, onboarding guides, and production notes.",
+    "workflows": [
+      {
+        "name": "Production SOP lookup",
+        "problem": "Staff lose time searching folders, messages, PDFs, and old emails for formatting rules, delivery steps, and client-specific instructions.",
+        "agentWorkflow": "Train DocsBot on approved SOPs, templates, PDFs, Word documents, wikis, and shared drive content so staff can ask direct questions and receive cited answers from internal sources.",
+        "sourceTypes": [
+          "Formatting guides",
+          "Delivery SOPs",
+          "Client preference notes",
+          "Template libraries"
+        ],
+        "optionalAction": "Generate a checklist or handoff summary for manager review.",
+        "outcome": "Faster access to the right procedure and fewer inconsistent answers across production staff.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Coordinator handoff summaries",
+        "problem": "Urgent or unusual jobs often pass through multiple people, creating risk that key details are missed.",
+        "agentWorkflow": "The agent summarizes client messages, extracts date, time, service type, location, remote platform, parties, due date, and open questions, then prepares a handoff using your firm’s rules.",
+        "sourceTypes": [
+          "Intake forms",
+          "Email exports",
+          "Scheduling procedures",
+          "Escalation playbooks"
+        ],
+        "optionalAction": "Create a task, route a ticket, or notify a coordinator through an approved Skill, API, connector, or workflow.",
+        "outcome": "Cleaner internal handoffs and less time reconstructing the context behind a request.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "New staff onboarding assistant",
+        "problem": "Court reporting firms need new coordinators, scopists, and production staff to learn terminology, procedures, quality expectations, and tool workflows quickly.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training materials, role guides, certification notes, FAQs, and internal policies, then reports common knowledge gaps to managers.",
+        "sourceTypes": [
+          "Training manuals",
+          "Role guides",
+          "Certification resources",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Log repeated unanswered questions so managers can improve onboarding content.",
+        "outcome": "More consistent training and easier knowledge preservation as procedures evolve.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-aaert-certification"
+        ]
+      },
+      {
+        "name": "Sensitive request escalation",
+        "problem": "Requests involving sealed matters, privileged context, identity issues, court-specific policy, or fee disputes should not be handled as routine self-service.",
+        "agentWorkflow": "Configure instructions and boundaries so the agent gives general process information, avoids unauthorized commitments, and escalates sensitive requests to a designated reviewer with a concise summary.",
+        "sourceTypes": [
+          "Escalation rules",
+          "Security policies",
+          "Access-control guidance",
+          "Client communication scripts"
+        ],
+        "optionalAction": "Open a review task, notify a manager, or draft a response for human approval.",
+        "outcome": "Faster triage while keeping high-impact legal and client-service decisions under human control.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "name": "Operations analytics review",
+        "problem": "Managers need to know which questions slow down coordinators, confuse clients, or reveal missing documentation.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery to identify patterns across internal and client-facing conversations.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge-gap reports",
+          "Updated SOPs"
+        ],
+        "optionalAction": "Create documentation update tasks or route content gaps to the right owner.",
+        "outcome": "Continuously improve client FAQs, ordering instructions, and staff documentation.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved firm knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from websites, help centers, PDFs, documents, internal content, and other configured sources so answers stay grounded in the business’s own materials.",
+      "industryApplication": "Train a court reporting agent on transcript order policies, rate sheets, scheduling instructions, client FAQs, production SOPs, onboarding guides, and service pages.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing support widget",
+      "mainLandingPageContext": "DocsBot agents can work in a website or product chat widget to deliver instant, source-grounded answers and escalate when needed.",
+      "industryApplication": "Place an agent on your site so attorneys, paralegals, and legal assistants can ask about transcript orders, deposition coverage, realtime services, remote proceedings, and required intake details.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as a private team assistant for SOPs, policies, onboarding, troubleshooting, compliance guidance, and operational processes.",
+      "industryApplication": "Give coordinators and production staff a private place to ask about formatting standards, delivery steps, proofreading checklists, file naming, and client-specific workflows.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record creation, field updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Use approved workflows to create scheduling tasks, summarize transcript requests, notify coordinators, update allowed fields, or connect through APIs, connectors, or remote Model Context Protocol servers your team authorizes.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which transcript policies, scheduling steps, service descriptions, or internal SOPs cause repeated questions so managers can improve documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and does not use customer data to train public models.",
+      "industryApplication": "Support sensitive court reporting workflows with approved sources, permissions, logging, and escalation paths for sealed, privileged, disputed, or court-specific matters.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your approved knowledge library, not generic legal guesses.",
+      "Supports internal decision-making and self-service workflows where staff need consistent answers.",
+      "Helps teams learn from the questions clients and employees actually ask."
+    ],
+    "whyTheseReviewsFit": "Court reporting firms need dependable answers, careful internal routing, and visibility into documentation gaps. DocsBot proof spans owned-content training, internal decision support, and analytics from real user questions, which maps directly to transcript ordering, scheduling, production, and staff knowledge workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "CheckCircleIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for court reporting firms",
+    "audience": [
+      "Court reporting firm owners",
+      "Transcript coordinators",
+      "Legal support operations teams",
+      "Reporter and production managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "DocumentTextIcon"
+  },
+  "relatedIndustrySlugs": [
+    "attorney-services",
+    "legal-document-drafting",
+    "employment-law",
+    "intellectual-property-law",
+    "compliance-consulting",
+    "safety-security-legal"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "court-reporter",
+    "webSearchQueries": [
+      "BLS court reporters simultaneous captioners occupational outlook transcript employment 2024",
+      "NCRA court reporting shortage stenographic court reporters report",
+      "AAERT court reporting transcript turnaround court reporters digital reporting",
+      "United States Courts Guide to Judiciary Policy transcript rates court reporters"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/legal/court-reporters.htm",
+      "https://www.uscourts.gov/court-programs/federal-court-reporting-program",
+      "https://aaert.org/wp-content/uploads/2025/04/Court-Reporting-Industry-Trends_Summary-FINAL.pdf",
+      "https://aaert.org/become-certified/certification-program/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41455,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20719,
+        "outputTokens": 8146,
+        "reasoningOutputTokens": 117,
+        "totalTokens": 49601,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.179172,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.189172
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21480,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 5992,
+          "outputTokens": 5378,
+          "reasoningOutputTokens": 117,
+          "totalTokens": 26858,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.099522,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.109522
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19975,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14727,
+          "outputTokens": 2768,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22743,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07965,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07965
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDI4NjF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Court Reporter background image",
+    "source": "legacy-industry",
+    "query": "Court Reporter"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer transcript order and delivery questions without giving legal advice or making commitments our coordinators have not approved?",
+      "answer": "Yes. Train the agent on your approved transcript ordering pages, rate guidance, delivery policies, FAQs, and escalation rules. It can explain your published process, collect missing details, and route sealed, disputed, court-specific, privileged, or commitment-heavy requests to a human reviewer instead of improvising.",
+      "role": "Firm owners and agency managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help when our scheduling team is already stretched and availability changes by the hour?",
+      "answer": "DocsBot can collect complete intake details before a coordinator reviews the request: date, time zone, venue or remote platform, estimated duration, service type, realtime needs, exhibits, parties, urgency, and contact details. That matters because AAERT reported that 76% of surveyed end users experienced scheduling difficulties associated with stenographer availability.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-aaert-trends"
+      ]
+    },
+    {
+      "question": "Can DocsBot check actual reporter availability in our scheduling system?",
+      "answer": "Only if your team configures an approved Skill, API, connector, MCP connector, or workflow with the right permissions. Many firms start by having the agent gather clean intake details and create a task or handoff summary, then later add bounded lookups or approved field updates where the scheduling system allows it.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will the agent expose draft transcript information, party names, or sealed-matter details to the wrong user?",
+      "answer": "DocsBot is designed for approved knowledge sources, role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II controls, GDPR-ready governance, and customer-defined boundaries. For sensitive court reporting workflows, configure the agent to provide general process guidance and escalate sealed, privileged, identity, or disputed requests.",
+      "role": "Firm owners and agency managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use it internally for reporters, scopists, proofreaders, and production staff instead of only putting it on our website?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, formatting rules, delivery checklists, client preferences, templates, onboarding guides, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and other approved sources. Staff can ask procedural questions and get source-grounded answers without searching folders or message threads.",
+      "role": "Reporters, scopists, proofreaders, and production staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from answering from outdated rate sheets or old delivery instructions?",
+      "answer": "Use a controlled knowledge library and make one owner responsible for rate sheets, delivery policy, client preference notes, and escalation language. DocsBot can surface knowledge gaps and repeated questions, but the firm should maintain source hygiene, remove stale documents, and review answers during rollout.",
+      "role": "Firm owners and agency managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it explain original versus copy transcript charges for federal matters?",
+      "answer": "It can answer from your approved billing language and route unusual billing issues to staff. For federal matters, firms can align public explanations with U.S. Courts guidance, which notes that court reporters and transcribers may charge transcript fees and that the first requester pays the original rate while later requesters pay copy rates under Judicial Conference policy.",
+      "role": "Firm owners and agency managers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-uscourts-transcripts"
+      ]
+    },
+    {
+      "question": "What should we measure to know whether the agent is actually helping our firm?",
+      "answer": "Track deflected repetitive questions, intake completeness, coordinator follow-up reduction, time to first response, escalation volume, unanswered questions, satisfaction, and topics that recur across clients or staff. For internal use, also track whether production staff find SOP answers faster and whether onboarding questions reveal documentation gaps.",
+      "role": "Firm owners and agency managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can coordinators review what the agent said before anything goes to a client or gets entered into a system?",
+      "answer": "Yes. You can design workflows where the agent drafts a response, summarizes a request, or prepares a task for human review. That is often the safest pattern for expedited transcript questions, realtime commitments, fee disputes, sealed matters, unusual court requirements, or any request that could affect client expectations.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How long does implementation take if our knowledge is spread across PDFs, shared drives, email templates, and old SOPs?",
+      "answer": "Most firms should plan implementation around knowledge cleanup, not just technical setup. Start with a narrow scope such as transcript ordering FAQs or production SOP lookup, upload approved sources, test real questions from coordinators and clients, tune escalation rules, then expand to scheduling intake, analytics, and configured actions.",
+      "role": "Firm owners and agency managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support intake for realtime, CART, captioning, remote depositions, or multi-day matters?",
+      "answer": "Yes, if your service descriptions and intake rules are in the approved knowledge base. The agent can ask for service type, proceeding format, dates, expected duration, platform, exhibit process, contact details, technical requirements, and urgency, then route the request for human confirmation instead of promising coverage.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this replace court reporters or production staff?",
+      "answer": "No. DocsBot is best positioned as a workflow and knowledge assistant, not a substitute for the certified professionals responsible for the record. BLS notes that court reporting can be stressful because of speed, accuracy, and time-sensitive legal proceedings; the agent helps reduce repetitive administrative interruptions and makes approved procedures easier to find.",
+      "role": "Reporters, scopists, proofreaders, and production staff",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-bls-stress-accuracy"
+      ]
+    },
+    {
+      "question": "Can it help onboard new coordinators, scopists, or digital reporting staff?",
+      "answer": "Yes. Train DocsBot on role guides, training manuals, certification resources, templates, terminology notes, and internal FAQs. New staff can ask how your firm handles file naming, formatting, delivery, exhibit procedures, and escalation. AAERT also provides certification exams and practice materials for digital reporters and transcribers, which can inform training documentation.",
+      "role": "Reporters, scopists, proofreaders, and production staff",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-aaert-certification"
+      ]
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source materials conflict?",
+      "answer": "Configure it to say it does not have enough approved information, show the relevant source context when available, and route the question to the right person. DocsBot analytics and knowledge-gap discovery then help managers see which missing or conflicting policies need cleanup.",
+      "role": "Firm owners and agency managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we put one agent on the website for clients and another private one for staff?",
+      "answer": "Yes. A client-facing agent can answer from public service pages, transcript order instructions, FAQs, and routing rules, while an internal agent can access private SOPs, client preference notes, production procedures, and onboarding materials. Permissions and source scope should be configured separately for each audience.",
+      "role": "Firm owners and agency managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot create tasks or notify coordinators after collecting a transcript or deposition request?",
+      "answer": "Yes, when your team configures approved Skills, APIs, connectors, forms, webhooks, or workflow automations. The agent can collect details, generate a structured summary, create a task or ticket, notify a coordinator, update approved fields, or trigger a bounded workflow with logs and permissions.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we make sure the agent uses our firm’s wording for fees, turnaround, rough drafts, and realtime services?",
+      "answer": "Train it on your approved language: rate policies, service pages, client FAQs, quote guidance, delivery scripts, and escalation rules. During testing, ask the same questions clients ask by phone and email, then refine the source documents and instructions until the answer style matches your firm’s expectations.",
+      "role": "Firm owners and agency managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with after-hours inquiries without overpromising next-day delivery or coverage?",
+      "answer": "Yes. It can answer general process questions, collect complete details, disclose that human confirmation is required where appropriate, and route urgent requests to the right review path. This is useful for after-hours deposition coverage, expedited transcript requests, realtime needs, and client contacts in different time zones.",
+      "role": "Firm owners and agency managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kinds of questions should we keep out of self-service automation?",
+      "answer": "Escalate anything involving sealed transcripts, privileged context, identity verification, disputed invoices, court-specific exceptions, binding availability, legal advice, unusually complex formatting requirements, or client relationship issues. DocsBot can still summarize the request and prepare the handoff so staff do not start from scratch.",
+      "role": "Scheduling and transcript coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use conversation analytics to decide which website pages or SOPs need improvement?",
+      "answer": "Yes. DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see repeated transcript ordering questions, confusing delivery policies, missing scheduling instructions, or onboarding topics that should be clarified in the underlying documentation.",
+      "role": "Firm owners and agency managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does this support a small court reporting agency that does not have an IT department?",
+      "answer": "Start with a focused, low-risk use case: website FAQs, transcript order guidance, or internal SOP lookup. Use approved documents you already maintain, keep actions limited to summaries and handoffs, and add integrations only after the team trusts the answers and escalation paths.",
+      "role": "Firm owners and agency managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it handle multilingual client questions from attorneys, paralegals, or witnesses’ support teams?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge sources. For court reporting firms, keep policies, escalation rules, and human review paths consistent across languages, especially for billing questions, sealed matters, delivery commitments, and complex proceeding logistics.",
+      "role": "Firm owners and agency managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we justify the cost if most of our questions arrive by email or phone rather than website chat?",
+      "answer": "Evaluate more than web deflection. Look at coordinator time spent chasing missing intake details, repeated transcript-status and ordering questions, production staff searching for SOPs, onboarding interruptions, and after-hours response gaps. DocsBot can support website, internal, and workflow-connected use cases when configured around those bottlenecks.",
+      "role": "Firm owners and agency managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will attorneys and paralegals trust an AI agent for court reporting questions?",
+      "answer": "Trust depends on boundaries. Position the agent as a source-grounded assistant for your firm’s approved procedures, not as a legal authority. Give clear escalation options, avoid binding commitments, keep sensitive matters on human review paths, and use analytics to review real conversations for accuracy and client experience.",
+      "role": "Firm owners and agency managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or letting staff use public AI tools?",
+      "answer": "DocsBot is designed around approved company knowledge, permissions, reviewable conversations, knowledge-gap reporting, and bounded actions. For court reporting firms, that is safer than unmanaged tools because answers can be limited to your policies, SOPs, rate guidance, and escalation rules, with sensitive requests routed to people.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the system scale across multiple offices, practice-area teams, or client-specific procedures?",
+      "answer": "Yes, if you structure sources and permissions carefully. You can separate public client guidance from internal SOPs, maintain client-specific notes for staff-only use, and configure role-based access so coordinators, managers, reporters, and production teams see only the knowledge appropriate for their work.",
+      "role": "Firm owners and agency managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What industry pressure makes automation worth considering now?",
+      "answer": "Court reporting teams face real staffing and coordination pressure. BLS reported about 17,700 U.S. court reporter and simultaneous captioner jobs in 2024 and projected about 1,700 openings per year from 2024 to 2034, while AAERT reported that 76% of surveyed end users experienced scheduling difficulties tied to stenographer availability.",
+      "role": "Firm owners and agency managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-court-reporters",
+        "src-aaert-trends"
+      ]
+    }
+  ]
+}

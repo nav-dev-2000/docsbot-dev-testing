@@ -1,0 +1,774 @@
+{
+  "slug": "food-beverage-manufacturing",
+  "business": "Food & Beverage Manufacturing",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Food & Beverage Manufacturing Teams",
+    "description": "DocsBot helps food and beverage manufacturers automate product support, SOP access, traceability answers, and compliant team handoffs.",
+    "canonicalPath": "/industry/food-beverage-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for food and beverage operations",
+    "headline": "AI agents that keep product, plant, and support knowledge moving",
+    "subheadline": "DocsBot helps food and beverage manufacturers create AI agents trained on approved product specs, ingredient sheets, SOPs, safety procedures, FAQs, and internal documentation. Give customers faster answers, help employees find the right procedure, and route exceptions to the right person with clear boundaries.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about ingredients, allergens, preparation, storage, nutrition, packaging, and availability from approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help plant, QA, sales, and support teams retrieve SOPs, policy details, product sheets, and troubleshooting steps without digging through folders.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize issues, create tickets or tasks, route requests, and trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Escalate sensitive, safety-critical, pricing, recall, or complaint issues to humans while preserving the conversation context.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a food manufacturing AI agent",
+    "secondaryCta": "Explore DocsBot for operations"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your approved food and beverage knowledge into customer-facing and internal AI agents. Agents can answer from product documentation, specs, FAQs, SOPs, policies, wikis, PDFs, website content, and connected knowledge sources; identify documentation gaps; summarize requests; and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and consumer affairs teams",
+        "roleContext": "For brands fielding recurring questions about labels, allergens, preparation, storage, availability, complaints, and replacement processes.",
+        "bullets": [
+          {
+            "text": "Give shoppers instant answers grounded in approved product and policy content, with human escalation for complaints or sensitive issues.",
+            "icon": "FaceSmileIcon"
+          },
+          {
+            "text": "Summarize customer inquiries and route them to quality, sales, logistics, or support teams through configured workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot repeated questions, confusing labels, and missing FAQ coverage.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Quality, food safety, and compliance leaders",
+        "roleContext": "For teams that need fast access to procedures, training references, traceability instructions, sanitation guidance, deviation workflows, and approved response language.",
+        "bullets": [
+          {
+            "text": "Make SOPs, preventive control procedures, sanitation references, and escalation paths searchable for employees across shifts.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support traceability readiness by helping staff find the right recordkeeping guidance, definitions, and internal procedures.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Keep review paths in place for safety-critical judgments, recall decisions, regulatory submissions, and customer complaint disposition.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Sales, broker, and distributor support teams",
+        "roleContext": "For commercial teams answering product-fit, spec, pack-size, channel, documentation, sample, and co-manufacturing questions.",
+        "bullets": [
+          {
+            "text": "Equip reps with instant access to product sheets, approved claims, certifications, case-pack details, handling guidance, and objection responses.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect lead details, qualify requests using your rules, and forward summaries to sales or CRM-style workflows when configured.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft follow-up responses from approved sources while keeping humans responsible for pricing, contracts, and commitments.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      },
+      {
+        "role": "Plant operations, maintenance, and training teams",
+        "roleContext": "For supervisors and frontline teams that need consistent access to work instructions, troubleshooting, onboarding content, and safety procedures.",
+        "bullets": [
+          {
+            "text": "Help employees find equipment startup, changeover, sanitation, and troubleshooting procedures from private knowledge sources.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Support onboarding by answering process and policy questions in a private team chat, Slack, Microsoft Teams, or other configured experience.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Surface recurring employee questions so documentation owners can update confusing procedures or missing training materials.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-sector-scale",
+      "metric": "1.7 million U.S. food and beverage manufacturing employees in 2018",
+      "claim": "USDA ERS reported that the U.S. food and beverage manufacturing sector employed more than 1.7 million people in 2018 across thousands of plants.",
+      "sourceTitle": "Meat and poultry plants employed close to a third of the 1.7 million U.S. food and beverage manufacturing employees in 2018",
+      "sourceUrl": "https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=98458",
+      "sourceDate": "2020",
+      "bestUsedFor": [
+        "labor scale",
+        "distributed plant operations",
+        "employee knowledge access"
+      ]
+    },
+    {
+      "id": "src-fda-traceability-rule",
+      "metric": "FDA Food Traceability Rule recordkeeping for certain foods",
+      "claim": "FDA states that the Food Traceability Rule establishes additional recordkeeping requirements for entities that manufacture, process, pack, or hold foods on the Food Traceability List.",
+      "sourceTitle": "FSMA Final Rule on Requirements for Additional Traceability Records for Certain Foods",
+      "sourceUrl": "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods",
+      "sourceDate": "Updated 2025",
+      "bestUsedFor": [
+        "traceability pressure",
+        "compliance recordkeeping",
+        "food safety workflows"
+      ]
+    },
+    {
+      "id": "src-fda-traceability-enforcement",
+      "metric": "FDA proposed and Congress directed a delayed enforcement date for the Food Traceability Rule",
+      "claim": "FDA’s FAQ states that FDA proposed extending the Food Traceability Rule compliance date by 30 months to July 20, 2028, and Congress directed FDA not to enforce the rule before that date.",
+      "sourceTitle": "Frequently Asked Questions: FSMA Food Traceability Rule",
+      "sourceUrl": "https://www.fda.gov/food/food-safety-modernization-act-fsma/frequently-asked-questions-fsma-food-traceability-rule",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "traceability timeline",
+        "compliance planning",
+        "regulatory readiness"
+      ]
+    },
+    {
+      "id": "src-fda-allergen-recalls",
+      "metric": "Undeclared allergens are a leading cause of food recalls",
+      "claim": "FDA describes undeclared allergens as the leading cause of food recalls and has analyzed recall patterns to improve allergen labeling compliance.",
+      "sourceTitle": "FDA Warns Whole Foods Market After Repeated Food Recalls for Undeclared Allergens",
+      "sourceUrl": "https://www.fda.gov/food/hfp-constituent-updates/fda-warns-whole-foods-market-after-repeated-food-recalls-undeclared-allergens",
+      "sourceDate": "2020",
+      "bestUsedFor": [
+        "allergen risk",
+        "label accuracy",
+        "customer support pressure"
+      ]
+    },
+    {
+      "id": "src-bls-food-injuries",
+      "metric": "61,400 food manufacturing injury and illness cases in 2023",
+      "claim": "BLS reported that food manufacturing had 61,400 total injury and illness cases in 2023.",
+      "sourceTitle": "Employer-Reported Workplace Injuries and Illnesses — 2023",
+      "sourceUrl": "https://www.bls.gov/news.release/archives/osh_11082024.pdf",
+      "sourceDate": "November 8, 2024",
+      "bestUsedFor": [
+        "workplace safety",
+        "SOP access",
+        "plant training"
+      ]
+    },
+    {
+      "id": "src-osha-loto",
+      "metric": "OSHA lockout/tagout guidance covers hazardous energy sources",
+      "claim": "OSHA notes that electrical, mechanical, hydraulic, pneumatic, chemical, thermal, and other energy sources in machines and equipment can be hazardous to workers.",
+      "sourceTitle": "Control of Hazardous Energy (Lockout/Tagout) — Overview",
+      "sourceUrl": "https://www.osha.gov/control-hazardous-energy/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "maintenance safety",
+        "machine procedures",
+        "training workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Ingredient, allergen, and product-answer agent",
+      "problem": "Support teams and shoppers ask repeated questions about ingredients, major allergens, nutrition, preparation, shelf life, storage, packaging, and where to find specific product details.",
+      "agentWorkflow": "Train a DocsBot support agent on approved product pages, spec sheets, nutrition panels, FAQs, allergen statements, preparation guides, and policies. The agent answers in the brand voice, cites source content, collects missing context such as product name or lot code, and escalates complaints or medical-safety concerns to a human.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved product metadata, create a support ticket, send a conversation summary, or route the issue to consumer affairs or quality.",
+      "exampleQuestionsOrRequests": [
+        "Does this sauce contain sesame or milk ingredients?",
+        "How should I store the product after opening?",
+        "Can you help me report a product quality issue with a lot code?"
+      ],
+      "businessOutcome": "Reduce repetitive product-support volume while improving consistency around ingredient, allergen, and handling answers. FDA identifies undeclared allergens as a leading cause of food recalls, making accurate approved-language access especially important.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-fda-allergen-recalls"
+      ]
+    },
+    {
+      "name": "Traceability and food safety procedure assistant",
+      "problem": "Food safety and QA teams need fast access to traceability procedures, internal definitions, record expectations, deviation steps, and escalation paths across products, lines, and shifts.",
+      "agentWorkflow": "Create a private DocsBot knowledge agent trained on internal food safety plans, traceability SOPs, recall procedures, audit prep notes, supplier documentation, and approved regulatory guidance. Employees can ask plain-language questions and receive source-grounded answers with the relevant internal procedure surfaced.",
+      "liveContextOrTools": "Through customer-configured Skills, APIs, connectors, or approved workflow triggers, the agent can summarize an incident, create a task, route an exception, or pull live context from authorized systems without making final safety or regulatory decisions.",
+      "exampleQuestionsOrRequests": [
+        "Which traceability records do we keep for this finished product?",
+        "What is the escalation path for a missing supplier lot record?",
+        "Summarize this deviation report for QA review."
+      ],
+      "businessOutcome": "Help teams prepare for traceability and audit demands. FDA says the Food Traceability Rule adds recordkeeping requirements for certain foods, and FDA’s FAQ now references a July 20, 2028 enforcement timing for the delayed rule.",
+      "icon": "ListBulletIcon",
+      "sourceIds": [
+        "src-fda-traceability-rule",
+        "src-fda-traceability-enforcement"
+      ]
+    },
+    {
+      "name": "Plant SOP, sanitation, and maintenance knowledge agent",
+      "problem": "Frontline employees and supervisors often need exact changeover, sanitation, startup, troubleshooting, and maintenance instructions while working under time pressure.",
+      "agentWorkflow": "Train DocsBot on approved SOPs, work instructions, sanitation schedules, maintenance playbooks, training PDFs, and safety policies. Employees can ask operational questions in private chat and get source-grounded guidance, with reminders to follow site-specific procedures and escalate unsafe or ambiguous situations.",
+      "liveContextOrTools": "When configured, AI Actions can create maintenance tasks, route a documentation-gap report, notify a supervisor, or attach a summarized issue to a ticketing or work-order workflow.",
+      "exampleQuestionsOrRequests": [
+        "Where is the approved sanitation procedure for Line 3 changeover?",
+        "What should I check before restarting the filler after a jam?",
+        "Create a task for documentation review because this SOP is unclear."
+      ],
+      "businessOutcome": "Improve access to consistent procedures across plants and shifts. BLS reported 61,400 food manufacturing injury and illness cases in 2023, reinforcing the importance of searchable safety and procedure knowledge.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-bls-food-injuries"
+      ]
+    },
+    {
+      "name": "Distributor, retailer, and broker support agent",
+      "problem": "Commercial partners ask for product specs, case packs, storage conditions, certifications, claims, availability, shipment issue help, and channel-specific documentation.",
+      "agentWorkflow": "Deploy a DocsBot agent trained on sell sheets, distributor FAQs, approved claims, handling guides, channel policies, broker playbooks, and partner support procedures. The agent answers approved questions, gathers missing order or account context, and prepares clean handoffs for sales or operations.",
+      "liveContextOrTools": "With approved live lookups, the agent can retrieve authorized status fields, create a partner support ticket, forward lead or partner context to sales systems, or trigger a follow-up workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you send the handling requirements for this chilled product?",
+        "What pack sizes are approved for foodservice?",
+        "Route this distributor issue to our regional account manager."
+      ],
+      "businessOutcome": "Give brokers and partners faster, consistent answers while preserving human control over pricing, contracts, claims, and account commitments.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Training, onboarding, and shift handoff assistant",
+      "problem": "Food and beverage manufacturers operate across many roles, plants, and shifts, so new hires and cross-trained employees need reliable answers without interrupting supervisors.",
+      "agentWorkflow": "Use DocsBot as an internal onboarding and shift-support agent trained on HR policies, safety training, job aids, SOPs, equipment references, and shift handoff templates. Employees can ask questions, supervisors can summarize handoffs, and managers can review analytics to see which topics need better documentation.",
+      "liveContextOrTools": "AI Actions can generate shift summaries, create documentation-update tasks, or route repeated questions to training owners through configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "What do new pack-line operators need to complete before working independently?",
+        "Summarize the last shift handoff into action items.",
+        "Which SOP should I review before cross-training on this station?"
+      ],
+      "businessOutcome": "Support consistent knowledge transfer in a sector that USDA ERS described as employing more than 1.7 million people across thousands of U.S. food and beverage manufacturing plants.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-usda-sector-scale"
+      ]
+    },
+    {
+      "name": "Consumer complaint triage and quality handoff agent",
+      "problem": "Quality complaints often arrive with incomplete details, forcing support teams to ask follow-up questions before QA can investigate.",
+      "agentWorkflow": "A DocsBot support agent can collect product name, UPC, lot code, purchase location, photos, symptoms or issue description, and contact preference using a structured intake flow. It summarizes the case, flags sensitive issues for human review, and routes the conversation to the proper team.",
+      "liveContextOrTools": "Configured Skills can create a ticket, update approved fields, notify QA, or generate a handoff summary for a complaint management workflow. Humans remain responsible for recall, refund, legal, medical, and regulatory decisions.",
+      "exampleQuestionsOrRequests": [
+        "I found something unusual in my package. What information do you need?",
+        "Submit this quality issue to your team with my lot code.",
+        "Summarize this complaint for QA review."
+      ],
+      "businessOutcome": "Improve first-contact data quality and handoff speed while keeping sensitive food safety, refund, and recall decisions under human control.",
+      "icon": "ExclamationCircleIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Answer shoppers and partners without losing control of approved product language",
+    "intro": "DocsBot customer-facing agents can be embedded on a website or product experience to answer from your approved knowledge base, collect structured details, and escalate when the request requires a person. For food and beverage manufacturers, that means faster support without improvising around labels, allergens, claims, or complaints.",
+    "requests": [
+      {
+        "request": "“Is this product safe for someone avoiding dairy or sesame?”",
+        "agentResponseStrategy": "Answer only from approved allergen, ingredient, and label content; ask for the exact product; avoid medical advice; and escalate when the customer reports an allergic reaction or safety concern.",
+        "sourceTypes": [
+          "Ingredient statements",
+          "Allergen FAQs",
+          "Product pages",
+          "Escalation policy"
+        ],
+        "optionalAction": "Create a support ticket with product details and route urgent health or safety concerns to the designated human team.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“How do I prepare, store, or thaw this product?”",
+        "agentResponseStrategy": "Retrieve preparation, handling, storage, and shelf-life instructions from approved product documentation and provide a concise answer with source-grounded context.",
+        "sourceTypes": [
+          "Preparation guides",
+          "Storage instructions",
+          "Packaging copy",
+          "FAQs"
+        ],
+        "optionalAction": "Offer a follow-up link or collect the customer’s product name if the answer depends on product format or packaging size.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“I’m a distributor and need specs for a retailer submission.”",
+        "agentResponseStrategy": "Surface approved specs, pack sizes, handling requirements, claims, certifications, and contact routing instructions from partner-facing content.",
+        "sourceTypes": [
+          "Sell sheets",
+          "Spec sheets",
+          "Distributor FAQs",
+          "Sales enablement materials"
+        ],
+        "optionalAction": "Collect account, region, product interest, and deadline, then forward a summary to sales or partner support through configured workflows.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“I have a quality issue with a product I purchased.”",
+        "agentResponseStrategy": "Use a structured intake flow to collect the details QA needs, acknowledge the issue using approved language, and escalate for human review rather than resolving sensitive complaints automatically.",
+        "sourceTypes": [
+          "Complaint policy",
+          "Consumer affairs scripts",
+          "Quality intake forms",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a ticket, attach the conversation summary, and notify the correct team through a customer-configured AI Action.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Where can I buy this product or request samples?”",
+        "agentResponseStrategy": "Answer from approved availability, sales, and sampling policies. If live inventory or sample workflows are connected, collect the required details before routing.",
+        "sourceTypes": [
+          "Product catalog",
+          "Sampling policy",
+          "Sales FAQs",
+          "Retailer or channel notes"
+        ],
+        "optionalAction": "Qualify the request, capture contact details, and send a lead summary to the configured sales workflow.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“Can you provide product information in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer from the same approved source material while preserving escalation for nuanced or regulated claims.",
+        "sourceTypes": [
+          "Product FAQs",
+          "Website content",
+          "Support policies",
+          "Approved translations"
+        ],
+        "optionalAction": "Route uncertain translations or sensitive claims to a human reviewer before follow-up.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give every shift a private AI knowledge agent for SOPs, safety, and handoffs",
+    "intro": "DocsBot internal agents help plant, quality, support, HR, sales, and operations teams retrieve approved knowledge from private documents and connected sources. Employees get faster answers, managers get visibility into repeated questions, and sensitive decisions stay inside customer-defined boundaries.",
+    "workflows": [
+      {
+        "name": "SOP and line troubleshooting retrieval",
+        "problem": "Operators and supervisors may need line-specific procedures quickly, especially during changeovers, stoppages, or sanitation windows.",
+        "agentWorkflow": "Train the agent on line SOPs, sanitation instructions, changeover steps, maintenance references, and troubleshooting guides. The agent returns source-grounded answers and directs employees to the exact procedure that applies.",
+        "sourceTypes": [
+          "SOP PDFs",
+          "Work instructions",
+          "Maintenance guides",
+          "Sanitation procedures"
+        ],
+        "optionalAction": "Create a task for unclear or outdated documentation when employees flag gaps in the answer.",
+        "outcome": "Reduce time spent searching for the right procedure and expose documentation gaps that slow production support.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Food safety and traceability Q&A",
+        "problem": "QA and operations teams need consistent answers about internal recordkeeping, investigation steps, and escalation paths.",
+        "agentWorkflow": "Train DocsBot on traceability plans, food safety plans, mock recall procedures, audit prep materials, and approved guidance. The agent helps employees find the right records and steps while leaving final compliance judgments to qualified staff.",
+        "sourceTypes": [
+          "Traceability procedures",
+          "Food safety plans",
+          "Audit checklists",
+          "Regulatory guidance"
+        ],
+        "optionalAction": "Generate an incident or audit-prep summary and route it to QA for review through an approved workflow.",
+        "outcome": "Support faster access to internal traceability knowledge as FDA’s Food Traceability Rule adds recordkeeping requirements for certain foods.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-fda-traceability-rule"
+        ]
+      },
+      {
+        "name": "Maintenance safety and lockout/tagout support",
+        "problem": "Maintenance and operations employees need clear access to lockout/tagout and machine safety procedures before servicing equipment.",
+        "agentWorkflow": "A private DocsBot agent can answer from equipment-specific procedures, safety policies, training materials, and supervisor escalation rules. It should remind users to follow site procedures and escalate uncertain safety situations.",
+        "sourceTypes": [
+          "LOTO procedures",
+          "Machine safety training",
+          "Equipment manuals",
+          "Safety policies"
+        ],
+        "optionalAction": "Notify a supervisor or create a safety documentation task when an employee reports missing, outdated, or unclear instructions.",
+        "outcome": "Support consistent access to safety procedures for equipment work. OSHA notes hazardous energy can include electrical, mechanical, hydraulic, pneumatic, chemical, thermal, and other sources.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-osha-loto"
+        ]
+      },
+      {
+        "name": "Sales enablement and broker response support",
+        "problem": "Sales teams need quick, accurate answers about product specs, approved claims, certifications, objections, and partner requirements.",
+        "agentWorkflow": "Train DocsBot on product catalogs, sell sheets, pricing guidance, proposal templates, objection handling, certifications, and approved claims. Reps can ask internal questions and receive draft responses grounded in approved material.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product specs",
+          "Approved claims",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM-style task through customer-configured Skills, with humans approving final pricing and terms.",
+        "outcome": "Help commercial teams respond faster while keeping sensitive pricing, legal, and contractual commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "HR, onboarding, and multilingual plant support",
+        "problem": "New hires and cross-functional teams need answers about training, policies, time-off rules, role expectations, and plant procedures.",
+        "agentWorkflow": "Train an internal agent on onboarding materials, HR policies, role checklists, training modules, and internal FAQs. Employees can ask questions in private chat, Slack, Microsoft Teams, or another configured access point.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "HR policies",
+          "Training materials",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Generate a training summary, route unanswered questions to HR or training owners, and report recurring knowledge gaps.",
+        "outcome": "Improve onboarding consistency and reduce repetitive questions to supervisors and HR teams.",
+        "icon": "UserCircleIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded support agents",
+      "mainLandingPageContext": "DocsBot agents answer from company-approved knowledge sources such as websites, help centers, product documentation, PDFs, internal files, and other configured content.",
+      "industryApplication": "Use approved product pages, ingredient documentation, allergen FAQs, preparation guides, distributor FAQs, and complaint policies to answer food and beverage questions consistently.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, retrieving answers from SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company sources.",
+      "industryApplication": "Give QA, plant, maintenance, sales, HR, and support teams instant access to SOPs, food safety procedures, training content, sales playbooks, and shift guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, summaries, record creation, record updates, workflow triggers, and handoffs through customer-configured connections.",
+      "industryApplication": "Collect complaint details, create tickets or tasks, route distributor requests, summarize deviations, notify QA, or connect to approved live tools through APIs, connectors, or remote Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access to summarize, route, draft, or answer tickets.",
+      "industryApplication": "Summarize consumer complaints, route allergen or quality questions, draft responses from approved policy, and escalate complex product safety or claims issues to human teams.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and discovery of missing knowledge.",
+      "industryApplication": "Identify repeated product questions, confusing storage instructions, missing distributor content, unclear SOPs, and training gaps across customer and employee conversations.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private recipes, supplier documents, SOPs, quality records, sales materials, and internal policies while controlling who can access each knowledge source and action.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, websites, FAQs, and internal content so answers stay grounded in approved sources.",
+      "Deploy customer-facing support and internal team assistance without forcing every question into a human queue.",
+      "Use analytics and review workflows to understand what customers, partners, and employees keep asking."
+    ],
+    "whyTheseReviewsFit": "Food and beverage manufacturers need scalable support, accurate documentation retrieval, and internal knowledge access across teams. DocsBot proof spans multilingual manual-based support, owned-content training, helpdesk-assisted workflows, high-volume inquiry handling, and internal decision support.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for food and beverage manufacturers",
+    "audience": [
+      "Food and beverage manufacturers",
+      "Consumer affairs teams",
+      "Quality and food safety teams",
+      "Plant operations leaders",
+      "Sales and distributor support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingOffice2Icon"
+  },
+  "relatedIndustrySlugs": [
+    "alcoholic-beverage-manufacturing",
+    "food-hospitality",
+    "bakery",
+    "coffee-roastery",
+    "fruit-vegetables",
+    "caterer"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "food-beverage-manufacturing",
+    "webSearchQueries": [
+      "FDA FSMA final rule traceability food manufacturing compliance records 2026",
+      "US Bureau Labor Statistics food manufacturing employment NAICS 311 2024",
+      "FDA food recalls undeclared allergens leading cause report",
+      "USDA ERS food and beverage manufacturing plants shipments employment",
+      "BLS food manufacturing nonfatal occupational injuries illness rate 2023",
+      "OSHA food manufacturing hazards chemical machine guarding lockout tagout"
+    ],
+    "sourceUrls": [
+      "https://www.ers.usda.gov/data-products/charts-of-note/chart-detail?chartId=98458",
+      "https://www.fda.gov/food/food-safety-modernization-act-fsma/fsma-final-rule-requirements-additional-traceability-records-certain-foods",
+      "https://www.fda.gov/food/food-safety-modernization-act-fsma/frequently-asked-questions-fsma-food-traceability-rule",
+      "https://www.fda.gov/food/hfp-constituent-updates/fda-warns-whole-foods-market-after-repeated-food-recalls-undeclared-allergens",
+      "https://www.bls.gov/news.release/archives/osh_11082024.pdf",
+      "https://www.osha.gov/control-hazardous-energy/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46824,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 34280,
+        "outputTokens": 8938,
+        "reasoningOutputTokens": 188,
+        "totalTokens": 55762,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.222907,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.242907
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25397,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18101,
+          "outputTokens": 6115,
+          "reasoningOutputTokens": 188,
+          "totalTokens": 31512,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.138802,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.158802
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21427,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 16179,
+          "outputTokens": 2823,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 24250,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.084105,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.084105
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1587407646269-c8ab18a1a9ec?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU1MTl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Food & Beverage Manufacturing background image",
+    "source": "legacy-industry",
+    "query": "Food & Beverage Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer allergen and ingredient questions without creating risk for our brand?",
+      "answer": "Yes. A DocsBot support agent can be trained on approved ingredient statements, allergen FAQs, nutrition panels, product pages, and escalation policies so it answers from controlled content instead of improvising. For sensitive cases, such as allergic reactions, medical concerns, or unclear product identity, you can require human escalation and preserve the conversation context for consumer affairs or QA review.",
+      "role": "Customer support and consumer affairs teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this help our consumer affairs team during high-volume product questions or seasonal launches?",
+      "answer": "DocsBot can handle repetitive questions about preparation, storage, availability, packaging, ingredients, and replacement policies from approved sources. That lets agents focus on complaints, exceptions, and retailer-specific issues. Analytics and conversation review also show which product questions repeat, so marketing, QA, or packaging teams can improve FAQs, labels, and support content before volume spikes again.",
+      "role": "Customer support and consumer affairs teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent collect lot codes, UPCs, photos, and purchase details before routing a complaint to QA?",
+      "answer": "Yes. DocsBot can use a structured intake flow to ask for product name, UPC, lot code, purchase location, issue description, photos, contact preference, and other required fields. With configured Skills, APIs, or workflow automations, it can create a ticket, attach a summary, notify QA, or route the issue while leaving refund, recall, legal, and food safety decisions to humans.",
+      "role": "Customer support and consumer affairs teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot make recall, food safety, or regulatory decisions for us?",
+      "answer": "No. DocsBot is best used to retrieve approved procedures, collect required details, summarize incidents, and route exceptions. Recall decisions, complaint disposition, regulatory submissions, and safety-critical judgments should stay with qualified personnel. The agent can be configured with boundaries so it escalates sensitive cases instead of trying to resolve them automatically.",
+      "role": "Quality, food safety, and compliance leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can an internal AI agent support FSMA traceability readiness?",
+      "answer": "A private DocsBot agent can help employees find internal traceability procedures, recordkeeping definitions, mock recall steps, supplier documentation, and escalation paths. This is useful because FDA’s Food Traceability Rule establishes additional recordkeeping requirements for entities that manufacture, process, pack, or hold foods on the Food Traceability List, with enforcement timing now tied to July 20, 2028.",
+      "role": "Quality, food safety, and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-traceability-rule",
+        "src-fda-traceability-enforcement"
+      ]
+    },
+    {
+      "question": "Can plant employees use DocsBot to find SOPs without exposing private recipes or quality records to everyone?",
+      "answer": "Yes. DocsBot supports private internal knowledge agents with granular access controls and role-based permissions. You can separate what operators, maintenance teams, QA, sales, HR, and supervisors can access, while using encryption in transit and at rest. That helps teams retrieve approved SOPs and policies without broadly exposing restricted recipes, supplier files, or quality documents.",
+      "role": "Plant operations, maintenance, and training teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent outdated SOPs or obsolete product specs from being surfaced?",
+      "answer": "The key is to connect DocsBot to governed knowledge sources and define content ownership. Teams should retire obsolete PDFs, maintain approved folders or wikis, and review analytics for unanswered or conflicting questions. DocsBot can surface knowledge gaps and repeated questions, but your documentation owners should still control versioning, approvals, and final source-of-truth decisions.",
+      "role": "Quality, food safety, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help maintenance teams with lockout/tagout or machine safety questions?",
+      "answer": "DocsBot can make equipment-specific procedures, LOTO instructions, training materials, and safety escalation rules easier to find, but it should not replace supervisor review or site safety protocols. This matters because OSHA notes hazardous energy can include electrical, mechanical, hydraulic, pneumatic, chemical, thermal, and other sources in machines and equipment.",
+      "role": "Plant operations, maintenance, and training teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-osha-loto"
+      ]
+    },
+    {
+      "question": "What happens if an operator asks a vague or unsafe question, like whether they can restart a line after a jam?",
+      "answer": "DocsBot should be configured to ask clarifying questions, point to the approved procedure, and escalate ambiguous or unsafe situations to a supervisor. For plant use cases, the best pattern is source-grounded retrieval plus clear reminders to follow site-specific SOPs, not autonomous operational decision-making.",
+      "role": "Plant operations, maintenance, and training teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can this work across multiple plants, shifts, and languages?",
+      "answer": "Yes. DocsBot can serve as a private knowledge agent for distributed teams, including shift-based plant operations, HR, QA, maintenance, and support. It can answer in more than 100 languages from the same approved source material. For regulated or nuanced content, teams should still define review paths and escalation rules for translations or safety-sensitive questions.",
+      "role": "Plant operations, maintenance, and training teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What ROI should we look for beyond ticket deflection?",
+      "answer": "Food and beverage manufacturers should measure fewer repetitive support contacts, faster complaint intake, reduced time searching for SOPs, improved first-contact data quality, faster broker and distributor responses, and documentation gaps closed. For internal teams, value often comes from reducing interruptions to QA, supervisors, sales ops, and consumer affairs—not only from automating customer chats.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would DocsBot fit with our helpdesk, complaint system, CRM, or work-order tools?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, MCP servers, exports, webhooks, or workflow automations. Common patterns include creating tickets, summarizing complaints, routing distributor requests, notifying QA, creating documentation tasks, or updating approved fields. DocsBot should be scoped to the systems and actions your IT and process owners authorize.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can sales, brokers, and distributors use the agent for specs, case packs, certifications, and approved claims?",
+      "answer": "Yes. DocsBot can be trained on sell sheets, spec sheets, distributor FAQs, handling guidance, broker playbooks, approved claims, and channel policies. It can answer partner questions, collect account or region context, and prepare handoffs for sales. Humans should still approve pricing, contracts, substitutions, retailer commitments, and any claims that require legal or regulatory review.",
+      "role": "Sales, broker, and distributor support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot qualify sample requests, co-manufacturing inquiries, or distributor leads?",
+      "answer": "Yes. A DocsBot agent can collect structured details such as company, region, channel, volume, product interest, deadline, certifications needed, and preferred follow-up. Using your qualification rules, it can summarize and forward qualified requests to sales or partner support through configured workflows while keeping commercial commitments and pricing under human control.",
+      "role": "Sales, broker, and distributor support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prove the agent is answering from approved sources?",
+      "answer": "DocsBot provides source-grounded answers, logs, analytics, topic management, reports, and conversation review. Buyers should test the agent against known edge cases: allergens, storage conditions, claims, lot-code intake, distributor specs, and SOP retrieval. During rollout, review answer quality, escalation behavior, unanswered questions, and whether the cited source content is current and approved.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security review items will our IT and compliance teams care about?",
+      "answer": "Expect questions about SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, data retention, auditability, source access, and what connected actions can do. DocsBot does not use customer data to train public models, and Skills can be configured with secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we start with customer-facing FAQs and expand later to internal SOPs?",
+      "answer": "Yes. Many teams would start with a narrow, low-risk use case such as product FAQs, preparation instructions, or distributor documentation. After governance and answer quality are proven, the same DocsBot approach can expand to private SOPs, QA procedures, training content, complaint intake, and workflow actions with separate permissions and review paths.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much cleanup is needed before implementation?",
+      "answer": "DocsBot can train on websites, PDFs, Word documents, wikis, help centers, product docs, and internal files, but better source hygiene produces better answers. Before launch, identify approved content owners, remove obsolete files, separate public from private materials, define escalation language, and choose the first workflows where the agent can safely answer or collect information.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will frontline employees actually use an internal agent instead of asking a supervisor?",
+      "answer": "Adoption improves when the agent is available where employees already work—such as private chat, Slack, Microsoft Teams, or a simple internal experience—and when it answers practical questions quickly. Plant leaders should seed it with high-friction topics like changeovers, sanitation, onboarding, troubleshooting, HR policies, and shift handoffs, then use analytics to improve weak content.",
+      "role": "Plant operations, maintenance, and training teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot reduce risk around allergen and label questions?",
+      "answer": "DocsBot can reduce inconsistent answers by grounding responses in approved label, ingredient, and allergen content and escalating uncertain or health-related cases. This is important because FDA describes undeclared allergens as a leading cause of food recalls, so support teams need controlled language and clear human review paths for sensitive product questions.",
+      "role": "Customer support and consumer affairs teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-allergen-recalls"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle situations where the source material is missing or contradictory?",
+      "answer": "DocsBot should be configured to avoid guessing when approved content is missing or conflicting. It can say it does not have enough information, ask for clarifying details, escalate to a human, and surface the gap in analytics or conversation review. That turns weak documentation into a visible improvement queue for product, QA, training, or support owners.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can managers see what customers, partners, and employees are asking most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For food and beverage teams, that can reveal repeated questions about allergens, storage, preparation, distributor specs, unclear SOPs, onboarding gaps, or complaint intake fields that customers frequently miss.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should a pilot include for a food and beverage manufacturer?",
+      "answer": "A strong pilot usually includes one customer-facing flow and one internal flow: for example, allergen and product FAQs plus SOP retrieval for a specific plant or line. Define test questions, approved sources, escalation triggers, user groups, analytics to review, and workflow actions such as ticket creation or QA handoff before expanding across brands, plants, or regions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is DocsBot different from a generic chatbot or search bar on our intranet?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, not just a keyword search box. It can answer in natural language, cite relevant content, collect missing details, summarize conversations, identify documentation gaps, and take bounded actions through configured Skills, APIs, connectors, MCP servers, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can this support audit preparation or mock recall exercises?",
+      "answer": "DocsBot can help employees find traceability procedures, audit checklists, recordkeeping guidance, escalation paths, and mock recall instructions. It can also summarize questions or incidents for QA review. It should not replace audit judgment, but it can reduce time spent hunting for the right procedure as teams prepare for traceability and food safety reviews.",
+      "role": "Quality, food safety, and compliance leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep human approval in the loop for pricing, claims, and regulated responses?",
+      "answer": "You can configure DocsBot to draft answers, collect context, and route requests while requiring human approval for pricing, contracts, retailer commitments, product claims, legal language, recall decisions, and complaint disposition. This lets teams automate retrieval and handoff work without giving the agent authority over high-impact business or compliance decisions.",
+      "role": "Sales, broker, and distributor support teams",
+      "category": "Human oversight"
+    }
+  ]
+}

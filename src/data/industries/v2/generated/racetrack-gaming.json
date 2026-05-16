@@ -1,0 +1,739 @@
+{
+  "slug": "racetrack-gaming",
+  "business": "Racetrack",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Racetrack Guest and Gaming Operations",
+    "description": "DocsBot helps racetracks answer guest, wagering, event, and policy questions faster while routing complex requests to the right team.",
+    "canonicalPath": "/industry/racetrack-gaming"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for race day, wagering, and venue teams",
+    "headline": "Keep racetrack guests informed from gates open to final results",
+    "subheadline": "DocsBot helps racetracks create AI agents trained on their schedules, ticketing policies, venue maps, racing FAQs, responsible gaming resources, promotions, internal SOPs, and support history so guests and staff can get source-grounded answers without waiting for a phone call or email reply.",
+    "proofBullets": [
+      {
+        "text": "Answer recurring questions about race times, ticket types, seating, parking, dress codes, dining, and accessibility from approved racetrack content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, or connectors to look up live context such as event status, ticket request details, or current promotions when authorized.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Route sensitive wagering, account, responsible gaming, accessibility, VIP, and lost-item requests to trained staff with conversation summaries.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review analytics to see what guests and employees keep asking, then close gaps in FAQs, race-day guides, and internal procedures.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a racetrack AI agent",
+    "secondaryCta": "Explore race-day workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns racetrack knowledge into customer-facing and internal AI agents. Train agents on approved web pages, PDFs, policies, schedules, FAQs, SOPs, event guides, and private documents; deploy them in a website widget or private team chat; and configure bounded AI Actions for lookups, routing, summaries, handoffs, and workflow triggers when your systems allow it.",
+    "whoItHelps": [
+      {
+        "role": "Guest services and box office teams",
+        "roleContext": "Race days compress a week of questions into a few intense hours. DocsBot gives fans immediate answers while helping staff focus on exceptions, escalations, and in-person service.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions about admission, seating, will-call, parking, gate times, dining, weather policies, and venue rules.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Collect the details needed for a ticketing, accessibility, group-sales, or VIP follow-up before routing the request to a human.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize guest conversations so agents, box office staff, or hospitality managers do not need to re-read the full chat history.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Wagering, compliance, and responsible gaming leaders",
+        "roleContext": "Racetracks need clear, consistent answers around rules, account help, pari-mutuel basics, age restrictions, and responsible gaming paths without letting automation make high-impact decisions.",
+        "bullets": [
+          {
+            "text": "Publish source-grounded explanations of approved wagering FAQs, house rules, responsible gaming resources, and escalation paths.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Route account, payout, identity, disputed transaction, self-exclusion, or problem-gambling requests to trained staff instead of resolving them automatically.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Maintain logs and review workflows for sensitive conversations while using role-based permissions and customer-defined action boundaries.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "Marketing, events, and hospitality teams",
+        "roleContext": "Promotions, dining, concerts, family days, suites, and loyalty programs generate detailed questions across channels. DocsBot helps keep answers consistent across every campaign.",
+        "bullets": [
+          {
+            "text": "Answer campaign-specific questions from approved landing pages, menus, package PDFs, loyalty FAQs, and event calendars.",
+            "icon": "MegaphoneIcon"
+          },
+          {
+            "text": "Qualify group outing, sponsorship, suite, and private-event inquiries with structured forms and forward summaries to sales workflows.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Identify repeated questions that indicate missing details in emails, ads, event pages, and pre-race guest communications.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Operations, security, and seasonal staff",
+        "roleContext": "Many racetracks rely on distributed teams, seasonal hires, and fast-changing event-day instructions. DocsBot can act as a private knowledge agent for SOPs and venue operations.",
+        "bullets": [
+          {
+            "text": "Make internal SOPs searchable for gate procedures, lost and found, severe weather, incident escalation, credentialing, and radio protocols.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Help new hires find policy answers without interrupting supervisors during peak arrivals, post parade, or exit traffic.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Surface documentation gaps from employee questions so operations leaders know which playbooks need updates.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aga-2025-commercial-gaming",
+      "metric": "U.S. commercial gaming revenue reached about $72 billion in 2024.",
+      "claim": "The American Gaming Association reported record U.S. commercial gaming revenue of roughly $72 billion in 2024, underscoring the scale and customer-service expectations around regulated gaming venues.",
+      "sourceTitle": "State of the States 2025: The AGA Survey of the Commercial Casino Industry",
+      "sourceUrl": "https://www.americangaming.org/resources/state-of-the-states-2025/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Gaming market scale",
+        "Guest-service demand",
+        "Regulated gaming operations"
+      ]
+    },
+    {
+      "id": "src-ahc-equine-impact",
+      "metric": "The U.S. equine industry supports 2.2 million direct and indirect jobs.",
+      "claim": "The American Horse Council’s 2023 economic impact study reported 2.2 million jobs linked directly and indirectly to the U.S. equine sector.",
+      "sourceTitle": "Results from the 2023 National Equine Economic Impact Study Released",
+      "sourceUrl": "https://horsecouncil.org/press-release-economic-impact-study/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "Horse racing ecosystem scale",
+        "Employment and seasonal operations",
+        "Economic impact"
+      ]
+    },
+    {
+      "id": "src-arci-model-rules",
+      "metric": "ARCI model rules cover racing, wagering, and pari-mutuel conduct.",
+      "claim": "The Association of Racing Commissioners International describes its Model Rules as standards for independent and impartial regulation of horse and greyhound racing and the conduct of pari-mutuel wagering.",
+      "sourceTitle": "Model Rules & Standards",
+      "sourceUrl": "https://www.arci.com/model_rules_standards.php",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "Regulatory complexity",
+        "Wagering rules",
+        "Compliance-sensitive communication"
+      ]
+    },
+    {
+      "id": "src-ncpg-helpline",
+      "metric": "NCPG provides problem gambling resources and a national helpline.",
+      "claim": "The National Council on Problem Gambling provides FAQs, self-assessment resources, treatment information, and the National Problem Gambling Helpline to connect people with help in their state.",
+      "sourceTitle": "National Council on Problem Gambling Home",
+      "sourceUrl": "https://www.ncpgambling.org/ncpg/",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "Responsible gaming",
+        "Sensitive support escalation",
+        "Guest safety resources"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Race-day guest information agent",
+      "problem": "Fans want immediate answers about today’s card, gates, tickets, parking, weather policies, concessions, seating, and accessibility, especially when call volume spikes before post time.",
+      "agentWorkflow": "Train a DocsBot agent on race-day pages, ticketing FAQs, maps, policies, dining details, accessibility guidance, and event PDFs. The agent answers from approved sources, asks clarifying questions when needed, and escalates complex or sensitive requests with a concise summary for guest services.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can check approved live event context, route a ticketing follow-up, create a guest-service task, or notify staff when a page appears to be missing key information.",
+      "exampleQuestionsOrRequests": [
+        "What time do gates open for Saturday’s race card?",
+        "Where should I park if I bought clubhouse seats?",
+        "Can I bring a stroller, camera, or outside food?",
+        "Is the turf course still running after the weather delay?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, faster guest self-service, and more consistent answers during the highest-pressure race-day windows.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Wagering FAQ and responsible gaming guidance",
+      "problem": "Guests often need help understanding approved wagering basics, house rules, account paths, payout processes, and responsible gaming resources, while regulated issues must remain under human control.",
+      "agentWorkflow": "DocsBot can answer general wagering and policy questions from approved racetrack content, responsible gaming pages, FAQs, and public rules. It can identify sensitive topics and route account, payout, identity, self-exclusion, or problem-gambling requests to trained staff instead of attempting to resolve them automatically.",
+      "liveContextOrTools": "Customer-defined AI Actions can collect required handoff details, generate an internal summary, create a case in a ticketing system, or direct guests to approved responsible gaming resources with scoped permissions and logs.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the official wagering rules?",
+        "Who do I contact about a payout question?",
+        "How do I set limits or find responsible gaming help?",
+        "Can someone explain the difference between win, place, and show bets?"
+      ],
+      "businessOutcome": "Clearer self-service for general wagering education while preserving human review for regulated, financial, identity, and responsible gaming issues.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-arci-model-rules",
+        "src-ncpg-helpline"
+      ]
+    },
+    {
+      "name": "Group sales, suites, and hospitality qualification",
+      "problem": "Premium seating, group outings, sponsorships, and private-event inquiries can arrive through generic forms with missing details, forcing sales teams to chase basic information before they can respond.",
+      "agentWorkflow": "A DocsBot presales agent answers package, menu, capacity, timing, and amenity questions from approved sales materials. It collects structured details such as date, group size, budget range, preferred space, accessibility needs, and follow-up channel, then qualifies and forwards the lead according to racetrack-defined rules.",
+      "liveContextOrTools": "When configured through Skills, APIs, connectors, forms, or webhooks, the agent can forward a lead summary to CRM, email, helpdesk software, Slack, Microsoft Teams, or a scheduling workflow for a human sales follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can we book a suite for 40 people on opening weekend?",
+        "What is included in a birthday party package?",
+        "Do you host corporate events outside race days?",
+        "Please have someone contact me about sponsorship options."
+      ],
+      "businessOutcome": "More complete sales inquiries, faster human follow-up, and less manual back-and-forth for hospitality and events teams.",
+      "icon": "BuildingStorefrontIcon"
+    },
+    {
+      "name": "Internal SOP and seasonal staff assistant",
+      "problem": "Racetrack teams rely on seasonal employees, event staff, security, food service, and supervisors who need quick access to procedures while the venue is live.",
+      "agentWorkflow": "DocsBot can act as a private internal knowledge agent trained on SOPs, employee handbooks, incident procedures, safety checklists, radio codes, onboarding guides, credential policies, and venue maps. Staff ask natural-language questions and receive source-grounded answers from approved internal content.",
+      "liveContextOrTools": "A scoped Skill can generate shift briefing summaries, create an operations task, route an incident follow-up, or connect through MCP Connectors to approved tools exposed by remote Model Context Protocol servers your team already uses.",
+      "exampleQuestionsOrRequests": [
+        "What is the lost-child procedure at the grandstand?",
+        "Where do temporary staff check in before gates open?",
+        "What do we do if a guest reports a lost voucher?",
+        "Which supervisor handles accessibility seating issues today?"
+      ],
+      "businessOutcome": "Faster onboarding, less supervisor interruption, and more consistent operational responses across departments and shifts.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-ahc-equine-impact"
+      ]
+    },
+    {
+      "name": "Event updates and content gap analytics",
+      "problem": "Race schedules, promotions, concerts, menus, scratches, policies, and weather updates change frequently, and teams may not know which missing details are driving avoidable support demand.",
+      "agentWorkflow": "DocsBot answers from the latest approved knowledge sources and records conversation patterns. Managers can review logs, topics, reports, satisfaction signals, and unanswered questions to identify gaps in event pages, FAQs, race-day emails, and internal playbooks.",
+      "liveContextOrTools": "With approved live lookups, an agent can reference configured event status, summarize repeated guest questions, and notify content owners when the same question keeps appearing without a confident source.",
+      "exampleQuestionsOrRequests": [
+        "What questions did guests ask most before last Saturday’s card?",
+        "Which promotion page is missing eligibility details?",
+        "What did the agent fail to answer about parking?",
+        "Summarize the top accessibility questions this week."
+      ],
+      "businessOutcome": "Better pre-event communication, fewer preventable inquiries, and a feedback loop for improving racetrack content before the next meet.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual visitor support for tourism and major events",
+      "problem": "Derby days, festivals, concerts, and tourist-heavy racing events bring guests who may need help in different languages or may not know racetrack terminology.",
+      "agentWorkflow": "DocsBot agents can answer in more than 100 languages from approved racetrack content, helping visitors understand gate locations, seating areas, dining options, transportation, accessibility services, and event rules while preserving consistent source-grounded answers.",
+      "liveContextOrTools": "The agent can be deployed through an embeddable website widget and, when configured, can route follow-up requests or summarize multilingual conversations for staff.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain the ticket options in Spanish?",
+        "Where is rideshare pickup after the final race?",
+        "What does clubhouse admission include?",
+        "How do I request accessibility assistance for my parent?"
+      ],
+      "businessOutcome": "More inclusive guest service and fewer language-based handoff delays during high-attendance events.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest-facing AI agent that knows your racetrack’s approved answers",
+    "intro": "DocsBot helps racetracks provide fast, consistent support before, during, and after events. Visitors can ask natural-language questions in a website chat widget while the agent draws from your approved race-day content, policies, FAQs, maps, and event materials.",
+    "requests": [
+      {
+        "request": "“What time do gates open, and where should I park?”",
+        "agentResponseStrategy": "Answer from the current event guide, parking map, ticket policy, and guest services FAQ. If the guest has a special parking or accessibility need, collect details and route the request to staff.",
+        "sourceTypes": [
+          "Event calendar",
+          "Parking map",
+          "Ticketing FAQ",
+          "Accessibility policy"
+        ],
+        "optionalAction": "Create a guest-service follow-up task or route the conversation summary to the box office when configured.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can I buy a suite or group package for next month?”",
+        "agentResponseStrategy": "Explain available package types from approved hospitality materials, ask for group size, date, budget range, and contact details, then qualify the inquiry by racetrack-defined rules.",
+        "sourceTypes": [
+          "Hospitality PDFs",
+          "Group sales pages",
+          "Menus",
+          "Lead forms"
+        ],
+        "optionalAction": "Forward the structured lead summary to a CRM, inbox, form workflow, or scheduling tool through approved customer-configured actions.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“How do I get help with responsible gambling?”",
+        "agentResponseStrategy": "Respond with approved responsible gaming information, avoid giving medical or legal advice, and provide the racetrack’s escalation path and public support resources.",
+        "sourceTypes": [
+          "Responsible gaming page",
+          "House rules",
+          "Support escalation policy"
+        ],
+        "optionalAction": "Route urgent or sensitive requests to trained staff and preserve a concise conversation summary for review.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-ncpg-helpline"
+        ]
+      },
+      {
+        "request": "“Is today’s concert still happening after the races?”",
+        "agentResponseStrategy": "Answer from approved event pages and updates. If live context is configured, check the current event status or route ambiguous questions to the events team.",
+        "sourceTypes": [
+          "Event page",
+          "Promotions page",
+          "Weather policy",
+          "Venue announcements"
+        ],
+        "optionalAction": "Trigger a notification or task for content owners if guests repeatedly ask about an update that is missing from the published page.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Where can I find race results or program information?”",
+        "agentResponseStrategy": "Direct the guest to approved program pages, result pages, PDFs, or customer-provided race information while avoiding claims beyond the connected sources.",
+        "sourceTypes": [
+          "Race programs",
+          "Results pages",
+          "Racing FAQs",
+          "Public website content"
+        ],
+        "optionalAction": "Use an approved lookup or handoff workflow when the racetrack has authorized live result or content access.",
+        "icon": "TrophyIcon"
+      },
+      {
+        "request": "“I lost an item in the grandstand.”",
+        "agentResponseStrategy": "Ask for the minimum details needed by the racetrack’s lost-and-found process, explain the next step, and route the case rather than leaving the guest in a generic inbox.",
+        "sourceTypes": [
+          "Lost-and-found policy",
+          "Venue map",
+          "Guest services SOP"
+        ],
+        "optionalAction": "Create a ticket or task with item description, location, date, and contact information when configured.",
+        "icon": "ArchiveBoxIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private racetrack knowledge support for staff, supervisors, and event teams",
+    "intro": "DocsBot can also run as an internal knowledge agent for employees. Train it on SOPs, policies, schedules, manuals, onboarding guides, incident procedures, and department playbooks so staff can find trusted answers without searching folders or waiting for a supervisor.",
+    "workflows": [
+      {
+        "name": "Shift briefing and race-day SOP lookup",
+        "problem": "Supervisors and seasonal staff need quick answers to procedures while gates, parking, concessions, racing, and security operations are all moving at once.",
+        "agentWorkflow": "Staff ask the private DocsBot agent about procedures, venue locations, escalation paths, checklists, or shift instructions. The agent returns source-grounded answers from approved internal documents and can summarize key guidance for a role or location.",
+        "sourceTypes": [
+          "Operations SOPs",
+          "Employee handbook",
+          "Venue maps",
+          "Shift briefings"
+        ],
+        "optionalAction": "Generate a pre-shift summary or create a task for a supervisor to review a missing or outdated procedure.",
+        "outcome": "Less time searching, fewer inconsistent answers, and smoother onboarding for temporary and seasonal teams.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Incident, accessibility, and guest-service handoffs",
+        "problem": "Frontline employees may not know which department handles a safety, accessibility, lost-item, guest complaint, or credential issue.",
+        "agentWorkflow": "DocsBot retrieves the correct escalation path from internal policies, asks for required details, and prepares a concise summary for the appropriate department. Sensitive or high-impact issues remain routed to humans.",
+        "sourceTypes": [
+          "Incident protocols",
+          "Accessibility procedures",
+          "Guest complaint policy",
+          "Security contacts"
+        ],
+        "optionalAction": "Create a ticket, notify a channel, or route a structured handoff through customer-configured workflows.",
+        "outcome": "Faster handoffs with cleaner context and fewer missed details during busy events.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Marketing, sales, and guest communications assistant",
+        "problem": "Teams preparing emails, ads, landing pages, and sales replies need accurate details about ticket rules, promotions, hospitality packages, and event logistics.",
+        "agentWorkflow": "An internal DocsBot agent answers staff questions from approved brand guidelines, sales materials, promotional rules, pricing guidance, FAQs, and venue policies. It can draft response snippets for human review and identify unclear or conflicting content.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Promotion rules",
+          "Brand guidelines",
+          "Ticketing policies"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize a lead conversation, or route a content-gap note to marketing.",
+        "outcome": "More consistent guest communications and faster sales or support replies without relying on memory.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Compliance-aware knowledge access",
+        "problem": "Gaming and racing operations involve regulated communications, so staff need reliable access to approved language and escalation boundaries.",
+        "agentWorkflow": "DocsBot can retrieve approved policy language, wagering FAQ content, responsible gaming resources, and internal escalation instructions while respecting role-based access controls and customer-defined permissions.",
+        "sourceTypes": [
+          "House rules",
+          "Responsible gaming materials",
+          "Compliance notes",
+          "Training documents"
+        ],
+        "optionalAction": "Log sensitive requests, route them to trained reviewers, or create a review task when configured.",
+        "outcome": "Consistent policy communication without allowing automation to make regulated, financial, identity, or responsible gaming determinations.",
+        "icon": "LockClosedIcon",
+        "sourceIds": [
+          "src-arci-model-rules"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded racetrack support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on the business’s own knowledge sources and provide instant answers in the company’s voice.",
+      "industryApplication": "Train on race-day FAQs, ticketing rules, venue maps, dining information, accessibility policies, wagering education, promotions, and event pages so guests get consistent answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Embeddable website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can appear where customers or employees need help, including website widgets and private team experiences.",
+      "industryApplication": "Place a guest-facing agent on ticketing, event, and racing information pages while giving supervisors and seasonal staff a private assistant for SOPs and shift guidance.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, routing, summaries, task creation, and workflow triggers.",
+      "industryApplication": "Configure approved lookups for event status, create lost-and-found or guest-service tasks, forward group-sales leads, route responsible gaming escalations, or connect to authorized tools through APIs, connectors, or MCP servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, topic management, reports, and visibility into unanswered questions.",
+      "industryApplication": "See whether guests are repeatedly asking about parking, weather delays, promotions, accessibility, wagering basics, or hospitality packages, then improve pages and pre-event communications.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved knowledge sources.",
+      "industryApplication": "Support tourists, major-event visitors, and multilingual local audiences with consistent explanations of seating, transportation, venue rules, and guest services.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy not to train public models on customer data.",
+      "industryApplication": "Protect private SOPs, guest-service workflows, and internal procedures while limiting sensitive wagering, identity, financial, and responsible gaming workflows to approved roles and review paths.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume question spikes when guests need fast answers before and during live events.",
+      "Trains on your own content library so answers stay aligned with approved racetrack materials.",
+      "Supports website and helpdesk-style workflows so teams can combine self-service with human follow-up."
+    ],
+    "whyTheseReviewsFit": "Racetrack operators need dependable self-service during peak event windows and clear handoffs when a guest needs a person. DocsBot proof spans high-volume customer inquiry handling, owned-content training, embedded website support, and support-team assistance, matching the realities of race-day guest service.",
+    "trustClaimIcons": [
+      "ArrowTrendingUpIcon",
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for racetrack guest service, wagering FAQs, hospitality sales, and event operations",
+    "audience": [
+      "Racetrack operators",
+      "Guest services leaders",
+      "Gaming compliance teams",
+      "Hospitality and group sales teams",
+      "Race-day operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TrophyIcon"
+  },
+  "relatedIndustrySlugs": [
+    "casino-and-video-gaming",
+    "fantasy-sports-management",
+    "sports-agent-gaming",
+    "e-sports-organization",
+    "arcade-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "racetrack-gaming",
+    "webSearchQueries": [
+      "American Gaming Association State of the States 2025 commercial gaming revenue racetrack casinos",
+      "American Horse Council 2023 economic impact equine industry jobs",
+      "Association of Racing Commissioners International model rules racing wagering",
+      "National Council on Problem Gambling responsible gambling helpline resources"
+    ],
+    "sourceUrls": [
+      "https://www.americangaming.org/resources/state-of-the-states-2025/",
+      "https://horsecouncil.org/press-release-economic-impact-study/",
+      "https://www.arci.com/model_rules_standards.php",
+      "https://www.ncpgambling.org/ncpg/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 61340,
+        "cachedInputTokens": 27520,
+        "billableInputTokens": 33820,
+        "outputTokens": 20077,
+        "reasoningOutputTokens": 234,
+        "totalTokens": 81417,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.392586,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.412586
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21633,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6657,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 115,
+          "totalTokens": 33633,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.200387,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.210387
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19614,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12318,
+          "outputTokens": 5507,
+          "reasoningOutputTokens": 119,
+          "totalTokens": 25121,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115224,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125224
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20093,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14845,
+          "outputTokens": 2570,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22663,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076975,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076975
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1661770109082-76f44009db61?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU4Njl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Racetrack background image",
+    "source": "legacy-industry",
+    "query": "Racetrack"
+  },
+  "faq": [
+    {
+      "question": "Can the agent handle the surge of guest questions right before gates open and post time?",
+      "answer": "Yes. DocsBot is a strong fit for recurring race-day questions because it can answer from approved schedules, ticketing policies, parking maps, venue rules, dining details, and accessibility content. For issues that need staff, it can collect context and route a summarized handoff instead of leaving guests in a phone queue.",
+      "role": "Guest services and box office teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the AI from giving outdated answers when race times, promotions, scratches, or weather policies change?",
+      "answer": "DocsBot should be trained on the racetrack’s approved current sources and paired with a content owner workflow. When live context is authorized, Skills or APIs can look up configured event status or route ambiguous questions to staff. Analytics also show repeated unanswered questions so marketing or operations can update pages before the next race day.",
+      "role": "Marketing, events, and hospitality teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use this for wagering questions without creating compliance risk?",
+      "answer": "DocsBot can answer general, approved wagering FAQs and house-rule explanations from your own content, but sensitive matters should be routed to humans. That includes account access, payouts, identity checks, disputes, self-exclusion, or problem-gambling concerns. ARCI model rules cover racing, wagering, and pari-mutuel conduct, so boundaries and review paths matter.",
+      "role": "Wagering, compliance, and responsible gaming leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-arci-model-rules"
+      ]
+    },
+    {
+      "question": "Will the agent ever make betting recommendations or tell a guest what wager to place?",
+      "answer": "It should not be configured that way. A racetrack agent is best used for approved education, terminology, rules, directions, and support routing—not predictions, financial advice, or individualized betting guidance. You can set instructions and escalation rules so the agent redirects recommendation-style or high-risk requests to approved content or a human team.",
+      "role": "Wagering, compliance, and responsible gaming leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot handle responsible gaming or problem-gambling messages?",
+      "answer": "The agent can provide approved responsible gaming information, avoid medical or legal advice, and route urgent or sensitive conversations to trained staff with a concise summary. The National Council on Problem Gambling provides FAQs, self-assessment resources, treatment information, and a national helpline that connects people with help in their state.",
+      "role": "Wagering, compliance, and responsible gaming leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ncpg-helpline"
+      ]
+    },
+    {
+      "question": "Can guest services review what the AI told a customer if there is a complaint or disputed answer?",
+      "answer": "Yes. DocsBot supports logs, conversation review, reports, topic management, and analytics so teams can audit conversations and see where answers came from. For regulated or sensitive workflows, racetracks can define what gets escalated, who can access conversation history, and which actions require human review.",
+      "role": "Guest services and box office teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent answer questions from our ticketing system or guest account records?",
+      "answer": "DocsBot can use live context only when your team configures approved Skills, APIs, connectors, or workflows. For example, it could look up an authorized ticket request status, collect missing details, or create a follow-up task. It should not expose private account information unless permissions, authentication, and scoped access are deliberately designed.",
+      "role": "Guest services and box office teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What systems would we usually connect first for a racetrack rollout?",
+      "answer": "Most racetracks should start with low-risk knowledge sources: public website pages, ticket FAQs, event calendars, venue maps, dining menus, accessibility policies, responsible gaming pages, and internal SOP PDFs. After that, consider scoped workflow connections for helpdesk tickets, guest-service tasks, group-sales leads, event-status lookups, or team notifications.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this help seasonal staff who do not know every gate, radio protocol, or escalation path?",
+      "answer": "Yes. DocsBot can run as a private internal knowledge agent trained on SOPs, employee handbooks, credentialing instructions, incident procedures, venue maps, and shift briefings. The U.S. equine industry supports 2.2 million direct and indirect jobs, and racetracks often depend on seasonal and distributed teams that need fast access to approved procedures.",
+      "role": "Operations, security, and seasonal staff",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-ahc-equine-impact"
+      ]
+    },
+    {
+      "question": "How much work is required from our team before launch?",
+      "answer": "The biggest lift is usually organizing approved content and deciding escalation rules. A practical launch scope might include race-day FAQs, ticketing rules, maps, accessibility policies, lost-and-found steps, group-sales materials, and responsible gaming language. Teams should also assign owners for answer review, content updates, and post-launch analytics.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we prevent different departments from seeing each other’s private documents?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. That matters when guest services, compliance, security, hospitality, and seasonal staff need different knowledge. You can separate public guest-facing content from private SOPs, compliance notes, incident procedures, and internal escalation paths.",
+      "role": "Operations, security, and seasonal staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we measure ROI if we are not trying to replace staff?",
+      "answer": "Measure avoided repetitive calls and emails, faster response time during race-day peaks, more complete group-sales inquiries, reduced supervisor interruptions, fewer content-related escalations, and improved guest satisfaction. The goal is usually to protect staff time for exceptions, in-person service, VIP needs, accessibility support, and compliance-sensitive conversations.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support hospitality, suites, sponsorship, and private-event inquiries?",
+      "answer": "Yes. A DocsBot presales agent can answer from approved package PDFs, menus, capacity details, event pages, and sales materials. It can ask for date, group size, budget range, preferred space, accessibility needs, and contact details, then forward a structured summary to the sales workflow your team has configured.",
+      "role": "Marketing, events, and hospitality teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for non-race events like concerts, festivals, watch parties, or holiday events?",
+      "answer": "Yes, if those event details are included in the approved knowledge base. DocsBot can answer questions about entry times, seating, parking, bag policies, dining, promotions, accessibility, and weather rules across race days and non-race events. For fast-changing event status, use approved live lookups or route uncertain questions to staff.",
+      "role": "Marketing, events, and hospitality teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the AI agent answer in Spanish or other languages for major tourism events?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved racetrack content. That helps visitors understand ticket types, clubhouse access, rideshare pickup, accessibility services, venue rules, dining options, and event logistics while keeping the underlying answer grounded in the same approved source material.",
+      "role": "Guest services and box office teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when a guest asks something the agent cannot confidently answer?",
+      "answer": "DocsBot should be configured to say when it does not have enough source-grounded information, ask clarifying questions if useful, and route the conversation to a human. Managers can review unanswered topics and knowledge gaps to improve event pages, FAQs, policies, or internal playbooks before the next meet.",
+      "role": "Guest services and box office teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent create lost-and-found, accessibility, or guest-service cases?",
+      "answer": "Yes, when your team configures the appropriate AI Actions, Skills, APIs, connectors, or workflow triggers. The agent can collect required details, prepare a summary, and create or route a task. Sensitive issues should remain under human control, especially when they involve guest safety, accessibility accommodations, payments, or identity.",
+      "role": "Operations, security, and seasonal staff",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we stop the agent from using unofficial or promotional language that compliance has not approved?",
+      "answer": "Train it on approved sources, define clear instructions, and keep compliance-owned content separate from informal drafts. DocsBot is designed for source-grounded answers in the organization’s voice, and conversation logs let reviewers see how policies are being explained. For wagering or responsible gaming, use approved language and escalation paths.",
+      "role": "Wagering, compliance, and responsible gaming leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we deploy one agent for guests and another for employees?",
+      "answer": "Yes. Many racetracks would use a guest-facing website agent for tickets, parking, event rules, promotions, and responsible gaming resources, plus a private internal agent for SOPs, shift briefings, incident escalation, and employee policies. Access controls help keep private operational knowledge away from public users.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does this compare with a basic website chatbot or FAQ widget?",
+      "answer": "A basic FAQ widget usually points users to static answers. DocsBot can act more like a source-grounded AI agent: it can understand natural-language questions, retrieve from approved racetrack content, summarize handoffs, identify knowledge gaps, support multilingual answers, and take bounded workflow actions when your team configures them.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can operations leaders see which race-day issues are driving the most support volume?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. You can review patterns such as repeated parking questions, unclear promotion eligibility, accessibility confusion, weather-delay questions, dining questions, or missing instructions for seasonal staff.",
+      "role": "Operations, security, and seasonal staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is DocsBot appropriate for a regulated gaming environment?",
+      "answer": "DocsBot can fit regulated environments when implemented with the right boundaries: source-grounded content, role-based permissions, escalation rules, logs, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and a policy not to train public models on customer data. Regulated decisions should remain with trained humans.",
+      "role": "Wagering, compliance, and responsible gaming leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can the agent help our marketing team find gaps in event pages and emails?",
+      "answer": "Yes. DocsBot can show what guests repeatedly ask, what the agent could not answer confidently, and which topics create friction. Marketing and events teams can use that data to improve landing pages, pre-race emails, promotion terms, parking instructions, dining pages, and accessibility details.",
+      "role": "Marketing, events, and hospitality teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should procurement ask before approving an AI agent for racetrack operations?",
+      "answer": "Ask how data is protected, whether customer data trains public models, how permissions work, what actions the agent can take, how logs are reviewed, how human escalation works, what systems need integration, who owns content updates, and how success will be measured across guest service, sales, operations, and compliance.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support high-volume gaming venues, not just small FAQ traffic?",
+      "answer": "DocsBot is built for high-volume support scenarios, and racetracks operate within a large regulated entertainment market. The American Gaming Association reported roughly $72 billion in U.S. commercial gaming revenue in 2024, underscoring the scale and service expectations around gaming venues.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-aga-2025-commercial-gaming"
+      ]
+    }
+  ]
+}

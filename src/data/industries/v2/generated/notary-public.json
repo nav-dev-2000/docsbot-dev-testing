@@ -1,0 +1,706 @@
+{
+  "slug": "notary-public",
+  "business": "Notary Public",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Notary Public Client Intake",
+    "description": "DocsBot helps notary public offices answer signer questions, qualify requests, and route appointments with source-grounded AI automation.",
+    "canonicalPath": "/industry/notary-public"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for notary intake, guidance, and office workflows",
+    "headline": "Make notary service questions easier to answer and route",
+    "subheadline": "DocsBot helps notary public teams build AI agents trained on their service pages, FAQs, state-specific office procedures, pricing notes, appointment policies, and internal checklists so signers get fast, consistent guidance while sensitive notarization decisions stay with your commissioned notaries.",
+    "proofBullets": [
+      {
+        "text": "Answer common signer questions about accepted IDs, appointment prep, service areas, mobile visits, fees, and document categories from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, scheduling intent, and document context before routing the request to the right notary, office, or review queue.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give staff a private knowledge agent for SOPs, journal procedures, RON platform notes, escalation rules, and state-specific policy references.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for approved lookups, ticket creation, summaries, notifications, and handoffs.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build a notary AI agent",
+    "secondaryCta": "See DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your notary office’s own knowledge: service descriptions, FAQs, onboarding docs, SOPs, forms, pricing notes, appointment policies, state guidance summaries, and support history. The agent can answer from approved sources, collect missing details, summarize requests, route sensitive items to a person, and reveal repeated questions that should become clearer content.",
+    "whoItHelps": [
+      {
+        "role": "Independent and mobile notaries",
+        "roleContext": "Solo notaries need to respond quickly without turning every inquiry into a long back-and-forth. DocsBot can provide first-line answers while the notary keeps control over eligibility, identity, and document-specific decisions.",
+        "bullets": [
+          {
+            "text": "Explain your appointment process, travel area, office hours, document-prep reminders, and accepted payment methods from your published policies.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Collect signer name, location, preferred time, document type, number of signers, and urgency before sending a structured handoff.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate questions involving legal advice, unusual documents, identity concerns, or state-specific uncertainty to the commissioned notary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "IdentificationIcon"
+      },
+      {
+        "role": "Notary signing services and title-facing teams",
+        "roleContext": "Signing teams handle repetitive scheduling, document-prep, status, and routing questions across many signers and notaries. DocsBot can standardize answers from your approved playbooks and summarize requests for human coordinators.",
+        "bullets": [
+          {
+            "text": "Support intake for loan signing appointments, mobile notary requests, witness needs, scan-back instructions, and closing-day logistics.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use customer-configured workflows to create a task, notify a coordinator, or route an incomplete request to review.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Track repeated signer questions and content gaps so operations leaders can improve FAQs, instructions, and notary onboarding materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Banks, law offices, shipping stores, and business service centers",
+        "roleContext": "Organizations that offer notarization alongside other services need clear front-desk guidance and consistent boundaries. DocsBot can act as a customer-facing support agent and a private staff reference tool.",
+        "bullets": [
+          {
+            "text": "Help customers understand what to bring, when a notary is available, and which requests require direct staff review.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Give employees quick access to internal notary procedures, escalation rules, branch policies, and training materials.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Support multilingual answers in more than 100 languages when your office serves signers with varied language preferences.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nna-notary-count",
+      "metric": "4.4 million U.S. notaries",
+      "claim": "The National Notary Association’s 2022 census reported that the U.S. notary population remained stable at 4.4 million.",
+      "sourceTitle": "2022 NNA Notary Census, Part 2: 4.4 million U.S. Notaries are adapting to serve the nation today",
+      "sourceUrl": "https://www.nationalnotary.org/notary-bulletin/blog/2022/08/2022-nna-notary-census-part-2-4-4-million-u-s-notaries-are-adapting-to-serve-the-nation-today",
+      "sourceDate": "August 2022",
+      "bestUsedFor": [
+        "market scale",
+        "customer demand",
+        "competitive service expectations"
+      ]
+    },
+    {
+      "id": "src-alta-ron",
+      "metric": "State RON adoption and federal proposals",
+      "claim": "ALTA tracks state laws authorizing remote e-notarization and notes that proposed federal legislation would create nationwide use of RON with minimum standards.",
+      "sourceTitle": "Digital Closings / Remote Online Notarization",
+      "sourceUrl": "https://www.alta.org/advocacy/online-notarization.cfm",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "remote online notarization complexity",
+        "state-by-state variation",
+        "digital closing trends"
+      ]
+    },
+    {
+      "id": "src-nass-standards",
+      "metric": "NASS remote e-notarization standards",
+      "claim": "NASS adopted revised electronic and remote online notarization standards and affirms state commissioning authorities as the sole authority for notary standards.",
+      "sourceTitle": "Remote Electronic Notarization",
+      "sourceUrl": "https://www.nass.org/initiatives/remote-electronic-notarization",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "state regulation",
+        "governance",
+        "secure electronic notarization"
+      ]
+    },
+    {
+      "id": "src-pa-ron-definition",
+      "metric": "RON uses audio-visual electronic communication",
+      "claim": "Pennsylvania’s Department of State explains that remote online notarization meets personal appearance requirements through audio-visual electronic communication technology.",
+      "sourceTitle": "Electronic or Remote Notarization",
+      "sourceUrl": "https://www.pa.gov/agencies/dos/resources/notaries-resources-and-information/electronic-or-remote-notarization",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "RON customer education",
+        "technology explanation",
+        "appointment expectations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Signer intake and appointment readiness agent",
+      "problem": "Prospects often ask whether you can notarize their document, what ID is required, how many witnesses are needed, what the fee is, and whether mobile or remote service is available.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages, FAQs, pricing notes, and appointment policies. It gathers signer location, preferred time, document category, number of signers, witness needs, and contact details, then creates a structured summary for staff review or a customer-configured scheduling workflow.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can submit a lead form, trigger a scheduling request, create a task, or route unusual document questions to a notary before confirming next steps.",
+      "exampleQuestionsOrRequests": [
+        "Can you notarize a power of attorney today?",
+        "What ID should I bring for an in-person appointment?",
+        "Do you travel to hospitals, senior living communities, or offices?",
+        "I have two signers and one witness. What should I schedule?"
+      ],
+      "businessOutcome": "Reduce repetitive intake calls, capture better appointment details, and help signers arrive prepared without the agent making legal or eligibility decisions.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Remote online notarization guidance assistant",
+      "problem": "RON rules, platform expectations, identity proofing language, and state availability create confusion for signers who may not know whether an online session is appropriate.",
+      "agentWorkflow": "Train a DocsBot agent on your RON service policy, approved state guidance, platform instructions, excluded document notes, and escalation rules. The agent explains your process, distinguishes in-person, electronic, and remote options, and sends edge cases to a human notary.",
+      "liveContextOrTools": "For offices using configured systems, AI Actions can check a customer-approved status source, send a RON prep checklist, create a review ticket, or notify staff when a signer may need a manual decision.",
+      "exampleQuestionsOrRequests": [
+        "Do I need to be physically in the same state as the notary?",
+        "What technology do I need for a remote online notarization session?",
+        "Can you notarize this real estate document online?",
+        "Why do I need identity verification before the video session?"
+      ],
+      "businessOutcome": "Improve signer education around a fast-changing service area while keeping state-law interpretation and final acceptance under human review.",
+      "icon": "DevicePhoneMobileIcon",
+      "sourceIds": [
+        "src-alta-ron",
+        "src-pa-ron-definition"
+      ]
+    },
+    {
+      "name": "Internal notary SOP and compliance reference agent",
+      "problem": "Staff need quick access to office-specific steps for journals, certificates, identity checks, declined requests, witness handling, copy certification, fees, and escalation boundaries.",
+      "agentWorkflow": "DocsBot acts as a private knowledge agent trained on SOPs, training materials, policy memos, checklists, PDFs, and approved state-reference summaries. Employees ask plain-language questions and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "The agent can summarize a policy question, draft an internal note, route unresolved items to a supervisor, or log recurring knowledge gaps for operations review.",
+      "exampleQuestionsOrRequests": [
+        "What do we do if the name on the ID does not match the document exactly?",
+        "Where is our latest journal-entry checklist?",
+        "When should front-desk staff decline to answer and get the notary?",
+        "What is our process for missing witnesses?"
+      ],
+      "businessOutcome": "Support consistent office procedures, shorten onboarding, and reduce time spent searching scattered internal documents.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nass-standards"
+      ]
+    },
+    {
+      "name": "Lead qualification for mobile and business notary requests",
+      "problem": "High-value requests from hospitals, elder-care facilities, law offices, lenders, employers, and property teams need more context than a generic contact form captures.",
+      "agentWorkflow": "A DocsBot presales agent asks customer-defined qualifying questions, applies your rules for service area, urgency, document category, number of signers, travel time, and account type, then forwards the summary to the appropriate person or system.",
+      "liveContextOrTools": "With approved workflows, the agent can create a CRM or ticketing record, notify a team channel, draft a follow-up email, or request a meeting through a configured scheduling tool.",
+      "exampleQuestionsOrRequests": [
+        "Can your notary visit our facility twice a week?",
+        "We need mobile notarization for multiple residents. What do you need from us?",
+        "Can you support recurring business account requests?",
+        "Who should I speak with about notary services for our law firm?"
+      ],
+      "businessOutcome": "Capture better-fit opportunities and speed up follow-up while leaving pricing, contracts, and regulated service commitments to humans.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for notary service pages",
+      "problem": "If callers repeatedly ask the same questions, your website and appointment instructions may be missing critical information.",
+      "agentWorkflow": "DocsBot conversation logs, reports, topic management, and review workflows help teams see unanswered questions, repeated confusion, satisfaction trends, and topics that need clearer documentation.",
+      "liveContextOrTools": "Staff can review conversations, identify content gaps, update source materials, and retrain the agent on improved FAQs, service pages, and internal guidance.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are customers asking before booking?",
+        "What RON topics are not answered clearly in our content?",
+        "Which appointment-prep reminders should we add to our website?",
+        "What should we turn into a new FAQ?"
+      ],
+      "businessOutcome": "Turn recurring support conversations into clearer public content and more consistent staff guidance.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual front-desk answer agent",
+      "problem": "Notary customers may need basic appointment information in another language, but offices still need to avoid giving legal advice or translating legal meaning.",
+      "agentWorkflow": "DocsBot can answer common service and preparation questions in more than 100 languages from your approved materials, while instructions route legal, translation, or document-interpretation requests to a qualified human or external professional.",
+      "liveContextOrTools": "The agent can collect contact details and preferred language, summarize the request in English for staff, and trigger a handoff workflow when configured.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain what I should bring to my appointment in Spanish?",
+        "Do you have a notary available this afternoon?",
+        "Can someone call me back about a document I do not understand?",
+        "What is your address and parking information?"
+      ],
+      "businessOutcome": "Provide more accessible first-line service while keeping high-impact language and legal interpretation out of automated answers.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing agent that prepares signers without overstepping",
+    "intro": "Put DocsBot on your website or service portal to answer routine notary questions, collect intake details, and guide signers to the next step. The agent stays grounded in your approved sources and can escalate when a request involves legal advice, identity concerns, document eligibility, or state-specific judgment.",
+    "requests": [
+      {
+        "request": "“What do I need to bring for a notarization?”",
+        "agentResponseStrategy": "Answer from your appointment-prep checklist, accepted ID policy, witness instructions, and office-specific reminders, then offer to collect scheduling intent.",
+        "sourceTypes": [
+          "FAQs",
+          "appointment policies",
+          "accepted ID notes",
+          "service pages"
+        ],
+        "optionalAction": "Create a structured intake summary or send the signer to an approved scheduling workflow when configured.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Can this be done online?”",
+        "agentResponseStrategy": "Explain your RON availability, technology requirements, and review boundaries using approved content. Remote online notarization is a state-by-state area, and ALTA tracks state laws authorizing remote e-notarization.",
+        "sourceTypes": [
+          "RON policy",
+          "state guidance summaries",
+          "platform instructions",
+          "excluded document notes"
+        ],
+        "optionalAction": "Route uncertain documents to a notary for review before the customer books a remote session.",
+        "icon": "DevicePhoneMobileIcon",
+        "sourceIds": [
+          "src-alta-ron"
+        ]
+      },
+      {
+        "request": "“How much does a mobile notary visit cost?”",
+        "agentResponseStrategy": "Use your pricing page, travel-area rules, minimum fee notes, and follow-up policy to explain how your office handles estimates without promising unapproved pricing.",
+        "sourceTypes": [
+          "pricing pages",
+          "service-area rules",
+          "travel policies",
+          "lead forms"
+        ],
+        "optionalAction": "Collect location, requested time, number of signers, and document category for a human estimate or configured quote workflow.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“I need a notary for my parent in a care facility.”",
+        "agentResponseStrategy": "Ask for practical intake details, provide your process for mobile visits, and escalate questions about capacity, witnesses, legal documents, or unusual identity situations.",
+        "sourceTypes": [
+          "mobile visit SOPs",
+          "care-facility instructions",
+          "escalation rules",
+          "intake forms"
+        ],
+        "optionalAction": "Notify the right staff member with a concise summary and preferred callback channel.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Do you notarize business documents for recurring clients?”",
+        "agentResponseStrategy": "Answer from service catalog and account-intake materials, then qualify the request with customer-defined rules such as volume, location, urgency, and document category.",
+        "sourceTypes": [
+          "service catalog",
+          "business account FAQs",
+          "sales enablement notes",
+          "intake forms"
+        ],
+        "optionalAction": "Forward a qualified lead summary to CRM, email, helpdesk software, or a team notification workflow configured by the customer.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“Can you translate or explain what this document means?”",
+        "agentResponseStrategy": "Politely state the boundary using your policy, offer general appointment-prep information, and route legal, translation, or document-meaning questions to an appropriate human process.",
+        "sourceTypes": [
+          "legal-advice boundary policy",
+          "translation policy",
+          "staff escalation notes",
+          "FAQs"
+        ],
+        "optionalAction": "Create a handoff note so staff can respond with approved next steps.",
+        "icon": "ScaleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for notary procedures, training, and handoffs",
+    "intro": "DocsBot can also serve the team behind the counter. Train an internal agent on SOPs, state-reference summaries, policy updates, forms, onboarding guides, and office workflows so staff can find the right procedure quickly and document gaps as they appear.",
+    "workflows": [
+      {
+        "name": "Procedure lookup for staff",
+        "problem": "Employees may know the customer-service script but still need quick guidance on the exact internal process for journals, certificates, fees, declined requests, and escalation.",
+        "agentWorkflow": "Staff ask the private DocsBot agent a question and receive a source-grounded answer from approved SOPs, policies, and training materials, with links back to the source document.",
+        "sourceTypes": [
+          "SOPs",
+          "training manuals",
+          "policy memos",
+          "state-reference summaries"
+        ],
+        "optionalAction": "Route unresolved questions to a supervisor and flag the topic for documentation improvement.",
+        "outcome": "Reduce inconsistent answers and help new staff follow the same office-approved procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Coordinator handoff summaries",
+        "problem": "Intake conversations often contain scattered details that coordinators must re-read before assigning a notary or responding to the signer.",
+        "agentWorkflow": "DocsBot can summarize the customer’s request, missing details, risk flags, location, preferred time, and next recommended handoff step for a human coordinator.",
+        "sourceTypes": [
+          "conversation logs",
+          "intake forms",
+          "routing rules",
+          "appointment policies"
+        ],
+        "optionalAction": "Create a task, draft an email, or notify a team channel through customer-configured Skills, APIs, connectors, or workflow automation.",
+        "outcome": "Give coordinators cleaner context and fewer repetitive clarification calls.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "RON policy and platform support",
+        "problem": "Remote notarization procedures depend on state rules, approved technology, platform requirements, and internal boundaries that change over time.",
+        "agentWorkflow": "Train DocsBot on your current RON instructions, platform guides, approved vendors, identity-proofing notes, and escalation rules. Staff can ask how to prepare a signer, handle common platform issues, or identify when a request needs review.",
+        "sourceTypes": [
+          "RON playbooks",
+          "platform guides",
+          "state agency references",
+          "escalation rules"
+        ],
+        "optionalAction": "Log repeated platform questions and send them to operations for FAQ updates.",
+        "outcome": "Improve consistency in remote-service support while keeping final compliance decisions with the commissioned notary or supervisor.",
+        "icon": "CloudIcon",
+        "sourceIds": [
+          "src-nass-standards"
+        ]
+      },
+      {
+        "name": "Sales and partnership enablement",
+        "problem": "Business development conversations with law firms, lenders, property managers, and facilities require quick access to service scope, pricing guidance, proof, and follow-up templates.",
+        "agentWorkflow": "A DocsBot sales enablement agent can answer from service catalogs, pricing guidance, proposal notes, account policies, and FAQs, then draft a follow-up for human review.",
+        "sourceTypes": [
+          "service catalogs",
+          "proposal templates",
+          "pricing guidance",
+          "business account FAQs"
+        ],
+        "optionalAction": "Research public prospect context with configured web search and prepare talking points for a human seller.",
+        "outcome": "Help notary business owners respond faster to qualified partnership opportunities without automating commitments.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from approved notary content",
+      "mainLandingPageContext": "DocsBot agents train on websites, documents, PDFs, internal content, help centers, and other configured knowledge sources to answer in the company’s voice.",
+      "industryApplication": "Use approved notary FAQs, service pages, appointment policies, RON instructions, and internal SOPs to answer signer and staff questions consistently.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for scoped workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-defined rules, APIs, connectors, executable functions, and workflows.",
+      "industryApplication": "Collect intake details, create a review ticket, send a scheduling handoff, notify staff, draft a response, or update approved fields in systems your team has authorized.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve employees with instant answers from internal documents, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other private sources.",
+      "industryApplication": "Give front-desk teams and notary coordinators fast access to SOPs, training notes, journal procedures, RON platform guidance, and escalation boundaries.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which signer questions repeat, which policies are unclear, and where public FAQs or staff training materials need updates.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logs, and customer-defined controls.",
+      "industryApplication": "Keep notary workflows bounded with human escalation for legal advice, identity concerns, unusual documents, and high-impact decisions.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume customer support, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Trains on your own content library so answers reflect your office policies, service scope, and procedures.",
+      "Supports website and human-support workflows so routine questions and staff handoffs can work together."
+    ],
+    "whyTheseReviewsFit": "Notary teams need fast first-line answers, trustworthy knowledge grounding, and practical handoffs to people. DocsBot proof from high-volume support, owned-content training, and support-team assistance shows how an AI agent can reduce repetitive questions while keeping human professionals in control.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for notary public offices",
+    "audience": [
+      "Independent notaries",
+      "Mobile notary services",
+      "Notary signing services",
+      "Business service centers",
+      "Banks and law offices"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "IdentificationIcon"
+  },
+  "relatedIndustrySlugs": [
+    "public-relations",
+    "business-information",
+    "building-inspection",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "notary-public",
+    "webSearchQueries": [
+      "National Notary Association notaries United States 4.4 million",
+      "U.S. notary public remote online notarization states 2025",
+      "Bureau of Labor Statistics notaries public employment wage",
+      "ALTA remote online notarization states 2025 notary",
+      "National Association of Secretaries of State remote electronic notarization standards notary",
+      "NASS remote electronic notarization standards identity fraud accountability public secure electronic commerce",
+      "Secretary of State notary public state laws vary notarial acts"
+    ],
+    "sourceUrls": [
+      "https://www.nationalnotary.org/notary-bulletin/blog/2022/08/2022-nna-notary-census-part-2-4-4-million-u-s-notaries-are-adapting-to-serve-the-nation-today",
+      "https://www.alta.org/advocacy/online-notarization.cfm",
+      "https://www.nass.org/initiatives/remote-electronic-notarization",
+      "https://www.pa.gov/agencies/dos/resources/notaries-resources-and-information/electronic-or-remote-notarization"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45028,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32484,
+        "outputTokens": 8732,
+        "reasoningOutputTokens": 190,
+        "totalTokens": 53760,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.215327,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.235327
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25445,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18149,
+          "outputTokens": 5925,
+          "reasoningOutputTokens": 190,
+          "totalTokens": 31370,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.136072,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.156072
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19583,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14335,
+          "outputTokens": 2807,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22390,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079255,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079255
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1622649736792-3f334b47f065?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzM5MzV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Notary Public background image",
+    "source": "legacy-industry",
+    "query": "Notary Public"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer whether we can notarize a specific document, or should that always go to a commissioned notary?",
+      "answer": "Use DocsBot for first-line guidance, not final notarial judgment. The agent can explain your published service categories, intake requirements, accepted IDs, witness policies, RON availability, and escalation rules. Questions involving document eligibility, legal advice, identity concerns, capacity, unusual certificates, or state-specific uncertainty should be routed to a commissioned notary or supervisor.",
+      "role": "Independent and mobile notaries",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot reduce phone calls without creating compliance risk for our notary office?",
+      "answer": "Train the agent on approved FAQs, appointment-prep checklists, pricing notes, service-area rules, and internal boundaries. It can answer routine questions, collect structured intake details, and summarize the request for staff. Keep sensitive decisions behind human review, especially legal-advice boundaries, identity concerns, RON eligibility, and unusual document scenarios.",
+      "role": "Independent and mobile notaries",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help with mobile notary intake for hospitals, care facilities, and business clients?",
+      "answer": "Yes. A DocsBot agent can ask for location, preferred timing, number of signers, document category, witness needs, urgency, contact details, and facility instructions. With customer-configured Skills, APIs, connectors, or workflows, it can forward a structured summary, create a task, notify staff, or start an approved scheduling handoff while leaving pricing and acceptance decisions to people.",
+      "role": "Independent and mobile notaries",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for loan signing coordination without exposing private closing information?",
+      "answer": "Yes, if you scope the agent carefully. Use it for appointment logistics, signer prep, scan-back instructions, missing intake details, and coordinator handoffs. Avoid training or prompting it to interpret loan documents or disclose sensitive file details unless your team has configured the correct permissions, sources, access controls, and human review path.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle remote online notarization questions when rules vary by state?",
+      "answer": "DocsBot should be trained on your current RON policy, approved state-reference summaries, platform instructions, excluded-document notes, and escalation rules. RON remains a state-by-state area: ALTA tracks state laws authorizing remote e-notarization, and NASS emphasizes state commissioning authorities as the authority for notary standards. The agent can educate signers, but final determinations should stay with your notary team.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-alta-ron",
+        "src-nass-standards"
+      ]
+    },
+    {
+      "question": "Can the agent explain what technology a signer needs for RON?",
+      "answer": "Yes. Train it on your RON platform checklist, identity-proofing steps, device requirements, browser guidance, document-upload process, and support boundaries. It can explain that remote online notarization uses audio-visual electronic communication to satisfy personal appearance requirements where permitted, then route eligibility or document-specific questions to staff.",
+      "role": "Independent and mobile notaries",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-pa-ron-definition"
+      ]
+    },
+    {
+      "question": "Will DocsBot give legal advice or explain what a signer’s document means?",
+      "answer": "Not if you configure it correctly. DocsBot should be instructed to avoid legal advice, document interpretation, translation of legal meaning, and recommendations about what certificate or form a signer should use. It can provide general appointment preparation, explain your office policy, and create a handoff note for staff or an appropriate professional.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can front-desk staff use DocsBot privately for SOPs and notary procedures?",
+      "answer": "Yes. DocsBot can work as an internal knowledge agent trained on SOPs, training manuals, state-reference summaries, policy memos, RON playbooks, and office checklists. Staff can ask questions about journal procedures, escalation rules, accepted ID policy, witness handling, and declined requests, with answers grounded in approved internal material.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we keep answers consistent across multiple branches or notaries?",
+      "answer": "Centralize the source materials: service pages, branch policies, fee notes, appointment scripts, escalation rules, and SOPs. DocsBot answers from those approved sources and can be updated when procedures change. Role-based permissions and separate internal versus public agents help ensure customers, front-desk staff, and coordinators only see the information appropriate to them.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What systems can DocsBot connect to for scheduling, CRM, or ticket handoffs?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, MCP options, and workflow automations. Common patterns include creating a lead or ticket, sending a scheduling request, notifying a team channel, drafting a follow-up email, or updating approved fields. Avoid assuming a native integration; your team defines the authorized systems and actions.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we make the agent ask qualifying questions before a customer books?",
+      "answer": "Yes. You can define intake questions and routing rules around service area, document category, number of signers, witness needs, location, urgency, preferred time, RON interest, and business-account status. The agent can then summarize the request and send it to a human or approved workflow before any sensitive commitment is made.",
+      "role": "Independent and mobile notaries",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much setup work should a small mobile notary expect?",
+      "answer": "Start with your existing service pages, FAQs, pricing notes, appointment policies, travel-area rules, and a short escalation policy. The first implementation can focus on answering common questions and collecting better intake details. More advanced workflows, such as scheduling handoffs or CRM updates, can be added later through customer-configured Skills or APIs.",
+      "role": "Independent and mobile notaries",
+      "category": "Implementation"
+    },
+    {
+      "question": "What content do we need before launching a notary AI agent?",
+      "answer": "At minimum, prepare approved answers for ID requirements, appointment prep, fees, travel area, office hours, RON availability, witness rules, payment methods, cancellation policy, legal-advice boundaries, and escalation triggers. For internal use, add SOPs, training guides, journal procedures, certificate guidance, RON platform notes, and supervisor-review rules.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support customers in Spanish or other languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved materials. For notary offices, it is best used for service information, appointment prep, directions, and intake. The agent should not translate legal meaning or interpret documents unless your office has a qualified human process for that request.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping?",
+      "answer": "Track repeated questions, conversation volume, resolution or satisfaction trends, escalation reasons, unanswered topics, intake completion, time saved on routine calls, and appointment-prep issues. DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery so you can improve both the agent and your public instructions.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us find gaps in our website or appointment instructions?",
+      "answer": "Yes. Conversation logs and topic reporting can show where signers keep asking the same questions: accepted IDs, witness requirements, RON steps, mobile travel fees, care-facility visits, parking, payment, or document categories. Those insights can become clearer FAQs, better booking instructions, and updated staff scripts.",
+      "role": "Independent and mobile notaries",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What prevents the agent from making up an answer about a state rule or notary requirement?",
+      "answer": "DocsBot should be trained on approved sources and instructed to answer only within your content and policies. For uncertain, missing, or state-specific issues, configure it to say it cannot determine the answer and route the question to a commissioned notary or supervisor. Source-grounded answers and conversation review help teams monitor reliability.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is DocsBot secure enough for notary intake and internal SOPs?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logs, and customer-defined controls. It also does not use customer data to train public models. For sensitive notary workflows, limit what the agent can access, avoid collecting unnecessary data, and use human review for high-impact decisions.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate public signer answers from private staff procedures?",
+      "answer": "Yes. Many notary teams should use different experiences: a public-facing agent for appointment prep and intake, and a private internal agent for SOPs, journal procedures, RON notes, escalation rules, and staff training. Access controls and source selection help prevent internal guidance from appearing in customer-facing answers.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this work for a notary signing service with many independent contractors?",
+      "answer": "DocsBot can standardize coordinator guidance, signer-prep answers, notary onboarding references, scan-back instructions, assignment handoffs, and internal playbook lookup. It can also summarize incoming requests for human coordinators. For contractor-facing workflows, keep permissions scoped so each person only sees the procedures, files, and context they are allowed to access.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will customers trust an AI agent for notarization questions?",
+      "answer": "Trust comes from clear boundaries. Position the agent as a preparation and intake assistant, not the notary. It should cite or reflect your approved policies, avoid legal advice, say when a human must review the request, and make escalation easy. That framing helps customers get faster answers without implying automated notarization decisions.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help a shipping store or bank branch where notary service is only one part of the front desk?",
+      "answer": "Yes. The agent can answer when a notary is available, what customers should bring, which requests need staff review, and how branch-specific policies work. Internally, it can help employees find notary procedures alongside other service-center policies, reducing the need to interrupt the commissioned notary for routine questions.",
+      "role": "Banks, law offices, shipping stores, and business service centers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we handle pricing questions for mobile visits without overpromising?",
+      "answer": "Train DocsBot on your pricing page, travel-area rules, after-hours policy, minimum fees, and estimate language. The agent can explain how pricing is calculated and collect location, timing, number of signers, and document category. Final quotes, exceptions, discounts, and business-account terms should remain with a human reviewer.",
+      "role": "Independent and mobile notaries",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Why not just use a generic website chatbot or form builder?",
+      "answer": "Generic tools often collect messages but do not reliably answer from your specific policies, summarize context, support internal knowledge lookup, or trigger bounded workflows. DocsBot is better suited when you need source-grounded answers, escalation rules, analytics, multilingual support, private staff knowledge, and configurable actions around notary intake and operations.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support notary offices as RON adoption and digital closing expectations evolve?",
+      "answer": "Yes, as long as your source materials stay current. RON is a changing, state-driven area: ALTA tracks state laws authorizing remote e-notarization, and NASS has adopted remote electronic notarization standards while affirming state commissioning authorities. DocsBot can help educate customers from your latest approved guidance and reveal which RON questions need clearer documentation.",
+      "role": "Notary signing services and title-facing teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-alta-ron",
+        "src-nass-standards"
+      ]
+    },
+    {
+      "question": "What should procurement or ownership ask before approving DocsBot?",
+      "answer": "Ask which sources will train the agent, who owns updates, what data it may collect, which actions it can take, how human escalation works, what logs and analytics are reviewed, and which roles can access internal content. Also confirm security requirements, approval workflows, and success metrics such as fewer repetitive calls, better intake quality, and faster staff lookup.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

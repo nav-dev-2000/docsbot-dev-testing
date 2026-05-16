@@ -1,0 +1,725 @@
+{
+  "slug": "speech-occupational-therapy",
+  "business": "Speech & Occupational Therapy",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Speech & Occupational Therapy Teams",
+    "description": "DocsBot helps speech and occupational therapy practices answer intake questions, surface care resources, and streamline staff knowledge workflows.",
+    "canonicalPath": "/industry/speech-occupational-therapy"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for therapy practices",
+    "headline": "AI agents that keep therapy knowledge easy to use",
+    "subheadline": "DocsBot helps speech-language pathology and occupational therapy teams create AI agents trained on your approved intake guides, home program instructions, clinic policies, payer FAQs, documentation references, and staff resources—so clients and employees can find the right information faster while sensitive clinical decisions stay with licensed professionals.",
+    "proofBullets": [
+      {
+        "text": "Answer recurring questions from your approved care instructions, FAQs, service pages, and policies in your clinic’s voice.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake or appointment details and route the request to the right team through customer-configured workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Help clinicians and admin staff retrieve SOPs, documentation references, onboarding materials, and payer guidance from private sources.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate complex, urgent, diagnostic, or patient-specific questions to a human with conversation context attached.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a therapy knowledge agent",
+    "secondaryCta": "Explore safe healthcare workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your therapy practice approves: website content, PDFs, handouts, SOPs, policies, internal docs, and private knowledge sources. Agents can answer source-grounded questions, summarize context, identify content gaps, route requests, collect structured details, and trigger bounded actions when you configure Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Practice owners and clinic directors",
+        "roleContext": "Give families, referral partners, and staff a faster way to find accurate information without turning every routine question into a phone call or inbox thread.",
+        "bullets": [
+          {
+            "text": "Publish a website agent that explains services, visit preparation, billing basics, waitlist steps, and what to bring to an evaluation.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Use analytics and logs to see repeated questions, missing handouts, confusing intake steps, and opportunities to improve your content.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Keep human review for clinical judgment, diagnosis, individualized care recommendations, and high-impact scheduling or billing exceptions.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Speech-language pathologists and occupational therapists",
+        "roleContext": "Reduce time spent hunting for approved resources while preserving clinician responsibility for individualized assessment, treatment planning, and documentation.",
+        "bullets": [
+          {
+            "text": "Retrieve goal-bank references, home practice instructions, caregiver education, AAC-related resources, sensory strategy handouts, and discharge education from approved libraries.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize relevant policy or documentation guidance for staff review; ASHA notes Medicare outpatient therapy records include evaluation, plan of care, treatment notes, progress reports, and discharge notes.",
+            "icon": "DocumentTextIcon",
+            "sourceIds": [
+              "src-asha-medicare-documentation"
+            ]
+          },
+          {
+            "text": "Support onboarding by giving new clinicians and assistants instant answers about clinic procedures, templates, tools, and escalation paths.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Front desk, intake, and care coordination teams",
+        "roleContext": "Handle repetitive administrative questions consistently while routing patient-specific details to the people and systems your practice already uses.",
+        "bullets": [
+          {
+            "text": "Collect reason for visit, preferred location, payer type, contact details, and scheduling intent before routing to intake staff.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft handoff summaries for calls, forms, or helpdesk-style tickets so staff can follow up with context instead of re-asking basic questions.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Offer multilingual self-service answers from approved content for families who need basic service and preparation information.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-slp-growth",
+      "metric": "15% projected SLP employment growth, 2024–2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of speech-language pathologists to grow 15% from 2024 to 2034, with about 13,300 openings per year on average.",
+      "sourceTitle": "Speech-Language Pathologists: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/speech-language-pathologists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce demand",
+        "clinic growth pressure",
+        "staff capacity"
+      ]
+    },
+    {
+      "id": "src-bls-ot-growth",
+      "metric": "14% projected OT employment growth, 2024–2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects occupational therapist employment to grow 14% from 2024 to 2034, with about 10,200 openings per year on average.",
+      "sourceTitle": "Occupational Therapists: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/healthcare/occupational-therapists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce demand",
+        "therapy service demand",
+        "staff capacity"
+      ]
+    },
+    {
+      "id": "src-asha-schools-caseload",
+      "metric": "26% of school SLPs identified local SLP shortages as a key caseload barrier",
+      "claim": "ASHA’s 2024 schools survey reported that 26% of school-based SLP respondents identified a shortage of SLPs in their area as the single greatest barrier to manageable caseload size.",
+      "sourceTitle": "2024 Schools Survey: SLP Caseload and Workload Characteristics Report",
+      "sourceUrl": "https://www.asha.org/siteassets/surveys/2024-schools-survey-slp-caseload.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "workload pressure",
+        "staff shortages",
+        "caseload management"
+      ]
+    },
+    {
+      "id": "src-asha-medicare-documentation",
+      "metric": "Medicare outpatient therapy documentation includes five required record types",
+      "claim": "ASHA summarizes Medicare outpatient therapy documentation as including the evaluation, plan of care, daily treatment notes, progress reports, and discharge note.",
+      "sourceTitle": "Overview of Documentation for Medicare Outpatient Therapy Services",
+      "sourceUrl": "https://www.asha.org/practice/reimbursement/medicare/medicare_documentation/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "documentation burden",
+        "compliance workflow",
+        "clinical recordkeeping"
+      ]
+    },
+    {
+      "id": "src-cfr-therapy-plan-care",
+      "metric": "Federal rules require therapy goals and course of treatment in the clinical record",
+      "claim": "42 CFR § 409.44 states that therapy plans of care must describe the course of treatment and therapy goals consistent with evaluation of the patient’s function, and both must be included in the clinical record.",
+      "sourceTitle": "42 CFR § 409.44 - Skilled services requirements",
+      "sourceUrl": "https://www.law.cornell.edu/cfr/text/42/409.44",
+      "sourceDate": "Current e-CFR",
+      "bestUsedFor": [
+        "clinical documentation",
+        "care-plan governance",
+        "regulated workflow boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client intake and service navigation agent",
+      "problem": "Families and patients often ask the same questions about evaluations, waitlists, service fit, insurance basics, forms, and visit preparation before they ever speak with a clinician.",
+      "agentWorkflow": "A DocsBot website agent answers from approved service pages, intake FAQs, forms, and preparation guides. It can collect structured details such as age range, service interest, location, payer type, contact preference, and scheduling intent, then route a summary to your intake workflow for staff follow-up.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or forms, the agent can create an intake task, forward a summary to a ticketing system, trigger an email notification, or request a booking workflow while avoiding clinical diagnosis or treatment promises.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer pediatric feeding therapy or sensory integration support?",
+        "What should we bring to a first speech evaluation?",
+        "Can I join a waitlist for after-school appointments?",
+        "Do you see adults after stroke or brain injury?"
+      ],
+      "businessOutcome": "Reduce repetitive intake messages, help prospective clients understand next steps, and give coordinators cleaner information before they respond.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Home program and caregiver education assistant",
+      "problem": "Caregivers often need reminders about approved exercises, communication strategies, safety instructions, and what to do between sessions, but clinicians cannot be available for every routine clarification.",
+      "agentWorkflow": "DocsBot answers from your clinic-approved home program handouts, caregiver education PDFs, discharge instructions, AAC guidance, sensory strategy sheets, and policy boundaries. It can cite the source material and tell users when to contact the therapist for individualized concerns.",
+      "liveContextOrTools": "If configured, the agent can log repeated education questions, collect a caregiver’s non-urgent follow-up request, and route it to the care team with a summary for review.",
+      "exampleQuestionsOrRequests": [
+        "How do we practice the /r/ sound activity from today’s handout?",
+        "Where is the fine motor home exercise sheet for handwriting?",
+        "What should I do if my child refuses the sensory activity?",
+        "Can you summarize the caregiver tips from our clinic’s AAC handout?"
+      ],
+      "businessOutcome": "Improve access to approved education materials while keeping patient-specific recommendations and urgent concerns with licensed clinicians.",
+      "icon": "HomeIcon"
+    },
+    {
+      "name": "Clinical documentation knowledge assistant",
+      "problem": "Therapy practices manage plans of care, treatment notes, progress reporting, discharge documentation, payer rules, and internal templates across multiple settings and staff roles.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves documentation policies, template instructions, payer notes, Medicare references, and clinic SOPs for staff. It can summarize the relevant guidance and point to approved sources so clinicians can complete records using the practice’s standards.",
+      "liveContextOrTools": "With scoped Skills or connectors, the agent can look up the correct internal template, create a documentation follow-up task, or route a policy question to a compliance reviewer. Medicare outpatient therapy records include evaluation, plan of care, daily treatment notes, progress reports, and discharge notes, making fast access to documentation references operationally important.",
+      "exampleQuestionsOrRequests": [
+        "Which template should I use for a reassessment note?",
+        "What belongs in our discharge summary checklist?",
+        "Where is the policy for missed visits and plan-of-care updates?",
+        "Summarize our clinic’s documentation expectations for a new OT."
+      ],
+      "businessOutcome": "Help staff find the right documentation references faster and reduce inconsistent answers about clinic procedures.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-asha-medicare-documentation"
+      ]
+    },
+    {
+      "name": "Referral partner and presales information agent",
+      "problem": "Physicians, schools, case managers, and families need clear answers about referral criteria, specialties, accepted age groups, service locations, and appointment pathways.",
+      "agentWorkflow": "DocsBot can act as a presales and referral support agent trained on your service catalog, referral instructions, provider one-sheets, FAQs, and eligibility notes. It answers fit questions, gathers referral details, and prepares a concise handoff for the intake team.",
+      "liveContextOrTools": "Using approved workflows, the agent can submit a custom referral form, notify staff, create a task, or pass conversation context to a CRM, helpdesk, or secure intake queue configured by the customer.",
+      "exampleQuestionsOrRequests": [
+        "Do you accept referrals for post-stroke swallowing and communication therapy?",
+        "Which locations offer pediatric occupational therapy?",
+        "What information should a pediatrician include in a referral?",
+        "Can you send our referral coordinator a summary of this request?"
+      ],
+      "businessOutcome": "Make referral pathways clearer, improve lead capture, and reduce back-and-forth before intake staff can evaluate fit.",
+      "icon": "PaperAirplaneIcon"
+    },
+    {
+      "name": "Workforce onboarding and policy support agent",
+      "problem": "Demand for therapy services is growing while practices still need to onboard clinicians, assistants, and administrative staff consistently across policies, tools, and care workflows.",
+      "agentWorkflow": "A DocsBot internal agent answers staff questions from onboarding guides, SOPs, clinical resource libraries, HR policies, tool instructions, and role-specific playbooks. It can surface repeated knowledge gaps so leadership knows which procedures need clearer documentation.",
+      "liveContextOrTools": "Therapy workforce demand is rising: BLS projects 15% growth for speech-language pathologists and 14% growth for occupational therapists from 2024 to 2034, so faster onboarding can protect staff time as teams grow.",
+      "exampleQuestionsOrRequests": [
+        "How do we triage feeding therapy inquiries?",
+        "Where is the cancellation policy script?",
+        "What is the workflow for school-based documentation requests?",
+        "Which handouts are approved for adult neuro clients?"
+      ],
+      "businessOutcome": "Support consistent onboarding and reduce interruptions for senior clinicians who are already balancing patient care and mentorship.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-slp-growth",
+        "src-bls-ot-growth"
+      ]
+    },
+    {
+      "name": "Knowledge gap and content improvement reporting",
+      "problem": "If families keep asking the same intake, billing, or home-program questions, the practice may have unclear pages, missing handouts, or outdated internal guidance.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, and knowledge-gap discovery help teams review what people ask, where the agent lacked source material, and which answers need better approved content.",
+      "liveContextOrTools": "Reports can inform updates to FAQs, caregiver education, intake pages, staff SOPs, and referral partner materials. Human reviewers decide what content becomes official.",
+      "exampleQuestionsOrRequests": [
+        "What questions did parents ask most this month?",
+        "Which answers had low confidence because our content was missing?",
+        "Show topics that should become new caregiver handouts.",
+        "Which intake questions are not covered on our website?"
+      ],
+      "businessOutcome": "Turn real questions into better documentation, clearer service pages, and more consistent self-service answers.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A safer front door for therapy questions, intake, and education",
+    "intro": "A DocsBot customer-facing agent can live on your website or client resource pages to answer from approved materials, collect structured requests, and escalate sensitive situations. It is best positioned as a source-grounded support layer—not a replacement for licensed assessment, diagnosis, or individualized care.",
+    "requests": [
+      {
+        "request": "“Do you treat my child’s speech delay, and what happens at the first visit?”",
+        "agentResponseStrategy": "Answer from service pages and evaluation FAQs, explain general visit preparation, collect age range and contact details if the user wants follow-up, and avoid diagnosing the child’s needs.",
+        "sourceTypes": [
+          "Service pages",
+          "Evaluation FAQs",
+          "Intake forms",
+          "Clinic policies"
+        ],
+        "optionalAction": "Create an intake task or send a structured summary to the scheduling team through an approved workflow.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“Where is the handout for home sensory strategies?”",
+        "agentResponseStrategy": "Retrieve the approved handout, summarize the relevant general instructions, cite the source, and remind the caregiver to contact the therapist for patient-specific changes or safety concerns.",
+        "sourceTypes": [
+          "Caregiver handouts",
+          "Home program PDFs",
+          "Discharge education",
+          "Safety notes"
+        ],
+        "optionalAction": "Log the question as a content topic so the clinic can see which resources families need most often.",
+        "icon": "HomeModernIcon"
+      },
+      {
+        "request": "“Can I schedule an occupational therapy evaluation after school?”",
+        "agentResponseStrategy": "Explain available scheduling steps from clinic policy, collect scheduling intent and preferred contact method, and route the request without promising availability unless a live scheduling workflow is configured.",
+        "sourceTypes": [
+          "Scheduling policy",
+          "Location pages",
+          "Intake FAQ",
+          "Contact forms"
+        ],
+        "optionalAction": "Trigger a configured booking request, intake form, or staff notification for human confirmation.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Do you accept referrals after stroke?”",
+        "agentResponseStrategy": "Answer from approved adult neuro service information, list general referral requirements, and prepare a concise handoff for referral coordinators when the user wants follow-up.",
+        "sourceTypes": [
+          "Referral guides",
+          "Service catalog",
+          "Provider one-sheets",
+          "Eligibility notes"
+        ],
+        "optionalAction": "Submit a referral inquiry or forward a conversation summary to the appropriate team using a customer-configured connector.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can you tell me if my child has autism or needs therapy?”",
+        "agentResponseStrategy": "Set a clear boundary, explain that diagnosis and individualized recommendations require evaluation by qualified professionals, and guide the user to approved intake or emergency guidance when appropriate.",
+        "sourceTypes": [
+          "Clinical boundary policy",
+          "Evaluation FAQ",
+          "Escalation scripts",
+          "Contact instructions"
+        ],
+        "optionalAction": "Offer a non-diagnostic intake path or route the conversation to staff for review.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can you answer this in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answer capability to respond from the same approved source material while preserving the clinic’s boundaries and escalation instructions.",
+        "sourceTypes": [
+          "Translated handouts",
+          "Approved English sources",
+          "Clinic FAQs",
+          "Service pages"
+        ],
+        "optionalAction": "Collect language preference for follow-up if your intake workflow supports it.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private knowledge access for clinicians, assistants, and admin teams",
+    "intro": "DocsBot can also operate as an internal knowledge agent trained on private clinic content. Staff can ask natural-language questions about SOPs, documentation, onboarding, payer guidance, service lines, and templates while access controls and role-based permissions protect sensitive information.",
+    "workflows": [
+      {
+        "name": "Documentation and payer reference lookup",
+        "problem": "Clinicians and billing staff need quick access to approved documentation guidance while still applying professional judgment and payer-specific requirements.",
+        "agentWorkflow": "The agent retrieves internal templates, payer notes, Medicare references, SOPs, and policy excerpts, then summarizes what staff should review before completing notes or claims support materials.",
+        "sourceTypes": [
+          "Internal SOPs",
+          "Payer guidance",
+          "Medicare references",
+          "Template instructions"
+        ],
+        "optionalAction": "Create a follow-up task for compliance review or route an unresolved documentation question to a supervisor.",
+        "outcome": "Reduce time spent searching policy folders and improve consistency in documentation workflows.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "New hire onboarding assistant",
+        "problem": "New SLPs, OTs, assistants, and coordinators often rely on senior staff for answers about tools, scripts, forms, handouts, and escalation rules.",
+        "agentWorkflow": "DocsBot answers onboarding questions from training materials, clinic playbooks, HR policies, and role-based SOPs, then records repeated questions that may need better documentation.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training decks",
+          "HR policies",
+          "Role playbooks"
+        ],
+        "optionalAction": "Notify operations when multiple new hires ask about a missing or unclear workflow.",
+        "outcome": "Protect senior clinician time while giving new staff a consistent place to start.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Care resource library search",
+        "problem": "Therapy teams can accumulate large libraries of handouts, protocols, service descriptions, and caregiver education materials that are hard to navigate during a busy day.",
+        "agentWorkflow": "The agent searches approved PDFs, Google Drive-style folders, documents, and internal knowledge bases to surface the right resource with source references and usage context.",
+        "sourceTypes": [
+          "PDF handouts",
+          "Internal folders",
+          "Clinical resource libraries",
+          "Service guides"
+        ],
+        "optionalAction": "Create a content review task when staff identify outdated or missing handouts.",
+        "outcome": "Make approved resources easier to find without asking clinicians to memorize every folder path.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Secure workflow actions and live context",
+        "problem": "Some operational questions need current context—such as request status, assigned owner, or whether a handoff was created—rather than a static policy answer.",
+        "agentWorkflow": "With customer-configured Skills, APIs, connectors, or MCP Connectors for remote Model Context Protocol servers, DocsBot can perform approved live lookups, generate summaries, update allowed fields, or trigger workflow handoffs within defined permissions.",
+        "sourceTypes": [
+          "Workflow metadata",
+          "Approved APIs",
+          "Connector outputs",
+          "Internal instructions"
+        ],
+        "optionalAction": "Look up request status, create a task, update an approved intake field, or notify the right team channel.",
+        "outcome": "Extend the internal agent from knowledge retrieval to bounded operational support while keeping access controlled.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on your approved knowledge sources and answer in your company’s voice with source-grounded responses.",
+      "industryApplication": "Use the agent to answer routine speech and OT questions from clinic FAQs, handouts, service pages, intake instructions, and caregiver education while escalating clinical decisions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can train on internal documents, SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, Word documents, and other company knowledge sources.",
+      "industryApplication": "Give clinicians, assistants, front desk staff, and coordinators one place to ask about documentation workflows, templates, payer notes, onboarding steps, and approved resources.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded action such as live lookups, summaries, task creation, record updates, routing, notifications, and workflow triggers when configured by the customer.",
+      "industryApplication": "Collect intake details, create follow-up tasks, route referral summaries, trigger booking requests, or update approved non-clinical fields while keeping sensitive healthcare decisions under human review.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation and boundaries",
+      "mainLandingPageContext": "DocsBot supports human escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate urgent symptoms, diagnosis requests, individualized treatment questions, care-plan changes, billing disputes, or consent-related issues to licensed staff or administrators.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Find repeated caregiver questions, missing service information, confusing intake steps, and staff training gaps so your clinic can improve approved content over time.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support private staff knowledge workflows and sensitive operational content with access controls, encryption, permissions, and customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision support from approved knowledge.",
+      "Educators and clinicians can reinforce complex concepts with source-grounded AI assistance.",
+      "Owned content libraries become easier for clients and staff to search, understand, and reuse."
+    ],
+    "whyTheseReviewsFit": "Speech and occupational therapy teams need trustworthy access to specialized knowledge, not generic answers. DocsBot’s healthcare, education, and content-library proof shows how teams use approved information to support decision-making, reinforce learning, and reduce repetitive human interaction while keeping experts in control.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for speech-language pathology and occupational therapy practices",
+    "audience": [
+      "Speech-language pathology clinics",
+      "Occupational therapy practices",
+      "Pediatric therapy centers",
+      "Rehabilitation practices",
+      "Therapy operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "physical-therapy",
+    "occupational-health",
+    "massage-therapy",
+    "child-youth-services",
+    "chiropractic-office",
+    "emergency-medical-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "speech-occupational-therapy",
+    "webSearchQueries": [
+      "ASHA speech-language pathologists workforce shortage caseload statistics 2024",
+      "AOTA occupational therapy workforce demand shortage statistics 2024",
+      "BLS occupational therapists speech-language pathologists employment outlook 2024",
+      "CMS therapy services documentation requirements plan of care occupational speech therapy Medicare",
+      "ASHA documentation speech language pathology medical necessity treatment plan progress notes"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/healthcare/speech-language-pathologists.htm",
+      "https://www.bls.gov/ooh/healthcare/occupational-therapists.htm",
+      "https://www.asha.org/siteassets/surveys/2024-schools-survey-slp-caseload.pdf",
+      "https://www.asha.org/practice/reimbursement/medicare/medicare_documentation/",
+      "https://www.law.cornell.edu/cfr/text/42/409.44"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47521,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 27297,
+        "outputTokens": 8291,
+        "reasoningOutputTokens": 182,
+        "totalTokens": 55812,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.197664,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.217664
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27561,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12585,
+          "outputTokens": 5478,
+          "reasoningOutputTokens": 166,
+          "totalTokens": 33039,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.117377,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.137377
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19960,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14712,
+          "outputTokens": 2813,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 22773,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080287,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080287
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg3ODh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Speech & Occupational Therapy background image",
+    "source": "legacy-industry",
+    "query": "Speech & Occupational Therapy"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent without it giving clinical advice or diagnosing patients?",
+      "answer": "Yes. DocsBot is best used as a source-grounded support layer for approved information, not as a replacement for licensed assessment. You can train it on clinic FAQs, intake instructions, home-program handouts, and escalation scripts, then set boundaries so diagnosis requests, individualized treatment changes, urgent symptoms, and care-plan questions route to a human with conversation context.",
+      "role": "Practice owners and clinic directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce pressure on our front desk without creating more follow-up work?",
+      "answer": "A DocsBot agent can answer routine questions about services, forms, first-visit preparation, waitlist steps, billing basics, and referral requirements. When a person needs follow-up, it can collect structured details—such as service interest, age range, location, payer type, scheduling intent, and contact preference—then send staff a cleaner handoff instead of another vague voicemail or inbox message.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What questions should we let the agent answer for families before an evaluation?",
+      "answer": "Good candidates are non-diagnostic questions already covered in your approved materials: what to bring, how long an evaluation may take, which services you offer, how referrals work, what forms are needed, and how to request a waitlist spot. The agent should avoid saying whether a child “needs therapy” and instead guide the family to your intake or evaluation pathway.",
+      "role": "Practice owners and clinic directors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can clinicians use DocsBot internally for documentation and payer guidance?",
+      "answer": "Yes. A private internal agent can retrieve approved templates, payer notes, Medicare references, SOPs, and clinic documentation policies so clinicians know what to review before completing records. That matters because ASHA summarizes Medicare outpatient therapy documentation as including evaluation, plan of care, daily treatment notes, progress reports, and discharge note.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-asha-medicare-documentation"
+      ]
+    },
+    {
+      "question": "Will the agent write our treatment notes or plans of care?",
+      "answer": "DocsBot should not be positioned as replacing clinician judgment or completing clinical records independently. It can help staff find the right template, summarize internal documentation expectations, retrieve approved policy references, or create a follow-up task. The licensed clinician remains responsible for the evaluation, goals, plan, treatment decisions, and final documentation.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the AI from using outdated handouts or old clinic policies?",
+      "answer": "Treat the agent like a governed knowledge channel. Train it only on approved sources, remove outdated files from the source library, assign content owners for handouts and SOPs, and review conversation logs for gaps or confusing answers. DocsBot’s analytics, topic management, reports, conversation review, and knowledge-gap discovery help show where your official content needs cleanup.",
+      "role": "Practice owners and clinic directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help with caregiver home-program questions between sessions?",
+      "answer": "Yes, if the answers come from approved handouts and stay within general education boundaries. For example, the agent can help a caregiver find a speech practice sheet, summarize a sensory strategy handout, or repeat safety notes from discharge education. It should tell caregivers to contact the therapist for patient-specific changes, refusals, pain, regression, or urgent concerns.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle human escalation when a question is sensitive?",
+      "answer": "You can define escalation rules for urgent symptoms, diagnosis requests, individualized treatment recommendations, consent issues, billing disputes, scheduling exceptions, or anything outside the approved source material. The agent can collect context and route the conversation to the appropriate staff workflow so a person reviews the situation instead of forcing the family to start over.",
+      "role": "Practice owners and clinic directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What ROI should a therapy practice realistically look for?",
+      "answer": "The clearest early ROI is usually reduced repetitive intake and education questions, faster staff access to policies and resources, fewer interruptions for senior clinicians, and better handoffs for referral or scheduling requests. Workforce pressure makes this important: BLS projects 15% SLP employment growth and 14% OT employment growth from 2024 to 2034.",
+      "role": "Practice owners and clinic directors",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-slp-growth",
+        "src-bls-ot-growth"
+      ]
+    },
+    {
+      "question": "Can it support referral partners like pediatricians, schools, hospitals, or case managers?",
+      "answer": "Yes. A referral support agent can answer from your service catalog, referral instructions, eligibility notes, location pages, and provider one-sheets. It can explain general referral requirements, collect the referring party’s details, summarize the request, and route it to intake through a customer-configured workflow while leaving clinical fit and acceptance decisions to staff.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this integrate with our scheduling, EHR, CRM, or helpdesk tools?",
+      "answer": "DocsBot can connect to customer-configured workflows through Skills, APIs, connectors, forms, webhooks, and MCP Connectors where you authorize the access. Use it for bounded actions such as creating an intake task, forwarding a referral summary, requesting a booking workflow, updating approved non-clinical fields, or notifying the right team—not for unsupervised clinical decisions.",
+      "role": "Practice owners and clinic directors",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much setup work is required before the agent is useful?",
+      "answer": "Most practices should start with a focused pilot: service pages, intake FAQs, visit-preparation instructions, cancellation and waitlist policies, common caregiver handouts, and a few internal SOPs. Then review real questions, add missing content, and expand to documentation references, onboarding materials, referral guides, or workflow actions once the answer quality and escalation paths are proven.",
+      "role": "Practice owners and clinic directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can staff use it for onboarding new SLPs, OTs, assistants, and intake coordinators?",
+      "answer": "Yes. A private internal agent can answer questions from onboarding guides, HR policies, role playbooks, tool instructions, approved handout libraries, and escalation rules. It gives new staff a consistent first place to ask about clinic procedures while analytics reveal which training materials are missing, unclear, or repeatedly searched.",
+      "role": "Practice owners and clinic directors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we protect PHI or sensitive clinic information?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For healthcare workflows, you should also scope sources carefully, define what the agent can access, avoid putting credentials in chats, and keep sensitive actions behind permissions and human review.",
+      "role": "Practice owners and clinic directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different roles see different internal information?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, which lets you design separate experiences for clinicians, assistants, front desk staff, intake coordinators, supervisors, or administrators. That is especially useful when some content is public-facing, some is general staff policy, and some should stay limited to leadership, billing, compliance, or clinical supervisors.",
+      "role": "Practice owners and clinic directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer in Spanish or other languages for families?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved source material. For therapy practices, multilingual support is best used for general service, intake, preparation, and education information while preserving the same clinical boundaries, escalation instructions, and human review paths used in English.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we evaluate whether answers are trustworthy enough for a clinical environment?",
+      "answer": "Look for source-grounded responses, visible source references, controlled knowledge sources, logs for review, clear escalation behavior, and the ability to remove or update content quickly. During pilot, test high-risk prompts such as “Does my child have autism?” or “Should I stop this exercise?” and confirm the agent refuses diagnosis or individualized care advice and routes to staff.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What reports would leadership use after launch?",
+      "answer": "Leadership can review conversation volume, common topics, unresolved or low-confidence questions, satisfaction and resolution signals, repeated intake bottlenecks, and knowledge gaps. For a therapy practice, those reports can guide better FAQs, updated caregiver handouts, clearer referral instructions, improved onboarding materials, and content owners for policies that staff keep searching for.",
+      "role": "Practice owners and clinic directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use it for school-based or high-caseload therapy operations?",
+      "answer": "Yes, especially for approved resource lookup, staff onboarding, parent-facing FAQs, documentation references, and routing routine requests. It will not reduce caseload requirements by itself, but it can reduce search time and repetitive communication. ASHA’s 2024 schools survey found 26% of school-based SLP respondents cited local SLP shortages as the greatest barrier to manageable caseload size.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-asha-schools-caseload"
+      ]
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or website FAQ widget?",
+      "answer": "Compare whether the tool can train on your approved clinic knowledge, provide source-grounded answers, support private internal knowledge workflows, enforce escalation boundaries, show analytics and knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows. For therapy practices, generic answers are less valuable than controlled answers from your own policies and handouts.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support both public website questions and private staff questions?",
+      "answer": "Yes. You can use a customer-facing agent for service navigation, intake questions, referral information, and caregiver education, and a private internal agent for SOPs, documentation references, payer guidance, onboarding, and resource library search. Keeping those experiences separate helps preserve access control and avoids exposing internal policies or staff-only guidance to the public.",
+      "role": "Practice owners and clinic directors",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent cannot find an approved answer?",
+      "answer": "The best behavior is to say it does not have enough approved information, offer the appropriate contact or intake path, and log the gap for review. DocsBot’s knowledge-gap discovery and conversation review can help your team identify missing FAQs, unclear handouts, outdated policies, or staff procedures that should be rewritten before the agent answers more confidently.",
+      "role": "Practice owners and clinic directors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it help us stay consistent with plan-of-care and goal documentation rules?",
+      "answer": "DocsBot can help staff retrieve your approved documentation policies and external references, but clinicians remain responsible for applying them. Federal rules at 42 CFR § 409.44 state that therapy plans of care must describe the course of treatment and therapy goals consistent with evaluation of the patient’s function, and both must be included in the clinical record.",
+      "role": "Speech-language pathologists and occupational therapists",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfr-therapy-plan-care"
+      ]
+    },
+    {
+      "question": "Who should own the implementation inside a therapy practice?",
+      "answer": "A strong rollout usually pairs an operational owner with clinical reviewers. The practice owner or clinic director can define goals, risk boundaries, and workflows; SLPs and OTs should approve clinical education content and escalation rules; front desk and intake teams should validate the questions, forms, handoffs, and daily workflow fit.",
+      "role": "Practice owners and clinic directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should procurement or leadership ask before approving an AI agent for therapy workflows?",
+      "answer": "Ask which sources the agent will use, how access is controlled, whether customer data trains public models, how escalation works, what logs are available, which actions are permitted, who can update content, and how success will be measured. Also define what the agent must never do: diagnose, prescribe care changes, promise availability, or override staff review.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent take actions, or is it only answering questions?",
+      "answer": "DocsBot can do more than answer when you configure AI Actions, Skills, APIs, connectors, or workflows. For therapy practices, appropriate actions include collecting intake details, creating a follow-up task, sending a referral summary, triggering an email notification, requesting a booking workflow, or updating approved non-clinical fields within defined permissions.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Integrations"
+    }
+  ]
+}

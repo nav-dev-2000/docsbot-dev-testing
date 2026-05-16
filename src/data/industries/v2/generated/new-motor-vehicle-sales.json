@@ -1,0 +1,748 @@
+{
+  "slug": "new-motor-vehicle-sales",
+  "business": "New Motor Vehicle Sales",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for New Vehicle Dealership Sales",
+    "description": "DocsBot helps new motor vehicle dealers answer shopper questions, qualify leads, and support sales teams with source-grounded AI automation.",
+    "canonicalPath": "/industry/new-motor-vehicle-sales"
+  },
+  "hero": {
+    "eyebrow": "AI sales and support agents for franchised vehicle retailers",
+    "headline": "Keep new-car shoppers moving with DocsBot AI agents",
+    "subheadline": "Train a DocsBot agent on your vehicle pages, model specs, incentives FAQs, warranty documents, finance explainers, delivery policies, sales playbooks, and internal procedures so shoppers and dealership teams get fast, consistent answers before a salesperson steps in.",
+    "proofBullets": [
+      {
+        "text": "Answer model, trim, feature, warranty, availability, delivery, and financing FAQ questions from approved dealership sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details, qualify intent with your rules, summarize the conversation, and route handoffs to sales workflows.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Give sales, BDC, and support teams a private knowledge agent for SOPs, offer rules, objection handling, and follow-up drafts.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions for approved live lookups, task creation, record updates, notifications, and human escalation when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a dealership AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your dealership’s own knowledge, then makes that knowledge available through a website widget, private team chat, API, helpdesk-connected workflow, or customer-configured Skills. For new motor vehicle sales, that means shoppers can ask detailed buying questions while employees can retrieve the latest policy, product, and process answers without searching across scattered files.",
+    "whoItHelps": [
+      {
+        "role": "Internet sales and BDC teams",
+        "roleContext": "Handle high-volume shopper questions, appointment requests, model comparisons, and lead intake while keeping human salespeople focused on high-intent conversations.",
+        "bullets": [
+          {
+            "text": "Collect name, contact details, vehicle interest, trade-in intent, budget range, timeline, and preferred follow-up channel through structured intake.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Summarize shopper conversations and route qualified opportunities to your CRM, email, forms, Slack, Teams, or ticketing workflow when configured.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Surface repeated unanswered questions so managers can improve website content, FAQs, and sales enablement material.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Sales managers and showroom staff",
+        "roleContext": "Give floor teams quick access to approved vehicle, incentive, delivery, trade-in, protection product, and process guidance without relying on memory or stale notes.",
+        "bullets": [
+          {
+            "text": "Search approved sales playbooks, OEM bulletins, pricing guidance, inventory explainers, and objection-handling notes from one source-grounded assistant.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft follow-up emails, recap calls, and appointment notes for human review using the shopper’s stated needs and the dealership’s approved language.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Keep humans responsible for pricing commitments, legal terms, financing decisions, and final deal structure while the agent supports information retrieval and prep.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Dealer principals, operations, and compliance leaders",
+        "roleContext": "Standardize answers across teams, create reviewable logs, and reduce process drift in a business where pricing, add-ons, privacy, and financing communications carry risk.",
+        "bullets": [
+          {
+            "text": "The FTC’s CARS Rule targets bait-and-switch tactics and hidden junk fees in vehicle shopping, making consistent offer and add-on explanations important.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-ftc-cars-rule"
+            ]
+          },
+          {
+            "text": "Use permissions, scoped Skills, conversation review, and escalation paths for sensitive finance, identity, pricing, or complaint workflows.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Analyze logs and reports to identify which shoppers ask about incentives, EV charging, availability, warranty coverage, add-ons, delivery, or financing next steps.",
+            "icon": "PresentationChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon",
+        "sourceIds": [
+          "src-ftc-cars-rule"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nada-sales",
+      "metric": "$1.2 trillion in franchised light-vehicle dealership sales",
+      "claim": "NADA reported that total franchised light-vehicle dealership sales topped $1.2 trillion in its 2024 NADA Data report.",
+      "sourceTitle": "NADA Data",
+      "sourceUrl": "https://www.nada.org/index.php/nada/nada-data",
+      "sourceDate": "2024 report",
+      "bestUsedFor": [
+        "market scale",
+        "dealership operations importance",
+        "new-car retail volume"
+      ]
+    },
+    {
+      "id": "src-cox-buyer-journey",
+      "metric": "More buying activity happens across online and dealership touchpoints",
+      "claim": "Cox Automotive’s 2024 Car Buyer Journey Study reported that shoppers spent more time in process and that online, dealer, and social touchpoints all increased in 2024.",
+      "sourceTitle": "Cox Automotive’s Car Buyer Journey Study Reveals Record High Satisfaction Among New and EV Buyers",
+      "sourceUrl": "https://www.coxautoinc.com/insights/cox-automotives-car-buyer-journey-study-reveals-record-high-satisfaction-among-new-and-ev-buyers/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "omnichannel buying behavior",
+        "digital retail expectations",
+        "shopper support needs"
+      ]
+    },
+    {
+      "id": "src-ftc-cars-rule",
+      "metric": "FTC rule addresses bait-and-switch tactics and hidden junk fees",
+      "claim": "The Federal Trade Commission finalized the CARS Rule to address deceptive vehicle shopping practices, including bait-and-switch tactics and hidden junk fees.",
+      "sourceTitle": "FTC Announces CARS Rule to Fight Scams in Vehicle Shopping",
+      "sourceUrl": "https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-announces-cars-rule-fight-scams-vehicle-shopping",
+      "sourceDate": "December 2023",
+      "bestUsedFor": [
+        "compliance pressure",
+        "pricing transparency",
+        "add-on disclosures"
+      ]
+    },
+    {
+      "id": "src-ftc-privacy-auto",
+      "metric": "FTC Privacy Rule applies when dealers arrange vehicle financing",
+      "claim": "FTC guidance explains that the Privacy Rule can apply to auto dealers when they enter into retail installment contracts or arrange financing.",
+      "sourceTitle": "FTC’s Privacy Rule and Auto Dealers: FAQs",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/ftcs-privacy-rule-auto-dealers-faqs",
+      "sourceDate": "FTC business guidance",
+      "bestUsedFor": [
+        "privacy risk",
+        "finance workflows",
+        "consumer data handling"
+      ]
+    },
+    {
+      "id": "src-nada-workforce",
+      "metric": "NADA tracks dealership payroll, benefits, demographics, and turnover",
+      "claim": "NADA’s Dealership Workforce Study analyzes dealership compensation, retention, benefits, demographics, and turnover data and notes challenges including high employee turnover and recruiting pressure.",
+      "sourceTitle": "NADA Dealership Workforce Study",
+      "sourceUrl": "https://www.nada.org/nada/research-and-data/nada-dealership-workforce-study",
+      "sourceDate": "2025 study based on 2024 payroll data",
+      "bestUsedFor": [
+        "employee turnover",
+        "training pressure",
+        "knowledge retention"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Vehicle shopping and trim comparison assistant",
+      "problem": "New-car shoppers compare trims, packages, EV ranges, towing specs, warranties, incentives, availability, and delivery options before they are ready to speak with sales.",
+      "agentWorkflow": "A DocsBot agent answers from approved model pages, brochures, OEM PDFs, dealership FAQs, warranty documents, policy pages, and sales enablement notes. It can clarify feature differences, ask follow-up questions, suggest relevant pages, and escalate when the shopper needs a quote, trade appraisal, or human negotiation.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can perform scoped inventory or appointment-intent lookups, collect lead details, and trigger a handoff workflow without making final pricing commitments.",
+      "exampleQuestionsOrRequests": [
+        "Which hybrid SUVs have all-wheel drive and heated seats?",
+        "What is the difference between these two trims?",
+        "Can I reserve an incoming vehicle?",
+        "What warranty coverage comes with a new model?"
+      ],
+      "businessOutcome": "Improve the digital showroom experience and give salespeople cleaner, better-contextualized conversations when shoppers are ready for human help.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-cox-buyer-journey"
+      ]
+    },
+    {
+      "name": "Lead qualification and appointment routing",
+      "problem": "Dealerships receive inquiries from forms, ads, website chat, phone follow-up, and marketplace listings, but many lack enough context for fast prioritization.",
+      "agentWorkflow": "The agent collects structured information such as vehicle interest, timeline, trade-in status, financing intent, location, budget range, and preferred contact method. It applies dealership-defined qualification rules, summarizes the conversation, and prepares a sales handoff for review or follow-up.",
+      "liveContextOrTools": "Customer-configured Skills, webhooks, APIs, forms, scheduling workflows, or MCP Connectors can create tasks, forward summaries, request appointments, update approved fields, or notify the right team.",
+      "exampleQuestionsOrRequests": [
+        "I want to test drive the blue SUV this weekend.",
+        "Can someone contact me about leasing options?",
+        "I have a trade and want a monthly payment estimate.",
+        "Please send this lead to the EV specialist."
+      ],
+      "businessOutcome": "Help BDC and internet sales teams respond faster, avoid missing context, and prioritize shoppers who show clear buying intent.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Finance, incentives, and add-on explanation support",
+      "problem": "Vehicle buyers often need plain-language explanations of advertised offers, rebates, lender requirements, protection products, GAP, service contracts, and required documents.",
+      "agentWorkflow": "DocsBot can answer from dealership-approved finance FAQs, offer disclaimers, protection product descriptions, privacy notices, and compliance-reviewed scripts. It can explain what information is needed, route sensitive questions to finance staff, and keep logs for review.",
+      "liveContextOrTools": "Use scoped actions for intake, document checklists, appointment requests, or handoffs. Human finance and compliance staff remain responsible for final terms, approvals, credit decisions, and regulated disclosures.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I bring for financing?",
+        "Which incentives can be combined?",
+        "What is the difference between a service contract and the factory warranty?",
+        "Can you explain this add-on before I sign?"
+      ],
+      "businessOutcome": "Support clearer buyer communication while keeping high-impact finance, pricing, and contract decisions in human hands.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-ftc-cars-rule",
+        "src-ftc-privacy-auto"
+      ]
+    },
+    {
+      "name": "Post-sale delivery and owner onboarding agent",
+      "problem": "After purchase, customers still ask about delivery timing, registration steps, connected-car apps, EV charging, service intervals, accessories, warranty coverage, and first-service scheduling.",
+      "agentWorkflow": "Train a DocsBot agent on owner manuals, delivery checklists, registration FAQs, service department instructions, warranty guides, accessory information, and dealership onboarding content. The agent can answer routine questions and escalate service, title, or finance issues to the right team.",
+      "liveContextOrTools": "When configured, AI Actions can create a task, route a ticket, notify a delivery coordinator, or collect missing information for a human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "How do I set up the connected-car app?",
+        "When should I schedule the first service?",
+        "What is covered by the battery warranty?",
+        "Who can help with my license plate paperwork?"
+      ],
+      "businessOutcome": "Create a smoother handoff from sales to ownership and reduce repetitive post-sale calls that interrupt sales and service teams.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "name": "Sales enablement and process knowledge assistant",
+      "problem": "Dealership employees need current answers on OEM programs, internal procedures, inventory notes, promotions, compliance scripts, and follow-up standards, especially when staffing changes.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, playbooks, HR and onboarding docs, offer guidance, manager notes, product training, and approved objection handling. Employees ask in private chat, Slack, Teams, or an internal portal and receive source-grounded answers.",
+      "liveContextOrTools": "Configured Skills can retrieve approved account or lead context, draft follow-up language, create internal tasks, or summarize prospect research for a salesperson to review.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for an out-of-state buyer?",
+        "How should I explain incoming inventory deposits?",
+        "Where is the latest EV delivery checklist?",
+        "Draft a follow-up email after this test drive."
+      ],
+      "businessOutcome": "Reduce time spent hunting for information and preserve dealership knowledge when teams grow, change roles, or onboard new hires.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-nada-workforce"
+      ]
+    },
+    {
+      "name": "Knowledge gap analytics for shopper and employee questions",
+      "problem": "Dealership leaders may not see which questions repeatedly block shoppers or confuse employees across website, BDC, finance, delivery, and post-sale workflows.",
+      "agentWorkflow": "DocsBot logs conversations, reports trends, reviews satisfaction and resolution signals, and highlights unanswered topics. Managers can use these insights to update FAQs, sales scripts, model pages, internal SOPs, and training content.",
+      "liveContextOrTools": "Reports and conversation review can inform content updates, sales coaching, and workflow improvements without requiring the agent to make sensitive business decisions.",
+      "exampleQuestionsOrRequests": [
+        "Which EV questions are customers asking most often?",
+        "What topics caused escalations this month?",
+        "Where are shoppers getting stuck before booking?",
+        "Which internal SOPs need clearer documentation?"
+      ],
+      "businessOutcome": "Turn repeated questions into better content, smoother sales processes, and more consistent customer communication.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A digital showroom assistant that answers before the handoff",
+    "intro": "DocsBot can sit on your dealership website or product pages as a source-grounded AI support agent. It answers from the information you approve, collects shopper intent, and hands off complex pricing, trade, finance, or appointment requests to your team with context.",
+    "requests": [
+      {
+        "request": "“Do you have a three-row SUV with captain’s chairs and all-wheel drive?”",
+        "agentResponseStrategy": "Ask clarifying questions, answer from model pages and inventory explainers, suggest matching trims or pages, and offer to collect contact details for a salesperson.",
+        "sourceTypes": [
+          "Vehicle pages",
+          "Inventory descriptions",
+          "Model brochures",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Use an approved live lookup or routing workflow to request availability confirmation from the sales team.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“Can you explain the advertised lease offer?”",
+        "agentResponseStrategy": "Summarize approved offer language, required documents, eligibility notes, and disclaimers while directing final payment and qualification questions to finance staff.",
+        "sourceTypes": [
+          "Finance FAQs",
+          "Offer disclaimers",
+          "Compliance-reviewed scripts",
+          "Dealer policies"
+        ],
+        "optionalAction": "Collect questions and route a handoff to the finance manager or BDC team for human follow-up.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-ftc-cars-rule"
+        ]
+      },
+      {
+        "request": "“I bought a vehicle yesterday and need help setting up the app.”",
+        "agentResponseStrategy": "Answer from owner onboarding materials, delivery checklists, app setup guides, and warranty resources, then escalate unresolved account or service issues.",
+        "sourceTypes": [
+          "Owner manuals",
+          "Delivery checklists",
+          "Connected-car guides",
+          "Warranty documents"
+        ],
+        "optionalAction": "Create a follow-up task or ticket for delivery, service, or customer care when configured.",
+        "icon": "DevicePhoneMobileIcon"
+      },
+      {
+        "request": "“Can I schedule a test drive this weekend?”",
+        "agentResponseStrategy": "Collect preferred vehicle, date, time window, contact method, and any accessibility or trade-in notes, then prepare a clear handoff.",
+        "sourceTypes": [
+          "Appointment policies",
+          "Lead intake forms",
+          "Inventory notes",
+          "Sales team routing rules"
+        ],
+        "optionalAction": "Use a customer-configured scheduling Skill or workflow to request a booking or notify the right salesperson.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What fees or add-ons are optional?”",
+        "agentResponseStrategy": "Answer from dealership-approved pricing, add-on, and disclosure materials and escalate any deal-specific or disputed charge question to a human manager.",
+        "sourceTypes": [
+          "Add-on descriptions",
+          "Pricing FAQs",
+          "Disclosure language",
+          "Manager-approved policies"
+        ],
+        "optionalAction": "Prepare a conversation summary for compliance, finance, or management review.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-ftc-cars-rule"
+        ]
+      },
+      {
+        "request": "“Do you support Spanish-speaking shoppers?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages when trained on the dealership’s approved sources, helping multilingual shoppers understand the next step.",
+        "sourceTypes": [
+          "Website FAQs",
+          "Vehicle pages",
+          "Policy documents",
+          "Lead intake prompts"
+        ],
+        "optionalAction": "Route the shopper to a bilingual team member when human follow-up is needed.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give dealership teams one place to ask how things work",
+    "intro": "DocsBot can also operate as a private knowledge agent for sales, BDC, finance, delivery, service handoff, operations, HR, and management teams. It retrieves approved answers, drafts internal summaries, and identifies where documentation needs improvement.",
+    "workflows": [
+      {
+        "name": "Sales desk and BDC playbook access",
+        "problem": "Reps often need fast answers to policies, incentives, model differences, incoming units, deposits, follow-up standards, and objection handling.",
+        "agentWorkflow": "Employees ask the internal agent a question and get an answer grounded in approved playbooks, PDFs, SOPs, FAQs, and sales enablement content, with citations back to source material.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "OEM program notes",
+          "Internal SOPs",
+          "Follow-up templates"
+        ],
+        "optionalAction": "Draft a customer follow-up email or create a manager review task through configured workflow actions.",
+        "outcome": "Keep customer communication consistent even when teams are busy or newer employees are still learning.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Finance and privacy intake support",
+        "problem": "Finance workflows involve personal information, lender communication, disclosures, and deal-specific facts that should not be handled casually.",
+        "agentWorkflow": "DocsBot can provide approved checklist answers, explain required document steps, summarize intake conversations, and route sensitive questions to finance staff within customer-defined boundaries.",
+        "sourceTypes": [
+          "Finance checklists",
+          "Privacy notices",
+          "Disclosure scripts",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a secure internal task or handoff summary without exposing credentials or making credit decisions.",
+        "outcome": "Support faster intake while preserving human review for financing, identity, legal, and contract commitments.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-privacy-auto"
+        ]
+      },
+      {
+        "name": "Delivery, service handoff, and owner support",
+        "problem": "Sales, delivery, and service teams need consistent answers on app setup, warranty coverage, first service, accessories, recalls, registration, and title paperwork.",
+        "agentWorkflow": "The internal agent retrieves answers from delivery procedures, manuals, service handoff guides, warranty PDFs, and customer care scripts so employees can resolve routine questions quickly.",
+        "sourceTypes": [
+          "Delivery SOPs",
+          "Owner manuals",
+          "Warranty guides",
+          "Service handoff notes"
+        ],
+        "optionalAction": "Route unresolved issues to service, title, delivery, or management workflows when configured.",
+        "outcome": "Reduce internal back-and-forth and improve the customer’s first weeks of ownership.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Onboarding and knowledge retention",
+        "problem": "NADA notes that dealers face challenges including high employee turnover and recruitment pressure, which makes consistent training and knowledge access harder.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, HR policies, role guides, compliance reminders, product training, and department procedures so new hires can ask questions as they learn.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "HR policies",
+          "Training decks",
+          "Department SOPs"
+        ],
+        "optionalAction": "Use analytics to see what new employees ask most and where training content needs to be expanded.",
+        "outcome": "Help dealership teams preserve operational knowledge and shorten the path from hiring to productive customer conversations.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-nada-workforce"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents train on approved company knowledge and answer in your voice from those sources.",
+      "industryApplication": "Answer new-vehicle shopper questions from model pages, brochures, warranty documents, offer explanations, dealership FAQs, delivery policies, and owner resources.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Presales lead intake and qualification",
+      "mainLandingPageContext": "DocsBot can collect structured details, apply customer-defined qualification rules, and forward summaries through configured workflows.",
+      "industryApplication": "Capture vehicle interest, trade-in status, budget range, timeline, financing intent, and preferred appointment window before handing the lead to BDC or sales.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, routing, record updates, workflow triggers, and summaries.",
+      "industryApplication": "Use approved workflows for inventory checks, appointment requests, lead routing, task creation, follow-up drafts, notifications, or handoff summaries; MCP Connectors can expose tools from systems your team already uses.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can answer employees from SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other internal sources.",
+      "industryApplication": "Give sales, finance, BDC, delivery, service handoff, and management teams one assistant for current policies, scripts, product notes, and operating procedures.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, conversation review, satisfaction analysis, and visibility into unanswered questions.",
+      "industryApplication": "See which shoppers ask about EV charging, incentives, add-ons, delivery, warranty, or availability, then update dealership content and sales training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Use scoped access, review paths, and escalation rules for finance, identity, privacy, pricing, and contract-adjacent dealership workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions across website, support, and internal team workflows.",
+      "Trains on your owned content library so answers stay grounded in approved dealership knowledge.",
+      "Supports multilingual manuals, websites, and self-service resources for customers who need help any time."
+    ],
+    "whyTheseReviewsFit": "New vehicle dealers need fast shopper answers, dependable source grounding, and scalable support that works before and after the sale. DocsBot proof spans high-volume inquiry handling, owned-content training, embedded website assistance, and multilingual product support.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "LanguageIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI sales, support, and internal knowledge agents for new motor vehicle dealerships",
+    "audience": [
+      "Dealer principals",
+      "General managers",
+      "Internet sales managers",
+      "BDC leaders",
+      "Sales operations teams",
+      "Finance and compliance leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "used-car-sales",
+    "motor-vehicle",
+    "motor-vehicle-repair",
+    "vehicle-leasing",
+    "automotive-part-sales",
+    "fleet-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "new-motor-vehicle-sales",
+    "webSearchQueries": [
+      "NADA 2025 dealership workforce study employee turnover sales consultants",
+      "Cox Automotive car buyer journey 2024 time spent online vehicle shopping",
+      "FTC CARS Rule motor vehicle dealers financing add-ons disclosure 2024",
+      "NADA data 2024 new vehicle dealerships sales employment"
+    ],
+    "sourceUrls": [
+      "https://www.nada.org/index.php/nada/nada-data",
+      "https://www.coxautoinc.com/insights/cox-automotives-car-buyer-journey-study-reveals-record-high-satisfaction-among-new-and-ev-buyers/",
+      "https://www.ftc.gov/news-events/news/press-releases/2023/12/ftc-announces-cars-rule-fight-scams-vehicle-shopping",
+      "https://www.ftc.gov/business-guidance/resources/ftcs-privacy-rule-auto-dealers-faqs",
+      "https://www.nada.org/nada/research-and-data/nada-dealership-workforce-study"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41441,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28897,
+        "outputTokens": 8218,
+        "reasoningOutputTokens": 114,
+        "totalTokens": 49659,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.198649,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.208649
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21519,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14223,
+          "outputTokens": 5360,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 26879,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.117782,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.127782
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19922,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14674,
+          "outputTokens": 2858,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22780,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080867,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080867
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1471174617910-3e9c04f58ff5?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzk2MzB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "New Motor Vehicle Sales background image",
+    "source": "legacy-industry",
+    "query": "New Motor Vehicle Sales"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer detailed model, trim, warranty, incentive, and delivery questions without sending every shopper straight to a salesperson?",
+      "answer": "Yes. You can train a DocsBot agent on approved vehicle pages, brochures, OEM PDFs, warranty documents, dealership FAQs, finance explainers, delivery policies, and sales playbooks. It can answer routine shopping questions, ask clarifying questions, suggest next steps, and escalate quote, trade, deal-specific, or negotiation requests to your team.",
+      "role": "Internet sales and BDC teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help our BDC qualify internet leads before they hit the CRM or sales desk?",
+      "answer": "DocsBot can collect structured details such as vehicle interest, trade-in intent, budget range, financing intent, purchase timeline, location, and preferred follow-up channel. Using your qualification rules, it can summarize the conversation and route a cleaner handoff through customer-configured forms, APIs, webhooks, CRM workflows, email, Slack, Teams, or ticketing systems.",
+      "role": "Internet sales and BDC teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent check live inventory or appointment availability?",
+      "answer": "It can when you configure approved Skills, APIs, connectors, MCP Connectors, or workflow automations for those systems. Many dealers should start with scoped actions such as requesting availability confirmation, collecting appointment intent, creating a task, or notifying the right salesperson rather than allowing the agent to make final inventory, pricing, or scheduling commitments on its own.",
+      "role": "Internet sales and BDC teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot make pricing promises or quote payments that could create compliance risk?",
+      "answer": "DocsBot should be configured to answer from approved pricing FAQs, offer disclaimers, add-on descriptions, and finance scripts, while escalating final pricing, payment, credit, contract, and eligibility questions to a human. That matters because the FTC finalized the CARS Rule to address bait-and-switch tactics and hidden junk fees in vehicle shopping.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-cars-rule"
+      ]
+    },
+    {
+      "question": "Can we use it to explain optional add-ons, GAP, service contracts, and factory warranty differences?",
+      "answer": "Yes, if those explanations are in your approved sources. DocsBot can give plain-language answers from compliance-reviewed product descriptions, warranty guides, finance FAQs, and disclosure language, then escalate disputed charges or deal-specific contract questions. The FTC’s CARS Rule specifically targets deceptive vehicle shopping practices, including hidden junk fees, so approved source material and human review paths are important.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-cars-rule"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle privacy-sensitive finance or credit-related questions?",
+      "answer": "Use DocsBot for checklists, intake summaries, document preparation guidance, and routing—not for credit decisions or final financing terms. You can apply role-based permissions, scoped Skills, logs, and escalation rules. FTC guidance explains that the Privacy Rule can apply to auto dealers when they enter retail installment contracts or arrange financing.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-privacy-auto"
+      ]
+    },
+    {
+      "question": "Can our sales managers use this internally for policies, OEM programs, deposits, incoming units, and objection handling?",
+      "answer": "Yes. DocsBot can operate as a private internal knowledge agent trained on SOPs, sales playbooks, OEM program notes, manager-approved guidance, onboarding docs, follow-up templates, and objection-handling material. Staff can ask questions in private chat or team workflows and get source-grounded answers instead of relying on stale notes or memory.",
+      "role": "Sales managers and showroom staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much work is required to keep answers current when incentives and vehicle availability change?",
+      "answer": "The key is separating stable knowledge from fast-changing data. Train the agent on approved pages, PDFs, FAQs, policies, and scripts, then use scheduled content updates or scoped live lookups where appropriate. For incentives, pricing, availability, and incoming units, configure the agent to cite approved sources, show uncertainty when needed, and escalate final commitments to people.",
+      "role": "Sales managers and showroom staff",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support EV shoppers who ask about range, charging, battery warranty, tax credits, and home charger setup?",
+      "answer": "Yes, as long as those topics are covered in your approved content. DocsBot can answer from model pages, EV brochures, battery warranty documents, delivery checklists, charging FAQs, and dealership policies. For tax credit eligibility, payment impact, or installation commitments, it should route the shopper to a qualified human or approved dealership workflow.",
+      "role": "Internet sales and BDC teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will this replace our BDC agents or salespeople?",
+      "answer": "No. The better fit is to let DocsBot handle repetitive questions, structured intake, conversation summaries, internal knowledge retrieval, and after-hours responses so humans spend more time on high-intent conversations, negotiation, appraisals, financing, and relationship work. It should support your sales process, not remove human judgment from the deal.",
+      "role": "Internet sales and BDC teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI beyond chat volume?",
+      "answer": "Track lead capture rate, appointment requests, response time, handoff completeness, after-hours conversations, unanswered-question trends, escalation reasons, BDC time saved, and content gaps fixed. For context, NADA reported franchised light-vehicle dealership sales topped $1.2 trillion in its 2024 NADA Data report, so even small improvements in shopper conversion and process consistency can matter.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nada-sales"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us improve website content and sales training based on what shoppers actually ask?",
+      "answer": "Yes. DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see recurring questions about incentives, EV charging, warranties, add-ons, delivery, availability, or financing next steps, then update FAQs, model pages, scripts, and training material.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review conversations for compliance, coaching, and dispute resolution?",
+      "answer": "Yes. DocsBot supports conversation logs and review workflows so managers can inspect what shoppers asked, how the agent responded, what sources were used, and when escalation occurred. That is useful for coaching BDC reps, improving approved language, spotting risky topics, and documenting why certain questions were handed to finance, sales management, or compliance.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot avoid hallucinating vehicle facts or outdated offer details?",
+      "answer": "DocsBot is designed around source-grounded answers from your approved knowledge. You should train it on current model pages, brochures, warranty docs, offer disclaimers, and policies; remove stale content; and configure escalation for uncertain, deal-specific, or regulated questions. For live facts such as availability or appointment status, use scoped integrations or require human confirmation.",
+      "role": "Sales managers and showroom staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we limit what the customer-facing agent can see compared with our internal sales agent?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. You can keep customer-facing answers limited to public or approved shopper content while giving internal teams access to SOPs, manager notes, playbooks, HR materials, and process documents. Sensitive Skills can also be scoped with customer-defined controls, logging, and boundaries.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What systems can DocsBot fit around if we already use automotive CRM, DMS, inventory feeds, website chat, and scheduling tools?",
+      "answer": "DocsBot can work through website widgets, private team chat, APIs, connectors, Skills, webhooks, forms, and customer-configured workflows. Rather than assuming a one-size-fits-all integration, you can define bounded actions such as lead forwarding, task creation, approved field updates, appointment requests, handoff summaries, or notifications around the systems your dealership authorizes.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer in Spanish or support multilingual shoppers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when trained on your approved sources. For dealerships, that can help shoppers understand model features, appointment steps, delivery policies, warranty basics, and document requirements, while still routing complex pricing, finance, trade, or complaint conversations to the appropriate human team member.",
+      "role": "Internet sales and BDC teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help after the sale with delivery, app setup, registration, first service, and warranty questions?",
+      "answer": "Yes. Train the agent on owner manuals, delivery checklists, connected-car app guides, registration FAQs, warranty documents, accessory information, and service handoff instructions. It can answer routine post-sale questions, collect missing details, and create or route a task to delivery, service, title, finance, or customer care when configured.",
+      "role": "Sales managers and showroom staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help with onboarding new sales, BDC, or delivery employees?",
+      "answer": "DocsBot can serve as a private onboarding assistant trained on role guides, HR policies, department SOPs, compliance reminders, product training, and dealership procedures. NADA’s Dealership Workforce Study tracks issues including turnover and recruiting pressure, which makes preserving process knowledge and giving new employees fast answers especially valuable.",
+      "role": "Sales managers and showroom staff",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-nada-workforce"
+      ]
+    },
+    {
+      "question": "Can managers control what sources the agent uses and update bad answers?",
+      "answer": "Yes. DocsBot agents are trained on the sources you approve, such as website pages, PDFs, Word documents, SOPs, policies, wikis, FAQs, and sales content. Conversation review and knowledge-gap reporting help managers find weak answers, missing documentation, stale incentives, unclear policies, or questions that should trigger escalation instead of automation.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How fast can we start without connecting every dealership system on day one?",
+      "answer": "A practical rollout can begin with a source-grounded website or internal knowledge agent trained on approved content, plus simple lead intake and human handoff. After teams trust the answers, you can add scoped Skills for inventory lookups, scheduling requests, CRM handoffs, task creation, notifications, or approved record updates.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot from our website provider?",
+      "answer": "DocsBot is better positioned as a source-grounded AI agent, not just a scripted chat box. It can answer from your approved content, support customer-facing and internal use cases, collect structured lead details, summarize conversations, surface knowledge gaps, and take bounded actions through configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for both customer questions and internal employee questions, or do we need separate tools?",
+      "answer": "You can use DocsBot for both, with different agents, sources, permissions, and workflows. A customer-facing agent can answer shopper and owner questions from approved public content, while an internal agent can support sales, BDC, finance, delivery, service handoff, operations, HR, and management with private SOPs and playbooks.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should stay in human hands even after we deploy an AI agent?",
+      "answer": "Keep humans responsible for final pricing, trade valuation, credit decisions, lender approvals, legal terms, regulated disclosures, contract commitments, complaint resolution, and any unusual customer situation. DocsBot is strongest for source-grounded answers, intake, summaries, routing, documentation lookup, and workflow support inside boundaries you define.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will shoppers actually use an AI agent during the vehicle buying journey?",
+      "answer": "It is realistic to support shoppers across digital and in-store moments because Cox Automotive’s 2024 Car Buyer Journey Study reported that online, dealer, and social touchpoints all increased in 2024 and that shoppers spent more time in the process. DocsBot can help keep those shoppers moving with instant answers and timely handoffs.",
+      "role": "Internet sales and BDC teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-cox-buyer-journey"
+      ]
+    },
+    {
+      "question": "What security posture can we show our IT or compliance reviewer?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For dealership workflows, Skills should be scoped so credentials stay out of chat and sensitive actions have logs and boundaries.",
+      "role": "Dealer principals, operations, and compliance leaders",
+      "category": "Vendor trust"
+    }
+  ]
+}

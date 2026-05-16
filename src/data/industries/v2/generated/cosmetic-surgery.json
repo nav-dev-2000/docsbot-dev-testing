@@ -1,0 +1,750 @@
+{
+  "slug": "cosmetic-surgery",
+  "business": "Cosmetic Surgery",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Cosmetic Surgery Practices",
+    "description": "DocsBot helps cosmetic surgery teams answer procedure questions, qualify consult requests, and route sensitive patient conversations with source-grounded AI agents.",
+    "canonicalPath": "/industry/cosmetic-surgery"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for elective care journeys",
+    "headline": "DocsBot AI agents help cosmetic surgery practices respond faster",
+    "subheadline": "Train an AI support agent on your procedure pages, FAQs, financing guidance, pre-op instructions, post-op care sheets, policies, and internal SOPs so prospects and patients get consistent answers while staff stay focused on consults and care coordination.",
+    "proofBullets": [
+      {
+        "text": "Answer procedure, recovery, pricing-range, consultation, and preparation questions from approved clinic content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect consult intent, preferred treatment areas, timeline, contact details, and hand off qualified leads to your configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Summarize conversations, route sensitive questions to staff, and keep human review in place for medical advice or eligibility decisions.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "text": "Give coordinators and front-desk teams instant access to SOPs, policies, care instructions, and approved messaging.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build a cosmetic surgery AI agent",
+    "secondaryCta": "See how DocsBot handles patient questions"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps cosmetic surgery practices create AI agents trained on their own approved knowledge. Agents can answer website visitors, support intake and consult workflows, retrieve internal SOPs, summarize inquiries, surface documentation gaps, and trigger bounded actions when configured through Skills, APIs, connectors, MCP servers, or clinic-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Patient coordinators and front desk teams",
+        "roleContext": "These teams field high volumes of recurring questions about procedures, consults, recovery, deposits, financing, and next steps while protecting time for patients who need a person.",
+        "bullets": [
+          {
+            "text": "Offer instant answers from approved procedure pages, FAQs, and care instructions before staff step in.",
+            "icon": "BoltIcon"
+          },
+          {
+            "text": "Collect missing details for consult requests and route conversation summaries to the right coordinator.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Escalate symptoms, complications, medication questions, or eligibility concerns instead of trying to resolve them automatically.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Practice owners and administrators",
+        "roleContext": "Cosmetic surgery demand continues to grow, and administrators need repeatable ways to manage patient communication without diluting the practice’s clinical standards.",
+        "bullets": [
+          {
+            "text": "ASPS reported a 5% rise in plastic surgeries and a 7% rise in minimally invasive procedures in 2023 compared with 2022.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-asps-2023-growth"
+            ]
+          },
+          {
+            "text": "Review analytics and conversation logs to identify repeated questions, missing pages, and unclear pre-consult instructions.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Use source-grounded answers to keep website, intake, and internal responses aligned with approved clinic language.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Clinical leaders and care teams",
+        "roleContext": "Surgeons, nurses, and medical assistants need consistent patient education support while retaining control over clinical judgment and risk communication.",
+        "bullets": [
+          {
+            "text": "Make pre-op and post-op instructions searchable for staff and patients from approved materials.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route clinical, urgent, or high-impact questions to humans with context instead of presenting AI as a diagnosis tool.",
+            "icon": "ExclamationCircleIcon"
+          },
+          {
+            "text": "Support implant education workflows where patients must receive risk information and decision checklists from their provider.",
+            "icon": "CheckCircleIcon",
+            "sourceIds": [
+              "src-fda-breast-implant-checklist"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Marketing and consult growth teams",
+        "roleContext": "Prospects often compare procedures, recovery timelines, financing options, and surgeon credentials before booking a consultation.",
+        "bullets": [
+          {
+            "text": "Qualify high-intent visitors with custom intake questions and forward summaries to sales or patient coordination workflows.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Answer in more than 100 languages from approved clinic content for domestic and international prospects.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Prepare follow-up drafts and call notes for staff review after a consultation request or web inquiry.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-asps-2023-growth",
+      "metric": "5% rise in plastic surgeries and 7% rise in minimally invasive procedures",
+      "claim": "The American Society of Plastic Surgeons reported growth in both surgical and minimally invasive cosmetic procedures in its 2023 procedural statistics release.",
+      "sourceTitle": "Plastic Surgery Sees Steady Growth Amidst Economic Uncertainty, American Society of Plastic Surgeons 2023 Procedural Statistics Report Finds",
+      "sourceUrl": "https://www.plasticsurgery.org/news/press-releases/plastic-surgery-sees-steady-growth-amidst-economic-uncertainty-american-society-of-plastic-surgeons-2023-procedural-statistics-report-finds",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Demand growth",
+        "Consult inquiry volume",
+        "Patient education pressure"
+      ]
+    },
+    {
+      "id": "src-aesthetic-society-2023-growth",
+      "metric": "10.2% surgical procedure growth from 2019 to 2023",
+      "claim": "The Aesthetic Society reported a 2.9% increase in total surgical procedures from 2022 to 2023 and 10.2% growth from 2019 to 2023.",
+      "sourceTitle": "The Aesthetic Society Reports 10.2% Growth in Aesthetic Plastic Surgery Over Four Years",
+      "sourceUrl": "https://www.theaestheticsociety.org/media/press-releases/aesthetic-society-reports-102-growth-aesthetic-plastic-surgery-over-four-years",
+      "sourceDate": "July 1, 2024",
+      "bestUsedFor": [
+        "Market demand",
+        "Practice growth",
+        "Operational pressure"
+      ]
+    },
+    {
+      "id": "src-isaps-global-2023",
+      "metric": "More than 15.8 million surgical and 19.1 million non-surgical procedures globally",
+      "claim": "ISAPS reported global growth in aesthetic procedures in its 2023 global survey, including more than 15.8 million surgical procedures performed by plastic surgeons and 19.1 million non-surgical procedures.",
+      "sourceTitle": "Global Survey 2023: Full Report and Press Releases",
+      "sourceUrl": "https://www.isaps.org/discover/about-isaps/global-statistics/global-survey-2023-full-report-and-press-releases/",
+      "sourceDate": "June 12, 2024",
+      "bestUsedFor": [
+        "International demand",
+        "Procedure education",
+        "Multilingual inquiry support"
+      ]
+    },
+    {
+      "id": "src-fda-breast-implant-checklist",
+      "metric": "FDA boxed warning and patient decision checklist for breast implants",
+      "claim": "The FDA requires strengthened breast implant risk communication, including a boxed warning and a patient decision checklist reviewed with the prospective patient by the health care provider.",
+      "sourceTitle": "Things to Consider Before Getting Breast Implants",
+      "sourceUrl": "https://www.fda.gov/medical-devices/breast-implants/things-consider-getting-breast-implants",
+      "sourceDate": "Updated FDA guidance page",
+      "bestUsedFor": [
+        "Risk communication",
+        "Informed consent support",
+        "Clinical escalation boundaries"
+      ]
+    },
+    {
+      "id": "src-hhs-telehealth-privacy",
+      "metric": "HIPAA requires secure communications and data storage for covered telehealth providers",
+      "claim": "HHS Telehealth guidance states that covered health care providers must use telehealth platforms that ensure secure communications and data storage.",
+      "sourceTitle": "Privacy laws and policy guidance",
+      "sourceUrl": "https://telehealth.hhs.gov/providers/best-practice-guides/privacy-and-security-telehealth/privacy-laws-and-policy-guidance",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Patient privacy",
+        "Secure communications",
+        "Governance expectations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Procedure education and consultation readiness",
+      "problem": "Prospects compare breast, body, face, and injectable options before they are ready to call, and staff often repeat the same explanations about candidacy, recovery, pricing ranges, and next steps.",
+      "agentWorkflow": "A DocsBot website agent answers from approved procedure pages, FAQs, surgeon bios, financing explanations, recovery guides, and consultation policies. It can ask clarifying intake questions, collect contact details, summarize the inquiry, and route the prospect to a coordinator through a customer-configured workflow.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can submit a lead form, create a task, request a meeting, or forward a structured consult summary to the practice’s CRM, helpdesk, email, or scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Am I better suited for liposuction or a tummy tuck?",
+        "How long should I plan to be off work after a facelift?",
+        "Can I send my consult request and have someone call me tomorrow?"
+      ],
+      "businessOutcome": "Turn high-intent website visits into organized consult requests while keeping clinical eligibility decisions with staff.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Pre-op and post-op instruction support",
+      "problem": "Patients misplace instructions, ask timing questions after hours, or need reminders about approved preparation steps and recovery expectations.",
+      "agentWorkflow": "DocsBot trains on the practice’s pre-op packets, post-op care sheets, medication reminder language, appointment instructions, and emergency escalation policies. It gives source-grounded answers and escalates urgent symptoms, complications, or individualized medical questions to the care team.",
+      "liveContextOrTools": "Customer-configured AI Actions can create a follow-up task, notify the team, or attach a conversation summary to an approved internal workflow for staff review.",
+      "exampleQuestionsOrRequests": [
+        "When do I stop eating before my procedure?",
+        "What swelling is normal after surgery?",
+        "I have a symptom that is not listed in my packet. Can someone review this?"
+      ],
+      "businessOutcome": "Reduce repetitive instruction calls while making escalation paths clearer for sensitive recovery questions.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Breast implant information workflows",
+      "problem": "Breast implant patients need clear risk, device, and decision information, and practices must avoid relying on informal explanations for high-impact consent topics.",
+      "agentWorkflow": "DocsBot can answer general implant education questions from approved clinic pages, manufacturer-facing patient materials, and FDA-linked risk information stored in the practice knowledge base. It can direct patients to the official materials they must review with a provider and route consent-related or risk-specific questions to staff.",
+      "liveContextOrTools": "An approved Skill can collect which implant topic the patient is asking about and create a review task for the coordinator or clinical team. The FDA requires a boxed warning and patient decision checklist for breast implants.",
+      "exampleQuestionsOrRequests": [
+        "What questions should I ask at my breast augmentation consultation?",
+        "Where can I find the implant risk checklist?",
+        "Can someone explain this warning before I sign anything?"
+      ],
+      "businessOutcome": "Support better patient preparation without letting AI replace the provider’s required risk discussion.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-breast-implant-checklist"
+      ]
+    },
+    {
+      "name": "Multilingual international patient intake",
+      "problem": "Cosmetic surgery practices may receive inquiries from travelers who need procedure information, travel timing, consult requirements, and follow-up expectations before booking.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages using approved clinic content and collect structured information such as location, desired procedure, timeline, previous surgery notes, and preferred contact channel. Staff receive a summarized handoff rather than a fragmented message thread.",
+      "liveContextOrTools": "With configured workflows, the agent can forward qualified leads, generate a summary for a coordinator, or request a consult slot through an approved scheduling tool.",
+      "exampleQuestionsOrRequests": [
+        "I am traveling from another country. How many days should I stay nearby?",
+        "Do you offer virtual consultations before I book flights?",
+        "Can I send my details in Spanish?"
+      ],
+      "businessOutcome": "Improve responsiveness for international prospects while keeping travel, medical clearance, and pricing commitments under staff control.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-isaps-global-2023"
+      ]
+    },
+    {
+      "name": "Internal policy and SOP assistant",
+      "problem": "Front-desk, nursing, and marketing teams need quick access to approved answers, but policies are often scattered across PDFs, drives, emails, and onboarding materials.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves SOPs, phone scripts, refund and deposit policies, financing guidelines, consult workflows, contraindication escalation rules, and brand-approved explanations from the practice’s configured sources.",
+      "liveContextOrTools": "Teams can use the agent in private chat experiences, Slack, Microsoft Teams, or other configured access points. Analytics reveal which policies are unclear or missing.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy for rescheduling a surgery date?",
+        "Which questions should I escalate to the nurse?",
+        "Where is the current post-op instruction sheet for rhinoplasty?"
+      ],
+      "businessOutcome": "Give staff a single source-grounded assistant for clinic operations and reduce dependence on tribal knowledge.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Privacy-aware patient communication triage",
+      "problem": "Patients may share sensitive health details in website, email, text, or telehealth-related conversations, so practices need clear boundaries and secure handling expectations.",
+      "agentWorkflow": "DocsBot can be configured to avoid collecting unnecessary sensitive details, answer from approved privacy and communication policies, and escalate protected or complex issues to staff. Conversation logs and permissions help practices review how the agent is used.",
+      "liveContextOrTools": "Customer-defined Skills can route a request to a secure workflow or create an internal task without exposing credentials in chat. HHS guidance says HIPAA-covered providers must use telehealth technology that supports secure communications and data storage.",
+      "exampleQuestionsOrRequests": [
+        "Can I discuss my medical history here?",
+        "Where should I upload my photos for consultation review?",
+        "Please have a coordinator contact me through a secure channel."
+      ],
+      "businessOutcome": "Set clearer digital communication expectations for patients and staff while preserving human oversight for sensitive conversations.",
+      "icon": "LockClosedIcon",
+      "sourceIds": [
+        "src-hhs-telehealth-privacy"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospective patients a clearer path from research to consultation",
+    "intro": "A DocsBot customer-facing AI agent can sit on your website or patient education pages, answer from approved content, collect consult intent, and hand off sensitive or high-value conversations to your team with context.",
+    "requests": [
+      {
+        "request": "“What is the difference between a mommy makeover and separate procedures?”",
+        "agentResponseStrategy": "Answer from approved procedure pages, explain that treatment planning requires a consultation, and offer to collect the visitor’s goals and preferred timeline for staff follow-up.",
+        "sourceTypes": [
+          "Procedure pages",
+          "FAQs",
+          "Consultation policy",
+          "Surgeon-authored education"
+        ],
+        "optionalAction": "Submit a structured consult request or route the conversation summary to the patient coordinator.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“How much does surgery cost and do you offer financing?”",
+        "agentResponseStrategy": "Provide approved pricing-range language, explain what affects final quotes, share financing or deposit policy content, and escalate customized pricing to the practice team.",
+        "sourceTypes": [
+          "Pricing guidance",
+          "Financing FAQs",
+          "Deposit policy",
+          "Consultation pages"
+        ],
+        "optionalAction": "Collect budget range, procedure interest, and preferred contact channel for a staff-reviewed follow-up.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“What should I do before and after surgery?”",
+        "agentResponseStrategy": "Retrieve the relevant pre-op or post-op instructions from approved materials, distinguish general instructions from personalized medical advice, and route symptoms or complications to staff.",
+        "sourceTypes": [
+          "Pre-op packets",
+          "Post-op instructions",
+          "Recovery FAQs",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a follow-up task or notify the care team through a configured workflow when the question needs review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I book a consultation?”",
+        "agentResponseStrategy": "Collect scheduling intent, procedure interest, location, timeline, and contact details, then use the practice’s approved scheduling or handoff workflow.",
+        "sourceTypes": [
+          "Consultation policy",
+          "Office hours",
+          "Scheduling instructions",
+          "Lead forms"
+        ],
+        "optionalAction": "Request or book a consultation through a customer-configured scheduling Skill when authorized.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you speak my language?”",
+        "agentResponseStrategy": "Answer in the visitor’s language from the same approved clinic sources and clearly hand off nuanced medical or travel-planning questions to a coordinator.",
+        "sourceTypes": [
+          "Website content",
+          "Procedure FAQs",
+          "Travel patient guidance",
+          "Coordinator scripts"
+        ],
+        "optionalAction": "Forward a multilingual inquiry summary to the right staff member for follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this symptom normal after my procedure?”",
+        "agentResponseStrategy": "Share only approved general recovery information, avoid diagnosis, and escalate concerning or individualized symptoms according to clinic instructions.",
+        "sourceTypes": [
+          "Post-op care sheets",
+          "Urgent escalation policy",
+          "Nurse-reviewed FAQs"
+        ],
+        "optionalAction": "Notify the clinical team or create a review task with the patient’s conversation summary when configured.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help staff find the right clinic answer without searching every folder",
+    "intro": "A private DocsBot internal knowledge agent gives coordinators, nurses, managers, and marketing teams fast answers from approved internal documents, SOPs, policies, and training materials.",
+    "workflows": [
+      {
+        "name": "Coordinator answer desk",
+        "problem": "New and busy staff need consistent answers to consult, deposit, scheduling, financing, and preparation questions.",
+        "agentWorkflow": "Train DocsBot on SOPs, phone scripts, intake forms, pricing guidance, financing policies, and consultation workflows so coordinators can ask questions in natural language and receive source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Phone scripts",
+          "Intake forms",
+          "Financing policies"
+        ],
+        "optionalAction": "Draft a staff-reviewed email or create a follow-up task in an approved workflow.",
+        "outcome": "More consistent patient communication and faster onboarding for non-clinical team members.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Clinical instruction retrieval",
+        "problem": "Nurses and medical assistants need quick access to the correct instruction set for different procedures and surgeon preferences.",
+        "agentWorkflow": "DocsBot retrieves pre-op and post-op documents, care checklists, escalation criteria, and surgeon-specific protocol notes from the configured knowledge base.",
+        "sourceTypes": [
+          "Care protocols",
+          "Procedure checklists",
+          "Post-op sheets",
+          "Surgeon preference cards"
+        ],
+        "optionalAction": "Generate a summary for staff review before sending approved instructions to a patient.",
+        "outcome": "Less time searching for the right document and fewer inconsistent instruction handoffs.",
+        "icon": "HeartIcon"
+      },
+      {
+        "name": "Marketing content governance",
+        "problem": "Procedure pages, ads, emails, and social content need to stay aligned with approved service descriptions and avoid overpromising outcomes.",
+        "agentWorkflow": "Marketing teams can ask DocsBot for approved phrasing, procedure differences, recovery ranges, and disclaimers from clinic content and brand guidelines.",
+        "sourceTypes": [
+          "Brand guidelines",
+          "Procedure pages",
+          "Approved disclaimers",
+          "Patient education library"
+        ],
+        "optionalAction": "Draft website or email copy for human review using only approved source material.",
+        "outcome": "Faster content production with clearer alignment to clinical and brand standards.",
+        "icon": "MegaphoneIcon"
+      },
+      {
+        "name": "Management analytics and knowledge gaps",
+        "problem": "Practice leaders may not know which patient questions are recurring until staff are already overwhelmed.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review can reveal unanswered topics, common consult objections, missing recovery content, and repeated financing questions.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Analytics reports",
+          "Topic reports",
+          "Knowledge-base sources"
+        ],
+        "optionalAction": "Create documentation improvement tasks or route common topics to the right owner for review.",
+        "outcome": "Prioritize new content and staff training based on real questions patients and employees ask.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded website support agent",
+      "mainLandingPageContext": "DocsBot agents are trained on a business’s own knowledge sources and deliver instant answers in the company’s voice through experiences such as website widgets.",
+      "industryApplication": "Use it to answer procedure, recovery, consultation, financing, and office policy questions from approved cosmetic surgery content.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Custom intake and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect structured lead details and apply customer-defined qualification rules before forwarding summaries through configured workflows.",
+      "industryApplication": "Qualify consult requests by procedure interest, timeline, location, preferred contact method, and readiness for a coordinator conversation.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, record creation, summaries, routing, notifications, and workflow triggers when configured.",
+      "industryApplication": "Create staff review tasks, send consult summaries, trigger scheduling requests, or route post-op concerns through approved clinic workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private team assistant trained on SOPs, policies, wikis, PDFs, Word documents, and other internal sources.",
+      "industryApplication": "Help coordinators and clinical staff retrieve current SOPs, phone scripts, deposit rules, pre-op instructions, and post-op guidance.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Find repeated questions about pricing, recovery, eligibility, financing, and scheduling so the practice can improve content and staff training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support privacy-conscious patient and staff workflows with controlled access, permissions, logs, and human escalation for sensitive medical questions.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams can use DocsBot to streamline internal decision-making and reduce unnecessary handoffs.",
+      "Source-grounded answers help practices turn their own education library into a patient and staff support layer.",
+      "DocsBot is built for governed knowledge workflows with SOC 2 Type II, GDPR-ready controls, encryption, permissions, and private-source handling."
+    ],
+    "whyTheseReviewsFit": "Cosmetic surgery buyers need more than a generic chat experience. DocsBot proof spans healthcare communications, owned-content education, and source-grounded knowledge access—exactly the foundation practices need for patient education, consult routing, staff support, and governed workflows.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "BookOpenIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for cosmetic surgery practices",
+    "audience": [
+      "Cosmetic surgery practice owners",
+      "Plastic surgeons",
+      "Patient coordinators",
+      "Practice administrators",
+      "Medical spa and aesthetics operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "dentistry",
+    "healthcare-revenue-cycle-management",
+    "electrolysis-health-services",
+    "chiropractic-office",
+    "health-coaching",
+    "home-health-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "cosmetic-surgery",
+    "webSearchQueries": [
+      "ASPS plastic surgery statistics report 2023 cosmetic procedures minimally invasive surgical procedures",
+      "Aesthetic Society statistics report 2023 aesthetic plastic surgery procedures revenue",
+      "FDA breast implants risks patient decision checklist boxed warning 2024",
+      "HIPAA privacy security rule telehealth cosmetic surgery patient communications"
+    ],
+    "sourceUrls": [
+      "https://www.plasticsurgery.org/news/press-releases/plastic-surgery-sees-steady-growth-amidst-economic-uncertainty-american-society-of-plastic-surgeons-2023-procedural-statistics-report-finds",
+      "https://www.theaestheticsociety.org/media/press-releases/aesthetic-society-reports-102-growth-aesthetic-plastic-surgery-over-four-years",
+      "https://www.isaps.org/discover/about-isaps/global-statistics/global-survey-2023-full-report-and-press-releases/",
+      "https://www.fda.gov/medical-devices/breast-implants/things-consider-getting-breast-implants",
+      "https://telehealth.hhs.gov/providers/best-practice-guides/privacy-and-security-telehealth/privacy-laws-and-policy-guidance"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41567,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20831,
+        "outputTokens": 8098,
+        "reasoningOutputTokens": 128,
+        "totalTokens": 49665,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.178732,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.188732
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21676,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6188,
+          "outputTokens": 5378,
+          "reasoningOutputTokens": 128,
+          "totalTokens": 27054,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.100012,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.110012
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19891,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14643,
+          "outputTokens": 2720,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22611,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07872,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07872
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1514416309827-bfb0cf433a2d?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxzdXJnZXJ5fGVufDB8MHx8fDE3MTQ4NzgwNTZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cosmetic Surgery background image",
+    "source": "legacy-industry",
+    "query": "Cosmetic Surgery"
+  },
+  "faq": [
+    {
+      "question": "Can the AI answer procedure questions without giving medical advice or implying someone is a candidate?",
+      "answer": "Yes. A DocsBot agent can be trained on your approved procedure pages, FAQs, recovery guides, and consultation policies, then instructed to explain general information while routing candidacy, risk, medication, symptom, and clinical judgment questions to staff. That lets prospects self-educate without the agent replacing a surgeon or nurse.",
+      "role": "Clinical leaders and care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our coordinators with after-hours consult requests?",
+      "answer": "DocsBot can answer common questions immediately, collect structured details such as procedure interest, timeline, location, preferred contact method, and goals, then send a summarized handoff through your configured workflow. Coordinators start the next day with organized consult context instead of fragmented web forms, emails, and voicemail notes.",
+      "role": "Patient coordinators and front desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we control what the AI says about pricing, deposits, and financing?",
+      "answer": "Yes. The agent answers from your approved pricing-range language, financing FAQs, deposit policies, and consultation rules. You can set boundaries so it explains what affects pricing, shares approved ranges or policies, and escalates custom quotes, discounts, refunds, or exceptions to your team.",
+      "role": "Practice owners and administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a post-op patient asks if a symptom is normal?",
+      "answer": "DocsBot should be configured to provide only approved general recovery information and escalation instructions. If the question includes concerning symptoms, unclear details, medication issues, or anything outside your post-op materials, the agent can route the conversation summary to the clinical team or instruct the patient to use your urgent contact path.",
+      "role": "Clinical leaders and care teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support breast implant education without creating consent risk?",
+      "answer": "DocsBot can help patients find your approved implant education materials and direct them to provider-reviewed resources, but it should not replace the required risk discussion. This is important because the FDA requires strengthened breast implant risk communication, including a boxed warning and patient decision checklist reviewed with the prospective patient by a health care provider.",
+      "role": "Clinical leaders and care teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-breast-implant-checklist"
+      ]
+    },
+    {
+      "question": "How much content do we need before launching an AI agent?",
+      "answer": "Most practices can start with high-value sources: procedure pages, consultation FAQs, recovery timelines, financing and deposit policies, pre-op and post-op instructions, office policies, and escalation rules. The first launch does not need to answer everything; DocsBot analytics can show unanswered topics and knowledge gaps so you improve the content over time.",
+      "role": "Practice owners and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will this integrate with our CRM, scheduling tool, or patient coordination workflow?",
+      "answer": "DocsBot can hand off leads, summaries, tasks, notifications, or meeting requests through customer-configured Skills, APIs, connectors, forms, webhooks, MCP Connectors, or approved workflow automations. It should be scoped around your existing process rather than treated as an uncontrolled replacement for your CRM or scheduling system.",
+      "role": "Marketing and consult growth teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent qualify consult leads before staff spend time on them?",
+      "answer": "Yes. You can define intake questions and qualification rules around procedure interest, location, timing, budget readiness, previous surgery context, preferred contact method, and urgency. The agent can summarize the conversation and route high-intent prospects to the right coordinator while still escalating medical eligibility decisions to humans.",
+      "role": "Marketing and consult growth teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping the practice?",
+      "answer": "Useful metrics include qualified consult requests captured, repetitive questions answered, after-hours inquiries converted to follow-up tasks, coordinator time saved, escalation rate, unresolved topics, satisfaction signals, and content gaps. DocsBot provides analytics, logs, reports, topic management, conversation review, and satisfaction or resolution analysis to support those reviews.",
+      "role": "Practice owners and administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What safeguards exist for patient privacy and sensitive conversations?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Practices should still configure the agent to avoid unnecessary sensitive data collection and route protected or complex issues into approved secure workflows.",
+      "role": "Practice owners and administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "If we are a HIPAA-covered provider, can we use AI on patient communication channels?",
+      "answer": "AI workflows should be evaluated under your privacy and security requirements. HHS telehealth guidance says covered health care providers must use technology that supports secure communications and data storage. DocsBot can support governed workflows with access controls, logs, encryption, and human escalation, but your practice controls how and where patient data is collected.",
+      "role": "Practice owners and administrators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hhs-telehealth-privacy"
+      ]
+    },
+    {
+      "question": "Can our staff use DocsBot internally instead of searching drives, PDFs, and old training binders?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on SOPs, phone scripts, pricing guidance, financing policies, pre-op packets, post-op sheets, brand guidelines, and surgeon-specific protocol notes. Staff can ask natural-language questions and get source-grounded answers from the current approved materials.",
+      "role": "Patient coordinators and front desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from using outdated pre-op or post-op instructions?",
+      "answer": "The key is source governance. Train the agent on approved locations, remove obsolete files, assign internal owners for clinical documents, and review conversation logs for gaps or confusing answers. DocsBot is strongest when practices treat the knowledge base like an operational system of record, not a one-time upload.",
+      "role": "Clinical leaders and care teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer in other languages for international or multilingual patients?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the same approved clinic content. It can collect structured inquiry details and provide staff with a summarized handoff, while routing nuanced medical, travel, pricing, or surgical-planning questions to a coordinator for review.",
+      "role": "Marketing and consult growth teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Is this useful for a single-surgeon practice, or only larger groups?",
+      "answer": "It can fit both. A smaller practice may start with website Q&A, consult intake, and coordinator support. A larger group may add internal SOP retrieval, multilingual intake, analytics, and workflow routing across locations. The main requirement is having approved content and clear escalation rules.",
+      "role": "Practice owners and administrators",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kinds of questions should always go to a human?",
+      "answer": "Escalate anything involving diagnosis, complications, urgent symptoms, medication changes, surgical candidacy, individualized risk, consent, refund exceptions, legal complaints, or emotionally distressed patients. DocsBot can summarize the conversation and route it, but those high-impact decisions should remain with your care team or practice leadership.",
+      "role": "Clinical leaders and care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us keep marketing content aligned with what surgeons actually approve?",
+      "answer": "Yes. Marketing teams can use an internal agent trained on approved procedure descriptions, recovery language, disclaimers, brand guidelines, and surgeon-authored education. It can draft or retrieve approved phrasing for review, helping reduce overpromising and inconsistency across landing pages, email, ads, and social content.",
+      "role": "Marketing and consult growth teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would we compare DocsBot with a generic website chatbot?",
+      "answer": "The difference is governance and workflow depth. DocsBot is designed as a source-grounded AI agent trained on your approved knowledge, with analytics, logs, human escalation, private internal use cases, and bounded actions through configured Skills, APIs, connectors, or workflows. It is not just a scripted chat bubble.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the AI book consultations automatically?",
+      "answer": "It can collect scheduling intent and use a customer-configured scheduling Skill or workflow when authorized. Many practices prefer the agent to request a consultation, gather context, and let a coordinator confirm fit, deposit requirements, photo instructions, or provider availability before a final booking.",
+      "role": "Patient coordinators and front desk teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will this reduce staff workload or just create another inbox to monitor?",
+      "answer": "It should reduce avoidable back-and-forth if the workflow is designed well. DocsBot can answer repetitive questions, collect missing intake details, summarize conversations, and route only the issues that need review. Success depends on clear escalation rules, ownership of follow-up queues, and periodic review of analytics.",
+      "role": "Practice owners and administrators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does DocsBot handle questions that are not covered in our content?",
+      "answer": "The agent can be configured to say it does not have enough approved information, ask a clarifying question, suggest the right contact path, or escalate to staff. Conversation review and knowledge-gap reporting then help you decide whether to add a new FAQ, revise a policy, or improve patient instructions.",
+      "role": "Practice owners and administrators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use conversation data to improve our website and consult process?",
+      "answer": "Yes. DocsBot analytics and logs can reveal repeated questions about recovery, pricing, financing, travel timing, candidacy, deposits, and preparation. Those patterns help leaders update procedure pages, improve intake forms, train coordinators, and identify where prospects hesitate before booking.",
+      "role": "Marketing and consult growth teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why is now a good time for cosmetic surgery practices to evaluate AI support?",
+      "answer": "Demand and inquiry volume are rising. ASPS reported a 5% rise in plastic surgeries and a 7% rise in minimally invasive procedures in 2023 versus 2022, while The Aesthetic Society reported 10.2% growth in aesthetic plastic surgery over four years. AI agents can help practices handle education and intake volume without lowering clinical standards.",
+      "role": "Practice owners and administrators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-asps-2023-growth",
+        "src-aesthetic-society-2023-growth"
+      ]
+    },
+    {
+      "question": "Can DocsBot support both surgical and non-surgical aesthetics inquiries?",
+      "answer": "Yes. You can train separate or shared knowledge areas for surgical procedures, injectables, skincare services, lasers, recovery expectations, financing, and consultation policies. The important distinction is routing: general education can be automated, while treatment planning, contraindications, and individualized recommendations should go to qualified staff.",
+      "role": "Marketing and consult growth teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What does implementation usually require from our team?",
+      "answer": "You will need to gather approved content, define what the agent can and cannot answer, choose escalation paths, decide intake fields, test realistic patient scenarios, and assign owners for ongoing review. Clinical leaders should validate medical boundaries, while administrators and coordinators shape handoff workflows.",
+      "role": "Practice owners and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we limit who on our team can access internal documents and conversation logs?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so practices can separate public-facing content, internal SOPs, clinical materials, and management analytics. That is especially important when coordinators, marketers, nurses, and administrators need different levels of access.",
+      "role": "Practice owners and administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How can we train new coordinators faster with an AI knowledge agent?",
+      "answer": "A private DocsBot agent can give new coordinators instant answers from approved scripts, consult workflows, financing rules, deposit policies, office hours, procedure FAQs, and escalation guidelines. Instead of memorizing everything or interrupting senior staff, they can learn the practice’s current language and process while still asking humans for judgment calls.",
+      "role": "Patient coordinators and front desk teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will patients trust an AI agent for an elective medical decision?",
+      "answer": "Trust depends on positioning. The agent should be transparent that it provides general information from approved clinic materials, not a diagnosis or surgical recommendation. It should make it easy to reach a person, cite or reflect your official content, and escalate sensitive questions quickly.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    }
+  ]
+}

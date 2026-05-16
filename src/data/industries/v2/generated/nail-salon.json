@@ -1,0 +1,729 @@
+{
+  "slug": "nail-salon",
+  "business": "Nail Salon",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Nail Salon Client Care and Scheduling",
+    "description": "DocsBot helps nail salons answer service questions, prepare clients, route booking requests, and keep staff aligned with source-grounded AI agents.",
+    "canonicalPath": "/industry/nail-salon"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for appointment-driven nail care businesses",
+    "headline": "Keep nail clients informed before, during, and after every visit",
+    "subheadline": "DocsBot helps nail salons create AI agents trained on your service menu, policies, prep instructions, aftercare guides, retail notes, and internal SOPs so clients get fast answers while your team stays focused on appointments.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about manicures, pedicures, gel, acrylics, add-ons, pricing policies, prep steps, aftercare, and cancellation rules from approved salon content.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Collect booking intent, service preferences, group appointment details, and preferred follow-up channel before handing off to your scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give technicians a private knowledge assistant for SOPs, sanitation reminders, product notes, opening checklists, and consistent front-desk answers.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to route requests, create tasks, summarize conversations, trigger handoffs, or look up approved live context when you configure the connection.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your nail salon AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your nail salon’s own knowledge into customer-facing and internal AI agents. Train it on service descriptions, policies, FAQs, intake forms, aftercare instructions, SDS locations, employee guides, and retail recommendations so clients and staff get source-grounded answers instead of relying on memory or repeated front-desk calls.",
+    "whoItHelps": [
+      {
+        "role": "Owners and salon managers",
+        "roleContext": "Keep client communication consistent across locations, shifts, and service categories while giving staff faster access to operational knowledge.",
+        "bullets": [
+          {
+            "text": "Standardize answers about deposits, late arrivals, removals, repairs, kids’ services, group bookings, memberships, and gift cards.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Review analytics to see repeated client questions, unanswered topics, and documentation gaps that should become new FAQs or staff notes.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support safety-conscious operations with searchable procedures, since OSHA identifies chemical, ventilation, biological, and ergonomic hazards in nail salons.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-osha-nail-salon-hazards"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front-desk and guest care teams",
+        "roleContext": "Reduce repetitive conversations while still collecting enough detail for a human to confirm appointments, resolve exceptions, or handle sensitive requests.",
+        "bullets": [
+          {
+            "text": "Let the website agent answer common questions instantly, then escalate complex allergies, nail conditions, complaints, or refunds to a person.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect client goals such as gel removal, nail art complexity, broken nail repair, bridal party size, or preferred technician before handoff.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft concise summaries for calls, emails, or helpdesk-style tickets when the salon connects approved workflows.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Nail technicians and shift leads",
+        "roleContext": "Give service providers quick access to salon-approved instructions without searching binders, group chats, or scattered files between appointments.",
+        "bullets": [
+          {
+            "text": "Find aftercare language, product handling notes, sanitation steps, and service timing guidance from approved internal documents.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Ask private questions about salon policies, upsell guidance, retail talking points, and closing checklists from a team chat interface.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Keep training materials accessible for new hires in a role where BLS projects employment for manicurists and pedicurists to grow 7% from 2024 to 2034.",
+            "icon": "AcademicCapIcon",
+            "sourceIds": [
+              "src-bls-manicurists-growth"
+            ]
+          }
+        ],
+        "roleIcon": "ScissorsIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-manicurists-growth",
+      "metric": "7% projected employment growth for manicurists and pedicurists from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of manicurists and pedicurists to grow 7 percent from 2024 to 2034, faster than the average for all occupations.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Manicurists and Pedicurists",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/manicurists-and-pedicurists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "training needs",
+        "staff onboarding pressure"
+      ]
+    },
+    {
+      "id": "src-osha-nail-salon-hazards",
+      "metric": "OSHA identifies chemical, ventilation, biological, and ergonomic hazards in nail salons",
+      "claim": "OSHA’s nail salon guidance explains that salon workers may face exposure to chemicals, biological hazards, and other workplace risks, and that ventilation and good work practices reduce exposure.",
+      "sourceTitle": "Occupational Safety and Health Administration: Health Hazards in Nail Salons",
+      "sourceUrl": "https://www.osha.gov/nail-salons",
+      "sourceDate": "Current OSHA guidance",
+      "bestUsedFor": [
+        "workplace safety",
+        "SDS access",
+        "staff procedure consistency",
+        "training"
+      ]
+    },
+    {
+      "id": "src-osha-ventilation-reduction",
+      "metric": "NIOSH testing indicates exhaust ventilation may reduce worker chemical exposure by at least 50%",
+      "claim": "OSHA’s nail salon chemical hazards page states that NIOSH laboratory tests indicate exhaust ventilation systems may reduce worker chemical exposure in nail salons by at least 50%.",
+      "sourceTitle": "OSHA: Health Hazards in Nail Salons - Chemical Hazards",
+      "sourceUrl": "https://www.osha.gov/nail-salons/chemical-hazards",
+      "sourceDate": "Current OSHA guidance",
+      "bestUsedFor": [
+        "ventilation reminders",
+        "safety procedure communication",
+        "employee training"
+      ]
+    },
+    {
+      "id": "src-epa-worker-health-guide",
+      "metric": "EPA recommends safer products, better storage, PPE, and ventilation to reduce nail salon chemical exposure",
+      "claim": "EPA’s guide for nail salon worker health recommends practices that help owners and workers minimize chemical exposure and prevent overexposure.",
+      "sourceTitle": "U.S. EPA Safer Choice: Guide to Protecting the Health of Nail Salon Workers",
+      "sourceUrl": "https://archive.epa.gov/epa/saferchoice/guide-protecting-health-nail-salon-workers.html",
+      "sourceDate": "EPA archived guidance",
+      "bestUsedFor": [
+        "chemical safety education",
+        "staff training",
+        "client and worker health context"
+      ]
+    },
+    {
+      "id": "src-ibisworld-market-growth",
+      "metric": "Personal waxing and nail salons market size grew 2.1% in 2024",
+      "claim": "IBISWorld reports 2.1% market size growth in 2024 for the U.S. personal waxing and nail salons industry.",
+      "sourceTitle": "IBISWorld: Personal Waxing & Nail Salons in the US Market Size Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/personal-waxing-nail-salons/4411/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market demand",
+        "competitive pressure",
+        "service business growth"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service menu and appointment-readiness agent",
+      "problem": "Clients often ask the same questions before booking: which service fits their nails, whether removal is needed, how long nail art takes, and what to do before arrival.",
+      "agentWorkflow": "Train DocsBot on your service menu, pricing notes, timing guidance, policies, prep instructions, and aftercare articles. The agent answers from those sources, asks clarifying questions, and collects service intent for a front-desk or booking workflow handoff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can pass service interest, preferred date range, party size, and contact details into a scheduling, form, email, CRM, or helpdesk workflow configured by the salon.",
+      "exampleQuestionsOrRequests": [
+        "Do I need to book a gel removal before a new set?",
+        "How long should I reserve for French tips with nail art?",
+        "Can you help me request appointments for a bridal party of six?"
+      ],
+      "businessOutcome": "Fewer repetitive calls, better-prepared clients, and cleaner appointment requests for staff to confirm.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Aftercare and repair guidance agent",
+      "problem": "After appointments, clients may forget aftercare instructions, warranty rules, or when a chip, lift, or broken nail should be repaired by the salon.",
+      "agentWorkflow": "DocsBot can answer from salon-approved aftercare guides, repair policies, service warranty language, and product care instructions. It can distinguish routine care guidance from issues that should be escalated to a technician or manager.",
+      "liveContextOrTools": "Configured AI Actions can create a follow-up task, route a repair request, summarize photos or descriptions for staff review, or notify the right team channel when the client needs human help.",
+      "exampleQuestionsOrRequests": [
+        "My gel chipped after two days. What should I do?",
+        "How should I care for acrylics between fills?",
+        "Can you send my repair request to the salon team?"
+      ],
+      "businessOutcome": "Clients get consistent post-service guidance while staff receive clearer repair and follow-up context.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Safety, sanitation, and product knowledge assistant",
+      "problem": "Nail salons manage chemicals, tools, sanitation procedures, and product handling details that must stay consistent across shifts and technicians.",
+      "agentWorkflow": "Create a private internal agent trained on SOPs, sanitation checklists, SDS storage instructions, product notes, opening and closing procedures, and training materials. Staff can ask plain-language questions and receive source-grounded answers with escalation for manager review.",
+      "liveContextOrTools": "DocsBot can retrieve approved documents from company knowledge sources, summarize procedures, and support review workflows; OSHA notes that exhaust ventilation may reduce worker chemical exposure by at least 50%.",
+      "exampleQuestionsOrRequests": [
+        "Where do we keep SDS sheets for acrylic liquid?",
+        "What is our disinfecting sequence between pedicure clients?",
+        "What should I check before turning off ventilation at closing?"
+      ],
+      "businessOutcome": "Faster staff answers, more consistent procedures, and easier onboarding for new technicians.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-ventilation-reduction"
+      ]
+    },
+    {
+      "name": "Retail and membership presales assistant",
+      "problem": "Many salons sell retail products, memberships, packages, add-ons, and gift cards, but staff may give inconsistent explanations during busy appointment blocks.",
+      "agentWorkflow": "Train a DocsBot agent on approved retail product descriptions, package rules, membership terms, gift card policies, and upsell guidance. It can answer client questions, compare approved options, and collect interest for a human follow-up.",
+      "liveContextOrTools": "When configured, the agent can forward a lead summary, create a task, update approved fields, or trigger a workflow through Skills, APIs, connectors, or MCP-connected systems the salon authorizes.",
+      "exampleQuestionsOrRequests": [
+        "What membership is best if I get gel every three weeks?",
+        "Do you sell cuticle oil I can use with my manicure?",
+        "Can someone contact me about gift cards for my team?"
+      ],
+      "businessOutcome": "More consistent sales conversations and better-qualified client interest without forcing technicians to remember every policy detail.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Multi-location policy and training agent",
+      "problem": "Growing salon brands need consistent service language, policy answers, and staff training even when each location has different hours, teams, or local procedures.",
+      "agentWorkflow": "DocsBot can power internal agents trained on brand standards, location-specific notes, HR policies, onboarding guides, service scripts, and FAQs. Managers can review conversations and identify gaps in training content.",
+      "liveContextOrTools": "With customer-configured metadata or live context, the agent can tailor answers by location, role, or approved knowledge source while respecting access controls and permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is the cancellation policy for our downtown location?",
+        "How do we explain builder gel versus gel polish?",
+        "What should new front-desk staff learn before their first weekend shift?"
+      ],
+      "businessOutcome": "Consistent brand communication and faster staff onboarding as the salon scales.",
+      "icon": "BuildingOffice2Icon",
+      "sourceIds": [
+        "src-bls-manicurists-growth"
+      ]
+    },
+    {
+      "name": "Client question analytics and content gap discovery",
+      "problem": "Salon teams often do not know which questions drive the most calls, website friction, booking hesitation, or repeated staff confusion.",
+      "agentWorkflow": "DocsBot logs conversations, reports topics, supports review, and helps identify unanswered questions. Owners can use those insights to improve service pages, aftercare articles, booking instructions, and staff training docs.",
+      "liveContextOrTools": "The agent can summarize recurring issues and route content updates to the owner, manager, or marketing team through customer-configured workflow triggers.",
+      "exampleQuestionsOrRequests": [
+        "What questions are clients asking most before booking acrylics?",
+        "Which aftercare topics are missing from our website?",
+        "Summarize this week’s appointment-policy questions."
+      ],
+      "businessOutcome": "Better website content, fewer repeat questions, and a clearer roadmap for improving salon knowledge.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients a polished self-service experience before they call",
+    "intro": "A DocsBot customer-facing agent can live on your salon website or booking pages, answering from your approved content and collecting details when a client needs a human follow-up. It is especially useful for service fit, prep, aftercare, policy, retail, and group booking questions.",
+    "requests": [
+      {
+        "request": "“Which manicure should I choose if my nails are weak?”",
+        "agentResponseStrategy": "Answer from your service descriptions and care guidance, explain non-medical options in plain language, and suggest booking a consultation or technician review for nail health concerns.",
+        "sourceTypes": [
+          "Service menu",
+          "Care guides",
+          "Escalation rules"
+        ],
+        "optionalAction": "Collect contact details and preferred service goals for a technician follow-up.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Can I book nail art for four people this Saturday?”",
+        "agentResponseStrategy": "Ask for party size, service types, nail art complexity, preferred time window, and contact information, then prepare a structured handoff for the scheduling team.",
+        "sourceTypes": [
+          "Booking policy",
+          "Service timing guide",
+          "Group appointment rules"
+        ],
+        "optionalAction": "Send the summarized request into an approved booking, form, email, or task workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What should I do before a gel removal appointment?”",
+        "agentResponseStrategy": "Provide source-grounded prep instructions, reminders about timing, and relevant policy notes without improvising beyond the salon’s approved guidance.",
+        "sourceTypes": [
+          "Prep checklist",
+          "Service FAQs",
+          "Aftercare articles"
+        ],
+        "optionalAction": "Offer to send the checklist or route additional questions to the front desk.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Is your salon safe for people sensitive to strong smells?”",
+        "agentResponseStrategy": "Answer from your approved ventilation, product, and accommodation information, then escalate sensitivity, allergy, or medical concerns to staff for personal guidance.",
+        "sourceTypes": [
+          "Safety policy",
+          "Product notes",
+          "Staff escalation guidance"
+        ],
+        "optionalAction": "Create a staff review request with the client’s concerns and preferred contact channel.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-epa-worker-health-guide"
+        ]
+      },
+      {
+        "request": "“Do you have gift cards or memberships?”",
+        "agentResponseStrategy": "Explain approved package, gift card, and membership terms, compare options using your source material, and collect buyer intent when a human needs to complete the sale.",
+        "sourceTypes": [
+          "Membership terms",
+          "Gift card policy",
+          "Retail FAQs"
+        ],
+        "optionalAction": "Forward a qualified inquiry summary to the salon’s sales or guest care workflow.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can you explain your cancellation policy?”",
+        "agentResponseStrategy": "Give a direct answer from the salon’s policy page, include late-arrival or deposit rules when relevant, and avoid making exceptions without a human.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "Deposit rules",
+          "Front-desk scripts"
+        ],
+        "optionalAction": "Escalate exception requests to a manager with a concise conversation summary.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put salon SOPs, policies, and product knowledge at every station",
+    "intro": "DocsBot can also act as a private internal knowledge agent for owners, managers, front-desk staff, and technicians. Train it on your operating procedures, staff guides, product references, safety notes, and brand standards so employees get consistent answers during busy service days.",
+    "workflows": [
+      {
+        "name": "Technician SOP lookup",
+        "problem": "Technicians may need quick answers about sanitation steps, product handling, service timing, or add-on rules without interrupting another staff member.",
+        "agentWorkflow": "The internal agent retrieves answers from SOPs, PDFs, training materials, and approved internal docs, then points staff back to the relevant source for verification.",
+        "sourceTypes": [
+          "SOP library",
+          "Training manuals",
+          "Sanitation checklists",
+          "Product notes"
+        ],
+        "optionalAction": "Create a manager review task when an answer is missing or a procedure appears unclear.",
+        "outcome": "Faster answers at the station and better visibility into documentation gaps.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Front-desk policy consistency",
+        "problem": "Busy reception teams can give inconsistent answers about deposits, no-shows, late arrivals, repairs, refunds, gift cards, and group appointments.",
+        "agentWorkflow": "DocsBot answers from policy pages, scripts, and manager-approved FAQs. It can draft concise responses for texts, emails, or helpdesk-style conversations while humans approve sensitive exceptions.",
+        "sourceTypes": [
+          "Policy documents",
+          "FAQ pages",
+          "Email templates",
+          "Manager notes"
+        ],
+        "optionalAction": "Route refund, complaint, or exception requests to a manager with a summarized history.",
+        "outcome": "More consistent client communication and fewer policy misunderstandings.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "New hire onboarding support",
+        "problem": "As demand grows, new technicians and front-desk staff need repeatable training on services, language, safety expectations, and customer handling.",
+        "agentWorkflow": "Train the internal agent on onboarding guides, brand standards, service descriptions, and common scenarios. New employees can ask questions in private chat, Slack, Microsoft Teams, or other configured team experiences.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Brand standards",
+          "Service menu",
+          "Scenario scripts"
+        ],
+        "optionalAction": "Summarize common new-hire questions for managers to improve training materials.",
+        "outcome": "Shorter ramp time and fewer repeated manager interruptions.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-manicurists-growth"
+        ]
+      },
+      {
+        "name": "Owner reporting and knowledge improvements",
+        "problem": "Owners need to know what clients and employees keep asking so they can improve services, policies, and documentation.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help teams identify unanswered questions and repeated friction points.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Website FAQs",
+          "Internal knowledge base"
+        ],
+        "optionalAction": "Send a weekly summary to the owner or create tasks for updating FAQs and training materials.",
+        "outcome": "A clearer feedback loop between client demand, staff questions, and salon documentation.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your salon knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, documents, help centers, internal content, and other configured knowledge sources.",
+      "industryApplication": "Train an agent on nail service descriptions, policies, prep steps, aftercare, retail notes, sanitation procedures, and staff guides so answers match your salon’s actual practices.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Embeddable website support experience",
+      "mainLandingPageContext": "DocsBot agents can work through website or product chat widgets and provide instant source-grounded answers in the company’s voice.",
+      "industryApplication": "Add a salon website agent that answers service, booking, aftercare, policy, gift card, membership, and retail questions before a client calls or books.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and customer-configured workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, summaries, routing, record updates, and workflow triggers when configured.",
+      "industryApplication": "Collect appointment intent, summarize a repair request, route a complaint, create a task, or forward a qualified membership inquiry through approved salon workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, answering from SOPs, policies, wikis, PDFs, and other internal sources.",
+      "industryApplication": "Give technicians and reception staff quick access to service rules, sanitation steps, product guidance, scripts, and onboarding materials during live salon operations.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what clients ask before booking, which policies cause confusion, and where your website or staff training needs clearer answers.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions.",
+      "industryApplication": "Protect private staff documents, internal policies, and connected workflow access while controlling what the salon agent can answer, retrieve, and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train AI agents on your own salon content instead of generic beauty advice.",
+      "Support client self-service and internal staff answers from the same approved knowledge base.",
+      "Use analytics to discover repeated questions and improve your website, policies, and training materials."
+    ],
+    "whyTheseReviewsFit": "Nail salons need practical AI that is easy to maintain, grounded in their own content, and useful for both clients and staff. DocsBot proof spans self-service support, training-material answers, and high-volume customer inquiry handling, giving service businesses confidence that AI agents can support real operations.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for nail salons",
+    "audience": [
+      "Nail salon owners",
+      "Salon managers",
+      "Front-desk teams",
+      "Nail technicians",
+      "Multi-location salon operators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "beauty-salon",
+    "tanning-salon",
+    "barber-shop",
+    "fitness-center",
+    "florist",
+    "event-planning"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "nail-salon",
+    "webSearchQueries": [
+      "IBISWorld nail salons United States number of businesses revenue 2024",
+      "BLS manicurists pedicurists occupational outlook employment 2024",
+      "EPA nail salons chemical exposure ventilation worker health formaldehyde toluene dibutyl phthalate",
+      "OSHA nail salon worker safety chemicals ventilation"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/personal-care-and-service/manicurists-and-pedicurists.htm",
+      "https://www.osha.gov/nail-salons",
+      "https://www.osha.gov/nail-salons/chemical-hazards",
+      "https://archive.epa.gov/epa/saferchoice/guide-protecting-health-nail-salon-workers.html",
+      "https://www.ibisworld.com/united-states/market-size/personal-waxing-nail-salons/4411/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41147,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28603,
+        "outputTokens": 7960,
+        "reasoningOutputTokens": 152,
+        "totalTokens": 49107,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.194043,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.204043
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21641,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14345,
+          "outputTokens": 5232,
+          "reasoningOutputTokens": 152,
+          "totalTokens": 26873,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116166,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126166
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19506,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14258,
+          "outputTokens": 2728,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22234,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077877,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077877
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1632345031435-8727f6897d53?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDE2MTJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Nail Salon background image",
+    "source": "legacy-industry",
+    "query": "Nail Salon"
+  },
+  "faq": [
+    {
+      "question": "Will the agent give clients generic nail advice, or will it follow our actual service menu and policies?",
+      "answer": "DocsBot is designed to answer from your approved salon knowledge: service descriptions, prep instructions, aftercare guides, pricing notes, cancellation rules, repair policies, and retail FAQs. That helps keep answers aligned with how your salon actually operates instead of giving broad beauty advice that may not match your services.",
+      "role": "Owners and salon managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it help reduce front-desk interruptions without fully automating appointment booking?",
+      "answer": "Yes. Many salons use the agent to answer routine questions, collect booking intent, service preferences, party size, nail art complexity, and contact details, then hand off a structured summary to staff. Your team can still confirm availability, technician fit, deposits, exceptions, and final booking details.",
+      "role": "Front-desk and guest care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this work with our booking software or current appointment process?",
+      "answer": "DocsBot can collect the information your front desk needs and pass it into customer-configured workflows such as forms, email, scheduling tools, helpdesk-style systems, APIs, connectors, or approved Skills. It should be scoped around your process: request intake, routing, summaries, task creation, or approved live lookups where you authorize access.",
+      "role": "Owners and salon managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer questions about gel, acrylics, builder gel, removals, repairs, and nail art timing?",
+      "answer": "Yes, if those details are in your training sources. DocsBot can use your service menu, timing guide, add-on rules, repair policy, prep checklists, and aftercare content to explain options and ask clarifying questions before routing the client to a human when the situation is complex or uncertain.",
+      "role": "Front-desk and guest care teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens if a client asks about an allergy, infection, injury, or nail health concern?",
+      "answer": "Those questions should be handled with clear guardrails. DocsBot can answer from your approved safety, product, and accommodation information, but it should escalate allergies, medical concerns, unusual nail conditions, complaints, and refund requests to a person rather than making judgment calls beyond your policy.",
+      "role": "Owners and salon managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use it internally for sanitation steps, SDS locations, and product handling reminders?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, sanitation checklists, SDS storage instructions, product notes, and opening or closing procedures. That is especially relevant because OSHA identifies chemical, ventilation, biological, and ergonomic hazards in nail salons.",
+      "role": "Nail technicians and shift leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-nail-salon-hazards"
+      ]
+    },
+    {
+      "question": "Will staff be able to trust the answers during a busy shift?",
+      "answer": "Trust depends on the quality of the source material and review process. DocsBot provides source-grounded answers from approved content, so managers should start with current SOPs, service rules, and policy documents, then use conversation review and knowledge-gap reporting to fix unclear or missing information.",
+      "role": "Nail technicians and shift leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it support multiple locations with different hours, policies, staff, or pricing?",
+      "answer": "Yes, when your knowledge is organized by location and access rules. DocsBot can be trained on brand standards plus location-specific notes, and customer-configured metadata or live context can help tailor answers by location, role, or approved source while keeping staff-facing content separate from client-facing answers.",
+      "role": "Owners and salon managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much setup work should a salon expect before launch?",
+      "answer": "A practical launch usually starts with your highest-volume questions: service menu, prep instructions, cancellation and deposit rules, repair policy, aftercare, group booking rules, and gift cards. Internal rollout can follow with SOPs, sanitation checklists, product notes, and onboarding guides. The biggest work is cleaning up what the salon already says in scattered places.",
+      "role": "Owners and salon managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help new front-desk staff and technicians get up to speed faster?",
+      "answer": "Yes. A private DocsBot agent can answer new-hire questions from onboarding guides, service descriptions, brand standards, scripts, and SOPs. That can reduce repeated manager interruptions, and it fits a labor environment where BLS projects manicurist and pedicurist employment to grow 7% from 2024 to 2034.",
+      "role": "Nail technicians and shift leads",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-manicurists-growth"
+      ]
+    },
+    {
+      "question": "What client questions are best to automate first?",
+      "answer": "Start with repeatable, policy-based questions: service fit, gel removal, nail art timing, prep steps, late arrivals, deposits, cancellation rules, repairs, aftercare, group appointments, memberships, gift cards, and retail product basics. Keep sensitive issues like complaints, refunds, injuries, allergies, and exceptions routed to humans.",
+      "role": "Front-desk and guest care teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure whether the agent is worth the cost?",
+      "answer": "Track practical salon metrics: fewer repetitive calls and texts, cleaner appointment requests, faster staff answers, fewer policy misunderstandings, more complete group-booking inquiries, aftercare issue routing, and reduced manager interruptions. DocsBot analytics, logs, topic reports, conversation review, and knowledge-gap discovery help show where the agent is reducing friction.",
+      "role": "Owners and salon managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help sell memberships, gift cards, packages, or retail products?",
+      "answer": "Yes, if it is trained on your approved package terms, gift card policy, membership rules, retail product descriptions, and upsell guidance. It can compare approved options, collect buyer intent, and route a qualified inquiry to staff, while humans remain responsible for final sales, exceptions, and policy decisions.",
+      "role": "Owners and salon managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will it replace our receptionist or technicians?",
+      "answer": "No. The better fit is to remove repetitive question-answering and information gathering so staff can focus on service, judgment, exceptions, and client relationships. DocsBot can answer routine questions, prepare handoffs, and summarize context, but humans should still confirm bookings, handle complaints, approve refunds, and advise on sensitive issues.",
+      "role": "Front-desk and guest care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can managers see what clients and employees are asking?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Owners can use those insights to improve website FAQs, aftercare pages, service descriptions, booking instructions, and staff training materials.",
+      "role": "Owners and salon managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent the agent from making promises about pricing, discounts, or appointment availability?",
+      "answer": "Set clear instructions and source boundaries. The agent can explain approved pricing policies, collect appointment preferences, and prepare a request, but should avoid promising availability, discounts, refunds, or exceptions unless you have explicitly configured an approved live lookup or workflow with scoped permissions.",
+      "role": "Owners and salon managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it answer in the same tone as our salon brand?",
+      "answer": "Yes. DocsBot agents can provide source-grounded answers in the company’s voice. For salons, that means the agent can sound polished, friendly, and service-oriented while still following your approved policies, escalation rules, and service language.",
+      "role": "Owners and salon managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What documents should we prepare for an internal salon knowledge agent?",
+      "answer": "Useful sources include sanitation SOPs, SDS location instructions, product handling notes, opening and closing checklists, service timing guides, repair policies, technician training guides, front-desk scripts, membership rules, retail notes, and escalation procedures for complaints or health-related concerns.",
+      "role": "Nail technicians and shift leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support safety reminders without becoming a compliance system of record?",
+      "answer": "Yes. DocsBot can make approved safety procedures easier to find, but your official policies, training, SDS management, and regulatory compliance processes remain your responsibility. OSHA notes that NIOSH laboratory tests indicate exhaust ventilation systems may reduce worker chemical exposure in nail salons by at least 50%, so internal reminders can help reinforce documented ventilation practices.",
+      "role": "Owners and salon managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-ventilation-reduction"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle private staff information and internal SOPs?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models, which helps salons separate public client answers from private staff procedures and connected workflow access.",
+      "role": "Owners and salon managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent work for both website visitors and employees, or do we need separate tools?",
+      "answer": "DocsBot can support both use cases. A customer-facing agent can answer service, booking, policy, aftercare, retail, and membership questions, while a private internal agent can answer staff questions about SOPs, product notes, scripts, onboarding, and location-specific procedures.",
+      "role": "Owners and salon managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if our policies change often, like deposits, holiday hours, or repair windows?",
+      "answer": "The agent is only as current as the sources you maintain, so fast-changing policies should live in approved documents or systems your team updates regularly. Use conversation review and knowledge-gap reports to catch outdated answers, then refresh the source content instead of relying on staff memory or group chats.",
+      "role": "Owners and salon managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help with group bookings like bridal parties or events?",
+      "answer": "Yes. DocsBot can ask for party size, requested services, nail art complexity, date range, time preferences, contact details, and special notes, then create a structured handoff for the front desk. Your team can still verify capacity, staffing, deposits, timing, and any custom event requirements.",
+      "role": "Front-desk and guest care teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this compare with a basic website chat widget or FAQ page?",
+      "answer": "A static FAQ page only answers what clients can find and read. A basic chat widget often still depends on staff availability. DocsBot can answer from your approved knowledge, ask follow-up questions, collect structured context, route handoffs, support internal staff, and report which topics need better documentation.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will the agent work if our salon knowledge is scattered across PDFs, website pages, Google Drive, Notion, or staff docs?",
+      "answer": "Yes. DocsBot can train on websites, documents, PDFs, Word documents, text files, internal content, Google Drive, Notion, Confluence, and other configured knowledge sources. A good implementation should organize public client content separately from private staff materials and remove outdated duplicates before launch.",
+      "role": "Owners and salon managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can technicians ask it for client-facing wording, like how to explain aftercare or a service upgrade?",
+      "answer": "Yes. A private internal agent can help technicians find approved aftercare language, retail talking points, service explanations, upsell guidance, and policy wording. That helps keep client communication consistent without forcing every technician to memorize every script or interrupt the front desk.",
+      "role": "Nail technicians and shift leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when the agent cannot answer a question confidently?",
+      "answer": "It should be configured to say it does not have enough approved information and route the question to a person. DocsBot can support human escalation, create a task or ticket through approved workflows, summarize the conversation, and help managers identify the missing content as a knowledge gap.",
+      "role": "Front-desk and guest care teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is this useful for a single independent salon, or only for larger salon chains?",
+      "answer": "It can fit both. A single salon may value fewer calls, better aftercare answers, and easier staff lookup. Multi-location operators may care more about consistent policies, role-based internal access, location-specific answers, onboarding, and analytics across teams.",
+      "role": "General buyer",
+      "category": "Scalability"
+    }
+  ]
+}

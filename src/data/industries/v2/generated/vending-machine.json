@@ -1,0 +1,753 @@
+{
+  "slug": "vending-machine",
+  "business": "Vending Machine",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Vending Machine Support & Operations",
+    "description": "DocsBot helps vending machine operators answer buyer issues, guide location partners, and route service requests with source-grounded AI automation.",
+    "canonicalPath": "/industry/vending-machine"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for unattended retail teams",
+    "headline": "Keep vending customers and route teams moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps vending operators create AI support and internal knowledge agents trained on machine FAQs, payment guidance, route SOPs, product catalogs, location policies, and service documentation. Answer common questions instantly, collect the right details, route issues, and give teams a searchable operating playbook.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about refunds, stuck products, payment holds, nutrition details, allergens, and restock timing from approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect machine ID, location, payment method, product slot, and issue details before routing a service or refund request.",
+        "icon": "TicketIcon"
+      },
+      {
+        "text": "Give route drivers and technicians quick access to planogram notes, troubleshooting steps, safety reminders, and location-specific procedures.",
+        "icon": "TruckIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or MCP-connected tools to look up approved live context and trigger bounded workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a vending support agent",
+    "secondaryCta": "Explore DocsBot automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your vending company’s approved knowledge into AI agents for customers, location partners, sales teams, dispatchers, route drivers, and technicians. Agents can answer from source materials, summarize conversations, identify repeated knowledge gaps, collect structured intake details, escalate sensitive issues, and take configured actions such as creating a ticket or notifying the right team.",
+    "whoItHelps": [
+      {
+        "role": "Vending operators and owners",
+        "roleContext": "Operators need to handle recurring customer issues without adding a dispatcher for every stuck item, failed vend, payment question, or machine complaint.",
+        "bullets": [
+          {
+            "text": "Publish self-service answers for refund policies, machine issue reporting, card holds, calories, allergens, and product availability.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route machine issues with complete intake details so technicians do not arrive without the machine ID, location, or symptom history.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Review conversation topics to see where FAQs, location signage, or operating procedures need clearer documentation.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Route managers and field service teams",
+        "roleContext": "Route teams work across scattered locations, machine models, payment devices, and client-specific rules. A private knowledge agent helps them find the right procedure in the moment.",
+        "bullets": [
+          {
+            "text": "Search SOPs, troubleshooting guides, restock rules, planograms, and equipment manuals from a mobile-friendly internal assistant.",
+            "icon": "DevicePhoneMobileIcon"
+          },
+          {
+            "text": "Summarize service notes and customer complaints before assigning a driver, technician, or refund review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep onboarding guidance consistent for new route drivers learning machine checks, product rotation, and escalation rules.",
+            "icon": "AcademicCapIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Sales and location acquisition teams",
+        "roleContext": "Vending companies win business by answering questions about machine fit, product mix, service levels, cashless payments, reporting, and installation requirements.",
+        "bullets": [
+          {
+            "text": "Answer prospect questions from service catalogs, product lists, equipment specs, pricing guidance, and location onboarding materials.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect structured lead details such as site type, employee count, desired products, timeline, and preferred follow-up channel.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to sales systems, email, CRM, or helpdesk workflows when configured by the customer.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fda-vending-labeling",
+      "metric": "FDA calorie labeling applies to operators with 20 or more vending machines.",
+      "claim": "The FDA requires covered vending machine operators that own or operate 20 or more machines to disclose calorie information for foods sold from those machines, subject to exceptions.",
+      "sourceTitle": "FDA: Menu and Vending Machine Labeling",
+      "sourceUrl": "https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/menu-and-vending-machine-labeling",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "nutrition information requests",
+        "operator documentation"
+      ]
+    },
+    {
+      "id": "src-fda-labeling-overview",
+      "metric": "Calories and operator contact information may need to be visible before purchase.",
+      "claim": "FDA guidance notes calorie information can be posted near the food or selection button, electronic or digital displays may be used, and covered operators must disclose contact information for enforcement contact.",
+      "sourceTitle": "FDA: Overview of FDA Labeling Requirements for Restaurants, Similar Retail Food Establishments and Vending Machines",
+      "sourceUrl": "https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/overview-fda-labeling-requirements-restaurants-similar-retail-food-establishments-and-vending",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "compliance details",
+        "customer nutrition access",
+        "machine signage"
+      ]
+    },
+    {
+      "id": "src-us-vending-market",
+      "metric": "The U.S. retail vending machine market was estimated at $15.02 billion in 2024.",
+      "claim": "Grand View Research estimated the U.S. retail vending machine market at USD 15.02 billion in 2024 and projected it to reach USD 19.95 billion by 2033.",
+      "sourceTitle": "Grand View Research: U.S. Retail Vending Machine Market Size & Outlook, 2033",
+      "sourceUrl": "https://www.grandviewresearch.com/industry-analysis/us-retail-vending-machine-market-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "growth context",
+        "operator modernization"
+      ]
+    },
+    {
+      "id": "src-cashless-vending",
+      "metric": "Cashless vending represented 75% of U.S. retail vending machine revenue in 2024.",
+      "claim": "Grand View Research reported that cashless vending machines accounted for a 75.0% revenue share in the U.S. retail vending machine market in 2024.",
+      "sourceTitle": "Grand View Research: U.S. Retail Vending Machine Market Report",
+      "sourceUrl": "https://www.grandviewresearch.com/industry-analysis/us-retail-vending-machine-market-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "cashless payment questions",
+        "consumer expectations",
+        "payment support"
+      ]
+    },
+    {
+      "id": "src-bls-servicers",
+      "metric": "BLS tracks coin, vending, and amusement machine servicers and repairers as a specialized field role.",
+      "claim": "The Bureau of Labor Statistics describes this occupation as workers who install, service, adjust, or repair coin, vending, or amusement machines.",
+      "sourceTitle": "BLS Occupational Employment and Wages: Coin, Vending, and Amusement Machine Servicers and Repairers",
+      "sourceUrl": "https://www.bls.gov/oes/2023/may/oes499091.htm",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "field service complexity",
+        "technician workflows",
+        "route support"
+      ]
+    },
+    {
+      "id": "src-ibisworld-market-size",
+      "metric": "IBISWorld lists U.S. vending machine operators as a multibillion-dollar industry.",
+      "claim": "IBISWorld’s public market-size page lists the U.S. vending machine operators industry at $7.4 billion in 2025.",
+      "sourceTitle": "IBISWorld: Vending Machine Operators in the US Market Size Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "operator market size",
+        "business scale",
+        "industry context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Customer issue intake for refunds and failed vends",
+      "problem": "A buyer at an unattended machine may have no staff nearby when a product jams, a card hold appears, or a refund policy is unclear.",
+      "agentWorkflow": "A DocsBot support agent answers from refund policies, payment FAQs, product guides, and location instructions. It asks for the machine ID, location, product slot, time, payment method, and contact details, then summarizes the issue for the right human or workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or helpdesk workflows, the agent can create a ticket, notify operations, attach a conversation summary, or look up an approved transaction or machine record when authorized.",
+      "exampleQuestionsOrRequests": [
+        "My card was charged but the drink did not drop. What should I do?",
+        "Where do I find the machine number for a refund request?",
+        "The machine says the item is sold out but still shows a price."
+      ],
+      "businessOutcome": "Reduce incomplete support requests, speed up issue triage, and give customers a clear next step even when no attendant is on site.",
+      "icon": "CreditCardIcon"
+    },
+    {
+      "name": "Nutrition, allergen, and product information assistant",
+      "problem": "Food vending customers often need calorie, ingredient, allergen, and product information before purchase, while covered operators must manage calorie disclosures for fleets of 20 or more machines.",
+      "agentWorkflow": "Train the agent on product catalogs, nutrition sheets, allergen notes, calorie labeling policies, machine signage guidance, and substitution rules. The agent can answer customer and location partner questions while pointing to approved source content.",
+      "liveContextOrTools": "If product feeds or planogram systems are connected through approved APIs or connectors, the agent can use live context to explain what information is available for a specific machine or product family.",
+      "exampleQuestionsOrRequests": [
+        "Which snacks in this machine are nut-free?",
+        "Do you have calorie information for this item?",
+        "Can our office request lower-sugar or gluten-free options?"
+      ],
+      "businessOutcome": "Give consumers and location managers clearer product information while helping operators keep nutrition documentation easier to find and maintain.",
+      "icon": "BeakerIcon",
+      "sourceIds": [
+        "src-fda-vending-labeling"
+      ]
+    },
+    {
+      "name": "Route driver and technician knowledge agent",
+      "problem": "Field teams need fast answers across machine models, payment devices, stocking rules, cleaning steps, and client-specific procedures without searching binders or waiting for a manager.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves SOPs, manuals, service checklists, planograms, escalation rules, and location notes. Drivers can ask natural-language questions before a stop, during restock, or after a service call.",
+      "liveContextOrTools": "Configured Skills can retrieve approved route metadata, summarize the day’s service notes, create a follow-up task, or hand off a technical escalation with the relevant context.",
+      "exampleQuestionsOrRequests": [
+        "What are the restock rules for the hospital breakroom machine?",
+        "How do I clear this bill validator error?",
+        "Summarize the last three service notes before I visit this account."
+      ],
+      "businessOutcome": "Help field teams solve routine questions faster and keep operating procedures consistent across routes and machine types.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-bls-servicers"
+      ]
+    },
+    {
+      "name": "Location partner support for offices, schools, gyms, and facilities",
+      "problem": "Location managers ask about service schedules, commission questions, product mix, cashless options, machine placement, and how to report downtime.",
+      "agentWorkflow": "DocsBot answers from account FAQs, service level guidance, product assortment menus, installation checklists, and policy documents. It can collect requests for product changes, service visits, or account follow-up.",
+      "liveContextOrTools": "With customer-configured workflows, the agent can send a location request to the right account manager, create a service task, or route product-mix feedback to operations.",
+      "exampleQuestionsOrRequests": [
+        "Can we add more protein snacks to our gym machine?",
+        "How often do you restock our location?",
+        "Who should I contact if the card reader is offline?"
+      ],
+      "businessOutcome": "Improve partner communication and reduce repetitive account questions while preserving human review for commercial terms and special commitments.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Sales qualification for new vending locations",
+      "problem": "Prospects want quick answers about machine types, space requirements, payment options, product categories, and service expectations before booking a call.",
+      "agentWorkflow": "A DocsBot presales agent answers from service catalogs, equipment specs, installation requirements, product menus, and sales enablement materials. It collects structured lead details and applies customer-defined qualification rules.",
+      "liveContextOrTools": "Through approved forms, CRM workflows, email, calendar tools, or connectors, the agent can forward qualified lead summaries, request a meeting, or create a follow-up task for the sales team.",
+      "exampleQuestionsOrRequests": [
+        "Can you place a cashless snack machine in a 200-person office?",
+        "What information do you need to quote a new location?",
+        "Can I schedule a consultation for three apartment buildings?"
+      ],
+      "businessOutcome": "Help sales teams respond faster, capture better location-fit details, and prioritize accounts likely to support profitable routes.",
+      "icon": "RocketLaunchIcon",
+      "sourceIds": [
+        "src-cashless-vending"
+      ]
+    },
+    {
+      "name": "Support trend analytics and knowledge-gap discovery",
+      "problem": "Operators receive repeated questions about refunds, payment holds, allergens, restock timing, and machine downtime, but those themes are often buried in calls, emails, and texts.",
+      "agentWorkflow": "DocsBot logs and analytics help teams review conversation topics, repeated unanswered questions, resolution patterns, and documentation gaps. Teams can improve FAQs, signage, SOPs, and ticket macros based on real requests.",
+      "liveContextOrTools": "When connected to helpdesk or ticket sources through customer-approved workflows, DocsBot can summarize recurring issue types and draft clearer support content for review.",
+      "exampleQuestionsOrRequests": [
+        "What machine issues are customers asking about most this month?",
+        "Which refund questions are not answered in our current FAQ?",
+        "Summarize common product requests from office locations."
+      ],
+      "businessOutcome": "Turn high-volume support patterns into better documentation, clearer signage, and more targeted operational improvements.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A self-service agent for the moment a vending customer needs help",
+    "intro": "DocsBot can power a website or QR-linked support experience that answers from your approved vending knowledge, collects structured issue details, and escalates when a person or configured workflow is needed.",
+    "requests": [
+      {
+        "request": "“The machine charged me but nothing came out.”",
+        "agentResponseStrategy": "Explain the refund policy from approved sources, ask for machine ID, location, time, item, payment method, and contact details, then prepare a concise handoff.",
+        "sourceTypes": [
+          "Refund policy",
+          "Payment FAQ",
+          "Machine issue form",
+          "Location directory"
+        ],
+        "optionalAction": "Create a support ticket or notify the operations team through a configured helpdesk, form, webhook, or workflow.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Does this snack contain peanuts or how many calories does it have?”",
+        "agentResponseStrategy": "Answer from product catalogs, allergen sheets, and nutrition documentation, with source-grounded wording and a reminder to verify packaging when needed.",
+        "sourceTypes": [
+          "Product catalog",
+          "Nutrition sheets",
+          "Allergen notes",
+          "FDA labeling policy"
+        ],
+        "optionalAction": "Route missing or unclear product information to a content owner for review and FAQ improvement.",
+        "icon": "InformationCircleIcon",
+        "sourceIds": [
+          "src-fda-labeling-overview"
+        ]
+      },
+      {
+        "request": "“Can our office get different products in this machine?”",
+        "agentResponseStrategy": "Collect location, machine, desired products, dietary preferences, and urgency, then explain the normal product-request process from account documentation.",
+        "sourceTypes": [
+          "Product assortment guide",
+          "Account FAQ",
+          "Service policy",
+          "Location notes"
+        ],
+        "optionalAction": "Send a product-mix request to an account manager or operations queue through a customer-configured workflow.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“How do I report a broken card reader?”",
+        "agentResponseStrategy": "Walk the user through identifying the machine, describing the reader issue, and checking any approved troubleshooting steps that are safe for customers.",
+        "sourceTypes": [
+          "Payment support FAQ",
+          "Machine reporting guide",
+          "Escalation rules",
+          "Service ticket form"
+        ],
+        "optionalAction": "Create a service ticket with the collected issue details and conversation summary when the workflow is authorized.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Can you install vending machines at our apartment complex?”",
+        "agentResponseStrategy": "Answer basic fit questions from sales materials, collect site details, and qualify the lead using customer-defined instructions before handing off to sales.",
+        "sourceTypes": [
+          "Sales FAQ",
+          "Equipment specs",
+          "Location intake form",
+          "Service territory guide"
+        ],
+        "optionalAction": "Forward a qualified lead summary to CRM, email, or a scheduling workflow configured by the customer.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“Do you accept tap-to-pay or mobile wallets?”",
+        "agentResponseStrategy": "Answer payment capability questions from approved machine and account documentation, and clarify that options can vary by location or device.",
+        "sourceTypes": [
+          "Payment FAQ",
+          "Machine model notes",
+          "Location guide",
+          "Customer support policy"
+        ],
+        "optionalAction": "Route a location-specific payment question to support if the agent cannot verify the approved answer.",
+        "icon": "DevicePhoneMobileIcon",
+        "sourceIds": [
+          "src-cashless-vending"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for route operations, dispatch, sales, and support",
+    "intro": "DocsBot gives vending employees a private assistant trained on your SOPs, account rules, equipment docs, sales materials, and support history. Teams can ask operational questions, summarize context, draft responses, and trigger bounded workflows when configured.",
+    "workflows": [
+      {
+        "name": "Route preparation and service summaries",
+        "problem": "Drivers and technicians often need to understand account preferences, machine history, and service priorities before arriving on site.",
+        "agentWorkflow": "The agent retrieves route SOPs, account notes, machine manuals, and prior issue summaries so employees can prepare for each stop with consistent instructions.",
+        "sourceTypes": [
+          "Route SOPs",
+          "Machine manuals",
+          "Account notes",
+          "Service history exports"
+        ],
+        "optionalAction": "Generate a pre-route summary or create a follow-up task through configured operations workflows.",
+        "outcome": "Reduce back-and-forth between dispatch and field teams while improving consistency across service visits.",
+        "icon": "TruckIcon"
+      },
+      {
+        "name": "Support response drafting",
+        "problem": "Refund, payment, and product questions can be repetitive, but agents still need accurate wording and complete context.",
+        "agentWorkflow": "DocsBot drafts source-grounded responses from policies, FAQs, and ticket examples, then human staff can review, edit, and send through their normal helpdesk process.",
+        "sourceTypes": [
+          "Refund policy",
+          "Support macros",
+          "Ticket exports",
+          "Product FAQs"
+        ],
+        "optionalAction": "Summarize ticket context, suggest a response, or route the issue based on customer-configured helpdesk workflows.",
+        "outcome": "Help support teams respond faster while keeping final handling under the company’s normal rules.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Sales enablement for location proposals",
+        "problem": "Sales reps need quick answers about machine options, cashless availability, product mix, installation needs, and objection handling.",
+        "agentWorkflow": "An internal sales agent retrieves approved service catalogs, pricing guidance, equipment specs, case notes, proposal templates, and FAQs so reps can prepare accurate follow-ups.",
+        "sourceTypes": [
+          "Service catalog",
+          "Equipment specs",
+          "Proposal templates",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize prospect requirements, or create a CRM task when approved connectors or APIs are configured.",
+        "outcome": "Improve speed and consistency in new-location conversations without letting the agent make binding pricing or contract commitments.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Compliance and content maintenance",
+        "problem": "Nutrition, contact, refund, and machine signage content can become fragmented across product sheets, labels, and account documents.",
+        "agentWorkflow": "DocsBot helps internal teams search approved labeling guidance, product documentation, and content owners’ notes, then identify repeated unanswered questions that require documentation updates.",
+        "sourceTypes": [
+          "Nutrition files",
+          "Labeling guidance",
+          "Product sheets",
+          "Content review logs"
+        ],
+        "optionalAction": "Create a documentation update task or route missing information to the responsible reviewer.",
+        "outcome": "Make required and customer-facing information easier to find, review, and update across the vending fleet.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-vending-labeling"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "AI agents trained on company knowledge",
+      "mainLandingPageContext": "DocsBot agents answer from configured sources such as websites, help centers, internal docs, PDFs, policies, manuals, and knowledge bases.",
+      "industryApplication": "Train a vending support agent on refund rules, payment FAQs, product catalogs, allergen sheets, service policies, account onboarding materials, and machine issue reporting steps.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer support",
+      "mainLandingPageContext": "DocsBot support agents deliver instant answers in the company’s voice and can escalate complex or sensitive questions to humans.",
+      "industryApplication": "Answer unattended customer questions about failed vends, card holds, product information, restock timing, and support contact paths without relying on generic AI guesses.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let customers configure bounded lookups, record updates, workflow triggers, summaries, and handoffs with customer-defined controls.",
+      "industryApplication": "Use approved actions to create a service ticket, notify a route manager, summarize a complaint, look up authorized machine context, or send qualified location leads to sales workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can provide private team access to SOPs, policies, onboarding materials, troubleshooting documentation, and other internal knowledge.",
+      "industryApplication": "Give dispatchers, route drivers, technicians, and account managers a searchable assistant for machine procedures, route rules, client preferences, and service escalation steps.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Review repeated questions about refunds, cashless payments, allergens, broken machines, product requests, or location setup to improve FAQs, signage, training, and support content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer-data training of public models.",
+      "industryApplication": "Keep internal SOPs, account details, route notes, and configured action permissions governed while exposing only the right approved answers to customers and partners.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout",
+      "bowe-dollie-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the support, product, and operations content your vending team already maintains.",
+      "Support customers through an embedded website or QR-linked experience, with human handoff when needed.",
+      "Use analytics to see what buyers, location partners, and employees keep asking about."
+    ],
+    "whyTheseReviewsFit": "Vending operators need dependable first-line answers, practical support workflows, and clear insight into repeated questions. DocsBot proof spans high-volume inquiry handling, owned-content training, embedded support, and human support assistance—capabilities that map directly to unattended retail service demands.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for vending machine operators",
+    "audience": [
+      "Vending machine operators",
+      "Route managers",
+      "Field service teams",
+      "Location sales teams",
+      "Customer support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "grocery-convenience-store",
+    "food-beverage-manufacturing",
+    "food-hospitality",
+    "food-trucks",
+    "alcohol-tobacco-sales",
+    "catering-equipment-rental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "vending-machine",
+    "webSearchQueries": [
+      "vending machine industry statistics unattended retail payments cashless telemetry operators source",
+      "National Automatic Merchandising Association vending industry fact sheet operators consumers jobs",
+      "FDA vending machine calorie labeling rule vending machines operators 20 or more machines",
+      "vending machine market report cashless payment consumer preferences",
+      "IBISWorld vending machine operators US industry revenue 2024",
+      "BLS vending machine servicers and repairers occupational outlook",
+      "Census vending machine operators NAICS 454210 annual receipts establishments"
+    ],
+    "sourceUrls": [
+      "https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/menu-and-vending-machine-labeling",
+      "https://www.fda.gov/food/nutrition-food-labeling-and-critical-foods/overview-fda-labeling-requirements-restaurants-similar-retail-food-establishments-and-vending",
+      "https://www.grandviewresearch.com/industry-analysis/us-retail-vending-machine-market-report",
+      "https://www.bls.gov/oes/2023/may/oes499091.htm",
+      "https://www.ibisworld.com/united-states/market-size/vending-machine-operators/1113/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45672,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24936,
+        "outputTokens": 8458,
+        "reasoningOutputTokens": 199,
+        "totalTokens": 54130,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.194395,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.214395
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25567,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10079,
+          "outputTokens": 5531,
+          "reasoningOutputTokens": 199,
+          "totalTokens": 31098,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.112035,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.132035
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20105,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14857,
+          "outputTokens": 2927,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23032,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08236,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08236
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1605752994074-728a77a85e45?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU3NTZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Vending Machine background image",
+    "source": "legacy-industry",
+    "query": "Vending Machine"
+  },
+  "faq": [
+    {
+      "question": "Can an AI agent handle refund and failed-vend questions without creating messy, incomplete tickets?",
+      "answer": "Yes. DocsBot can ask for the details your team usually needs before acting: machine ID, location, product slot, time, payment method, issue description, and contact information. It can then summarize the request and route it through a customer-configured helpdesk, form, webhook, or workflow so dispatch or support starts with cleaner context.",
+      "role": "Vending operators and owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this work for customers standing at a machine with no attendant nearby?",
+      "answer": "Many vending operators use a QR code, website link, or embedded support widget to give customers immediate help. DocsBot can answer from your approved refund, payment, product, and location instructions, then escalate if the issue needs a person or configured workflow action. That fits vending because the buying moment is unattended and often time-sensitive.",
+      "role": "Vending operators and owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot answer payment-hold and cashless-card questions accurately?",
+      "answer": "DocsBot can answer from your payment FAQs, card-hold explanations, refund policy, and location-specific guidance rather than guessing. This matters because cashless vending represented 75% of U.S. retail vending machine revenue in 2024, so payment-related support is now a core customer experience issue for many operators.",
+      "role": "Vending operators and owners",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cashless-vending"
+      ]
+    },
+    {
+      "question": "Can the agent look up whether a specific machine, transaction, or service record exists?",
+      "answer": "It can when you configure the right Skill, API, connector, MCP-connected tool, or approved workflow. A typical setup would keep the public answer simple, then use scoped live context only for authorized lookups such as machine status, location metadata, ticket creation, or a transaction reference. Sensitive actions should remain permissioned, logged, and bounded.",
+      "role": "Vending operators and owners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will this replace our dispatchers or just reduce repetitive intake?",
+      "answer": "DocsBot is best positioned as first-line automation, not a replacement for operational judgment. It can answer routine questions, collect missing details, summarize complaints, and route issues. Dispatchers, managers, or technicians still handle exceptions, refunds that need review, commercial commitments, safety issues, and route-priority decisions.",
+      "role": "Vending operators and owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can route drivers use an internal AI agent without searching binders, PDFs, and old messages?",
+      "answer": "A private DocsBot internal knowledge agent can be trained on SOPs, service checklists, machine manuals, planograms, account notes, cleaning rules, and escalation procedures. Drivers and technicians can ask natural-language questions before a stop or during service. BLS treats coin, vending, and amusement machine servicing as a specialized repair role, which reflects the operational complexity teams manage in the field.",
+      "role": "Route managers and field service teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-servicers"
+      ]
+    },
+    {
+      "question": "Can the agent support different rules by account, such as hospitals, schools, gyms, and offices?",
+      "answer": "Yes, if those rules exist in your approved documentation or connected systems. DocsBot can retrieve location-specific policies, product preferences, service windows, contact instructions, and escalation notes. Access controls help keep internal account notes private while customer-facing agents only expose the approved information meant for that audience.",
+      "role": "Route managers and field service teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the AI from promising a refund, service level, commission, or product change it should not authorize?",
+      "answer": "Use source-grounded answers, clear AI instructions, scoped Skills, and human escalation rules. DocsBot can explain the normal process, collect the request, and prepare a handoff without making binding commitments. For refunds, commissions, custom service levels, product substitutions, or contract-sensitive answers, keep final approval with your team.",
+      "role": "Vending operators and owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with calorie, ingredient, and allergen questions?",
+      "answer": "Yes. You can train the agent on product catalogs, nutrition sheets, allergen notes, labeling policies, and substitution rules. This is especially relevant for covered operators because FDA calorie labeling requirements apply to vending operators that own or operate 20 or more vending machines, subject to exceptions.",
+      "role": "Vending operators and owners",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-vending-labeling"
+      ]
+    },
+    {
+      "question": "Can the agent support FDA vending labeling documentation across a changing product mix?",
+      "answer": "DocsBot can make approved nutrition, calorie, allergen, and product documentation easier for staff to search and maintain. FDA guidance notes that calorie information may be provided near the food or selection button or through electronic or digital displays, and covered operators must disclose contact information for enforcement contact.",
+      "role": "Route managers and field service teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-labeling-overview"
+      ]
+    },
+    {
+      "question": "What systems would we need to connect first: helpdesk, CRM, vending management, telemetry, or spreadsheets?",
+      "answer": "Start with the highest-friction workflow. For customer support, begin with FAQs, refund policies, payment guidance, issue forms, and helpdesk routing. For operations, start with SOPs, machine manuals, account notes, and route procedures. Live integrations can come later through approved Skills, APIs, connectors, webhooks, or MCP options once the knowledge base is stable.",
+      "role": "Vending operators and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much cleanup do our documents need before launch?",
+      "answer": "You do not need perfect documentation, but you do need approved source material for the answers you expect the agent to give. Good launch content includes refund rules, payment FAQs, machine issue instructions, product catalogs, allergen sheets, route SOPs, account procedures, and escalation rules. DocsBot analytics can then reveal unanswered questions and documentation gaps after launch.",
+      "role": "Route managers and field service teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we launch customer-facing and internal agents separately?",
+      "answer": "Yes. Many operators would start with one focused use case: a customer issue-intake agent, a route-driver knowledge agent, or a sales qualification agent. Customer-facing agents should expose only public-approved content, while internal agents can use private SOPs, account rules, service notes, and sales materials with role-based permissions.",
+      "role": "Vending operators and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "What would success look like after the first 60 to 90 days?",
+      "answer": "Useful early metrics include fewer incomplete refund requests, faster ticket triage, more issues submitted with machine ID and location, fewer repetitive calls to dispatch, improved driver access to SOPs, higher self-service answer rates, and clearer visibility into the most common support topics. DocsBot logs, reports, topic analysis, and knowledge-gap discovery help review those patterns.",
+      "role": "Vending operators and owners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us qualify new vending location leads before sales calls?",
+      "answer": "Yes. A presales agent can answer from service catalogs, machine specs, installation requirements, product menus, cashless payment guidance, and territory information. It can collect structured details such as site type, employee or resident count, desired products, timeline, location count, and follow-up preference, then route a qualified summary to your configured sales workflow.",
+      "role": "Sales and location acquisition teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent help location partners request product changes without texting account managers every time?",
+      "answer": "Yes. DocsBot can collect the account, machine, desired products, dietary preferences, urgency, and reason for the request. It can explain your standard product-mix process from approved documentation and route the request to an account manager or operations queue through a configured workflow, while keeping final assortment decisions with your team.",
+      "role": "Sales and location acquisition teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot avoid giving outdated answers when products, prices, and machine assignments change often?",
+      "answer": "Use approved source syncing and, where needed, live context from customer-configured Skills, APIs, connectors, or workflows. Static knowledge works well for policies and SOPs; changing data such as machine location, product availability, planograms, pricing, or transaction status should come from maintained documents or authorized live systems when accuracy depends on current records.",
+      "role": "Route managers and field service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review what the agent told a customer before a refund or service action is taken?",
+      "answer": "Yes. DocsBot can summarize the conversation, preserve the collected details, and escalate to a human review path for sensitive or high-impact decisions. You can design workflows so the agent prepares a ticket or notification while your support, dispatch, or finance team makes the final refund, route change, or account decision.",
+      "role": "Vending operators and owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What if a customer asks about allergens and the product packaging says something different?",
+      "answer": "The safest setup is to answer from approved product and allergen documentation, include source-grounded wording, and instruct customers to verify packaging when appropriate. If information is missing, conflicting, or product-specific beyond the approved source, the agent should route the question to a content owner or support reviewer instead of improvising.",
+      "role": "Vending operators and owners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support multilingual customers at public machines?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help when customers, employees, students, travelers, or facility visitors need support at an unattended machine. You should still train the agent on your approved policies and decide which escalation paths apply across languages.",
+      "role": "Vending operators and owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we think about security if the agent has access to internal route notes and account details?",
+      "answer": "Separate customer-facing and internal use cases, limit sources by audience, and use granular access controls and role-based permissions. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models. Skills should also use scoped permissions, secrets handling, logging, and customer-defined controls.",
+      "role": "Vending operators and owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent identify patterns like repeated card-reader failures or common refund reasons?",
+      "answer": "Yes. DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery can show recurring questions and unresolved topics. For vending teams, that can highlight patterns around failed vends, payment holds, broken readers, missing machine IDs, allergen questions, product requests, or locations that need clearer signage.",
+      "role": "Route managers and field service teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does this compare with a basic website FAQ or form?",
+      "answer": "A static FAQ only answers what the customer can find and understand. A DocsBot agent can interpret natural-language questions, answer from approved sources, ask follow-up intake questions, summarize the issue, route the request, and reveal knowledge gaps. It is especially useful when customers submit vague issues like “the machine ate my money” without the details your team needs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How does this compare with building our own AI agent on top of vending data?",
+      "answer": "Building in-house may make sense for teams with AI engineering resources, but operators usually still need source management, permissions, analytics, logs, escalation, embeddings, prompt controls, and workflow boundaries. DocsBot is a faster path when the goal is to train agents on approved company knowledge and connect bounded actions without maintaining a custom RAG system.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can a small regional operator justify this, or is it mainly for national fleets?",
+      "answer": "It can fit both, but the use case changes. A smaller operator may focus on reducing owner or dispatcher interruptions, collecting better refund details, and supporting new route employees. Larger fleets may emphasize multi-location consistency, analytics, internal knowledge access, partner support, and controlled integrations across helpdesk, CRM, route, or vending systems.",
+      "role": "Vending operators and owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "What are the biggest implementation risks for a vending operator?",
+      "answer": "The main risks are incomplete documentation, unclear escalation rules, exposing internal account notes to the wrong audience, connecting live systems before permissions are defined, and letting the agent answer commercial or compliance-sensitive questions without approved sources. A focused pilot, source review, role-based access, and human approval paths reduce those risks.",
+      "role": "Vending operators and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "How can we use the agent for onboarding new route drivers and technicians?",
+      "answer": "Train an internal agent on route SOPs, machine manuals, cleaning procedures, payment-device troubleshooting, service checklists, safety reminders, account rules, and escalation paths. New employees can ask practical questions in the field, while managers can review repeated questions to improve training materials and reduce one-off calls.",
+      "role": "Route managers and field service teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot make support sound too generic for our brand and location partners?",
+      "answer": "DocsBot answers from your approved knowledge and can follow your company voice, terminology, escalation rules, and support policies. For location partners, you can train it on account FAQs, service expectations, product assortment language, and installation guidance so responses feel specific to vending operations rather than generic AI support.",
+      "role": "Sales and location acquisition teams",
+      "category": "Vendor trust"
+    }
+  ]
+}

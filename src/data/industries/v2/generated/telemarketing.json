@@ -1,0 +1,691 @@
+{
+  "slug": "telemarketing",
+  "business": "Telemarketing",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Telemarketing Compliance and Sales",
+    "description": "DocsBot helps telemarketing teams deliver source-grounded answers, qualify prospects, and route call follow-ups with governed AI agents.",
+    "canonicalPath": "/industry/telemarketing"
+  },
+  "hero": {
+    "eyebrow": "AI agents for outbound sales, compliance support, and call-center knowledge",
+    "headline": "Give telemarketing teams answers, scripts, and next steps on demand",
+    "subheadline": "DocsBot turns approved scripts, offer details, compliance notes, objection handling, FAQs, and call-center SOPs into AI agents your reps and prospects can use. Agents can answer from your sources, qualify leads, summarize conversations, route handoffs, and escalate sensitive issues to a human.",
+    "proofBullets": [
+      {
+        "text": "Train agents on scripts, FAQs, pricing guidance, sales playbooks, product pages, and compliance notes so reps get consistent answers before and after calls.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect lead details through structured forms, apply your qualification rules, and forward summaries to the sales workflow you configure.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use AI Actions and Skills for approved lookups, task creation, routing, notifications, summaries, and human handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Review logs, repeated questions, unresolved topics, and knowledge gaps to improve scripts, onboarding materials, and support content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a telemarketing AI agent",
+    "secondaryCta": "Explore governed AI Actions"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps telemarketing organizations create AI agents trained on their own approved knowledge. Use it as a rep-facing knowledge assistant, a customer-facing website agent, a presales qualifier, or a workflow automation layer that summarizes context and takes bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Sales development and telemarketing reps",
+        "roleContext": "Reps need fast, consistent access to approved talk tracks, product fit guidance, objections, pricing caveats, and follow-up rules while staying aligned with internal procedures.",
+        "bullets": [
+          {
+            "text": "Ask for the latest approved response to a pricing, eligibility, or competitor objection without searching through long playbooks.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Generate a concise post-call summary and draft follow-up email for human review before sending.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Surface escalation guidance when a prospect asks about legal, financial, contract, or regulated commitments.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Compliance and operations leaders",
+        "roleContext": "Outbound teams operate under consent, disclosure, opt-out, and documentation expectations, making searchable procedures and reviewable logs valuable for day-to-day consistency.",
+        "bullets": [
+          {
+            "text": "The FTC reported more than 2 million Do Not Call complaints in FY 2024 and over 253 million active Registry registrations.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-ftc-dnc-2024"
+            ]
+          },
+          {
+            "text": "Turn consent language, opt-out procedures, escalation rules, and approved disclosures into a private internal knowledge agent.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Use conversation review and analytics to identify confusing policy areas, repeated rep questions, and documentation gaps.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Sales managers and enablement teams",
+        "roleContext": "Managers need to keep distributed teams aligned as campaigns, offers, lists, scripts, and qualification rules change.",
+        "bullets": [
+          {
+            "text": "Centralize current campaign instructions, call dispositions, qualification criteria, and handoff steps in one source-grounded assistant.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Prepare rep coaching materials from common questions, unresolved topics, and call follow-up patterns.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Support onboarding with instant answers from SOPs, training docs, product FAQs, and sales playbooks.",
+            "icon": "RocketLaunchIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ftc-dnc-2024",
+      "metric": "More than 2 million FY 2024 Do Not Call complaints",
+      "claim": "The FTC’s FY 2024 National Do Not Call Registry Data Book reported over 2 million complaints and more than 253 million active registrations.",
+      "sourceTitle": "National Do Not Call Registry Data Book for Fiscal Year 2024",
+      "sourceUrl": "https://www.ftc.gov/reports/national-do-not-call-registry-data-book-fiscal-year-2024",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "consumer call fatigue",
+        "Do Not Call operational risk"
+      ]
+    },
+    {
+      "id": "src-fcc-tcpa-consent-2026",
+      "metric": "TCPA consent revocation compliance delayed to April 11, 2026",
+      "claim": "The FCC granted a one-year limited waiver delaying compliance with TCPA consent revocation amendments and new rules to April 11, 2026.",
+      "sourceTitle": "Federal Communications Commission DA-25-312A1",
+      "sourceUrl": "https://docs.fcc.gov/public/attachments/DA-25-312A1.pdf",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "consent management",
+        "regulatory change",
+        "opt-out workflows"
+      ]
+    },
+    {
+      "id": "src-hiya-state-call-2024",
+      "metric": "28% of unknown calls analyzed by Hiya in 2023 were spam or fraud",
+      "claim": "Hiya’s 2024 State of the Call reported that more than 28% of 46.75 billion unknown calls analyzed in 2023 were spam or fraud, and 77% of consumers were more likely to answer if they knew who was calling.",
+      "sourceTitle": "2024 State of the Call: Voice and Spam Trends",
+      "sourceUrl": "https://blog.hiya.com/2024-state-of-the-call-consumers-prefer-voice-but-spam-and-fraud-are-threats",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "consumer trust",
+        "answer rates",
+        "call identity pressure"
+      ]
+    },
+    {
+      "id": "src-bls-telemarketers-outlook",
+      "metric": "BLS projects telemarketer employment to decline from 2024 to 2034",
+      "claim": "The BLS Occupational Outlook Handbook lists telemarketers as a declining occupation for the 2024–2034 projection period.",
+      "sourceTitle": "Occupation Finder: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/occupation-finder.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor pressure",
+        "automation interest",
+        "workforce planning"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Rep knowledge assistant for approved scripts and objections",
+      "problem": "Telemarketing reps lose momentum when they hunt for the right answer, use outdated language, or improvise on sensitive product, pricing, or disclosure questions.",
+      "agentWorkflow": "Train a private DocsBot agent on call scripts, product sheets, FAQs, campaign briefs, pricing notes, compliance guidance, and objection handling. Reps ask natural-language questions and receive source-grounded answers with relevant context and escalation guidance.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up the active campaign, territory, offer version, or account segment before returning the approved guidance.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved response when a prospect says they already use a competitor?",
+        "Which disclosure should I read before transferring this lead?",
+        "Summarize the differences between the basic and premium package in caller-friendly language."
+      ],
+      "businessOutcome": "More consistent rep responses, faster onboarding, and fewer avoidable escalations caused by stale scripts or scattered documentation.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "name": "Lead intake, qualification, and routed handoff",
+      "problem": "Inbound web visitors and call-back prospects often arrive with incomplete context, forcing reps to repeat discovery before deciding whether the lead is ready for follow-up.",
+      "agentWorkflow": "A customer-facing DocsBot agent answers service-fit and pricing-range questions from approved pages, collects structured lead details, applies your qualification rules, and prepares a summary for the sales team.",
+      "liveContextOrTools": "AI Actions can submit a custom lead form, create a task, notify a sales channel, forward the lead to CRM-style software, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you serve companies with 50-seat outbound teams?",
+        "Can someone call me tomorrow about a campaign for solar leads?",
+        "Here are my region, budget range, timeline, and preferred follow-up channel."
+      ],
+      "businessOutcome": "Sales teams receive cleaner lead context and can prioritize follow-up without making the AI responsible for final pricing, contracts, or regulated commitments.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Consent, opt-out, and disclosure procedure lookup",
+      "problem": "Outbound teams must keep up with changing consent, revocation, Do Not Call, and disclosure procedures across campaigns and jurisdictions.",
+      "agentWorkflow": "DocsBot can train on internal compliance procedures, approved disclosures, suppression-list SOPs, call disposition rules, and escalation paths. Reps and managers can ask operational questions and get source-grounded answers from approved materials.",
+      "liveContextOrTools": "Where authorized, Skills can route an opt-out question, create a compliance review task, or summarize the issue for a human owner. The FCC delayed compliance with certain TCPA consent revocation rules to April 11, 2026, so teams may need to update procedures as rules change.",
+      "exampleQuestionsOrRequests": [
+        "What should I do if a prospect asks us to stop calling during the call?",
+        "Which team reviews disputed consent records?",
+        "Show the current disclosure for this campaign before I transfer the prospect."
+      ],
+      "businessOutcome": "Helps teams keep operating procedures searchable and auditable while leaving legal interpretation and final compliance decisions to qualified humans.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-fcc-tcpa-consent-2026"
+      ]
+    },
+    {
+      "name": "Post-call summaries and follow-up drafts",
+      "problem": "Reps often spend valuable selling time rewriting notes, composing follow-up emails, and deciding what internal team should receive the next action.",
+      "agentWorkflow": "After a call or chat intake, a DocsBot agent can summarize key points, identify missing fields, draft a follow-up response from approved templates, and recommend a handoff path based on your rules.",
+      "liveContextOrTools": "Customer-configured actions can create tasks, update approved fields, send a notification, or route a summary to sales, support, or compliance queues for review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this call into budget, authority, need, timeline, objections, and next step.",
+        "Draft a follow-up email using our approved demo-request language.",
+        "Create a task for a manager to review this pricing exception request."
+      ],
+      "businessOutcome": "Less administrative drag for reps and more complete handoff context for managers, account executives, and support teams.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Script improvement and knowledge-gap analytics",
+      "problem": "Managers may not know which objections, campaign details, or policy questions are creating the most confusion until performance has already suffered.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, and conversation review reveal repeated questions and unresolved topics. Enablement teams can use those insights to update scripts, FAQs, training materials, and internal procedures.",
+      "liveContextOrTools": "Reports can guide documentation updates and coaching priorities; teams can add new source material so future answers stay aligned with approved content.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are reps asking most about the new campaign?",
+        "What topics are getting low-confidence answers?",
+        "Which objections should we add to the playbook this week?"
+      ],
+      "businessOutcome": "Continuous improvement for training, documentation, and call readiness based on real rep and prospect questions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Trust-building website agent before a call-back",
+      "problem": "Consumers are cautious about unknown callers; Hiya reported that 28% of unknown calls it analyzed in 2023 were spam or fraud, while 77% of consumers were more likely to answer if they knew who was calling.",
+      "agentWorkflow": "Place a DocsBot agent on landing pages so prospects can verify service details, understand why they may receive a call, review FAQs, and submit preferred contact information before a rep calls.",
+      "liveContextOrTools": "The agent can collect consent-related intake fields, summarize the request, and route it to a human follow-up workflow configured by the business.",
+      "exampleQuestionsOrRequests": [
+        "Why would someone from your company call me?",
+        "Can I request email follow-up instead of a phone call?",
+        "What information should I have ready before speaking with a rep?"
+      ],
+      "businessOutcome": "Clearer pre-call context and more informed prospects, supporting a better handoff from website engagement to human outreach.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-hiya-state-call-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Help prospects self-serve before they speak with a rep",
+    "intro": "A DocsBot customer-facing agent can sit on campaign pages, landing pages, or product pages to answer approved questions, collect contact preferences, qualify interest, and prepare a handoff for human sales teams.",
+    "requests": [
+      {
+        "request": "“What is this offer, and who is eligible?”",
+        "agentResponseStrategy": "Answer only from approved campaign pages, offer documents, FAQs, and eligibility notes; include caveats where a human must confirm final fit or pricing.",
+        "sourceTypes": [
+          "Campaign pages",
+          "Offer FAQs",
+          "Eligibility notes",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Collect missing details and route a qualified summary to the sales team through a configured workflow.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“I want a call-back, but only at a specific time.”",
+        "agentResponseStrategy": "Collect scheduling intent, preferred channel, time zone, company size, and service interest without promising availability beyond the configured scheduling process.",
+        "sourceTypes": [
+          "Scheduling rules",
+          "Lead intake forms",
+          "Sales handoff SOPs"
+        ],
+        "optionalAction": "Use an approved scheduling Skill or create a follow-up task for a human rep.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Please stop calling me.”",
+        "agentResponseStrategy": "Respond with the organization’s approved opt-out instructions and route the request to the correct internal workflow rather than making unsupervised compliance decisions.",
+        "sourceTypes": [
+          "Opt-out procedures",
+          "Suppression-list SOPs",
+          "Compliance FAQs"
+        ],
+        "optionalAction": "Create a review task or notify the compliance owner when configured and authorized.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Can you explain your service in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer from approved source material while preserving the company’s service details and escalation rules.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Translated or approved source content"
+        ],
+        "optionalAction": "Collect preferred language and follow-up channel for the human sales team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this company legitimate?”",
+        "agentResponseStrategy": "Point to approved company information, service scope, privacy notes, and contact options so the prospect can verify context before accepting a call.",
+        "sourceTypes": [
+          "About pages",
+          "Privacy policy",
+          "Contact pages",
+          "Campaign disclosures"
+        ],
+        "optionalAction": "Offer a safe handoff path such as email confirmation or a scheduled call request.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“I have a complex contract question.”",
+        "agentResponseStrategy": "Acknowledge the question, provide only approved general information, collect context, and escalate to a qualified human for final terms.",
+        "sourceTypes": [
+          "Contract FAQs",
+          "Sales policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a handoff summary for sales leadership or legal review if configured.",
+        "icon": "ScaleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give every rep a searchable operating manual for outbound work",
+    "intro": "A DocsBot internal knowledge agent helps telemarketing reps, QA teams, sales managers, and compliance owners retrieve the right procedure, script, or campaign detail without waiting for a supervisor.",
+    "workflows": [
+      {
+        "name": "Campaign launch enablement",
+        "problem": "New campaigns often involve updated scripts, qualification rules, disclaimers, routing steps, and objection handling that reps must absorb quickly.",
+        "agentWorkflow": "Train DocsBot on launch briefs, call scripts, FAQs, service catalogs, product documents, and training slides so reps can ask campaign-specific questions during ramp.",
+        "sourceTypes": [
+          "Launch briefs",
+          "Scripts",
+          "Training decks",
+          "Product FAQs"
+        ],
+        "optionalAction": "Summarize unanswered launch questions for enablement owners to update source material.",
+        "outcome": "Faster campaign ramp and fewer repeated supervisor questions.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "QA and coaching support",
+        "problem": "Managers need to convert recurring rep confusion into practical coaching without manually reading every knowledge request.",
+        "agentWorkflow": "Use DocsBot reports, logs, conversation review, topic management, and knowledge-gap discovery to identify themes that need script updates or coaching sessions.",
+        "sourceTypes": [
+          "Agent logs",
+          "Topic reports",
+          "Call QA notes",
+          "Training docs"
+        ],
+        "optionalAction": "Create a coaching task or draft an updated FAQ entry for review.",
+        "outcome": "Coaching becomes more specific because it is based on real questions and unresolved topics.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Compliance operations desk",
+        "problem": "Consent, revocation, disclosure, and suppression-list procedures change, and frontline teams need a reliable way to find the current rule inside company policy.",
+        "agentWorkflow": "Make compliance SOPs, approved disclosures, escalation rules, and campaign-specific requirements searchable with source-grounded answers and role-based access.",
+        "sourceTypes": [
+          "Compliance SOPs",
+          "Disclosure language",
+          "Opt-out procedures",
+          "Escalation policies"
+        ],
+        "optionalAction": "Route uncertain or sensitive requests to a compliance owner with a summary and source references.",
+        "outcome": "More consistent internal procedure access while keeping compliance judgment under human control.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales follow-up workspace",
+        "problem": "Reps need to move from calls to accurate follow-up quickly, but handoff notes are often inconsistent or incomplete.",
+        "agentWorkflow": "DocsBot can draft summaries, answer product questions, prepare response language, and help route the next step based on your internal sales process.",
+        "sourceTypes": [
+          "Follow-up templates",
+          "CRM process notes",
+          "Sales playbooks",
+          "Proposal guidance"
+        ],
+        "optionalAction": "With approved Skills, create a task, update approved fields, or notify the right owner.",
+        "outcome": "Cleaner follow-up, fewer missing details, and less time spent rewriting call notes.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot agents learn from configured knowledge sources such as websites, documents, PDFs, wikis, help centers, internal content, and product documentation.",
+      "industryApplication": "Train a telemarketing agent on scripts, offer sheets, objection handling, call dispositions, compliance guidance, and onboarding content so answers stay tied to approved material.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot Skills can include instructions, reference material, and optional executable functions for lookups, record updates, workflow triggers, generated artifacts, and handoffs.",
+      "industryApplication": "Use bounded actions for lead form submission, follow-up task creation, call-summary routing, approved field updates, team notifications, or live lookups through customer-authorized systems and Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Presales and lead qualification workflows",
+      "mainLandingPageContext": "DocsBot can collect lead details, apply customer-defined qualification rules, and forward qualified summaries to sales systems through configured workflows.",
+      "industryApplication": "Qualify campaign inquiries by region, company size, timeline, budget range, product interest, current provider, and preferred follow-up channel before a rep calls.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Human escalation and governed boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or require a person, with permissions and customer-defined controls for connected actions.",
+      "industryApplication": "Escalate legal, consent, pricing-exception, contract, or regulated-service questions while still giving reps approved general guidance and a complete handoff summary.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which objections, compliance questions, campaign details, or prospect concerns keep recurring so managers can improve scripts and training materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support and deployable chat experiences",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages and can be used in website widgets, private team chat, Slack, Microsoft Teams, APIs, and helpdesk-connected workflows when configured.",
+      "industryApplication": "Support multilingual prospects on landing pages and give distributed call teams a private assistant for campaign and procedure questions.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "simon-gaggle-mail-help-scout",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume question answering across customer-facing and internal support workflows.",
+      "Source-grounded answers help teams keep responses aligned with approved content libraries.",
+      "Useful for website assistants and human support teams that need faster response drafting and handoffs."
+    ],
+    "whyTheseReviewsFit": "Telemarketing teams need speed, consistency, and operational control. DocsBot proof spans high-volume inquiry handling, support-team assistance, and training on owned content libraries—the same foundations needed for rep enablement, prospect self-service, and governed workflow automation.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for telemarketing sales, support, lead qualification, and internal knowledge operations",
+    "audience": [
+      "Telemarketing agencies",
+      "Outbound sales teams",
+      "Call-center operations leaders",
+      "Sales enablement managers",
+      "Compliance and QA teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PhoneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "ai-automation-agency",
+    "ai-consulting",
+    "business-information",
+    "big-data-analytics",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "telemarketing",
+    "webSearchQueries": [
+      "FCC TCPA telemarketing robocalls consent revocation one-to-one consent 2025",
+      "FTC Do Not Call Registry report complaints telemarketing 2024",
+      "Bureau of Labor Statistics telemarketers employment May 2024",
+      "Hiya State of the Call 2024 unknown calls consumers don't answer"
+    ],
+    "sourceUrls": [
+      "https://www.ftc.gov/reports/national-do-not-call-registry-data-book-fiscal-year-2024",
+      "https://docs.fcc.gov/public/attachments/DA-25-312A1.pdf",
+      "https://blog.hiya.com/2024-state-of-the-call-consumers-prefer-voice-but-spam-and-fraud-are-threats",
+      "https://www.bls.gov/ooh/occupation-finder.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44744,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24008,
+        "outputTokens": 7405,
+        "reasoningOutputTokens": 202,
+        "totalTokens": 52149,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.17628,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.19628
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25755,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10267,
+          "outputTokens": 5001,
+          "reasoningOutputTokens": 202,
+          "totalTokens": 30756,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.104555,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.124555
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18989,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13741,
+          "outputTokens": 2404,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21393,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.071725,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.071725
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1662278341413-e7eb4aab9421?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzQ3ODJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Telemarketing background image",
+    "source": "legacy-industry",
+    "query": "Telemarketing"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot without letting reps improvise on compliance language?",
+      "answer": "Yes. Train the agent on your approved scripts, disclosures, opt-out procedures, escalation rules, and campaign guidance so reps receive source-grounded answers from controlled materials. For sensitive questions, DocsBot can point reps to approved general guidance and escalate to a compliance owner instead of making legal judgments.",
+      "role": "Compliance and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this fit into a live outbound calling workflow?",
+      "answer": "Most teams would use DocsBot as a rep-facing knowledge assistant alongside the dialer or CRM, not as a replacement for the rep. A rep can ask for the current objection response, disclosure, eligibility rule, call disposition guidance, or follow-up wording, then use the answer during or immediately after the call.",
+      "role": "Sales development and telemarketing reps",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help with Do Not Call and opt-out process consistency?",
+      "answer": "DocsBot can make your internal DNC, consent, suppression-list, and opt-out procedures searchable for reps and managers. That matters because the FTC reported more than 2 million Do Not Call complaints in FY 2024 and over 253 million active Registry registrations, so teams need consistent procedures and documented escalation paths.",
+      "role": "Compliance and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-dnc-2024"
+      ]
+    },
+    {
+      "question": "Will the agent know which campaign, offer, or script version a rep is asking about?",
+      "answer": "It can if you structure the knowledge base and metadata clearly, and if needed configure Skills or APIs to look up campaign, territory, offer version, account segment, or other approved live context. Buyers should plan naming conventions, source ownership, and update workflows before rollout.",
+      "role": "Sales managers and enablement teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it summarize calls and create follow-up tasks automatically?",
+      "answer": "DocsBot can generate structured summaries, identify missing fields, draft follow-up language from approved templates, and trigger bounded actions when configured. For example, a customer-defined Skill can create a task, notify a sales channel, update approved fields, or route a handoff for human review.",
+      "role": "Sales development and telemarketing reps",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the AI from promising pricing, eligibility, or contract terms?",
+      "answer": "Use source-grounded instructions, approved pricing guidance, clear escalation rules, and restricted Skills. DocsBot can answer from approved materials, include caveats where a human must confirm final terms, and route pricing exceptions, legal questions, or regulated commitments to the right owner.",
+      "role": "Sales managers and enablement teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can prospects use the agent before a call-back to understand who we are?",
+      "answer": "Yes. A customer-facing DocsBot agent can sit on landing pages to answer approved questions about the offer, company legitimacy, eligibility, privacy notes, contact options, and preferred follow-up channel. That can help with trust because Hiya reported that 28% of unknown calls it analyzed in 2023 were spam or fraud, and 77% of consumers were more likely to answer if they knew who was calling.",
+      "role": "Sales managers and enablement teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-hiya-state-call-2024"
+      ]
+    },
+    {
+      "question": "What would implementation require from our enablement and compliance teams?",
+      "answer": "You will need current scripts, campaign briefs, disclosures, FAQs, objection handling, call disposition rules, escalation policies, and follow-up templates. The most important work is deciding source ownership, review cadence, permissions, and what the agent should refuse or escalate.",
+      "role": "Sales managers and enablement teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support multilingual prospects or distributed calling teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages and can be deployed in website widgets, private team chat, Slack, Microsoft Teams, APIs, and configured workflows. For telemarketing, use approved translated content or carefully reviewed source material so multilingual answers still match your policies and offers.",
+      "role": "Sales managers and enablement teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do managers know whether the agent is improving scripts and training?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can see repeated rep questions, unresolved topics, confusing objections, and low-confidence areas, then update scripts, FAQs, and onboarding materials.",
+      "role": "Sales managers and enablement teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we connect DocsBot to our CRM, dialer, forms, or scheduling process?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, and MCP options for approved lookups and actions. It should be scoped to practical tasks such as lead form submission, record lookup, task creation, meeting requests, notifications, handoff summaries, or approved field updates.",
+      "role": "Compliance and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Does DocsBot replace QA review or compliance supervision?",
+      "answer": "No. DocsBot should support QA and compliance teams by making procedures easier to find, logging agent interactions, surfacing repeated questions, and routing sensitive items. Final compliance interpretation, policy approval, call monitoring decisions, and disciplinary or legal action should remain with qualified humans.",
+      "role": "Compliance and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does this help with onboarding new telemarketing reps?",
+      "answer": "New reps can ask natural-language questions about scripts, qualification criteria, disclosures, call dispositions, objections, product details, and follow-up rules instead of waiting for a supervisor. Managers can use common questions and knowledge gaps to improve ramp materials and coaching sessions.",
+      "role": "Sales managers and enablement teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What KPIs should we use to judge whether a telemarketing AI agent is worth it?",
+      "answer": "Track time-to-answer for rep questions, supervisor interruptions, onboarding speed, script adherence, completion of required fields, follow-up turnaround, escalation quality, unresolved topics, lead handoff completeness, and rep satisfaction. For customer-facing use, also track qualified leads, deflection, conversion assist, and opt-out routing accuracy.",
+      "role": "Sales managers and enablement teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent qualify inbound web leads before a rep calls them?",
+      "answer": "Yes. DocsBot can collect structured details such as company size, region, timeline, budget range, product interest, current provider, and preferred follow-up channel. It can apply your qualification rules and forward a summary through configured sales workflows while leaving final pricing and commitments to humans.",
+      "role": "Sales development and telemarketing reps",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a rep asks something that is not in the approved source material?",
+      "answer": "DocsBot is designed for source-grounded answers, so unknown or unsupported topics can be handled with fallback instructions, clarification questions, or escalation. Those unresolved topics also become useful signals for managers to update scripts, FAQs, compliance notes, or training materials.",
+      "role": "Sales development and telemarketing reps",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How secure is this for internal scripts, customer data, and campaign materials?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It does not use customer data to train public models, and Skills can be configured with secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "Compliance and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep different clients, campaigns, or teams separated?",
+      "answer": "Yes, buyers should use role-based permissions, separate knowledge scopes, clear source organization, and customer-defined controls so reps only access the scripts, offers, and procedures appropriate for their team or campaign. This is especially important for outsourced telemarketing agencies managing multiple clients.",
+      "role": "Compliance and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we handle changing TCPA consent and revocation procedures?",
+      "answer": "DocsBot can help teams keep internal procedures searchable and current, but legal owners should approve the underlying policy. This is important because the FCC granted a waiver delaying compliance with certain TCPA consent revocation rule changes to April 11, 2026, so operating procedures may need timely review and updates.",
+      "role": "Compliance and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fcc-tcpa-consent-2026"
+      ]
+    },
+    {
+      "question": "Will reps actually use this, or will it become another tool they ignore?",
+      "answer": "Adoption is strongest when the agent answers real call-floor questions faster than a supervisor or shared drive. Start with high-friction use cases: current objection handling, disclosure lookup, pricing caveats, call disposition rules, and follow-up templates. Then review logs to see what reps ask most often.",
+      "role": "Sales managers and enablement teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot draft follow-up emails without sending risky messages automatically?",
+      "answer": "Yes. DocsBot can draft follow-up emails from approved templates and call summaries, then route them for rep review. For higher-risk cases such as pricing exceptions, contract terms, regulated claims, or opt-out requests, the workflow can require human approval or escalation before anything is sent.",
+      "role": "Sales development and telemarketing reps",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is DocsBot different from a generic call-center chatbot or script library?",
+      "answer": "DocsBot is better positioned as a source-grounded AI agent and workflow layer. It can answer from your approved content, collect lead details, summarize context, surface knowledge gaps, support human escalation, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can this scale across a large outbound team with frequent campaign changes?",
+      "answer": "Yes, if your content governance is ready. DocsBot can support high-volume internal and customer-facing question answering, but scale depends on keeping scripts, campaign briefs, disclosures, and playbooks current. Use analytics and unresolved-topic reports to prioritize updates after each campaign launch.",
+      "role": "Compliance and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kind of proof should we ask for in a pilot?",
+      "answer": "Ask the pilot to cover real scripts, current objections, compliance procedures, and handoff tasks. Measure answer accuracy against approved sources, rep time saved, supervisor interruption reduction, follow-up completeness, unresolved questions, and whether managers can turn logs into script or training improvements.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Does automation make sense if telemarketing headcount is declining?",
+      "answer": "It can. The BLS lists telemarketers as a declining occupation for the 2024–2034 projection period, which can increase pressure to make remaining reps more productive and consistent. DocsBot is suited to rep enablement, lead qualification, follow-up drafting, and knowledge access rather than replacing all human outreach.",
+      "role": "Sales managers and enablement teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-telemarketers-outlook"
+      ]
+    }
+  ]
+}

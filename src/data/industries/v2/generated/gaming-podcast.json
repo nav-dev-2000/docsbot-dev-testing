@@ -1,0 +1,713 @@
+{
+  "slug": "gaming-podcast",
+  "business": "Gaming Podcast",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Gaming Podcast Growth and Support",
+    "description": "DocsBot helps gaming podcasts turn episode archives into AI agents that answer listener questions, surface clips, and route sponsor or guest leads.",
+    "canonicalPath": "/industry/gaming-podcast"
+  },
+  "hero": {
+    "eyebrow": "AI agents for gaming shows, creators, and production teams",
+    "headline": "Make your gaming podcast archive answer every listener",
+    "subheadline": "DocsBot lets gaming podcasts create source-grounded AI agents trained on episodes, show notes, transcripts, sponsor pages, community rules, and internal production docs so listeners find the right episode faster and your team spends less time repeating answers.",
+    "proofBullets": [
+      {
+        "text": "Answer episode, guest, game, platform, and lore questions from your own transcripts and show notes.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Guide listeners to relevant episodes, clips, newsletters, Discord rules, merch pages, or sponsor resources.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect guest pitches, sponsor interest, listener feedback, and support details through structured intake flows.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "text": "Summarize recurring audience questions so hosts can spot content gaps, segment ideas, and follow-up topics.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a gaming podcast agent",
+    "secondaryCta": "Explore listener support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps gaming podcasts deploy AI agents trained on approved show knowledge: transcripts, show notes, websites, PDFs, team docs, sponsor FAQs, community guidelines, and production SOPs. The agent can answer in your show’s voice, cite source material, summarize conversations, route handoffs, and trigger bounded workflows when you configure Skills, APIs, connectors, or AI Actions.",
+    "whoItHelps": [
+      {
+        "role": "Hosts and producers",
+        "roleContext": "Keep the show archive usable after hundreds of episodes and reduce the manual work of answering repeat questions across email, comments, and community channels.",
+        "bullets": [
+          {
+            "text": "Find past takes on a title, patch, studio, mechanic, or controversy before recording a follow-up segment.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Turn listener questions into organized topic queues, mailbag candidates, and research prompts for future episodes.",
+            "icon": "LightBulbIcon"
+          },
+          {
+            "text": "Search production notes, ad reads, guest bios, and episode briefs without digging through folders.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "MicrophoneIcon"
+      },
+      {
+        "role": "Audience and community managers",
+        "roleContext": "Give fans a reliable place to ask questions about episodes, communities, memberships, events, and show policies without waiting for a mod or producer.",
+        "bullets": [
+          {
+            "text": "Answer where to listen, how to join the community, what episode covered a game, and how to submit questions.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Escalate moderation, billing, sponsor, or sensitive community issues to a human with context attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Support international gaming audiences with answers in more than 100 languages from the same approved sources.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Sales, partnerships, and creator operations",
+        "roleContext": "Qualify sponsors, affiliates, guest pitches, and collaboration requests while keeping humans responsible for final pricing, contracts, and editorial decisions.",
+        "bullets": [
+          {
+            "text": "Collect brand, budget range, campaign timing, target audience, and asset requirements before a partnership handoff.",
+            "icon": "BanknotesIcon"
+          },
+          {
+            "text": "Route guest pitches by topic fit, platform, availability, and prior episode overlap using customer-defined rules.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Prepare source-grounded summaries of sponsorship pages, media kits, audience FAQs, and ad-read requirements.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-podcast-weekly-listening",
+      "metric": "34% of the U.S. population age 12+ listened to podcasts weekly in 2024.",
+      "claim": "Edison Research’s Infinite Dial 2024 reported record podcast listening, including 34% weekly podcast listening among Americans age 12+.",
+      "sourceTitle": "The Infinite Dial 2024 Presentation",
+      "sourceUrl": "https://www.edisonresearch.com/wp-content/uploads/2024/06/Infinite-Dial-2024-Presentation.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "podcast audience scale",
+        "listener demand",
+        "always-available audience support"
+      ]
+    },
+    {
+      "id": "src-podcast-info-behavior",
+      "metric": "Roughly half of U.S. adults listened to a podcast in the past year.",
+      "claim": "Pew Research Center found that roughly half of U.S. adults had listened to a podcast in the past year, and one-in-five listened at least a few times a week.",
+      "sourceTitle": "Podcasts as a Source of News and Information",
+      "sourceUrl": "https://www.pewresearch.org/journalism/2023/04/18/podcasts-as-a-source-of-news-and-information/",
+      "sourceDate": "April 18, 2023",
+      "bestUsedFor": [
+        "podcast discovery",
+        "listener information needs",
+        "audience engagement"
+      ]
+    },
+    {
+      "id": "src-podcast-ad-revenue",
+      "metric": "U.S. podcast ad revenue was projected to grow through 2026.",
+      "claim": "IAB’s 2024 U.S. Podcast Advertising Revenue Study, prepared by PwC, analyzes 2023 revenue and forecasts podcast advertising growth through 2026.",
+      "sourceTitle": "U.S. Podcast Advertising Revenue Study: 2023 Revenue & 2024-2026 Growth Projections",
+      "sourceUrl": "https://www.iab.com/insights/us-podcast-advertising-revenue-study-2024/",
+      "sourceDate": "May 2024",
+      "bestUsedFor": [
+        "sponsor operations",
+        "ad sales workflows",
+        "creator monetization"
+      ]
+    },
+    {
+      "id": "src-gaming-audience-scale",
+      "metric": "190.6 million Americans ages 5-90 played video games at least one hour per week in 2024.",
+      "claim": "The Entertainment Software Association reported that 61% of Americans ages 5-90, about 190.6 million people, played video games at least one hour per week in 2024.",
+      "sourceTitle": "2024 Essential Facts About the U.S. Video Game Industry",
+      "sourceUrl": "https://www.theesa.com/resources/essential-facts-about-the-us-video-game-industry/2024-data/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "gaming audience scale",
+        "gaming culture reach",
+        "show positioning"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Episode archive discovery agent",
+      "problem": "Gaming podcasts often build deep archives, but listeners may not remember which episode covered a specific title, guest, patch, console, studio, controversy, or recommendation.",
+      "agentWorkflow": "Train DocsBot on transcripts, show notes, episode pages, newsletters, and YouTube descriptions. The agent answers questions with source-grounded references and points listeners to the best episode, timestamp note, article, or clip page when that source exists.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up current episode metadata, retrieve a playlist, create a support ticket for a broken link, or hand off unclear requests to the production team.",
+      "exampleQuestionsOrRequests": [
+        "Which episode covered Baldur’s Gate 3 builds for beginners?",
+        "Did the hosts ever talk about unionization in game studios?",
+        "Find the episode where the guest discussed speedrunning Elden Ring."
+      ],
+      "businessOutcome": "More archive listening, fewer repetitive discovery questions, and a cleaner path from old episodes to current audience engagement.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Listener Q&A and community support agent",
+      "problem": "Fans ask the same questions across podcast apps, YouTube comments, email, Discord, Patreon, and social channels, while community teams need consistent answers.",
+      "agentWorkflow": "DocsBot can answer from your FAQ, community guidelines, membership pages, event notes, merch policies, sponsor disclosures, and episode sources. For sensitive or moderation-related topics, it can summarize context and route to a human instead of deciding alone.",
+      "liveContextOrTools": "AI Actions can collect missing details, create a task, notify moderators, or route the issue through a customer-configured helpdesk or community workflow.",
+      "exampleQuestionsOrRequests": [
+        "How do I submit a mailbag question for next week?",
+        "Where are the spoiler rules for the Discord?",
+        "My premium feed stopped updating. What information do you need?"
+      ],
+      "businessOutcome": "Listeners get fast, consistent answers while producers and moderators preserve time for editorial and community work.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Sponsor and partnership intake agent",
+      "problem": "As podcast advertising grows, small creator teams need a reliable way to capture sponsor leads without losing context in inbox threads.",
+      "agentWorkflow": "Use a DocsBot presales agent trained on media kits, ad formats, audience FAQs, sponsorship policies, past campaign examples, and pricing guidance you approve. It can collect brand, campaign timing, budget range, category, target region, deliverables, and follow-up preferences.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or MCP Connectors for remote Model Context Protocol servers, the agent can submit a lead form, create or update an approved CRM record, notify sales, or request a booking workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can we sponsor your Nintendo Direct reaction episode?",
+        "What ad-read formats do you offer for game publishers?",
+        "We have a campaign launching next month. Who should we talk to?"
+      ],
+      "businessOutcome": "Better-qualified sponsor conversations, faster handoffs, and less manual triage before a human discusses pricing or contract terms.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-podcast-ad-revenue"
+      ]
+    },
+    {
+      "name": "Production knowledge assistant",
+      "problem": "Hosts, editors, and contractors need quick access to recording SOPs, ad-read instructions, upload checklists, guest prep, brand guidelines, and release workflows.",
+      "agentWorkflow": "Create a private internal DocsBot agent trained on production docs, calendars exported as reference files, editing notes, sponsor read rules, file naming conventions, guest templates, and publishing procedures. Team members ask natural-language questions and receive source-grounded answers.",
+      "liveContextOrTools": "Configured workflows can draft a checklist, summarize a guest brief, create a task, or route a missing asset request to the right teammate.",
+      "exampleQuestionsOrRequests": [
+        "What is the export format for YouTube Shorts clips?",
+        "Which sponsor read goes in the mid-roll this week?",
+        "Summarize the prep notes for Friday’s guest."
+      ],
+      "businessOutcome": "Less time searching production docs and fewer missed steps during recording, editing, publishing, and promotion.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Topic-gap and audience insight agent",
+      "problem": "Gaming audiences move quickly across patches, launches, controversies, esports events, platform changes, and community debates, making it hard to track repeated questions.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery help the team see what listeners ask that the archive or FAQ does not yet answer. Producers can turn those patterns into mailbag segments, explainer episodes, guides, or updated show notes.",
+      "liveContextOrTools": "The agent can summarize recurring unanswered topics and prepare a human review queue for editorial planning.",
+      "exampleQuestionsOrRequests": [
+        "What are listeners asking that our site does not answer?",
+        "Which game topics came up most often this month?",
+        "Summarize unanswered questions about the latest patch discussion."
+      ],
+      "businessOutcome": "Editorial planning becomes more audience-informed while the team keeps final creative judgment with hosts and producers.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-gaming-audience-scale"
+      ]
+    },
+    {
+      "name": "Multilingual fan access agent",
+      "problem": "Gaming communities are global, and listeners may discover a show through clips, guests, esports events, or platform communities before they speak the show’s primary language comfortably.",
+      "agentWorkflow": "Train DocsBot on approved episode summaries, show notes, FAQ pages, community rules, and support docs. The agent can answer in more than 100 languages while staying grounded in the same source material.",
+      "liveContextOrTools": "If a listener needs a human, the agent can summarize the request in the team’s working language and route it through an approved support workflow.",
+      "exampleQuestionsOrRequests": [
+        "¿Qué episodio recomiendan para empezar?",
+        "この番組のネタバレルールはどこですか？",
+        "Can you summarize the episode about indie horror games in French?"
+      ],
+      "businessOutcome": "International fans can discover, understand, and participate in the show without forcing the production team to manually localize every support interaction.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give listeners a source-grounded guide to your show universe",
+    "intro": "A DocsBot customer-facing agent can live on your podcast site, episode hub, membership page, or community resource center. It answers from your approved knowledge and can collect details or hand off issues when the request needs a person.",
+    "requests": [
+      {
+        "request": "“What episode should I start with if I like co-op survival games?”",
+        "agentResponseStrategy": "Search transcripts, show notes, tags, and curated recommendations, then suggest relevant episodes with short explanations grounded in your archive.",
+        "sourceTypes": [
+          "Episode transcripts",
+          "Show notes",
+          "Topic tags",
+          "Recommendation pages"
+        ],
+        "optionalAction": "Offer to collect the listener’s email for a curated follow-up if your workflow is configured for it.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“How do I submit a question, guest pitch, or game code?”",
+        "agentResponseStrategy": "Explain the approved submission process, collect required fields, and distinguish listener mailbag questions from PR, sponsor, or guest requests.",
+        "sourceTypes": [
+          "Submission guidelines",
+          "PR policy",
+          "Guest intake form",
+          "Sponsor FAQ"
+        ],
+        "optionalAction": "Create a structured intake record or route the request to the right inbox through an approved workflow.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "request": "“Where can I find the spoiler policy for the community?”",
+        "agentResponseStrategy": "Answer from the published community rules and clarify channel-specific expectations without inventing moderation policy.",
+        "sourceTypes": [
+          "Community rules",
+          "Discord or forum guidelines",
+          "Membership FAQ"
+        ],
+        "optionalAction": "Escalate disputed moderation issues to a human moderator with a summary of the conversation.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Can you summarize the latest episode before I listen?”",
+        "agentResponseStrategy": "Use the episode transcript and show notes to create a concise summary, mention spoiler boundaries if documented, and link back to the full episode page.",
+        "sourceTypes": [
+          "Transcripts",
+          "Episode pages",
+          "Show notes",
+          "YouTube descriptions"
+        ],
+        "optionalAction": "Suggest related episodes or create a playlist request if the site exposes that workflow.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-podcast-weekly-listening"
+        ]
+      },
+      {
+        "request": "“Do you offer sponsorships for upcoming game launches?”",
+        "agentResponseStrategy": "Answer from the media kit and sponsorship FAQ, collect campaign details, and avoid making final pricing or contract commitments.",
+        "sourceTypes": [
+          "Media kit",
+          "Sponsor FAQ",
+          "Ad format guide",
+          "Brand safety notes"
+        ],
+        "optionalAction": "Forward qualified sponsor leads and conversation context to the sales or partnerships workflow configured by the team.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "request": "“What did the hosts say about this studio last year?”",
+        "agentResponseStrategy": "Search the archive for studio mentions, return grounded episode references, and make clear when the archive does not contain an answer.",
+        "sourceTypes": [
+          "Episode transcripts",
+          "Show notes",
+          "Clip descriptions",
+          "Blog recaps"
+        ],
+        "optionalAction": "Log unanswered searches as potential archive tagging or recap opportunities.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep production, research, and sponsor knowledge searchable",
+    "intro": "A private DocsBot internal knowledge agent helps hosts, editors, producers, contractors, and partnership teams retrieve approved operational knowledge without digging through drives, wikis, chat history, and scattered episode notes.",
+    "workflows": [
+      {
+        "name": "Pre-show research retrieval",
+        "problem": "Hosts need to quickly reference past takes, guest details, source notes, and follow-up angles before recording.",
+        "agentWorkflow": "Ask the internal agent for prior coverage, related show notes, known corrections, guest prep, and research links from approved files. The agent summarizes the context and cites the source material it used.",
+        "sourceTypes": [
+          "Research docs",
+          "Guest briefs",
+          "Past transcripts",
+          "Episode outlines"
+        ],
+        "optionalAction": "Generate a draft segment brief or prep checklist for human review.",
+        "outcome": "Hosts arrive with better continuity and fewer missed references across long-running gaming coverage.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sponsor read and publishing checklist support",
+        "problem": "Small teams can miss details when ad reads, file exports, clip notes, thumbnails, captions, and publishing steps change from week to week.",
+        "agentWorkflow": "Train DocsBot on production SOPs, sponsor instructions, file naming rules, publishing checklists, and platform notes. The agent answers procedural questions and can summarize the steps for a given episode type.",
+        "sourceTypes": [
+          "SOPs",
+          "Sponsor instructions",
+          "Publishing checklists",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Create a task, notify a teammate, or draft a missing-asset request through a configured workflow.",
+        "outcome": "Fewer production errors and less time spent asking teammates where operational instructions live.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Partnership handoff summaries",
+        "problem": "Sponsor, affiliate, guest, and collaboration requests often arrive with incomplete context and require manual recap before a human can respond.",
+        "agentWorkflow": "The agent collects required fields, applies customer-defined qualification instructions, summarizes the request, and routes it to the correct producer or partnerships owner.",
+        "sourceTypes": [
+          "Media kits",
+          "Partnership policies",
+          "Guest criteria",
+          "Lead forms"
+        ],
+        "optionalAction": "Create or update an approved record, send a notification, or prepare a draft response for human review.",
+        "outcome": "Partnership teams get cleaner handoffs while retaining control over editorial fit, pricing, and commitments.",
+        "icon": "ArrowTrendingUpIcon",
+        "sourceIds": [
+          "src-podcast-ad-revenue"
+        ]
+      },
+      {
+        "name": "Knowledge-gap review for content planning",
+        "problem": "Listener searches can reveal demand for explainers, retrospectives, spoiler guides, buyer guides, or community updates that the show has not covered clearly.",
+        "agentWorkflow": "Use DocsBot reports, logs, conversation review, satisfaction analysis, and topic management to identify unanswered or repeated questions. Producers review patterns and decide what belongs in future episodes or docs.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Analytics reports",
+          "FAQ pages",
+          "Episode metadata"
+        ],
+        "optionalAction": "Export a monthly planning summary or create tasks for show-note updates.",
+        "outcome": "Audience questions become a practical editorial input without replacing the creative judgment of the hosts.",
+        "icon": "ChartBarIcon",
+        "sourceIds": [
+          "src-podcast-info-behavior"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own podcast knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, docs, internal content, PDFs, team knowledge, and other configured sources.",
+      "industryApplication": "Train on transcripts, show notes, episode pages, newsletters, community rules, media kits, sponsor policies, and production SOPs so answers stay grounded in your show rather than generic gaming commentary.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded listener answers",
+      "mainLandingPageContext": "DocsBot agents provide instant answers from approved sources and can cite or reference the knowledge used.",
+      "industryApplication": "Help fans discover the right episode, understand community rules, find submission instructions, or recap a show segment with confidence that the response comes from your archive.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills support bounded lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs through customer-configured rules.",
+      "industryApplication": "Collect sponsor leads, create production tasks, route guest pitches, notify moderators, summarize listener issues, or trigger approved workflows when the team has configured the right Skills, APIs, or connectors.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which games, guests, episodes, rules, merch questions, and sponsor topics listeners ask about most, then update FAQs or plan segments around repeated gaps.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant for employees and teams using approved company sources.",
+      "industryApplication": "Give hosts, producers, editors, and contractors a searchable production assistant for SOPs, briefs, ad instructions, upload rules, and brand guidelines.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and does not use customer data to train public models.",
+      "industryApplication": "Keep unreleased episode notes, sponsor terms, internal workflows, and community escalation processes inside controlled sources and permissioned agent experiences.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train AI agents on your owned content library so answers reflect the voice and knowledge of your show.",
+      "Use summaries to save time when reviewing long-form video, audio, and source material.",
+      "Learn what listeners are trying to find so your archive, show notes, and FAQs keep improving.",
+      "DocsBot has handled high-volume customer inquiry environments, including Sony NURO’s 30,000 inquiries in one month."
+    ],
+    "whyTheseReviewsFit": "Gaming podcasts run on deep content libraries, long-form episodes, clips, audience questions, and fast-moving knowledge. DocsBot proof shows teams using owned content, summaries, documentation assistants, and high-volume support automation to make information easier to find and act on.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "DocumentTextIcon",
+      "ChartBarIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, archive discovery, and internal knowledge agents for gaming podcasts",
+    "audience": [
+      "Gaming podcast hosts",
+      "Podcast producers",
+      "Community managers",
+      "Creator operations teams",
+      "Podcast sponsorship teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MicrophoneIcon"
+  },
+  "relatedIndustrySlugs": [
+    "gaming",
+    "online-gaming",
+    "e-sports-organization",
+    "game-development",
+    "casino-and-video-gaming",
+    "tabletop-rpg-design"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "gaming-podcast",
+    "webSearchQueries": [
+      "Edison Research Infinite Dial 2024 podcast weekly listeners percentage",
+      "Pew Research Center podcasts news listeners 2023 podcast demographics",
+      "Entertainment Software Association 2024 essential facts video games Americans play",
+      "IAB U.S. Podcast Advertising Revenue Study 2024 revenue",
+      "Entertainment Software Association Essential Facts 2024 61 percent Americans play video games"
+    ],
+    "sourceUrls": [
+      "https://www.edisonresearch.com/wp-content/uploads/2024/06/Infinite-Dial-2024-Presentation.pdf",
+      "https://www.pewresearch.org/journalism/2023/04/18/podcasts-as-a-source-of-news-and-information/",
+      "https://www.iab.com/insights/us-podcast-advertising-revenue-study-2024/",
+      "https://www.theesa.com/resources/essential-facts-about-the-us-video-game-industry/2024-data/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44814,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32270,
+        "outputTokens": 7919,
+        "reasoningOutputTokens": 185,
+        "totalTokens": 52733,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.202596,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.222596
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25524,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18228,
+          "outputTokens": 5111,
+          "reasoningOutputTokens": 185,
+          "totalTokens": 30635,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.124059,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.144059
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19290,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14042,
+          "outputTokens": 2808,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22098,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078537,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078537
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1534488972407-5a4aa1e47d83?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU2Mjh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Gaming Podcast background image",
+    "source": "legacy-industry",
+    "query": "Gaming Podcast"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot actually find the right episode when a listener only remembers a game, guest, or vague discussion?",
+      "answer": "Yes. A DocsBot agent can be trained on transcripts, show notes, episode pages, newsletters, YouTube descriptions, and curated tags so it can search your archive by game title, studio, guest, mechanic, platform, or topic. When the source exists, it can point listeners to the relevant episode, summary, timestamp note, clip page, or related resource instead of giving a generic gaming answer.",
+      "role": "Hosts and producers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the agent from inventing opinions the hosts never said?",
+      "answer": "The safest setup is to train the agent on approved show sources and instruct it to answer from those sources, cite or reference what it used, and say when the archive does not contain an answer. That matters for gaming podcasts because listeners may ask about controversies, studios, reviews, or platform debates where attribution and nuance are important.",
+      "role": "Hosts and producers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it help our community manager answer repeat questions from Discord, Patreon, email, and YouTube comments?",
+      "answer": "Yes. DocsBot can answer from your FAQ, membership pages, community rules, spoiler policies, event notes, merch policies, and episode sources. For moderation disputes, billing issues, sponsor complaints, or sensitive community situations, it can collect context and route the issue to a human instead of making the final call.",
+      "role": "Audience and community managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation look like if our archive is messy or spread across podcast hosts, Google Drive, YouTube, and our website?",
+      "answer": "Most teams start with the highest-value sources: published episode pages, transcripts, show notes, FAQs, community rules, media kit pages, and production SOPs. You can add more sources over time, review the agent’s answers, and use knowledge-gap reporting to identify missing transcripts, broken links, thin show notes, or topics that need better documentation.",
+      "role": "Hosts and producers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use this internally before we put an AI agent in front of listeners?",
+      "answer": "Yes. A private internal DocsBot agent is often the lower-risk starting point. Hosts, producers, editors, and contractors can use it to search production SOPs, ad-read instructions, guest briefs, file naming rules, publishing checklists, and past episode notes before exposing a customer-facing agent on the public site.",
+      "role": "Hosts and producers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would DocsBot help us qualify sponsor and partnership inquiries without overcommitting on pricing?",
+      "answer": "A DocsBot presales agent can answer from your approved media kit, sponsorship FAQ, ad format guide, brand safety notes, and audience information. It can collect campaign timing, budget range, category, target region, deliverables, and contact details, then hand the summary to a human. You can instruct it not to finalize pricing, contracts, editorial commitments, or category exclusivity.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Why prioritize sponsor intake automation for a gaming podcast now?",
+      "answer": "Podcast advertising is a serious monetization channel, and the IAB’s 2024 U.S. Podcast Advertising Revenue Study analyzes 2023 revenue and forecasts continued podcast ad revenue growth through 2026. A structured intake agent helps small teams capture sponsor interest before it gets buried in inbox threads or social DMs.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-podcast-ad-revenue"
+      ]
+    },
+    {
+      "question": "Can the agent route different types of submissions, like listener mailbag questions, guest pitches, PR codes, and sponsors?",
+      "answer": "Yes. You can define intake paths and qualification rules for each request type. For example, listener questions can go to a mailbag queue, guest pitches can collect topic fit and availability, PR code offers can collect embargo details, and sponsor inquiries can collect campaign requirements before routing to the right owner.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this replace our moderators or producers?",
+      "answer": "No. DocsBot is best used to answer repeat, source-grounded questions and prepare structured handoffs. Humans should stay responsible for editorial judgment, moderation decisions, guest selection, sponsor pricing, legal terms, community discipline, and any situation where tone, context, or relationship management matters.",
+      "role": "Audience and community managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we measure whether the agent is improving listener support or just adding another tool?",
+      "answer": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a gaming podcast, useful KPIs include repeat-question reduction, resolved listener questions, sponsor leads captured, unanswered topic trends, archive discovery clicks, and support issues escalated with complete context.",
+      "role": "Hosts and producers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us decide what topics deserve future episodes or updated show notes?",
+      "answer": "Yes. DocsBot can summarize recurring listener questions, unanswered searches, low-confidence answers, and repeated topic clusters. Producers can use that data to plan mailbag segments, explainers, retrospectives, spoiler guides, patch follow-ups, or better archive tagging while keeping the final creative decision with the hosts.",
+      "role": "Hosts and producers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does this support a large gaming audience without creating more production work?",
+      "answer": "Gaming has broad reach: ESA reported that 190.6 million Americans ages 5-90 played video games at least one hour per week in 2024. A DocsBot agent helps a show serve that demand by reusing approved transcripts, show notes, rules, and FAQs to answer questions, surface archive content, and identify gaps without manually responding to every fan question.",
+      "role": "Hosts and producers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-gaming-audience-scale"
+      ]
+    },
+    {
+      "question": "What if listeners ask about the latest patch, release date, esports result, or current controversy?",
+      "answer": "DocsBot should be configured around the sources you approve. If your sources include only past transcripts and show notes, the agent should say what your archive covers and avoid pretending to know current events. If you connect approved live sources or workflows, you can scope what it may look up, summarize, or route for human review.",
+      "role": "Audience and community managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it summarize episodes for listeners who want a spoiler-safe preview?",
+      "answer": "Yes, if your transcripts and show notes are available. DocsBot can summarize an episode, mention spoiler boundaries when your source material documents them, and link listeners back to the full episode page or related clips. That kind of always-available discovery support matters when 34% of the U.S. population age 12+ listened to podcasts weekly in 2024.",
+      "role": "Audience and community managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-podcast-weekly-listening"
+      ]
+    },
+    {
+      "question": "How would this work for premium feeds, memberships, or community rules?",
+      "answer": "DocsBot can answer from approved membership FAQs, premium feed troubleshooting pages, community guidelines, spoiler policies, and support instructions. For account-specific billing or access issues, it can collect details and route the request through your configured support workflow rather than exposing private account data or making unauthorized changes.",
+      "role": "Audience and community managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep unreleased episodes, sponsor terms, and internal production notes private?",
+      "answer": "Yes. DocsBot supports private internal agents, role-based permissions, granular access controls, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and a commitment not to use customer data to train public models. You can separate public listener knowledge from internal production, sponsorship, and editorial sources.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot connect to our existing forms, CRM, task system, or community workflow?",
+      "answer": "DocsBot can use AI Actions, Skills, APIs, connectors, webhooks, or MCP Connectors when you configure and authorize them. Typical actions include submitting a lead form, creating a task, notifying a teammate, routing a guest pitch, updating approved fields, or preparing a handoff summary. It should be scoped to bounded workflows, not uncontrolled access.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need a developer to launch the first version?",
+      "answer": "Not always. A basic agent trained on published pages, documents, transcripts, FAQs, and production files can start without a heavy engineering project. Developer or ops help becomes more useful when you want live lookups, CRM updates, ticket creation, custom workflows, APIs, connector setup, or stricter permission boundaries.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we train our team to maintain the agent after launch?",
+      "answer": "Assign owners for source quality, answer review, escalation rules, and periodic knowledge-gap cleanup. Producers may own transcripts and episode pages, community managers may own rules and FAQs, and partnerships may own media kit content. DocsBot’s logs and reports help the team see which sources need updates instead of guessing.",
+      "role": "Hosts and producers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent answer in our show’s tone without becoming too casual or risky?",
+      "answer": "Yes. You can provide instructions for voice, boundaries, citations, and escalation behavior. For a gaming podcast, that might mean friendly and knowledgeable for episode discovery, more formal for sponsor inquiries, strict about spoiler rules, and cautious around harassment, moderation, legal, or controversy-related topics.",
+      "role": "Hosts and producers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent cannot find a reliable answer?",
+      "answer": "A good configuration tells the agent to admit the gap, offer the closest relevant source if appropriate, collect missing details, and route the question to a human when needed. Those unanswered searches can also feed DocsBot’s knowledge-gap reporting so your team can improve show notes, FAQs, transcripts, or community documentation.",
+      "role": "Audience and community managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does DocsBot compare with putting a generic AI search box on our site?",
+      "answer": "DocsBot is designed around approved knowledge, source-grounded answers, governance, analytics, and bounded actions. Instead of giving broad gaming commentary, it can focus on your show archive, your policies, your media kit, your production docs, and your handoff workflows. That makes it a better fit for listener support, archive discovery, and sponsor intake.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will this help with international listeners who discover us through clips or esports coverage?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved source material. International fans can ask about starter episodes, spoiler policies, episode summaries, guest submissions, or membership instructions, and the agent can summarize requests back to your team in your working language when escalation is needed.",
+      "role": "Audience and community managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What budget owner usually cares most about this: production, community, or partnerships?",
+      "answer": "It depends on the pain. Producers usually care about archive discovery and internal research, community teams care about repeat questions and escalation quality, and partnerships teams care about sponsor lead capture. The strongest business case often combines all three: better listener experience, less manual triage, and cleaner revenue handoffs.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "What content should we not put into the public-facing agent?",
+      "answer": "Avoid exposing unreleased episode notes, private sponsor terms, guest negotiations, personal listener data, internal moderation deliberations, passwords, API keys, and sensitive business documents. Keep those in a private internal agent or exclude them entirely. Public agents should use listener-safe sources like episode pages, show notes, FAQs, policies, and approved media kit content.",
+      "role": "Audience and community managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prove ROI if our team is small and support volume is inconsistent?",
+      "answer": "Track practical before-and-after signals: fewer repeated DMs, faster sponsor qualification, fewer broken-link questions, more archive discovery, reduced producer interruptions, and clearer unanswered-topic reports. Even if volume spikes around launches, conventions, or controversies, the agent can preserve team time by answering routine questions and escalating only what needs judgment.",
+      "role": "Sales, partnerships, and creator operations",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support both a public listener agent and a private production assistant?",
+      "answer": "Yes. You can separate use cases and source access. A public agent can answer from listener-safe content like transcripts, show notes, community rules, and sponsor FAQs. A private internal agent can use production SOPs, guest briefs, ad instructions, publishing checklists, and internal notes with role-based access controls.",
+      "role": "Hosts and producers",
+      "category": "Scalability"
+    }
+  ]
+}

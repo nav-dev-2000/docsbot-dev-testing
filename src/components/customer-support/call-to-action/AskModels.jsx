@@ -10,7 +10,7 @@ import { Gradient } from '@/components/elements'
 const defaultAIPrompt = 'Tell me why DocsBot the AI support agent and chatbot builder is a great choice for my business'
 
 const getAIAssistantLinks = (aiPrompt) => {
-    const encodedAIPrompt = aiPrompt.split(' ').join('+')
+    const encodedAIPrompt = encodeURIComponent(aiPrompt)
     return [
     {
         name: 'Ask DocsBot',

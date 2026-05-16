@@ -1,0 +1,737 @@
+{
+  "slug": "seed-production",
+  "business": "Seed Production",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Seed Production Support & Operations",
+    "description": "DocsBot helps seed production teams deliver source-grounded product answers, route buyer requests, and keep field and operations knowledge easy to find.",
+    "canonicalPath": "/industry/seed-production"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for seed producers",
+    "headline": "Make seed specs, labels, SOPs, and grower support instantly searchable",
+    "subheadline": "DocsBot turns your approved seed catalogs, trait guides, labels, quality documents, training manuals, and support history into AI agents that answer growers, support dealers, assist staff, and trigger scoped workflows without losing control of sensitive agronomic, regulatory, or commercial knowledge.",
+    "proofBullets": [
+      {
+        "text": "Answer grower and dealer questions from approved product sheets, planting guidance, stewardship notes, and FAQs.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help sales and support teams retrieve variety specs, availability notes, policies, and objection-handling guidance quickly.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use AI Actions to collect lead details, route technical questions, create tickets, summarize requests, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Surface repeated unanswered questions so teams can improve labels, manuals, web pages, and internal training content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a seed support agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps seed production companies create AI agents trained on their own knowledge. Teams can deploy a customer-facing support agent for seed product questions, a private internal knowledge agent for SOPs and field guidance, or workflow automation that performs approved lookups, summaries, routing, ticket creation, handoffs, and updates through configured Skills, APIs, connectors, or MCP servers.",
+    "whoItHelps": [
+      {
+        "role": "Grower support and customer care teams",
+        "roleContext": "Support staff field recurring questions about seed characteristics, stewardship, ordering, storage, returns, and documentation. DocsBot helps them respond consistently from approved sources and escalate complex agronomic or account-specific cases.",
+        "bullets": [
+          {
+            "text": "Draft source-grounded responses to recurring grower, dealer, and distributor questions.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize long support conversations before handoff to agronomy, sales, logistics, or quality teams.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use conversation analytics to identify unclear product pages, missing FAQs, or seasonal documentation gaps.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Sales, dealer, and account teams",
+        "roleContext": "Seed buyers compare genetics, traits, supply timing, local fit, pricing programs, and agronomic support. DocsBot gives commercial teams fast access to approved sales enablement content while keeping humans responsible for quotes and commitments.",
+        "bullets": [
+          {
+            "text": "Retrieve product specs, positioning notes, comparison talking points, and approved follow-up language.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect lead details such as crop, acreage, region, timeline, product interest, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified conversations and summaries to CRM, email, forms, or sales workflows when configured by the customer.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Production, quality, and compliance leaders",
+        "roleContext": "Seed production depends on accurate instructions across growing, conditioning, testing, labeling, storage, and shipment. DocsBot can make SOPs and quality records easier to search while leaving regulated or high-impact decisions inside defined review paths.",
+        "bullets": [
+          {
+            "text": "Make production SOPs, quality manuals, work instructions, and training materials searchable for employees.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Help staff find label, lot, recordkeeping, and testing guidance from approved internal documents.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Maintain permission boundaries for private knowledge, with role-based access controls, encryption, and governance features.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-federal-seed-act",
+      "metric": "Federal Seed Act truth-in-labeling oversight",
+      "claim": "USDA AMS describes the Federal Seed Act as a truth-in-labeling law that protects seed buyers from contaminated, mislabeled, or unfit seed and supports consistent rules for seed businesses.",
+      "sourceTitle": "Federal Seed Act | USDA Agricultural Marketing Service",
+      "sourceUrl": "https://www.ams.usda.gov/rules-regulations/fsa",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Seed labeling compliance pressure",
+        "Buyer trust",
+        "Quality documentation"
+      ]
+    },
+    {
+      "id": "src-usda-seed-testing",
+      "metric": "USDA seed testing supports regulatory verification",
+      "claim": "USDA AMS says its Seed Testing Program supports the Federal Seed Act by conducting truth-in-labeling verification tests on regulatory samples and issuing Seed Analysis Certificates for some exports.",
+      "sourceTitle": "Seed Regulations and Testing | USDA Agricultural Marketing Service",
+      "sourceUrl": "https://www.ams.usda.gov/index.php/services/seed-testing",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Seed testing documentation",
+        "Export documentation",
+        "Quality assurance workflows"
+      ]
+    },
+    {
+      "id": "src-usda-ers-seed-concentration",
+      "metric": "Two firms held over half of major crop seed sales in 2018–2020",
+      "claim": "USDA ERS reported that two companies accounted for more than half of corn, soybean, and cotton seed sales during 2018–2020, reflecting concentration in the U.S. crop seed industry.",
+      "sourceTitle": "Two companies accounted for more than half of corn, soybean, and cotton seed sales in 2018–20 | USDA ERS",
+      "sourceUrl": "https://ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=107516",
+      "sourceDate": "August 2023",
+      "bestUsedFor": [
+        "Competitive pressure",
+        "Sales enablement",
+        "Market structure"
+      ]
+    },
+    {
+      "id": "src-usda-nass-acreage-2024",
+      "metric": "91.5 million corn acres and 86.1 million soybean acres in 2024",
+      "claim": "USDA NASS estimated 91.5 million U.S. corn acres and 86.1 million soybean acres planted in 2024; it also reported that 96% of soybean acreage used herbicide-resistant seed varieties.",
+      "sourceTitle": "Corn planted acreage down 3% from 2023, soybean acreage up 3% from last year | USDA NASS",
+      "sourceUrl": "https://www.nass.usda.gov/Newsroom/2024/06-28-2024.php",
+      "sourceDate": "June 28, 2024",
+      "bestUsedFor": [
+        "Scale of seed buyer demand",
+        "Trait documentation",
+        "Seasonal support volume"
+      ]
+    },
+    {
+      "id": "src-osha-ag-hazards",
+      "metric": "Agricultural hazards include chemicals, heat, machinery, respiratory hazards, and musculoskeletal injuries",
+      "claim": "OSHA identifies agricultural hazards including grain bins and silos, hazard communication for chemicals, heat, noise, musculoskeletal injuries, machinery entanglement risks, and respiratory exposures.",
+      "sourceTitle": "Agricultural Operations - Hazards & Controls | Occupational Safety and Health Administration",
+      "sourceUrl": "https://www.osha.gov/agricultural-operations/hazards",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Employee safety training",
+        "SOP access",
+        "Operational risk"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Seed product and trait support agent",
+      "problem": "Growers, dealers, and distributors often need quick answers about variety positioning, seed treatment notes, stewardship requirements, storage recommendations, and documentation before they commit to an order.",
+      "agentWorkflow": "Train a DocsBot AI support agent on product catalogs, trait guides, technical sheets, stewardship materials, FAQs, return policies, and approved web pages. The agent answers in the company voice, cites source material, asks clarifying questions, and escalates agronomic, pricing, or account-specific issues to a person.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can collect crop, region, acreage, season, and product interest, then create a ticket, notify sales, or forward a summarized handoff.",
+      "exampleQuestionsOrRequests": [
+        "Which corn hybrids do you recommend I compare for a high-yield irrigated field?",
+        "What documents should I review before planting this treated seed?",
+        "Can someone follow up about availability for 500 acres of soybeans in my region?"
+      ],
+      "businessOutcome": "Reduce repetitive support load while giving buyers faster, source-grounded answers and cleaner handoffs for sales or technical review.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Label, compliance, and quality knowledge assistant",
+      "problem": "Seed production teams manage label language, testing documentation, lot records, quality manuals, and regulatory references. Mistakes can undermine buyer trust because the Federal Seed Act is a truth-in-labeling law for seed shipped in interstate commerce.",
+      "agentWorkflow": "Train a private DocsBot agent on approved compliance notes, quality SOPs, seed testing procedures, label templates, audit prep materials, and internal work instructions. Employees can ask plain-language questions and receive answers grounded in the current controlled documents.",
+      "liveContextOrTools": "AI Actions can route uncertain questions to compliance, create a review task, summarize a document request, or retrieve approved record status when connected to authorized systems.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current SOP for seed lot sample submission?",
+        "Which internal checklist should I use before releasing a label proof?",
+        "Summarize the documentation needed for this export file review."
+      ],
+      "businessOutcome": "Help teams find the right controlled guidance faster while keeping regulated interpretations and final approvals with qualified personnel.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-usda-federal-seed-act",
+        "src-usda-seed-testing"
+      ]
+    },
+    {
+      "name": "Dealer and sales enablement agent",
+      "problem": "The U.S. seed market is competitive and concentrated; USDA ERS reported that two companies accounted for more than half of corn, soybean, and cotton seed sales in 2018–2020. Smaller and mid-market teams need consistent, fast access to product positioning and buyer-facing knowledge.",
+      "agentWorkflow": "Train DocsBot on sales playbooks, product comparisons, objection handling, market segment guidance, dealer onboarding materials, proposal templates, case notes, and approved pricing policy explanations. Sales reps can ask for quick summaries, follow-up drafts, and product-fit talking points.",
+      "liveContextOrTools": "When configured, the agent can research public account context, draft follow-up emails, summarize CRM notes, create tasks, or forward qualified lead summaries for human review.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up for a dealer asking about soybean trait options and delivery timing.",
+        "What approved talking points compare these two hybrids?",
+        "Summarize this prospect’s likely needs before my call."
+      ],
+      "businessOutcome": "Give commercial teams faster access to consistent messaging while keeping pricing, contracts, and account commitments under human control.",
+      "icon": "BriefcaseIcon",
+      "sourceIds": [
+        "src-usda-ers-seed-concentration"
+      ]
+    },
+    {
+      "name": "Seasonal operations and safety knowledge agent",
+      "problem": "Seed production and conditioning work involves seasonal labor, field operations, processing equipment, chemicals, dust, heat, and safety procedures. OSHA identifies agriculture hazards including chemicals, heat, machinery entanglement risks, respiratory exposures, and musculoskeletal injuries.",
+      "agentWorkflow": "Train an internal DocsBot agent on onboarding guides, PPE instructions, equipment SOPs, conditioning line procedures, warehouse practices, incident reporting steps, and HR policies. Employees can ask where to find procedures before work starts or during shift changes.",
+      "liveContextOrTools": "AI Actions can generate a shift briefing from approved SOPs, create a safety follow-up task, route an incident report summary, or notify supervisors through configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "What PPE is required for this seed treatment area?",
+        "Where is the lockout procedure for the conditioning line?",
+        "Create a task for a supervisor to review this safety question."
+      ],
+      "businessOutcome": "Make critical operating instructions easier to access while reinforcing that supervisors and safety leads own final worksite decisions.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-osha-ag-hazards"
+      ]
+    },
+    {
+      "name": "Documentation gap and support trend analysis",
+      "problem": "Seasonal spikes in planting, ordering, delivery, and stewardship questions reveal where product pages, manuals, dealer resources, or internal training may be incomplete.",
+      "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to see what customers and employees keep asking. Teams can prioritize missing FAQs, revise product guides, improve onboarding materials, and update web content.",
+      "liveContextOrTools": "Configured workflows can export conversation summaries, open content tasks, route unanswered topics to product or agronomy teams, and notify documentation owners.",
+      "exampleQuestionsOrRequests": [
+        "Which questions were unanswered most often this month?",
+        "Summarize the top grower questions about treated seed storage.",
+        "Create a documentation task for repeated return-policy confusion."
+      ],
+      "businessOutcome": "Turn support conversations into a continuous improvement loop for seed documentation, training, and buyer education.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Crop-season buyer intake and routing",
+      "problem": "Demand patterns shift with acreage plans and trait choices; USDA NASS estimated 91.5 million corn acres and 86.1 million soybean acres planted in 2024, with 96% of soybean acreage using herbicide-resistant seed varieties.",
+      "agentWorkflow": "Deploy a DocsBot presales agent on your site or dealer portal to answer approved product questions, collect crop and acreage context, qualify urgency, and route requests to the right sales, agronomy, or logistics queue.",
+      "liveContextOrTools": "With configured APIs, connectors, forms, or Skills, the agent can look up approved availability context, submit a lead form, create a ticket, or notify the appropriate territory team.",
+      "exampleQuestionsOrRequests": [
+        "I need seed for 1,200 soybean acres. What information do you need to route me?",
+        "Do you have guidance for herbicide-resistant varieties in my region?",
+        "Send this request to the territory manager with a summary."
+      ],
+      "businessOutcome": "Improve intake quality and reduce back-and-forth during peak buying windows without allowing the agent to make binding supply or pricing commitments.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-usda-nass-acreage-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give growers and dealers answers that stay tied to your approved seed knowledge",
+    "intro": "A customer-facing DocsBot agent can live in a website or product chat widget, answer in more than 100 languages, cite approved sources, collect buyer details, and hand off complex agronomic, account, pricing, or compliance questions to the right person.",
+    "requests": [
+      {
+        "request": "“Which products fit my crop, region, and timing?”",
+        "agentResponseStrategy": "Ask for crop, acres, location, soil or production context, and buying timeline; then answer from approved product pages and recommend human follow-up for agronomic decisions.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Trait guides",
+          "Regional positioning notes",
+          "FAQs"
+        ],
+        "optionalAction": "Submit a structured lead form or route the conversation summary to sales or agronomy when configured.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Where can I find label, treatment, or stewardship information?”",
+        "agentResponseStrategy": "Retrieve the relevant approved label, stewardship guide, safety note, or FAQ and explain where the user should verify the final instructions before use.",
+        "sourceTypes": [
+          "Labels",
+          "Stewardship documents",
+          "Safety pages",
+          "Technical bulletins"
+        ],
+        "optionalAction": "Create a support ticket if the buyer needs a document that is missing, outdated, or specific to a lot or jurisdiction.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you have seed available for my acreage?”",
+        "agentResponseStrategy": "Collect product interest, acres, location, needed date, account status, and contact details before passing the request into the customer’s approved sales or fulfillment workflow.",
+        "sourceTypes": [
+          "Availability notes",
+          "Dealer resources",
+          "Ordering policies",
+          "Sales intake forms"
+        ],
+        "optionalAction": "Trigger a configured workflow to notify the territory rep or create a request record; final availability and pricing stay with the team.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Can you help me in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual response capabilities to answer from the same approved source base so international or multilingual dealer networks receive consistent information.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Web pages",
+          "Product documentation",
+          "Support articles"
+        ],
+        "optionalAction": "Escalate to a bilingual specialist when a question involves contracts, claims, safety, or region-specific regulatory interpretation.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What documents do I need for quality or export review?”",
+        "agentResponseStrategy": "Point the user to approved public requirements and collect missing details for staff review rather than making a final compliance determination.",
+        "sourceTypes": [
+          "Export guidance",
+          "Quality documents",
+          "Seed analysis references",
+          "Support policies"
+        ],
+        "optionalAction": "Prepare a handoff summary for quality, compliance, or customer service through a configured workflow.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "request": "“I need help choosing between two seed options.”",
+        "agentResponseStrategy": "Provide approved feature and fit comparisons from product documentation, clarify assumptions, and recommend a human agronomy review for field-specific recommendations.",
+        "sourceTypes": [
+          "Comparison sheets",
+          "Agronomy notes",
+          "Product positioning guides",
+          "FAQs"
+        ],
+        "optionalAction": "Book or request a consultation through an approved scheduling workflow when configured.",
+        "icon": "ScaleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep field, production, quality, and sales teams aligned from one private knowledge agent",
+    "intro": "A private DocsBot agent gives employees fast answers from SOPs, manuals, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other approved sources. Teams can use it in private chat experiences, Slack, Microsoft Teams, or configured workflows.",
+    "workflows": [
+      {
+        "name": "Production SOP retrieval",
+        "problem": "Seasonal workers and supervisors need current instructions for planting plots, detasseling, conditioning, storage, sampling, sanitation, and equipment workflows.",
+        "agentWorkflow": "Employees ask natural-language questions and receive source-grounded answers from controlled SOPs, training guides, and manuals rather than searching folders or asking the same expert repeatedly.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Equipment guides",
+          "Shift instructions"
+        ],
+        "optionalAction": "Create a follow-up task or route an unclear procedure question to operations leadership when configured.",
+        "outcome": "Reduce time spent searching for procedures and improve consistency across sites and seasonal crews.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Quality and lot documentation support",
+        "problem": "Quality teams need to quickly find internal procedures for sampling, testing, lot release, complaint handling, label proofing, and document retention.",
+        "agentWorkflow": "DocsBot answers from approved quality manuals and internal policies, summarizes relevant sections, and provides source references for review.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Lot procedures",
+          "Testing instructions",
+          "Audit checklists"
+        ],
+        "optionalAction": "Open a review task, summarize a quality question, or retrieve an approved record status through customer-configured APIs or connectors.",
+        "outcome": "Help quality staff move faster while preserving human review for release, regulatory, or audit decisions.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Sales and dealer onboarding",
+        "problem": "New sales reps and dealers must learn product portfolios, positioning, programs, documentation, and support processes quickly.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, dealer guides, product sheets, sales playbooks, and approved FAQs so users can ask role-specific questions and get consistent answers.",
+        "sourceTypes": [
+          "Dealer manuals",
+          "Sales playbooks",
+          "Product guides",
+          "Policy FAQs"
+        ],
+        "optionalAction": "Generate onboarding summaries, draft response templates, or create training follow-up tasks when configured.",
+        "outcome": "Speed onboarding and make commercial knowledge easier to reuse across regions and channels.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Safety and worksite guidance search",
+        "problem": "Agricultural operations can include chemical, heat, machinery, respiratory, and ergonomic hazards, so employees need quick access to the correct internal safety material before work begins.",
+        "agentWorkflow": "DocsBot retrieves company-approved safety procedures, PPE instructions, reporting steps, and equipment-specific guidance with clear source references.",
+        "sourceTypes": [
+          "Safety manuals",
+          "PPE checklists",
+          "Incident reporting policies",
+          "Equipment SOPs"
+        ],
+        "optionalAction": "Notify a supervisor, create a safety review task, or summarize an incident report through a configured workflow.",
+        "outcome": "Make safety knowledge easier to find while keeping final site decisions with trained supervisors.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-osha-ag-hazards"
+        ]
+      },
+      {
+        "name": "Support-ticket intelligence",
+        "problem": "Recurring customer and dealer questions can hide patterns in documentation, product education, delivery communications, or policy clarity.",
+        "agentWorkflow": "Connect DocsBot to ticket exports or helpdesk workflows through customer-configured Skills, APIs, connectors, or approved access so it can summarize, draft, route, and analyze support conversations.",
+        "sourceTypes": [
+          "Ticket history",
+          "Helpdesk articles",
+          "Support macros",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Route unresolved topics, draft replies, create documentation tasks, or escalate sensitive cases to a human.",
+        "outcome": "Improve first-response quality and turn seasonal support activity into better knowledge assets.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your seed knowledge",
+      "mainLandingPageContext": "DocsBot agents learn from approved sources such as websites, help centers, documents, PDFs, wikis, and internal content to provide grounded answers.",
+      "industryApplication": "Use seed catalogs, trait guides, label references, quality manuals, stewardship notes, dealer resources, and SOPs as the source base for customer and employee answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can support customer-facing website or product chat experiences and private internal knowledge agents for teams.",
+      "industryApplication": "Place an agent on seed product pages for grower questions, while giving internal teams private access to production, quality, compliance, and sales knowledge.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, record updates, summaries, routing, notifications, and workflow triggers through customer-configured connections.",
+      "industryApplication": "Route qualified acreage requests, create support tickets, summarize dealer conversations, look up approved record status, or connect to remote Model Context Protocol servers where your team has authorized tools.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics and conversation review so teams can understand repeated questions, unresolved topics, and content gaps.",
+      "industryApplication": "See where growers, dealers, or employees need clearer documentation about traits, planting guidance, labels, stewardship, ordering, returns, or quality processes.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need human judgment.",
+      "industryApplication": "Escalate agronomic recommendations, regulated label interpretations, pricing, contracts, warranty issues, claims, and quality release decisions to qualified staff.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "Security and governance for private agricultural knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect proprietary seed data, sales playbooks, internal SOPs, dealer resources, quality manuals, and controlled documents while giving approved users faster access.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on owned product and support content so answers stay aligned with your approved seed knowledge.",
+      "Scale customer self-service for recurring product, documentation, and support questions without hiding complex cases from people.",
+      "Use conversation data to understand what growers, dealers, and employees are trying to learn from your documentation."
+    ],
+    "whyTheseReviewsFit": "Seed production teams depend on accurate owned content: product guides, manuals, labels, SOPs, and support history. DocsBot proof spans source-grounded content training, scalable customer support, multilingual manuals, embedded support experiences, and analytics that reveal what users need from documentation.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for seed production companies",
+    "audience": [
+      "Seed production companies",
+      "Seed dealers and distributors",
+      "Agronomy and grower support teams",
+      "Quality, compliance, and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "agriculture-forestry-wildlife",
+    "crop-consulting",
+    "farming",
+    "farm-equipment-sales",
+    "greenhouse-operations",
+    "organic-farming"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "seed-production",
+    "webSearchQueries": [
+      "USDA Economic Research Service seed industry concentration seed production crop seed market report",
+      "USDA AMS Federal Seed Act labeling information seed regulations",
+      "USDA NASS crop production 2024 corn soybean acreage seed agriculture statistics",
+      "OSHA agricultural operations hazards chemicals machinery heat seed production"
+    ],
+    "sourceUrls": [
+      "https://www.ams.usda.gov/rules-regulations/fsa",
+      "https://www.ams.usda.gov/index.php/services/seed-testing",
+      "https://ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=107516",
+      "https://www.nass.usda.gov/Newsroom/2024/06-28-2024.php",
+      "https://www.osha.gov/agricultural-operations/hazards"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41974,
+        "cachedInputTokens": 19200,
+        "billableInputTokens": 22774,
+        "outputTokens": 8283,
+        "reasoningOutputTokens": 121,
+        "totalTokens": 50257,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.18598,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.19598
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21707,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6219,
+          "outputTokens": 5507,
+          "reasoningOutputTokens": 121,
+          "totalTokens": 27214,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.102024,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.112024
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20267,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 16555,
+          "outputTokens": 2776,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23043,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.083956,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.083956
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1508061217390-994bc42bccf7?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQzODd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Seed Production background image",
+    "source": "legacy-industry",
+    "query": "Seed Production"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer grower and dealer questions without making agronomic recommendations we would not stand behind?",
+      "answer": "Yes. DocsBot can be trained on approved product sheets, trait guides, stewardship notes, regional positioning content, and FAQs, then instructed to stay within those sources. For field-specific recommendations, warranty issues, pricing, supply commitments, or regulated interpretations, it can ask clarifying questions and hand the conversation to sales, agronomy, or support.",
+      "role": "Grower support and customer care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help during peak ordering or planting season when our phones and inboxes spike?",
+      "answer": "DocsBot can handle repetitive questions about product specs, documentation, storage, stewardship, ordering policies, and next steps through a website widget or private portal. It can collect crop, acreage, region, timing, product interest, and contact details, then route a summarized request to the right territory, sales, agronomy, or logistics workflow when configured.",
+      "role": "Grower support and customer care teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can we use one agent for growers and another private agent for SOPs, labels, and quality documents?",
+      "answer": "Yes. Many seed companies would separate public buyer support from private operations knowledge. A customer-facing agent can answer from catalogs, public product pages, and stewardship materials, while an internal agent can be restricted to SOPs, quality manuals, label proofing checklists, audit prep content, and training documents using role-based permissions.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent outdated seed specs, discontinued varieties, or old label language from being used?",
+      "answer": "DocsBot should be connected only to approved, maintained knowledge sources and governed with a clear content owner process. Teams can remove outdated files, refresh source content, review logs, and use analytics to find unanswered or confusing questions. For label, lot, and compliance-sensitive answers, the agent should cite controlled sources and escalate uncertainty.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will DocsBot help with Federal Seed Act and testing documentation questions?",
+      "answer": "DocsBot can help employees find and summarize your approved internal guidance for labels, lot records, testing procedures, export file review, and audit preparation. Final compliance decisions should stay with qualified staff. This matters because USDA AMS describes the Federal Seed Act as a truth-in-labeling law, and its Seed Testing Program supports verification testing and some export certificates.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-usda-federal-seed-act",
+        "src-usda-seed-testing"
+      ]
+    },
+    {
+      "question": "Can the agent route availability requests without promising inventory or pricing?",
+      "answer": "Yes. DocsBot can collect the needed context—crop, acreage, region, product interest, needed date, account status, and preferred follow-up channel—then create a ticket, submit a form, notify a rep, or forward a summary through configured workflows. The answer can clearly state that final availability, allocation, pricing, and contract terms require human confirmation.",
+      "role": "Sales, dealer, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What sources would we need to launch a useful seed support agent?",
+      "answer": "A strong first launch usually includes current catalogs, variety or hybrid sheets, trait and treatment guides, stewardship documents, FAQs, ordering and return policies, public labels or safety references, dealer resources, and support macros. For internal use, add SOPs, training manuals, quality procedures, label proofing checklists, equipment guides, and approved escalation rules.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot support our sales reps and dealer network without exposing confidential playbooks?",
+      "answer": "You can create a private sales enablement agent trained on approved playbooks, comparison notes, objection handling, dealer onboarding content, proposal templates, and policy explanations. Access can be limited by role so reps and dealers see only appropriate content. Pricing exceptions, contracts, claims, and commitments should remain in human-controlled workflows.",
+      "role": "Sales, dealer, and account teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it help smaller seed brands compete against larger companies with deeper support teams?",
+      "answer": "DocsBot can make approved product knowledge, positioning notes, and dealer support content easier to reuse across a leaner team. That can matter in a concentrated market: USDA ERS reported that two companies accounted for more than half of U.S. corn, soybean, and cotton seed sales during 2018–2020.",
+      "role": "Sales, dealer, and account teams",
+      "category": "Competitive comparisons",
+      "sourceIds": [
+        "src-usda-ers-seed-concentration"
+      ]
+    },
+    {
+      "question": "What integrations should we plan for if our seed data lives across PDFs, shared drives, CRM notes, and ticketing tools?",
+      "answer": "Start with the sources that are already approved and reliable: PDFs, web pages, help articles, SOP repositories, wikis, or shared-drive documents. For live actions, DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, or MCP Connectors to route requests, create tickets, update approved fields, or notify teams where your organization authorizes that access.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can support managers see what growers and dealers are asking most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Support leaders can use those patterns to update FAQs, improve product pages, clarify return policies, adjust dealer training, or route repeated technical questions to agronomy or product teams.",
+      "role": "Grower support and customer care teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How would we measure ROI beyond basic chat volume?",
+      "answer": "Look at deflected repetitive questions, faster first response, reduced handoff time, improved lead intake completeness, fewer internal searches for SOPs, faster dealer onboarding, and documentation gaps closed. For seasonal operations, also measure whether reps and support teams spend less time re-answering product, stewardship, availability, and policy questions.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent support multilingual dealers, seasonal workers, or international buyers?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved source base. For multilingual seed operations, it can help dealers, growers, or seasonal employees find consistent answers while escalating contracts, safety issues, claims, region-specific regulatory questions, and compliance interpretations to qualified bilingual staff when needed.",
+      "role": "Grower support and customer care teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep proprietary genetics, production methods, and sales strategy protected?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a commitment not to use customer data to train public models. Teams should also separate public and private agents, restrict sources by audience, and scope Skills so agents only access approved systems and actions.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot assist production crews with SOPs and safety questions on the floor or in the field?",
+      "answer": "Yes, as a private internal knowledge agent. Teams can train it on safety manuals, PPE checklists, equipment SOPs, incident reporting steps, conditioning line procedures, sanitation practices, and shift instructions. It can retrieve approved guidance quickly, while supervisors remain responsible for worksite decisions and emergency response.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Why is human review especially important for safety procedures in seed conditioning and treatment areas?",
+      "answer": "DocsBot can make safety instructions easier to find, but it should not replace trained supervisors. OSHA identifies agricultural hazards such as chemicals, heat, machinery entanglement risks, respiratory exposures, noise, musculoskeletal injuries, grain bins, and silos, so site-specific judgment and approved safety leadership remain essential.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-ag-hazards"
+      ]
+    },
+    {
+      "question": "Can the agent draft support replies or sales follow-ups in our voice?",
+      "answer": "Yes. DocsBot can draft responses from approved product documentation, support macros, dealer resources, sales playbooks, and FAQs. Teams can require human review before sending, especially for pricing, agronomic advice, supply commitments, claims, warranty language, regulated label questions, or sensitive customer accounts.",
+      "role": "Sales, dealer, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How hard is implementation if our documents are scattered and not perfectly organized?",
+      "answer": "You do not need a perfect knowledge base to start, but you do need a controlled first set of trusted sources. A practical pilot can focus on one crop line, one dealer portal, or one internal SOP area. Conversation logs and unanswered questions then show which documents need cleanup, consolidation, or owner review.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support quality teams without becoming a system of record for lot release?",
+      "answer": "Yes. DocsBot can retrieve and summarize approved quality manuals, sampling procedures, testing instructions, label proofing steps, complaint handling policies, and audit checklists. If connected to authorized systems, it can look up approved status or create review tasks, but lot release, regulatory determinations, and audit signoff should remain in your existing controlled systems.",
+      "role": "Production, quality, and compliance leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should procurement and IT ask before approving an AI agent for seed operations?",
+      "answer": "They should review data handling, access controls, source governance, escalation rules, logging, retention expectations, credential handling, integration scope, and whether customer data is used to train public models. They should also confirm which actions are allowed, which require approval, and which systems the agent can access through configured Skills or APIs.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us qualify large acreage requests before a rep gets involved?",
+      "answer": "Yes. A presales agent can collect acreage, crop, geography, timing, product interest, account type, contact details, and urgency before routing the request. That is useful at scale: USDA NASS estimated 91.5 million U.S. corn acres and 86.1 million soybean acres planted in 2024, with 96% of soybean acreage using herbicide-resistant seed varieties.",
+      "role": "Sales, dealer, and account teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-nass-acreage-2024"
+      ]
+    },
+    {
+      "question": "How do we compare DocsBot with building our own RAG or AI search tool?",
+      "answer": "A build-your-own approach may offer maximum control, but it requires ongoing work for ingestion, retrieval quality, permissions, analytics, UX, escalation, security review, and workflow actions. DocsBot is better suited when the buying committee wants a configurable AI agent platform for approved knowledge, support, analytics, and scoped actions without maintaining the full stack internally.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will the agent hallucinate answers about traits, treatments, or seed handling?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved knowledge, but governance still matters. Limit the agent to trusted sources, require citations, define “do not answer” topics, add escalation rules, review logs, and test edge cases such as discontinued varieties, missing labels, regional restrictions, storage conditions, and account-specific questions.",
+      "role": "Grower support and customer care teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use conversation analytics to improve catalogs, labels, and dealer training?",
+      "answer": "Yes. DocsBot can show repeated questions, unresolved topics, satisfaction signals, and knowledge gaps. Seed teams can use that insight to improve catalog descriptions, stewardship pages, treated-seed storage guidance, dealer onboarding, return-policy explanations, internal SOPs, and seasonal training content before the same questions repeat next cycle.",
+      "role": "Grower support and customer care teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What training will our staff need to use DocsBot effectively?",
+      "answer": "Most training should focus on operating rules, not prompt engineering: which agent to use, which sources are approved, when to trust a cited answer, when to escalate, how to flag outdated content, and which actions are permitted. Sales, support, quality, and production teams should each get examples tied to their daily workflows.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we start with internal use before putting an agent in front of growers or dealers?",
+      "answer": "Yes. Many buyers would pilot internally first with SOP retrieval, sales enablement, support drafting, or quality-document search. That lets teams validate source quality, permissions, answer style, escalation rules, and analytics before launching a public website widget or dealer-facing support experience.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

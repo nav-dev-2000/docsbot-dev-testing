@@ -1,0 +1,739 @@
+{
+  "slug": "seafood-restaurant",
+  "business": "Seafood Restaurant",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Seafood Restaurant Service & Operations",
+    "description": "DocsBot helps seafood restaurants answer menu, allergen, sourcing, and reservation questions while giving staff faster access to SOPs.",
+    "canonicalPath": "/industry/seafood-restaurant"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for seafood dining teams",
+    "headline": "DocsBot AI agents keep seafood guests informed and tables moving",
+    "subheadline": "Train a DocsBot agent on your menu, raw bar notes, allergen guidance, sourcing details, reservation policies, private SOPs, and team playbooks so guests and staff get fast, consistent answers before, during, and after service.",
+    "proofBullets": [
+      {
+        "text": "Answer guest questions about oysters, catch specials, allergens, wine pairings, hours, parking, private dining, and reservation policies from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect catering, event, or large-party details and route a clean summary to the right manager through customer-configured workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give hosts, servers, and managers private access to prep notes, food safety reminders, opening checklists, and service standards.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated menu questions, unclear policies, and missing content your team should update.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your seafood restaurant agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps seafood restaurants create AI agents trained on their own approved knowledge. Agents can answer guests in a website widget, support multilingual questions, assist employees in private team chat, summarize requests, identify content gaps, and take bounded actions such as routing a reservation question, creating a task, or preparing a human handoff when configured through Skills, APIs, connectors, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep guest communication consistent without asking managers to personally answer every question about specials, reservations, events, sourcing, and policies.",
+        "bullets": [
+          {
+            "text": "Turn menu pages, FAQs, private dining packets, and policy docs into source-grounded answers guests can use before calling the restaurant.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Restaurants operate in a large, labor-intensive sector; the National Restaurant Association says eating and drinking places will directly contribute $1.4T in U.S. sales output and support 22.9M employees when broader impacts are included.",
+            "icon": "BuildingStorefrontIcon",
+            "sourceIds": [
+              "src-restaurant-economic-scale"
+            ]
+          },
+          {
+            "text": "Use conversation analytics to learn which dishes, allergens, reservation rules, or parking details are creating the most guest confusion.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Hosts, servers, and guest experience teams",
+        "roleContext": "Give front-of-house staff a quick way to find approved answers while preserving hospitality for moments that need human judgment.",
+        "bullets": [
+          {
+            "text": "Answer routine questions about raw bar availability, happy hour rules, dress code, corkage, accessibility, kids’ menus, and takeout timing.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Escalate complex allergy, complaint, refund, or VIP requests to a person with the conversation summary attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Support guests in more than 100 languages when travelers ask about menus, directions, or booking details.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Chefs, beverage leads, and operations managers",
+        "roleContext": "Make training materials and operational standards easier to retrieve during busy shifts, without replacing manager oversight for food safety or service decisions.",
+        "bullets": [
+          {
+            "text": "Surface prep notes, plating standards, pairing guidance, opening checklists, closing duties, and approved substitute guidance from internal documents.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Keep raw or undercooked seafood advisories easy for staff to find; the FDA Food Code addresses consumer warnings for raw or undercooked animal foods including seafood and shellfish.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-fda-food-code-advisory"
+            ]
+          },
+          {
+            "text": "Create tasks or notify managers when repeated staff questions reveal missing SOPs, unclear training, or outdated menu documentation.",
+            "icon": "BellIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-restaurant-economic-scale",
+      "metric": "$1.4T direct U.S. eating and drinking place output",
+      "claim": "The National Restaurant Association reports that eating and drinking places will directly contribute $1.4T in output in 2024 dollars and, with broader impacts, support 22.9M employees.",
+      "sourceTitle": "National Restaurant Association: National Statistics",
+      "sourceUrl": "https://restaurant.org/research-and-media/research/industry-statistics/national-statistics",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "restaurant labor scale",
+        "guest communication volume",
+        "operational pressure"
+      ]
+    },
+    {
+      "id": "src-restaurant-labor-costs",
+      "metric": "Fullservice wages and benefits reached a 36.5% median share of sales in 2024",
+      "claim": "The National Restaurant Association reported that salaries and wages, including benefits, represented a median 36.5% of sales among fullservice restaurant respondents in 2024.",
+      "sourceTitle": "National Restaurant Association: Elevated labor costs had a significant impact on restaurant profitability in 2024",
+      "sourceUrl": "https://restaurant.org/research-and-media/research/restaurant-economic-insights/analysis-commentary/elevated-labor-costs-had-a-significant-impact-on-restaurant-profitability-in-2024/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor cost pressure",
+        "automation rationale",
+        "front-of-house efficiency"
+      ]
+    },
+    {
+      "id": "src-noaa-seafood-industry",
+      "metric": "8.4B pounds of U.S. commercial landings in 2023",
+      "claim": "NOAA Fisheries reports that U.S. commercial fishermen landed 8.4 billion pounds valued at $5.1 billion in 2023.",
+      "sourceTitle": "NOAA Fisheries: Fisheries of the United States Reports",
+      "sourceUrl": "https://www.fisheries.noaa.gov/resource/document/fisheries-united-states-reports",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "seafood sourcing interest",
+        "supply chain context",
+        "menu transparency"
+      ]
+    },
+    {
+      "id": "src-cdc-vibrio-oysters",
+      "metric": "Raw or undercooked shellfish, particularly oysters, are a common Vibrio exposure",
+      "claim": "CDC states that eating raw oysters and other undercooked seafood can put people at risk for vibriosis, and most people become infected by eating raw or undercooked shellfish, particularly oysters.",
+      "sourceTitle": "CDC: Vibrio and Oysters",
+      "sourceUrl": "https://www.cdc.gov/vibrio/prevention/vibrio-and-oysters.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "raw bar safety",
+        "guest advisories",
+        "staff training"
+      ]
+    },
+    {
+      "id": "src-fda-seafood-safety",
+      "metric": "FDA advises careful handling and cooking of fresh and frozen seafood",
+      "claim": "FDA consumer guidance covers safe selection, serving, cooking, and handling of seafood, including warnings about raw or undercooked fish and shellfish.",
+      "sourceTitle": "FDA: Selecting and Serving Fresh and Frozen Seafood Safely",
+      "sourceUrl": "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "food safety reminders",
+        "guest education",
+        "staff knowledge base"
+      ]
+    },
+    {
+      "id": "src-fda-food-code-advisory",
+      "metric": "Food Code addresses consumer advisories for raw or undercooked animal foods",
+      "claim": "The FDA Food Code includes consumer advisory requirements for raw or undercooked animal foods, including fish and shellfish, where required by law.",
+      "sourceTitle": "FDA: Food Code 2022",
+      "sourceUrl": "https://www.fda.gov/media/164194/download",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "raw seafood advisories",
+        "menu disclosure workflows",
+        "compliance-aware training"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Menu, allergen, and raw bar question handling",
+      "problem": "Guests often need quick answers about shellfish allergens, gluten-free options, oyster varieties, preparation methods, kids’ meals, and whether a dish is cooked or raw.",
+      "agentWorkflow": "A DocsBot website agent answers from approved menu pages, allergen notes, raw bar descriptions, chef notes, FAQs, and policy documents. If the question involves a sensitive allergy scenario or an off-menu substitution, the agent can collect details and hand off to a manager or host.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can check approved live context such as today’s specials, sold-out items, or a reservation-status note before responding.",
+      "exampleQuestionsOrRequests": [
+        "Which oyster is the least briny tonight?",
+        "Do you have a gluten-free crab cake option?",
+        "Is the ceviche cooked or served raw?",
+        "Can someone confirm whether the lobster roll contains dairy?"
+      ],
+      "businessOutcome": "Reduce repetitive calls and DMs while giving guests clearer, source-grounded information before they book or order.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Reservation, large-party, and private dining intake",
+      "problem": "Seafood restaurants frequently lose time collecting incomplete details for birthdays, corporate dinners, rehearsal events, patio requests, and high-demand weekend reservations.",
+      "agentWorkflow": "The agent answers policy questions, collects party size, date, time, occasion, seating preference, dietary notes, budget range, and contact details, then prepares a structured handoff for the host stand or events manager.",
+      "liveContextOrTools": "DocsBot AI Actions can route the summary to email, forms, helpdesk software, CRM-style records, or a scheduling workflow through customer-configured connectors, webhooks, APIs, or MCP Connectors when authorized.",
+      "exampleQuestionsOrRequests": [
+        "Can I book a table for 14 next Friday?",
+        "What is the minimum spend for a raw bar private event?",
+        "Do you host rehearsal dinners with seafood towers?",
+        "Can I reserve patio seating for a birthday?"
+      ],
+      "businessOutcome": "Capture better event and reservation intent without forcing managers to reconstruct details from scattered voicemail, email, and social messages.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Sourcing and sustainability answer agent",
+      "problem": "Diners increasingly ask where seafood comes from, whether oysters are local, how fish is prepared, and which suppliers or fisheries the restaurant trusts.",
+      "agentWorkflow": "DocsBot trains on sourcing statements, supplier notes, menu descriptions, chef commentary, and approved sustainability language so the restaurant can answer transparently without staff improvising.",
+      "liveContextOrTools": "If connected to approved internal files or live menu data, the agent can retrieve current catch notes or daily oyster lists and cite the source used in the answer.",
+      "exampleQuestionsOrRequests": [
+        "Where are tonight’s scallops from?",
+        "Are the oysters farmed or wild?",
+        "What fish is used in the tacos?",
+        "Do you have any locally landed seafood this week?"
+      ],
+      "businessOutcome": "Build guest trust around provenance while keeping answers consistent with the restaurant’s approved sourcing language. NOAA reports 8.4B pounds of U.S. commercial landings valued at $5.1B in 2023, underscoring how broad the seafood supply chain can be.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-noaa-seafood-industry"
+      ]
+    },
+    {
+      "name": "Food safety and staff SOP retrieval",
+      "problem": "Busy shifts make it hard for new or seasonal staff to remember holding procedures, cross-contact practices, raw bar advisories, thermometer guidance, and escalation rules.",
+      "agentWorkflow": "An internal DocsBot agent answers staff questions from private SOPs, training documents, manager notes, PDFs, and checklists. It can point employees to approved procedures and remind them when a manager must make the final call.",
+      "liveContextOrTools": "AI Actions can create a training follow-up task, notify a manager about repeated safety questions, or summarize a shift issue for review when the restaurant has configured those workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is our procedure for a guest with a shellfish allergy?",
+        "Where is the oyster receiving checklist?",
+        "What do I say when a guest asks about raw oysters?",
+        "Who approves a menu item substitution during service?"
+      ],
+      "businessOutcome": "Improve consistency in high-pressure service environments while keeping safety-sensitive decisions inside manager-defined boundaries. CDC notes that raw oysters and other undercooked seafood can put people at risk for vibriosis.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cdc-vibrio-oysters"
+      ]
+    },
+    {
+      "name": "Review, feedback, and service recovery triage",
+      "problem": "Comments from guests arrive across website forms, email, receipts, review platforms, and social channels, but managers need concise context rather than another inbox to watch.",
+      "agentWorkflow": "A DocsBot agent can answer common post-visit questions, collect details about a complaint or compliment, summarize the issue, and route it to the right manager for follow-up instead of attempting to resolve sensitive service recovery alone.",
+      "liveContextOrTools": "Through customer-approved workflows, the agent can create a task, attach conversation context, tag the topic, or notify a team channel for human response.",
+      "exampleQuestionsOrRequests": [
+        "I was charged for the wrong entrée.",
+        "I want to compliment our server from last night.",
+        "My takeout order was missing tartar sauce.",
+        "Who should I contact about a private event invoice?"
+      ],
+      "businessOutcome": "Help managers see patterns in guest experience issues and respond faster with the original context preserved.",
+      "icon": "StarIcon"
+    },
+    {
+      "name": "Sales enablement for catering and off-site seafood events",
+      "problem": "Catering and event opportunities require quick answers about menus, minimums, service formats, staffing, delivery zones, deposits, and dietary accommodations.",
+      "agentWorkflow": "DocsBot can give sales or event coordinators an internal enablement agent trained on catering packets, private dining policies, pricing guidance, proposal templates, FAQs, and past approved language. It can draft a response for human review.",
+      "liveContextOrTools": "With approved Skills, the agent can collect lead details, qualify fit against restaurant-defined rules, and forward a summary to sales systems, forms, email, or team chat.",
+      "exampleQuestionsOrRequests": [
+        "Draft a reply for a 75-person oyster roast inquiry.",
+        "What questions should I ask before quoting a clambake?",
+        "Summarize this catering lead and flag missing details.",
+        "Find our approved wording for deposit and cancellation terms."
+      ],
+      "businessOutcome": "Speed up human follow-up for higher-value dining and catering requests while keeping final pricing, contracts, and commitments under staff control.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest-facing AI agent that knows your seafood menu, policies, and hospitality voice",
+    "intro": "Embed DocsBot on your website so guests can ask natural questions before calling, booking, ordering takeout, or arriving for dinner. The agent answers from your approved sources, can collect structured details, and escalates when a human should handle the request.",
+    "requests": [
+      {
+        "request": "“Do you have oysters from the Pacific Northwest tonight?”",
+        "agentResponseStrategy": "Answer from the current oyster list or approved menu source when available, explain flavor notes if documented, and invite the guest to call or ask the server if inventory changes during service.",
+        "sourceTypes": [
+          "Daily menu",
+          "Raw bar list",
+          "Chef notes"
+        ],
+        "optionalAction": "Check a customer-configured live specials source or route the question to the host stand if the item is not confirmed.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“I have a shellfish allergy. What can I safely order?”",
+        "agentResponseStrategy": "Share approved allergen policy language, ask the guest to notify the restaurant directly, and escalate to staff because allergy decisions need human confirmation.",
+        "sourceTypes": [
+          "Allergen guide",
+          "Safety policy",
+          "Manager instructions"
+        ],
+        "optionalAction": "Collect the guest’s reservation time and allergy details for a manager handoff if the restaurant has configured that workflow.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I book a private room for 20 people?”",
+        "agentResponseStrategy": "Explain private dining options, minimums, deposit policies, and typical formats from approved event materials, then collect the details needed for follow-up.",
+        "sourceTypes": [
+          "Private dining packet",
+          "Reservation policy",
+          "Event FAQ"
+        ],
+        "optionalAction": "Create a lead form submission or notify the events manager through an approved workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is your seafood fresh or frozen?”",
+        "agentResponseStrategy": "Answer with the restaurant’s approved sourcing and handling language, avoiding unsupported claims and pointing to documented supplier or preparation details.",
+        "sourceTypes": [
+          "Sourcing statement",
+          "Supplier notes",
+          "Menu descriptions"
+        ],
+        "optionalAction": "If connected to approved live context, retrieve today’s catch or supplier note before answering.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“What is the best option for someone who does not eat seafood?”",
+        "agentResponseStrategy": "Recommend documented non-seafood, vegetarian, or kids’ menu options and clarify when substitutions require staff confirmation.",
+        "sourceTypes": [
+          "Menu",
+          "FAQ",
+          "Substitution policy"
+        ],
+        "optionalAction": "Route unusual accommodation requests to the host or manager with the conversation summary.",
+        "icon": "FaceSmileIcon"
+      },
+      {
+        "request": "“Do you offer takeout seafood platters for holidays?”",
+        "agentResponseStrategy": "Use approved seasonal menu and ordering policy content to explain availability, pickup windows, deposit rules, and how to place an order.",
+        "sourceTypes": [
+          "Seasonal menu",
+          "Holiday ordering guide",
+          "Takeout policy"
+        ],
+        "optionalAction": "Trigger a configured order-inquiry form or handoff for staff follow-up.",
+        "icon": "ShoppingBagIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private restaurant knowledge agent for managers, hosts, servers, and kitchen teams",
+    "intro": "Use DocsBot privately with internal documents, SOPs, training materials, PDFs, wikis, and team knowledge so employees can find the right answer without interrupting service leaders for every routine question.",
+    "workflows": [
+      {
+        "name": "Server training and shift readiness",
+        "problem": "New hires and seasonal staff need quick answers about menu descriptions, oyster varieties, wine pairings, upsell language, and service standards.",
+        "agentWorkflow": "The internal agent retrieves answers from training manuals, menu notes, pairing guides, opening lineups, and brand voice documents, then cites the source so staff can verify details.",
+        "sourceTypes": [
+          "Training manuals",
+          "Menu notes",
+          "Wine pairing guides",
+          "Brand standards"
+        ],
+        "optionalAction": "Create a documentation-gap task when staff repeatedly ask questions that are not covered in current materials.",
+        "outcome": "Help staff answer guest questions confidently while reducing repeated manager interruptions during service.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Food safety and compliance reminders",
+        "problem": "Seafood operations involve raw and undercooked items, shellfish handling, temperature procedures, and consumer advisory language that staff must treat carefully.",
+        "agentWorkflow": "DocsBot answers from the restaurant’s approved safety policies and training content, points to the relevant SOP, and tells the employee when to escalate to the manager on duty.",
+        "sourceTypes": [
+          "Food safety SOPs",
+          "Allergen procedures",
+          "Consumer advisory notes",
+          "Receiving checklists"
+        ],
+        "optionalAction": "Notify a manager or create a follow-up training task for repeated safety-related questions.",
+        "outcome": "Keep safety guidance easier to access while preserving manager review for high-impact decisions. FDA guidance covers safe seafood selection, serving, cooking, and handling, including raw or undercooked seafood considerations.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-seafood-safety"
+        ]
+      },
+      {
+        "name": "Manager handoff and incident summaries",
+        "problem": "Managers lose time piecing together what happened from staff texts, handwritten notes, guest messages, and ticket comments.",
+        "agentWorkflow": "The agent can summarize a guest complaint, missed item, refund request, staff note, or private event issue into a clear handoff with timeline, requested action, and missing information.",
+        "sourceTypes": [
+          "Guest messages",
+          "Internal notes",
+          "Policies",
+          "Service recovery playbooks"
+        ],
+        "optionalAction": "Through approved Skills or APIs, create a task, route the summary to a manager, or update approved fields in a customer-configured system.",
+        "outcome": "Give managers better context for service recovery, training, and follow-up without letting AI make sensitive compensation decisions on its own.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Catering and event sales support",
+        "problem": "Event leads need quick, accurate responses, but coordinators often wait on menu, staffing, deposit, and availability details.",
+        "agentWorkflow": "An internal sales enablement agent retrieves approved catering packages, pricing guidance, private dining policies, proposal templates, and objection-handling notes. It can draft a response for a human to review and send.",
+        "sourceTypes": [
+          "Catering packets",
+          "Proposal templates",
+          "Sales playbooks",
+          "Event policies"
+        ],
+        "optionalAction": "Qualify the inquiry against restaurant-defined rules and forward a lead summary to email, forms, CRM-style tools, or team chat when configured.",
+        "outcome": "Shorten response time for valuable event inquiries while keeping contracts, pricing exceptions, and commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your restaurant knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from websites, help centers, internal content, PDFs, docs, team knowledge, and other configured sources.",
+      "industryApplication": "Train on seafood menus, raw bar notes, allergen guides, sourcing pages, private dining packets, holiday ordering details, and staff SOPs so answers match the restaurant’s approved language.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can appear in customer-facing chat widgets and private team experiences, including Slack, Microsoft Teams, and private chat when configured.",
+      "industryApplication": "Let guests ask about reservations and menu options on the website while employees privately search prep notes, service standards, and policy answers during the shift.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, record updates, task creation, routing, summaries, workflow triggers, and handoffs.",
+      "industryApplication": "Configure approved actions to collect private dining details, check live specials, create a manager task, route a guest issue, or connect to remote Model Context Protocol servers that expose tools your team already uses.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and visibility into unanswered questions.",
+      "industryApplication": "See which oyster, allergen, reservation, takeout, event, and parking questions keep repeating so managers can improve menus, FAQs, staff training, and website content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and scoped boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person, and Skills can be governed with permissions, logging, secrets, and customer-defined controls.",
+      "industryApplication": "Route shellfish allergy questions, refund requests, legal complaints, pricing exceptions, and service recovery decisions to staff while still giving the team a useful summary.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Security and governance for private restaurant knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, staff training, pricing guidance, event terms, and operational documents available to authorized users without exposing private knowledge to public model training.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume questions across public websites and internal team workflows.",
+      "Grounds answers in owned content so restaurant teams can keep guest communication consistent.",
+      "Supports human staff with summaries, drafts, routing, and escalation instead of replacing judgment."
+    ],
+    "whyTheseReviewsFit": "Seafood restaurants need fast guest answers, reliable internal knowledge, and practical workflow support during service peaks. DocsBot proof shows teams using owned content, website assistants, support workflows, and training platforms to make information easier to access while keeping humans in charge of the guest experience.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "DocumentTextIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agent and internal knowledge automation for seafood restaurants",
+    "audience": [
+      "Seafood restaurant owners",
+      "General managers",
+      "Front-of-house teams",
+      "Chefs and operations managers",
+      "Private dining and catering coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "farm-to-table-restaurants",
+    "restaurant-bar",
+    "fine-dining",
+    "caterer",
+    "food-hospitality",
+    "food-trucks"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "seafood-restaurant",
+    "webSearchQueries": [
+      "National Restaurant Association restaurant industry sales 2024 2025 workforce statistics",
+      "FDA Food Code consumer advisory raw undercooked seafood parasites shellfish",
+      "NOAA Fisheries US seafood consumption per capita 2022 2023 report",
+      "CDC food safety seafood Vibrio oysters statistics"
+    ],
+    "sourceUrls": [
+      "https://restaurant.org/research-and-media/research/industry-statistics/national-statistics",
+      "https://restaurant.org/research-and-media/research/restaurant-economic-insights/analysis-commentary/elevated-labor-costs-had-a-significant-impact-on-restaurant-profitability-in-2024/",
+      "https://www.fisheries.noaa.gov/resource/document/fisheries-united-states-reports",
+      "https://www.cdc.gov/vibrio/prevention/vibrio-and-oysters.html",
+      "https://www.fda.gov/food/buy-store-serve-safe-food/selecting-and-serving-fresh-and-frozen-seafood-safely",
+      "https://www.fda.gov/media/164194/download"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42016,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 21792,
+        "outputTokens": 8559,
+        "reasoningOutputTokens": 113,
+        "totalTokens": 50575,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.187922,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.197922
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21579,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6603,
+          "outputTokens": 5582,
+          "reasoningOutputTokens": 113,
+          "totalTokens": 27161,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.103982,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.113982
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20437,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15189,
+          "outputTokens": 2977,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23414,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08394,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08394
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1551693219-c9c76ccc489d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU3MDl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Seafood Restaurant background image",
+    "source": "legacy-industry",
+    "query": "Seafood Restaurant"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer guest questions about oysters, allergens, and today’s specials without making unsupported food-safety claims?",
+      "answer": "Yes. DocsBot can be trained on your approved menu, allergen guide, raw bar notes, chef notes, and policies so it answers from documented sources instead of improvising. For shellfish allergies, raw items, substitutions, or safety-sensitive situations, you can instruct the agent to share approved language, collect details, and hand off to a manager or host for confirmation.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce calls and DMs without making our hospitality feel automated?",
+      "answer": "Use DocsBot for repetitive pre-visit questions—hours, parking, corkage, oyster availability, kids’ options, reservation rules, takeout timing, and private dining basics—while keeping staff involved for VIPs, complaints, allergies, and unusual requests. The goal is not to replace hospitality; it is to give guests fast answers and give your team more time for service moments that require judgment.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is there enough ROI for a single-location seafood restaurant, or is this mostly for chains?",
+      "answer": "Single-location restaurants can benefit when managers and hosts repeatedly answer the same menu, reservation, private dining, holiday order, and allergen questions. ROI usually comes from fewer interruptions, better event lead capture, faster staff access to SOPs, and clearer guest self-service. Labor pressure makes small efficiency gains meaningful: fullservice restaurant wages and benefits reached a 36.5% median share of sales in 2024.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-restaurant-labor-costs"
+      ]
+    },
+    {
+      "question": "Can the agent tell guests what seafood is fresh, frozen, local, farmed, or wild?",
+      "answer": "DocsBot can answer sourcing questions only from the sourcing statements, supplier notes, menu descriptions, or daily catch files you provide. That helps avoid staff making off-the-cuff claims about provenance. If you connect approved live context, the agent can retrieve current catch or oyster-list details; otherwise it should say what is documented and direct guests to staff for same-day confirmation.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we keep the AI from giving the wrong answer when our raw bar changes during service?",
+      "answer": "Treat fast-changing inventory as live or human-confirmed content. DocsBot can use static menu knowledge for general descriptions, while customer-configured Skills, APIs, connectors, or approved workflows can check a current specials source when available. If no live source is connected, the agent can be instructed to qualify the answer, mention that raw bar availability changes, and route the question to the host stand.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help with shellfish allergy questions, or should those always go straight to a person?",
+      "answer": "DocsBot can provide approved allergen policy language, ask guests to notify the restaurant directly, and collect reservation or contact details for a staff handoff. It should not make final safety decisions for a guest. That boundary is especially important for seafood restaurants because FDA consumer guidance includes warnings about raw or undercooked fish and shellfish, and restaurants need manager-defined procedures.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-seafood-safety"
+      ]
+    },
+    {
+      "question": "Can we use it internally for lineups, prep notes, opening checklists, and service standards?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, PDFs, training manuals, menu notes, pairing guides, opening and closing checklists, and manager instructions. Staff can ask questions during onboarding or before service and get source-grounded answers. You can also review repeated questions to find missing training content or unclear procedures.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will staff trust it if they are used to asking the chef or manager directly?",
+      "answer": "Adoption works best when DocsBot is positioned as the fastest way to find the approved source, not as a replacement for leadership. Start with low-risk questions—menu descriptions, pairing notes, reservation policies, and opening procedures—then reinforce that allergies, complaints, comps, substitutions, and safety exceptions still go to a manager.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can it collect private dining or catering leads instead of sending guests to voicemail?",
+      "answer": "Yes. A DocsBot agent can ask for party size, date, time, occasion, seating preference, dietary notes, budget range, contact details, and special requests, then summarize the inquiry for your events manager. With approved workflows, Skills, APIs, forms, webhooks, or connectors, that summary can be routed to email, team chat, a form, helpdesk software, or a CRM-style record.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit with reservation platforms, POS systems, or our website forms?",
+      "answer": "DocsBot should be configured around the systems and permissions you already use. It can embed on your website and, when authorized, use customer-configured Skills, APIs, connectors, webhooks, MCP Connectors, or forms to perform bounded actions such as collecting details, checking approved context, creating a task, routing a handoff, or updating approved fields. Avoid giving the agent unrestricted system access.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it handle multilingual tourist questions about our menu and policies?",
+      "answer": "Yes. DocsBot can support guests in more than 100 languages, which is useful for travelers asking about seafood dishes, raw items, directions, reservations, takeout, parking, and accessibility. For sensitive topics such as allergies, refunds, complaints, and safety guidance, you can require escalation or human review so translated answers stay within approved boundaries.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we train the agent on before launch?",
+      "answer": "Start with your current website, menu PDFs, allergen guide, raw bar descriptions, private dining packet, reservation and cancellation policies, takeout and holiday ordering rules, parking and accessibility details, sourcing statements, staff SOPs, training manuals, and approved service-recovery language. For best results, remove outdated files and identify which sources are guest-facing versus private staff-only knowledge.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation usually take for a restaurant team with scattered documents?",
+      "answer": "Implementation depends less on restaurant size and more on content readiness. A focused launch can start with public menu and policy content, then add internal SOPs and event materials in phases. The biggest prep work is deciding which documents are authoritative, who owns updates, what questions require escalation, and which workflows are safe for the agent to trigger.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we separate public guest answers from private staff procedures and pricing guidance?",
+      "answer": "Yes. DocsBot supports private internal knowledge experiences and customer-facing agents, with role-based permissions and granular access controls. That means guest-facing answers can use menus, FAQs, and approved public policies, while internal agents can access SOPs, pricing guidance, training materials, event terms, and operational notes only for authorized team members.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens if the agent does not know the answer or the source is outdated?",
+      "answer": "You can configure the agent to avoid guessing, state when an answer is not available in approved sources, collect missing details, and route the conversation to staff. DocsBot analytics, logs, topic management, conversation review, and knowledge-gap discovery help you see which menu, reservation, event, parking, allergen, or sourcing questions need better documentation.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually helping operations?",
+      "answer": "Track the questions guests no longer need to call about, event leads captured after hours, response time for private dining inquiries, unanswered-question trends, staff usage of internal SOP answers, escalation volume, and repeated content gaps. DocsBot provides analytics, logs, reports, conversation review, and satisfaction or resolution analysis so managers can see where the agent is useful and where documentation needs work.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us stay consistent with raw or undercooked seafood advisories?",
+      "answer": "DocsBot can make approved advisory language easier for staff to find and can answer guest questions from your documented menu and policy sources. It should not replace legal or food-safety review. The FDA Food Code addresses consumer advisories for raw or undercooked animal foods, including fish and shellfish where required by law, so restaurants should keep their approved wording current.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-food-code-advisory"
+      ]
+    },
+    {
+      "question": "How should we handle questions about raw oysters and guest health risk?",
+      "answer": "Train the agent on your approved raw bar policy, menu advisory, and escalation rules. It can share documented guidance and encourage guests to speak with staff, but it should not assess a person’s medical risk. CDC states that eating raw oysters and other undercooked seafood can put people at risk for vibriosis, so these answers should be conservative and manager-reviewed.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-cdc-vibrio-oysters"
+      ]
+    },
+    {
+      "question": "Can the agent draft replies for catering or event inquiries without committing us to pricing?",
+      "answer": "Yes. DocsBot can retrieve approved catering packets, minimums, deposit language, staffing notes, menu formats, and proposal templates, then draft a response for a coordinator to review. You can instruct it not to make final commitments on availability, custom pricing, substitutions, contracts, or exceptions unless those actions are explicitly approved in your workflow.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What security protections matter if we upload SOPs, event pricing, and manager playbooks?",
+      "answer": "Look for controls that protect private restaurant knowledge from being exposed publicly or used in unintended ways. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be scoped with secrets, logging, and customer-defined controls.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this work for a restaurant group with different menus, locations, and policies?",
+      "answer": "Yes, but the knowledge structure matters. A restaurant group should separate location-specific menus, hours, parking, private dining rules, raw bar lists, and SOPs so the agent does not mix answers across properties. DocsBot can support scalable knowledge experiences, but owners should define source ownership, update cadence, escalation paths, and permissions by location or team.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or reservation widget?",
+      "answer": "A generic chatbot often handles scripted FAQs or sends guests to a form. DocsBot is designed as a source-grounded AI agent trained on your approved restaurant knowledge, with options for internal staff support, analytics, human escalation, and bounded workflow actions. Reservation widgets are still useful for booking; DocsBot helps answer the messy questions around booking, menu fit, policies, and handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. Start with answers and handoffs, then review conversation logs, unanswered questions, satisfaction signals, escalations, and knowledge gaps. Once managers are comfortable, you can add more bounded actions such as creating a task, routing an event lead, notifying a team channel, or checking approved live context through customer-configured integrations.",
+      "role": "Owners and general managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Who should own the agent after launch: marketing, operations, or the general manager?",
+      "answer": "Most seafood restaurants need shared ownership. Marketing or guest experience can own public tone and website content; operations can own SOPs, training, service policies, and escalation rules; chefs or beverage leads should own menu, raw bar, sourcing, and pairing updates. A general manager should approve boundaries for allergies, complaints, refunds, substitutions, and event commitments.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us understand what guests are confused about before they arrive?",
+      "answer": "Yes. Conversation analytics can reveal repeated questions about oyster varieties, allergens, gluten-free options, parking, dress code, kids’ meals, takeout windows, event minimums, sustainability, or raw seafood. Those patterns can guide website updates, menu notes, staff training, and pre-shift talking points instead of relying only on anecdotes from the host stand.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Why is sourcing transparency a serious FAQ area for seafood restaurants?",
+      "answer": "Seafood supply chains are broad and guests often ask about origin, harvest method, and freshness. NOAA Fisheries reports that U.S. commercial fishermen landed 8.4 billion pounds valued at $5.1 billion in 2023. DocsBot can help restaurants answer provenance questions from approved supplier notes and sourcing language instead of relying on staff memory during a busy shift.",
+      "role": "Chefs, beverage leads, and operations managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-noaa-seafood-industry"
+      ]
+    }
+  ]
+}

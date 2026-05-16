@@ -1,0 +1,711 @@
+{
+  "slug": "pet-sitting",
+  "business": "Pet Sitting",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Pet Sitting Client Care and Scheduling",
+    "description": "DocsBot helps pet sitting businesses answer client questions, qualify bookings, route care requests, and keep policies easy to find.",
+    "canonicalPath": "/industry/pet-sitting"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for pet sitting businesses",
+    "headline": "Keep pet parents informed with DocsBot AI agents",
+    "subheadline": "Train a DocsBot agent on your services, rates, policies, intake forms, care instructions, FAQs, and internal SOPs so clients and staff can get fast, source-grounded answers before, during, and after a pet sitting visit.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about service areas, visit types, overnight care, holiday availability, cancellation rules, and what is included in each package.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking intent, pet details, access notes, feeding routines, medication reminders, and preferred follow-up channels for a human handoff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Route urgent care, key access, behavior, or schedule-change requests to the right person instead of leaving them buried in inboxes.",
+        "icon": "BellIcon"
+      },
+      {
+        "text": "Give sitters quick internal access to SOPs, client communication guidelines, emergency steps, and approved care documentation.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a pet sitting AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps pet sitting teams create AI agents trained on their own business knowledge. The agent can answer from approved sources, support website visitors through an embedded chat widget, collect structured intake details, summarize conversations, escalate sensitive requests, and trigger customer-configured actions through Skills, APIs, connectors, MCP servers, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and operators",
+        "roleContext": "For solo sitters, local agencies, and multi-sitter teams that need responsive client communication without personally answering the same questions all day.",
+        "bullets": [
+          {
+            "text": "Explain rates, service radius, meet-and-greet requirements, holiday policies, and booking steps from your approved pages and PDFs.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Qualify new inquiries by collecting pet type, dates, location, care needs, access notes, and urgency before a human reviews the request.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Use analytics and conversation logs to find repeated questions that should become clearer website copy, policies, or onboarding materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Client care and admin teams",
+        "roleContext": "For the people handling calls, texts, emails, booking questions, policy exceptions, and sitter-client coordination across many active pets and households.",
+        "bullets": [
+          {
+            "text": "Draft consistent replies for common questions while escalating pricing exceptions, cancellations, complaints, and safety-sensitive issues.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Summarize long client conversations into visit preferences, special instructions, missing details, and next steps for the team.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support multilingual pet parents with answers in more than 100 languages when your configured content supports the response.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "EnvelopeIcon"
+      },
+      {
+        "role": "Pet sitters and field staff",
+        "roleContext": "For employees or contractors who need the latest SOPs, pet care notes, communication templates, and escalation guidance while moving between visits.",
+        "bullets": [
+          {
+            "text": "Search internal policies for arrival photos, feeding notes, incident reporting, key handling, medication documentation, and closing summaries.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Retrieve approved wording for client updates so staff can send clear, professional visit notes without starting from scratch.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Create a task, notify a manager, or prepare a handoff when a configured workflow detects missing access details or an urgent care issue.",
+            "icon": "BoltIcon"
+          }
+        ],
+        "roleIcon": "MapPinIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-pet-ownership-2025",
+      "metric": "77.5 million U.S. households owned at least one pet in 2025.",
+      "claim": "AVMA reported that 77.5 million U.S. households owned at least one pet in 2025, representing 58.6% of households.",
+      "sourceTitle": "AVMA marks National Pet Week as US pet ownership reaches 77.5 million households",
+      "sourceUrl": "https://www.dvm360.com/view/avma-marks-national-pet-week-as-us-pet-ownership-reaches-77-5-million-households",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "Demand for pet care services",
+        "Large addressable pet-owner audience",
+        "Client communication volume"
+      ]
+    },
+    {
+      "id": "src-pet-services-market",
+      "metric": "U.S. pet grooming and boarding reached $15.5 billion in 2025.",
+      "claim": "IBISWorld estimated the U.S. pet grooming and boarding market at $15.5 billion in 2025, with pet sitting included among related industry terms.",
+      "sourceTitle": "Pet Grooming & Boarding in the US - Market Size",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/pet-grooming-boarding/1735/",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "Market size",
+        "Competitive pressure",
+        "Growth of paid pet care services"
+      ]
+    },
+    {
+      "id": "src-animal-care-workers-outlook",
+      "metric": "Animal care and service worker employment is projected to grow 11% from 2024 to 2034.",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment for animal care and service workers to grow 11% from 2024 to 2034, much faster than the average for all occupations.",
+      "sourceTitle": "Animal Care and Service Workers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/animal-care-and-service-workers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Labor demand",
+        "Hiring and onboarding pressure",
+        "Operational scale"
+      ]
+    },
+    {
+      "id": "src-avma-ownership-stats",
+      "metric": "AVMA publishes 2024 U.S. pet ownership data from its demographic sourcebook.",
+      "claim": "AVMA’s U.S. pet ownership statistics summarize 2024 data from the AVMA Pet Ownership and Demographic Sourcebook.",
+      "sourceTitle": "U.S. pet ownership statistics",
+      "sourceUrl": "https://www.avma.org/resources-tools/reports-statistics/us-pet-ownership-statistics",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Pet ownership trends",
+        "Pet parent audience context",
+        "Demand drivers"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "New client inquiry and booking qualification",
+      "problem": "Pet parents often ask detailed questions before they are ready to book: service area, dates, pet type, reactivity, keys, medication, pricing, and meet-and-greet expectations.",
+      "agentWorkflow": "A DocsBot agent answers from your service pages and policies, then collects structured intake details such as dates, location, pet profile, care needs, emergency contact, and preferred follow-up. It can summarize the inquiry and route it to the owner, admin team, CRM, helpdesk, email, or scheduling workflow configured by the customer.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or scheduling workflows, the agent can check configured availability rules, request a meeting time, submit a lead form, create a task, or prepare a handoff for review.",
+      "exampleQuestionsOrRequests": [
+        "Do you cover my neighborhood for two daily cat visits next week?",
+        "Can you watch a senior dog that needs medication at dinner?",
+        "What do you need before a first overnight stay?"
+      ],
+      "businessOutcome": "Respond faster to serious inquiries, capture cleaner booking details, and reduce the manual back-and-forth that slows down new client conversion.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Policy, pricing, and service FAQ support",
+      "problem": "Clients repeatedly ask about cancellation windows, holiday surcharges, key pickup, visit length, extra pets, payment timing, and what happens if travel plans change.",
+      "agentWorkflow": "Train DocsBot on your FAQs, contracts, service descriptions, rate sheets, and policy documents. The agent provides source-grounded answers in your voice, explains when a request needs staff review, and can escalate exceptions rather than guessing.",
+      "liveContextOrTools": "The agent can appear in an embedded website widget or private client portal experience and use customer-configured workflows to create a ticket, notify the admin team, or collect missing information.",
+      "exampleQuestionsOrRequests": [
+        "What is your cancellation policy for holiday visits?",
+        "Do you charge extra for two cats and a bird?",
+        "Can I update my lockbox code after booking?"
+      ],
+      "businessOutcome": "Keep policies consistent across staff, reduce repetitive admin questions, and help clients self-serve before they call or text.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Visit update and care-note assistance",
+      "problem": "Pet sitters need to write clear updates quickly while still following each client’s preferences for feeding notes, photos, walks, litter boxes, medication, and unusual behavior.",
+      "agentWorkflow": "An internal DocsBot agent can retrieve approved communication templates, visit checklist language, and SOPs. Staff can ask how to document a skipped meal, minor cleanup, late arrival, or medication note, then use the answer to write a professional update.",
+      "liveContextOrTools": "When connected through approved workflows, a DocsBot Skill can summarize a sitter’s notes, prepare a client-facing draft, or flag missing required fields before a manager sends or reviews the update.",
+      "exampleQuestionsOrRequests": [
+        "How should I write a visit note when the cat hid the whole time?",
+        "What fields are required for a medication visit summary?",
+        "Draft a friendly update from these bullet points."
+      ],
+      "businessOutcome": "Make client updates more consistent while giving sitters faster access to your standards during busy routes.",
+      "icon": "CameraIcon"
+    },
+    {
+      "name": "Urgent request routing and escalation",
+      "problem": "Schedule changes, pet illness, missing keys, unexpected behavior, home access problems, and client complaints should not be handled like ordinary FAQs.",
+      "agentWorkflow": "DocsBot can identify sensitive or urgent phrases, ask for missing context, summarize the issue, and route the request to a human through a customer-configured workflow. It can also provide approved next-step language without making veterinary, legal, or safety-critical decisions.",
+      "liveContextOrTools": "Customer-defined AI Actions can notify a manager, create a task or ticket, send a handoff summary, or update an approved status field while preserving logs and boundaries.",
+      "exampleQuestionsOrRequests": [
+        "My flight is delayed. Can you add one more evening visit?",
+        "The lockbox code is not working and the sitter is outside.",
+        "My dog vomited after dinner. What happens next?"
+      ],
+      "businessOutcome": "Separate routine questions from high-priority care issues so the right person can respond with context quickly.",
+      "icon": "ExclamationCircleIcon"
+    },
+    {
+      "name": "Staff onboarding and SOP search",
+      "problem": "As pet sitting teams grow, owners must teach new staff how to follow home access rules, pet handling standards, client communication style, incident reporting, and closing procedures.",
+      "agentWorkflow": "A private DocsBot knowledge agent trains on internal SOPs, onboarding docs, policies, forms, checklists, and training materials. Staff can ask practical questions and receive source-grounded answers instead of searching folders or interrupting managers.",
+      "liveContextOrTools": "The same agent can be accessed through private team chat experiences such as Slack or Microsoft Teams when configured, with role-based permissions for internal content.",
+      "exampleQuestionsOrRequests": [
+        "What is our process if a sitter cannot enter the home?",
+        "Where do I find the new-client meet-and-greet checklist?",
+        "How do we document a minor property issue?"
+      ],
+      "businessOutcome": "Speed up onboarding, preserve owner knowledge, and help staff follow consistent procedures across visits.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-animal-care-workers-outlook"
+      ]
+    },
+    {
+      "name": "Seasonal demand and service readiness",
+      "problem": "Busy travel periods create a rush of availability, pricing, policy, and booking questions that can overwhelm small teams.",
+      "agentWorkflow": "A DocsBot agent can answer seasonal FAQs, explain holiday rules, collect waitlist requests, summarize unanswered demand, and surface knowledge gaps so owners know what to update before the next peak period.",
+      "liveContextOrTools": "With approved connectors, the agent can route waitlist requests, tag seasonal topics, or trigger notifications for high-intent inquiries.",
+      "exampleQuestionsOrRequests": [
+        "Are you available for Thanksgiving week drop-ins?",
+        "Do holiday visits cost more?",
+        "Can I join a waitlist if you are booked?"
+      ],
+      "businessOutcome": "Help pet parents get immediate guidance while giving the business better visibility into recurring seasonal demand.",
+      "icon": "SunIcon",
+      "sourceIds": [
+        "src-pet-services-market"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A client-facing agent that answers like your best front desk assistant",
+    "intro": "Pet parents want reassurance before trusting someone with their home and animals. DocsBot helps your business deliver fast, consistent answers from your approved knowledge while collecting the details your team needs to follow up personally.",
+    "requests": [
+      {
+        "request": "“Are you available for two dog walks a day while I’m away next month?”",
+        "agentResponseStrategy": "Answer service-area and booking-process questions from approved content, collect dates and pet details, and route the request to the configured scheduling or intake workflow.",
+        "sourceTypes": [
+          "Service pages",
+          "Availability guidance",
+          "Intake forms",
+          "Booking policies"
+        ],
+        "optionalAction": "Submit a lead form, request a meet-and-greet, or create a follow-up task through a customer-configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What happens if my pet needs medication during the visit?”",
+        "agentResponseStrategy": "Explain your documented medication policy, required instructions, and review process while escalating complex health concerns to staff instead of giving veterinary advice.",
+        "sourceTypes": [
+          "Medication policy",
+          "Client agreement",
+          "Visit checklist",
+          "Emergency SOP"
+        ],
+        "optionalAction": "Collect medication schedule details and prepare a staff handoff for review before confirming service fit.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can you send me your cancellation and holiday fee rules?”",
+        "agentResponseStrategy": "Retrieve the relevant policy language, summarize it clearly, cite the approved source, and invite the client to contact staff for exceptions.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "Rate sheet",
+          "Holiday calendar",
+          "Client FAQ"
+        ],
+        "optionalAction": "Create a support ticket or notify the admin team when the client asks for a special exception.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you care for cats, birds, reptiles, or only dogs?”",
+        "agentResponseStrategy": "Answer from your service catalog, clarify species and care limits, and collect the pet profile if the service might fit.",
+        "sourceTypes": [
+          "Service catalog",
+          "Care limitations",
+          "Specialty pet FAQs",
+          "Intake questions"
+        ],
+        "optionalAction": "Forward unusual care requests with a summary so the owner can approve or decline personally.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Why should I trust your team with my pet?”",
+        "agentResponseStrategy": "Use your approved trust content, staff bios, insurance notes, reviews, visit process, and communication standards to explain how your business operates.",
+        "sourceTypes": [
+          "About page",
+          "Staff bios",
+          "Insurance notes",
+          "Review excerpts"
+        ],
+        "optionalAction": "Offer to collect the client’s questions for a human callback or meet-and-greet request.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-pet-ownership-2025"
+        ]
+      },
+      {
+        "request": "“Can you answer in Spanish for my family?”",
+        "agentResponseStrategy": "DocsBot can provide multilingual responses from your approved content, helping pet parents understand policies and intake steps in their preferred language.",
+        "sourceTypes": [
+          "FAQs",
+          "Policies",
+          "Service pages",
+          "Intake forms"
+        ],
+        "optionalAction": "Escalate to a bilingual staff member or collect follow-up details when the configured workflow supports it.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private operations assistant for pet sitting teams",
+    "intro": "Give owners, admins, and sitters one place to search internal knowledge, draft consistent updates, and move routine work forward without exposing private documents to public visitors.",
+    "workflows": [
+      {
+        "name": "SOP and visit checklist search",
+        "problem": "Sitters may need fast answers while traveling between homes, especially when policies are stored across shared drives, PDFs, forms, and old messages.",
+        "agentWorkflow": "DocsBot trains on approved SOPs, checklists, onboarding docs, and internal policies so staff can ask plain-language questions and get source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Checklists",
+          "Onboarding guides",
+          "Internal policies"
+        ],
+        "optionalAction": "Create a task or notify a manager when a required step is missing or unclear in the configured workflow.",
+        "outcome": "Reduce interruptions and help staff follow the same process across every visit.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Client conversation summaries",
+        "problem": "Long email and text threads make it easy to miss medication changes, access notes, schedule revisions, or household instructions.",
+        "agentWorkflow": "DocsBot can summarize configured conversation context, identify missing details, and draft a concise handoff for staff review.",
+        "sourceTypes": [
+          "Support threads",
+          "Client intake forms",
+          "Visit notes",
+          "Booking records"
+        ],
+        "optionalAction": "Forward a summary to a helpdesk, inbox, task list, or team channel through approved Skills, APIs, or connectors.",
+        "outcome": "Give sitters and admins a cleaner view of what changed before a visit starts.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Knowledge gap reporting",
+        "problem": "If clients keep asking the same questions, your website, FAQ, or intake forms may not be clear enough.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to identify repeated questions, unresolved topics, and content gaps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "FAQ pages",
+          "Policy docs",
+          "Support reports"
+        ],
+        "optionalAction": "Create a content-improvement task for the owner or admin team when a high-volume topic needs a better answer.",
+        "outcome": "Turn client questions into better documentation and fewer future support requests.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Team onboarding assistant",
+        "problem": "The BLS projects animal care and service worker employment to grow 11% from 2024 to 2034, which makes repeatable training and knowledge access more important for growing pet care teams.",
+        "agentWorkflow": "A private DocsBot agent can answer new-staff questions from training materials, SOPs, client communication rules, and approved care procedures.",
+        "sourceTypes": [
+          "Training manuals",
+          "Staff handbook",
+          "Visit standards",
+          "Escalation policy"
+        ],
+        "optionalAction": "Route unanswered onboarding questions to a manager and capture them as documentation gaps.",
+        "outcome": "Help new sitters ramp faster while preserving consistent service standards.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-animal-care-workers-outlook"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer support agent",
+      "mainLandingPageContext": "DocsBot creates AI support agents trained on help centers, documentation, websites, internal content, and other configured sources.",
+      "industryApplication": "Train the agent on pet sitting service pages, pricing notes, policies, intake forms, FAQs, and care instructions so clients receive consistent answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Embeddable website widget",
+      "mainLandingPageContext": "DocsBot agents can work in a website or product chat widget and support helpdesk-connected workflows when configured.",
+      "industryApplication": "Place the agent on your pet sitting website so pet parents can ask service, pricing, booking, and policy questions after hours.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform bounded customer-configured lookups, summaries, routing, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Use approved workflows to collect new-client details, request a meet-and-greet, create a follow-up task, notify staff, or prepare urgent issue summaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on SOPs, policies, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other company sources.",
+      "industryApplication": "Give sitters and admins a private place to search home access rules, incident procedures, visit checklists, and client communication standards.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which questions clients ask most about pricing, holidays, medication, keys, meet-and-greets, and service areas, then improve your public content.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Keep internal SOPs, client care procedures, and team-only knowledge separated from public-facing answers with access controls and defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on your own pet sitting content so answers reflect your real services, policies, and care process.",
+      "Support clients and staff with self-service answers while preserving human handoff for sensitive pet care issues.",
+      "Use DocsBot to make recurring questions, documentation gaps, and support patterns visible to owners and managers."
+    ],
+    "whyTheseReviewsFit": "Pet sitting buyers need practical proof that an AI agent can be trained on their own materials, answer common questions reliably, and fit into day-to-day service operations. DocsBot testimonials highlight owned-content training, common-query support, and ease of use for personal-service teams.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "HandRaisedIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for pet sitting businesses",
+    "audience": [
+      "Pet sitting business owners",
+      "Dog walking and drop-in visit teams",
+      "Client care coordinators",
+      "Pet care operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "animal-boarding",
+    "dry-cleaning-laundry",
+    "event-planning",
+    "beauty-salon",
+    "fitness-trainer",
+    "florist"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "pet-sitting",
+    "webSearchQueries": [
+      "American Pet Products Association pet owners use pet sitting dog walking services statistics 2024",
+      "IBISWorld pet grooming boarding pet sitting industry United States market size 2024",
+      "BLS animal care and service workers employment outlook pet sitters 2024",
+      "AVMA pet ownership statistics United States dogs cats 2024"
+    ],
+    "sourceUrls": [
+      "https://www.dvm360.com/view/avma-marks-national-pet-week-as-us-pet-ownership-reaches-77-5-million-households",
+      "https://www.ibisworld.com/united-states/market-size/pet-grooming-boarding/1735/",
+      "https://www.bls.gov/ooh/personal-care-and-service/animal-care-and-service-workers.htm",
+      "https://www.avma.org/resources-tools/reports-statistics/us-pet-ownership-statistics"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40654,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28110,
+        "outputTokens": 7942,
+        "reasoningOutputTokens": 124,
+        "totalTokens": 48596,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192541,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202541
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21466,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14170,
+          "outputTokens": 5006,
+          "reasoningOutputTokens": 124,
+          "totalTokens": 26472,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.112339,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.122339
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19188,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13940,
+          "outputTokens": 2936,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22124,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080202,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080202
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxwZXRzfGVufDB8MHx8fDE3MTQ4NzgwNjZ8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Pet Sitting background image",
+    "source": "legacy-industry",
+    "query": "Pet Sitting"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer after-hours booking questions without confirming visits we cannot staff?",
+      "answer": "Yes. DocsBot can answer service-area, visit-type, pricing, policy, and booking-process questions from your approved content, then collect dates, location, pet details, and urgency for review. If you connect approved scheduling or intake workflows, it can request a meeting or create a follow-up task, while leaving staffing commitments and exceptions to your team.",
+      "role": "Owners and operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would an AI agent handle medication, illness, or pet behavior questions without giving unsafe advice?",
+      "answer": "DocsBot should be configured to explain only your documented policies, required client instructions, and escalation steps. For illness, medication complexity, aggression, injury, or anything safety-sensitive, it can collect context, summarize the issue, and route it to a human instead of making veterinary, legal, or care-critical decisions.",
+      "role": "Client care and admin teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent qualify new clients before we spend time on a meet-and-greet?",
+      "answer": "Yes. A DocsBot agent can collect structured intake details such as address or service area, pet species, dates, visit frequency, access notes, medication needs, reactivity, emergency contact, and preferred follow-up channel. Your team can then review a cleaner summary and decide whether the request fits your policies, capacity, and sitter availability.",
+      "role": "Owners and operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it work for a small pet sitting business that does not have a full-time receptionist?",
+      "answer": "Yes. Many pet sitting teams are owner-led or admin-light, so the practical value is reducing repeated questions while preserving personal follow-up. DocsBot can answer from your service pages, FAQs, contracts, rate sheets, and policies, then hand off qualified inquiries, cancellations, complaints, and urgent care questions for human review.",
+      "role": "Owners and operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "What kind of content do we need before launching a pet sitting AI agent?",
+      "answer": "Start with your service descriptions, rates, service radius, holiday policies, cancellation rules, meet-and-greet process, intake forms, medication policy, access instructions, emergency procedures, and common client FAQs. For internal use, add SOPs, visit checklists, incident reporting steps, sitter onboarding materials, and approved client-update templates.",
+      "role": "Owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot keep our public client answers separate from internal sitter procedures?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so you can separate public-facing content from private SOPs, staff checklists, escalation rules, and client-care procedures. That matters when your internal guidance includes home access, key handling, incident response, or staff-only operational details.",
+      "role": "Owners and operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot help during holiday rushes and peak travel periods?",
+      "answer": "DocsBot can answer seasonal questions about availability rules, holiday surcharges, booking deadlines, cancellation windows, waitlists, and what is included in each service. It can also collect high-intent requests and surface repeated unanswered questions so you can improve your holiday FAQ before the next peak period. The U.S. pet grooming and boarding market reached an estimated $15.5 billion in 2025, reflecting a large competitive services market where responsiveness matters.",
+      "role": "Owners and operators",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-pet-services-market"
+      ]
+    },
+    {
+      "question": "Can the agent integrate with the booking, CRM, forms, or team tools we already use?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, MCP servers, forms, webhooks, or approved automations. Depending on what you authorize, it can submit an intake form, create a task, forward a lead summary, notify a team channel, or prepare a scheduling handoff. It should not be positioned as a guaranteed native integration with a specific pet sitting platform unless you configure that connection.",
+      "role": "Owners and operators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can sitters use DocsBot in the field to check SOPs instead of texting the owner?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on your SOPs, onboarding guides, visit checklists, communication standards, incident procedures, and escalation policies. Sitters can ask practical questions like how to document a missed meal, a lockbox issue, a minor property problem, or an unusual behavior note while still escalating situations that require manager judgment.",
+      "role": "Pet sitters and field staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from quoting outdated rates or old policies?",
+      "answer": "Treat DocsBot like an operational knowledge system: train it on approved current sources, remove outdated PDFs or pages, review conversation logs, and assign ownership for rate and policy updates. DocsBot’s source-grounded approach and knowledge-gap reporting help you see where content is missing, stale, or unclear before clients keep getting inconsistent answers.",
+      "role": "Client care and admin teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What should be escalated to a human instead of answered automatically?",
+      "answer": "Escalate urgent pet health concerns, medication uncertainty, aggressive behavior, missing keys, lockout situations, complaints, refund requests, pricing exceptions, same-day schedule changes, and anything involving safety, property access, or contractual interpretation. DocsBot can ask for missing context and prepare a concise handoff, but your staff should own sensitive care and business decisions.",
+      "role": "Client care and admin teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us write better visit updates without making them sound robotic?",
+      "answer": "Yes. For internal use, DocsBot can retrieve your approved visit-note templates, tone guidelines, and required checklist fields. Sitters can turn rough notes into clearer drafts about feeding, walks, litter boxes, medication documentation, photos, and unusual observations. A human can still review or edit the message before it goes to the client.",
+      "role": "Pet sitters and field staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would we measure ROI for a pet sitting AI agent?",
+      "answer": "Track fewer repetitive calls, texts, and emails; faster response time for new inquiries; more complete intake forms; fewer missed handoffs; reduced owner interruptions; and fewer repeated policy questions. For growing teams, also measure onboarding time and SOP search reduction, especially because animal care and service worker employment is projected to grow 11% from 2024 to 2034.",
+      "role": "Owners and operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-animal-care-workers-outlook"
+      ]
+    },
+    {
+      "question": "Can DocsBot support multilingual pet parents?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when your configured content supports the response. For pet sitting, that can help families understand service options, cancellation rules, medication requirements, access instructions, and next steps. For nuanced issues, you can configure escalation to a bilingual staff member or human follow-up workflow.",
+      "role": "Client care and admin teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens if a client asks for availability that changes minute by minute?",
+      "answer": "DocsBot can explain your booking process and collect the request, but live availability should only be shown or acted on if you configure an approved lookup or scheduling workflow. Many teams use the agent to capture dates, location, pets, and service needs first, then let an admin confirm sitter capacity before promising the booking.",
+      "role": "Client care and admin teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent help with client trust questions before someone gives us home access?",
+      "answer": "Yes. Train DocsBot on your approved trust content: staff bios, insurance notes, bonding language if applicable, review excerpts, meet-and-greet process, communication standards, photo-update practices, and home access procedures. It can explain how your business operates and offer a human callback for questions that deserve personal reassurance. In 2025, 77.5 million U.S. households owned at least one pet, so clear trust-building communication matters at scale.",
+      "role": "Owners and operators",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-pet-ownership-2025"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our admin team or sitters?",
+      "answer": "No. The best fit is repetitive communication support, intake cleanup, SOP retrieval, drafting, summarization, and routing. Humans should still handle relationship-building, final booking approval, exceptions, complaints, pet health judgment, home access problems, and sensitive client conversations. DocsBot gives staff more context and fewer repetitive interruptions.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we review what clients and sitters asked the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Pet sitting teams can use that data to see recurring questions about pricing, holidays, medication, keys, meet-and-greets, service areas, or unclear intake forms.",
+      "role": "Owners and operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How long does implementation usually take for a practical first version?",
+      "answer": "A practical first version can start with the content you already have: website pages, FAQs, rate sheets, contracts, intake forms, and SOPs. The bigger effort is deciding boundaries: which questions the agent may answer, which requests require escalation, who owns content updates, and which workflows are safe to automate.",
+      "role": "Owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help train new sitters without exposing private client information broadly?",
+      "answer": "Yes. You can create a private internal agent trained on onboarding guides, SOPs, staff handbooks, escalation policies, and generic visit standards, with role-based permissions controlling access. For client-specific details, use approved workflows and access rules so staff only see what they are authorized to use for their role.",
+      "role": "Pet sitters and field staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if a client describes a problem using vague language like ‘something seems wrong with my dog’?",
+      "answer": "DocsBot can be configured to treat vague health or safety language as an escalation trigger. It can ask for basic context, avoid veterinary advice, share your approved emergency or contact procedure, and notify the right person through a customer-configured workflow with a summary of what the client reported.",
+      "role": "Client care and admin teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is DocsBot different from adding a basic chatbot widget to our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent trained on your business knowledge, not just a scripted FAQ box. It can support public client questions, private staff knowledge, intake collection, conversation summaries, routing, analytics, and bounded actions through approved Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot if our policies live in scattered PDFs, Google Drive folders, website pages, and staff documents?",
+      "answer": "Yes. DocsBot can train on websites, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, text files, and other configured company knowledge sources. Implementation is also a good chance to remove duplicates, label public versus internal documents, and make one approved source for rates, cancellation rules, and SOPs.",
+      "role": "Owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "What security questions should we ask before putting pet sitting operations into an AI agent?",
+      "answer": "Ask how public and internal knowledge are separated, who can access staff-only SOPs, whether data is encrypted, whether customer data trains public models, how secrets are handled in connected workflows, and what logs are available. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "role": "Owners and operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help us spot gaps in our website or intake forms?",
+      "answer": "Yes. DocsBot analytics and conversation review can show repeated questions, unresolved topics, and content gaps. If many pet parents ask the same thing about holiday fees, medication visits, lockbox instructions, extra pets, or cancellation windows, you can improve the source content and reduce future support volume.",
+      "role": "Client care and admin teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we roll this out without overwhelming our sitters or admin team?",
+      "answer": "Start with a narrow public agent for common service, pricing, policy, and intake questions. Then add an internal SOP assistant for staff. Review logs weekly, tune escalation rules, and add workflows only after the team trusts the answers. This phased approach keeps humans in control while proving value quickly.",
+      "role": "Owners and operators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent handle both dog walking and broader pet sitting services like cats, birds, or reptiles?",
+      "answer": "Yes, if your approved content defines those services clearly. DocsBot can answer from your service catalog, care limitations, species policies, intake questions, and escalation rules. For unusual pets or complex care needs, it can collect details and route the request to the owner or manager instead of approving service automatically.",
+      "role": "Client care and admin teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What pricing or procurement concerns should we think through before buying?",
+      "answer": "Estimate your current volume of repeated calls, texts, emails, missed intake details, after-hours questions, and owner interruptions. Then define what a successful pilot should reduce or improve. Also confirm whether you need public website support, an internal SOP agent, connected workflows, multilingual support, or security review before rollout.",
+      "role": "Owners and operators",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

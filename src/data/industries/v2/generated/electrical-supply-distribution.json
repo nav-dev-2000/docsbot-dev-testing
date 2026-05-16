@@ -1,0 +1,744 @@
+{
+  "slug": "electrical-supply-distribution",
+  "business": "Electrical Supply Distribution",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Electrical Supply Distributor Workflows",
+    "description": "DocsBot helps electrical supply distributors answer spec questions, qualify project requests, and route order support with source-grounded AI agents.",
+    "canonicalPath": "/industry/electrical-supply-distribution"
+  },
+  "hero": {
+    "eyebrow": "AI agents for counter, inside sales, support, and branch teams",
+    "headline": "Move electrical supply questions from inboxes to AI agents",
+    "subheadline": "DocsBot helps electrical supply distributors create AI agents trained on catalogs, product data, cut sheets, manuals, SOPs, pricing guidance, FAQs, and internal knowledge so contractors, buyers, and employees get faster, source-grounded answers with clear handoffs when a person needs to step in.",
+    "proofBullets": [
+      {
+        "text": "Answer product fit, compatibility, documentation, and policy questions from approved distributor knowledge sources.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Collect project details, qualify RFQ intent, and route high-value or complex requests to inside sales.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Help branch, counter, warehouse, and support teams retrieve SOPs, product notes, and customer-facing guidance without searching across files.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Use AI Actions to create tickets, summarize conversations, trigger workflows, or look up approved live context when configured.",
+        "icon": "CogIcon"
+      }
+    ],
+    "primaryCta": "Build an electrical supply AI agent",
+    "secondaryCta": "See how DocsBot answers from your content"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your electrical supply knowledge into AI agents that support customers and employees. Train agents on product pages, PDFs, manuals, line cards, FAQs, policy documents, internal SOPs, sales enablement content, and approved ticket history, then deploy them through a website widget, private team chat, API, helpdesk-connected workflow, Slack, Microsoft Teams, or customer-configured Skills.",
+    "whoItHelps": [
+      {
+        "role": "Inside sales and quote desks",
+        "roleContext": "Electrical distributors handle requests with incomplete part numbers, alternate manufacturer names, project timing, bid deadlines, and jobsite context. A DocsBot agent can collect the missing details, answer from approved sources, and prepare a cleaner handoff for a seller.",
+        "bullets": [
+          {
+            "text": "Collect structured RFQ details such as manufacturer, catalog number, quantities, voltage, project type, region, deadline, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Draft summaries of contractor conversations so inside sales can follow up with context instead of reconstructing the request.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Surface approved product, compatibility, and policy guidance while keeping final pricing, substitutions, and commitments with the sales team.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Branch, counter, and customer service teams",
+        "roleContext": "Branch employees need quick access to product notes, pickup policies, returns rules, delivery expectations, and procedural knowledge. DocsBot gives them a private knowledge agent that answers from the materials your team approves.",
+        "bullets": [
+          {
+            "text": "Make SOPs, warranty language, returns policies, pickup rules, and onboarding materials searchable in natural language.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Support multilingual customer conversations in more than 100 languages when your configured sources support the answer.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "Escalate questions that involve safety, code interpretation, special pricing, or project-specific engineering judgment.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Operations and eCommerce leaders",
+        "roleContext": "Distributor websites and portals carry growing buyer expectations for self-service, but product data, catalog PDFs, and order-support workflows often live in separate systems. DocsBot can connect approved knowledge with scoped AI Actions and analytics.",
+        "bullets": [
+          {
+            "text": "Offer a website or portal agent that answers common questions about products, documentation, order support, policies, and account next steps.",
+            "icon": "ComputerDesktopIcon"
+          },
+          {
+            "text": "Use logs, reports, topic management, and knowledge-gap discovery to see what contractors and employees keep asking.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Through configured Skills, APIs, connectors, or MCP servers, allow approved live lookups, workflow triggers, routing, or record updates under your rules.",
+            "icon": "PuzzlePieceIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-naics-establishments",
+      "metric": "13,379 U.S. employer establishments in NAICS 423610",
+      "claim": "The Census Bureau profile for electrical apparatus, equipment, wiring supplies, and related equipment merchant wholesalers lists 13,379 total employer establishments.",
+      "sourceTitle": "Census Bureau Profile: NAICS 423610 Electrical apparatus and equipment, wiring supplies, and related equipment merchant wholesalers",
+      "sourceUrl": "https://data.census.gov/profile/423610_-_Electrical_apparatus_and_equipment%2C_wiring_supplies%2C_and_related_equipment_merchant_wholesalers?codeset=naics~423610",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "industry scale",
+        "multi-branch distribution complexity",
+        "operations footprint"
+      ]
+    },
+    {
+      "id": "src-bls-wholesale-employment",
+      "metric": "About 6.05 million U.S. wholesale trade jobs in March 2026",
+      "claim": "BLS industry data reported seasonally adjusted wholesale trade employment of about 6.05 million jobs in March 2026.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Wholesale Trade: NAICS 42",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag42.htm",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "labor scale",
+        "employee knowledge access",
+        "support workload"
+      ]
+    },
+    {
+      "id": "src-electrical-ecommerce-buyers",
+      "metric": "62% of electrical buyers purchased online in 2025",
+      "claim": "Electrical Wholesaling reported Channel Marketing Group benchmark findings that 62% of buyers purchased online in 2025, up from 45% in 2018.",
+      "sourceTitle": "Electrical Wholesaling: Contractors Expect Digital Buying Options: Channel Marketing Study",
+      "sourceUrl": "https://www.ewweb.com/business-management/e-biz/article/55298206/contractors-expect-digital-buying-options-channel-marketing-study",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "digital buyer behavior",
+        "self-service expectations",
+        "eCommerce pressure"
+      ]
+    },
+    {
+      "id": "src-naed-q4-2024",
+      "metric": "87% stable or increased revenue; 81% steady or growing backlog in Q4 2024",
+      "claim": "NAED’s 2024–2025 impact report stated that in Q4 2024, 87% of distributor respondents reported stable or increased revenue and 81% reported a steady or growing sales backlog.",
+      "sourceTitle": "NAED 2024–2025 Impact Report",
+      "sourceUrl": "https://www.naed.org/hubfs/NAED_2024-2025_Impact_Report_booklet_4.pdf?hsLang=en",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "sales workload",
+        "backlog pressure",
+        "branch efficiency"
+      ]
+    },
+    {
+      "id": "src-osha-electrical-standards",
+      "metric": "OSHA maintains standards and resources related to electrical hazards",
+      "claim": "OSHA highlights standards and resources related to electrical hazards, including electrical protective equipment and electric power generation, transmission, and distribution standards.",
+      "sourceTitle": "OSHA: Electrical Standards",
+      "sourceUrl": "https://www.osha.gov/electrical/standards",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "safety boundaries",
+        "electrical hazard context",
+        "regulated support escalation"
+      ]
+    },
+    {
+      "id": "src-esfi-nec",
+      "metric": "NEC is the U.S. standard for safe electrical wiring and equipment installation",
+      "claim": "The Electrical Safety Foundation International describes the National Electrical Code, NFPA 70, as a U.S. standard for the safe installation of electrical wiring and equipment.",
+      "sourceTitle": "Electrical Safety Foundation International: The National Electrical Code",
+      "sourceUrl": "https://www.esfi.org/workplace-safety/industry-codes-regulations/the-national-electrical-code-nec/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "code-sensitive questions",
+        "safety boundaries",
+        "contractor support context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product documentation and cross-reference support",
+      "problem": "Contractors and buyers often ask for cut sheets, installation manuals, alternate terms, compatibility notes, and product documentation before they can place or finalize an order.",
+      "agentWorkflow": "A DocsBot agent answers from approved catalogs, line cards, product pages, PDFs, manuals, FAQs, and internal notes. It can cite the source content, ask clarifying questions, and escalate to a product specialist when the request requires engineering judgment or a safety-critical recommendation.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved live context such as product status, branch availability, or account-specific routing rules, then summarize the request for a human rep.",
+      "exampleQuestionsOrRequests": [
+        "Do you have the cut sheet for this breaker series?",
+        "What documents should I send with this lighting submittal?",
+        "Is there a known alternate name for this conduit fitting?"
+      ],
+      "businessOutcome": "Reduce repetitive product-document searches and give customers a faster path from question to qualified sales conversation.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "RFQ intake and lead qualification",
+      "problem": "Quote requests arrive through forms, email, phone notes, and chat with missing catalog numbers, voltages, quantities, deadlines, or jobsite requirements.",
+      "agentWorkflow": "A DocsBot presales agent collects structured RFQ details, applies customer-defined qualification rules, summarizes the opportunity, and routes the handoff to sales, support, CRM, helpdesk software, email, Slack, Microsoft Teams, or another approved workflow configured by the distributor.",
+      "liveContextOrTools": "AI Actions can submit custom lead forms, create a task or ticket, forward a lead summary, request a meeting, or update approved fields when the customer has configured the right Skill, connector, API, or workflow.",
+      "exampleQuestionsOrRequests": [
+        "I need a quote for 400 amp disconnects for a school project.",
+        "Can someone price this bill of material by tomorrow?",
+        "We need help sourcing panels for a data center expansion."
+      ],
+      "businessOutcome": "Help quote desks spend less time chasing basic information and more time on qualified, high-value opportunities.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-naed-q4-2024"
+      ]
+    },
+    {
+      "name": "Digital self-service for contractor buyers",
+      "problem": "Electrical buyers increasingly expect online purchasing and self-service; industry reporting said 62% of buyers purchased online in 2025, up from 45% in 2018.",
+      "agentWorkflow": "Deploy a DocsBot support agent on your website or portal to answer common product, policy, documentation, order-support, account, and service questions from approved knowledge. The agent can collect missing context and escalate when the buyer needs pricing, project-specific guidance, or human confirmation.",
+      "liveContextOrTools": "Configured Skills can support scoped lookups, routing, ticket creation, summaries, or notifications. Sensitive account, pricing, or commitment workflows can use permissions, logs, and human review boundaries.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find spec sheets for this fixture family?",
+        "What information do you need for a switchgear quote?",
+        "Can you route this question to my local branch?"
+      ],
+      "businessOutcome": "Meet digital buyer expectations while keeping complex electrical, pricing, and account decisions under distributor control.",
+      "icon": "ShoppingCartIcon",
+      "sourceIds": [
+        "src-electrical-ecommerce-buyers"
+      ]
+    },
+    {
+      "name": "Internal branch knowledge assistant",
+      "problem": "Branch, warehouse, and service employees need fast answers from SOPs, training files, policies, and product notes, especially when knowledge is spread across PDFs, wikis, drives, and team conversations.",
+      "agentWorkflow": "DocsBot creates a private internal knowledge agent trained on approved internal sources. Employees can ask procedural, onboarding, service, returns, delivery, and product-support questions and receive source-grounded answers in the company’s voice.",
+      "liveContextOrTools": "The agent can run in private chat, Slack, Microsoft Teams, or through an API. Analytics and conversation review reveal repeated employee questions and documentation gaps.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for damaged freight claims?",
+        "How do I handle a pickup order that missed the cutoff?",
+        "Where is the SOP for jobsite delivery exceptions?"
+      ],
+      "businessOutcome": "Improve consistency across branches and shorten the time employees spend hunting through files or asking experienced coworkers.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-naics-establishments"
+      ]
+    },
+    {
+      "name": "Safety and code-sensitive escalation guidance",
+      "problem": "Electrical supply teams receive questions that can touch hazards, code interpretation, installation methods, or jobsite conditions that should not be answered as final professional advice.",
+      "agentWorkflow": "A DocsBot agent can provide source-grounded references from approved safety policies, product documentation, and internal escalation rules while clearly routing code, installation, and safety-critical questions to qualified professionals or licensed experts.",
+      "liveContextOrTools": "Customer-defined instructions, access controls, logs, and review paths can limit what the agent can answer and when it must escalate. AI Actions can create a ticket or notify the appropriate specialist.",
+      "exampleQuestionsOrRequests": [
+        "Can you help me find the safety data or manual for this equipment?",
+        "Who should review a code-sensitive substitution question?",
+        "Where is our policy for installation advice at the counter?"
+      ],
+      "businessOutcome": "Give teams consistent support boundaries while reducing the risk of casual answers being mistaken for final code or safety guidance.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-electrical-standards",
+        "src-esfi-nec"
+      ]
+    },
+    {
+      "name": "Support-ticket summarization and knowledge-gap reporting",
+      "problem": "Recurring questions about shipping, order status, documentation, returns, substitutions, and account workflows can bury support teams and hide content gaps.",
+      "agentWorkflow": "When connected through customer-configured exports, Skills, APIs, connectors, or approved helpdesk workflows, DocsBot can learn from ticket sources, summarize conversations, draft responses, route tickets, and report unanswered topics.",
+      "liveContextOrTools": "AI Actions can prepare a handoff, create a task, notify a branch, or draft a response for review. Analytics, logs, topic management, and reports show where new documentation would reduce repeat contacts.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this contractor’s issue before I call them back.",
+        "Draft a response using our returns policy.",
+        "What questions are customers asking that our site does not answer?"
+      ],
+      "businessOutcome": "Help support leaders reduce repetitive work while improving the knowledge base contractors and employees rely on.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give contractors a faster way to get answers before they call the counter",
+    "intro": "A DocsBot customer-facing agent can sit on your website, portal, documentation pages, or product experience and answer from approved distributor content. It can handle routine questions instantly, collect project context, and route sensitive or complex requests to the right human team.",
+    "requests": [
+      {
+        "request": "“I need documents for this product family.”",
+        "agentResponseStrategy": "Search approved product pages, catalogs, manuals, PDFs, and FAQs; return source-grounded links or summaries; and ask for the exact catalog number if needed.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Cut sheets",
+          "PDF manuals",
+          "Manufacturer documentation"
+        ],
+        "optionalAction": "Create a ticket or forward the document request to the local branch when the product cannot be identified.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you quote this bill of material?”",
+        "agentResponseStrategy": "Collect structured intake details, confirm missing fields, apply qualification instructions, and summarize the RFQ for inside sales instead of making final pricing commitments.",
+        "sourceTypes": [
+          "RFQ forms",
+          "Sales playbooks",
+          "Branch coverage rules",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Send the qualified lead, transcript, and project summary to CRM, helpdesk, email, or a configured sales workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“What is your return or pickup policy?”",
+        "agentResponseStrategy": "Answer from approved policy pages, branch procedures, and customer-facing FAQs in the distributor’s voice, with escalation for exceptions.",
+        "sourceTypes": [
+          "Policy pages",
+          "Branch SOPs",
+          "Customer FAQs",
+          "Support tickets"
+        ],
+        "optionalAction": "Create a support ticket, route to the branch, or collect missing order details when configured.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can this product be used for my installation?”",
+        "agentResponseStrategy": "Provide approved documentation, compatibility notes, and safety boundaries without substituting for a licensed professional’s code or installation judgment.",
+        "sourceTypes": [
+          "Product manuals",
+          "Safety policies",
+          "Escalation rules",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Escalate to a product specialist or qualified reviewer when the request touches code, safety, or project-specific engineering.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you support buyers in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual capabilities to answer in more than 100 languages when the configured source material supports the response and escalation rules are clear.",
+        "sourceTypes": [
+          "Website content",
+          "Catalog pages",
+          "Support FAQs",
+          "Translated manuals"
+        ],
+        "optionalAction": "Route multilingual handoffs to the right team with the conversation summary attached.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can you send this to my sales rep?”",
+        "agentResponseStrategy": "Collect contact details, account context, region, project urgency, and preferred follow-up method, then prepare a concise handoff.",
+        "sourceTypes": [
+          "Lead forms",
+          "Account routing rules",
+          "Sales enablement notes",
+          "Branch maps"
+        ],
+        "optionalAction": "Trigger an approved workflow to notify sales, create a task, or request a meeting through a configured scheduling flow.",
+        "icon": "PaperAirplaneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put branch, warehouse, sales, and support knowledge in one internal AI agent",
+    "intro": "DocsBot can become a private internal knowledge assistant for electrical distributors, trained on your approved SOPs, product notes, training materials, policies, sales playbooks, PDFs, and shared documents. Employees get faster answers while managers see repeated questions and documentation gaps.",
+    "workflows": [
+      {
+        "name": "Counter and branch procedure lookup",
+        "problem": "Employees often need quick procedural answers while serving customers, receiving freight, handling pickups, or managing returns.",
+        "agentWorkflow": "The internal agent retrieves answers from approved SOPs, policy files, onboarding content, and branch documentation, then cites the source so staff can verify the guidance.",
+        "sourceTypes": [
+          "SOPs",
+          "Branch policies",
+          "Onboarding guides",
+          "Returns and warranty rules"
+        ],
+        "optionalAction": "Escalate exceptions to a manager or create a task for follow-up when configured.",
+        "outcome": "More consistent branch answers and less dependence on finding the one person who remembers the policy.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "name": "Sales enablement and account preparation",
+        "problem": "Sales reps need fast access to product guidance, proposal language, case notes, competitive positioning, and customer-facing FAQs before outreach.",
+        "agentWorkflow": "A DocsBot sales enablement agent answers from approved sales playbooks, product docs, proposal templates, testimonials, implementation notes, and account notes. When configured with web search and approved Skills, it can summarize public prospect context for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Proposal templates",
+          "Case studies",
+          "FAQs"
+        ],
+        "optionalAction": "Draft follow-up emails, create CRM tasks, or summarize an account for seller review through customer-configured workflows.",
+        "outcome": "Give reps faster preparation while keeping pricing, legal terms, and final outreach under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Ticket and conversation review",
+        "problem": "Support leaders need to know which questions are recurring, where answers are inconsistent, and what content is missing from the knowledge base.",
+        "agentWorkflow": "DocsBot can review conversations, logs, tickets, and topics to identify repeated questions, satisfaction and resolution trends, and documentation gaps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Ticket exports",
+          "Helpdesk workflows",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Generate a content-gap report or draft new FAQ topics for human review.",
+        "outcome": "Turn repetitive support volume into a practical roadmap for better self-service and employee training.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "IT, HR, and operations self-service",
+        "problem": "Employees ask the same questions about tools, access, onboarding, HR policies, finance processes, and internal procedures across locations.",
+        "agentWorkflow": "Train a private DocsBot agent on approved internal documents, wikis, policies, Google Drive, Notion, Confluence, PDFs, Word documents, and text files so staff can get consistent answers any time.",
+        "sourceTypes": [
+          "HR policies",
+          "IT procedures",
+          "Finance rules",
+          "Internal wikis",
+          "Training files"
+        ],
+        "optionalAction": "Route access requests, create tickets, or notify the correct internal team through approved Skills and workflows.",
+        "outcome": "Reduce repetitive internal questions and make onboarding easier across branch and corporate teams.",
+        "icon": "IdentificationIcon",
+        "sourceIds": [
+          "src-bls-wholesale-employment"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on distributor knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on your company’s approved knowledge sources so answers stay grounded in your content and voice.",
+      "industryApplication": "Train on catalogs, product pages, manufacturer PDFs, line cards, FAQs, returns policies, delivery procedures, sales playbooks, and internal SOPs for electrical supply teams.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget, private chat, API, Slack, Teams, and helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot agents can support customers and employees across web, product, private team, API, and configured helpdesk-style workflows.",
+      "industryApplication": "Place an agent on your eCommerce site for contractor self-service, give branch staff a private knowledge assistant, or connect support workflows through approved customer-configured tools.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, field updates, and workflow triggers when configured.",
+      "industryApplication": "Use scoped actions to collect RFQs, route requests to branches, create support tickets, prepare handoffs, notify sales, or call approved live systems through APIs, connectors, or Model Context Protocol servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, topic management, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides reporting and review tools that help teams understand what customers and employees ask and where source content needs improvement.",
+      "industryApplication": "See which product families, policies, order workflows, branch questions, or documentation gaps drive the most repeat conversations.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect distributor pricing guidance, account procedures, internal SOPs, sales playbooks, and private support history while controlling what each agent can access and do.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Human escalation and scoped workflow boundaries",
+      "mainLandingPageContext": "DocsBot agents can escalate complex, sensitive, or high-impact questions to a person and operate within customer-defined instructions and permissions.",
+      "industryApplication": "Route code-sensitive, safety-critical, contract, pricing, or project-specific electrical questions to qualified staff instead of letting the AI agent make final commitments.",
+      "icon": "HandRaisedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions with source-grounded answers from your approved content.",
+      "Flexible enough for website self-service, support-team assistance, and private employee knowledge workflows.",
+      "Designed with governance that protects private distributor knowledge and supports controlled escalation."
+    ],
+    "whyTheseReviewsFit": "Electrical supply distributors need fast, accurate answers from catalogs, manuals, websites, support content, and internal procedures. DocsBot proof spans 24/7 product support, owned-content training, helpdesk-assisted support, and high-volume inquiry handling, giving branch and digital teams confidence that AI agents can scale without losing source control.",
+    "trustClaimIcons": [
+      "ChatBubbleLeftIcon",
+      "RectangleGroupIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for electrical supply distributors",
+    "audience": [
+      "Electrical supply distributors",
+      "Electrical wholesalers",
+      "Inside sales and quote desks",
+      "Branch operations teams",
+      "Distributor eCommerce leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BoltIcon"
+  },
+  "relatedIndustrySlugs": [
+    "electronics-component-distribution",
+    "industrial-parts-distribution",
+    "plumbing-hvac-supply",
+    "wholesale-distribution",
+    "b2b-product-distributors",
+    "building-materials-suppliers",
+    "industrial-automation"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "electrical-supply-distribution",
+    "webSearchQueries": [
+      "NAED electrical distributors economic impact sales employment 2024",
+      "electrical distributors NAED market data sales branches employees",
+      "NAED digital transformation electrical distribution eCommerce report",
+      "BLS wholesale trade electrical apparatus equipment wiring supplies employment",
+      "NFPA 70 National Electrical Code adopted all 50 states 2023 electrical safety",
+      "OSHA electrical hazards standards workers electrical equipment wholesale distribution",
+      "electrical distributors supply chain shortages product data eCommerce electrical wholesaling 2025"
+    ],
+    "sourceUrls": [
+      "https://data.census.gov/profile/423610_-_Electrical_apparatus_and_equipment%2C_wiring_supplies%2C_and_related_equipment_merchant_wholesalers?codeset=naics~423610",
+      "https://www.bls.gov/iag/tgs/iag42.htm",
+      "https://www.ewweb.com/business-management/e-biz/article/55298206/contractors-expect-digital-buying-options-channel-marketing-study",
+      "https://www.naed.org/hubfs/NAED_2024-2025_Impact_Report_booklet_4.pdf?hsLang=en",
+      "https://www.osha.gov/electrical/standards",
+      "https://www.esfi.org/workplace-safety/industry-codes-regulations/the-national-electrical-code-nec/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45338,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32794,
+        "outputTokens": 8362,
+        "reasoningOutputTokens": 190,
+        "totalTokens": 53700,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.210551,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.230551
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24726,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 17430,
+          "outputTokens": 5704,
+          "reasoningOutputTokens": 190,
+          "totalTokens": 30430,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.130959,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.150959
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20612,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15364,
+          "outputTokens": 2658,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23270,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.079592,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.079592
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1413882353314-73389f63b6fd?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxFbGVjdHJpY2FsJTIwU3VwcGx5JTIwRGlzdHJpYnV0aW9ufGVufDB8MHx8fDE3Nzg4MjI3NjV8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "black transmission towers under green sky",
+    "source": "unsplash-search",
+    "query": "Electrical Supply Distribution"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer contractor product questions without giving unsafe installation or code advice?",
+      "answer": "Yes. A DocsBot agent can answer from approved catalogs, manuals, cut sheets, safety policies, and escalation rules, then route code-sensitive, safety-critical, or project-specific installation questions to qualified staff. That boundary matters because OSHA maintains electrical hazard standards and ESFI describes the NEC as the U.S. standard for safe electrical wiring and equipment installation.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-electrical-standards",
+        "src-esfi-nec"
+      ]
+    },
+    {
+      "question": "How would this help our quote desk when RFQs come in missing part numbers, voltages, quantities, or bid deadlines?",
+      "answer": "DocsBot can run a structured RFQ intake flow that asks for missing manufacturer, catalog number, quantity, voltage, project type, region, deadline, and follow-up details. It can then summarize the conversation and route the request to inside sales through a customer-configured workflow, so reps start with cleaner information instead of chasing basics.",
+      "role": "Inside sales and quote desks",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent make pricing promises or approve substitutions on its own?",
+      "answer": "It should not be configured that way for high-impact distributor workflows. DocsBot can surface approved pricing guidance, product documentation, compatibility notes, and policy language, but final pricing, alternates, substitutions, contract terms, and project commitments can stay with your sales or product specialists through escalation and review paths.",
+      "role": "Inside sales and quote desks",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use it on our eCommerce site without replacing the counter or local branch relationship?",
+      "answer": "Yes. DocsBot can act as a front door for routine product, documentation, policy, and order-support questions while collecting context for branch follow-up. That supports digital self-service without removing the human relationship, which is important as industry reporting said 62% of electrical buyers purchased online in 2025, up from 45% in 2018.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-electrical-ecommerce-buyers"
+      ]
+    },
+    {
+      "question": "What sources can the agent learn from in an electrical distribution environment?",
+      "answer": "DocsBot can train on approved product pages, PDFs, manufacturer manuals, line cards, catalogs, FAQs, returns policies, pickup rules, delivery procedures, sales playbooks, internal SOPs, onboarding files, and approved ticket history. The goal is not to invent product knowledge, but to make your existing knowledge searchable and actionable.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent the AI from answering from outdated catalogs or old branch procedures?",
+      "answer": "Treat content governance as part of the rollout. Start with approved source sets, assign owners for catalogs, SOPs, policies, and sales guidance, and review analytics for unanswered or disputed topics. DocsBot’s logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see what needs cleanup or retraining.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support branch employees who need quick answers while a contractor is standing at the counter?",
+      "answer": "Yes. A private internal knowledge agent can answer employee questions from SOPs, return rules, warranty language, pickup policies, onboarding materials, and product notes. For a multi-branch industry with 13,379 U.S. employer establishments in NAICS 423610, consistent access to approved knowledge can reduce dependence on whoever happens to know the policy.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-naics-establishments"
+      ]
+    },
+    {
+      "question": "Can the agent handle cut sheet and submittal package questions?",
+      "answer": "Yes, if those materials are included in the approved knowledge base. DocsBot can retrieve source-grounded answers from product pages, PDFs, manufacturer documentation, catalogs, and internal notes, ask for the exact catalog number when needed, and route uncertain product-identification requests to a branch or product specialist.",
+      "role": "Inside sales and quote desks",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit with our ERP, CRM, ticketing, or eCommerce platform?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, and approved workflows. Common patterns include creating a support ticket, forwarding an RFQ summary, notifying a branch, looking up approved live context, updating approved fields, or connecting to tools through MCP servers where your team authorizes access.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need perfect product data before launching an AI agent?",
+      "answer": "No, but you need a deliberate scope. Many distributors start with high-confidence content such as FAQs, policy pages, cut sheets, manuals, line cards, and SOPs, then use conversation logs and knowledge-gap reports to identify where product data, cross-references, or branch procedures need improvement before expanding use cases.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure ROI beyond saying we added AI to the website?",
+      "answer": "Track operational metrics tied to distributor workflows: repetitive questions answered, RFQs completed with required fields, document requests resolved, support tickets deflected or summarized, time to first response, branch escalations, knowledge gaps found, and internal search reduction. For quote desks, also compare handoff quality and seller time spent on qualified opportunities.",
+      "role": "Operations and eCommerce leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help when backlog and sales workload are already high?",
+      "answer": "Yes. DocsBot is well suited for reducing repetitive intake, documentation search, and handoff work around quote requests and support questions. That matters in a market where NAED reported that in Q4 2024, 87% of distributor respondents had stable or increased revenue and 81% had a steady or growing sales backlog.",
+      "role": "Inside sales and quote desks",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-naed-q4-2024"
+      ]
+    },
+    {
+      "question": "What happens when a customer asks about order status, branch availability, or account-specific terms?",
+      "answer": "DocsBot can answer general policy and process questions from approved sources. For live account, order, inventory, or branch-specific context, it needs a customer-configured Skill, API, connector, or workflow with scoped permissions. You can decide which lookups are allowed, which answers require human review, and which requests become tickets or handoffs.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent support Spanish-speaking or multilingual contractor buyers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when the configured source material supports the response. For electrical distribution, teams should still define escalation rules for safety, code, pricing, and product-fit questions so multilingual support does not bypass the same controls used in English.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will our private pricing guidance, customer notes, and SOPs be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions to help protect private distributor knowledge and control who can access each agent.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we separate what customers see from what employees can ask internally?",
+      "answer": "Yes. You can create customer-facing agents trained on public or customer-approved content and private internal agents trained on SOPs, pricing guidance, sales playbooks, HR policies, or branch procedures. Granular access controls and role-based permissions help keep sensitive internal knowledge out of public-facing experiences.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much human review should we plan for before going live?",
+      "answer": "Plan a staged review. Start with a limited source set, test real contractor and branch questions, review answer quality, tune escalation rules, and confirm that the agent declines or routes unsafe, code-sensitive, pricing, and substitution questions. After launch, use logs and conversation review to keep improving coverage.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot draft support responses without sending them automatically?",
+      "answer": "Yes. DocsBot can summarize conversations, draft responses from approved policies or documentation, and prepare handoffs for human review. That is useful for returns, shipping, damaged freight, order-support, and documentation requests where a support rep should verify account details or make the final customer-facing decision.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does this compare with a generic website chatbot?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent trained on your approved distributor knowledge, not a generic scripted chatbot. It can support website self-service, private employee knowledge, RFQ intake, analytics, ticket summaries, and bounded AI Actions when configured, while keeping sensitive decisions inside customer-defined rules.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help us understand what customers keep asking that our website does not answer?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For electrical distributors, that can reveal missing product documentation, confusing return rules, repeated branch questions, unclear RFQ instructions, or product families that need better self-service content.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What would a realistic first rollout look like for an electrical distributor?",
+      "answer": "A practical first phase is usually one customer-facing agent for documentation, policy, and RFQ intake, or one internal agent for branch SOPs and product notes. Limit the scope, define escalation rules, connect only low-risk actions first, review conversation logs, then expand to live lookups or additional branches once quality is proven.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this reduce training burden for new counter, warehouse, and customer service employees?",
+      "answer": "Yes. A private DocsBot agent can make onboarding guides, SOPs, returns rules, delivery exceptions, freight-claim processes, and tool instructions available in natural language. That helps newer employees find approved answers faster while managers see which procedures generate repeated questions and need clearer training content.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if the agent cannot identify a part from an incomplete or alternate manufacturer number?",
+      "answer": "DocsBot can ask clarifying questions, search approved catalogs and notes, and provide the most relevant source-grounded matches when confidence is sufficient. If the request remains ambiguous, it can collect the buyer’s context and route the conversation to inside sales or a product specialist rather than guessing.",
+      "role": "Inside sales and quote desks",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can procurement and IT evaluate this without committing to a large systems integration project upfront?",
+      "answer": "Yes. DocsBot can start with approved static knowledge sources such as PDFs, web pages, SOPs, and FAQs before deeper integrations. More advanced workflows—live lookups, ticket creation, CRM handoffs, field updates, or notifications—can be added later through scoped Skills, APIs, connectors, or customer-configured workflows.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How do we make sure branch managers trust the answers?",
+      "answer": "Use source-grounded answers with citations, start with approved branch policies and SOPs, involve branch leaders in testing, and review logs for disputed or missing answers. DocsBot can cite the underlying source so employees can verify the policy instead of treating the AI as an unsupported authority.",
+      "role": "Branch, counter, and customer service teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot scale across multiple branches with different pickup rules, delivery areas, or escalation paths?",
+      "answer": "Yes, but the implementation should model those differences clearly. You can train agents on branch-specific procedures and use customer-configured routing rules, metadata, permissions, or Skills so the agent asks for location or account context before answering or handing off branch-dependent questions.",
+      "role": "Operations and eCommerce leaders",
+      "category": "Scalability"
+    }
+  ]
+}

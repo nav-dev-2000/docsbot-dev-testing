@@ -1,7 +1,6 @@
 const fs = require('fs')
 const globby = require('globby')
 const { ALTERNATIVES } = require('../src/constants/alternatives.constants');
-const { INDUSTRIES } = require('../src/constants/industries.constants');
 const { PROMPT_CATEGORIES } = require('../src/constants/promptCategories.constants');
 const { GLOSSARY } = require('../src/constants/glossary.constants');
 const { LLMS } = require('../src/constants/llms.constants');
@@ -33,6 +32,8 @@ async function generateSitemap() {
     skillCategorySlug,
     getSkillIntegrationPath,
   } = await import('../src/lib/skillsIntegrations.mjs')
+  const { getIndustryCategoryPath } = await import('../src/lib/industryCategoryPaths.mjs')
+  const generatedIndustryIndex = require('../src/data/industries/v2/generated.index.json')
   const skillRecords = getSkillsIndexRecords()
   const skillIntegrationUrls = skillRecords.map((record) => getSkillIntegrationPath(record))
   const skillCategoryUrls = [
@@ -59,7 +60,10 @@ async function generateSitemap() {
   ])
 
   const comparisons = ALTERNATIVES.map((item) => `/comparisons/${item.slug}-alternative`)
-  const industries = INDUSTRIES.map((item) => `/industry/${item.slug}`)
+  const industries = generatedIndustryIndex.records.map((item) => `/industry/${item.slug}`)
+  const industryCategories = [
+    ...new Set(generatedIndustryIndex.records.map((item) => getIndustryCategoryPath(item.industryCategory))),
+  ]
   const glossary = GLOSSARY.map((item) => `/ai-terms-glossary/term/${item.slug}`)
   const prompts = Object.entries(PROMPT_CATEGORIES).map(([key]) => `/prompts/${key}`)
   // Exclude redirected models from sitemap
@@ -75,7 +79,7 @@ async function generateSitemap() {
   const sitemapFiles = [
     generateSectionSitemap(pages, 'sitemap-pages.xml'),
     generateSectionSitemap(comparisons, 'sitemap-comparisons.xml', 'weekly'),
-    generateSectionSitemap(industries, 'sitemap-industries.xml', 'monthly'),
+    generateSectionSitemap([...industryCategories, ...industries], 'sitemap-industries.xml', 'monthly'),
     generateSectionSitemap(glossary, 'sitemap-glossary.xml', 'weekly'),
     generateSectionSitemap(prompts, 'sitemap-prompts.xml'),
     generateSectionSitemap(models, 'sitemap-models.xml', 'weekly'),

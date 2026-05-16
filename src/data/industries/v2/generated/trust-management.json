@@ -1,0 +1,744 @@
+{
+  "slug": "trust-management",
+  "business": "Trust Management",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Trust Management Workflows",
+    "description": "DocsBot helps trust management teams deliver source-grounded client answers, employee guidance, and routed handoffs from approved fiduciary knowledge.",
+    "canonicalPath": "/industry/trust-management"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for fiduciary service teams",
+    "headline": "DocsBot AI agents keep trust management answers grounded",
+    "subheadline": "Train DocsBot on your trust documents, policies, client FAQs, SOPs, onboarding materials, and approved compliance guidance so clients and employees can get faster answers while sensitive fiduciary decisions still route to the right human expert.",
+    "proofBullets": [
+      {
+        "text": "Answer trust administration, account onboarding, distribution, document, and beneficiary questions from approved sources.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give relationship managers and trust officers a private knowledge agent for procedures, policy, and client-service playbooks.",
+        "icon": "BuildingLibraryIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or MCP options for approved lookups, summaries, ticket creation, and routed handoffs.",
+        "icon": "PuzzlePieceIcon"
+      },
+      {
+        "text": "Support governance expectations with source-grounded responses, role-based access, encryption, logs, review, and human escalation.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a trust management AI agent",
+    "secondaryCta": "Explore secure knowledge automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps trust companies, bank trust departments, wealth firms, and fiduciary service teams create AI agents trained on their own approved knowledge. Agents can answer client questions, assist employees, retrieve policy context, summarize conversations, identify knowledge gaps, and take bounded actions through customer-configured workflows.",
+    "whoItHelps": [
+      {
+        "role": "Trust officers and fiduciary administrators",
+        "roleContext": "Teams handling account setup, beneficiary requests, distributions, amendments, statements, and ongoing trust administration need consistent answers without turning every procedural question into a senior-officer interruption.",
+        "bullets": [
+          {
+            "text": "Retrieve internal procedures for opening, administering, modifying, and closing trust accounts.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Draft client-ready explanations from approved materials while routing legal, tax, investment, and discretionary decisions to a human.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Summarize client conversations, missing information, and next steps for review or ticket handoff.",
+            "icon": "ListBulletIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, risk, and operations leaders",
+        "roleContext": "Trust operations must demonstrate controlled processes, clear documentation, and careful handling of fiduciary duties, exceptions, complaints, and recordkeeping.",
+        "bullets": [
+          {
+            "text": "The OCC describes personal fiduciary activities as a broad range of arrangements where a bank may act as trustee or investment manager.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-occ-personal-fiduciary"
+            ]
+          },
+          {
+            "text": "Make policy, procedure, escalation, and review guidance easier for staff to find inside a permissioned knowledge agent.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to find repeated questions, stale procedures, and documentation gaps.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-occ-personal-fiduciary"
+        ]
+      },
+      {
+        "role": "Client service and relationship teams",
+        "roleContext": "Clients and beneficiaries often ask recurring questions about documents, timelines, statements, distributions, contacts, and what information is needed before a trust team can act.",
+        "bullets": [
+          {
+            "text": "Provide instant, source-grounded answers through a website or private client-support chat experience.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured intake details for distribution requests, document questions, meeting requests, and account-service follow-up.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Escalate sensitive, individualized, or high-impact requests with conversation context so staff do not start from scratch.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fdic-fiduciary-assets",
+      "metric": "$32.98 trillion in non-managed fiduciary account assets reported for insured institutions in Q4 2025.",
+      "claim": "FDIC Quarterly Banking Profile data shows large fiduciary account scale across insured institutions, including personal trust, retirement, corporate trust, and other fiduciary account categories.",
+      "sourceTitle": "FDIC Quarterly Banking Profile, Fourth Quarter 2025",
+      "sourceUrl": "https://www.fdic.gov/quarterly-banking-profile/quarterly-banking-profile-fourth-quarter-2025.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "industry scale",
+        "fiduciary operations volume",
+        "workflow complexity"
+      ]
+    },
+    {
+      "id": "src-fdic-fiduciary-income",
+      "metric": "$48.75 billion in total gross fiduciary and related services income reported for insured institutions in Q4 2025.",
+      "claim": "FDIC data indicates fiduciary and related services are a material line of business for insured institutions, with income across personal trust, retirement, corporate trust, investment management agency, and custody categories.",
+      "sourceTitle": "FDIC Quarterly Banking Profile, Fourth Quarter 2025",
+      "sourceUrl": "https://www.fdic.gov/quarterly-banking-profile/quarterly-banking-profile-fourth-quarter-2025.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "business value",
+        "operational leverage",
+        "service line materiality"
+      ]
+    },
+    {
+      "id": "src-occ-personal-fiduciary",
+      "metric": "OCC guidance covers risks and controls for personal fiduciary activities.",
+      "claim": "The OCC Comptroller’s Handbook explains that personal fiduciary activities include a broad spectrum of arrangements in which a bank may provide investment management services, act as trustee, or hold varying responsibility for client assets.",
+      "sourceTitle": "OCC Comptroller’s Handbook: Personal Fiduciary Activities",
+      "sourceUrl": "https://www.occ.gov/publications-and-resources/publications/comptrollers-handbook/files/personal-fiduciary-activities/pub-ch-personal-fiduciary.pdf",
+      "sourceDate": "2015",
+      "bestUsedFor": [
+        "fiduciary complexity",
+        "risk management",
+        "bank trust operations"
+      ]
+    },
+    {
+      "id": "src-fdic-trust-exam",
+      "metric": "FDIC examines bank trust operations for policies and administration procedures that may create loss or liability.",
+      "claim": "The FDIC states that it examines trust operations and related activities to determine whether policies or account administration procedures could result in contingent liability, estimated loss, earnings impact, or capital impairment.",
+      "sourceTitle": "FDIC Trust/Fiduciary Activities",
+      "sourceUrl": "https://www.fdic.gov/resources/bankers/trust-fiduciary-activities/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "exam readiness",
+        "policy controls",
+        "operations risk"
+      ]
+    },
+    {
+      "id": "src-fincen-investment-adviser-aml",
+      "metric": "FinCEN finalized AML/CFT program and suspicious activity reporting requirements for certain investment advisers.",
+      "claim": "FinCEN’s final rule adds anti-money laundering and countering-the-financing-of-terrorism obligations for many registered investment advisers and exempt reporting advisers, with relevance to wealth and trust-adjacent advisory operations.",
+      "sourceTitle": "FinCEN Final Rule: Anti-Money Laundering/Countering the Financing of Terrorism Program and Suspicious Activity Report Filing Requirements for Registered Investment Advisers and Exempt Reporting Advisers",
+      "sourceUrl": "https://www.fincen.gov/resources/statutes-regulations/federal-register-notices/anti-money-launderingcountering-financing",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "AML workflows",
+        "risk operations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client question answering from approved trust materials",
+      "problem": "Clients and beneficiaries often need plain-language guidance on documents, timelines, statements, contacts, and process steps, but staff cannot risk ad hoc answers that drift from approved language.",
+      "agentWorkflow": "DocsBot trains on trust FAQs, service pages, onboarding packets, forms, disclosure language, and internal-approved explanations. The agent answers in the firm’s voice, cites the source knowledge, asks clarifying questions when needed, and escalates individualized legal, tax, investment, or discretionary matters.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can collect intake details, create a follow-up ticket, send a summary to staff, or route the request to the correct trust officer.",
+      "exampleQuestionsOrRequests": [
+        "What documents are typically needed to begin trust administration?",
+        "How do I request a copy of a trust statement?",
+        "Who should I contact about a beneficiary address change?",
+        "Can you explain the difference between a trustee and a co-trustee using your firm’s materials?"
+      ],
+      "businessOutcome": "Faster client self-service for routine questions, fewer repeated interruptions for staff, and clearer escalation for sensitive fiduciary requests.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Internal fiduciary procedure assistant",
+      "problem": "Trust administration teams rely on SOPs, policy manuals, account-opening checklists, fee schedules, exception procedures, and training documents that can be scattered across drives, PDFs, and wikis.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on approved procedures and policy sources. Employees ask procedural questions, receive source-grounded answers, and can review the cited material before acting.",
+      "liveContextOrTools": "The agent can be deployed in private chat experiences such as Slack, Microsoft Teams, or internal web chat, with access controlled by role-based permissions.",
+      "exampleQuestionsOrRequests": [
+        "What steps do we follow before closing a personal trust account?",
+        "Where is the current checklist for new fiduciary account onboarding?",
+        "What documentation do we need before changing a beneficiary mailing address?",
+        "Which situations require supervisor review before responding to a distribution request?"
+      ],
+      "businessOutcome": "Less time searching for procedures, more consistent internal guidance, and easier onboarding for new fiduciary operations staff.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Compliance and exam-support knowledge retrieval",
+      "problem": "Trust operations face scrutiny around policies, administration procedures, fiduciary controls, and documentation because the FDIC examines trust operations for policies or account administration procedures that could create liability or loss.",
+      "agentWorkflow": "DocsBot can centralize searchable access to policies, committee minutes summaries, review checklists, procedure manuals, training records, and approved control guidance. Staff can ask where a control is documented and receive source-linked answers for internal review.",
+      "liveContextOrTools": "With approved workflow access, the agent can create a task for a missing policy update, summarize recurring compliance questions, or route an exception question to compliance for review.",
+      "exampleQuestionsOrRequests": [
+        "Where do we document the annual review procedure for fiduciary accounts?",
+        "Which policy covers complaint escalation for trust clients?",
+        "Summarize the procedure sections relevant to account administration exceptions.",
+        "Create a review task for this outdated checklist."
+      ],
+      "businessOutcome": "Improves findability of control documentation and helps compliance teams spot knowledge gaps before they become operational friction.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fdic-trust-exam"
+      ]
+    },
+    {
+      "name": "Distribution and account-service intake routing",
+      "problem": "Distribution requests, statement questions, address changes, tax document questions, and beneficiary inquiries often arrive with missing details, causing back-and-forth before staff can review the request.",
+      "agentWorkflow": "DocsBot can ask structured intake questions, explain which information is needed based on approved procedures, summarize the request, and route the handoff to the proper team. It does not approve distributions or make fiduciary judgments.",
+      "liveContextOrTools": "Customer-configured Skills, connectors, forms, or ticketing workflows can create a case, attach a conversation summary, update approved fields, or notify a trust team for review.",
+      "exampleQuestionsOrRequests": [
+        "I need to request a discretionary distribution. What information should I provide?",
+        "Can you help me update my contact information for a trust account?",
+        "Please summarize this beneficiary question and send it to the correct team.",
+        "Create a follow-up ticket for a missing tax document request."
+      ],
+      "businessOutcome": "Cleaner intake, fewer incomplete requests, and better staff handoffs for workflows that require human review.",
+      "icon": "ArrowPathRoundedSquareIcon"
+    },
+    {
+      "name": "Relationship-manager and advisor enablement",
+      "problem": "Relationship managers and advisors need accurate answers about service models, trust administration processes, client onboarding requirements, and firm-approved positioning before client meetings.",
+      "agentWorkflow": "DocsBot can support internal sales and relationship teams with a knowledge agent trained on service descriptions, proposal templates, approved client FAQs, onboarding guides, fee explanations, objection handling, and meeting-prep materials.",
+      "liveContextOrTools": "When configured with approved Skills or web-search-enabled workflows, the agent can summarize public prospect context, draft a follow-up email, prepare internal talking points, or send a lead handoff to a CRM-style system for human review.",
+      "exampleQuestionsOrRequests": [
+        "Prepare talking points for a family office considering directed trustee services.",
+        "Which approved materials explain our fiduciary administration process?",
+        "Draft a follow-up email after a prospect asks about trust onboarding timelines.",
+        "What questions should I ask before scheduling a trust consultation?"
+      ],
+      "businessOutcome": "More consistent client conversations, faster meeting preparation, and clearer human review before pricing, legal, tax, or investment commitments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for trust content",
+      "problem": "Recurring client and employee questions reveal where trust documents, FAQs, onboarding guides, or procedures are unclear, but those patterns are easy to miss in day-to-day service work.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, conversation review, reporting, satisfaction and resolution analysis, and knowledge-gap discovery so teams can see what people ask and where approved content needs improvement.",
+      "liveContextOrTools": "Teams can review unanswered questions, repeated topics, and escalation patterns, then update source documents and retrain the agent on improved content.",
+      "exampleQuestionsOrRequests": [
+        "Which trust administration questions are clients asking most often?",
+        "Show topics where the agent could not find an approved answer.",
+        "Which internal procedures are employees asking about repeatedly?",
+        "What FAQ updates would reduce routine escalation?"
+      ],
+      "businessOutcome": "Better client education, stronger internal documentation, and a practical feedback loop for improving trust management knowledge.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients and beneficiaries a safer first stop for trust questions",
+    "intro": "A DocsBot customer-facing agent can sit on your website, portal, or support experience to answer routine trust management questions from approved sources, collect structured details, and escalate sensitive matters with context.",
+    "requests": [
+      {
+        "request": "“What information do you need before my trust can be administered?”",
+        "agentResponseStrategy": "Answer from onboarding packets and approved FAQs, list typical required details, clarify that requirements depend on the account, and invite secure follow-up with staff.",
+        "sourceTypes": [
+          "Client FAQs",
+          "Onboarding packets",
+          "Service pages",
+          "Approved disclosure language"
+        ],
+        "optionalAction": "Create a follow-up case or send an intake summary to the trust administration team through a configured workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I request a distribution from this trust?”",
+        "agentResponseStrategy": "Explain the firm’s general intake process from approved materials, collect non-sensitive request context if configured, and route the matter for human fiduciary review without making an approval decision.",
+        "sourceTypes": [
+          "Distribution request procedures",
+          "Client service scripts",
+          "Escalation policies"
+        ],
+        "optionalAction": "Trigger a workflow that notifies the assigned trust officer and includes the client’s summary and missing-information checklist.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“I do not understand a term in this trust document.”",
+        "agentResponseStrategy": "Provide a plain-language explanation based on approved educational content, cite the relevant source, and make clear that document-specific interpretation should be reviewed by the appropriate professional.",
+        "sourceTypes": [
+          "Educational guides",
+          "Glossaries",
+          "Approved client articles",
+          "FAQs"
+        ],
+        "optionalAction": "Offer to route the question to the relationship manager or schedule a consultation through a configured scheduling flow.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“Where is my statement or tax document?”",
+        "agentResponseStrategy": "Use approved support content to explain normal availability, delivery channels, and who to contact, then collect enough information for staff to research the request.",
+        "sourceTypes": [
+          "Statement FAQs",
+          "Tax document guidance",
+          "Client support procedures"
+        ],
+        "optionalAction": "With authorized live lookup access, check permitted status metadata or create a ticket for the operations team.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“Do you support clients who prefer another language?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages when trained on approved knowledge, while routing nuanced fiduciary or legal questions to qualified staff.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Service pages",
+          "Support policies"
+        ],
+        "optionalAction": "Collect preferred language and route the handoff to the right service team if human follow-up is needed.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I want to speak with someone about trust services.”",
+        "agentResponseStrategy": "Answer basic service-fit questions from approved pages, collect contact details and needs, and summarize the inquiry for a relationship manager.",
+        "sourceTypes": [
+          "Service descriptions",
+          "Lead intake questions",
+          "Approved sales enablement content"
+        ],
+        "optionalAction": "Submit a custom lead form, forward the summary to a CRM-style workflow, or request a meeting through configured scheduling tools.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Equip fiduciary teams with a private source-grounded knowledge agent",
+    "intro": "DocsBot can serve trust officers, administrators, compliance teams, client service, operations, and relationship managers with instant answers from internal policies, SOPs, wikis, PDFs, and approved training materials.",
+    "workflows": [
+      {
+        "name": "Policy and SOP retrieval",
+        "problem": "Employees lose time searching across procedure binders, shared drives, PDFs, and internal sites for the latest approved process.",
+        "agentWorkflow": "The agent retrieves answers from approved SOPs, policy manuals, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and text files, then points employees back to the source.",
+        "sourceTypes": [
+          "SOPs",
+          "Policy manuals",
+          "Internal wikis",
+          "Training PDFs"
+        ],
+        "optionalAction": "Log repeated questions and flag source documents that need clarification or updating.",
+        "outcome": "Faster procedural answers and fewer inconsistent interpretations across trust operations.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Exception and escalation triage",
+        "problem": "Trust service teams need clear boundaries for complaints, distribution requests, identity questions, legal interpretation, tax questions, and investment-related inquiries.",
+        "agentWorkflow": "DocsBot answers from escalation policies and review procedures, then routes sensitive or high-impact requests to human experts with a concise summary.",
+        "sourceTypes": [
+          "Escalation policies",
+          "Risk procedures",
+          "Complaint handling guidance",
+          "Review checklists"
+        ],
+        "optionalAction": "Create a task, support ticket, or team notification through customer-configured Skills, APIs, connectors, or workflow automations.",
+        "outcome": "More consistent escalation discipline without asking the AI agent to make fiduciary decisions.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "name": "Meeting preparation and follow-up drafting",
+        "problem": "Relationship teams need accurate service details, approved language, and concise follow-up after client or prospect conversations.",
+        "agentWorkflow": "The agent searches approved service descriptions, proposal notes, FAQs, onboarding content, and internal playbooks to prepare talking points or draft follow-up emails for human review.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Sales playbooks",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, summarize the conversation, or create a CRM-style task when the customer has configured the workflow.",
+        "outcome": "Faster preparation and more consistent communication while humans control final outreach and commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Compliance question trend review",
+        "problem": "Compliance and operations leaders need to know which policies employees cannot find or understand before those gaps show up in reviews or exams.",
+        "agentWorkflow": "DocsBot analytics and logs show recurring internal questions, unresolved topics, satisfaction signals, and content gaps that can guide policy cleanup and training updates.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Policy libraries",
+          "Training materials"
+        ],
+        "optionalAction": "Export a summary of repeated questions or create review tasks for outdated knowledge sources.",
+        "outcome": "A more visible feedback loop between frontline questions, policy ownership, and documentation quality.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved trust knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on a business’s own knowledge sources, including documents, websites, help centers, internal content, and other configured sources.",
+      "industryApplication": "Train agents on trust FAQs, administration procedures, onboarding materials, disclosure language, client education, internal SOPs, and relationship-manager playbooks.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer and employee answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant, source-grounded answers in the company’s voice and help teams find information without reading long documents.",
+      "industryApplication": "Give clients, beneficiaries, trust officers, and administrators answers that reference approved trust management content instead of relying on unsupported general responses.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support live lookups, record updates, task creation, routing, summaries, workflow triggers, and handoffs under customer-defined controls.",
+      "industryApplication": "Configure bounded trust-service workflows such as intake summaries, ticket creation, missing-information checklists, team notifications, or approved status lookups through Skills, APIs, connectors, or remote Model Context Protocol servers.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive fiduciary work",
+      "mainLandingPageContext": "DocsBot supports human escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate legal, tax, investment, identity, distribution, complaint, and discretionary fiduciary matters with conversation context while routine questions remain self-service.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated beneficiary questions, unclear onboarding materials, stale procedures, and internal policy gaps that slow trust administration.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Support trust management buyer expectations for private financial knowledge, controlled access, review paths, and governed use of sensitive source materials.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for owned knowledge, so trust teams can ground answers in their own approved content.",
+      "Useful across self-service, internal support, and helpdesk-assisted workflows.",
+      "Proven in high-volume support and internal decision-making environments where consistency matters."
+    ],
+    "whyTheseReviewsFit": "Trust management teams need dependable answers, controlled handoffs, and internal knowledge access. DocsBot proof spans self-service support, training on owned content libraries, helpdesk-assisted workflows, high-volume inquiry handling, and internal decision support.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "ArrowPathRoundedSquareIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for trust management client support, internal knowledge, and fiduciary operations",
+    "audience": [
+      "Trust companies",
+      "Bank trust departments",
+      "Fiduciary administrators",
+      "Wealth management operations teams",
+      "Compliance and risk leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingLibraryIcon"
+  },
+  "relatedIndustrySlugs": [
+    "wealth-management",
+    "risk-management",
+    "bank-credit-union",
+    "investment-advisory",
+    "financial-consulting",
+    "auditing-finance-insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "trust-management",
+    "webSearchQueries": [
+      "FDIC trust departments fiduciary activities statistics 2024",
+      "OCC Comptroller's Handbook Personal Fiduciary Activities 2023 PDF",
+      "FinCEN final rule investment advisers AML CFT trust companies 2024",
+      "FDIC Statistics on Depository Institutions trust assets 2024 fiduciary accounts",
+      "trust companies assets under management United States statistics 2024 trust assets",
+      "American Bankers Association trust wealth management regulatory compliance survey 2024"
+    ],
+    "sourceUrls": [
+      "https://www.fdic.gov/quarterly-banking-profile/quarterly-banking-profile-fourth-quarter-2025.pdf",
+      "https://www.occ.gov/publications-and-resources/publications/comptrollers-handbook/files/personal-fiduciary-activities/pub-ch-personal-fiduciary.pdf",
+      "https://www.fdic.gov/resources/bankers/trust-fiduciary-activities/",
+      "https://www.fincen.gov/resources/statutes-regulations/federal-register-notices/anti-money-launderingcountering-financing"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45414,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24678,
+        "outputTokens": 8265,
+        "reasoningOutputTokens": 201,
+        "totalTokens": 53679,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.190854,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.210854
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25558,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10070,
+          "outputTokens": 5444,
+          "reasoningOutputTokens": 181,
+          "totalTokens": 31002,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.110707,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.130707
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19856,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14608,
+          "outputTokens": 2821,
+          "reasoningOutputTokens": 20,
+          "totalTokens": 22677,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080147,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080147
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1639322537231-2f206e06af84?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUzMjh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Trust Management background image",
+    "source": "legacy-industry",
+    "query": "Trust Management"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from giving legal, tax, investment, or discretionary fiduciary advice?",
+      "answer": "Configure the agent around approved trust content, clear refusal rules, and escalation paths. DocsBot can answer routine process questions, collect context, and summarize the handoff, while routing individualized legal, tax, investment, distribution approval, complaint, or discretionary matters to a qualified person for review.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer beneficiary and client questions without drifting from our approved language?",
+      "answer": "Yes. DocsBot is trained on your approved FAQs, onboarding packets, service pages, disclosure language, procedures, and client education materials. Responses are source-grounded, so clients and staff can see the knowledge basis instead of relying on unsupported generic AI answers.",
+      "role": "Client service and relationship teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Would this replace trust officers or just reduce repetitive interruptions?",
+      "answer": "DocsBot is best positioned as a first-stop support and knowledge agent, not a fiduciary decision maker. It can handle repeat questions about documents, timelines, statements, intake steps, and internal procedures, then escalate sensitive or high-impact matters with context so trust officers spend more time on judgment-based work.",
+      "role": "Trust officers and fiduciary administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What trust management workflows are realistic for automation on day one?",
+      "answer": "Good first workflows include client FAQ answering, trust onboarding intake, statement or tax document routing, beneficiary address-change guidance, internal SOP retrieval, meeting-prep support, and escalation triage. Distribution approvals, legal interpretation, investment decisions, and discretionary fiduciary judgments should remain human-reviewed.",
+      "role": "Trust officers and fiduciary administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would DocsBot support exam readiness or internal control reviews?",
+      "answer": "DocsBot can make policies, procedures, review checklists, committee materials, and control guidance easier to retrieve. That matters because the FDIC examines trust operations for policies and account administration procedures that may create contingent liability, estimated loss, earnings impact, or capital impairment.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fdic-trust-exam"
+      ]
+    },
+    {
+      "question": "Can we limit what different employees or teams are allowed to access?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so an internal knowledge agent can be configured around the sources appropriate for trust officers, administrators, compliance, operations, relationship teams, or other approved users.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls will our information security team ask about first?",
+      "answer": "Expect questions about SOC 2 Type II certification, encryption in transit and at rest, access controls, role-based permissions, logs, data handling, and whether customer data is used to train public models. DocsBot supports those governance expectations and does not use customer data to train public models.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent work with our trust accounting, CRM, ticketing, or case management systems?",
+      "answer": "DocsBot can support approved lookups, task creation, ticket creation, routing, summaries, record updates, and notifications through customer-configured Skills, APIs, connectors, workflow automations, or MCP options. Avoid starting with broad write access; begin with scoped, logged actions and human review for sensitive workflows.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep client-facing answers separate from internal-only procedures?",
+      "answer": "Use separate agents, source collections, and permissions for public/client-facing content versus internal SOPs, policies, escalation rules, and playbooks. A client agent can answer from approved external materials, while a private employee agent can retrieve deeper procedural guidance for authenticated staff.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when a beneficiary asks a question that depends on the specific trust document?",
+      "answer": "The agent should explain general concepts from approved educational materials, avoid document-specific interpretation, and route the question to the appropriate trust officer, legal contact, or relationship manager. It can collect the question, summarize the issue, and attach the conversation context for review.",
+      "role": "Client service and relationship teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with distribution request intake without approving distributions?",
+      "answer": "Yes. DocsBot can explain your general intake process, ask for required non-sensitive details, generate a missing-information checklist, and route the request to the assigned team. It should not approve, deny, or recommend distributions; those decisions remain with authorized fiduciary personnel.",
+      "role": "Trust officers and fiduciary administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI if many trust questions still need a human?",
+      "answer": "Track reduced repetitive inquiries, faster intake completion, fewer incomplete handoffs, shorter employee search time, higher self-service rates for routine questions, deflected support conversations, and fewer escalations caused by unclear content. For trust teams, value often comes from cleaner handoffs and consistency, not full automation of fiduciary decisions.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Why prioritize this if our trust team is already careful with manual review?",
+      "answer": "Manual review is still essential, but search and intake friction scale poorly. FDIC data reported $48.75 billion in total gross fiduciary and related services income for insured institutions in Q4 2025, showing the materiality of fiduciary operations where consistent service, controls, and documentation matter.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-fdic-fiduciary-income"
+      ]
+    },
+    {
+      "question": "Can the agent help new trust administrators get up to speed faster?",
+      "answer": "Yes. A private DocsBot agent can answer questions from SOPs, training PDFs, policy manuals, wikis, onboarding checklists, fee guidance, and escalation procedures. New administrators can ask procedural questions in plain language and review the cited source before taking action.",
+      "role": "Trust officers and fiduciary administrators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we avoid staff using outdated procedures if source documents change?",
+      "answer": "Keep the agent trained on approved current sources and assign ownership for source maintenance. DocsBot analytics and unanswered-question reviews can show where procedures are confusing, stale, or missing, giving operations and compliance teams a feedback loop for content cleanup.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What reporting would a trust operations leader actually review?",
+      "answer": "Useful reports include top client questions, top employee procedure questions, unresolved topics, escalation reasons, satisfaction or resolution trends, knowledge gaps, and repeated requests by workflow such as onboarding, distributions, statements, tax documents, address changes, or complaint routing.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can relationship managers use it for prospect and client meeting preparation?",
+      "answer": "Yes. DocsBot can retrieve approved service descriptions, onboarding guidance, proposal language, FAQs, fee explanations, and objection-handling notes. With configured Skills or workflows, it can draft follow-up emails, create a CRM-style task, or summarize meeting context for human review.",
+      "role": "Client service and relationship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will clients accept an AI agent for trust questions, or will it feel too impersonal?",
+      "answer": "Use the agent for fast answers to routine process questions, not as a substitute for the relationship. Clients can get immediate guidance on documents, timelines, statements, and next steps, while sensitive questions are escalated with context to a human who can respond more personally and efficiently.",
+      "role": "Client service and relationship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or a general-purpose AI tool?",
+      "answer": "DocsBot is designed around owned knowledge, source-grounded answers, access controls, reviewable logs, analytics, and bounded actions. For trust management, that is more appropriate than a generic assistant that is not constrained to approved fiduciary materials, escalation rules, and controlled workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we deploy this internally first before putting anything in front of clients?",
+      "answer": "Yes. Many trust teams should start with an internal knowledge agent for SOP retrieval, policy questions, escalation guidance, and relationship-team enablement. After validating answer quality, permissions, and escalation patterns, you can expand to client-facing FAQs or intake workflows.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should be in scope for a pilot with a bank trust department or trust company?",
+      "answer": "A practical pilot might include 50–150 approved client FAQs, onboarding and distribution-intake procedures, statement and tax document guidance, escalation policies, and a small internal SOP library. Success criteria should include answer accuracy, escalation quality, staff adoption, unresolved topics, and time saved on repeat questions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How should we handle AML, identity, or suspicious activity questions?",
+      "answer": "Keep those workflows tightly scoped. The agent can retrieve approved procedures, collect non-sensitive intake details, and route questions to compliance or operations, but it should not make suspicious activity determinations. FinCEN finalized AML/CFT program and suspicious activity reporting requirements for certain investment advisers, reinforcing the need for controlled compliance workflows.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fincen-investment-adviser-aml"
+      ]
+    },
+    {
+      "question": "Can DocsBot support multilingual clients or beneficiaries?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when trained on approved knowledge. For nuanced legal, tax, fiduciary, or document-specific questions, the agent should still route to qualified staff and capture the client’s preferred language for follow-up.",
+      "role": "Client service and relationship teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much source cleanup is needed before implementation?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved, current, and clearly owned source materials for the workflows in scope. Start with high-volume questions and procedures, exclude outdated documents, and use DocsBot analytics to identify gaps after launch.",
+      "role": "Trust officers and fiduciary administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with scale across many accounts, beneficiaries, and document types?",
+      "answer": "Yes, especially for repeatable knowledge and intake workflows. FDIC data reported $32.98 trillion in non-managed fiduciary account assets at insured institutions in Q4 2025, reflecting the scale and operational complexity of fiduciary account activity that benefits from better knowledge retrieval and routing.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-fdic-fiduciary-assets"
+      ]
+    },
+    {
+      "question": "Who should own the AI agent after launch: operations, compliance, IT, or the trust line of business?",
+      "answer": "Ownership should be shared. The trust line of business defines client and procedure accuracy, compliance approves boundaries and escalation rules, IT/security reviews access and integrations, and operations monitors reporting, content freshness, and workflow adoption.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What are the biggest failure modes we should plan for before launch?",
+      "answer": "Plan for outdated source content, unclear escalation rules, overbroad permissions, staff treating drafts as final advice, and clients asking account-specific questions through the wrong channel. Mitigate with approved sources, role-based access, logs, human review, narrow pilot scope, and clear client-facing disclaimers.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot create an audit trail of what people asked and how the agent responded?",
+      "answer": "DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Those records help teams review answer quality, monitor escalation behavior, and see where policies or client materials need improvement.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep AI actions from creating operational or fiduciary risk?",
+      "answer": "Start with low-risk actions such as creating tickets, generating summaries, routing requests, notifying teams, or updating approved non-sensitive fields. Use scoped permissions, secrets management, network policy, logging, and human review for anything involving identity, distributions, account changes, complaints, or regulated advice.",
+      "role": "Compliance, risk, and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What does a successful rollout look like after the first 90 days?",
+      "answer": "A strong first 90 days shows accurate answers from approved sources, visible reductions in repeat questions, cleaner distribution or document-request intake, staff adoption of the internal agent, documented escalation patterns, and a prioritized list of content gaps to fix next.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    }
+  ]
+}

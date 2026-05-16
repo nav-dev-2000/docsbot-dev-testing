@@ -1,0 +1,747 @@
+{
+  "slug": "business-information",
+  "business": "Business & Information",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Business Information Operations",
+    "description": "DocsBot helps Business & Information teams deliver source-grounded answers, automate intake, and reduce time lost searching internal knowledge.",
+    "canonicalPath": "/industry/business-information"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for knowledge-heavy teams",
+    "headline": "Make business information easier to find, trust, and act on",
+    "subheadline": "DocsBot helps business and information teams create AI agents trained on approved documents, wikis, policies, help content, and internal resources. Employees, customers, and prospects get fast answers while teams use AI Actions to route requests, summarize context, create tasks, and escalate when a human should step in.",
+    "proofBullets": [
+      {
+        "text": "Answer customer, prospect, and employee questions from approved business knowledge sources with citations and consistent language.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Summarize long documents, ticket histories, meeting notes, policies, and knowledge base content into useful next steps.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect intake details, route requests, create tasks, update approved fields, and trigger workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Expose repeated questions, unresolved topics, and documentation gaps through analytics, logs, reports, and conversation review.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your business information agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your company’s own knowledge into AI agents for support, operations, enablement, onboarding, and documentation. Agents can answer from configured sources, summarize business context, support multilingual self-service, and take bounded actions through Skills, APIs, connectors, MCP Connectors, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Operations and knowledge leaders",
+        "roleContext": "For teams responsible for keeping policies, SOPs, project information, and internal knowledge usable across departments.",
+        "bullets": [
+          {
+            "text": "Give employees one place to ask how a process works instead of searching across documents, wikis, drives, and old conversations.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use analytics to spot recurring questions and decide which SOPs, guides, or policies need improvement.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Route requests or create follow-up tasks through customer-configured workflows when an answer alone is not enough.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Customer support and service teams",
+        "roleContext": "For teams handling repeated questions across public help centers, product documentation, support tickets, and customer-facing resources.",
+        "bullets": [
+          {
+            "text": "Provide instant first-line answers in a website or product widget while preserving human escalation for complex issues.",
+            "icon": "DevicePhoneMobileIcon"
+          },
+          {
+            "text": "Draft, summarize, route, or answer support tickets when connected to helpdesk workflows through approved Skills, APIs, connectors, or exports.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support customers in more than 100 languages from the same approved knowledge base.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Sales, enablement, and leadership teams",
+        "roleContext": "For teams that need consistent product, service, pricing-guidance, proposal, and account context without waiting on subject-matter experts.",
+        "bullets": [
+          {
+            "text": "Let reps ask for product fit, objection handling, implementation notes, case study details, and approved sales answers.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect lead details, qualify by customer-defined rules, and forward summaries to sales systems or inboxes through configured workflows.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Prepare prospect research summaries with web search and approved Skills while keeping humans responsible for outreach, pricing, and contract terms.",
+            "icon": "SparklesIcon"
+          }
+        ],
+        "roleIcon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-knowledge-search-time",
+      "metric": "Employees reported losing 8 hours per week looking or waiting for knowledge.",
+      "claim": "Panopto’s Workplace Knowledge and Productivity study reported that employees spent 8 hours each week looking for information or waiting for people to provide it.",
+      "sourceTitle": "How Much Time Is Lost To Knowledge Sharing Inefficiencies At Work?",
+      "sourceUrl": "https://www.panopto.com/blog/how-much-time-is-lost-to-knowledge-sharing-inefficiencies-at-work/",
+      "sourceDate": "2018",
+      "bestUsedFor": [
+        "knowledge retrieval bottlenecks",
+        "internal productivity loss",
+        "business information access"
+      ]
+    },
+    {
+      "id": "src-microsoft-digital-debt",
+      "metric": "62% of surveyed workers said they spent too much time searching, communicating, or coordinating.",
+      "claim": "Microsoft’s 2023 Work Trend Index found that many employees feel digital debt prevents them from spending enough time on creative and strategic work.",
+      "sourceTitle": "2023 Work Trend Index: Will AI Fix Work?",
+      "sourceUrl": "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work/",
+      "sourceDate": "May 2023",
+      "bestUsedFor": [
+        "digital debt",
+        "information overload",
+        "employee productivity"
+      ]
+    },
+    {
+      "id": "src-gallup-onboarding",
+      "metric": "Only 12% strongly agree their organization does a great job onboarding.",
+      "claim": "Gallup reports that only 12% of employees strongly agree their organization does a great job onboarding new employees.",
+      "sourceTitle": "Why the Onboarding Experience Is Key for Retention",
+      "sourceUrl": "https://www.gallup.com/workplace/235121/why-onboarding-experience-key-retention.aspx",
+      "sourceDate": "2018",
+      "bestUsedFor": [
+        "onboarding quality",
+        "employee knowledge access",
+        "training consistency"
+      ]
+    },
+    {
+      "id": "src-zendesk-cx-2024",
+      "metric": "Zendesk surveyed 2,818 consumers and 4,441 CX leaders, agents, and technology buyers.",
+      "claim": "Zendesk’s 2024 CX Trends research says 70% of leaders are completely reimagining the customer journey in light of AI advances.",
+      "sourceTitle": "AI ushers in era of intelligent CX, fuels massive industry transformation",
+      "sourceUrl": "https://www.zendesk.com/newsroom/articles/cx-trends-2024/",
+      "sourceDate": "January 2024",
+      "bestUsedFor": [
+        "AI customer experience expectations",
+        "support automation",
+        "service modernization"
+      ]
+    },
+    {
+      "id": "src-salesforce-connected-customer",
+      "metric": "Salesforce surveyed 13,020 consumers and 3,916 business buyers across 29 countries.",
+      "claim": "Salesforce’s customer engagement research shows business buyers and consumers increasingly expect connected, digital-first experiences across touchpoints.",
+      "sourceTitle": "Customer Engagement Research 2022",
+      "sourceUrl": "https://www.salesforce.com/news/stories/customer-engagement-research/",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "buyer expectations",
+        "digital self-service",
+        "connected customer experience"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Internal knowledge retrieval agent",
+      "problem": "Business information gets scattered across policies, wikis, drives, PDFs, chat history, ticket exports, and departmental documentation, making employees dependent on the same internal experts.",
+      "agentWorkflow": "DocsBot trains on approved internal sources and gives employees source-grounded answers about procedures, tools, finance policies, onboarding steps, contract guidance, brand rules, and operational processes. Conversation analytics reveal repeated questions and missing documentation.",
+      "liveContextOrTools": "When configured, Skills or APIs can look up live status, create a task, route a question to the right team, or attach an answer summary to an internal workflow.",
+      "exampleQuestionsOrRequests": [
+        "Where is the latest expense policy and what changed?",
+        "Summarize the onboarding steps for a new customer success manager.",
+        "Which internal guide explains how we handle enterprise implementation requests?"
+      ],
+      "businessOutcome": "Reduce time lost hunting for information and give teams a consistent way to retrieve trusted business knowledge. Employees in one study reported losing 8 hours per week looking or waiting for knowledge.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-knowledge-search-time"
+      ]
+    },
+    {
+      "name": "Customer self-service support agent",
+      "problem": "Customers and prospects expect quick answers, but support teams often repeat the same explanations from help centers, product pages, service descriptions, and policy documents.",
+      "agentWorkflow": "DocsBot powers a website or product support agent trained on approved public and internal support content. It answers common questions, cites sources, collects missing context, and escalates when a human is needed.",
+      "liveContextOrTools": "Customer-configured helpdesk workflows can allow ticket summaries, drafted replies, routing, escalation notes, and approved status lookups through Skills, APIs, connectors, or exports.",
+      "exampleQuestionsOrRequests": [
+        "How do I get started with this product?",
+        "Can you summarize the setup steps from your documentation?",
+        "This answer did not solve my issue; send this to support with my details."
+      ],
+      "businessOutcome": "Give customers faster first-line support while helping agents focus on complex issues. Zendesk reports that 70% of leaders are reimagining customer journeys as AI changes CX.",
+      "icon": "ChatBubbleLeftIcon",
+      "sourceIds": [
+        "src-zendesk-cx-2024"
+      ]
+    },
+    {
+      "name": "Business document Q&A and summary agent",
+      "problem": "Teams need to interpret long policy documents, reports, proposals, meeting notes, research PDFs, and support histories without manually reading every page.",
+      "agentWorkflow": "DocsBot can answer questions from uploaded documents and configured knowledge sources, summarize key points, extract decisions, compare guidance, and turn long content into concise briefings for internal use.",
+      "liveContextOrTools": "Approved workflows can generate summaries, create review tasks, route document questions to an owner, or prepare a handoff for legal, finance, compliance, or leadership review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the risks and action items in this vendor policy update.",
+        "What does our service catalog say about implementation timelines?",
+        "Draft a short internal brief from these meeting notes and supporting documents."
+      ],
+      "businessOutcome": "Help teams move from reading and searching to reviewing synthesized, source-grounded answers while keeping humans responsible for high-impact decisions.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Employee onboarding and training agent",
+      "problem": "New hires often need fast answers about tools, responsibilities, policies, culture, and team processes, but onboarding information can be fragmented across departments.",
+      "agentWorkflow": "DocsBot can train on onboarding guides, HR policies, role-specific SOPs, training materials, team FAQs, and internal videos or transcripts. New employees ask questions privately and receive consistent answers linked to approved sources.",
+      "liveContextOrTools": "With configured Skills, the agent can collect onboarding questions, create follow-up tasks, notify a manager, or route unresolved topics to HR, IT, or operations.",
+      "exampleQuestionsOrRequests": [
+        "What should I complete during my first week?",
+        "Who approves software access requests?",
+        "Explain our customer escalation policy in plain language."
+      ],
+      "businessOutcome": "Make onboarding knowledge easier to access at the moment of need. Gallup reports that only 12% of employees strongly agree their organization does a great job onboarding.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-gallup-onboarding"
+      ]
+    },
+    {
+      "name": "Sales enablement and lead qualification agent",
+      "problem": "Sales and account teams need accurate answers about products, services, pricing guidance, case studies, implementation details, and prospect fit, but that knowledge changes often.",
+      "agentWorkflow": "DocsBot can act as an internal enablement agent trained on sales playbooks, product docs, proposal templates, case studies, testimonials, objection handling, and customer-facing FAQs. It can also collect prospect details through structured intake.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, web search, or customer-defined workflows, the agent can research accounts, prepare talking points, qualify leads by rules, draft follow-up emails, create tasks, or forward summaries to CRM or sales systems.",
+      "exampleQuestionsOrRequests": [
+        "Which case study supports this prospect’s use case?",
+        "Qualify this lead by company size, region, urgency, and product interest.",
+        "Draft a follow-up email using only approved pricing and implementation language."
+      ],
+      "businessOutcome": "Improve consistency across presales conversations and reduce the time reps spend searching for approved answers before every call.",
+      "icon": "RocketLaunchIcon"
+    },
+    {
+      "name": "Knowledge gap and content improvement agent",
+      "problem": "Business information systems decay when teams cannot see which questions employees, customers, and prospects ask repeatedly or where documentation fails to answer them.",
+      "agentWorkflow": "DocsBot logs conversations, reports common topics, supports conversation review, and surfaces knowledge gaps. Teams can use those insights to prioritize new docs, update outdated content, and tune agent instructions.",
+      "liveContextOrTools": "Configured workflows can create documentation tasks, route gap reports to content owners, or notify support and operations leaders when repeated unresolved topics appear.",
+      "exampleQuestionsOrRequests": [
+        "Which topics had the most unanswered questions this month?",
+        "Show the top repeated policy questions from employees.",
+        "Create a task for the documentation owner to update this missing answer."
+      ],
+      "businessOutcome": "Turn real questions into a roadmap for better knowledge management, support content, onboarding materials, and self-service coverage.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers and prospects a faster way to understand your business",
+    "intro": "A DocsBot customer-facing agent can sit on your website, product, documentation, or support experience to answer from approved sources, collect context, qualify interest, and hand off to people when the request needs judgment, pricing, contracts, or sensitive handling.",
+    "requests": [
+      {
+        "request": "Answer product, service, policy, pricing-guidance, and documentation questions.",
+        "agentResponseStrategy": "Retrieve the most relevant approved content, answer in the company’s voice, cite sources where available, and avoid unsupported claims.",
+        "sourceTypes": [
+          "Help center articles",
+          "Product pages",
+          "Service catalogs",
+          "Pricing guidance",
+          "Public FAQs"
+        ],
+        "optionalAction": "Collect missing details and escalate to sales or support with a short summary when the visitor needs a person.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "Qualify a prospective customer before a sales conversation.",
+        "agentResponseStrategy": "Ask structured intake questions, apply customer-defined qualification rules, summarize fit, and identify the next best handoff path.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "ICP notes",
+          "Product documentation",
+          "Case studies",
+          "Lead forms"
+        ],
+        "optionalAction": "Forward the qualified lead, transcript, and summary to CRM, email, helpdesk, Slack, Microsoft Teams, or another configured sales workflow.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "Help customers get answers outside business hours.",
+        "agentResponseStrategy": "Use the website or product widget to answer common questions instantly and escalate complex issues with context for the next available team member.",
+        "sourceTypes": [
+          "Knowledge base",
+          "Support policies",
+          "Troubleshooting guides",
+          "Ticket exports",
+          "Release notes"
+        ],
+        "optionalAction": "Create a ticket, draft an agent reply, or route the issue through a customer-configured helpdesk workflow.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "Support business buyers who expect connected digital experiences.",
+        "agentResponseStrategy": "Keep answers consistent across product, support, documentation, and sales content so visitors do not receive conflicting information from different teams.",
+        "sourceTypes": [
+          "Website content",
+          "Docs",
+          "Support articles",
+          "Sales FAQs",
+          "Implementation guides"
+        ],
+        "optionalAction": "Use approved live lookups or handoffs to connect the conversation to the right next step.",
+        "icon": "GlobeAltIcon",
+        "sourceIds": [
+          "src-salesforce-connected-customer"
+        ]
+      },
+      {
+        "request": "Respond to multilingual visitors without creating separate knowledge bases.",
+        "agentResponseStrategy": "Answer from the same approved sources in the visitor’s preferred language while maintaining the intended meaning of business policies and documentation.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website content",
+          "Public documentation",
+          "Support FAQs"
+        ],
+        "optionalAction": "Escalate to a human team with the original language, translated summary, and relevant context.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "Deflect repetitive questions while preserving human service quality.",
+        "agentResponseStrategy": "Resolve common requests from approved content, identify uncertainty, and hand off when the user asks for judgment, exceptions, or account-specific support.",
+        "sourceTypes": [
+          "FAQs",
+          "Knowledge base",
+          "Policy docs",
+          "Troubleshooting articles"
+        ],
+        "optionalAction": "Attach the agent’s answer, sources, and unresolved question to the escalation so support does not start from scratch.",
+        "icon": "HandRaisedIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give every team a private business knowledge agent",
+    "intro": "DocsBot can serve as a private internal knowledge agent for HR, IT, finance, legal, operations, sales, support, marketing, and leadership. It helps employees retrieve trusted answers, summarize context, and take approved next steps without exposing private company knowledge to public model training.",
+    "workflows": [
+      {
+        "name": "HR, policy, and onboarding help",
+        "problem": "Employees repeatedly ask where to find benefits, expense, onboarding, travel, and workplace policies, while HR and managers answer the same questions manually.",
+        "agentWorkflow": "Train the agent on HR policies, onboarding guides, employee handbooks, benefits FAQs, and role-specific resources. Employees receive source-grounded guidance and links to the official material.",
+        "sourceTypes": [
+          "Employee handbook",
+          "HR policies",
+          "Onboarding guides",
+          "Benefits FAQs",
+          "Role checklists"
+        ],
+        "optionalAction": "Create an HR follow-up task or route unresolved questions to the right owner through a configured workflow.",
+        "outcome": "Give employees consistent policy answers while reducing repetitive internal questions.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "IT and operations self-service",
+        "problem": "Tool access, troubleshooting, security reminders, software guidance, and internal process questions can interrupt IT and operations teams all day.",
+        "agentWorkflow": "Train DocsBot on IT SOPs, access request instructions, device guidance, approved tools, and operational procedures so employees can troubleshoot and understand process steps.",
+        "sourceTypes": [
+          "IT runbooks",
+          "SOPs",
+          "Access request guides",
+          "Internal tool docs",
+          "Security policies"
+        ],
+        "optionalAction": "Look up approved status, create a support task, or route to IT through customer-configured Skills, APIs, connectors, or ticket workflows.",
+        "outcome": "Reduce internal interruptions and give IT teams better context when escalation is needed.",
+        "icon": "ComputerDesktopIcon"
+      },
+      {
+        "name": "Executive and departmental knowledge briefings",
+        "problem": "Leaders need summaries across project updates, reports, meeting notes, customer feedback, and departmental documentation without chasing each team for context.",
+        "agentWorkflow": "DocsBot can summarize approved internal material, answer questions across sources, and produce concise briefings with references back to the underlying documents.",
+        "sourceTypes": [
+          "Reports",
+          "Meeting notes",
+          "Project docs",
+          "Customer feedback summaries",
+          "Department updates"
+        ],
+        "optionalAction": "Generate a briefing, route an open question to the document owner, or create a follow-up task for review.",
+        "outcome": "Help leaders move faster while keeping decisions grounded in current internal knowledge.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Sales and support team assist",
+        "problem": "Customer-facing teams need approved answers, implementation details, objection handling, and support history while conversations are happening.",
+        "agentWorkflow": "Train DocsBot on product docs, service catalogs, sales playbooks, support articles, ticket exports, and implementation notes so reps can retrieve answers and draft responses quickly.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product docs",
+          "Support tickets",
+          "Case studies",
+          "Implementation notes"
+        ],
+        "optionalAction": "Draft a support reply, create a CRM task, summarize account context, or notify a channel through configured workflows.",
+        "outcome": "Improve response consistency and reduce the time teams spend searching before replying.",
+        "icon": "EnvelopeIcon",
+        "sourceIds": [
+          "src-microsoft-digital-debt"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your own business knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from configured sources such as websites, help centers, documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other approved company knowledge.",
+      "industryApplication": "Business and information teams can centralize access to policies, SOPs, service catalogs, sales playbooks, onboarding materials, support content, and operational knowledge.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers and document Q&A",
+      "mainLandingPageContext": "DocsBot answers from approved content and can cite or reference the source material used to generate the response.",
+      "industryApplication": "Employees and customers can ask plain-language questions about long documents, policies, service details, and help articles instead of manually searching every page.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record creation, field updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Business information teams can move from answer-only self-service to approved workflows that create tasks, route requests, summarize conversations, or retrieve live context from authorized systems, including MCP-connected tools where appropriate.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk-connected ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or workflows to learn from, summarize, draft, route, or answer tickets.",
+      "industryApplication": "Support teams can use historical ticket knowledge and current support documentation to answer repeated questions, prepare replies, and hand off complex cases with context.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Leaders can see what employees, customers, and prospects are asking, then prioritize documentation updates, training content, support articles, and internal process improvements.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Business information teams can deploy internal agents for sensitive operational knowledge while managing permissions, access boundaries, logs, and review paths for higher-impact workflows.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high-volume customer support, including over 30,000 inquiries handled in one month for Sony NURO.",
+      "Built for teams that want answers grounded in their own content library, not generic web responses.",
+      "Useful across public support, private team assistance, documentation, and helpdesk-connected workflows."
+    ],
+    "whyTheseReviewsFit": "Business and information teams need AI agents that can handle real support volume, stay grounded in approved content, and fit both customer-facing and internal workflows. DocsBot proof spans high-volume inquiry handling, owned-content training, embedded support, and internal decision support.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "PuzzlePieceIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for business information management, support, onboarding, and internal knowledge access",
+    "audience": [
+      "Operations leaders",
+      "Knowledge management teams",
+      "Customer support leaders",
+      "Sales enablement teams",
+      "HR and IT leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BriefcaseIcon"
+  },
+  "relatedIndustrySlugs": [
+    "it-services-msps",
+    "online-business-saas",
+    "ai-automation-agency",
+    "ai-consulting",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "business-information",
+    "webSearchQueries": [
+      "McKinsey average employee time searching for information knowledge workers 19 percent",
+      "Gallup exceptional onboarding employees 2.6 times extremely satisfied workplace",
+      "Panopto workplace knowledge sharing employees search information hours per week",
+      "Salesforce State of the Connected Customer business buyers expect connected experiences",
+      "Zendesk CX Trends 2024 consumers expect AI customer service 24/7",
+      "Microsoft Work Trend Index 2023 employees spend searching for information data"
+    ],
+    "sourceUrls": [
+      "https://www.panopto.com/blog/how-much-time-is-lost-to-knowledge-sharing-inefficiencies-at-work/",
+      "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work/",
+      "https://www.gallup.com/workplace/235121/why-onboarding-experience-key-retention.aspx",
+      "https://www.zendesk.com/newsroom/articles/cx-trends-2024/",
+      "https://www.salesforce.com/news/stories/customer-engagement-research/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47504,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 26768,
+        "outputTokens": 8218,
+        "reasoningOutputTokens": 225,
+        "totalTokens": 55722,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.195374,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.215374
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27829,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 12341,
+          "outputTokens": 5321,
+          "reasoningOutputTokens": 225,
+          "totalTokens": 33150,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.114539,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.134539
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19675,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14427,
+          "outputTokens": 2897,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22572,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080835,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080835
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1603201667141-5a2d4c673378?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDQ0NTN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Business & Information background image",
+    "source": "legacy-industry",
+    "query": "Business & Information"
+  },
+  "faq": [
+    {
+      "question": "How do we know an internal knowledge agent will actually reduce time spent searching instead of becoming another place employees have to check?",
+      "answer": "DocsBot is designed to sit on top of approved business knowledge—wikis, documents, SOPs, policies, help content, and internal resources—so employees can ask in plain language instead of guessing where a file lives. This matters because employees in one study reported losing 8 hours per week looking for information or waiting for someone to provide it.",
+      "role": "Operations and knowledge leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-knowledge-search-time"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer from multiple departments’ knowledge without giving everyone access to sensitive HR, finance, or legal content?",
+      "answer": "Yes. DocsBot supports private internal agents with granular access controls and role-based permissions, so teams can manage which sources, workflows, and users are allowed for each agent. That lets operations, HR, IT, finance, legal, support, and sales use shared AI access patterns without treating all company knowledge as public.",
+      "role": "Operations and knowledge leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when the answer is not in our documentation or the agent is unsure?",
+      "answer": "DocsBot should be configured to stay grounded in approved sources, identify uncertainty, and escalate instead of improvising. Teams can route unresolved questions to the right owner, create a follow-up task, or use conversation review to turn repeated unanswered questions into documentation updates.",
+      "role": "Operations and knowledge leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for both employee knowledge and customer self-service, or should those be separate agents?",
+      "answer": "Most buyers separate them by audience, permissions, and source set. A customer-facing agent can answer from public help content, product pages, policies, and FAQs, while a private internal agent can use SOPs, ticket history, sales playbooks, onboarding guides, and operational documents. DocsBot supports both patterns without requiring one blended knowledge base.",
+      "role": "Customer support and service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot fit with our existing helpdesk without forcing us to replace it?",
+      "answer": "DocsBot can support helpdesk-connected workflows through customer-configured Skills, APIs, connectors, exports, or workflow automation. Typical use cases include summarizing a ticket, drafting a reply, routing an issue, attaching source-grounded context, or escalating to a human agent. It should complement the system of record rather than replace your helpdesk.",
+      "role": "Customer support and service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent take actions, or is it limited to answering questions?",
+      "answer": "DocsBot AI Actions and Skills can let an agent take bounded, approved steps such as collecting intake details, looking up live status, creating a task or ticket, routing a request, updating approved fields, notifying a team, or triggering a workflow. Buyers usually start with low-risk actions and add higher-impact actions only with permissions, logging, and review paths.",
+      "role": "Operations and knowledge leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated policy, pricing, or implementation guidance?",
+      "answer": "The practical control is source governance: train the agent on approved sources, remove stale documents, keep ownership clear, and review conversation logs for gaps. DocsBot’s analytics and knowledge-gap discovery help teams see where employees, customers, or prospects keep asking questions that current documentation does not answer well.",
+      "role": "Operations and knowledge leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What metrics should we use to judge whether an AI knowledge agent is working?",
+      "answer": "Useful metrics include repeated-question volume, answer resolution rate, escalation rate, time to first answer, search deflection, employee adoption, unanswered topics, documentation gaps closed, and support-ticket reduction. For internal use, also track whether teams spend less time searching and coordinating; Microsoft found 62% of surveyed workers said they spent too much time searching, communicating, or coordinating.",
+      "role": "Operations and knowledge leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-microsoft-digital-debt"
+      ]
+    },
+    {
+      "question": "Can leadership see what people are asking without reading every conversation manually?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Leaders can use those signals to identify broken processes, confusing policies, missing enablement content, and recurring customer questions that deserve better documentation.",
+      "role": "Sales, enablement, and leadership teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much cleanup do we need to do before launching an internal knowledge agent?",
+      "answer": "You do not need a perfect knowledge base, but you do need a trusted starting set. Most teams begin with high-value, approved sources such as handbooks, SOPs, service catalogs, onboarding guides, support articles, and sales playbooks. Then they use conversation logs and gap reports to prioritize cleanup based on real questions.",
+      "role": "Operations and knowledge leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support onboarding without replacing managers or HR?",
+      "answer": "Yes. DocsBot can answer routine onboarding questions from approved handbooks, role checklists, HR policies, benefits FAQs, and team guides, while routing sensitive or unresolved questions to HR, IT, operations, or a manager. That is useful because Gallup reports that only 12% of employees strongly agree their organization does a great job onboarding.",
+      "role": "Operations and knowledge leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-gallup-onboarding"
+      ]
+    },
+    {
+      "question": "Can customer-facing agents handle after-hours questions without creating support risk?",
+      "answer": "DocsBot can answer common questions from approved help centers, product docs, service pages, policies, and FAQs outside business hours, then escalate complex, sensitive, or account-specific issues with a summary for the next available person. This supports faster self-service without asking AI to make judgment calls it should not make.",
+      "role": "Customer support and service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will customers accept AI answers, or will this hurt the service experience?",
+      "answer": "The safest approach is to make the agent useful, transparent, and easy to escalate from. DocsBot can provide source-grounded answers, preserve human handoff, and attach conversation context so support does not start over. Zendesk’s 2024 research found that 70% of leaders are reimagining the customer journey in light of AI advances.",
+      "role": "Customer support and service teams",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-zendesk-cx-2024"
+      ]
+    },
+    {
+      "question": "Can the agent answer in multiple languages from the same knowledge base?",
+      "answer": "Yes. DocsBot can support customers in more than 100 languages from the same approved knowledge base. For risk control, teams can configure escalation so multilingual conversations include the original language, a translated summary, and the relevant source context for a human reviewer.",
+      "role": "Customer support and service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How can sales teams use DocsBot without risking unapproved pricing or contract language?",
+      "answer": "Train the sales enablement agent on approved product docs, pricing guidance, case studies, proposal templates, implementation notes, and objection handling. Then make the agent draft or retrieve approved language while keeping humans responsible for outreach, pricing exceptions, contract terms, regulated advice, and final commitments.",
+      "role": "Sales, enablement, and leadership teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot qualify leads from our website before a rep gets involved?",
+      "answer": "Yes. A DocsBot presales agent can collect structured details such as company, role, region, timeline, budget range, product interest, current system, and use case. With customer-defined rules and approved workflows, it can summarize fit and forward the lead, transcript, and next-step context to CRM, email, helpdesk, Slack, Microsoft Teams, or another configured system.",
+      "role": "Sales, enablement, and leadership teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with letting employees use a general-purpose AI tool?",
+      "answer": "DocsBot is built for source-grounded answers from your approved business knowledge, with access controls, logs, analytics, citations, and workflow boundaries. General AI tools may help with drafting, but they usually do not solve the buyer’s core problem: trusted retrieval from company-specific documents, policies, tickets, playbooks, and operational systems.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should procurement and security teams ask before approving an AI agent for private company knowledge?",
+      "answer": "They should ask about data use, access controls, encryption, auditability, permissions, retention, workflow boundaries, and whether customer data trains public models. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent said after the fact?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, analytics, satisfaction and resolution analysis, and knowledge-gap discovery. That gives managers a way to audit responses, find confusing topics, tune instructions, update source content, and decide where human review should be required.",
+      "role": "Operations and knowledge leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we roll this out without overwhelming employees or support agents?",
+      "answer": "Start with one or two high-friction workflows: internal policy Q&A, customer self-service, onboarding, sales enablement, or ticket summarization. Limit sources to approved material, define escalation rules, review early conversations, and publish examples of good questions. Adoption improves when the agent solves specific daily interruptions rather than launching as a vague AI experiment.",
+      "role": "Operations and knowledge leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot summarize long documents, meeting notes, reports, or ticket histories for executives?",
+      "answer": "Yes. DocsBot can answer questions from uploaded documents and configured knowledge sources, summarize long content, extract action items, compare guidance, and prepare concise briefings with references back to the underlying material. For high-impact decisions, the agent should support review rather than replace executive, legal, finance, or compliance judgment.",
+      "role": "Sales, enablement, and leadership teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if different departments have conflicting documentation?",
+      "answer": "DocsBot can expose the conflict by grounding answers in source material and showing which content is being used. The organizational fix is to assign content owners, retire outdated sources, and use analytics to identify recurring confusion. The agent should not be asked to invent a policy decision when approved sources disagree.",
+      "role": "Operations and knowledge leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot connect to live systems, or only static documents?",
+      "answer": "DocsBot can train on static approved sources and, when configured, use Skills, APIs, connectors, MCP Connectors, metadata, or customer-defined workflows to retrieve live context or take scoped actions. Examples include status lookups, task creation, routing, field updates, summaries, notifications, and handoffs where the customer has authorized the connection.",
+      "role": "Operations and knowledge leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we build a business case if each department has different pain points?",
+      "answer": "Frame the business case around shared knowledge friction: fewer repeated questions, faster support answers, shorter onboarding loops, better sales consistency, fewer interruptions to subject-matter experts, and clearer documentation priorities. Salesforce’s customer engagement research surveyed 13,020 consumers and 3,916 business buyers and found rising expectations for connected, digital-first experiences across touchpoints.",
+      "role": "Sales, enablement, and leadership teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-salesforce-connected-customer"
+      ]
+    },
+    {
+      "question": "Will DocsBot scale if we start with one team and later expand to support, HR, sales, and operations?",
+      "answer": "Yes. DocsBot can support multiple agents and use cases across public support, private team assistance, documentation, onboarding, sales enablement, and workflow automation. The key is to scale governance alongside adoption: separate source sets, permissions, instructions, action scopes, review owners, and success metrics by audience.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What internal owner should manage the agent after launch?",
+      "answer": "The best owner is usually the team accountable for the knowledge or workflow, not just IT. Operations or knowledge leaders may own internal SOPs, support may own help content, HR may own onboarding, and sales enablement may own playbooks. IT and security should govern access, integrations, and risk controls across all of them.",
+      "role": "Operations and knowledge leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use conversation data to improve our documentation roadmap?",
+      "answer": "Yes. DocsBot can show repeated topics, unresolved questions, satisfaction signals, and knowledge gaps. That lets content owners prioritize the SOPs, support articles, onboarding materials, policy pages, or sales assets that would remove the most friction, instead of guessing what employees or customers need.",
+      "role": "Operations and knowledge leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we evaluate DocsBot against building our own retrieval-augmented AI system?",
+      "answer": "Compare total ownership, not just prototype cost. A production system needs source ingestion, permissions, citations, logging, analytics, review workflows, security controls, action boundaries, multilingual support, and ongoing maintenance. DocsBot is usually a better fit when teams want business-ready knowledge agents without turning an internal AI experiment into a permanent platform project.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    }
+  ]
+}

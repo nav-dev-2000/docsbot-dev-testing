@@ -1,0 +1,752 @@
+{
+  "slug": "attorney-services",
+  "business": "Attorney",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Attorney Intake, Knowledge, and Client Service",
+    "description": "DocsBot helps attorney practices deploy AI agents that answer from approved firm knowledge, qualify intake, and route sensitive client requests faster.",
+    "canonicalPath": "/industry/attorney-services"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for modern law practices",
+    "headline": "DocsBot AI agents help attorneys respond, route, and research faster",
+    "subheadline": "Train an AI support or internal knowledge agent on your firm’s approved FAQs, intake scripts, policy documents, matter procedures, templates, and knowledge base. DocsBot helps staff answer routine questions, summarize context, collect intake details, and escalate legal judgment to the right professional.",
+    "proofBullets": [
+      {
+        "text": "Answer routine prospect and client questions from approved firm content, with source-grounded responses and human escalation for sensitive matters.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details, identify practice-area fit, and route consultation requests through customer-configured forms, APIs, or workflows.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Give attorneys, paralegals, and staff a private knowledge agent for SOPs, templates, policies, onboarding, and recurring matter procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize conversations, create tasks or tickets, trigger handoffs, and look up approved live context when configured by the firm.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your legal AI agent",
+    "secondaryCta": "Explore attorney workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps attorney services firms create AI agents trained on approved firm knowledge, public website content, FAQs, PDFs, internal SOPs, templates, and other configured sources. The agent can answer in the firm’s voice, retrieve source-grounded information, collect intake details, summarize client context, route requests, surface knowledge gaps, and keep sensitive legal advice or high-impact decisions with qualified humans.",
+    "whoItHelps": [
+      {
+        "role": "Managing attorneys and firm owners",
+        "roleContext": "Keep the firm responsive without turning every recurring question, consultation request, or document lookup into a manual interruption.",
+        "bullets": [
+          {
+            "text": "Offer always-available first responses for practice areas, consultation steps, document lists, office policies, billing basics, and next-step expectations.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Route prospective clients by practice area, urgency, jurisdiction, conflict-screening status, and preferred follow-up channel using firm-defined rules.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Review conversation logs, recurring questions, and knowledge gaps to improve website content, intake scripts, and staff training materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Paralegals, intake teams, and legal assistants",
+        "roleContext": "Reduce repetitive information gathering while preserving the review paths attorneys need for confidentiality, conflicts, deadlines, and legal advice.",
+        "bullets": [
+          {
+            "text": "Collect structured facts for consultations, document requests, status questions, and follow-up summaries before a staff member takes over.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Find approved templates, checklists, filing instructions, and matter procedures without searching across scattered folders and wikis.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Draft internal handoff notes from a conversation so staff can see the question, facts provided, missing information, and recommended next step.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, operations, and knowledge leaders",
+        "roleContext": "Give the practice a governed AI layer for private knowledge while setting boundaries around client confidentiality and professional responsibility.",
+        "bullets": [
+          {
+            "text": "ABA Model Rule 1.6 addresses confidentiality of information relating to client representation, making controlled source access and review boundaries important for legal AI workflows.",
+            "icon": "LockClosedIcon",
+            "sourceIds": [
+              "src-aba-model-rule-1-6"
+            ]
+          },
+          {
+            "text": "Use granular access controls, role-based permissions, encryption, and SOC 2 Type II certified infrastructure for private firm knowledge.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Connect approved tools through Skills, APIs, connectors, or MCP servers so actions stay scoped to firm-authorized lookups and workflows.",
+            "icon": "PuzzlePieceIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon",
+        "sourceIds": [
+          "src-aba-model-rule-1-6"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aba-lawyer-population",
+      "metric": "1.37 million U.S. lawyers in 2025",
+      "claim": "The ABA reported that the number of lawyers in the United States rose to 1.37 million in 2025, up from 1.35 million the prior year.",
+      "sourceTitle": "ABA Profile of the Legal Profession",
+      "sourceUrl": "https://www.americanbar.org/news/profile-legal-profession/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "legal services competition",
+        "law firm operations"
+      ]
+    },
+    {
+      "id": "src-clio-2024-ai-automation",
+      "metric": "Nearly three-quarters of hourly billable tasks exposed to AI automation",
+      "claim": "Clio’s 2024 Legal Trends coverage reported that nearly three-quarters of a law firm’s hourly billable tasks are exposed to AI automation, with higher exposure for legal secretaries and administrative assistants.",
+      "sourceTitle": "AI-powered legal practices surge: Clio’s latest Legal Trends Report reveals major shift",
+      "sourceUrl": "https://www.clio.com/about/press/clio-latest-legal-trends-report/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "AI automation opportunity",
+        "administrative burden",
+        "practice efficiency"
+      ]
+    },
+    {
+      "id": "src-clio-2024-client-experience",
+      "metric": "Technology-enhanced client experiences associated with 51% more leads and 52% more revenue",
+      "claim": "Clio’s 2024 Legal Trends highlights reported that firms using technology to enhance client experiences had 51% more client leads and 52% more revenue.",
+      "sourceTitle": "It’s Here: The Newest Legal Trends Report",
+      "sourceUrl": "https://www.clio.com/blog/highlights-from-2024-legal-trends-report/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "client expectations",
+        "intake responsiveness",
+        "growth and revenue"
+      ]
+    },
+    {
+      "id": "src-lsc-justice-gap",
+      "metric": "92% of substantial low-income civil legal problems received inadequate or no legal help",
+      "claim": "The Legal Services Corporation’s Justice Gap study found that 92% of substantial civil legal problems faced by low-income Americans received inadequate or no legal help.",
+      "sourceTitle": "The Unmet Civil Legal Needs of Low-income Americans: The Justice Gap Report",
+      "sourceUrl": "https://justicegap.lsc.gov/resource/2022-justice-gap-report/",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "access to legal help",
+        "intake triage",
+        "self-service information needs"
+      ]
+    },
+    {
+      "id": "src-aba-model-rule-1-6",
+      "metric": "Confidentiality duty for information relating to representation",
+      "claim": "ABA Model Rule 1.6 sets the baseline professional responsibility principle that lawyers must protect information relating to client representation, subject to defined exceptions.",
+      "sourceTitle": "ABA Model Rules of Professional Conduct: Rule 1.6 Confidentiality of Information",
+      "sourceUrl": "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_6_confidentiality_of_information/",
+      "sourceDate": "Current ABA model rule page",
+      "bestUsedFor": [
+        "confidentiality",
+        "governance",
+        "review boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Practice-area intake and consultation routing",
+      "problem": "Prospective clients often arrive with incomplete facts, urgent timelines, unclear practice-area fit, and repeated questions about fees, documents, and consultation steps.",
+      "agentWorkflow": "A DocsBot agent answers from approved website pages, intake FAQs, office policies, and practice-area descriptions. It collects structured details such as name, contact information, matter type, jurisdiction, urgency, opposing party names for downstream conflict review, and preferred follow-up channel, then prepares a handoff summary for staff.",
+      "liveContextOrTools": "With firm-approved Skills, APIs, connectors, or workflow automations, the agent can submit a custom intake form, create a task or ticket, notify the intake team, or request a consultation slot through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle contested divorces in my county?",
+        "What documents should I bring to an estate planning consultation?",
+        "I was served today. Can someone call me as soon as possible?",
+        "Can I book a consultation for a business contract dispute?"
+      ],
+      "businessOutcome": "Improve first-response consistency, reduce repetitive intake calls, and help staff prioritize qualified, urgent, or out-of-scope inquiries without letting the agent provide legal advice.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Client status and document request assistant",
+      "problem": "Clients frequently ask for next steps, document checklists, office procedures, and matter status updates that interrupt staff even when the answer is procedural.",
+      "agentWorkflow": "DocsBot can answer procedural questions from approved client guides, engagement materials, checklists, and matter-stage FAQs. For case-specific status, the agent can collect identifying details and either provide approved live context when configured or escalate to the responsible staff member with a concise summary.",
+      "liveContextOrTools": "Through scoped AI Actions, the firm can configure approved record lookups, task creation, status-request routing, or handoff notifications. Sensitive legal analysis, strategy, deadlines, and advice remain routed to humans.",
+      "exampleQuestionsOrRequests": [
+        "What happens after discovery responses are served?",
+        "Can you send me the checklist for my trust signing appointment?",
+        "Has my request for documents been received?",
+        "Who should I contact about updating my mailing address?"
+      ],
+      "businessOutcome": "Give clients faster procedural guidance while reducing avoidable interruptions for paralegals and preserving attorney review for case-specific judgment.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Internal legal knowledge and SOP retrieval",
+      "problem": "Firm knowledge is often spread across PDFs, Word files, shared drives, templates, wikis, CLE notes, and senior staff memory, making consistent answers difficult during busy periods.",
+      "agentWorkflow": "A private DocsBot knowledge agent can train on approved SOPs, office policies, onboarding guides, template instructions, billing procedures, and internal FAQs. Staff can ask natural-language questions and receive source-grounded answers with references back to approved materials.",
+      "liveContextOrTools": "The agent can be available in private chat experiences, Slack, Microsoft Teams, or other configured internal channels. Admins can review logs and identify documentation gaps based on repeated questions.",
+      "exampleQuestionsOrRequests": [
+        "Where is the latest engagement letter template?",
+        "What is our procedure for opening a new probate matter?",
+        "How do we code a consultation that becomes a flat-fee matter?",
+        "What checklist do we use before closing a litigation file?"
+      ],
+      "businessOutcome": "Reduce time spent searching for firm knowledge, help new staff ramp faster, and make recurring procedures easier to follow consistently.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Attorney research packet and document summary support",
+      "problem": "Attorneys and paralegals need quick orientation to long internal materials, prior memos, deposition summaries, client emails, and matter notes, but final legal analysis must remain with qualified professionals.",
+      "agentWorkflow": "DocsBot can summarize approved documents, retrieve relevant internal references, and draft a research or handoff packet from the firm’s uploaded knowledge sources. The agent can highlight what source materials say, what facts are missing, and what questions require attorney review.",
+      "liveContextOrTools": "When configured with approved source access and review workflows, the agent can generate summaries, create internal tasks, or route a packet to the responsible attorney. It should not be positioned as a substitute for legal research platforms, attorney judgment, or jurisdiction-specific advice.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the client’s uploaded chronology and list missing dates.",
+        "Find our internal memo on noncompete intake questions.",
+        "Create a handoff summary for the attorney before tomorrow’s consultation.",
+        "What facts should staff verify before preparing the demand letter packet?"
+      ],
+      "businessOutcome": "Help legal teams prepare faster while keeping interpretation, strategy, and final work product under attorney supervision.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Client experience analytics and content gap discovery",
+      "problem": "Law firm websites and intake teams receive recurring questions, but firms may not systematically see which topics are confusing prospects or clients.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Firms can see repeated questions, unanswered topics, and opportunities to improve intake pages, FAQs, client guides, and internal training.",
+      "liveContextOrTools": "Reports can inform content updates, staff coaching, new source uploads, and revised AI instructions. Follow-up workflows can route unresolved topics to operations or marketing for review.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are prospects asking before booking a consultation?",
+        "What topics does the agent fail to answer confidently?",
+        "Which practice-area pages need clearer FAQs?",
+        "What recurring client questions should become a checklist?"
+      ],
+      "businessOutcome": "Use real conversation patterns to improve legal content, intake quality, and staff training without relying only on anecdotal feedback.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Access-oriented self-service legal information",
+      "problem": "Many people need basic procedural information before they can decide whether to contact a lawyer, legal aid organization, or court resource.",
+      "agentWorkflow": "A DocsBot agent can answer from approved public pages, clinic FAQs, legal aid resource lists, document-preparation instructions, and referral criteria. It can clarify what the organization does, what it does not do, what information to gather, and when to seek human help.",
+      "liveContextOrTools": "The agent can collect eligibility or referral details through a structured form, route urgent matters to staff, or provide approved links and handoff summaries. It should clearly avoid individualized legal advice unless a qualified human takes over.",
+      "exampleQuestionsOrRequests": [
+        "Do I qualify for this clinic?",
+        "What should I bring to my eviction appointment?",
+        "Where can I find the court form packet?",
+        "Can someone help me understand whether this office handles my issue?"
+      ],
+      "businessOutcome": "Support clearer navigation for people seeking help; LSC reported that 92% of substantial low-income civil legal problems received inadequate or no legal help.",
+      "icon": "BuildingLibraryIcon",
+      "sourceIds": [
+        "src-lsc-justice-gap"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and clients a careful first response before staff step in",
+    "intro": "DocsBot can power a website or client-facing AI support agent trained on the firm’s approved content. It can answer procedural questions, collect intake details, route urgent or sensitive requests, and escalate legal advice, conflicts, deadlines, and strategy to the right human.",
+    "requests": [
+      {
+        "request": "“Do you handle my type of case, and what happens after I contact you?”",
+        "agentResponseStrategy": "Answer from practice-area pages and intake FAQs, explain the consultation process, collect basic fit details, and route the inquiry to intake staff when the person is ready to be contacted.",
+        "sourceTypes": [
+          "Practice-area pages",
+          "Intake FAQs",
+          "Consultation policies",
+          "Office procedures"
+        ],
+        "optionalAction": "Submit a structured intake form or create a staff task through a customer-configured workflow.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "request": "“What documents should I bring to my appointment?”",
+        "agentResponseStrategy": "Retrieve the relevant checklist from approved client guides, clarify that the list is procedural, and ask follow-up questions only within the firm’s configured intake boundaries.",
+        "sourceTypes": [
+          "Client checklists",
+          "Matter-stage guides",
+          "PDF packets",
+          "Engagement materials"
+        ],
+        "optionalAction": "Email or display the checklist when the firm has configured an approved delivery workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I have a court deadline. Can you help right now?”",
+        "agentResponseStrategy": "Avoid legal advice, gather urgency details, explain emergency contact instructions from approved firm policy, and escalate to staff or attorneys according to the firm’s rules.",
+        "sourceTypes": [
+          "Urgent contact policy",
+          "Office hours",
+          "Escalation instructions",
+          "Practice-area disclaimers"
+        ],
+        "optionalAction": "Notify the designated intake channel or create a high-priority handoff with the conversation summary.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Can you tell me the status of my matter?”",
+        "agentResponseStrategy": "Authenticate or collect identifying details according to the firm’s process, provide only approved procedural information, and route case-specific updates to staff unless a scoped live lookup is configured.",
+        "sourceTypes": [
+          "Client portal instructions",
+          "Status request policy",
+          "Matter-stage FAQs",
+          "Approved live context"
+        ],
+        "optionalAction": "Trigger a status-request workflow, task, or approved record lookup with logs and firm-defined permissions.",
+        "icon": "EyeIcon"
+      },
+      {
+        "request": "“Can I speak with someone in another language?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages from the same approved source materials, while the firm defines when bilingual staff, interpreters, or attorney review are required.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Office policy",
+          "Intake scripts",
+          "Escalation rules"
+        ],
+        "optionalAction": "Route the request to the correct language-capable contact or intake queue when configured.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“How much will this cost?”",
+        "agentResponseStrategy": "Share only approved fee explanations, consultation policies, payment process information, and disclaimers. Route individualized quotes, retainers, and engagement terms to humans.",
+        "sourceTypes": [
+          "Fee policy pages",
+          "Consultation FAQs",
+          "Billing procedures",
+          "Engagement policies"
+        ],
+        "optionalAction": "Collect budget or payment preference information for staff review, without committing the firm to terms.",
+        "icon": "BanknotesIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for attorneys, paralegals, and firm operations",
+    "intro": "DocsBot can help staff retrieve approved internal knowledge across SOPs, templates, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, and other firm sources. The agent provides source-grounded answers, summaries, and handoffs while access controls and review paths keep sensitive work bounded.",
+    "workflows": [
+      {
+        "name": "Template and checklist retrieval",
+        "problem": "Staff lose time searching for the correct version of engagement letters, closing checklists, intake scripts, discovery templates, and administrative forms.",
+        "agentWorkflow": "Train DocsBot on approved templates and instructions so staff can ask for the right document, understand when to use it, and see the source reference behind the answer.",
+        "sourceTypes": [
+          "Templates",
+          "Checklists",
+          "SOPs",
+          "Shared drive documents"
+        ],
+        "optionalAction": "Create a task for template review or flag outdated documents when staff identify a gap.",
+        "outcome": "Reduce version confusion and make recurring matter workflows easier to follow.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "New hire and lateral onboarding",
+        "problem": "New attorneys, paralegals, and legal assistants need quick answers about firm tools, naming conventions, intake policies, billing processes, and client communication rules.",
+        "agentWorkflow": "A private internal DocsBot agent answers onboarding questions from approved HR, IT, finance, operations, and practice-group materials, giving new team members a consistent place to start.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "HR policies",
+          "IT procedures",
+          "Billing guides"
+        ],
+        "optionalAction": "Route unanswered onboarding questions to operations so missing documentation can be added.",
+        "outcome": "Help new staff become productive without repeatedly interrupting senior team members.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Billing and administrative procedure support",
+        "problem": "Law firms have many recurring administrative questions around time entries, expense coding, payment policies, file opening, file closing, and client communication workflows.",
+        "agentWorkflow": "DocsBot can retrieve firm-approved procedures, summarize the relevant steps, and point staff to the correct policy or template. It can also draft an internal note when an exception needs review.",
+        "sourceTypes": [
+          "Billing policies",
+          "Finance SOPs",
+          "Matter administration guides",
+          "Client communication policies"
+        ],
+        "optionalAction": "Create a review task or route an exception to the billing or operations team through a configured workflow.",
+        "outcome": "Improve consistency in administrative work that affects profitability, client experience, and compliance.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "name": "Confidentiality-aware knowledge access",
+        "problem": "Legal teams need AI assistance, but client confidentiality and role-appropriate access are non-negotiable.",
+        "agentWorkflow": "DocsBot supports private knowledge sources, granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, and GDPR-ready governance. Firms can define which sources an agent may use and which actions require human review.",
+        "sourceTypes": [
+          "Client confidentiality policies",
+          "Access control rules",
+          "Security procedures",
+          "Approved knowledge sources"
+        ],
+        "optionalAction": "Limit Skills, secrets, metadata bindings, and network access so the agent can only use firm-authorized resources.",
+        "outcome": "Support AI adoption while keeping sensitive information inside controlled firm workflows.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Internal matter handoff summaries",
+        "problem": "When responsibility shifts between intake, paralegals, associates, and partners, important context can be buried in long notes and message threads.",
+        "agentWorkflow": "DocsBot can summarize approved conversation history, intake answers, document lists, and procedural notes into a concise handoff that identifies key facts, missing items, and next steps for human review.",
+        "sourceTypes": [
+          "Intake transcripts",
+          "Matter notes",
+          "Client checklists",
+          "Internal procedures"
+        ],
+        "optionalAction": "Attach the summary to a task, ticket, or internal notification through a customer-configured workflow.",
+        "outcome": "Make handoffs clearer while preserving attorney responsibility for legal analysis and client advice.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from firm knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on the company’s approved knowledge sources and returns answers grounded in that content.",
+      "industryApplication": "Answer attorney service questions from practice pages, intake FAQs, office policies, checklists, templates, and internal procedures instead of improvising unsupported responses.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can appear in a website or product chat widget and in private team experiences for employees.",
+      "industryApplication": "Place a public-facing agent on the firm website for procedural questions and give staff a private knowledge agent for SOPs, templates, and onboarding materials.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, summaries, routing, updates, and workflow triggers.",
+      "industryApplication": "Route consultation requests, create intake tasks, summarize client conversations, trigger handoffs, or connect through approved APIs, connectors, and Model Context Protocol servers where the firm has authorized access.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and bounded workflows",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person.",
+      "industryApplication": "Escalate legal advice, conflict issues, deadlines, strategy, fee commitments, and case-specific judgments while automating procedural answers and intake triage.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which questions prospects and clients ask most, where content is missing, and which intake or client guide pages need clearer answers.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Support private legal knowledge workflows with controlled access and firm-defined boundaries around sensitive sources, actions, and review requirements.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own approved knowledge library instead of generic web content.",
+      "Use internal AI assistance to reduce direct human interaction for routine decision support and information retrieval.",
+      "Summarize long materials and conversations so professionals can review context faster."
+    ],
+    "whyTheseReviewsFit": "Attorney services buyers need source-grounded answers, private knowledge access, and practical workflow relief without losing professional oversight. DocsBot proof from knowledge-heavy teams shows how owned content, internal decision support, and summarization can help experts move faster while keeping humans responsible for high-impact judgment.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "DocumentTextIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents for attorney intake, client support, internal legal knowledge, and workflow automation",
+    "audience": [
+      "Managing attorneys",
+      "Law firm operations leaders",
+      "Paralegals and intake teams",
+      "Legal knowledge and compliance leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScaleIcon"
+  },
+  "relatedIndustrySlugs": [
+    "employment-law",
+    "intellectual-property-law",
+    "legal-document-drafting",
+    "patent-agent",
+    "court-reporter",
+    "compliance-consulting"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "attorney-services",
+    "webSearchQueries": [
+      "American Bar Association Profile of Legal Profession 2024 lawyers United States number of lawyers",
+      "Clio Legal Trends Report 2024 lawyers spend billable hours administrative tasks client intake response time",
+      "ABA Model Rules of Professional Conduct confidentiality client communication technology competence",
+      "Legal Services Corporation justice gap report 2022 low income Americans legal problems"
+    ],
+    "sourceUrls": [
+      "https://www.americanbar.org/news/profile-legal-profession/",
+      "https://www.clio.com/about/press/clio-latest-legal-trends-report/",
+      "https://www.clio.com/blog/highlights-from-2024-legal-trends-report/",
+      "https://justicegap.lsc.gov/resource/2022-justice-gap-report/",
+      "https://www.americanbar.org/groups/professional_responsibility/publications/model_rules_of_professional_conduct/rule_1_6_confidentiality_of_information/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 63691,
+        "cachedInputTokens": 28032,
+        "billableInputTokens": 35659,
+        "outputTokens": 20213,
+        "reasoningOutputTokens": 249,
+        "totalTokens": 83904,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.399351,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.419351
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21559,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6071,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 118,
+          "totalTokens": 33559,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.19905,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.20905
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21762,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14466,
+          "outputTokens": 5631,
+          "reasoningOutputTokens": 131,
+          "totalTokens": 27393,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.122454,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.132454
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20370,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15122,
+          "outputTokens": 2582,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22952,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077847,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077847
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1479142506502-19b3a3b7ff33?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDI2ODh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Attorney background image",
+    "source": "legacy-industry",
+    "query": "Attorney"
+  },
+  "faq": [
+    {
+      "question": "How do we stop an AI agent from giving legal advice or creating an accidental attorney-client relationship?",
+      "answer": "DocsBot should be configured to answer only from approved firm content, use clear disclaimers, collect intake facts, and escalate legal advice, strategy, deadlines, conflicts, and fee commitments to qualified staff. The safest deployment treats the agent as a procedural intake and knowledge layer, not a substitute for attorney judgment.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us respond to prospective clients after hours without overpromising representation?",
+      "answer": "Yes. A DocsBot agent can answer from your practice-area pages, consultation policies, fee FAQs, and intake scripts, then collect structured details for follow-up. You can define language that says the firm has not accepted representation until a human completes conflict checks, consultation review, and engagement procedures.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What intake details can the agent collect before our staff gets involved?",
+      "answer": "The agent can gather firm-defined fields such as name, contact details, matter type, jurisdiction, urgency, opposing parties for downstream conflict review, documents available, preferred contact method, and scheduling intent. It can then summarize the conversation and route the inquiry through a configured form, task, ticket, email, or workflow.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent screen for practice-area fit without making a legal determination?",
+      "answer": "Yes. DocsBot can apply firm-defined routing rules based on visible facts the prospect provides, such as county, matter category, urgency, or service requested. It should frame the result as intake triage, not legal evaluation, and route uncertain, urgent, or borderline matters to a human for review.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle confidentiality for client and matter information?",
+      "answer": "DocsBot supports private knowledge sources, encryption in transit and at rest, granular access controls, role-based permissions, SOC 2 Type II certification, and GDPR-ready governance. That matters because ABA Model Rule 1.6 sets the baseline duty to protect information relating to client representation, subject to defined exceptions.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-aba-model-rule-1-6"
+      ]
+    },
+    {
+      "question": "Will our firm’s documents be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. Firms can train agents on approved internal and public sources while keeping access scoped by role, source permissions, configured Skills, secrets, metadata bindings, network policy, and logging controls.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use DocsBot internally for SOPs, templates, and file-opening procedures?",
+      "answer": "Yes. A private DocsBot knowledge agent can train on SOPs, templates, onboarding guides, billing procedures, file-opening checklists, closing procedures, and internal FAQs. Staff can ask natural-language questions and receive source-grounded answers with references back to approved firm materials.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this fit with our practice management system, CRM, forms, or scheduling tools?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, forms, workflow automations, or MCP servers where your firm has authorized access. Common patterns include creating an intake task, forwarding a consultation summary, triggering a scheduling request, routing a status request, or looking up approved live context.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent provide case status updates to clients?",
+      "answer": "It can provide approved procedural information and collect identifying details for a status request. For case-specific status, the firm can either configure a scoped live lookup with strict permissions or have the agent escalate to the responsible staff member with a concise summary. Legal strategy and judgment should stay with humans.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kind of ROI should a managing partner expect from legal AI automation?",
+      "answer": "The clearest ROI usually comes from reducing repetitive intake calls, faster first response, fewer internal document searches, cleaner handoffs, and better content gaps. Clio’s 2024 coverage reported that nearly three-quarters of a law firm’s hourly billable tasks are exposed to AI automation, especially administrative and secretarial work.",
+      "role": "Managing attorneys and firm owners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-clio-2024-ai-automation"
+      ]
+    },
+    {
+      "question": "Can DocsBot improve lead conversion from our website?",
+      "answer": "It can help by giving prospects immediate answers, collecting intake details, explaining next steps, and routing qualified inquiries quickly. Clio’s 2024 Legal Trends highlights reported that firms using technology to enhance client experiences had 51% more client leads and 52% more revenue, which supports the business case for better digital intake.",
+      "role": "Managing attorneys and firm owners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-clio-2024-client-experience"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from answering from outdated templates or old policies?",
+      "answer": "Treat the agent’s knowledge base like a governed firm library. Upload approved sources, remove obsolete versions, assign document owners, review conversation logs, and use knowledge-gap reporting to find missing or confusing content. DocsBot’s source-grounded approach helps staff see what material an answer came from.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can attorneys review what the AI agent said to a prospect or client?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Firms can use those records to audit risky conversations, improve instructions, update FAQs, coach intake staff, and decide which topics require stricter escalation.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a prospect says they were served, have a court deadline, or need emergency help?",
+      "answer": "The agent should follow your firm’s escalation policy: gather basic urgency details, avoid legal advice, display approved emergency contact instructions, and notify the correct intake channel or create a high-priority handoff. You can define which keywords, practice areas, deadlines, or jurisdictions trigger immediate human review.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with access-to-justice or legal aid style workflows?",
+      "answer": "Yes. A DocsBot agent can answer from approved clinic FAQs, eligibility criteria, resource lists, document instructions, and referral pages while avoiding individualized legal advice. This matters in a market where LSC found that 92% of substantial civil legal problems faced by low-income Americans received inadequate or no legal help.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-lsc-justice-gap"
+      ]
+    },
+    {
+      "question": "How much staff time is required to launch a useful legal intake agent?",
+      "answer": "Most of the work is deciding boundaries and source quality: which pages, FAQs, intake scripts, fee policies, disclaimers, and escalation rules the agent can use. A practical pilot can start with one practice area, a narrow set of approved questions, structured intake fields, and a human review path before expanding.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we deploy one agent for clients and another for internal staff?",
+      "answer": "Yes. Many firms should separate them. A public-facing agent can answer procedural questions and collect intake details, while a private internal agent can retrieve SOPs, templates, billing rules, onboarding materials, and matter procedures. Role-based permissions and source scoping help keep internal knowledge from appearing externally.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot support multilingual prospects or clients?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved source materials. Your firm can define when the agent may provide general procedural information, when to route to bilingual staff or interpreters, and when attorney review is required before any substantive communication continues.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent summarize long intake conversations or uploaded background materials for attorneys?",
+      "answer": "Yes. DocsBot can summarize approved conversation history, client-provided chronology, internal notes, and uploaded firm materials into a handoff packet. The summary can highlight key facts, missing information, documents referenced, and questions for attorney review, while leaving legal analysis and final work product to professionals.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we measure during a pilot?",
+      "answer": "Track first-response time, completed intake forms, consultation requests routed, staff interruptions avoided, unanswered topics, escalation rate, user satisfaction, and how often staff accept the AI-generated handoff summary. For internal agents, measure repeated questions, template retrieval, onboarding questions, and gaps in SOP documentation.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic chatbot or a broad legal AI tool?",
+      "answer": "DocsBot is best evaluated as a source-grounded AI agent for your firm’s approved knowledge, intake workflows, summaries, routing, and internal retrieval. It should not be positioned as a replacement for legal research platforms, practice management systems, or attorney judgment; instead, it fills the operational layer around answers and handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we control which staff members can access sensitive internal materials?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so firms can separate public website content, general SOPs, practice-group materials, and sensitive internal knowledge. Skills and live actions can also be scoped so the agent only accesses firm-authorized resources and workflows.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What if the AI gives a wrong answer or cannot find the right source?",
+      "answer": "Configure the agent to acknowledge uncertainty, avoid guessing, cite approved sources where appropriate, and escalate when confidence is low or the topic is sensitive. Conversation logs and knowledge-gap reports help identify missing content so the firm can improve FAQs, scripts, policies, and internal documentation over time.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with onboarding new paralegals, legal assistants, or lateral attorneys?",
+      "answer": "Yes. A private internal agent can answer questions about file naming, intake procedures, billing codes, client communication rules, template locations, practice-group checklists, and firm tools. This reduces repeated interruptions to senior staff and gives new hires a consistent place to start.",
+      "role": "Paralegals, intake teams, and legal assistants",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does this scale across multiple practice areas or offices?",
+      "answer": "Start with one practice area, then add separate source collections, instructions, intake fields, routing rules, and escalation paths for each team or office. DocsBot can support both website and private team experiences, while analytics show which topics need clearer content before broader rollout.",
+      "role": "Managing attorneys and firm owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who should own the AI agent after launch: marketing, intake, IT, or attorneys?",
+      "answer": "Ownership usually needs a shared model. Attorneys and compliance leaders define boundaries, intake teams validate workflows, operations manages documentation, and technical staff handle access and integrations. DocsBot’s logs, analytics, and knowledge-gap reporting give each stakeholder a practical review surface after launch.",
+      "role": "Compliance, operations, and knowledge leaders",
+      "category": "Implementation"
+    }
+  ]
+}

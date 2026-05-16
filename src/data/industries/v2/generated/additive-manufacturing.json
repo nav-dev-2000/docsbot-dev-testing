@@ -1,0 +1,741 @@
+{
+  "slug": "additive-manufacturing",
+  "business": "Additive Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Additive Manufacturing Workflows",
+    "description": "DocsBot helps additive manufacturing teams answer spec, quote, safety, and production questions faster with source-grounded AI agents.",
+    "canonicalPath": "/industry/additive-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for 3D printing and AM operations",
+    "headline": "Make additive manufacturing knowledge usable at every step",
+    "subheadline": "DocsBot helps additive manufacturing teams turn process notes, machine manuals, material data sheets, quality procedures, FAQs, and sales documentation into AI agents that answer questions, qualify requests, summarize jobs, route handoffs, and surface knowledge gaps.",
+    "proofBullets": [
+      {
+        "text": "Answer material, process, machine, finishing, tolerance, and order-status questions from approved documentation.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "text": "Collect quote details, qualify print requests, and route complex jobs to sales, engineering, or production review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give operators and support teams quick access to SOPs, safety notes, troubleshooting guides, and post-processing instructions.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Use AI Actions to create tasks, prepare summaries, update approved fields, or trigger customer-configured workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build an AM knowledge agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your additive manufacturing business already trusts: design-for-additive guidelines, machine documentation, material datasheets, quoting rules, inspection procedures, customer FAQs, onboarding content, and internal SOPs. Teams can deploy those agents in a website widget, private team chat, helpdesk workflow, Slack, Microsoft Teams, or through API-connected workflows.",
+    "whoItHelps": [
+      {
+        "role": "Sales and quoting teams",
+        "roleContext": "AM buyers often need fast answers about material fit, tolerances, lead times, file requirements, finishing options, certifications, and whether a part is suitable for additive manufacturing before a human engineer reviews it.",
+        "bullets": [
+          {
+            "text": "Guide prospects through file, material, quantity, tolerance, and application questions before handoff.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize inbound requests so estimators see the part context, constraints, and missing details faster.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Draft follow-up responses from approved sales enablement, pricing guidance, and service catalog content.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      },
+      {
+        "role": "Applications engineers and production planners",
+        "roleContext": "Production AM requires decisions across build orientation, material selection, machine availability, post-processing, inspection, and qualification requirements. NIST notes that AM qualification needs test methods, protocols, reference data, and minimum requirements.",
+        "bullets": [
+          {
+            "text": "Retrieve process notes, historical guidance, and internal qualification procedures during job planning.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Help planners compare approved machine, material, and finishing constraints without searching scattered documents.",
+            "icon": "CubeIcon"
+          },
+          {
+            "text": "Route high-risk or regulated applications to defined engineering review paths instead of over-answering.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "CogIcon",
+        "sourceIds": [
+          "src-nist-qualification"
+        ]
+      },
+      {
+        "role": "Operators, quality, and EHS teams",
+        "roleContext": "AM operations depend on disciplined procedures for powder handling, resin handling, machine setup, maintenance, inspection, traceability, and incident prevention.",
+        "bullets": [
+          {
+            "text": "Make SOPs, inspection steps, nonconformance procedures, and maintenance instructions searchable on the floor.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Provide source-grounded reminders from approved safety and handling documents, with escalation for uncertain situations.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Analyze repeated operator questions to find missing training content or unclear work instructions.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-am-market-2024",
+      "metric": "3D printing market totaled $15.9B in 2024",
+      "claim": "Additive Manufacturing Research reported that 3D printing markets totaled $15.9 billion in calendar year 2024 and forecast growth to $57.8 billion in 2033.",
+      "sourceTitle": "3D Printing Markets Totaled $15.9B in CY 2024, Growing to $57.8B in 2033",
+      "sourceUrl": "https://additivemanufacturingresearch.com/news/3d-printing-markets-totaled-15-9b-in-cy-2024-growing-to-57-8b-in-2033-am-research-publishes-2024-annual-and-q4-3dp-am-market-insights-and-data/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market growth",
+        "buyer demand",
+        "sales and support scale"
+      ]
+    },
+    {
+      "id": "src-nist-qualification",
+      "metric": "AM qualification requires shared methods and reference data",
+      "claim": "NIST describes the need for test methods, protocols, reference data, and minimum requirements to accelerate qualification of additive manufacturing materials, processes, and parts.",
+      "sourceTitle": "Qualification for Additive Manufacturing Materials, Processes, and Parts",
+      "sourceUrl": "https://www.nist.gov/programs-projects/qualification-additive-manufacturing-materials-processes-and-parts",
+      "sourceDate": "NIST program page",
+      "bestUsedFor": [
+        "quality pressure",
+        "qualification complexity",
+        "engineering documentation"
+      ]
+    },
+    {
+      "id": "src-niosh-am-hazards",
+      "metric": "NIOSH identifies powder, fume, explosion, laser, and radiation hazards",
+      "claim": "NIOSH notes that powder bed fusion can involve inhalation or dermal exposure to powder and fume, explosion risk, and laser or radiation exposure.",
+      "sourceTitle": "Potential Hazards of Additive Manufacturing",
+      "sourceUrl": "https://www.cdc.gov/niosh/bulletin/2019/additive-manufacturing.html",
+      "sourceDate": "2019",
+      "bestUsedFor": [
+        "safety risk",
+        "operator workflows",
+        "EHS documentation"
+      ]
+    },
+    {
+      "id": "src-epa-3d-printing-research",
+      "metric": "EPA research found ultrafine particle emissions from extruders",
+      "claim": "EPA research found ultrafine particle emission rates from filament extruders comparable to other 3D printer studies, with specialty filaments adding exposure considerations.",
+      "sourceTitle": "3D Printing Research at EPA",
+      "sourceUrl": "https://www.epa.gov/chemical-research/3d-printing-research-epa",
+      "sourceDate": "Updated 2025",
+      "bestUsedFor": [
+        "air quality concerns",
+        "safety documentation",
+        "training content"
+      ]
+    },
+    {
+      "id": "src-iso-astm-52900",
+      "metric": "ISO/ASTM 52900 defines AM fundamentals and vocabulary",
+      "claim": "ISO/ASTM 52900:2021 establishes and defines terms used in additive manufacturing technology.",
+      "sourceTitle": "ISO/ASTM 52900:2021 Additive manufacturing — General principles — Fundamentals and vocabulary",
+      "sourceUrl": "https://www.iso.org/standard/74514.html",
+      "sourceDate": "2021",
+      "bestUsedFor": [
+        "standards alignment",
+        "technical terminology",
+        "documentation consistency"
+      ]
+    },
+    {
+      "id": "src-fda-am-devices",
+      "metric": "FDA guidance covers additive manufactured medical devices",
+      "claim": "FDA guidance provides technical considerations for manufacturers producing medical devices using additive manufacturing techniques.",
+      "sourceTitle": "Technical Considerations for Additive Manufactured Medical Devices",
+      "sourceUrl": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices",
+      "sourceDate": "2017",
+      "bestUsedFor": [
+        "regulated applications",
+        "medical device workflows",
+        "review boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Quote intake and manufacturability triage",
+      "problem": "Prospects send incomplete RFQs, unclear CAD context, missing material requirements, or broad questions about whether a part belongs in additive manufacturing.",
+      "agentWorkflow": "A DocsBot presales agent answers approved service and capability questions, collects structured intake details, applies customer-defined qualification rules, and creates a concise handoff for sales or applications engineering. If configured, AI Actions can forward the lead summary to a CRM, helpdesk, form, email, Slack, or Microsoft Teams workflow.",
+      "liveContextOrTools": "Use a custom form, approved Skills, APIs, connectors, or customer-configured workflows to capture files metadata, material interest, quantity, deadline, region, and follow-up preference.",
+      "exampleQuestionsOrRequests": [
+        "Can you print this in titanium, and what details do you need for a quote?",
+        "Is additive manufacturing a fit for a low-volume replacement bracket?",
+        "What finish options do you offer for nylon MJF parts?"
+      ],
+      "businessOutcome": "Reduce back-and-forth during RFQ intake while giving engineers cleaner context for jobs that need review.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Technical documentation assistant for customers",
+      "problem": "Customers and procurement teams ask repetitive questions about materials, file preparation, tolerances, finishes, shipping, design rules, and post-processing.",
+      "agentWorkflow": "A DocsBot support agent answers from approved FAQs, design guides, material pages, policy documents, and technical documentation. It can escalate sensitive, contractual, or high-risk questions to the right person with conversation context.",
+      "liveContextOrTools": "Deploy through an embedded website widget, product experience, API, or helpdesk-connected workflow configured by the customer.",
+      "exampleQuestionsOrRequests": [
+        "What wall thickness should I use for SLS nylon?",
+        "Which file formats do you accept?",
+        "Can I use this material for a heat-resistant fixture?"
+      ],
+      "businessOutcome": "Give buyers instant, consistent answers while reducing repetitive support and sales questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Operator SOP and machine troubleshooting agent",
+      "problem": "Operators lose time searching across PDFs, binders, machine manuals, maintenance notes, and tribal knowledge when setup, calibration, powder handling, or post-processing questions arise.",
+      "agentWorkflow": "A private internal knowledge agent retrieves source-grounded answers from SOPs, machine manuals, maintenance procedures, training docs, and internal notes. It can summarize steps, point to source documents, and surface unanswered questions as documentation gaps.",
+      "liveContextOrTools": "Use private team chat, Slack, Microsoft Teams, or a secure internal portal with role-based access to approved sources.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved depowdering procedure for this machine?",
+        "Where is the checklist for recoater inspection?",
+        "What should I verify before releasing this build to heat treatment?"
+      ],
+      "businessOutcome": "Improve consistency across shifts and help teams keep critical process knowledge accessible.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Safety and materials handling guidance",
+      "problem": "AM environments can involve metal powders, resins, ultrafine particles, fumes, inert gases, lasers, and post-processing hazards that require clear procedures and human accountability.",
+      "agentWorkflow": "DocsBot can answer from approved EHS plans, SDS libraries, PPE guidance, work instructions, and incident procedures. It should route uncertain, emergency, or high-risk situations to designated EHS contacts rather than making safety-critical judgments.",
+      "liveContextOrTools": "Customer-configured Skills can create an EHS task, notify a supervisor, or prepare a documented handoff when an operator reports missing PPE, unclear SDS guidance, or a procedural exception.",
+      "exampleQuestionsOrRequests": [
+        "What PPE is required before handling this metal powder?",
+        "Where is the spill procedure for photopolymer resin?",
+        "Who should review a powder contamination concern?"
+      ],
+      "businessOutcome": "Keep approved safety guidance easier to find while maintaining review paths for high-impact decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-niosh-am-hazards",
+        "src-epa-3d-printing-research"
+      ]
+    },
+    {
+      "name": "Quality, qualification, and standards knowledge access",
+      "problem": "Qualification evidence, inspection procedures, standards references, customer requirements, and corrective action history can be scattered across quality systems and engineering folders.",
+      "agentWorkflow": "An internal DocsBot agent retrieves approved procedures, inspection criteria, quality notes, and terminology guidance. For regulated or customer-specific work, it can prepare summaries and route decisions to quality or engineering owners.",
+      "liveContextOrTools": "When configured, AI Actions can look up approved record status, create a review task, update allowed fields, or connect through APIs, connectors, or MCP servers exposed by systems the team already uses.",
+      "exampleQuestionsOrRequests": [
+        "Which inspection procedure applies to this material and process?",
+        "What does our internal guidance say about build documentation retention?",
+        "Summarize the qualification checklist for this customer program."
+      ],
+      "businessOutcome": "Help quality and engineering teams respond faster without bypassing controlled procedures or accountable reviewers.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-nist-qualification",
+        "src-iso-astm-52900"
+      ]
+    },
+    {
+      "name": "Sales enablement for technical AM conversations",
+      "problem": "Sales reps need fast, accurate answers when discussing industries, materials, process limits, proof points, and implementation timelines with technical buyers.",
+      "agentWorkflow": "A DocsBot sales enablement agent can answer from service catalogs, proposal templates, case studies, objection handling, pricing guidance, and approved product documentation. With web search and configured Skills, it can summarize public account context for a human seller.",
+      "liveContextOrTools": "Use approved CRM, inbox, calendar, proposal, or research workflows through customer-configured APIs, connectors, or Skills; keep humans responsible for final pricing, legal, and contractual commitments.",
+      "exampleQuestionsOrRequests": [
+        "Prepare discovery questions for an aerospace buyer evaluating metal AM.",
+        "Draft a follow-up email summarizing our polymer printing capabilities.",
+        "What objections should I expect from a CNC-first procurement team?"
+      ],
+      "businessOutcome": "Help sales teams respond with clearer technical context while keeping commitments under human control.",
+      "icon": "BriefcaseIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give AM buyers a knowledgeable first response before the engineer steps in",
+    "intro": "DocsBot can power a customer-facing AI support or presales agent trained on your additive manufacturing content. It answers common technical questions, collects project details, identifies missing information, and escalates complex, regulated, or contract-sensitive requests with context.",
+    "requests": [
+      {
+        "request": "“Can you quote this part, and what information do you need?”",
+        "agentResponseStrategy": "Ask for material, quantity, process preference, application, tolerance needs, finish, deadline, and contact details, then prepare a structured handoff for sales or applications engineering.",
+        "sourceTypes": [
+          "Service catalog",
+          "RFQ intake rules",
+          "Material guides",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Submit a custom lead form or forward a qualified request to a customer-configured CRM, helpdesk, email, or team notification workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Which material should I choose for this prototype?”",
+        "agentResponseStrategy": "Explain approved material properties and tradeoffs from your documentation, ask clarifying questions, and suggest human review when the use case involves load-bearing, medical, aerospace, or safety-critical performance.",
+        "sourceTypes": [
+          "Material datasheets",
+          "Design guides",
+          "Application notes",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Create a follow-up task for an applications engineer when the buyer provides enough context.",
+        "icon": "BeakerIcon"
+      },
+      {
+        "request": "“What are your file requirements and design rules?”",
+        "agentResponseStrategy": "Answer from your file-prep guide, design-for-additive rules, tolerance guidance, and finishing documentation, then link the user to the relevant source.",
+        "sourceTypes": [
+          "Design guides",
+          "Upload instructions",
+          "Tolerance documentation",
+          "Help center articles"
+        ],
+        "optionalAction": "Collect missing project details and route the buyer to the right service line.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“Do you support regulated medical device projects?”",
+        "agentResponseStrategy": "Answer only from approved capability and compliance content, clarify that regulated applications require formal review, and route the conversation to the appropriate expert.",
+        "sourceTypes": [
+          "Compliance notes",
+          "Quality procedures",
+          "Regulated-industry FAQs",
+          "Sales enablement content"
+        ],
+        "optionalAction": "Create a review handoff for quality, regulatory, or sales owners with a concise conversation summary.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-am-devices"
+        ]
+      },
+      {
+        "request": "“Where is my order or support request?”",
+        "agentResponseStrategy": "Use approved live context when configured to look up status, explain next steps from policy documents, and escalate exceptions to the right team.",
+        "sourceTypes": [
+          "Order policies",
+          "Support procedures",
+          "Ticket history",
+          "Customer account metadata"
+        ],
+        "optionalAction": "Look up approved record status, create a ticket, update allowed fields, or notify the responsible team through customer-configured workflows.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can you explain this post-processing option?”",
+        "agentResponseStrategy": "Summarize the finish, lead-time implications, design constraints, and buyer considerations from approved technical and sales content.",
+        "sourceTypes": [
+          "Finishing guides",
+          "Process documentation",
+          "Material pages",
+          "FAQ articles"
+        ],
+        "optionalAction": "Offer to collect the application and finish preference for a human quote review.",
+        "icon": "SparklesIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put process knowledge where AM teams actually work",
+    "intro": "DocsBot can also run as a private internal knowledge agent for sales, engineering, operations, quality, EHS, and support teams. It retrieves answers from approved internal sources and helps teams act on routine questions without turning tribal knowledge into bottlenecks.",
+    "workflows": [
+      {
+        "name": "Shift-ready production support",
+        "problem": "Operators need consistent answers during setup, build monitoring, depowdering, post-processing, maintenance, and job release.",
+        "agentWorkflow": "Train DocsBot on SOPs, machine manuals, maintenance notes, training documents, and work instructions so operators can ask natural-language questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Machine manuals",
+          "Maintenance logs",
+          "Training documents"
+        ],
+        "optionalAction": "Create a maintenance task, route an exception, or notify a supervisor when configured through approved Skills or APIs.",
+        "outcome": "Reduce searching and standardize answers across shifts, machines, and production sites.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Quality and nonconformance lookup",
+        "problem": "Quality teams need fast access to procedures, inspection criteria, corrective action notes, and customer-specific requirements.",
+        "agentWorkflow": "Use DocsBot to retrieve controlled guidance, summarize relevant procedures, and prepare review packets for human quality owners.",
+        "sourceTypes": [
+          "Quality manuals",
+          "Inspection procedures",
+          "CAPA notes",
+          "Customer requirements"
+        ],
+        "optionalAction": "Create a review task or prepare a nonconformance summary in a customer-configured workflow.",
+        "outcome": "Speed quality research while keeping disposition decisions with accountable humans.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "EHS knowledge access",
+        "problem": "Safety information can be split across SDSs, PPE matrices, facility procedures, vendor manuals, and training decks.",
+        "agentWorkflow": "Train a private agent on approved EHS sources so employees can find PPE, handling, ventilation, storage, spill, and incident reporting procedures faster.",
+        "sourceTypes": [
+          "SDS libraries",
+          "EHS plans",
+          "PPE matrices",
+          "Incident procedures"
+        ],
+        "optionalAction": "Notify EHS or create a task when a user reports a missing procedure, unclear document, or possible hazard.",
+        "outcome": "Make safety guidance easier to locate without replacing emergency procedures or expert review.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales and applications engineering enablement",
+        "problem": "Technical sales conversations require accurate service limits, material guidance, proof points, lead-time language, and objection handling.",
+        "agentWorkflow": "DocsBot can answer sales team questions from approved proposal content, service catalogs, implementation notes, customer FAQs, and competitive positioning.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Service catalogs",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email or create a handoff task for engineering review using approved workflows.",
+        "outcome": "Help commercial teams move faster while keeping pricing, scope, and contracts under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from AM documentation",
+      "mainLandingPageContext": "DocsBot agents train on company knowledge and answer from approved sources with citations and context.",
+      "industryApplication": "Use machine manuals, material datasheets, DfAM guides, finishing notes, quality procedures, quote FAQs, and service pages to answer customer and employee questions.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer-facing support and presales agent",
+      "mainLandingPageContext": "DocsBot agents can work in website widgets, product experiences, helpdesk-connected workflows, and API-powered interfaces.",
+      "industryApplication": "Guide buyers through material, process, tolerance, file, lead-time, and quote-intake questions before routing complex projects to specialists.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record creation, updates, and workflow triggers inside customer-defined rules.",
+      "industryApplication": "Look up approved job status, create engineering review tasks, notify production, submit lead details, or prepare handoffs through configured systems and Model Context Protocol connectivity where authorized.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can serve employees with source-grounded answers from SOPs, policies, wikis, files, Google Drive, Notion, Confluence, PDFs, Word documents, and other private sources.",
+      "industryApplication": "Support operators, quality teams, EHS staff, sales reps, and applications engineers with instant access to controlled internal knowledge.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which material, quote, safety, file-prep, machine, or inspection questions repeat, then improve documentation and training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for industrial knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and controls so customer data is not used to train public models.",
+      "industryApplication": "Protect proprietary process knowledge, customer requirements, sales playbooks, and controlled internal procedures while giving authorized teams faster access.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on multilingual manuals, websites, knowledge bases, and support content for scalable self-service.",
+      "Use customer-owned content libraries to deliver source-grounded answers without rebuilding RAG infrastructure from scratch.",
+      "Review conversation trends to understand what users and employees are trying to learn from your documentation."
+    ],
+    "whyTheseReviewsFit": "Additive manufacturing teams rely on technical documentation, manuals, support content, and repeatable answers. DocsBot proof spans scalable customer support, owned-content training, embedded self-service, and analytics that reveal what users need from documentation.",
+    "trustClaimIcons": [
+      "LanguageIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for additive manufacturing support, sales, operations, and internal knowledge",
+    "audience": [
+      "Additive manufacturing service bureaus",
+      "Industrial 3D printing teams",
+      "AM sales and quoting teams",
+      "Applications engineering teams",
+      "Quality and EHS leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "aerospace-parts-manufacturing",
+    "contract-manufacturing",
+    "industrial-manufacturing",
+    "plastics-manufacturing",
+    "robotics-manufacturing",
+    "manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "additive-manufacturing",
+    "webSearchQueries": [
+      "additive manufacturing market report 2024 Wohlers Report 3D printing industry growth",
+      "NIST additive manufacturing standards qualification challenges",
+      "OSHA additive manufacturing 3D printing safety hazards ultrafine particles metal powders",
+      "AMPOWER additive manufacturing market 2024 report growth",
+      "ASTM additive manufacturing standards database ISO ASTM 52900 additive manufacturing",
+      "FDA technical considerations additive manufactured medical devices guidance 2017"
+    ],
+    "sourceUrls": [
+      "https://additivemanufacturingresearch.com/news/3d-printing-markets-totaled-15-9b-in-cy-2024-growing-to-57-8b-in-2033-am-research-publishes-2024-annual-and-q4-3dp-am-market-insights-and-data/",
+      "https://www.nist.gov/programs-projects/qualification-additive-manufacturing-materials-processes-and-parts",
+      "https://www.cdc.gov/niosh/bulletin/2019/additive-manufacturing.html",
+      "https://www.epa.gov/chemical-research/3d-printing-research-epa",
+      "https://www.iso.org/standard/74514.html",
+      "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/technical-considerations-additive-manufactured-medical-devices"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44307,
+        "cachedInputTokens": 19712,
+        "billableInputTokens": 24595,
+        "outputTokens": 8152,
+        "reasoningOutputTokens": 184,
+        "totalTokens": 52459,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.188696,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.208696
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24364,
+          "cachedInputTokens": 14464,
+          "billableInputTokens": 9900,
+          "outputTokens": 5388,
+          "reasoningOutputTokens": 184,
+          "totalTokens": 29752,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.109186,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.129186
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19943,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14695,
+          "outputTokens": 2764,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22707,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07951,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07951
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1532186773960-85649e5cb70b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxBZGRpdGl2ZSUyME1hbnVmYWN0dXJpbmd8ZW58MHwwfHx8MTc3ODgyMzEyMnww&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "gray industrial machine",
+    "source": "unsplash-search",
+    "query": "Additive Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot help us qualify RFQs before an applications engineer spends time on them?",
+      "answer": "Yes. A DocsBot presales agent can ask for material, quantity, process preference, application, tolerance needs, finish, deadline, region, and contact details, then summarize missing information and route the request to sales or applications engineering. It is best used to structure intake and reduce back-and-forth, not to make final manufacturability or pricing decisions without review.",
+      "role": "Sales and quoting teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would this fit into our quoting workflow if we already use forms, email, CRM, and engineering review queues?",
+      "answer": "DocsBot can sit in front of your existing process as a website, support, or internal intake agent. With customer-configured Skills, APIs, connectors, forms, or workflow automation, it can collect project context, submit a lead form, create a task, notify the right team, or forward a structured summary into the systems you authorize.",
+      "role": "Sales and quoting teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will the agent know the difference between general 3D printing advice and our actual machine, material, and finish capabilities?",
+      "answer": "Only if you train it on the approved sources that define those boundaries. For AM teams, that usually means service catalogs, machine documentation, material datasheets, design guides, finishing notes, inspection procedures, and internal quoting rules. DocsBot is designed to answer from your content, cite sources, and escalate when the request falls outside approved guidance.",
+      "role": "Applications engineers and production planners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we prevent the AI from giving unsafe or overconfident material recommendations?",
+      "answer": "Yes. You can define instructions and escalation rules so the agent explains approved material properties and tradeoffs, asks clarifying questions, and routes load-bearing, aerospace, medical, regulated, or safety-critical applications to a human reviewer. That matters because AM qualification depends on validated methods, protocols, reference data, and minimum requirements, not generic material matching.",
+      "role": "Applications engineers and production planners",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nist-qualification"
+      ]
+    },
+    {
+      "question": "Could DocsBot support operators on the floor without replacing our controlled SOPs?",
+      "answer": "Yes. A private internal knowledge agent can retrieve answers from SOPs, machine manuals, maintenance notes, training documents, SDSs, PPE matrices, and work instructions. It should point people back to the approved source and escalate unclear, emergency, or exception scenarios rather than improvising instructions outside controlled procedures.",
+      "role": "Operators, quality, and EHS teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep safety answers bounded for metal powder, resin, fumes, lasers, and other AM hazards?",
+      "answer": "Train the agent only on approved EHS plans, SDS libraries, PPE guidance, incident procedures, and machine manuals, then configure escalation paths for uncertain or high-risk situations. This is important because NIOSH identifies AM hazards including powder and fume exposure, explosion risk, and laser or radiation exposure; EPA research also highlights ultrafine particle emissions in 3D printing contexts.",
+      "role": "Operators, quality, and EHS teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-niosh-am-hazards",
+        "src-epa-3d-printing-research"
+      ]
+    },
+    {
+      "question": "What parts of the quote process should stay with humans?",
+      "answer": "Final pricing, contractual commitments, regulated application claims, manufacturability approval, delivery promises, and quality requirements should remain with accountable people. DocsBot is strongest at answering approved capability questions, collecting missing details, applying customer-defined qualification rules, and preparing a clean handoff for expert review.",
+      "role": "Sales and quoting teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer customer questions about tolerances, wall thickness, file formats, and post-processing?",
+      "answer": "Yes, if those topics are documented in your approved design guides, file-prep instructions, tolerance documentation, finishing guides, material pages, and FAQs. The agent can provide source-grounded answers, link users to the relevant content, collect missing project details, and escalate part-specific recommendations that require engineering judgment.",
+      "role": "Sales and quoting teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot help quality teams with qualification, inspection, and customer-specific requirements?",
+      "answer": "DocsBot can retrieve approved quality procedures, inspection criteria, qualification checklists, standards references, and customer-specific notes so teams spend less time searching across folders. For dispositions, nonconformances, regulated work, or customer commitments, it can prepare summaries and route the decision to quality or engineering owners.",
+      "role": "Operators, quality, and EHS teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help us standardize terminology across sales, engineering, and production?",
+      "answer": "Yes. You can train it on internal glossaries, design rules, standards references, service catalogs, and approved terminology so different teams use the same language for processes, materials, defects, finishes, and inspection steps. ISO/ASTM 52900:2021 establishes and defines additive manufacturing terminology, which can support consistency when reflected in your documentation.",
+      "role": "Applications engineers and production planners",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-iso-astm-52900"
+      ]
+    },
+    {
+      "question": "What implementation work is required before the first useful AM agent goes live?",
+      "answer": "Most teams start by choosing one workflow, such as RFQ intake, customer technical FAQs, SOP lookup, or EHS guidance. Then they gather approved documents, remove outdated content, define escalation rules, test answers with real questions, and decide where the agent appears. A focused pilot is usually safer than trying to automate every AM knowledge workflow at once.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we handle proprietary customer files, process knowledge, and internal procedures?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and controls so customer data is not used to train public models. For sensitive AM environments, you should also scope which sources each agent can access and which actions it is allowed to take.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different roles see different answers or source material?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so an internal operator agent, sales enablement agent, and quality agent can be scoped to different approved sources. This helps protect proprietary process notes, customer requirements, pricing guidance, and controlled procedures while still making the right knowledge easier to find.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this connect to job status, tickets, CRM records, or production systems?",
+      "answer": "DocsBot can use live context when you configure the right Skill, API, connector, workflow, metadata binding, or MCP-connected tool. Typical actions include looking up an approved record status, creating a ticket or task, updating allowed fields, notifying a team, or preparing a handoff. The connection and permissions are defined by your organization.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure whether the agent is actually reducing work for sales or engineering?",
+      "answer": "Track repeat-question volume, RFQ completeness, time spent clarifying requests, deflected support questions, handoff quality, satisfaction, resolution rate, and the number of conversations that still require expert review. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to support those reviews.",
+      "role": "Sales and quoting teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot show us where our AM documentation is weak?",
+      "answer": "Yes. Conversation logs and knowledge-gap discovery can reveal repeated questions about materials, design rules, quote requirements, safety procedures, machine troubleshooting, or inspection steps that your current content does not answer well. That gives documentation, quality, sales, and training owners a practical backlog for improving source material.",
+      "role": "Applications engineers and production planners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What if our documentation is scattered across PDFs, Google Drive, Confluence, Notion, Word files, and internal wikis?",
+      "answer": "DocsBot can train on many private knowledge sources, including PDFs, Word documents, text files, Google Drive, Notion, Confluence, websites, wikis, SOPs, and policies. The key implementation step is governance: decide which versions are approved, who owns them, how often they should refresh, and which teams are allowed to access them.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this scale across multiple machines, materials, facilities, and service lines?",
+      "answer": "Yes, but the best approach is to structure sources and permissions intentionally. You can create agents or source collections around polymer printing, metal AM, post-processing, quality, EHS, sales, or site-specific procedures. That keeps answers more relevant and prevents one broad agent from mixing guidance across machines or facilities.",
+      "role": "Applications engineers and production planners",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot handle regulated medical, aerospace, or customer-controlled work?",
+      "answer": "DocsBot should answer only from approved capability, quality, and compliance content, then route regulated or customer-specific decisions to qualified owners. For medical devices, FDA guidance provides technical considerations for manufacturers using additive manufacturing techniques, so public-facing answers should avoid implying approval or suitability without formal review.",
+      "role": "Operators, quality, and EHS teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-am-devices"
+      ]
+    },
+    {
+      "question": "Could the agent draft follow-up emails or quote summaries for our sales team?",
+      "answer": "Yes. A sales enablement agent can draft follow-ups from approved service catalogs, proposal templates, FAQs, pricing guidance, case studies, and objection-handling content. Human sellers should review final outreach, especially when it includes price, lead time, legal language, regulated applications, or technical commitments.",
+      "role": "Sales and quoting teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How is this different from building our own RAG tool for AM documentation?",
+      "answer": "Building in-house can make sense for teams with dedicated AI engineering capacity, but it also means owning ingestion, retrieval quality, permissions, security, analytics, workflows, and maintenance. DocsBot gives AM teams a ready platform for source-grounded agents, internal knowledge access, customer-facing support, analytics, and scoped actions without starting from scratch.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for onboarding new operators, sales reps, or applications engineers?",
+      "answer": "Yes. A private agent can answer onboarding questions from training content, SOPs, machine manuals, sales playbooks, service catalogs, safety procedures, and internal FAQs. It helps new team members find approved answers faster while giving managers visibility into the questions that keep coming up during ramp-up.",
+      "role": "Operators, quality, and EHS teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should procurement and IT ask before approving an AI agent for AM operations?",
+      "answer": "They should ask where data is stored, whether customer data trains public models, how access controls work, how credentials are handled, what logs are available, which systems the agent can touch, and who approves actions. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls for Skills and actions.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support multilingual customers or global AM teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when trained on the right source content. For global AM service bureaus or multi-site manufacturers, that can help customers and employees find consistent guidance across regions, while still using escalation rules for contractual, regulated, safety-critical, or site-specific questions.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we avoid the agent becoming another stale knowledge base?",
+      "answer": "Assign owners for each source set, review unanswered or low-confidence conversations, retire outdated documents, and use analytics to prioritize documentation updates. DocsBot can surface repeated topics and knowledge gaps, but process ownership still matters: the agent is only as reliable as the approved AM content it is allowed to use.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Where is the strongest first use case if we need ROI quickly?",
+      "answer": "For many AM teams, the fastest wins are RFQ intake, repetitive customer technical questions, and internal SOP lookup. These workflows usually have high question volume, clear source documents, and obvious handoff paths. The broader 3D printing market was reported at $15.9 billion in 2024 with growth forecast to $57.8 billion in 2033, so scalable response and support processes matter as demand grows.",
+      "role": "General buyer",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-am-market-2024"
+      ]
+    }
+  ]
+}

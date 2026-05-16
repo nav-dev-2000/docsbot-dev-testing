@@ -1,0 +1,710 @@
+{
+  "slug": "bakery",
+  "business": "Bakery",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "Bakery AI Agents for Orders, Menus, and Team Knowledge",
+    "description": "DocsBot helps bakeries answer menu questions, capture custom order details, and give staff instant access to approved recipes, SOPs, and policies.",
+    "canonicalPath": "/industry/bakery"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for bakeries",
+    "headline": "Serve bakery customers faster with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your menu, allergen notes, cake order policies, pickup instructions, catering details, recipes, and SOPs so customers get source-grounded answers and your team can find the right information during busy production and service windows.",
+    "proofBullets": [
+      {
+        "text": "Answer menu, ingredient, allergen, pickup, delivery, catering, and custom cake questions from approved bakery content.",
+        "icon": "CakeIcon"
+      },
+      {
+        "text": "Collect structured order details, lead information, event dates, quantities, budgets, and handoff notes for staff review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give bakers, counter staff, and managers private access to recipes, prep guides, closing checklists, and training materials.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to route requests, create tasks, summarize conversations, trigger workflows, or look up approved order context when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your bakery AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps bakeries create AI agents trained on their own approved knowledge: websites, menus, PDFs, FAQs, order policies, recipe documents, SOPs, Google Drive, Notion, Confluence, and other internal sources. The agent can answer in a website widget, support staff in private chat, summarize requests, discover documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Bakery owners and general managers",
+        "roleContext": "Keep customer answers consistent across walk-ins, phone calls, website inquiries, catering requests, and seasonal rushes without relying on one person’s memory.",
+        "bullets": [
+          {
+            "text": "Offer instant answers about hours, pickup windows, custom order lead times, deposits, cancellations, and catering minimums.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Review analytics to find repeated questions about flavors, allergens, delivery zones, and holiday ordering deadlines.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route complex quotes, complaints, or high-value event requests to the right person with conversation context attached.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Counter, customer service, and catering staff",
+        "roleContext": "Give front-of-house staff a reliable source for customer-facing answers when lines are long, phones are ringing, or new team members are still learning the menu.",
+        "bullets": [
+          {
+            "text": "Retrieve approved wording for dietary notes, storage instructions, serving guidance, and custom cake ordering rules.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Capture missing details such as event date, serving count, design notes, pickup time, and contact information before escalation.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support multilingual customers with answers in more than 100 languages from the same approved bakery sources.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Production leads and bakery teams",
+        "roleContext": "Make internal production knowledge easier to find so staff can follow the same procedures for prep, baking, finishing, packaging, and closeout.",
+        "bullets": [
+          {
+            "text": "Search recipe binders, batch notes, production checklists, and training documents from a private internal knowledge agent.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Summarize internal questions to reveal gaps in SOPs, seasonal product documentation, or onboarding materials.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Keep sensitive operational sources private with role-based permissions, encryption, SOC 2 Type II certification, and GDPR-ready governance.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bakery-cafe-revenue",
+      "metric": "U.S. bakery cafe revenue reached $18.3 billion in 2024.",
+      "claim": "IBISWorld reports that U.S. Bakery Cafes industry revenue expanded at an annualized 1.1% over the five years to 2024, reaching $18.3 billion.",
+      "sourceTitle": "Bakery Cafes in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-research-reports/bakery-cafes-industry/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "Market size",
+        "competitive pressure",
+        "growth context"
+      ]
+    },
+    {
+      "id": "src-bakers-work-schedules",
+      "metric": "Baker shifts often include early mornings, nights, weekends, and holidays.",
+      "claim": "The U.S. Bureau of Labor Statistics notes that bakers often work early morning, night, weekend, and holiday shifts, making always-available knowledge access valuable for bakery teams.",
+      "sourceTitle": "Bakers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/production/bakers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Staffing pressure",
+        "hours of operation",
+        "internal knowledge access"
+      ]
+    },
+    {
+      "id": "src-fda-allergens-sesame",
+      "metric": "Sesame became the ninth major U.S. food allergen on January 1, 2023.",
+      "claim": "FDA guidance says sesame was added as the ninth major allergen in federal law and the 2022 FDA Food Code, and employee food safety training should include awareness of the nine major allergens.",
+      "sourceTitle": "Addition to the 2022 Food Code - Sesame Added as a Major Food Allergen",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "Allergen communication",
+        "food safety training",
+        "compliance pressure"
+      ]
+    },
+    {
+      "id": "src-off-premises-restaurant-traffic",
+      "metric": "Nearly 75% of restaurant traffic now happens off-premises.",
+      "claim": "The National Restaurant Association reports that nearly three out of four restaurant orders are now taken to go, underscoring the importance of clear pickup, delivery, and online ordering information.",
+      "sourceTitle": "From Trend to Transformation: Off-Premises Dining Now Essential for Restaurant Consumers, Operators",
+      "sourceUrl": "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Pickup and delivery operations",
+        "customer expectations",
+        "ordering convenience"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Menu, allergen, and dietary question agent",
+      "problem": "Bakery customers often ask detailed questions about ingredients, allergens, vegan options, gluten-free availability, storage, serving size, and substitutions before ordering.",
+      "agentWorkflow": "DocsBot answers from approved menus, ingredient notes, product pages, allergen policies, and FAQs. When the question involves a sensitive dietary need or uncertain cross-contact issue, the agent can collect details and escalate to staff instead of improvising.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up current product availability, seasonal menus, or store-specific notes before responding.",
+      "exampleQuestionsOrRequests": [
+        "Which pastries contain tree nuts or sesame?",
+        "Do you have dairy-free cupcakes available today?",
+        "How should I store this cake before tomorrow’s event?"
+      ],
+      "businessOutcome": "Customers get faster, more consistent information while staff avoid repeating the same menu explanations during service rushes.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-fda-allergens-sesame"
+      ]
+    },
+    {
+      "name": "Custom cake and catering intake agent",
+      "problem": "Custom orders often arrive with incomplete details, scattered emails, or phone notes that require multiple follow-ups before a baker can quote or confirm availability.",
+      "agentWorkflow": "DocsBot collects event date, serving count, flavor preferences, design notes, budget range, pickup or delivery needs, contact information, and required follow-up. The agent can summarize the request and route it to the right team member.",
+      "liveContextOrTools": "AI Actions can create a task, submit a custom form, send a notification, forward the summary to a CRM or helpdesk workflow, or request a booking through an approved scheduling tool when configured.",
+      "exampleQuestionsOrRequests": [
+        "I need a two-tier birthday cake for 40 people next Saturday.",
+        "Can you cater pastries for a 7 a.m. office meeting?",
+        "Please send my wedding dessert table request to your events team."
+      ],
+      "businessOutcome": "Staff receive cleaner intake, customers know what information is needed, and high-value event orders move toward human review faster.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Pickup, delivery, and order status support",
+      "problem": "As off-premises dining grows, customers expect clear answers about pickup windows, delivery areas, order changes, packaging, reheating, and late arrivals.",
+      "agentWorkflow": "DocsBot can answer policy questions from your website, order FAQs, delivery notes, and store procedures. For order-specific requests, it can collect identifying details and prepare a handoff or use approved live lookups when connected.",
+      "liveContextOrTools": "Configured Skills, APIs, connectors, or workflow automations can support order-status lookup, approved field updates, ticket creation, and team notifications.",
+      "exampleQuestionsOrRequests": [
+        "Can I change my pickup time?",
+        "Do you deliver wedding cakes outside the city?",
+        "What should I do if I am running late for pickup?"
+      ],
+      "businessOutcome": "Customers get immediate policy clarity, and staff spend less time answering routine pickup and delivery questions by phone.",
+      "icon": "TruckIcon",
+      "sourceIds": [
+        "src-off-premises-restaurant-traffic"
+      ]
+    },
+    {
+      "name": "Internal recipe and production knowledge assistant",
+      "problem": "Production knowledge may live in binders, spreadsheets, PDFs, shared drives, or the memory of experienced bakers, making it harder to train new staff or maintain consistency.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on recipes, batch sheets, scaling notes, prep timelines, packaging instructions, cleaning checklists, and training materials. Staff ask plain-language questions and receive source-grounded answers.",
+      "liveContextOrTools": "The agent can summarize recurring internal questions and show managers where SOPs, recipes, or training content need improvement.",
+      "exampleQuestionsOrRequests": [
+        "What is the scaling formula for the almond croissant batch?",
+        "What is the closing checklist for the pastry case?",
+        "Where is the holiday pie production timeline?"
+      ],
+      "businessOutcome": "Teams find approved procedures faster across early morning, weekend, and holiday shifts, when managers may not be available.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bakers-work-schedules"
+      ]
+    },
+    {
+      "name": "New customer and wholesale lead qualification",
+      "problem": "Bakeries receive a mix of retail, wedding, corporate, wholesale, market, and restaurant inquiries, but not every request is ready for a sales conversation.",
+      "agentWorkflow": "DocsBot answers service-fit questions from approved pages and sales materials, then qualifies leads using customer-defined rules such as order type, timeline, volume, location, budget, and follow-up preference.",
+      "liveContextOrTools": "With approved Skills or connectors, the agent can forward qualified lead summaries to email, CRM, helpdesk software, Slack, Microsoft Teams, or another customer-configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you supply bread to restaurants?",
+        "Can you make 300 branded cookies for a conference?",
+        "What are your wholesale minimums?"
+      ],
+      "businessOutcome": "Owners and sales staff can prioritize serious inquiries while customers receive clear next steps without waiting for a callback.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge gap analytics for bakery operations",
+      "problem": "Repeated customer and staff questions reveal where menus, FAQs, training documents, or order policies are unclear, but those patterns are easy to miss.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so managers can improve source content over time.",
+      "liveContextOrTools": "Teams can review unanswered questions, refine instructions, add missing documents, and adjust escalation rules as the bakery’s menu or operations change.",
+      "exampleQuestionsOrRequests": [
+        "What questions are customers asking before holiday ordering?",
+        "Which allergen topics need clearer public wording?",
+        "What staff questions keep appearing during onboarding?"
+      ],
+      "businessOutcome": "The bakery improves its menu pages, FAQs, SOPs, and training content based on real customer and employee demand.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A bakery support agent that helps customers order with confidence",
+    "intro": "Embed DocsBot on your bakery website so customers can ask about products, custom orders, pickup, delivery, catering, dietary notes, and policies. The agent answers from your approved sources, collects missing details, and escalates questions that need a person.",
+    "requests": [
+      {
+        "request": "“Which birthday cakes can I order for Saturday pickup?”",
+        "agentResponseStrategy": "Answer from approved menu and ordering policy content, explain lead times, ask for serving count and flavor preferences, and route custom requests when needed.",
+        "sourceTypes": [
+          "Website menu",
+          "Custom order FAQ",
+          "Seasonal product pages"
+        ],
+        "optionalAction": "Create a task or submit a structured inquiry for staff review through a customer-configured workflow.",
+        "icon": "CakeIcon"
+      },
+      {
+        "request": "“Do your cinnamon rolls contain sesame, nuts, eggs, or dairy?”",
+        "agentResponseStrategy": "Use approved ingredient and allergen notes, avoid unsupported guarantees, and escalate to staff for sensitive allergy questions or unclear cross-contact concerns.",
+        "sourceTypes": [
+          "Ingredient documents",
+          "Allergen policy",
+          "Food safety training notes"
+        ],
+        "optionalAction": "Collect the customer’s question and notify a staff member for a reviewed response.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fda-allergens-sesame"
+        ]
+      },
+      {
+        "request": "“Can you deliver 10 dozen pastries to our office next week?”",
+        "agentResponseStrategy": "Ask for date, time, address, quantity, product preferences, budget range, and contact details before forwarding the catering request.",
+        "sourceTypes": [
+          "Catering menu",
+          "Delivery policy",
+          "Lead qualification rules"
+        ],
+        "optionalAction": "Forward the qualified request and conversation summary to email, CRM, helpdesk, or a team channel when configured.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“How do I keep this cake fresh until tomorrow?”",
+        "agentResponseStrategy": "Answer from approved storage and serving instructions, include pickup-specific guidance if available, and escalate unusual situations to staff.",
+        "sourceTypes": [
+          "Product care guides",
+          "Pickup instructions",
+          "FAQ pages"
+        ],
+        "optionalAction": "Offer a handoff if the customer reports damage, timing problems, or a complaint.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“I need to change my pickup time.”",
+        "agentResponseStrategy": "Explain the approved change policy, collect order details, and prepare a handoff or live lookup if the bakery has connected order systems.",
+        "sourceTypes": [
+          "Order policies",
+          "Pickup FAQ",
+          "Configured order metadata"
+        ],
+        "optionalAction": "Use an approved AI Action to create a ticket, update an approved field, or notify the store team when configured.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can I book a wedding cake tasting?”",
+        "agentResponseStrategy": "Collect scheduling intent, event date, guest count, design notes, and preferred follow-up channel, then route to the events team.",
+        "sourceTypes": [
+          "Wedding cake guide",
+          "Tasting policy",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Request a meeting through an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar configured tool.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal bakery knowledge agent for production, training, and service teams",
+    "intro": "DocsBot can give bakery employees a private assistant for recipes, prep lists, SOPs, food safety notes, HR policies, sales guidance, and customer service procedures. Staff ask questions in plain language and get answers from approved internal sources.",
+    "workflows": [
+      {
+        "name": "Recipe and batch guidance",
+        "problem": "Recipes, scaling notes, substitutions, and production timelines can be hard to locate when the bake is already underway.",
+        "agentWorkflow": "Train DocsBot on recipe files, batch sheets, production calendars, and prep notes so staff can retrieve approved instructions quickly.",
+        "sourceTypes": [
+          "Recipe PDFs",
+          "Batch sheets",
+          "Production SOPs"
+        ],
+        "optionalAction": "Summarize a staff question and flag missing or conflicting recipe documentation for a manager to review.",
+        "outcome": "More consistent production knowledge and less time searching during early, weekend, or holiday shifts.",
+        "icon": "ArchiveBoxIcon",
+        "sourceIds": [
+          "src-bakers-work-schedules"
+        ]
+      },
+      {
+        "name": "Front-of-house answer guide",
+        "problem": "New counter staff may not know every product detail, custom order rule, pickup exception, or dietary note.",
+        "agentWorkflow": "DocsBot answers from menu documents, FAQ pages, service scripts, custom order policies, and training materials in a private team chat.",
+        "sourceTypes": [
+          "Training guides",
+          "Menu notes",
+          "Customer service SOPs"
+        ],
+        "optionalAction": "Create an escalation note for a manager when the question involves refunds, complaints, allergens, or special approvals.",
+        "outcome": "Customers receive more consistent answers even when experienced staff are busy or off shift.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Food safety and allergen training reference",
+        "problem": "Allergen and food safety procedures must be easy for staff to reference, especially when products, suppliers, or seasonal menus change.",
+        "agentWorkflow": "DocsBot retrieves approved training content, allergen awareness notes, cleaning procedures, labeling guidance, and internal policy documents.",
+        "sourceTypes": [
+          "Food safety SOPs",
+          "Allergen training materials",
+          "Labeling notes"
+        ],
+        "optionalAction": "Route unresolved allergen questions to a trained manager and retain the conversation for review.",
+        "outcome": "Staff can find approved guidance faster while managers keep sensitive dietary answers inside defined review paths.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fda-allergens-sesame"
+        ]
+      },
+      {
+        "name": "Wholesale and event sales enablement",
+        "problem": "Owners and catering staff need quick access to wholesale terms, proposal language, minimums, delivery rules, and objection-handling notes.",
+        "agentWorkflow": "DocsBot can answer internal sales questions from service catalogs, pricing guidance, proposal templates, testimonials, and customer-facing FAQs.",
+        "sourceTypes": [
+          "Wholesale playbooks",
+          "Proposal templates",
+          "Catering FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM task through a customer-configured Skill, API, connector, or workflow, with humans approving final pricing and commitments.",
+        "outcome": "Sales conversations move faster without making the agent responsible for final quotes, contracts, or approvals.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the business’s own knowledge sources and answer in the company’s voice.",
+      "industryApplication": "Answer bakery questions about menus, flavors, custom order policies, pickup instructions, catering options, storage guidance, and dietary notes from approved content.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Embeddable website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can be deployed where customers and employees need help, including website widgets and private chat experiences.",
+      "industryApplication": "Put a customer-facing agent on the bakery site while giving staff a separate internal agent for recipes, SOPs, and service guidance.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded action through customer-defined rules, APIs, connectors, workflow triggers, and remote Model Context Protocol servers when configured.",
+      "industryApplication": "Support approved order lookups, task creation, catering lead routing, staff notifications, form submissions, summaries, and handoffs without inventing uncontrolled automation.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap insights.",
+      "industryApplication": "See which menu items, allergens, holidays, pickup rules, or custom order policies generate the most questions and improve your content accordingly.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved source content.",
+      "industryApplication": "Help tourists, event planners, wholesale buyers, and local customers ask bakery questions in the language they prefer.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Keep private recipes, supplier notes, staff documents, and internal policies accessible only to the teams that should use them.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own bakery content instead of generic web answers.",
+      "Support busy customer-facing teams with instant, source-grounded help.",
+      "Give staff a searchable knowledge base for training materials and procedures."
+    ],
+    "whyTheseReviewsFit": "Bakeries need practical AI that can learn their own menus, policies, and internal training materials. DocsBot proof shows teams using owned content for reliable answers, helping communities find information, and supporting high-volume customer interactions without losing the human handoff when it matters.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "BoltIcon",
+      "ArchiveBoxIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for bakeries",
+    "audience": [
+      "Bakery owners",
+      "Bakery managers",
+      "Catering and events teams",
+      "Counter staff and customer service teams",
+      "Production leads"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CakeIcon"
+  },
+  "relatedIndustrySlugs": [
+    "caterer",
+    "coffee-roastery",
+    "food-hospitality",
+    "food-trucks",
+    "grocery-convenience-store",
+    "food-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "bakery",
+    "webSearchQueries": [
+      "IBISWorld bakery cafes industry statistics United States bakeries employment revenue 2024",
+      "BLS bakers occupational outlook employment work environment early mornings weekends",
+      "FDA Food Code major food allergens sesame 2023 restaurants bakeries",
+      "National Restaurant Association off-premises takeout delivery consumer statistics 2024"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/market-research-reports/bakery-cafes-industry/",
+      "https://www.bls.gov/ooh/production/bakers.htm",
+      "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40633,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28089,
+        "outputTokens": 7938,
+        "reasoningOutputTokens": 114,
+        "totalTokens": 48571,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192429,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202429
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21535,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14239,
+          "outputTokens": 4957,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 26492,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.111777,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.121777
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19098,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13850,
+          "outputTokens": 2981,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22079,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080652,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080652
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1521471109507-43d61bb345dd?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU0NzR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Bakery background image",
+    "source": "legacy-industry",
+    "query": "Bakery"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer customer questions about ingredients, allergens, and dietary options without making unsafe promises?",
+      "answer": "Yes. Train the agent on your approved ingredient notes, allergen policy, menu pages, and staff guidance. DocsBot can answer from those sources, use careful wording, and escalate sensitive allergy or cross-contact questions to a person instead of guessing. This is especially important because sesame became the ninth major U.S. food allergen on January 1, 2023.",
+      "role": "Bakery owners and general managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-allergens-sesame"
+      ]
+    },
+    {
+      "question": "How would this help during morning rushes, weekends, holidays, or seasonal ordering windows?",
+      "answer": "DocsBot gives customers and staff an always-available source for approved answers about hours, pickup windows, holiday deadlines, custom order lead times, storage instructions, and menu details. That matters in bakeries because baker schedules often include early mornings, nights, weekends, and holidays, when managers or experienced staff may not be available.",
+      "role": "Bakery owners and general managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bakers-work-schedules"
+      ]
+    },
+    {
+      "question": "Can the agent collect custom cake details before a staff member follows up?",
+      "answer": "Yes. DocsBot can ask for event date, serving count, flavors, design notes, inspiration details, budget range, pickup or delivery needs, contact information, and follow-up preference. It can then summarize the request and route it for human review through customer-configured workflows, forms, email, CRM, helpdesk software, Slack, Microsoft Teams, or similar approved systems.",
+      "role": "Counter, customer service, and catering staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot replace our counter staff or cake consultants?",
+      "answer": "No. The best fit is to reduce repetitive questions and improve intake quality, not remove the human judgment from food safety, design approvals, pricing, complaints, refunds, or final order commitments. DocsBot can answer routine questions, collect missing details, and escalate complex or high-value requests with conversation context attached.",
+      "role": "Bakery owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it help with pickup, delivery, and order-change questions that currently turn into phone calls?",
+      "answer": "Yes. DocsBot can answer from your pickup policy, delivery zones, order-change rules, packaging notes, reheating guidance, and FAQs. For order-specific requests, it can collect identifying details and prepare a handoff or use an approved live lookup if you configure the right Skill, API, connector, or workflow. Nearly three out of four restaurant orders are now taken to go, so clear off-premises communication matters.",
+      "role": "Counter, customer service, and catering staff",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-off-premises-restaurant-traffic"
+      ]
+    },
+    {
+      "question": "Can we use one agent for customers and another for recipes and internal SOPs?",
+      "answer": "Yes. Many bakeries would use a public website agent for menu, ordering, pickup, catering, and policy questions, plus a private internal knowledge agent for recipes, batch sheets, production timelines, cleaning checklists, training materials, HR policies, and service procedures. Role-based permissions help keep private recipe and operations content limited to the right teams.",
+      "role": "Production leads and bakery teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the AI from exposing private recipes, supplier notes, or staff policies to customers?",
+      "answer": "Separate public and internal sources, use role-based permissions, and limit which agent can access each knowledge base. DocsBot supports granular access controls, encryption in transit and at rest, SOC 2 Type II certification, and GDPR-ready governance. Customer-facing agents should be trained only on content you are comfortable sharing externally.",
+      "role": "Production leads and bakery teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot work with the systems we already use for orders, forms, calendars, or team notifications?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, MCP, webhooks, and workflow automations. That can enable approved actions such as creating a task, submitting a form, forwarding a lead summary, notifying a team, requesting a meeting, or looking up approved order context. It should be scoped to the systems and permissions you authorize.",
+      "role": "Bakery owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What content do we need before launching a bakery AI agent?",
+      "answer": "Start with your menu, seasonal products, custom cake policy, catering minimums, pickup and delivery rules, allergen wording, storage instructions, refund or cancellation policy, and common customer FAQs. For an internal agent, add recipes, batch sheets, prep lists, cleaning checklists, onboarding guides, service scripts, and SOPs. DocsBot can also reveal content gaps after launch.",
+      "role": "Bakery owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much work is involved if our information is scattered across PDFs, Google Drive, spreadsheets, binders, and old website pages?",
+      "answer": "DocsBot can train on websites, PDFs, Google Drive, Notion, Confluence, Word documents, text files, and other approved sources. The bigger implementation task is deciding what is current, who owns each policy, and which content should be customer-facing versus internal. For binder-only processes, you may need to digitize or summarize the most-used procedures first.",
+      "role": "Production leads and bakery teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer availability questions like what pastries are in stock today?",
+      "answer": "Only if the information is available in an approved source or connected system. DocsBot can answer from static menus and seasonal pages by default. With configured Skills, APIs, connectors, metadata, or workflow access, it can use approved live context such as current availability, store-specific notes, or order status. Without that connection, it should avoid pretending to know real-time inventory.",
+      "role": "Counter, customer service, and catering staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we handle questions that involve allergies, complaints, refunds, or special approvals?",
+      "answer": "Set clear escalation rules. DocsBot can provide approved policy language, collect the customer’s details, summarize the situation, and route it to a manager or trained staff member. For sensitive allergy, cross-contact, complaint, refund, legal, or high-value event questions, the agent should not make final commitments unless your team has explicitly configured a safe, bounded workflow.",
+      "role": "Bakery owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support multilingual customers without creating separate menu pages for every language?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved bakery sources. That can help tourists, local multilingual communities, corporate buyers, and event planners ask about menus, pickup, dietary notes, and custom orders in the language they prefer while keeping answers grounded in your approved content.",
+      "role": "Counter, customer service, and catering staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should a bakery owner look for when evaluating this?",
+      "answer": "Track fewer repetitive phone calls, faster custom order intake, more complete catering leads, reduced staff interruptions, improved after-hours inquiry capture, fewer policy misunderstandings, and faster onboarding for new counter or production staff. For bakery cafes, the opportunity sits in a sizable market: U.S. bakery cafe revenue reached $18.3 billion in 2024.",
+      "role": "Bakery owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bakery-cafe-revenue"
+      ]
+    },
+    {
+      "question": "Can it help us turn website visitors into wedding, catering, wholesale, or corporate leads?",
+      "answer": "Yes. DocsBot can answer service-fit questions from approved pages, then qualify inquiries using your rules: event date, guest count, volume, location, budget range, delivery needs, wholesale minimums, and follow-up preference. With configured workflows, it can forward a structured summary to your sales, catering, CRM, helpdesk, email, or team notification process.",
+      "role": "Bakery owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does DocsBot avoid giving outdated answers when our menu changes every season?",
+      "answer": "The agent answers from the sources you connect and maintain. For seasonal bakeries, assign owners for menu pages, allergen notes, holiday deadlines, and order policies, then update those sources before promotions go live. DocsBot analytics and conversation review can also show where customers are asking questions that your current content does not answer clearly.",
+      "role": "Bakery owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can our production team use it during prep without searching through binders or asking the head baker?",
+      "answer": "Yes. A private internal DocsBot agent can search approved recipes, batch sheets, scaling notes, prep timelines, packaging instructions, cleaning procedures, and training documents. Staff can ask plain-language questions and get source-grounded answers, which is useful when production starts before managers arrive or when experienced bakers are off shift.",
+      "role": "Production leads and bakery teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bakers-work-schedules"
+      ]
+    },
+    {
+      "question": "What reporting would managers get after the agent is live?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a bakery, that can reveal repeated questions about allergens, flavors, holiday cutoffs, pickup rules, storage instructions, wholesale minimums, or staff SOPs so you know what content to improve.",
+      "role": "Bakery owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review conversations to see whether customers are asking questions we never documented?",
+      "answer": "Yes. DocsBot can surface unanswered questions, repeated topics, and documentation gaps. That is useful for bakeries where customer confusion often points to missing website details, unclear custom cake rules, outdated allergen wording, incomplete holiday ordering pages, or training gaps for new counter staff.",
+      "role": "Bakery owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What if the AI gives a wrong answer about a recipe, batch size, or food handling step?",
+      "answer": "Use the internal agent as a source-grounded reference, not an unchecked authority. Keep recipes and SOPs current, restrict sensitive sources by role, review logs, and define escalation rules for uncertain or conflicting answers. If a source document is wrong or outdated, the AI may reflect that, so content ownership and manager review are part of the rollout.",
+      "role": "Production leads and bakery teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot handle multiple locations with different hours, menus, pickup rules, or delivery zones?",
+      "answer": "Yes, if your source structure makes those differences clear. You can organize content by location and use instructions, metadata, or configured lookups to guide the agent. For multi-location bakeries, the key is keeping store-specific menus, availability notes, holiday hours, delivery rules, and escalation contacts accurate and separated where needed.",
+      "role": "Bakery owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we compare DocsBot with a basic website chatbot or FAQ widget?",
+      "answer": "A basic widget usually answers a fixed set of questions. DocsBot is better positioned when you need source-grounded answers from your own menus, policies, PDFs, SOPs, and internal documents; private staff knowledge access; analytics; multilingual support; and bounded actions such as summaries, handoffs, task creation, approved lookups, or workflow triggers.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will staff need technical skills to maintain the bakery knowledge base?",
+      "answer": "Most of the work is operational, not technical: deciding the approved answer, updating the right source, and reviewing gaps. Managers or leads should own menu changes, allergen wording, custom order rules, recipe updates, and SOP revisions. Technical help may be useful for live lookups, APIs, connectors, MCP, or more advanced workflow automation.",
+      "role": "Bakery owners and general managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we control what actions the agent is allowed to take?",
+      "answer": "Yes. DocsBot AI Actions and Skills are designed around customer-defined boundaries. You can scope actions to tasks such as collecting details, creating a ticket, sending a notification, updating approved fields, or preparing a handoff. Sensitive actions can require review paths, permissions, secrets management, logging, and limits on what systems the agent can access.",
+      "role": "Bakery owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What does a practical first rollout look like for a small bakery?",
+      "answer": "Start with a customer-facing website agent trained on your menu, custom order FAQ, pickup rules, catering details, storage guidance, and allergen policy. Measure repeated questions and lead quality for a few weeks. Then add an internal staff agent for recipes, SOPs, training guides, and service scripts once your team sees which information creates the most interruptions.",
+      "role": "Bakery owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help new counter staff answer consistently while they are still learning the menu?",
+      "answer": "Yes. A private team agent can give new staff approved wording for product details, serving sizes, storage guidance, pickup exceptions, custom order rules, and dietary notes. That reduces dependence on one experienced employee’s memory and helps customers receive more consistent answers during lines, phone rushes, and seasonal hiring periods.",
+      "role": "Counter, customer service, and catering staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot protect customer and business data?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. For bakery workflows, keep payment, credentials, and highly sensitive customer data out of chat unless you have designed an approved, secure process.",
+      "role": "Bakery owners and general managers",
+      "category": "Vendor trust"
+    }
+  ]
+}

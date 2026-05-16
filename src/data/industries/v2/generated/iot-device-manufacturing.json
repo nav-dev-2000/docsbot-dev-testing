@@ -1,0 +1,751 @@
+{
+  "slug": "iot-device-manufacturing",
+  "business": "IoT Device Manufacturing",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for IoT Device Manufacturing Support",
+    "description": "DocsBot helps IoT device manufacturers automate support, presales, and internal knowledge so teams resolve setup, firmware, and spec questions faster.",
+    "canonicalPath": "/industry/iot-device-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for connected product teams",
+    "headline": "DocsBot AI agents keep IoT device support and knowledge moving",
+    "subheadline": "Train DocsBot on manuals, firmware notes, API docs, troubleshooting guides, release notes, sales materials, and internal SOPs so customers, distributors, support teams, and field engineers get fast answers with clear escalation paths.",
+    "proofBullets": [
+      {
+        "text": "Answer installation, pairing, provisioning, firmware, compatibility, warranty, and troubleshooting questions from approved device documentation.",
+        "icon": "CpuChipIcon"
+      },
+      {
+        "text": "Use configured AI Actions to look up status, collect device details, draft ticket replies, create tasks, route issues, or prepare human handoffs.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give sales and channel teams instant access to product specs, competitive notes, lifecycle guidance, and approved positioning.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "text": "Surface repeated unanswered questions so product, documentation, and support teams can improve manuals, FAQs, and release notes.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an IoT support agent",
+    "secondaryCta": "Explore workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps IoT device manufacturers create AI agents trained on their own product knowledge. Agents can answer customer and employee questions, summarize support context, qualify presales inquiries, retrieve approved documentation, identify knowledge gaps, and take bounded actions through Skills, APIs, connectors, MCP options, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Customer support and technical support leaders",
+        "roleContext": "IoT support queues often combine setup confusion, mobile app steps, firmware versions, connectivity symptoms, warranty questions, and distributor-specific context.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive onboarding and troubleshooting questions with source-grounded answers from manuals, FAQs, release notes, and help center content.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect model number, firmware version, app version, network type, region, and error messages before routing complex issues to a human technician.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Review analytics and conversation logs to find missing documentation, recurring defects, confusing setup steps, and new support topics.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Product, firmware, and documentation teams",
+        "roleContext": "Connected devices change after shipment, so teams need one reliable way to explain firmware behavior, lifecycle status, APIs, integrations, and known issues.",
+        "bullets": [
+          {
+            "text": "Make firmware notes, API references, compatibility matrices, test guidance, known issues, and field notices searchable for support and engineering teams.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize repeated customer questions into documentation gaps that can inform product onboarding, packaging inserts, and in-app help.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Keep responses grounded in approved sources so teams do not rely on stale tribal knowledge when device behavior changes.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Sales, channel, and solutions engineering teams",
+        "roleContext": "IoT buyers compare connectivity options, deployment constraints, certifications, APIs, integrations, data retention, security posture, and support commitments before ordering.",
+        "bullets": [
+          {
+            "text": "Answer presales questions from product pages, spec sheets, solution briefs, sales playbooks, FAQs, and approved pricing or packaging guidance.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Qualify inquiries by use case, deployment size, region, timeline, device environment, connectivity requirements, and requested follow-up path.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Draft account summaries, implementation notes, or follow-up emails for human review when connected to approved sales workflows.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Operations, quality, and compliance teams",
+        "roleContext": "IoT manufacturing depends on controlled product information, lifecycle communication, postmarket updates, and fast coordination between hardware, software, and support functions.",
+        "bullets": [
+          {
+            "text": "Retrieve SOPs, quality procedures, support scripts, RMA guidance, supplier notes, and internal policies in private team chat experiences.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Route safety, security, regulated, or high-impact questions to defined human review paths instead of letting an agent make unsupported decisions.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Help teams keep cybersecurity, labeling, and device-support knowledge findable as expectations for connected products evolve.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-gsma-iot-connections",
+      "metric": "38.7 billion IoT connections forecast by 2030",
+      "claim": "GSMA Intelligence forecasts 38.7 billion IoT connections by 2030, with an 8% CAGR for the 5G-IoT market.",
+      "sourceTitle": "The next chapter for 5G-IoT: Scaling with ambient IoT, eSIM, and NTN",
+      "sourceUrl": "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/gsma_resources/the-next-chapter-for-5g-iot-scaling-with-ambient-iot-esim-and-ntn/",
+      "sourceDate": "April 14, 2025",
+      "bestUsedFor": [
+        "market scale",
+        "connected device growth",
+        "support volume pressure"
+      ]
+    },
+    {
+      "id": "src-mckinsey-iot-value",
+      "metric": "$5.5 trillion to $12.6 trillion in potential IoT value by 2030",
+      "claim": "McKinsey estimates IoT could enable $5.5 trillion to $12.6 trillion in global value by 2030, and the factory setting may account for about 26% of the potential value.",
+      "sourceTitle": "IoT value set to accelerate through 2030: Where and how to capture it",
+      "sourceUrl": "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/iot-value-set-to-accelerate-through-2030-where-and-how-to-capture-it",
+      "sourceDate": "November 9, 2021",
+      "bestUsedFor": [
+        "IoT business value",
+        "manufacturing opportunity",
+        "scaling pressure"
+      ]
+    },
+    {
+      "id": "src-nist-consumer-iot",
+      "metric": "NIST recommended criteria for consumer IoT cybersecurity labeling",
+      "claim": "NIST recommended cybersecurity labeling criteria for consumer IoT products in response to Executive Order 14028.",
+      "sourceTitle": "Consumer IoT Cybersecurity",
+      "sourceUrl": "https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/consumer-iot-cybersecurity",
+      "sourceDate": "February 4, 2022",
+      "bestUsedFor": [
+        "cybersecurity expectations",
+        "consumer IoT labeling",
+        "trust and compliance pressure"
+      ]
+    },
+    {
+      "id": "src-fcc-iot-labeling",
+      "metric": "FCC established a voluntary cybersecurity labeling program for wireless consumer IoT products",
+      "claim": "The FCC established the U.S. Cyber Trust Mark program for qualifying wireless consumer IoT products and requires applicants to make cybersecurity-related declarations.",
+      "sourceTitle": "Cybersecurity Labeling for Internet of Things",
+      "sourceUrl": "https://regulations.justia.com/regulations/fedreg/2024/07/30/2024-14148.html",
+      "sourceDate": "July 30, 2024",
+      "bestUsedFor": [
+        "IoT labeling program",
+        "consumer trust",
+        "security support commitments"
+      ]
+    },
+    {
+      "id": "src-fda-cybersecurity-faq",
+      "metric": "SBOM requirements for cyber medical devices",
+      "claim": "FDA FAQs state that Section 524B requires manufacturers of cyber devices to provide a software bill of materials for commercial, open-source, and off-the-shelf software components.",
+      "sourceTitle": "Cybersecurity in Medical Devices Frequently Asked Questions",
+      "sourceUrl": "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity-medical-devices-frequently-asked-questions-faqs",
+      "sourceDate": "Current FDA FAQ",
+      "bestUsedFor": [
+        "regulated connected devices",
+        "SBOM documentation",
+        "medical IoT cybersecurity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Device setup and troubleshooting agent",
+      "problem": "Customers and installers often need help pairing devices, confirming firmware versions, interpreting LED patterns, fixing connectivity, or understanding app steps before they can use a connected product.",
+      "agentWorkflow": "DocsBot answers from manuals, onboarding guides, help articles, firmware notes, app documentation, and known-issue pages. If the answer needs more context, the agent asks for model, serial number, firmware, mobile app version, region, and network details, then prepares a summary for support escalation.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up warranty status, create a support ticket, route the case by product line, or attach the collected diagnostics to a human handoff.",
+      "exampleQuestionsOrRequests": [
+        "Why is my gateway showing a blinking amber light after the firmware update?",
+        "Does this sensor support WPA3 networks?",
+        "Create a support ticket with my model number, firmware version, and error code."
+      ],
+      "businessOutcome": "Reduce repetitive setup tickets while giving human technicians cleaner context for complex hardware, firmware, connectivity, or replacement decisions.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Firmware release and lifecycle knowledge agent",
+      "problem": "After devices ship, product behavior changes through firmware updates, app updates, cloud changes, bug fixes, deprecations, and end-of-life notices.",
+      "agentWorkflow": "DocsBot retrieves approved release notes, lifecycle policies, compatibility matrices, API change logs, internal bulletins, and field support guidance so support, sales, and operations teams can explain what changed and what customers should do next.",
+      "liveContextOrTools": "A configured Skill can check an approved device or account record, summarize the relevant release history, and route sensitive security or safety-impacting issues for review.",
+      "exampleQuestionsOrRequests": [
+        "Which firmware versions are affected by the battery reporting issue?",
+        "Summarize the migration steps for customers still using the legacy gateway.",
+        "What support language should we use for end-of-life notices in Europe?"
+      ],
+      "businessOutcome": "Keep device lifecycle communication consistent across support, sales, and documentation teams without asking employees to search scattered files.",
+      "icon": "ArrowPathRoundedSquareIcon"
+    },
+    {
+      "name": "IoT cybersecurity and trust documentation assistant",
+      "problem": "Connected product buyers increasingly ask about secure development, update support, vulnerability handling, data practices, and labeling requirements before purchasing or deploying devices.",
+      "agentWorkflow": "DocsBot answers from approved security documentation, public trust pages, support-period statements, vulnerability disclosure procedures, FAQs, and internal escalation rules. It can give source-grounded answers while directing legal, security, or contractual commitments to the right reviewer.",
+      "liveContextOrTools": "With customer-defined workflows, the agent can collect security questionnaire details, create a review task, notify the security team, or route requests involving the FCC Cyber Trust Mark or other labeling claims for approval.",
+      "exampleQuestionsOrRequests": [
+        "What is the support period for security updates on this product family?",
+        "Do we have approved language for vulnerability disclosure?",
+        "Route this security questionnaire to the product security owner."
+      ],
+      "businessOutcome": "Speed up trust-related buyer conversations while keeping cybersecurity and certification language inside approved boundaries. The FCC established a voluntary cybersecurity labeling program for wireless consumer IoT products, raising the importance of clear security documentation for consumer device makers.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fcc-iot-labeling"
+      ]
+    },
+    {
+      "name": "Presales configuration and channel enablement agent",
+      "problem": "IoT prospects, distributors, and systems integrators ask nuanced questions about connectivity, range, power, environmental ratings, data flows, APIs, certifications, accessories, and deployment fit.",
+      "agentWorkflow": "DocsBot answers from spec sheets, product pages, approved sales playbooks, comparison guides, FAQs, proposal templates, and implementation notes. It can qualify leads using customer-defined rules and gather deployment details for a sales or solutions engineering handoff.",
+      "liveContextOrTools": "Configured Skills, forms, APIs, or sales workflows can forward qualified inquiries, create a CRM-style record, request a meeting, or draft a follow-up email for human review.",
+      "exampleQuestionsOrRequests": [
+        "Which gateway supports LTE fallback and outdoor installation?",
+        "Qualify this lead for a 5,000-device cold-chain deployment.",
+        "Draft a follow-up comparing our BLE and cellular sensor options."
+      ],
+      "businessOutcome": "Help channel and sales teams respond faster with consistent product answers and better-qualified opportunities.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Internal manufacturing and quality procedures agent",
+      "problem": "Support, operations, quality, and production teams need quick access to SOPs, return rules, test procedures, packaging instructions, supplier notes, and escalation paths.",
+      "agentWorkflow": "DocsBot acts as a private knowledge agent trained on SOPs, PDFs, wikis, shared folders, policies, and internal documentation. Employees can ask natural-language questions and receive answers grounded in approved sources.",
+      "liveContextOrTools": "When configured, the agent can create a task, notify a team channel, summarize a nonconformance report, or update approved fields through scoped workflow automation.",
+      "exampleQuestionsOrRequests": [
+        "What is the RMA triage process for water ingress claims?",
+        "Summarize the latest packaging inspection checklist for the sensor line.",
+        "Create a task for quality review with this field failure summary."
+      ],
+      "businessOutcome": "Reduce time spent searching internal files and help teams follow the same procedures across manufacturing, support, and quality operations.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Documentation gap and support trend analysis",
+      "problem": "Fast-growing IoT portfolios create new question patterns around pairing, app permissions, signal strength, firmware behavior, accessories, integrations, and regional requirements.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, conversation review, and topic management help teams see what customers and employees ask, where answers are missing, and which articles need improvement.",
+      "liveContextOrTools": "Teams can use customer-configured workflows to send recurring unanswered topics to documentation, product, or support operations queues.",
+      "exampleQuestionsOrRequests": [
+        "Show repeated questions where the answer was missing from the manual.",
+        "Which setup topics are driving the most escalations this month?",
+        "Summarize documentation gaps for the new gateway launch."
+      ],
+      "businessOutcome": "Turn real support conversations into a roadmap for better manuals, onboarding flows, help articles, and product education.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent for connected device questions",
+    "intro": "Embed DocsBot on your website, help center, product portal, or support experience so buyers and device owners can get instant answers from your approved IoT knowledge sources. Human escalation remains available when a question involves a defect, replacement, warranty exception, security issue, or safety-sensitive scenario.",
+    "requests": [
+      {
+        "request": "“Which device works with my existing gateway and 2.4 GHz Wi-Fi network?”",
+        "agentResponseStrategy": "Answer from compatibility guides, spec sheets, product pages, and FAQs, then ask clarifying questions when the deployment environment or region matters.",
+        "sourceTypes": [
+          "Spec sheets",
+          "Compatibility matrices",
+          "Product FAQs",
+          "Installation guides"
+        ],
+        "optionalAction": "Collect product interest, deployment size, region, and contact details for a sales or channel handoff.",
+        "icon": "WifiIcon"
+      },
+      {
+        "request": "“My device stopped reporting after the last firmware update.”",
+        "agentResponseStrategy": "Guide the user through approved troubleshooting steps, explain known firmware notes when documented, and collect diagnostic details before escalation.",
+        "sourceTypes": [
+          "Firmware notes",
+          "Troubleshooting guides",
+          "Known issues",
+          "Help center articles"
+        ],
+        "optionalAction": "Create or route a support ticket with model, serial number, firmware version, app version, and symptom summary when configured.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“What security updates will this product receive?”",
+        "agentResponseStrategy": "Respond from approved security, lifecycle, and support-period documentation without inventing commitments outside published policy.",
+        "sourceTypes": [
+          "Security FAQs",
+          "Lifecycle policies",
+          "Trust pages",
+          "Vulnerability disclosure process"
+        ],
+        "optionalAction": "Route security questionnaire or procurement requests to a human reviewer with the conversation summary attached.",
+        "icon": "LockClosedIcon",
+        "sourceIds": [
+          "src-nist-consumer-iot"
+        ]
+      },
+      {
+        "request": "“Can I get a quote for 2,000 devices across five warehouses?”",
+        "agentResponseStrategy": "Collect use case, deployment scale, environment, connectivity needs, timeline, region, and preferred follow-up channel before qualifying the inquiry.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product catalogs",
+          "Solution briefs",
+          "Lead qualification rules"
+        ],
+        "optionalAction": "Forward qualified lead details to approved sales workflows or request a meeting through a configured scheduling process.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“Where can I find the API documentation for device provisioning?”",
+        "agentResponseStrategy": "Retrieve source-grounded answers from developer documentation, API references, tutorials, and internal implementation notes that have been approved for the audience.",
+        "sourceTypes": [
+          "Developer docs",
+          "API references",
+          "Tutorials",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Escalate integration blockers to support or solutions engineering with a concise technical summary.",
+        "icon": "CodeBracketIcon"
+      },
+      {
+        "request": "“Is this connected medical device submission expected to include an SBOM?”",
+        "agentResponseStrategy": "Answer only from the manufacturer’s approved regulatory and product documentation, then route formal regulatory interpretation to a qualified reviewer.",
+        "sourceTypes": [
+          "Regulatory guidance summaries",
+          "Product security files",
+          "SBOM procedures",
+          "Compliance playbooks"
+        ],
+        "optionalAction": "Create a review task for regulatory affairs or product security when the request involves formal claims.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-fda-cybersecurity-faq"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private knowledge agents for hardware, software, support, and operations teams",
+    "intro": "DocsBot can train on internal documentation so employees get fast, source-grounded answers about device procedures, launch readiness, quality workflows, sales enablement, product support, and policy guidance without digging through scattered folders.",
+    "workflows": [
+      {
+        "name": "Support escalation summaries",
+        "problem": "Human agents lose time reconstructing setup history, device details, firmware context, troubleshooting attempts, and customer impact before they can act.",
+        "agentWorkflow": "DocsBot can summarize a conversation, extract key diagnostics, identify missing information, and draft a handoff for the right support or engineering queue.",
+        "sourceTypes": [
+          "Support logs",
+          "Troubleshooting scripts",
+          "Firmware notes",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a ticket, route it by product family, or notify the appropriate team through customer-configured workflows.",
+        "outcome": "Give specialists clearer cases and reduce back-and-forth with customers.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Engineering and field issue lookup",
+        "problem": "Field teams, support engineers, and product managers need to know whether a symptom is documented, resolved, under investigation, or tied to a firmware or hardware revision.",
+        "agentWorkflow": "The agent retrieves information from known-issue trackers, release notes, test summaries, quality notes, and support procedures that the customer has approved for training.",
+        "sourceTypes": [
+          "Known-issue notes",
+          "Release notes",
+          "Quality documentation",
+          "Field reports"
+        ],
+        "optionalAction": "Summarize a suspected issue and create a task for product, firmware, or quality review when configured.",
+        "outcome": "Improve internal consistency when explaining defects, fixes, workarounds, and next steps.",
+        "icon": "BugAntIcon"
+      },
+      {
+        "name": "Sales and solutions engineering preparation",
+        "problem": "Sales teams need fast, accurate answers about deployment fit, technical constraints, security posture, integrations, and product differences before customer calls.",
+        "agentWorkflow": "DocsBot answers from approved sales enablement material, product docs, implementation notes, case studies, FAQs, and objection-handling guidance. When configured with web search and approved Skills, it can also summarize public account context for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product specs",
+          "Implementation notes",
+          "Security FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare call notes, or create a task for solutions engineering review.",
+        "outcome": "Help commercial teams respond with accurate product knowledge while humans retain control over pricing, contracts, and commitments.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Manufacturing SOP and quality guidance",
+        "problem": "Operators and quality teams need controlled answers about inspection steps, rework procedures, RMA triage, packaging rules, and internal policies.",
+        "agentWorkflow": "A private DocsBot agent retrieves source-grounded answers from SOPs, PDFs, wikis, training files, shared drives, and policy documents.",
+        "sourceTypes": [
+          "SOPs",
+          "Quality procedures",
+          "Training materials",
+          "Policy documents"
+        ],
+        "optionalAction": "Trigger a workflow to record a question, notify a supervisor, or create a task for documentation updates.",
+        "outcome": "Support consistent execution without relying on informal tribal knowledge.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Security and compliance response support",
+        "problem": "IoT manufacturers must answer buyer, distributor, regulator, and partner questions about cybersecurity, software components, vulnerability handling, and product support periods.",
+        "agentWorkflow": "DocsBot retrieves approved language from security FAQs, regulatory files, lifecycle statements, SBOM procedures, and internal review guidance, while directing formal commitments to authorized reviewers.",
+        "sourceTypes": [
+          "Security documentation",
+          "Regulatory files",
+          "SBOM procedures",
+          "Review playbooks"
+        ],
+        "optionalAction": "Route high-impact claims to product security, legal, compliance, or regulatory affairs with the request summary attached.",
+        "outcome": "Make trust documentation easier to access while preserving human review for sensitive claims.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from owned product knowledge",
+      "mainLandingPageContext": "DocsBot agents train on company-approved sources such as websites, help centers, documents, PDFs, internal content, and product documentation.",
+      "industryApplication": "Answer IoT setup, firmware, API, warranty, compatibility, security, and lifecycle questions using manuals, release notes, spec sheets, and internal procedures.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs through customer-configured access.",
+      "industryApplication": "Look up device or warranty status, collect diagnostics, create support tasks, route firmware issues, notify teams, or connect to approved tools including remote Model Context Protocol servers where configured.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Customer-facing website and product support experiences",
+      "mainLandingPageContext": "DocsBot can appear in website or product chat widgets and support helpdesk-connected workflows with human escalation when needed.",
+      "industryApplication": "Give device owners and installers 24/7 help for installation, pairing, network setup, app permissions, firmware updates, and product selection.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve as a private team assistant trained on SOPs, policies, wikis, shared documents, and other internal knowledge sources.",
+      "industryApplication": "Help support, quality, manufacturing, product, and sales teams retrieve the same approved procedures and product guidance across departments.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Presales qualification and sales enablement",
+      "mainLandingPageContext": "DocsBot can answer product, pricing, compatibility, implementation, and fit questions, collect lead details, qualify inquiries, and forward summaries through customer-configured workflows.",
+      "industryApplication": "Qualify IoT buyers by deployment scale, environment, connectivity needs, region, timeline, and product fit before routing to sales or solutions engineering.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Analytics, reports, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated unanswered questions about setup, firmware, APIs, compatibility, security, and product changes so documentation and product teams can improve content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support private product, compliance, support, and customer data workflows with access boundaries appropriate for connected device manufacturers.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "sony-nuro-resolution-rate",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support where customers need fast answers from product documentation.",
+      "Useful for device businesses that rely on manuals, multilingual content, and 24/7 self-service.",
+      "Helps documentation teams understand what users are trying to learn from technical content."
+    ],
+    "whyTheseReviewsFit": "IoT manufacturers need dependable product answers across manuals, help centers, technical docs, and support workflows. DocsBot proof spans high-volume customer inquiries, multilingual device manuals, embedded support experiences, and analytics that reveal what users need from documentation.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "LanguageIcon",
+      "MagnifyingGlassIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, documentation, presales, and internal knowledge agents for IoT device manufacturers",
+    "audience": [
+      "IoT device manufacturers",
+      "Connected hardware support teams",
+      "Product and firmware teams",
+      "IoT sales and channel teams",
+      "Manufacturing operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CpuChipIcon"
+  },
+  "relatedIndustrySlugs": [
+    "industrial-manufacturing",
+    "robotics-manufacturing",
+    "semiconductor-manufacturing",
+    "contract-manufacturing",
+    "medical-device-suppliers",
+    "electric-vehicle-components",
+    "b2b-product-distributors"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "iot-device-manufacturing",
+    "webSearchQueries": [
+      "IoT manufacturing market size connected IoT devices GSMA 2025",
+      "NIST IoT cybersecurity labeling program consumer IoT devices 2024",
+      "FDA cybersecurity medical devices guidance software bill of materials 2023 IoT devices",
+      "FCC Cyber Trust Mark IoT labeling program final rules 2024",
+      "McKinsey Internet of Things potential economic value 2030 manufacturing"
+    ],
+    "sourceUrls": [
+      "https://www.gsma.com/solutions-and-impact/technologies/internet-of-things/gsma_resources/the-next-chapter-for-5g-iot-scaling-with-ambient-iot-esim-and-ntn/",
+      "https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/iot-value-set-to-accelerate-through-2030-where-and-how-to-capture-it",
+      "https://www.nist.gov/itl/applied-cybersecurity/nist-cybersecurity-iot-program/consumer-iot-cybersecurity",
+      "https://regulations.justia.com/regulations/fedreg/2024/07/30/2024-14148.html",
+      "https://www.fda.gov/medical-devices/digital-health-center-excellence/cybersecurity-medical-devices-frequently-asked-questions-faqs"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45672,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33128,
+        "outputTokens": 8545,
+        "reasoningOutputTokens": 201,
+        "totalTokens": 54217,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.214131,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.234131
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24712,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 17416,
+          "outputTokens": 5905,
+          "reasoningOutputTokens": 178,
+          "totalTokens": 30617,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.133939,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.153939
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20960,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15712,
+          "outputTokens": 2640,
+          "reasoningOutputTokens": 23,
+          "totalTokens": 23600,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080192,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080192
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1647427060118-4911c9821b82?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxJb1QlMjBEZXZpY2UlMjBNYW51ZmFjdHVyaW5nfGVufDB8MHx8fDE3Nzg4MjMyOTB8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "a factory filled with lots of orange machines",
+    "source": "unsplash-search",
+    "query": "IoT Device Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle both customer setup questions and internal engineering knowledge without mixing audiences?",
+      "answer": "Yes. IoT manufacturers can create separate customer-facing and private internal agents with different approved sources, instructions, access controls, and escalation paths. A public agent might answer pairing, firmware, warranty, or compatibility questions, while an internal agent retrieves SOPs, field notices, release notes, RMA rules, and engineering guidance for employees.",
+      "role": "Customer support and technical support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would an AI agent know when an IoT issue needs a human technician instead of another troubleshooting step?",
+      "answer": "DocsBot can be instructed to escalate when an issue involves safety, security, warranty exceptions, possible defects, unclear firmware behavior, unsupported environments, or missing documentation. It can collect model, serial number, firmware, app version, network type, region, and symptoms first, then prepare a cleaner handoff for the right support queue.",
+      "role": "Customer support and technical support leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Our support tickets depend on firmware version, hardware revision, app version, and region. Can the agent ask for that context before answering?",
+      "answer": "Yes. DocsBot can follow structured intake instructions so it asks for the required diagnostics before giving guidance or escalating. When connected through approved Skills, APIs, connectors, or customer-defined workflows, it can also attach those details to a ticket, task, or handoff summary for support or engineering review.",
+      "role": "Customer support and technical support leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot reduce repetitive installation and pairing tickets without giving unsupported device advice?",
+      "answer": "DocsBot is designed to answer from approved manuals, help articles, troubleshooting guides, firmware notes, and known-issue content. If the source material does not support an answer, the agent can say so, ask clarifying questions, or route the case to a human. That matters as IoT connections scale; GSMA Intelligence forecasts 38.7 billion IoT connections by 2030.",
+      "role": "Customer support and technical support leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-gsma-iot-connections"
+      ]
+    },
+    {
+      "question": "What sources should we train the agent on first for an IoT device support launch?",
+      "answer": "Start with the highest-volume support content: installation guides, quick-start manuals, pairing instructions, LED/error-code tables, firmware release notes, app troubleshooting articles, compatibility matrices, warranty/RMA rules, and known-issue pages. Then add internal escalation scripts and support policies once you are ready for private team workflows.",
+      "role": "Customer support and technical support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer firmware lifecycle and end-of-life questions consistently across support, sales, and distributors?",
+      "answer": "Yes. DocsBot can retrieve from approved lifecycle policies, release notes, compatibility matrices, field notices, API change logs, and sales guidance. This helps teams use the same language when explaining affected firmware versions, migration steps, discontinued gateways, regional notices, or support-period limits.",
+      "role": "Product, firmware, and documentation teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from inventing security commitments, certifications, or update timelines?",
+      "answer": "Train the agent only on approved security FAQs, lifecycle statements, trust pages, vulnerability disclosure procedures, and compliance playbooks. DocsBot can be instructed not to answer beyond those sources and to route legal, security, certification, or contractual claims to authorized reviewers with the conversation summary attached.",
+      "role": "Operations, quality, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help us respond faster to cybersecurity questionnaires from enterprise IoT buyers?",
+      "answer": "Yes. DocsBot can retrieve approved answers from security documentation, product lifecycle policies, SBOM procedures, vulnerability handling guidance, and internal review notes. It can draft a response or create a review task, while keeping final commitments with product security, legal, compliance, or regulatory owners.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does this help with Cyber Trust Mark or consumer IoT labeling conversations?",
+      "answer": "DocsBot can make approved labeling, security-update, vulnerability-disclosure, and product-support language easier to find, while routing formal claims for review. That is useful because the FCC established the voluntary U.S. Cyber Trust Mark program for qualifying wireless consumer IoT products and requires applicants to make cybersecurity-related declarations.",
+      "role": "Operations, quality, and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fcc-iot-labeling"
+      ]
+    },
+    {
+      "question": "We manufacture connected medical devices. Can the agent answer SBOM or regulatory questions directly?",
+      "answer": "DocsBot can retrieve approved regulatory, cybersecurity, SBOM, and product-security documentation, but formal interpretation should route to qualified reviewers. For cyber medical devices, FDA FAQs state that Section 524B requires manufacturers to provide an SBOM covering commercial, open-source, and off-the-shelf software components.",
+      "role": "Operations, quality, and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-cybersecurity-faq"
+      ]
+    },
+    {
+      "question": "Can DocsBot qualify presales inquiries for complex deployments before involving solutions engineering?",
+      "answer": "Yes. A DocsBot presales agent can ask about deployment size, environment, region, connectivity requirements, power constraints, gateway compatibility, timeline, use case, and preferred follow-up. With customer-configured workflows, it can forward a qualified summary to sales, channel teams, or solutions engineering for human follow-up.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this support distributors and channel partners who ask the same product questions repeatedly?",
+      "answer": "DocsBot can give channel teams source-grounded answers from spec sheets, product catalogs, compatibility guides, solution briefs, approved positioning, pricing or packaging guidance, and lifecycle notes. This helps partners answer fit, accessory, API, certification, and deployment questions without waiting on internal product experts.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent compare products without making risky competitive or configuration claims?",
+      "answer": "Yes, if you train it on approved comparison guides, spec sheets, sales playbooks, and configuration rules. DocsBot should be instructed to explain tradeoffs from documented facts, ask clarifying questions when environment or region matters, and route unusual deployment designs to a human solutions engineer.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What integrations are realistic for device status, warranty lookup, or ticket creation?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP options, forms, or workflow automations to perform bounded actions such as looking up warranty status, checking an approved record, creating a ticket, routing by product family, notifying a team, or attaching diagnostics. It should not receive unrestricted system access.",
+      "role": "Customer support and technical support leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot work with our existing helpdesk or CRM if there is no named native integration?",
+      "answer": "Often, yes. DocsBot can support approved workflows through Skills, APIs, connectors, webhooks, forms, exported sources, or customer-configured automations. The practical question is which fields and actions you want available: summaries, ticket creation, lead forwarding, status lookup, approved field updates, or escalation routing.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure ROI beyond saying the agent answered chats?",
+      "answer": "Track repetitive ticket deflection, first-contact resolution, escalation quality, average handle time, unanswered-topic reduction, lead qualification speed, documentation gaps closed, and support volume by product or firmware version. For IoT manufacturers, the strongest ROI usually comes from reducing setup friction while giving specialists better diagnostic context.",
+      "role": "Customer support and technical support leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can analytics tell product and documentation teams what customers do not understand after a launch?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review repeated unanswered questions about pairing, app permissions, firmware behavior, API usage, signal strength, accessories, or regional requirements and turn them into better docs or product onboarding.",
+      "role": "Product, firmware, and documentation teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we roll this out without overwhelming support, product, and compliance teams?",
+      "answer": "Start with a narrow agent for high-volume, low-risk support topics such as installation, pairing, compatibility, and basic troubleshooting. Review unanswered questions, tune instructions, add escalation rules, and then expand to firmware lifecycle, presales qualification, internal SOPs, or security documentation once source quality and ownership are clear.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when our documentation is outdated or scattered across PDFs, wikis, ticket macros, and release notes?",
+      "answer": "DocsBot can train on many approved source types, but it will only be as reliable as the knowledge you give it. A good implementation includes source cleanup, ownership rules, versioning discipline, and analytics reviews that reveal conflicting answers, stale procedures, missing firmware notes, or manuals that no longer match shipped behavior.",
+      "role": "Product, firmware, and documentation teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support multilingual device owners, installers, or distributors?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which is useful for IoT manufacturers selling through global channels or supporting installers across regions. You should still define which source documents are authoritative by market, because warranty terms, network compatibility, labeling, and regulatory language may differ by country.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot protect private product, customer, and operational data?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It does not use customer data to train public models. For connected device workflows, Skills should be scoped with customer-defined controls, logging, secrets handling, and least-privilege access.",
+      "role": "Operations, quality, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can an internal agent help manufacturing and quality teams follow controlled procedures?",
+      "answer": "Yes. A private DocsBot agent can answer from SOPs, quality procedures, inspection checklists, RMA triage rules, packaging instructions, training files, and policies. It can also trigger scoped workflows, such as creating a task, notifying a supervisor, or recording a recurring documentation question for review.",
+      "role": "Operations, quality, and compliance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep humans in control for RMAs, warranty exceptions, replacements, and safety-sensitive issues?",
+      "answer": "Use the agent for intake, source-grounded guidance, diagnostics collection, and summaries—not final high-impact decisions. DocsBot can route warranty exceptions, suspected defects, safety issues, security vulnerabilities, or replacement approvals to defined human reviewers, with logs and conversation context available for oversight.",
+      "role": "Customer support and technical support leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Is this only for support, or can it help with revenue and deployment fit?",
+      "answer": "It can support both. Customer-facing agents can reduce repetitive support questions, while presales agents can qualify deployment size, connectivity needs, environment, region, timeline, and product fit. IoT’s business stakes are large: McKinsey estimates IoT could enable $5.5 trillion to $12.6 trillion in global value by 2030.",
+      "role": "Sales, channel, and solutions engineering teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mckinsey-iot-value"
+      ]
+    },
+    {
+      "question": "What should our buying committee evaluate before choosing an AI agent vendor for IoT support?",
+      "answer": "Evaluate source grounding, escalation controls, access permissions, analytics, multilingual support, workflow actions, implementation effort, security posture, and whether the vendor can support both customer-facing and internal knowledge use cases. Also confirm that sensitive actions are scoped, logged, and reviewable before connecting live systems.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    }
+  ]
+}

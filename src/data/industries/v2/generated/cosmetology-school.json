@@ -1,0 +1,724 @@
+{
+  "slug": "cosmetology-school",
+  "business": "Cosmetology School",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Cosmetology School Operations",
+    "description": "DocsBot helps cosmetology schools automate admissions, student support, policy answers, and staff knowledge so teams respond faster with approved information.",
+    "canonicalPath": "/industry/cosmetology-school"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for beauty and career education teams",
+    "headline": "Keep cosmetology students, prospects, and staff moving with DocsBot",
+    "subheadline": "DocsBot lets cosmetology schools create AI agents trained on admissions pages, program catalogs, financial aid guidance, student handbooks, clinic policies, safety references, and internal SOPs. Give prospects and students fast answers while staff focus on advising, compliance, and hands-on training.",
+    "proofBullets": [
+      {
+        "text": "Answer program, schedule, kit, tuition, clinic, transfer, and licensing questions from approved school content.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "text": "Collect lead details, qualify admissions inquiries, and route summaries to your enrollment team through configured workflows.",
+        "icon": "ArrowTrendingUpIcon"
+      },
+      {
+        "text": "Give staff and instructors a private knowledge agent for policies, procedures, onboarding, and documentation gaps.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use scoped AI Actions to create tasks, prepare handoffs, summarize conversations, and escalate sensitive questions to people.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your cosmetology school agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your cosmetology school’s own knowledge into AI support agents and internal knowledge agents. Train on public pages, PDFs, handbooks, curriculum documents, FAQs, SOPs, and policy files so prospects, students, instructors, and administrators can retrieve source-grounded answers, summarize context, and trigger approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Admissions and enrollment teams",
+        "roleContext": "Prospective students often compare program length, tuition, schedules, licensing pathways, transfer policies, and career outcomes before they ever speak to an advisor.",
+        "bullets": [
+          {
+            "text": "Respond to evening and weekend program inquiries without asking staff to monitor every channel manually.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Collect structured lead details such as program interest, start date, campus, schedule needs, and preferred follow-up channel.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Help advisors prioritize high-intent prospects by forwarding summaries and next-step context through approved workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Student services and financial aid staff",
+        "roleContext": "Career education students need clear, consistent answers about attendance, SAP, payment deadlines, aid documents, leave policies, and graduation requirements.",
+        "bullets": [
+          {
+            "text": "Make handbook and policy answers easier to find before students submit repetitive emails or office visits.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route financial aid, Title IV, and payment-plan questions to trained staff when the agent reaches a sensitive boundary.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Surface repeated student questions so teams can improve FAQs, orientation materials, and policy pages.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      },
+      {
+        "role": "Instructors, clinic managers, and operations leaders",
+        "roleContext": "Cosmetology schools combine classroom instruction, practical hours, clinic floor policies, product safety, sanitation steps, and state-board preparation.",
+        "bullets": [
+          {
+            "text": "Give instructors fast access to lesson references, rubric language, clinic rules, and internal procedures from approved sources.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Keep safety and chemical-handling references searchable while leaving final instruction and supervision to licensed staff.",
+            "icon": "BeakerIcon"
+          },
+          {
+            "text": "Use conversation logs and topic reports to spot where students or staff need clearer training content.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "ScissorsIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-cosmetology-outlook",
+      "metric": "5% projected employment growth from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of barbers, hairstylists, and cosmetologists to grow 5% from 2024 to 2034, with state-approved programs typically required.",
+      "sourceTitle": "BLS Occupational Outlook Handbook: Barbers, Hairstylists, and Cosmetologists",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/barbers-hairstylists-and-cosmetologists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "career-demand context",
+        "program inquiry volume",
+        "licensing pathway questions"
+      ]
+    },
+    {
+      "id": "src-osha-formaldehyde-schools",
+      "metric": "Beauty schools are covered by OSHA formaldehyde and hazard communication obligations when applicable",
+      "claim": "OSHA states that salon owners and other employers, including beauty schools, must comply with formaldehyde and hazard communication standards if they use products that contain or may release formaldehyde.",
+      "sourceTitle": "OSHA: Hair Salons—Facts about Formaldehyde in Hair Products",
+      "sourceUrl": "https://osha.prod.pace.dol.gov/hair-salons/worker-health",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "chemical safety references",
+        "clinic policy support",
+        "compliance-aware escalation"
+      ]
+    },
+    {
+      "id": "src-fda-hair-smoothing-formaldehyde",
+      "metric": "FDA warns that some hair smoothing products release formaldehyde when heated",
+      "claim": "The FDA explains that certain hair smoothing products can release formaldehyde gas when heated and points users to OSHA exposure standards and safety guidance.",
+      "sourceTitle": "FDA: Hair Smoothing Products That Release Formaldehyde When Heated",
+      "sourceUrl": "https://www.fda.gov/cosmetics/cosmetic-products/hair-smoothing-products-release-formaldehyde-when-heated",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "student safety education",
+        "product safety questions",
+        "clinic service disclosures"
+      ]
+    },
+    {
+      "id": "src-ed-gainful-employment",
+      "metric": "Federal FVT and Gainful Employment rules address debt and earnings outcomes",
+      "claim": "The U.S. Department of Education’s final regulations establish Financial Value Transparency and Gainful Employment requirements focused on program debt, earnings, and student disclosures.",
+      "sourceTitle": "Federal Student Aid Knowledge Center: Final Regulations—Financial Value Transparency and Gainful Employment",
+      "sourceUrl": "https://fsapartners.ed.gov/knowledge-center/library/federal-registers/2023-10-10/final-regulations-financial-value-transparency-and-gainful-employment",
+      "sourceDate": "October 10, 2023",
+      "bestUsedFor": [
+        "financial aid transparency",
+        "career-program compliance pressure",
+        "prospective student disclosures"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Admissions inquiry and program-fit agent",
+      "problem": "Prospects ask the same high-intent questions about start dates, program length, tuition, kits, schedules, campus options, licensure paths, and whether cosmetology is a viable career.",
+      "agentWorkflow": "A DocsBot agent answers from approved admissions pages, catalog PDFs, FAQs, and program disclosures. It can collect contact details, program interest, desired start date, prior education, schedule constraints, and follow-up preference, then prepare a lead summary for an admissions advisor.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, forms, or CRM workflows, the agent can submit a lead form, create a task, request a meeting, or forward the conversation summary to admissions.",
+      "exampleQuestionsOrRequests": [
+        "How long is the cosmetology program and when is the next start date?",
+        "Do you offer evening classes or part-time schedules?",
+        "What should I bring to an admissions appointment?",
+        "Can someone call me about the cosmetology and esthetics programs?"
+      ],
+      "businessOutcome": "Prospective students get immediate answers, and admissions staff receive cleaner context before human follow-up.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-cosmetology-outlook"
+      ]
+    },
+    {
+      "name": "Student handbook and policy support agent",
+      "problem": "Students lose time searching for attendance rules, make-up hours, SAP requirements, dress code, kit replacement policies, clinic procedures, and graduation checklists.",
+      "agentWorkflow": "DocsBot can train on the student handbook, catalog, orientation slides, policy PDFs, and internal FAQs. The agent gives source-grounded answers, points students to the relevant policy, and escalates questions about exceptions, aid eligibility, discipline, or appeals to staff.",
+      "liveContextOrTools": "When configured with approved workflows, the agent can collect missing details, create a student-services ticket, route the issue by topic, and summarize the student’s question for review.",
+      "exampleQuestionsOrRequests": [
+        "How many missed hours can I make up this month?",
+        "Where do I find the SAP policy?",
+        "What is the dress code for clinic floor days?",
+        "Who approves a leave of absence?"
+      ],
+      "businessOutcome": "Staff spend less time repeating handbook answers and more time advising students who need judgment or intervention.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Financial aid and disclosure triage agent",
+      "problem": "Career training programs face heightened expectations for clear cost, debt, earnings, and disclosure information, and students often ask sensitive aid questions that require staff oversight.",
+      "agentWorkflow": "DocsBot can answer general questions from approved financial aid pages, disclosure documents, program cost sheets, and deadline checklists. It can explain where to find information, gather context, and route personal eligibility, Title IV, loan, refund, or debt questions to financial aid staff.",
+      "liveContextOrTools": "Configured Skills can create a financial-aid follow-up task, attach a conversation summary, notify staff, or update approved status fields while keeping final aid decisions with authorized personnel.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find total program cost and estimated kit fees?",
+        "What documents do I need before my aid appointment?",
+        "I saw a disclosure about earnings. Can someone explain it?",
+        "Can I change my payment plan?"
+      ],
+      "businessOutcome": "Students get faster navigation help while the school maintains clear boundaries for regulated financial aid guidance.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-ed-gainful-employment"
+      ]
+    },
+    {
+      "name": "Clinic floor and product safety knowledge agent",
+      "problem": "Cosmetology programs need consistent access to sanitation, chemical handling, PPE, ventilation, SDS, and clinic-service procedures while students are learning hands-on skills.",
+      "agentWorkflow": "DocsBot can make safety manuals, clinic SOPs, SDS references, product guidance, and instructor-approved procedures searchable for staff and students. For high-risk or ambiguous questions, it can point users to the policy and escalate to an instructor or safety lead.",
+      "liveContextOrTools": "The agent can use approved Skills to generate a safety-question summary, notify a clinic manager, or create a task to review outdated product or procedure documentation.",
+      "exampleQuestionsOrRequests": [
+        "Where is the SDS for this smoothing product?",
+        "What does our clinic policy say about ventilation during smoothing services?",
+        "What should I do if a client reports irritation?",
+        "Which instructor approves this service before I proceed?"
+      ],
+      "businessOutcome": "Safety-critical information becomes easier to find, while licensed staff remain responsible for supervision and final decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-formaldehyde-schools",
+        "src-fda-hair-smoothing-formaldehyde"
+      ]
+    },
+    {
+      "name": "Instructor and staff onboarding assistant",
+      "problem": "New instructors, substitutes, front-desk staff, and clinic supervisors need fast access to internal procedures without interrupting experienced administrators.",
+      "agentWorkflow": "A private DocsBot knowledge agent can answer from SOPs, onboarding documents, calendars, rubrics, grading policies, clinic workflows, brand guidelines, and staff handbooks. It can summarize procedures and identify missing or outdated documentation through analytics.",
+      "liveContextOrTools": "Teams can deploy the agent in private chat experiences, Slack, Microsoft Teams, or internal workflows when configured. MCP connectors can also expose approved tools from systems the school already uses.",
+      "exampleQuestionsOrRequests": [
+        "How do I document a practical assessment?",
+        "Where is the new-student orientation checklist?",
+        "What is the process for a clinic client complaint?",
+        "Which policy covers substitute instructor coverage?"
+      ],
+      "businessOutcome": "Institutional knowledge becomes easier to preserve and retrieve across campuses, departments, and staffing changes.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Knowledge-gap reporting for school leaders",
+      "problem": "Repeated questions reveal friction in admissions pages, student policies, curriculum documents, and clinic procedures, but those patterns are hard to see across conversations.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery help teams see what prospects, students, and staff repeatedly ask. Leaders can use those insights to update pages, handbooks, orientation content, and internal SOPs.",
+      "liveContextOrTools": "Configured workflows can route recurring unanswered topics to marketing, admissions, financial aid, student services, or operations owners for content updates.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are students asking that our handbook does not answer?",
+        "What admissions topics come up before people book a tour?",
+        "Which clinic policies need clearer documentation?",
+        "What should we add to orientation next term?"
+      ],
+      "businessOutcome": "The school improves its knowledge base over time instead of relying on scattered inboxes and informal staff memory.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A front-door AI support agent for prospective and current beauty students",
+    "intro": "Embed a DocsBot agent on your cosmetology school website so visitors can ask natural-language questions and get answers grounded in approved content. The agent can support admissions, student services, clinic clients, and alumni while escalating sensitive or complex issues to staff.",
+    "requests": [
+      {
+        "request": "“How much does the cosmetology program cost, and what is included in the kit?”",
+        "agentResponseStrategy": "Answer from the published tuition, fee, kit, catalog, and disclosure pages; offer to collect contact details for an advisor if the prospect wants a personalized cost conversation.",
+        "sourceTypes": [
+          "Program catalog",
+          "Tuition page",
+          "Admissions FAQ",
+          "Disclosures"
+        ],
+        "optionalAction": "Submit a lead form or notify admissions through a customer-configured workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Can I become licensed after completing this program?”",
+        "agentResponseStrategy": "Point to the school’s state-board and program-completion information, clarify that requirements vary by state, and route individual eligibility questions to staff.",
+        "sourceTypes": [
+          "State-board guidance",
+          "Program page",
+          "Student catalog",
+          "Licensure FAQ"
+        ],
+        "optionalAction": "Create a callback request for admissions or student services.",
+        "icon": "IdentificationIcon",
+        "sourceIds": [
+          "src-bls-cosmetology-outlook"
+        ]
+      },
+      {
+        "request": "“I need help understanding my attendance and make-up hours.”",
+        "agentResponseStrategy": "Use handbook and attendance-policy sources to explain the general rule, then collect details and escalate account-specific or exception requests to student services.",
+        "sourceTypes": [
+          "Student handbook",
+          "Attendance policy",
+          "Academic progress policy"
+        ],
+        "optionalAction": "Open a student-services ticket with a concise summary and requested next step.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Is this smoothing product safe to use in clinic?”",
+        "agentResponseStrategy": "Surface approved school procedures, SDS references, and safety guidance; direct the student to an instructor or clinic manager before any service decision.",
+        "sourceTypes": [
+          "Clinic SOPs",
+          "SDS library",
+          "Safety manual",
+          "Instructor guidance"
+        ],
+        "optionalAction": "Notify the clinic manager or create a documentation-review task when the source material is missing or outdated.",
+        "icon": "BeakerIcon",
+        "sourceIds": [
+          "src-osha-formaldehyde-schools"
+        ]
+      },
+      {
+        "request": "“Can I schedule a tour or admissions meeting?”",
+        "agentResponseStrategy": "Collect scheduling intent, program interest, contact information, campus preference, and preferred times before handing off to admissions.",
+        "sourceTypes": [
+          "Admissions process",
+          "Campus pages",
+          "Tour FAQ",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Use an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar customer-configured tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you offer help in Spanish or another language?”",
+        "agentResponseStrategy": "Answer from approved school language-access content when available and use DocsBot’s multilingual response capability to make basic navigation easier.",
+        "sourceTypes": [
+          "Admissions FAQ",
+          "Student services page",
+          "Language-access notes"
+        ],
+        "optionalAction": "Route the visitor to the right staff member if the conversation needs a bilingual advisor or official translated document.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private AI knowledge support for instructors, advisors, and administrators",
+    "intro": "DocsBot can serve as a secure internal knowledge agent trained on school-owned content. Staff can ask operational questions, retrieve procedures, draft summaries, identify documentation gaps, and trigger approved handoffs without searching across folders and policy files.",
+    "workflows": [
+      {
+        "name": "Advisor and front-desk answer assistant",
+        "problem": "Admissions and front-desk teams field repetitive questions while juggling tours, calls, clinic visitors, and student service issues.",
+        "agentWorkflow": "Train the agent on admissions scripts, program pages, FAQs, catalog language, call notes, and handoff rules. Staff can ask for approved answers, next-step checklists, and conversation summaries.",
+        "sourceTypes": [
+          "Admissions scripts",
+          "Program catalog",
+          "FAQ pages",
+          "Handoff procedures"
+        ],
+        "optionalAction": "Draft a follow-up email or create a task in a configured workflow for human review.",
+        "outcome": "Faster, more consistent responses across advisors and campuses.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Instructor procedure lookup",
+        "problem": "Instructors need policy and procedure answers during class, practical assessments, or clinic supervision, but must not rely on memory alone.",
+        "agentWorkflow": "The internal agent retrieves rubric details, clinic rules, sanitation steps, grading procedures, and documentation requirements from approved school files.",
+        "sourceTypes": [
+          "Rubrics",
+          "Instructor handbook",
+          "Clinic SOPs",
+          "Assessment guides"
+        ],
+        "optionalAction": "Flag missing or conflicting documentation for an academic director to review.",
+        "outcome": "More consistent instruction and fewer interruptions for senior staff.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Compliance and disclosure content review support",
+        "problem": "Career schools must keep program, cost, disclosure, and policy content aligned across websites, catalogs, handbooks, and admissions materials.",
+        "agentWorkflow": "DocsBot can help staff find the current approved language, summarize where a policy appears, and show repeated questions that indicate unclear public content.",
+        "sourceTypes": [
+          "Catalogs",
+          "Disclosure documents",
+          "Website pages",
+          "Policy files"
+        ],
+        "optionalAction": "Create a content-update task for the owner of admissions, financial aid, or compliance materials.",
+        "outcome": "Teams can reduce conflicting answers and keep student-facing materials easier to maintain.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-ed-gainful-employment"
+        ]
+      },
+      {
+        "name": "Support ticket and request summarization",
+        "problem": "Student services, financial aid, admissions, and clinic teams need enough context to respond quickly without rereading long conversation threads.",
+        "agentWorkflow": "When connected through customer-approved helpdesk or ticketing workflows, DocsBot can summarize the request, classify the topic, draft a response from approved sources, and route the item to the right team.",
+        "sourceTypes": [
+          "Ticket history",
+          "Policy documents",
+          "Student services FAQs",
+          "Helpdesk workflows"
+        ],
+        "optionalAction": "Route a ticket, draft a response, or update approved fields through configured Skills, APIs, or connectors.",
+        "outcome": "Staff get cleaner handoffs and spend less time reconstructing the issue.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on school-owned knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, websites, internal content, documents, and other configured knowledge sources.",
+      "industryApplication": "Train on admissions pages, catalogs, tuition sheets, student handbooks, clinic SOPs, safety references, staff onboarding materials, and FAQs.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers in public and private interfaces",
+      "mainLandingPageContext": "DocsBot agents provide instant answers based on approved sources and can be used in website widgets or private team chat experiences.",
+      "industryApplication": "Give prospects a website support agent while giving staff a private internal agent for procedure, policy, and onboarding questions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record updates, and workflow triggers inside customer-defined rules.",
+      "industryApplication": "Collect admissions leads, create follow-up tasks, summarize financial aid questions, route student-services requests, and notify clinic managers when configured.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, topic management, reports, and knowledge-gap discovery.",
+      "industryApplication": "See which program, policy, clinic, financial aid, or licensing questions students and prospects keep asking, then improve the source content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Human escalation and governance",
+      "mainLandingPageContext": "DocsBot supports escalation, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no training of public models on customer data.",
+      "industryApplication": "Escalate financial aid, disciplinary, safety, eligibility, and exception requests while keeping private staff knowledge access controlled.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your own course, policy, and training materials.",
+      "Proven across education-style support and high-volume customer inquiry environments.",
+      "Useful for both public student support and private staff knowledge access."
+    ],
+    "whyTheseReviewsFit": "Cosmetology schools need more than a website widget. DocsBot proof spans education support, training-material answers, and large-scale inquiry handling, giving admissions, student services, and operations teams confidence that approved knowledge can be made easier to access.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "TrophyIcon",
+      "LockClosedIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for cosmetology schools",
+    "audience": [
+      "Cosmetology school owners",
+      "Admissions directors",
+      "Student services teams",
+      "Financial aid administrators",
+      "Instructors and clinic managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScissorsIcon"
+  },
+  "relatedIndustrySlugs": [
+    "trade-school",
+    "vocational-school",
+    "technical-school",
+    "real-estate-school",
+    "private-school"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "cosmetology-school",
+    "webSearchQueries": [
+      "BLS barbers hairstylists cosmetologists job outlook 2024 2034",
+      "OSHA hair salons formaldehyde hair smoothing products cosmetology schools",
+      "Federal Student Aid gainful employment cosmetology programs rule disclosure",
+      "Department of Education Financial Value Transparency Gainful Employment final regulations 2023 programs"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/personal-care-and-service/barbers-hairstylists-and-cosmetologists.htm",
+      "https://osha.prod.pace.dol.gov/hair-salons/worker-health",
+      "https://www.fda.gov/cosmetics/cosmetic-products/hair-smoothing-products-release-formaldehyde-when-heated",
+      "https://fsapartners.ed.gov/knowledge-center/library/federal-registers/2023-10-10/final-regulations-financial-value-transparency-and-gainful-employment"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46483,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33939,
+        "outputTokens": 7911,
+        "reasoningOutputTokens": 206,
+        "totalTokens": 54394,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.206649,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.226649
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27320,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20024,
+          "outputTokens": 5061,
+          "reasoningOutputTokens": 206,
+          "totalTokens": 32381,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.127799,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.147799
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19163,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13915,
+          "outputTokens": 2850,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22013,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07885,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07885
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1624362773837-5ead76d62e5e?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDQ5Mzl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cosmetology School background image",
+    "source": "legacy-industry",
+    "query": "Cosmetology School"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer admissions questions without giving prospects the wrong tuition, kit, schedule, or licensing information?",
+      "answer": "Yes. A DocsBot agent is trained on the sources you approve—program pages, catalog PDFs, tuition sheets, kit lists, disclosures, start-date pages, and admissions FAQs. It answers from that content, can show the relevant source context, and should escalate when a question depends on individual eligibility, transfer history, state-board interpretation, or staff judgment.",
+      "role": "Admissions and enrollment teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help our admissions team after hours and on weekends?",
+      "answer": "Prospects often compare program length, cost, schedule options, licensure paths, and career outlook before speaking with an advisor. DocsBot can answer those questions immediately, collect program interest, campus, start-date preference, schedule needs, and contact details, then send a structured summary to admissions through a customer-configured workflow.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-bls-cosmetology-outlook"
+      ]
+    },
+    {
+      "question": "Can the agent qualify leads before an advisor spends time on follow-up?",
+      "answer": "Yes. You can define qualification rules such as program interest, desired start date, campus, schedule fit, prior education, urgency, and preferred follow-up channel. With approved Skills, APIs, forms, or workflow automations, DocsBot can forward qualified inquiries, create follow-up tasks, or prepare handoff summaries for human admissions staff.",
+      "role": "Admissions and enrollment teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this replace our admissions advisors or student services staff?",
+      "answer": "No. DocsBot is best used to reduce repetitive searching, answering, summarizing, and routing—not to replace judgment. Advisors still handle personal fit, exceptions, financial aid decisions, enrollment commitments, and sensitive conversations. The agent helps staff start with cleaner context and spend more time on students who need human guidance.",
+      "role": "Admissions and enrollment teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support both prospective students on the website and current students asking handbook questions?",
+      "answer": "Yes. You can create customer-facing agents for admissions, tours, tuition navigation, and program questions, and private or student-facing agents for handbook, attendance, SAP, clinic, dress code, graduation, and make-up hour policies. Each agent can be trained on the appropriate source set and given different escalation rules.",
+      "role": "Student services and financial aid staff",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the AI from answering financial aid questions it should not answer?",
+      "answer": "Set clear boundaries in the agent instructions and knowledge sources. DocsBot can answer general navigation questions from approved cost sheets, deadline checklists, and disclosure pages, then escalate personal eligibility, Title IV, loan, refund, payment-plan, appeal, or debt questions to trained staff with a conversation summary.",
+      "role": "Student services and financial aid staff",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ed-gainful-employment"
+      ]
+    },
+    {
+      "question": "Can DocsBot help with Gainful Employment or Financial Value Transparency questions from prospects?",
+      "answer": "DocsBot can point prospects to your approved program cost, debt, earnings, and disclosure materials and explain where to find them. Federal Financial Value Transparency and Gainful Employment rules focus on program debt, earnings, and student disclosures, so final interpretations and student-specific advice should remain with authorized school staff.",
+      "role": "Student services and financial aid staff",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ed-gainful-employment"
+      ]
+    },
+    {
+      "question": "Can it answer questions about attendance, make-up hours, SAP, and graduation requirements?",
+      "answer": "Yes, if those policies are included in your approved sources. DocsBot can retrieve answers from the student handbook, catalog, academic progress policy, attendance policy, orientation materials, and graduation checklists. For exceptions, appeals, disciplinary issues, or account-specific status, it can collect context and route the student to staff.",
+      "role": "Student services and financial aid staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would instructors use this without relying on AI for teaching decisions?",
+      "answer": "Instructors can use a private DocsBot agent to quickly find approved rubric language, clinic procedures, assessment documentation steps, sanitation rules, onboarding materials, and internal SOPs. The agent should support lookup and consistency, while licensed instructors and academic leaders remain responsible for instruction, supervision, grading, and exceptions.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help students and clinic staff find product safety information?",
+      "answer": "Yes. DocsBot can make clinic SOPs, safety manuals, SDS references, ventilation guidance, PPE rules, and instructor-approved procedures searchable. For example, OSHA says beauty schools must comply with formaldehyde and hazard communication obligations when applicable, and the agent can surface approved safety references while escalating service decisions to staff.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-formaldehyde-schools"
+      ]
+    },
+    {
+      "question": "How should the agent handle questions about hair smoothing products and formaldehyde?",
+      "answer": "Train it on your clinic policies, SDS library, product guidance, and safety procedures, then instruct it to escalate high-risk or ambiguous questions to an instructor or clinic manager. The FDA warns that some hair smoothing products can release formaldehyde gas when heated, so the agent should support safety navigation, not authorize services.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-hair-smoothing-formaldehyde"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect with for lead routing, tickets, or staff notifications?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, MCP connectors, and approved workflows. That can support actions such as submitting a lead form, creating a task, routing a student-services ticket, notifying admissions or clinic managers, drafting a response, or updating approved fields in connected systems.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to have a perfect knowledge base before launching?",
+      "answer": "No, but you do need approved starting sources. Many schools begin with the catalog, admissions pages, tuition and kit sheets, student handbook, financial aid checklists, clinic SOPs, and staff FAQs. DocsBot’s logs, topic reporting, and knowledge-gap discovery can then show which questions need clearer source material.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation usually take for a cosmetology school?",
+      "answer": "Implementation depends on source readiness, approval workflows, and desired integrations. A simple website agent trained on existing pages and PDFs is usually more straightforward than a multi-campus internal agent with CRM, ticketing, scheduling, and escalation workflows. The practical first step is choosing sources, boundaries, owner approvals, and launch channels.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we limit different users to different content, such as staff-only SOPs versus public admissions pages?",
+      "answer": "Yes. DocsBot supports private internal knowledge agents, granular access controls, and role-based permissions. Public-facing agents can use approved public admissions and student support content, while staff agents can be trained on internal SOPs, onboarding documents, rubrics, procedures, and operational materials that should not be exposed to prospects.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security questions should our owner, compliance lead, or IT consultant ask?",
+      "answer": "Ask how data is protected, who can access which sources, whether customer data trains public models, how actions are scoped, and how logs are reviewed. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot support multiple campuses or multiple programs like cosmetology, esthetics, barbering, and nail technology?",
+      "answer": "Yes. You can organize knowledge by campus, program, audience, and workflow. The agent can be instructed to ask clarifying questions before answering when policies differ by campus or program. For larger schools, separate agents or carefully scoped source sets can reduce cross-program confusion.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we measure whether the agent is actually helping?",
+      "answer": "Track repetitive questions answered, lead details captured, handoffs created, after-hours conversations, unanswered topics, escalation volume, satisfaction signals, and staff time saved. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to help leaders evaluate performance.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we review conversations to see what prospects are confused about before they book a tour?",
+      "answer": "Yes. DocsBot conversation logs, reports, topic management, and knowledge-gap discovery can show repeated admissions questions about cost, schedules, program length, kits, licensure, transfer credit, start dates, and career outcomes. That gives admissions and marketing teams practical evidence for improving pages, FAQs, tour scripts, and follow-up workflows.",
+      "role": "Admissions and enrollment teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will DocsBot work for students who ask questions in Spanish or another language?",
+      "answer": "DocsBot can answer in more than 100 languages. For a cosmetology school, that can help students and prospects navigate general admissions, student services, and policy content. For official translated documents, regulated disclosures, or conversations requiring bilingual staff judgment, the agent should route the user to the right person.",
+      "role": "Student services and financial aid staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated answers when policies or tuition change?",
+      "answer": "Treat DocsBot as a source-grounded system, not a set-it-and-forget-it tool. Assign owners for catalogs, tuition sheets, program pages, handbooks, and clinic SOPs; remove outdated files; and review knowledge-gap and conversation reports. When your approved sources are current, the agent has better material to answer from.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent book tours or admissions appointments?",
+      "answer": "It can support booking workflows when you configure the approved tools and rules. DocsBot can collect scheduling intent, program interest, campus, contact information, and preferred times, then use a customer-configured scheduling workflow or send the request to admissions. Humans should still handle complex enrollment commitments or unusual scheduling cases.",
+      "role": "Admissions and enrollment teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should we automate first if our staff is already stretched thin?",
+      "answer": "Start with high-volume, low-risk questions: program length, start dates, admissions appointment prep, kit contents, general attendance policy, dress code, clinic hours, document checklists, and where to find disclosures. Keep financial aid eligibility, discipline, appeals, safety incidents, and exceptions routed to staff from day one.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "A generic chatbot often focuses on scripted replies or broad conversation. DocsBot is positioned as an AI agent trained on your approved school knowledge, with source-grounded answers, private internal use cases, analytics, knowledge-gap discovery, escalation, and scoped actions such as summarizing, routing, task creation, and lead handoffs when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can staff use DocsBot inside their normal workflow instead of logging into another portal?",
+      "answer": "Yes, depending on how you configure deployment. DocsBot agents can be used in website widgets, private chat experiences, Slack, Microsoft Teams, and customer-defined workflows. With approved Skills, APIs, connectors, or MCP connectors, teams can also expose bounded actions from systems they already use.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "What kind of training and onboarding will our staff need?",
+      "answer": "Most teams need training on what the agent should answer, when to escalate, how to review sources, how to read conversation logs, and how to report missing or conflicting content. Admissions, student services, financial aid, instructors, and clinic managers should each understand their boundaries and review responsibilities.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help preserve institutional knowledge when experienced instructors or administrators leave?",
+      "answer": "Yes. A private internal agent can be trained on SOPs, staff handbooks, rubrics, clinic workflows, onboarding checklists, policy files, and operational documents. That helps new instructors, substitutes, front-desk staff, and administrators find approved procedures without relying only on informal memory or interrupting senior staff.",
+      "role": "Instructors, clinic managers, and operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What budget or ROI argument resonates with school owners?",
+      "answer": "The strongest case is usually operational leverage: fewer repetitive calls and emails, faster admissions follow-up, cleaner student-services handoffs, more consistent policy answers, and better visibility into content gaps. Owners can also frame it around inquiry capture, staff retention, student experience, compliance-aware routing, and multi-campus consistency.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    }
+  ]
+}

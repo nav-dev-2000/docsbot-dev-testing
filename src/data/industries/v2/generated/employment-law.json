@@ -1,0 +1,705 @@
+{
+  "slug": "employment-law",
+  "business": "Employment Law",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Employment Law Firms and HR Legal Teams",
+    "description": "DocsBot helps employment law teams automate intake, policy answers, research triage, and internal knowledge access with source-grounded AI agents.",
+    "canonicalPath": "/industry/employment-law"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for employment law workflows",
+    "headline": "Employment law AI agents that organize answers, intake, and handoffs",
+    "subheadline": "DocsBot helps law firms, in-house counsel, and HR compliance teams create AI agents trained on approved policies, matter guides, templates, FAQs, and internal procedures. Give clients and staff faster answers while keeping sensitive legal decisions routed to the right human reviewer.",
+    "proofBullets": [
+      {
+        "text": "Answer recurring wage, leave, discrimination, handbook, and workplace policy questions from approved firm or company sources.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "text": "Collect structured intake details, summarize urgency, and route prospective matters or employee requests to the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Retrieve policy excerpts, template language, checklists, and internal procedures without making staff search across folders.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Escalate sensitive, high-impact, or case-specific legal questions with conversation context for attorney or HR review.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build an employment law AI agent",
+    "secondaryCta": "See source-grounded support in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your approved employment law knowledge into AI agents for public intake, client support, HR self-service, and internal legal operations. Agents can answer from selected sources, summarize conversations, identify missing intake facts, surface knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Employment law firms",
+        "roleContext": "Plaintiff and defense firms can reduce repetitive pre-consultation questions while keeping legal advice, strategy, and representation decisions with attorneys.",
+        "bullets": [
+          {
+            "text": "Provide source-grounded answers about consultation process, required documents, office policies, and general service scope.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect matter type, jurisdiction, dates, employer details, and desired follow-up path before a human reviews the inquiry.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize website conversations into structured handoffs so attorneys and intake staff start with better context.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Corporate legal departments",
+        "roleContext": "In-house teams can centralize policies, playbooks, investigation guidance, and escalation procedures for HR, managers, and regional business partners.",
+        "bullets": [
+          {
+            "text": "Make approved employment policies, manager guidance, and investigation procedures searchable in a private internal agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Route high-risk employee relations questions to counsel with source references and a concise issue summary.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use analytics to spot repeated questions and gaps in handbooks, FAQs, and manager training materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "HR compliance and employee relations teams",
+        "roleContext": "HR teams can offer faster self-service for policy interpretation while maintaining clear boundaries for legal, disciplinary, and accommodation decisions.",
+        "bullets": [
+          {
+            "text": "Answer benefits-adjacent policy, leave, anti-harassment, reporting, and workplace conduct questions from approved internal sources.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Prepare summaries for employee relations reviews, including known facts, missing details, and cited policy sections.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Support multilingual employees and managers with consistent answers in more than 100 languages when configured.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "IdentificationIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-eeoc-fy2024-charges",
+      "metric": "88,531 EEOC discrimination charges in FY 2024",
+      "claim": "The EEOC reported 88,531 new discrimination charges in fiscal year 2024, a more than 9% increase from fiscal year 2023.",
+      "sourceTitle": "U.S. Equal Employment Opportunity Commission 2024 Annual Performance Report",
+      "sourceUrl": "https://www.eeoc.gov/2024-annual-performance-report",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "compliance pressure",
+        "employment discrimination demand",
+        "intake volume"
+      ]
+    },
+    {
+      "id": "src-eeoc-fy2024-relief",
+      "metric": "Almost $700 million in EEOC monetary relief in FY 2024",
+      "claim": "The EEOC secured almost $700 million in monetary relief for about 21,000 victims of employment discrimination in fiscal year 2024.",
+      "sourceTitle": "U.S. Equal Employment Opportunity Commission 2024 Annual Performance Report",
+      "sourceUrl": "https://www.eeoc.gov/2024-annual-performance-report",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "risk severity",
+        "compliance pressure",
+        "employment dispute stakes"
+      ]
+    },
+    {
+      "id": "src-dol-whd-2025-wages",
+      "metric": "More than $259 million in back wages recovered in FY 2025",
+      "claim": "The U.S. Department of Labor Wage and Hour Division reported recovering more than $259 million in back wages for 176,957 employees nationwide in fiscal year 2025.",
+      "sourceTitle": "U.S. Department of Labor Wage and Hour Division Data",
+      "sourceUrl": "https://www.dol.gov/agencies/whd/data",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "wage and hour risk",
+        "compliance pressure",
+        "employee claims"
+      ]
+    },
+    {
+      "id": "src-bls-legal-occupations",
+      "metric": "Legal occupations projected to grow about as fast as average from 2024 to 2034",
+      "claim": "The Bureau of Labor Statistics projects overall employment in legal occupations to grow about as fast as the average for all occupations from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Legal Occupations",
+      "sourceUrl": "https://www.bls.gov/ooh/legal/home.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "legal labor demand",
+        "operations workload",
+        "staff leverage"
+      ]
+    },
+    {
+      "id": "src-shrm-employment-compliance",
+      "metric": "HR teams manage evolving workplace law and compliance obligations",
+      "claim": "SHRM describes HR teams as central to compliance, policy design, ethical workplace cultures, and adherence to evolving employment regulations.",
+      "sourceTitle": "SHRM Employment Law & Compliance",
+      "sourceUrl": "https://www.shrm.org/topics-tools/employment-law-compliance-new",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "HR compliance workload",
+        "policy maintenance",
+        "regulatory change"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Matter intake and consultation triage",
+      "problem": "Employment law inquiries often arrive with missing dates, unclear claim type, and incomplete documentation, slowing attorney review.",
+      "agentWorkflow": "A DocsBot agent asks structured intake questions, explains the consultation process from approved firm content, identifies missing facts, summarizes the issue, and routes the handoff for attorney review without promising legal advice or representation.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can create an intake record, notify the right team, request documents, or trigger a scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "I think I was fired after requesting medical leave. What information do you need before a consultation?",
+        "Can I upload my termination letter and get a summary for intake?",
+        "Do you handle wage and hour cases in my state?"
+      ],
+      "businessOutcome": "Intake staff receive cleaner summaries, prospects understand next steps, and attorneys spend less time reconstructing basic facts.",
+      "icon": "ScaleIcon"
+    },
+    {
+      "name": "HR policy self-service with escalation",
+      "problem": "Managers and employees repeatedly ask HR and legal for handbook, leave, accommodation, conduct, and reporting guidance.",
+      "agentWorkflow": "A private DocsBot agent answers from approved handbooks, SOPs, manager guides, and legal playbooks, cites the underlying source, and escalates sensitive disciplinary, accommodation, retaliation, or jurisdiction-specific questions to HR or counsel.",
+      "liveContextOrTools": "The agent can use approved live context to look up employee group, location, or policy version when the customer has authorized that data source.",
+      "exampleQuestionsOrRequests": [
+        "Which harassment reporting procedure applies to remote employees?",
+        "What steps should a manager follow before starting a performance improvement plan?",
+        "Which policy covers pregnancy accommodation requests?"
+      ],
+      "businessOutcome": "HR and legal teams deliver more consistent guidance while preserving human review for sensitive employment decisions.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-shrm-employment-compliance"
+      ]
+    },
+    {
+      "name": "Wage and hour document assistant",
+      "problem": "Wage, overtime, classification, meal break, and payroll questions require staff to search policies, state notes, and compliance checklists.",
+      "agentWorkflow": "DocsBot retrieves relevant policy excerpts, payroll procedures, classification guidance, and checklist language from approved sources, then prepares a concise summary with citations for HR, payroll, or counsel review.",
+      "liveContextOrTools": "Configured actions can create a task, route a payroll review, or update an approved case-management field after human-defined intake thresholds are met.",
+      "exampleQuestionsOrRequests": [
+        "Show the current overtime approval process for nonexempt employees.",
+        "Summarize our meal and rest break checklist for California managers.",
+        "What documents should payroll gather for a wage complaint review?"
+      ],
+      "businessOutcome": "Teams respond faster to high-volume wage issues while maintaining review boundaries for legal conclusions.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-dol-whd-2025-wages"
+      ]
+    },
+    {
+      "name": "Discrimination and retaliation response prep",
+      "problem": "Employment discrimination matters carry high legal and reputational stakes, and teams need fast access to approved procedures and documentation requirements.",
+      "agentWorkflow": "A DocsBot agent can surface investigation steps, anti-retaliation reminders, document preservation procedures, and reporting channels from approved legal and HR sources, then summarize the question for designated reviewers.",
+      "liveContextOrTools": "Through customer-configured workflows, the agent can create a confidential review task, notify an assigned legal queue, or attach the conversation summary to an internal record.",
+      "exampleQuestionsOrRequests": [
+        "What should HR document after an employee raises a retaliation concern?",
+        "Find our investigation checklist for a discrimination complaint.",
+        "Which escalation path applies when a senior manager is involved?"
+      ],
+      "businessOutcome": "Legal and HR teams get consistent front-line guidance and faster handoffs for issues that require careful human judgment.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-eeoc-fy2024-charges",
+        "src-eeoc-fy2024-relief"
+      ]
+    },
+    {
+      "name": "Template and clause retrieval for legal teams",
+      "problem": "Attorneys and paralegals lose time hunting through prior memos, policy templates, severance language, and client-facing FAQs.",
+      "agentWorkflow": "DocsBot searches approved internal content, retrieves source-grounded excerpts, and drafts working summaries or first-pass language from templates for attorney editing and approval.",
+      "liveContextOrTools": "With approved connectors, the agent can search designated folders, summarize PDFs or Word documents, and create a draft task for the responsible professional.",
+      "exampleQuestionsOrRequests": [
+        "Find the latest severance agreement checklist approved for New York matters.",
+        "Summarize our client FAQ on independent contractor classification.",
+        "Draft a first-pass client memo outline from our approved template."
+      ],
+      "businessOutcome": "Legal staff spend less time searching and more time applying judgment to client-specific work.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-bls-legal-occupations"
+      ]
+    },
+    {
+      "name": "Compliance update knowledge-gap tracking",
+      "problem": "Employment law content changes often, and teams need to know which topics employees, managers, or clients keep asking about.",
+      "agentWorkflow": "DocsBot conversation logs, reports, topic management, and knowledge-gap discovery help identify repeated unanswered questions so the team can update FAQs, playbooks, training, and policy pages.",
+      "liveContextOrTools": "Teams can review analytics, refine source material, and route content updates to policy owners through configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which leave-policy questions are employees asking most often this month?",
+        "Where is the agent unable to answer manager questions?",
+        "What new FAQ should we add for workplace accommodation requests?"
+      ],
+      "businessOutcome": "Policy owners can improve documentation based on real questions instead of guessing what users cannot find.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A front door for employment law questions without replacing legal review",
+    "intro": "Use DocsBot on a website or client portal to answer process questions, explain what documents to prepare, collect structured details, and route sensitive matters to a human. The agent stays grounded in approved sources and can be configured with clear boundaries for legal advice, representation, and deadlines.",
+    "requests": [
+      {
+        "request": "“Do you handle wrongful termination cases, and what should I prepare?”",
+        "agentResponseStrategy": "Explain firm service scope from approved pages, list typical intake documents, collect location and timeline, and offer a human follow-up path.",
+        "sourceTypes": [
+          "Practice area pages",
+          "Consultation FAQs",
+          "Intake checklists"
+        ],
+        "optionalAction": "Create an intake summary or trigger a scheduling request through a customer-configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What happens after I submit an employment discrimination inquiry?”",
+        "agentResponseStrategy": "Describe the review process, expected next steps, disclaimers, and what information the firm needs before evaluating fit.",
+        "sourceTypes": [
+          "Client onboarding guides",
+          "Disclaimers",
+          "Matter intake procedures"
+        ],
+        "optionalAction": "Route the conversation to intake staff with a concise issue summary and missing-information list.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Can you summarize my employee handbook question before I talk to counsel?”",
+        "agentResponseStrategy": "Ask clarifying questions, identify the relevant policy category, and prepare a neutral summary for the legal or HR reviewer.",
+        "sourceTypes": [
+          "Employee handbooks",
+          "HR policies",
+          "Client support FAQs"
+        ],
+        "optionalAction": "Send the summary to an approved legal queue or create a task for review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you offer employer training or policy review services?”",
+        "agentResponseStrategy": "Answer from approved service descriptions, ask about company size and priority topics, and qualify whether the inquiry should go to an attorney, HR consultant, or sales contact.",
+        "sourceTypes": [
+          "Service pages",
+          "Training catalogs",
+          "Engagement FAQs"
+        ],
+        "optionalAction": "Forward qualified leads with company details, urgency, and requested service category.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "request": "“I need help in another language.”",
+        "agentResponseStrategy": "Provide consistent answers from the same approved sources in the user’s preferred language and escalate if nuance or jurisdictional review is needed.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Approved policies",
+          "Client instructions"
+        ],
+        "optionalAction": "Attach the original and translated conversation summary for staff follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this legal advice?”",
+        "agentResponseStrategy": "Use approved disclaimers to explain the agent’s role, clarify that case-specific legal advice requires human review, and guide the user toward consultation or escalation.",
+        "sourceTypes": [
+          "Disclaimers",
+          "Terms of service",
+          "Engagement policies"
+        ],
+        "optionalAction": "Offer a contact, intake, or booking workflow rather than giving a legal conclusion.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for HR, counsel, paralegals, and managers",
+    "intro": "DocsBot can serve as a private employment law knowledge assistant trained on policies, playbooks, templates, matter notes, and SOPs. Staff get fast, cited answers while sensitive decisions remain governed by permissions, logs, and human review paths.",
+    "workflows": [
+      {
+        "name": "Manager guidance search",
+        "problem": "Managers often need immediate guidance on leave, performance, workplace conduct, and escalation steps but may not know which policy applies.",
+        "agentWorkflow": "The agent answers from approved manager guides and handbooks, cites the relevant section, and flags questions that require HR or legal review.",
+        "sourceTypes": [
+          "Manager handbooks",
+          "HR SOPs",
+          "Policy manuals"
+        ],
+        "optionalAction": "Create a review task for HR when the question involves discipline, accommodation, retaliation, or protected activity.",
+        "outcome": "Managers get consistent first-step guidance without bypassing HR or counsel.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "Attorney and paralegal research desk",
+        "problem": "Legal staff need fast access to internal precedents, client templates, settlement checklists, and research memos.",
+        "agentWorkflow": "DocsBot retrieves approved material, summarizes relevant sections, and drafts working outlines or response language for attorney review.",
+        "sourceTypes": [
+          "Templates",
+          "Research memos",
+          "Matter playbooks",
+          "PDFs and Word documents"
+        ],
+        "optionalAction": "Generate a draft summary, create a task, or update an approved internal field through configured Skills.",
+        "outcome": "Teams reduce document hunting and preserve attorney control over final work product.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Employee relations case summaries",
+        "problem": "Employee relations reviews can involve scattered notes, policy references, and follow-up questions.",
+        "agentWorkflow": "The agent helps summarize known facts, missing details, timeline items, and cited policies from authorized sources for the assigned reviewer.",
+        "sourceTypes": [
+          "Investigation procedures",
+          "Employee relations SOPs",
+          "Policy repositories"
+        ],
+        "optionalAction": "Route a summary to a confidential queue or notify designated reviewers using customer-configured connectors.",
+        "outcome": "Reviewers receive cleaner case context while access controls limit who can see sensitive information.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Policy update feedback loop",
+        "problem": "HR and legal teams may not know which handbook sections are unclear until questions pile up.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, and reports show repeated questions, unanswered topics, and documentation gaps for policy owners to review.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge-gap reports",
+          "Policy libraries"
+        ],
+        "optionalAction": "Create content update tasks or send recurring reports to legal, HR, or compliance owners.",
+        "outcome": "Policy documentation improves based on real employee and client questions.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved knowledge sources",
+      "mainLandingPageContext": "DocsBot agents can train on websites, help centers, internal documents, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Employment law teams can ground answers in firm FAQs, engagement policies, HR handbooks, investigation procedures, wage and hour checklists, templates, and legal operations playbooks.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers and citations",
+      "mainLandingPageContext": "DocsBot answers from configured knowledge and can provide consistent responses in a company’s voice.",
+      "industryApplication": "Clients, employees, and staff can see which approved policy, checklist, or intake guide supports an answer before escalating to counsel.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to perform bounded lookups, summaries, record updates, workflow triggers, and handoffs through customer-defined rules.",
+      "industryApplication": "An employment law agent can create intake tasks, route high-risk issues, update approved fields, notify a legal queue, or call authorized tools exposed through APIs, connectors, or a Model Context Protocol server.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person.",
+      "industryApplication": "Legal advice, case strategy, representation decisions, employee discipline, accommodations, and settlement terms can be routed for human review instead of automated final decisions.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Employment law teams can see which policies, intake topics, or compliance questions cause repeat confusion and update source content accordingly.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Firms and legal departments can separate public intake content from private HR, investigation, and attorney work materials with permissions and customer-defined controls.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for source-grounded answers from your own approved content library.",
+      "Supports internal decision workflows where teams need fast access to controlled knowledge.",
+      "Helps technical and nontechnical teams avoid building their own retrieval system from scratch."
+    ],
+    "whyTheseReviewsFit": "Employment law buyers need reliable knowledge access, workflow boundaries, and confidence that AI answers are grounded in approved materials. DocsBot proof spans internal decision support, owned-content training, and practical RAG deployment so legal and HR teams can move faster without giving up control.",
+    "trustClaimIcons": [
+      "CheckCircleIcon",
+      "ShieldCheckIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for employment law firms, legal departments, and HR compliance teams",
+    "audience": [
+      "Employment law attorneys",
+      "Corporate legal departments",
+      "HR compliance leaders",
+      "Employee relations teams",
+      "Legal operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScaleIcon"
+  },
+  "relatedIndustrySlugs": [
+    "intellectual-property-law",
+    "tax-law",
+    "attorney-services",
+    "compliance-consulting",
+    "legal-document-drafting",
+    "court-reporter"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "employment-law",
+    "webSearchQueries": [
+      "EEOC FY 2023 discrimination charges received 2024 employment law statistics",
+      "U.S. Department of Labor WHD fiscal year 2024 back wages workers recovered",
+      "BLS occupational outlook lawyers employment legal services 2024",
+      "SHRM workplace compliance employment law HR compliance survey"
+    ],
+    "sourceUrls": [
+      "https://www.eeoc.gov/2024-annual-performance-report",
+      "https://www.dol.gov/agencies/whd/data",
+      "https://www.bls.gov/ooh/legal/home.htm",
+      "https://www.shrm.org/topics-tools/employment-law-compliance-new"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40388,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 27844,
+        "outputTokens": 7361,
+        "reasoningOutputTokens": 130,
+        "totalTokens": 47749,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.183161,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.193161
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21622,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14326,
+          "outputTokens": 4778,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 26400,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.109309,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.119309
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18766,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13518,
+          "outputTokens": 2583,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 21349,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.073852,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.073852
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxsYXd8ZW58MHwwfHx8MTcxNDg3ODA3Mnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Employment Law background image",
+    "source": "legacy-industry",
+    "query": "Employment Law"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent for intake without creating an attorney-client relationship or giving legal advice?",
+      "answer": "Yes. Configure DocsBot to answer only from approved consultation FAQs, disclaimers, practice-area pages, and intake procedures. The agent can collect dates, jurisdiction, employer details, documents, and urgency, then route a summary to staff. Case evaluation, representation decisions, deadlines, and legal strategy should remain with attorneys.",
+      "role": "Employment law firms",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot keep employment law answers grounded in our approved policies instead of general internet content?",
+      "answer": "DocsBot agents are trained on the sources you select, such as handbooks, HR SOPs, manager guides, templates, FAQs, PDFs, Word documents, Google Drive, Notion, Confluence, or firm website content. Answers can include source references so HR, legal, or intake staff can verify the policy or procedure behind the response.",
+      "role": "Corporate legal departments",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent handle discrimination, retaliation, harassment, and accommodation questions safely?",
+      "answer": "DocsBot is best used to surface approved reporting steps, investigation procedures, anti-retaliation reminders, document-preservation guidance, and escalation paths. It should not decide whether discrimination occurred or recommend disciplinary action. That matters because the EEOC reported 88,531 new discrimination charges in FY 2024 and almost $700 million in monetary relief for about 21,000 victims.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-eeoc-fy2024-charges",
+        "src-eeoc-fy2024-relief"
+      ]
+    },
+    {
+      "question": "What would ROI look like for a plaintiff or defense employment law firm?",
+      "answer": "Typical value comes from cleaner intake, fewer repetitive process questions, faster document collection, better matter summaries, and less staff time spent reconstructing basic facts. For firms with high inquiry volume, the first ROI review should compare pre- and post-launch intake completion, qualified consultations, staff handling time, and attorney review readiness.",
+      "role": "Employment law firms",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help HR answer policy questions without letting managers bypass HR or legal?",
+      "answer": "Yes. A private agent can answer from approved handbooks, manager guides, and SOPs while flagging sensitive issues such as discipline, leave disputes, accommodations, retaliation, protected activity, or jurisdiction-specific questions for HR or counsel. It gives managers a consistent first step, not independent authority to make high-impact employment decisions.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we measure success for an internal employment law knowledge agent?",
+      "answer": "Useful KPIs include answer resolution rate, repeated unanswered topics, escalation rate, time to find policy guidance, manager self-service adoption, employee relations handoff quality, and policy-gap trends. DocsBot analytics, logs, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery can support those reviews.",
+      "role": "Corporate legal departments",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent support wage and hour questions without making legal conclusions?",
+      "answer": "Yes. DocsBot can retrieve approved payroll procedures, overtime approval steps, classification checklists, meal and rest break guidance, and document-gathering requirements for HR, payroll, or counsel review. It should escalate legal conclusions and contested facts. Wage issues are high stakes: DOL’s Wage and Hour Division reported more than $259 million in back wages recovered in FY 2025.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-dol-whd-2025-wages"
+      ]
+    },
+    {
+      "question": "Will DocsBot integrate with our case-management, HRIS, ticketing, or document systems?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP options, and workflow automations for approved lookups, task creation, routing, notifications, summaries, and field updates. Rather than assuming a native integration, buyers should define the exact system, data permissions, workflow trigger, and human review point for each action.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we separate public website intake content from confidential HR investigations and attorney work product?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so teams can keep public intake sources separate from private HR, investigation, legal operations, and attorney materials. Employment law buyers should design separate agents or source collections for public prospects, employees, managers, HR, and legal staff.",
+      "role": "Corporate legal departments",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter most for employment law and HR legal teams?",
+      "answer": "Buyers usually ask about SOC 2 Type II certification, encryption in transit and at rest, GDPR-ready governance, role-based permissions, granular access controls, customer-defined Skills controls, logging, and whether customer data trains public models. DocsBot supports these governance needs and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the agent from using outdated handbook language or old severance templates?",
+      "answer": "Treat source governance as part of implementation. Connect only approved repositories, remove superseded files, name policy owners, define review cycles, and test common questions after updates. DocsBot can also surface knowledge gaps and repeated unanswered questions so owners know which policy pages, templates, or FAQs need attention.",
+      "role": "Corporate legal departments",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with multilingual employee questions?",
+      "answer": "Yes. DocsBot can provide consistent answers in more than 100 languages when configured, using the same approved source material. For employment law, translation should be paired with escalation rules when nuance, jurisdiction, protected status, accommodation, or disciplinary implications require HR or legal review.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much content do we need before launching an employment law AI agent?",
+      "answer": "You can start with a focused source set: intake FAQs, disclaimers, consultation steps, practice-area descriptions, handbooks, manager SOPs, escalation procedures, and key templates. The strongest launches avoid dumping every document at once; they define the audience, top workflows, allowed answer boundaries, and review process first.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent collect enough intake detail to reduce back-and-forth with prospects?",
+      "answer": "Yes. A DocsBot agent can ask structured questions about matter type, location, employer, timeline, key events, documents, desired follow-up, and urgency. It can summarize missing facts and route the conversation to intake staff or attorneys through customer-configured workflows without promising representation or evaluating legal merit.",
+      "role": "Employment law firms",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "DocsBot should be evaluated as a source-grounded AI agent, not a generic scripted chatbot. It can answer from approved firm or HR content, cite sources, summarize conversations, identify gaps, support private internal knowledge workflows, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can legal operations use this for templates, research memos, and internal playbooks?",
+      "answer": "Yes. DocsBot can retrieve approved templates, PDFs, Word documents, matter playbooks, client FAQs, settlement checklists, and internal research memos. It can draft working summaries or outlines for attorney review, but final legal analysis, client advice, and filing or settlement decisions should remain with qualified professionals.",
+      "role": "Corporate legal departments",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the agent cannot answer or detects a high-risk issue?",
+      "answer": "You can configure boundaries and escalation paths. For example, the agent can decline to answer beyond approved sources, ask for missing context, show the relevant policy excerpt, create a review task, notify a legal queue, or hand off the conversation summary. This is especially important for discipline, accommodations, retaliation, deadlines, and legal advice.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will attorneys and HR leaders be able to review what the agent said?",
+      "answer": "Yes. DocsBot provides conversation logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For employment law use cases, these reviews help confirm whether the agent stayed within policy, where users are confused, and which topics should be escalated or rewritten.",
+      "role": "Corporate legal departments",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we build internal trust before letting employees or clients use the agent?",
+      "answer": "Start with a limited pilot: choose a narrow workflow, connect approved sources, define prohibited advice areas, test realistic questions, review logs, and tune escalation language. Many teams launch internally first for HR, legal operations, or intake staff before exposing a more bounded version to employees, managers, or website visitors.",
+      "role": "General buyer",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help us keep up with recurring policy and compliance questions across locations?",
+      "answer": "Yes. A private agent can answer from approved policies and use authorized live context, such as employee group, location, or policy version, when configured. Analytics can show repeated questions and unanswered topics so HR and legal teams know where training or handbook updates are needed. SHRM describes HR as central to compliance, policy design, and evolving employment regulations.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-shrm-employment-compliance"
+      ]
+    },
+    {
+      "question": "What procurement objections should we expect from legal, IT, and HR?",
+      "answer": "Legal will focus on unauthorized advice, privilege, confidentiality, and escalation. IT will focus on access controls, encryption, logging, integrations, and data handling. HR will focus on manager misuse, employee trust, policy accuracy, and adoption. A strong rollout addresses all three with scoped sources, permissions, review workflows, and measurable pilot goals.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent support both employee self-service and manager guidance from the same knowledge base?",
+      "answer": "It can, but most teams should separate experiences by audience. Employees may need policy explanations and reporting paths, while managers may need SOPs, escalation checklists, and documentation steps. DocsBot access controls and role-based permissions help keep sensitive manager, HR, and legal materials away from broader employee-facing answers.",
+      "role": "HR compliance and employee relations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should a corporate legal department decide which workflows to automate first?",
+      "answer": "Prioritize high-volume, low-discretion workflows with clear source material: policy lookup, intake summaries, document checklists, manager escalation paths, and template retrieval. Avoid automating final decisions in discipline, accommodation, investigations, settlements, or legal conclusions. Start where better information routing reduces delay without increasing legal risk.",
+      "role": "Corporate legal departments",
+      "category": "Implementation"
+    },
+    {
+      "question": "Does this replace paralegals, intake staff, or employee relations specialists?",
+      "answer": "No. DocsBot is better positioned as staff leverage: it reduces repetitive searching, gathers missing facts, summarizes conversations, and routes work to the right reviewer. Legal occupations are projected by BLS to grow about as fast as average from 2024 to 2034, so many teams use automation to improve capacity rather than remove human judgment.",
+      "role": "Employment law firms",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-legal-occupations"
+      ]
+    },
+    {
+      "question": "What should we ask vendors when comparing AI agents for employment law workflows?",
+      "answer": "Ask whether answers are grounded in your approved sources, how citations work, how escalation is configured, what access controls exist, whether customer data trains public models, how actions are permissioned, what logs are available, and whether the agent can operate across public intake, internal HR, and legal operations without mixing audiences.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    }
+  ]
+}

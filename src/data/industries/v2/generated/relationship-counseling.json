@@ -1,0 +1,705 @@
+{
+  "slug": "relationship-counseling",
+  "business": "Relationship Counseling",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Relationship Counseling Practices",
+    "description": "DocsBot helps relationship counseling teams answer intake, scheduling, policy, and resource questions while preserving clear escalation paths.",
+    "canonicalPath": "/industry/relationship-counseling"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for counseling practices",
+    "headline": "DocsBot AI agents help relationship counselors respond with care",
+    "subheadline": "Train a DocsBot agent on your practice policies, intake guidance, service descriptions, FAQs, referral resources, and internal procedures so prospective and current clients can get consistent answers while sensitive issues are routed to the right human or crisis resource.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions about couples counseling, premarital sessions, fees, insurance, telehealth options, and what to expect before booking.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details and scheduling intent, then prepare a bounded handoff to your team or approved booking workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Retrieve practice-approved resources, worksheets, office policies, and referral instructions without improvising clinical advice.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Escalate sensitive, crisis, legal, or clinical questions to a clinician-defined path instead of treating AI as a therapist.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a counseling practice agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps relationship counseling practices create AI agents trained on their own knowledge: website pages, intake FAQs, consent and cancellation policies, clinician bios, session-prep guides, worksheets, referral lists, and internal SOPs. The agent can answer from approved sources, summarize intake context, route requests, identify knowledge gaps, and take scoped actions when configured through Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Practice owners and clinic directors",
+        "roleContext": "Keep front-desk and clinician time focused on clients while giving visitors consistent guidance before they book.",
+        "bullets": [
+          {
+            "text": "Reduce repetitive pre-consult questions about services, formats, pricing, availability, and what couples should prepare before the first session.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which policies, services, or intake instructions clients ask about most often.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Set clear boundaries so urgent, safety-related, legal, or clinical requests are routed to a human or approved external resource.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Intake coordinators and administrative teams",
+        "roleContext": "Support people who are exploring therapy, comparing providers, or trying to understand next steps outside office hours.",
+        "bullets": [
+          {
+            "text": "Collect contact details, preferred session type, partner participation, location, availability, and scheduling intent through a structured flow.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Create task, ticket, email, or CRM-style handoffs through customer-configured Skills, APIs, connectors, or workflow automations.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Provide multilingual answers from practice-approved content for clients who need help understanding logistics or policies.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Counselors, therapists, and supervisors",
+        "roleContext": "Make approved educational materials easier to find while keeping clinical judgment with licensed professionals.",
+        "bullets": [
+          {
+            "text": "Retrieve internal SOPs, supervision notes, referral criteria, resource libraries, and practice policies in a private team chat experience.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Summarize non-clinical intake context for review, such as scheduling constraints, service interest, referral source, and unresolved questions.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support a growing field: BLS projects employment of marriage and family therapists to grow 14% from 2024 to 2034.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-mft-outlook"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon",
+        "sourceIds": [
+          "src-bls-mft-outlook"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-mft-outlook",
+      "metric": "14% projected employment growth for marriage and family therapists, 2024–2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects marriage and family therapist employment to grow much faster than average from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Marriage and Family Therapists",
+      "sourceUrl": "https://www.bls.gov/ooh/community-and-social-service/marriage-and-family-therapists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor demand",
+        "practice growth pressure",
+        "intake workload"
+      ]
+    },
+    {
+      "id": "src-nimh-telehealth-wait",
+      "metric": "Average telehealth appointment wait time was 14 days in a 2022–2023 outpatient mental health facility study",
+      "claim": "NIMH summarized research in which secret shoppers contacted more than 1,900 outpatient mental health facilities and found an average 14-day wait for telehealth appointments.",
+      "sourceTitle": "National Institute of Mental Health: Understanding the Availability of Mental Telehealth Services",
+      "sourceUrl": "https://www.nimh.nih.gov/news/science-news/2024/understanding-the-availability-of-mental-telehealth-services",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "access delays",
+        "prospective client expectations",
+        "intake follow-up"
+      ]
+    },
+    {
+      "id": "src-samhsa-988",
+      "metric": "988 is available by call, text, or chat for mental health, suicide, substance use, and emotional distress support",
+      "claim": "SAMHSA describes the 988 Suicide & Crisis Lifeline as 24/7 support for people in emotional distress or mental health, suicide, and substance use crisis.",
+      "sourceTitle": "SAMHSA: 988 Suicide & Crisis Lifeline",
+      "sourceUrl": "https://www.samhsa.gov/find-help/988",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "crisis escalation",
+        "safety boundaries",
+        "urgent resource routing"
+      ]
+    },
+    {
+      "id": "src-behavioral-health-noshow",
+      "metric": "Behavioral health study reported 13% in-person and 17% telehealth no-show rates",
+      "claim": "A cohort study of rural behavioral health clinics found missed appointments in both in-person and telehealth care, highlighting the operational importance of reminders and clear pre-visit communication.",
+      "sourceTitle": "Association Between Telehealth and Missed Appointments Among Patients Experiencing Behavioral Health Challenges",
+      "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10357338/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "appointment adherence",
+        "scheduling operations",
+        "telehealth communication"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Prospective client intake and fit guidance",
+      "problem": "People often contact a counseling practice with the same early questions: whether you work with couples, individuals, infidelity, communication, premarital counseling, telehealth, fees, insurance, or evening availability.",
+      "agentWorkflow": "A DocsBot agent answers from your website, service pages, clinician bios, FAQs, and intake policies. It can ask structured follow-up questions, summarize the request, and prepare a handoff for staff review. With configured AI Actions, it can create a task, forward the summary, or trigger an approved scheduling workflow.",
+      "liveContextOrTools": "Use customer-configured forms, APIs, scheduling workflows, inbox routing, or CRM-style records. Keep clinical fit decisions and final acceptance with staff.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer couples counseling for communication problems?",
+        "Can we book a first session if one partner is unsure?",
+        "What should we prepare before our consultation?",
+        "Do you offer telehealth for couples in our state?"
+      ],
+      "businessOutcome": "Convert more appropriate inquiries into organized consultations while reducing repetitive front-desk work.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "name": "Crisis-aware resource routing",
+      "problem": "Relationship counseling websites may receive urgent messages involving domestic conflict, self-harm, emotional distress, or safety concerns that should not be handled as routine support.",
+      "agentWorkflow": "Train the agent on practice-approved crisis language, emergency disclaimers, local referral resources, and escalation rules. The agent can recognize sensitive intent, stop routine automation, provide approved crisis-resource guidance, and notify or route according to the practice’s defined policy.",
+      "liveContextOrTools": "Use scoped instructions, human escalation, logs, and optional notification workflows. SAMHSA describes 988 as 24/7 call, text, or chat support for emotional distress and mental health crisis situations.",
+      "exampleQuestionsOrRequests": [
+        "I feel unsafe after an argument. What should I do now?",
+        "My partner threatened to hurt themselves.",
+        "Can your counselor help us tonight during a crisis?",
+        "Is this something for therapy or emergency help?"
+      ],
+      "businessOutcome": "Give visitors clear next steps while protecting the practice from positioning AI as clinical or emergency care.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-samhsa-988"
+      ]
+    },
+    {
+      "name": "Appointment preparation and no-show reduction support",
+      "problem": "Missed appointments create administrative strain and interrupt continuity of care; one behavioral health study reported 13% in-person and 17% telehealth no-show rates.",
+      "agentWorkflow": "A DocsBot agent can answer pre-session logistics, explain cancellation policies, share telehealth setup instructions, collect missing administrative details, and trigger customer-configured reminders or follow-up tasks. It can also summarize unresolved questions for staff before a first visit.",
+      "liveContextOrTools": "Use scheduling metadata, approved reminder workflows, intake forms, and helpdesk or task creation when connected through Skills, APIs, connectors, or MCP-enabled tools.",
+      "exampleQuestionsOrRequests": [
+        "Where is the telehealth link?",
+        "Can I reschedule our couples session?",
+        "What happens if my partner can’t attend?",
+        "What forms do we need before the first appointment?"
+      ],
+      "businessOutcome": "Improve pre-visit clarity and reduce avoidable staff back-and-forth around attendance, policies, and preparation.",
+      "icon": "BellIcon",
+      "sourceIds": [
+        "src-behavioral-health-noshow"
+      ]
+    },
+    {
+      "name": "Practice resource and worksheet assistant",
+      "problem": "Counselors often maintain handouts, communication exercises, reading lists, policy PDFs, referral pages, and session-prep material that clients and staff struggle to find quickly.",
+      "agentWorkflow": "DocsBot can train on approved resources and return source-grounded answers with citations to the relevant worksheet, policy, or guide. The agent can suggest the right practice-approved resource category without creating personalized therapy advice or replacing clinician judgment.",
+      "liveContextOrTools": "Use website resources, PDFs, Word documents, Google Drive, Notion, Confluence, or other configured knowledge sources.",
+      "exampleQuestionsOrRequests": [
+        "Where is the conflict de-escalation worksheet my counselor mentioned?",
+        "Do you have a guide for preparing for premarital counseling?",
+        "What is your cancellation policy?",
+        "Which resources explain emotionally focused therapy basics?"
+      ],
+      "businessOutcome": "Make owned educational content easier to access while keeping recommendations grounded in materials the practice has approved.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Internal SOP and supervision knowledge agent",
+      "problem": "Growing practices need consistent answers for intake policies, referral rules, consent procedures, telehealth boundaries, documentation expectations, and staff onboarding.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent can answer staff questions from SOPs, policies, onboarding documents, supervision resources, and internal wikis. It can summarize procedures, reveal outdated or missing content through analytics, and help new staff find answers without interrupting supervisors.",
+      "liveContextOrTools": "Deploy in private chat, Slack, Microsoft Teams, or internal workflows with role-based permissions and granular access controls.",
+      "exampleQuestionsOrRequests": [
+        "What is our process when both partners request separate individual sessions?",
+        "How do we document a consultation request?",
+        "Where is the telehealth consent policy?",
+        "What referral list should intake use for out-of-scope cases?"
+      ],
+      "businessOutcome": "Standardize operations and onboarding without turning every procedural question into a supervisor interruption.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Service education and lead qualification",
+      "problem": "Not every visitor is ready for therapy, eligible for your practice, or looking for the right service, so staff spend time sorting general education from genuine consultation requests.",
+      "agentWorkflow": "The agent answers service questions from approved pages, applies customer-defined qualification rules, collects lead details, and prepares a summary for human review. It can separate general resource browsing from consultation-ready requests without making clinical determinations.",
+      "liveContextOrTools": "Use custom lead forms, qualification instructions, email forwarding, CRM-style handoffs, or helpdesk workflows configured by the practice.",
+      "exampleQuestionsOrRequests": [
+        "Do you work with couples before marriage?",
+        "Can we see the same counselor individually and together?",
+        "How long are sessions and what do they cost?",
+        "Please have someone contact us about availability."
+      ],
+      "businessOutcome": "Help staff prioritize complete, appropriate inquiries while preserving human review for clinical fit and sensitive situations.",
+      "icon": "MagnifyingGlassIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients a calmer first step before they ever call",
+    "intro": "A DocsBot customer-facing agent can sit on your counseling website or client portal to answer logistical and resource questions from approved practice content. For high-impact or sensitive requests, it can escalate instead of attempting therapy, diagnosis, safety assessment, legal advice, or crisis counseling.",
+    "requests": [
+      {
+        "request": "“Do you offer counseling for couples dealing with conflict after betrayal?”",
+        "agentResponseStrategy": "Answer from service pages, explain the consultation process, clarify that final fit is determined by the clinician, and offer an intake or scheduling handoff.",
+        "sourceTypes": [
+          "Service pages",
+          "Clinician bios",
+          "Intake FAQs",
+          "Scope-of-practice notes"
+        ],
+        "optionalAction": "Collect contact details and scheduling preferences, then forward a summary to intake staff.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“We have our first telehealth appointment tomorrow. What should we do?”",
+        "agentResponseStrategy": "Retrieve the practice’s telehealth preparation guide, consent reminders, attendance policy, privacy tips, and instructions for both partners joining.",
+        "sourceTypes": [
+          "Telehealth policy",
+          "Client onboarding PDFs",
+          "Cancellation policy",
+          "Session-prep guide"
+        ],
+        "optionalAction": "Trigger a configured reminder or task if required paperwork is missing.",
+        "icon": "VideoCameraIcon"
+      },
+      {
+        "request": "“I need help right now after a fight.”",
+        "agentResponseStrategy": "Follow the practice’s approved crisis-response instructions, avoid therapeutic advice, provide urgent resource guidance, and route to human or emergency pathways as configured.",
+        "sourceTypes": [
+          "Crisis policy",
+          "Referral resources",
+          "Emergency instructions",
+          "Escalation SOPs"
+        ],
+        "optionalAction": "Offer approved crisis resources and notify staff only within the practice’s configured boundaries.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“What forms do we need to complete before our consultation?”",
+        "agentResponseStrategy": "List required forms from the intake packet, explain deadlines, and answer policy questions from approved sources.",
+        "sourceTypes": [
+          "Intake packet",
+          "Consent forms",
+          "Office policies",
+          "FAQ pages"
+        ],
+        "optionalAction": "Create a follow-up task or send a handoff summary to the administrative team.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you provide counseling in Spanish or other languages?”",
+        "agentResponseStrategy": "Answer from clinician profiles and service documentation, using DocsBot’s multilingual response capability while staying grounded in approved content.",
+        "sourceTypes": [
+          "Clinician bios",
+          "Language availability notes",
+          "Service pages",
+          "Office FAQs"
+        ],
+        "optionalAction": "Collect preferred language and route the inquiry to the right team member.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“How much does couples counseling cost and do you take insurance?”",
+        "agentResponseStrategy": "Retrieve current fee, superbill, payment, cancellation, and insurance policy language from practice-approved sources, with human escalation for exceptions.",
+        "sourceTypes": [
+          "Fee schedule",
+          "Insurance FAQ",
+          "Payment policy",
+          "Cancellation policy"
+        ],
+        "optionalAction": "Forward billing questions or out-of-policy requests to staff for review.",
+        "icon": "CreditCardIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep counseling operations searchable for the whole practice",
+    "intro": "DocsBot can also work as a private internal knowledge agent for administrative staff, clinicians, supervisors, and owners. It helps teams find SOPs, policies, approved language, referral criteria, and onboarding guidance without exposing private sources to the public.",
+    "workflows": [
+      {
+        "name": "Intake triage support",
+        "problem": "Staff need a consistent way to handle out-of-state requests, insurance limitations, couple-vs-individual fit questions, crisis language, and incomplete inquiries.",
+        "agentWorkflow": "The internal agent retrieves the relevant intake SOP, asks for missing administrative details, and drafts a summary for a human to review before replying.",
+        "sourceTypes": [
+          "Intake SOPs",
+          "Eligibility rules",
+          "Referral lists",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a task or ticket with the inquiry summary through configured workflow access.",
+        "outcome": "Faster, more consistent intake review without delegating clinical decisions to AI.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Policy and compliance lookup",
+        "problem": "Counseling practices need staff to follow consent, privacy, telehealth, payment, records, and communication policies consistently.",
+        "agentWorkflow": "DocsBot answers internal questions from approved policy documents, links to source material, and identifies where documentation may be missing or unclear.",
+        "sourceTypes": [
+          "Consent policies",
+          "Privacy procedures",
+          "Telehealth documentation",
+          "Internal wiki"
+        ],
+        "optionalAction": "Route unclear policy questions to a supervisor or compliance owner.",
+        "outcome": "Reduce policy drift and make onboarding less dependent on memory or informal messages.",
+        "icon": "LockClosedIcon"
+      },
+      {
+        "name": "Resource library search",
+        "problem": "Approved worksheets and psychoeducational handouts may be stored across folders, PDFs, and shared drives, making them hard for staff to find during busy days.",
+        "agentWorkflow": "The agent retrieves the right resource based on staff questions and summarizes where it fits, while leaving clinical selection and client-specific use to the counselor.",
+        "sourceTypes": [
+          "PDF worksheets",
+          "Shared drive folders",
+          "Practice guides",
+          "Reading lists"
+        ],
+        "optionalAction": "Generate a staff-facing resource summary or link bundle for review.",
+        "outcome": "Make approved materials easier to use without creating unreviewed therapeutic content.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "Repeated questions from visitors and staff often reveal unclear service pages, missing policies, or intake instructions that need updating.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, and conversation review help practice leaders identify unanswered questions and improve source content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Website FAQs",
+          "Internal documentation"
+        ],
+        "optionalAction": "Create documentation update tasks for recurring unanswered topics.",
+        "outcome": "Turn support questions into a practical content-improvement backlog.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agent",
+      "mainLandingPageContext": "DocsBot agents train on a company’s own websites, documents, help content, internal files, and other configured knowledge sources to answer in the organization’s voice.",
+      "industryApplication": "Answer relationship counseling service, intake, fee, telehealth, preparation, and policy questions from approved practice content instead of generic internet advice.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive requests",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Route crisis, safety, legal, diagnosis, clinical-fit, or emotionally complex requests to a clinician-defined path rather than presenting the agent as a therapist.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support bounded lookups, record updates, summaries, task creation, notifications, workflow triggers, and handoffs through customer-configured access, including MCP Connectors for remote Model Context Protocol servers.",
+      "industryApplication": "Collect consultation intent, create intake tasks, forward summaries, trigger approved scheduling workflows, or notify staff while keeping permissions and review paths aligned to practice policy.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant trained on SOPs, policies, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other company sources.",
+      "industryApplication": "Help intake coordinators, clinicians, and supervisors find procedures, referral rules, consent guidance, onboarding answers, and approved resource libraries quickly.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which service questions, policy gaps, or intake topics confuse clients most often, then improve website copy, FAQs, and internal documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support counseling-practice trust requirements when training agents on private procedures, internal documents, and sensitive operational knowledge.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "jpa-health-internal-decisioning"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own counseling practice materials, not generic scripts.",
+      "Support both public intake questions and private internal knowledge workflows.",
+      "Use governance controls for sensitive operational content and bounded actions."
+    ],
+    "whyTheseReviewsFit": "Relationship counseling practices need reliable, source-grounded answers, careful handoffs, and simple deployment for small teams. DocsBot proof spans personal-services use, training-material knowledge agents, and healthcare communications workflows where internal decision support and reduced manual interaction matter.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agent and internal knowledge automation for relationship counseling practices",
+    "audience": [
+      "Relationship counseling practice owners",
+      "Couples counseling intake teams",
+      "Marriage and family therapy clinics",
+      "Behavioral health operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "diet-center",
+    "fitness-trainer",
+    "fitness-center",
+    "event-planning",
+    "beauty-salon",
+    "image-consultant"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "relationship-counseling",
+    "webSearchQueries": [
+      "relationship counseling marriage family therapy workforce demand statistics United States",
+      "SAMHSA 988 Lifeline relationship counseling crisis warning emergency mental health source",
+      "BLS marriage and family therapists employment outlook",
+      "mental health appointment no-show rate telehealth psychotherapy study",
+      "NIMH outpatient mental health telehealth appointment wait time study"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/community-and-social-service/marriage-and-family-therapists.htm",
+      "https://www.nimh.nih.gov/news/science-news/2024/understanding-the-availability-of-mental-telehealth-services",
+      "https://www.samhsa.gov/find-help/988",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10357338/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46841,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 26105,
+        "outputTokens": 7657,
+        "reasoningOutputTokens": 193,
+        "totalTokens": 54498,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.185301,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.205301
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27707,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 12219,
+          "outputTokens": 5097,
+          "reasoningOutputTokens": 193,
+          "totalTokens": 32804,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.110874,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.130874
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19134,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13886,
+          "outputTokens": 2560,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21694,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074427,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074427
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1474552226712-ac0f0961a954?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxyZWxhdGlvbnNoaXB8ZW58MHwwfHx8MTcxNDg3ODA2Nnww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Relationship Counseling background image",
+    "source": "legacy-industry",
+    "query": "Relationship Counseling"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent on our website without making it look like we are offering therapy by AI?",
+      "answer": "Yes. Position the agent around logistics, intake, service education, policy questions, resource lookup, and handoffs—not therapy, diagnosis, safety assessment, or clinical advice. DocsBot can be trained on your approved practice content and configured to escalate sensitive, clinical, legal, or crisis-related questions to a clinician-defined path.",
+      "role": "Practice owners and clinic directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot handle someone who says they feel unsafe or mentions self-harm during a relationship conflict?",
+      "answer": "The agent should stop routine intake automation and follow your approved crisis-response instructions. DocsBot can provide practice-approved urgent resource guidance, route according to your escalation policy, and avoid presenting itself as emergency care. SAMHSA describes 988 as 24/7 call, text, or chat support for people in emotional distress or mental health crisis situations.",
+      "role": "Practice owners and clinic directors",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-samhsa-988"
+      ]
+    },
+    {
+      "question": "Can the agent qualify couples counseling inquiries before our intake coordinator calls back?",
+      "answer": "Yes, within boundaries you define. DocsBot can ask structured questions such as service interest, location, telehealth preference, partner participation, availability, referral source, and contact details. It can summarize the inquiry and route it to staff for review, while leaving clinical fit, acceptance, and treatment recommendations to your team.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent answer questions about fees, insurance, superbills, cancellation policies, and telehealth setup?",
+      "answer": "Yes, if those details are in your approved sources. DocsBot can answer from your fee schedule, insurance FAQ, cancellation policy, telehealth preparation guide, intake packet, and consent materials. For exceptions, disputed billing questions, or unclear policy language, it can escalate to staff instead of improvising.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much staff time could this realistically save for a small counseling practice?",
+      "answer": "The strongest ROI usually comes from reducing repeated pre-consult questions, incomplete intake requests, policy clarification calls, and internal document searches. Marriage and family therapist employment is projected by BLS to grow 14% from 2024 to 2034, so practices facing demand growth can use automation to protect scarce clinician and admin time.",
+      "role": "Practice owners and clinic directors",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-mft-outlook"
+      ]
+    },
+    {
+      "question": "Can DocsBot help with after-hours inquiries without creating a liability issue?",
+      "answer": "Yes, if it is scoped carefully. The agent can answer routine questions after hours, collect consultation intent, explain response-time expectations, and provide approved crisis-routing language when needed. It should not promise availability, make safety judgments, diagnose, or advise clients on what to do clinically.",
+      "role": "Practice owners and clinic directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we review what the agent said to prospective clients?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery. For counseling practices, this helps owners and supervisors monitor whether the agent stays within scope, identify confusing service pages, and improve intake content over time.",
+      "role": "Practice owners and clinic directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when the agent does not know the answer or our source material is incomplete?",
+      "answer": "DocsBot is designed for source-grounded answers from your approved content. If an answer is missing, outdated, or ambiguous, you can configure the agent to say so, escalate to staff, or collect details for follow-up. Analytics and knowledge-gap reporting can show which unanswered topics deserve better website copy or SOP updates.",
+      "role": "Practice owners and clinic directors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent connect to our scheduling, form, CRM, inbox, or task workflow?",
+      "answer": "DocsBot can support bounded handoffs and actions through customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, and MCP Connectors where authorized. A typical counseling workflow might collect scheduling intent, create an intake task, forward a summary, or trigger an approved booking request while keeping staff in control.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to replace our EHR or practice management system to use DocsBot?",
+      "answer": "No. DocsBot can sit alongside your website, intake process, internal knowledge base, and existing workflow tools. Many practices start with public FAQs and intake handoffs, then add approved actions or internal knowledge workflows later. It does not need to replace your system of record.",
+      "role": "Practice owners and clinic directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can therapists use DocsBot internally without exposing private SOPs or supervision materials to website visitors?",
+      "answer": "Yes. DocsBot can be used as a private internal knowledge agent with role-based permissions and granular access controls. Your public-facing agent can answer from website and client-approved materials, while an internal agent can search SOPs, onboarding notes, referral rules, supervision resources, and policy documents for staff only.",
+      "role": "Counselors, therapists, and supervisors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the agent from giving relationship advice that sounds clinical?",
+      "answer": "Train it on approved service, policy, and educational content; give it explicit scope limits; and define escalation rules for clinical, crisis, legal, or safety-related questions. DocsBot should retrieve existing practice-approved resources and explain next steps, not create personalized treatment plans or replace clinician judgment.",
+      "role": "Counselors, therapists, and supervisors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support both couples and individual inquiries without confusing our boundaries?",
+      "answer": "Yes, if your intake rules are documented. DocsBot can answer from clinician bios, service pages, and SOPs that explain when you see couples, individuals, premarital clients, or partner-related individual concerns. For nuanced cases—such as seeing both partners separately—it can route to staff rather than decide.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot help reduce missed appointments or last-minute confusion before a first session?",
+      "answer": "DocsBot can answer pre-visit questions about forms, telehealth links, cancellation policy, partner attendance, directions, and preparation. It can also trigger approved reminders or follow-up tasks when configured. One behavioral health study reported 13% in-person and 17% telehealth no-show rates, making pre-visit clarity operationally important.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-behavioral-health-noshow"
+      ]
+    },
+    {
+      "question": "What sources should we train the counseling practice agent on first?",
+      "answer": "Start with your website service pages, intake FAQ, clinician bios, fee and insurance policies, telehealth instructions, cancellation policy, consent-related guidance, referral resources, crisis-response language, and common email templates. For internal use, add SOPs, onboarding documents, resource libraries, and supervision-approved procedures.",
+      "role": "Practice owners and clinic directors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How long does implementation take if our policies are scattered across PDFs, Google Drive, and website pages?",
+      "answer": "Implementation depends less on AI setup and more on source readiness. DocsBot can train on websites, PDFs, Word documents, Google Drive, Notion, Confluence, text files, and other configured sources, but practices should first decide which content is client-facing, staff-only, current, and approved for use.",
+      "role": "Practice owners and clinic directors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer in Spanish or other languages for clients who are not comfortable calling?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in your approved content. For a counseling practice, it can explain logistics, fees, forms, language availability, and next steps in the client’s preferred language, then route the inquiry to the right staff member when appropriate.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security controls matter if we train an internal agent on counseling practice procedures?",
+      "answer": "Look for governance around private sources, access controls, encryption, and data use. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Practice owners and clinic directors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we keep humans in the loop for every new client inquiry?",
+      "answer": "Yes. DocsBot can collect details, answer routine questions, and prepare a structured handoff without making final decisions. You can require staff review before scheduling, accepting a client, responding to clinical nuance, handling crisis language, or making exceptions to policies.",
+      "role": "Practice owners and clinic directors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How is this different from adding a generic chatbot to our counseling website?",
+      "answer": "A generic chatbot may answer broadly from model knowledge or scripted flows. DocsBot is designed to answer from your own approved materials, support source-grounded responses, escalate sensitive questions, collect structured intake details, and create bounded workflow handoffs when configured. That fit matters in counseling, where tone and scope are critical.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help supervisors standardize intake procedures across multiple clinicians or locations?",
+      "answer": "Yes. A private internal agent can answer staff questions from the same SOPs, referral criteria, consent procedures, telehealth boundaries, and documentation expectations. That helps reduce policy drift as the practice grows, especially when different clinicians have different specialties, schedules, or state licensure constraints.",
+      "role": "Counselors, therapists, and supervisors",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent tell us which services or policies prospective clients are most confused about?",
+      "answer": "Yes. DocsBot analytics, logs, topic reports, conversation review, and knowledge-gap discovery can reveal repeated questions about pricing, insurance, telehealth, first-session expectations, couples-versus-individual policies, crisis resources, or availability. Practice owners can use that insight to update pages and reduce repetitive calls.",
+      "role": "Practice owners and clinic directors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this work if we only want an internal resource finder for worksheets and staff procedures?",
+      "answer": "Yes. DocsBot does not have to be public-facing. You can deploy a private internal knowledge agent trained on worksheets, reading lists, referral directories, SOPs, onboarding docs, and policy files. Staff can find approved materials faster while therapists still decide what is clinically appropriate for each client.",
+      "role": "Counselors, therapists, and supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we evaluate pricing if we are a small practice with limited admin budget?",
+      "answer": "Tie pricing to the workflows you want to automate first: repetitive website questions, intake completeness, after-hours inquiries, internal SOP lookup, or pre-visit clarification. The business case is strongest when the agent reduces avoidable admin interruptions, improves inquiry quality, and helps staff focus on client care instead of repeated logistics.",
+      "role": "Practice owners and clinic directors",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help prospective clients while they are waiting for an appointment?",
+      "answer": "Yes, for non-clinical support. The agent can explain what to expect, share approved preparation materials, answer policy questions, and route urgent concerns appropriately. NIMH summarized a 2022–2023 study of more than 1,900 outpatient mental health facilities that found an average 14-day wait for telehealth appointments.",
+      "role": "Intake coordinators and administrative teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nimh-telehealth-wait"
+      ]
+    }
+  ]
+}

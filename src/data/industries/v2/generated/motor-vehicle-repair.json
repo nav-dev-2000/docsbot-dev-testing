@@ -1,0 +1,726 @@
+{
+  "slug": "motor-vehicle-repair",
+  "business": "Motor Vehicle Repair",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Faster Motor Vehicle Repair Support",
+    "description": "DocsBot helps motor vehicle repair teams answer service questions, retrieve shop knowledge, and route repair updates with AI agents trained on your sources.",
+    "canonicalPath": "/industry/motor-vehicle-repair"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for modern repair shops",
+    "headline": "Keep repair customers informed and technicians moving",
+    "subheadline": "DocsBot helps motor vehicle repair businesses create AI agents trained on service menus, warranty policies, repair SOPs, manuals, FAQs, estimates, and internal knowledge so customers and staff get fast, source-grounded answers without digging through scattered documents.",
+    "proofBullets": [
+      {
+        "text": "Answer service, warranty, maintenance, appointment, and estimate questions from approved shop knowledge.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give advisors and technicians a private knowledge agent for SOPs, parts notes, inspection checklists, and training materials.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect intake details, summarize conversations, route tickets, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Escalate complex diagnostics, pricing exceptions, safety concerns, or dissatisfied customers to the right human with context.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a repair support agent",
+    "secondaryCta": "Explore shop workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your repair shop’s trusted knowledge into AI agents for customers, service advisors, technicians, and operations teams. Agents can answer from manuals, service pages, policies, PDFs, internal SOPs, ticket history, and configured systems, then summarize requests, route issues, collect missing details, and surface knowledge gaps for review.",
+    "whoItHelps": [
+      {
+        "role": "Service managers and owners",
+        "roleContext": "Keep front-desk communication consistent while protecting technician time and keeping humans responsible for repair decisions, pricing approvals, and safety-critical judgments.",
+        "bullets": [
+          {
+            "text": "Standardize answers about diagnostics, labor policies, inspections, warranty limitations, and appointment expectations.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Identify repeated customer questions and missing help content through conversation logs, reports, and knowledge-gap analysis.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support a large, specialized workforce: BLS projects automotive service technician and mechanic employment to grow 4% from 2024 to 2034.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-bls-auto-tech-outlook"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Service advisors and customer support teams",
+        "roleContext": "Give advisors a fast assistant for intake, repair-status explanations, policy answers, and handoffs, especially when phone calls, emails, texts, and walk-ins compete for attention.",
+        "bullets": [
+          {
+            "text": "Draft source-grounded responses for recurring questions about maintenance intervals, check-in steps, payment policies, and pickup instructions.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Collect VIN, mileage, symptoms, photos, preferred time, and contact details before a human confirms the next step.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route complex complaints, insurance questions, recall concerns, or unusual repairs to the right staff member with a concise summary.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Technicians and shop operations teams",
+        "roleContext": "Make internal knowledge easier to retrieve during busy bays, onboarding, quality checks, and repeat procedures without replacing professional repair judgment.",
+        "bullets": [
+          {
+            "text": "Search SOPs, torque procedures, inspection steps, tool checklists, and training documents from a private team chat experience.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize job notes, customer concerns, and advisor conversations for cleaner handoffs between front office and shop floor.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Keep recall and safety conversations grounded: NHTSA says recalls are issued for unreasonable safety risks or failures to meet minimum safety standards.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-nhtsa-recalls"
+            ]
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-auto-tech-outlook",
+      "metric": "4% projected employment growth for auto service technicians and mechanics, 2024–2034",
+      "claim": "BLS reports automotive service technicians and mechanics are projected to grow about as fast as the average for all occupations from 2024 to 2034.",
+      "sourceTitle": "Automotive Service Technicians and Mechanics: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-service-technicians-and-mechanics.htm",
+      "sourceDate": "Published 2025",
+      "bestUsedFor": [
+        "labor scale",
+        "technician staffing pressure",
+        "training and knowledge access"
+      ]
+    },
+    {
+      "id": "src-bls-repair-maintenance-naics",
+      "metric": "242,470 automotive service technicians and mechanics in NAICS 811 repair and maintenance in 2024",
+      "claim": "BLS industry data lists automotive service technicians and mechanics among major occupations in the repair and maintenance sector.",
+      "sourceTitle": "Repair and Maintenance: NAICS 811",
+      "sourceUrl": "https://www.bls.gov/IAG/TGS/iag811.htm",
+      "sourceDate": "Updated May 2026",
+      "bestUsedFor": [
+        "industry workforce scale",
+        "shop operations context"
+      ]
+    },
+    {
+      "id": "src-nhtsa-recalls",
+      "metric": "NHTSA recall search covers vehicles, car seats, tires, equipment, investigations, complaints, and manufacturer communications",
+      "claim": "NHTSA explains that recalls are issued when a manufacturer or NHTSA determines a vehicle or equipment creates an unreasonable safety risk or fails to meet minimum safety standards.",
+      "sourceTitle": "Check for Recalls: Vehicle, Car Seat, Tire, Equipment",
+      "sourceUrl": "https://www.nhtsa.gov/recalls",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "recall workflow context",
+        "safety-sensitive customer questions"
+      ]
+    },
+    {
+      "id": "src-ccc-crash-course-2026",
+      "metric": "Collision repair cycle time and backlog trends tracked through Q4 2025 and Q1 2026",
+      "claim": "CCC’s Crash Course 2026 discusses collision repair complexity, average repair cycle stages, and scheduling backlog trends across the U.S. collision repair market.",
+      "sourceTitle": "Crash Course 2026: Complexity Compounds",
+      "sourceUrl": "https://prod.cccis.com/reports/crash-course-2026",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "collision repair delays",
+        "repair-status communication",
+        "cycle-time pressure"
+      ]
+    },
+    {
+      "id": "src-ratchet-wrench-oec-survey",
+      "metric": "59% of surveyed shop owners and managers said the technician shortage highly or moderately impacted their business",
+      "claim": "Ratchet+Wrench reported OEC survey findings from nearly 700 auto repair professionals, including the continuing impact of technician shortages on shops.",
+      "sourceTitle": "OEC Releases U.S. General Auto Repair Shop Survey Report",
+      "sourceUrl": "https://www.ratchetandwrench.com/site-placement/latest-news/news/55360165/oec-releases-us-general-auto-repair-shop-survey-report",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "technician shortage",
+        "staffing pressure",
+        "front-office automation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service intake and appointment triage",
+      "problem": "Customers often contact the shop with incomplete symptoms, unclear urgency, or missing vehicle details, creating back-and-forth before an advisor can act.",
+      "agentWorkflow": "A DocsBot customer-facing agent answers service questions from your approved pages and FAQs, asks for VIN or vehicle details, mileage, symptoms, warning lights, photos, preferred times, and contact information, then summarizes the request for a service advisor.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, forms, or scheduling workflows, the agent can submit an intake form, create a task or ticket, notify the team, or request an appointment slot for human confirmation.",
+      "exampleQuestionsOrRequests": [
+        "My check engine light came on. What should I tell the shop before booking?",
+        "Can I wait while you replace brake pads?",
+        "I need an oil change and tire rotation for a 2021 RAV4. What information do you need?"
+      ],
+      "businessOutcome": "Reduce repetitive intake questions, improve appointment readiness, and give advisors a cleaner handoff before the customer arrives.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Repair-status and pickup communication",
+      "problem": "Customers want updates while advisors need to avoid interrupting technicians for routine status explanations or policy questions.",
+      "agentWorkflow": "A DocsBot agent can explain your repair process, pickup instructions, payment policies, warranty language, estimate terminology, and next steps from approved shop documents. When connected to approved live context, it can look up a repair status field or create a follow-up request within scoped permissions.",
+      "liveContextOrTools": "AI Actions can support approved status lookups, ticket summaries, workflow triggers, team notifications, and handoffs through Skills, APIs, connectors, or an MCP server your team authorizes.",
+      "exampleQuestionsOrRequests": [
+        "Is my vehicle ready for pickup?",
+        "What does ‘waiting on parts’ mean for my repair timeline?",
+        "Can someone call me about the supplemental estimate?"
+      ],
+      "businessOutcome": "Give customers clearer answers while preserving human control over commitments, diagnosis, pricing, and delivery promises.",
+      "icon": "ClockIcon",
+      "sourceIds": [
+        "src-ccc-crash-course-2026"
+      ]
+    },
+    {
+      "name": "Technician SOP and repair knowledge assistant",
+      "problem": "Repair knowledge is often spread across manuals, PDFs, internal notes, training files, and senior technicians, which slows onboarding and repeat procedures.",
+      "agentWorkflow": "An internal DocsBot agent trained on approved SOPs, checklists, manuals, training materials, and shop policies lets employees ask natural-language questions and receive source-grounded answers with references to the underlying material.",
+      "liveContextOrTools": "Teams can deploy the agent in private chat experiences, Slack, Microsoft Teams, or internal portals, with role-based access controls for sensitive operating procedures.",
+      "exampleQuestionsOrRequests": [
+        "What is our post-repair quality-control checklist?",
+        "Where is the SOP for documenting diagnostic findings?",
+        "What should new advisors say when a customer asks about aftermarket parts?"
+      ],
+      "businessOutcome": "Help staff retrieve consistent procedures faster and reduce dependency on tribal knowledge during busy shop hours.",
+      "icon": "BookOpenIcon",
+      "sourceIds": [
+        "src-bls-repair-maintenance-naics"
+      ]
+    },
+    {
+      "name": "Recall and safety question routing",
+      "problem": "Recall, warning-light, and safety questions need accurate source handling and clear escalation because customers may confuse repair advice, manufacturer obligations, and safety risks.",
+      "agentWorkflow": "DocsBot can answer from your recall policy, manufacturer-facing guidance, service disclaimers, and customer FAQs, then route safety-sensitive questions to a human advisor when the request goes beyond approved content.",
+      "liveContextOrTools": "When configured, AI Actions can collect VIN, customer contact details, complaint category, and requested callback, then create a ticket or notify the service team for review.",
+      "exampleQuestionsOrRequests": [
+        "Can you check whether my vehicle has a recall?",
+        "Is it safe to drive if the ABS light is on?",
+        "Do you perform recall repairs or should I contact the dealer?"
+      ],
+      "businessOutcome": "Improve customer guidance while keeping safety-critical judgments and recall determinations inside the shop’s defined review process.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nhtsa-recalls"
+      ]
+    },
+    {
+      "name": "Parts, estimate, and policy answer assistant",
+      "problem": "Customers and staff ask the same questions about parts availability, estimate terms, labor policies, deposits, warranty coverage, and inspection fees.",
+      "agentWorkflow": "A DocsBot agent answers from service menus, warranty documents, parts policies, estimate templates, inspection checklists, and FAQs. It can clarify terminology, collect missing details, and draft advisor responses for review.",
+      "liveContextOrTools": "With approved connectors or APIs, the agent can perform scoped lookups, create a request for parts follow-up, or route pricing-sensitive questions to the responsible human.",
+      "exampleQuestionsOrRequests": [
+        "Do you use OEM or aftermarket parts?",
+        "Why did my estimate change after the inspection?",
+        "What warranty do you provide on parts and labor?"
+      ],
+      "businessOutcome": "Make policy answers consistent across advisors while keeping final estimates, discounts, and exceptions under human control.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for service improvement",
+      "problem": "Shops may not know which questions are driving calls, confusion, failed self-service, or advisor interruptions.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery show where customers and staff repeatedly need better documentation.",
+      "liveContextOrTools": "Teams can review unresolved questions, add missing service content, update SOPs, and improve agent instructions over time.",
+      "exampleQuestionsOrRequests": [
+        "Which repair-status questions come up most often?",
+        "What did customers ask that our website did not answer?",
+        "Which internal SOP topics need clearer documentation?"
+      ],
+      "businessOutcome": "Use real customer and employee questions to improve service pages, advisor scripts, onboarding materials, and support workflows.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A repair support agent for customers before, during, and after service",
+    "intro": "Place a DocsBot agent on your website or support flow so customers can ask about services, appointments, estimates, warranties, pickup steps, and repair-status next actions from your approved knowledge. The agent can collect details, summarize the conversation, and escalate when a person should take over.",
+    "requests": [
+      {
+        "request": "“Can you service my vehicle and what should I bring?”",
+        "agentResponseStrategy": "Answer from service pages and intake FAQs, ask for vehicle details, symptoms, mileage, and preferred timing, then prepare a structured handoff for an advisor.",
+        "sourceTypes": [
+          "Service pages",
+          "FAQs",
+          "Intake forms",
+          "Appointment policies"
+        ],
+        "optionalAction": "Submit an intake request or trigger a scheduling workflow when the shop has configured the approved action.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What is happening with my repair?”",
+        "agentResponseStrategy": "Explain repair-stage terminology from approved documents and, if live context is authorized, look up a scoped status field or create a callback request.",
+        "sourceTypes": [
+          "Repair process docs",
+          "Pickup instructions",
+          "Status definitions",
+          "Ticket records"
+        ],
+        "optionalAction": "Create a follow-up task or notify the advisor with the customer’s question and conversation summary.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Is this covered by warranty?”",
+        "agentResponseStrategy": "Ground the answer in your warranty policy, clarify what information is needed, and route edge cases or pricing exceptions to staff.",
+        "sourceTypes": [
+          "Warranty policies",
+          "Estimate templates",
+          "Service terms",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Collect invoice number, repair date, mileage, photos, and contact details for a human review path.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you handle recalls?”",
+        "agentResponseStrategy": "Explain your shop’s recall policy and direct customers to appropriate next steps while avoiding unsupported safety or manufacturer determinations.",
+        "sourceTypes": [
+          "Recall policy",
+          "Safety FAQs",
+          "Manufacturer guidance notes",
+          "Escalation rules"
+        ],
+        "optionalAction": "Collect VIN and contact details, then route the concern to a service advisor when configured.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-nhtsa-recalls"
+        ]
+      },
+      {
+        "request": "“What does this estimate line mean?”",
+        "agentResponseStrategy": "Define common estimate terms from approved templates and policy documents, then flag questions about final pricing or disputed charges for a human.",
+        "sourceTypes": [
+          "Estimate templates",
+          "Labor policy",
+          "Parts policy",
+          "Payment FAQs"
+        ],
+        "optionalAction": "Create a ticket with the estimate question and conversation summary for advisor follow-up.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Can I get help in another language?”",
+        "agentResponseStrategy": "DocsBot agents can answer in more than 100 languages when trained on the shop’s approved knowledge, helping customers understand service steps more clearly.",
+        "sourceTypes": [
+          "Service FAQs",
+          "Policies",
+          "Website content",
+          "Manuals"
+        ],
+        "optionalAction": "Route the conversation to staff with translated context when a person needs to continue the discussion.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for advisors, technicians, and operations",
+    "intro": "DocsBot helps repair teams make internal documents searchable and actionable: SOPs, inspection checklists, advisor scripts, warranty policies, training content, onboarding guides, and technical references can become a private AI assistant with source-grounded answers.",
+    "workflows": [
+      {
+        "name": "Advisor response drafting",
+        "problem": "Advisors need quick, consistent replies across phone notes, email, chat, and tickets without promising the wrong price, timeline, or diagnosis.",
+        "agentWorkflow": "The internal agent retrieves approved policy language, explains common terms, drafts a reply, and includes source context so the advisor can review before sending.",
+        "sourceTypes": [
+          "Advisor scripts",
+          "Warranty policies",
+          "Service menus",
+          "Estimate language"
+        ],
+        "optionalAction": "Draft a helpdesk or email response through a customer-configured workflow while leaving final sending to staff.",
+        "outcome": "Faster, more consistent customer communication with human review for high-impact commitments.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Technician onboarding and SOP search",
+        "problem": "New hires and cross-trained staff need answers about shop processes, documentation standards, quality checks, and tool procedures.",
+        "agentWorkflow": "DocsBot retrieves source-grounded answers from internal SOPs, PDFs, training materials, wikis, and checklists so staff can find the right process faster.",
+        "sourceTypes": [
+          "SOPs",
+          "Training files",
+          "Inspection checklists",
+          "Internal wiki pages"
+        ],
+        "optionalAction": "Create a documentation-gap task when employees ask about a missing or unclear procedure.",
+        "outcome": "Reduce time spent searching for procedural knowledge and help standardize work across bays and shifts.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-ratchet-wrench-oec-survey"
+        ]
+      },
+      {
+        "name": "Ticket and conversation summarization",
+        "problem": "Handoffs between advisors, technicians, managers, and customers can lose important details about symptoms, approvals, and expectations.",
+        "agentWorkflow": "A DocsBot agent can summarize customer conversations, service notes, and support tickets when connected to approved sources or workflows, then route the summary to the right team member.",
+        "sourceTypes": [
+          "Ticket history",
+          "Email threads",
+          "Chat transcripts",
+          "Repair notes"
+        ],
+        "optionalAction": "Create a task, update an approved field, or send a notification through configured Skills, APIs, connectors, or workflow automation.",
+        "outcome": "Cleaner handoffs and fewer repeated questions between the front office and shop floor.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Service content improvement",
+        "problem": "If customers repeatedly ask questions that the website or advisor guide does not answer, staff keep solving the same confusion manually.",
+        "agentWorkflow": "DocsBot reports, logs, topic management, and knowledge-gap discovery help managers see repeated unanswered questions and update source content.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Website FAQs",
+          "Service pages",
+          "Advisor knowledge base"
+        ],
+        "optionalAction": "Export or route unresolved topics to the content owner for review and documentation updates.",
+        "outcome": "Improve self-service content and reduce recurring support load over time.",
+        "icon": "LightBulbIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from the company knowledge sources you configure, including websites, help centers, PDFs, internal content, manuals, and support history.",
+      "industryApplication": "Use approved repair knowledge to answer questions about maintenance services, estimates, warranties, pickup instructions, intake steps, and shop policies.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, retrieving procedures, policies, onboarding material, and operational knowledge.",
+      "industryApplication": "Give advisors and technicians fast access to SOPs, inspection checklists, warranty language, training guides, and quality-control procedures.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform customer-configured lookups, record updates, routing, summaries, workflow triggers, and handoffs inside defined boundaries.",
+      "industryApplication": "Collect intake details, create follow-up tasks, summarize repair-status questions, route recall concerns, or trigger approved scheduling and helpdesk workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation analytics, logs, topic management, reports, review workflows, and knowledge-gap discovery.",
+      "industryApplication": "See which service questions, policy gaps, estimate concerns, and internal SOP topics drive repeated conversations in your repair operation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and permissions",
+      "mainLandingPageContext": "DocsBot supports human escalation and role-based permissions for complex, sensitive, or high-impact questions.",
+      "industryApplication": "Escalate safety, diagnosis, pricing, disputed invoices, recall, and warranty exceptions while keeping routine guidance available instantly.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Secure deployment for private shop knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and no customer data training for public models.",
+      "industryApplication": "Protect internal SOPs, customer conversation history, service policies, and workflow credentials while giving staff controlled access to the knowledge they need.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, website, FAQs, policies, and internal knowledge instead of generic answers.",
+      "Support high-volume customer questions with source-grounded automation and escalation paths.",
+      "Deploy customer-facing and team-facing assistants where your repair workflow needs them."
+    ],
+    "whyTheseReviewsFit": "Motor vehicle repair teams need fast customer answers, reliable manual-based guidance, and practical deployment across public support and internal workflows. DocsBot proof spans vehicle-related support, owned content libraries, helpdesk-assisted responses, and high-volume customer inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "PuzzlePieceIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for motor vehicle repair businesses",
+    "audience": [
+      "Auto repair shop owners",
+      "Service managers",
+      "Service advisors",
+      "Collision repair operators",
+      "Repair operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "motor-vehicle",
+    "automotive-part-sales",
+    "fleet-management",
+    "used-car-sales",
+    "car-wash-detailing",
+    "classic-car-restoration"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "motor-vehicle-repair",
+    "webSearchQueries": [
+      "BLS automotive service technicians mechanics employment May 2024",
+      "NHTSA recalls number vehicles 2024 recalls",
+      "ASE technician shortage automotive repair shops statistic 2024",
+      "CCC Crash Course 2025 repair cycle time customer expectations"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-service-technicians-and-mechanics.htm",
+      "https://www.bls.gov/IAG/TGS/iag811.htm",
+      "https://www.nhtsa.gov/recalls",
+      "https://prod.cccis.com/reports/crash-course-2026",
+      "https://www.ratchetandwrench.com/site-placement/latest-news/news/55360165/oec-releases-us-general-auto-repair-shop-survey-report"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40854,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28310,
+        "outputTokens": 7358,
+        "reasoningOutputTokens": 127,
+        "totalTokens": 48212,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.184281,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.194281
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21605,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14309,
+          "outputTokens": 5000,
+          "reasoningOutputTokens": 127,
+          "totalTokens": 26605,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.112596,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.122596
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19249,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14001,
+          "outputTokens": 2358,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21607,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.071685,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.071685
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1502352981868-f957ab3e10eb?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzk1NDd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Motor Vehicle Repair background image",
+    "source": "legacy-industry",
+    "query": "Motor Vehicle Repair"
+  },
+  "faq": [
+    {
+      "question": "Will the agent give repair advice that creates liability for our shop?",
+      "answer": "DocsBot should be configured to answer only from your approved service policies, FAQs, manuals, disclaimers, and intake guidance. For diagnosis, safety-critical questions, pricing exceptions, recalls, or disputed repairs, the agent can collect details and escalate to a human advisor with context instead of making unsupported repair judgments.",
+      "role": "Service managers and owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use it for repair-status updates without letting AI promise completion times?",
+      "answer": "Yes. DocsBot can explain your repair stages, pickup process, estimate terminology, and next steps from approved documents. If you authorize live context, it can perform scoped status lookups or create callback tasks, while your team keeps control over final delivery promises, pricing, supplements, and customer commitments.",
+      "role": "Service advisors and customer support teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ccc-crash-course-2026"
+      ]
+    },
+    {
+      "question": "How would this help our advisors during peak phone, text, and walk-in volume?",
+      "answer": "A DocsBot agent can answer recurring service, warranty, appointment, payment, and pickup questions instantly, then collect VIN, mileage, symptoms, photos, preferred times, and contact details before an advisor steps in. That gives the front desk cleaner intake and reduces repetitive back-and-forth during busy periods.",
+      "role": "Service advisors and customer support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can technicians use it privately for SOPs and shop procedures?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, inspection checklists, training files, manuals, warranty policies, and internal notes. Technicians and operations staff can ask natural-language questions and receive source-grounded answers with references to the underlying material.",
+      "role": "Technicians and shop operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it integrate with the systems we already use for scheduling, tickets, or repair updates?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, forms, webhooks, workflow automations, or an authorized MCP server. Typical actions include creating a task or ticket, submitting intake details, notifying a team, looking up an approved status field, or routing a request for human follow-up.",
+      "role": "Service managers and owners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer from our actual policies instead of generic automotive information?",
+      "answer": "Yes. DocsBot agents are trained on the knowledge sources you choose, such as your website, service menus, PDFs, warranty language, estimate templates, advisor scripts, SOPs, manuals, and internal documentation. The goal is source-grounded answers that reflect how your shop operates, not generic web advice.",
+      "role": "Service managers and owners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we keep the agent from giving discounts, changing estimates, or approving warranty claims?",
+      "answer": "You can define boundaries so the agent explains policy language, collects missing details, and routes exceptions without authorizing discounts, final estimates, goodwill adjustments, or warranty approvals. Sensitive workflows can require human review, scoped permissions, logs, and clear escalation rules.",
+      "role": "Service managers and owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What repair shop questions are usually safe to automate first?",
+      "answer": "Good first use cases are appointment expectations, what to bring, maintenance service descriptions, inspection fees, payment and pickup instructions, warranty documentation requirements, estimate terminology, and basic intake. Save diagnosis, safety concerns, pricing disputes, insurance complexity, and recall determinations for human escalation.",
+      "role": "Service advisors and customer support teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help with recall questions without pretending to be the manufacturer or NHTSA?",
+      "answer": "Yes. DocsBot can answer from your recall policy and approved safety guidance, collect VIN and contact details, and route the concern to an advisor when appropriate. NHTSA explains that recalls involve unreasonable safety risks or failures to meet minimum safety standards, so these conversations should stay tightly governed.",
+      "role": "Technicians and shop operations teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nhtsa-recalls"
+      ]
+    },
+    {
+      "question": "How much documentation do we need before launching?",
+      "answer": "You can start with your most-used service pages, FAQs, warranty terms, pickup instructions, intake forms, estimate explanations, and escalation rules. For internal use, add SOPs, checklists, advisor scripts, onboarding materials, and training files. Conversation logs and knowledge-gap reports can then show what to improve next.",
+      "role": "Service managers and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we measure whether the AI agent is actually reducing workload?",
+      "answer": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Shops can track repeated questions, unresolved topics, escalation patterns, common intake gaps, and whether customers or staff are finding the answers they need.",
+      "role": "Service managers and owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this replace service advisors or technicians?",
+      "answer": "No. The best fit is to reduce repetitive explanation, intake, search, summarization, and routing work while keeping people responsible for diagnosis, estimates, approvals, safety decisions, and customer recovery. That matters in a labor-constrained market where technician shortages continue to affect many shops.",
+      "role": "Service managers and owners",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ratchet-wrench-oec-survey"
+      ]
+    },
+    {
+      "question": "Can the agent support customers in multiple languages?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages when trained on your approved knowledge. For repair shops, that can help customers understand appointment steps, pickup instructions, warranty requirements, and service policies, while still routing complex or sensitive conversations to staff.",
+      "role": "Service advisors and customer support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we protect customer data, internal SOPs, and workflow credentials?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models, and Skills can be configured with secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "Service managers and owners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different employees see different internal knowledge?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so private shop knowledge can be limited by role or use case. That helps separate customer-facing FAQs from internal SOPs, management policies, workflow credentials, and sensitive operational materials.",
+      "role": "Technicians and shop operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "DocsBot can be configured to say when approved sources do not contain enough information, ask clarifying questions, collect contact details, and escalate to a human with a summary. Its logs and knowledge-gap discovery also help you identify missing FAQs, unclear policies, or SOPs that need updates.",
+      "role": "Service managers and owners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it summarize customer conversations for cleaner advisor-to-technician handoffs?",
+      "answer": "Yes. When connected to approved sources or workflows, DocsBot can summarize intake details, symptoms, customer concerns, prior messages, approvals, and follow-up requests. Those summaries can be routed to advisors, technicians, or managers through customer-configured workflows while humans verify the final repair context.",
+      "role": "Technicians and shop operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this help with onboarding new advisors or technicians?",
+      "answer": "DocsBot can turn SOPs, inspection checklists, training files, scripts, and policy documents into a searchable internal assistant. New staff can ask how your shop documents diagnostics, explains estimates, handles warranty questions, or performs quality checks instead of relying only on senior employees.",
+      "role": "Technicians and shop operations teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-repair-maintenance-naics"
+      ]
+    },
+    {
+      "question": "Can the agent help explain estimates without creating billing disputes?",
+      "answer": "Yes, if configured carefully. DocsBot can define estimate terms, explain inspection fees, parts categories, labor policies, deposits, and warranty language from approved templates. It should route final pricing, disputed charges, discounts, supplements, or authorization questions to a human advisor.",
+      "role": "Service advisors and customer support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should a multi-location repair business keep answers consistent across stores?",
+      "answer": "Train the agent on shared brand policies plus location-specific service menus, hours, intake steps, warranty language, and escalation paths. Role-based access and clear source organization help staff retrieve the right procedure while analytics reveal which locations or topics need better documentation.",
+      "role": "Service managers and owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can it work for collision repair as well as general mechanical service?",
+      "answer": "Yes. Collision teams can use DocsBot for repair-stage explanations, supplement questions, pickup instructions, insurer communication handoffs, parts-delay explanations, and internal SOP search. CCC’s 2026 Crash Course highlights repair complexity and cycle-time/backlog trends, making clear status communication especially important.",
+      "role": "Service managers and owners",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ccc-crash-course-2026"
+      ]
+    },
+    {
+      "question": "What internal stakeholders should be involved before we launch?",
+      "answer": "Include the owner or service manager, lead advisors, a technician or shop foreman, whoever owns the website or helpdesk, and someone responsible for data access. They should agree on source content, escalation rules, prohibited answers, action permissions, and success metrics before going live.",
+      "role": "Service managers and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent trained on your approved shop knowledge, not just a generic chat widget. It can support customer answers, internal knowledge retrieval, summaries, routing, analytics, knowledge-gap discovery, and bounded AI Actions when you configure approved workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start without connecting it to our shop management system?",
+      "answer": "Yes. Many teams can begin with source-grounded answers from service pages, FAQs, policies, PDFs, and SOPs. Live lookups and workflow actions can be added later through approved Skills, APIs, connectors, forms, webhooks, or customer-configured automation once governance is clear.",
+      "role": "Service managers and owners",
+      "category": "Implementation"
+    },
+    {
+      "question": "What ROI should we look for besides fewer phone calls?",
+      "answer": "Look for faster intake completion, fewer repeated policy explanations, cleaner advisor-technician handoffs, better after-hours self-service, reduced time searching SOPs, fewer missing details before appointments, and clearer knowledge gaps. For shops facing staffing pressure, these operational savings can matter as much as call deflection.",
+      "role": "Service managers and owners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ratchet-wrench-oec-survey"
+      ]
+    }
+  ]
+}

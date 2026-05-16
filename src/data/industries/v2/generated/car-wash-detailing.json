@@ -1,0 +1,714 @@
+{
+  "slug": "car-wash-detailing",
+  "business": "Car Wash & Detailing",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Car Wash & Detailing Operations",
+    "description": "DocsBot helps car wash and detailing teams answer service questions, qualify bookings, and route customer requests from approved shop knowledge.",
+    "canonicalPath": "/industry/car-wash-detailing"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for wash bays, detail shops, and mobile crews",
+    "headline": "Keep every car wash customer moving with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your service menu, care guides, membership rules, prep checklists, pricing notes, FAQs, and internal SOPs so customers and employees get fast, source-grounded answers before the line backs up or the phone rings again.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about wash packages, ceramic add-ons, interior detailing, memberships, hours, policies, and vehicle prep from your approved content.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Collect booking intent, vehicle details, service needs, and preferred times before handing off to your scheduling or sales workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Route refund, damage, membership, fleet, and after-service requests with summaries so the right person gets the right context.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give employees instant access to SOPs, chemical handling notes, opening checklists, upsell guidance, and customer care scripts.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build your car wash AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps car wash and detailing businesses create AI agents trained on their own knowledge. Agents can answer customer questions, support staff, retrieve approved procedures, summarize conversations, identify gaps in your FAQs or SOPs, and take bounded actions through customer-configured Skills, APIs, connectors, MCP Connectors, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Owners and multi-site operators",
+        "roleContext": "Give each location a consistent way to explain services, reduce repetitive calls, and spot content gaps across customer conversations.",
+        "bullets": [
+          {
+            "text": "Keep package, membership, fleet, weather, and policy answers consistent across websites, kiosks, QR codes, and team chat.",
+            "icon": "BuildingStorefrontIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which services, complaints, and policies customers ask about most often.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support a market with 59,394 U.S. car wash and auto detailing businesses competing for convenience and loyalty.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-ibisworld-market"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Customer service and front-desk teams",
+        "roleContext": "Help staff answer repetitive questions without searching binders, texts, old training docs, or a manager’s memory.",
+        "bullets": [
+          {
+            "text": "Draft answers for membership changes, lost items, rewash policies, appointment preparation, and service timing questions.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Escalate complex damage, billing, or complaint cases with a concise summary and conversation history.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Respond in more than 100 languages when customers need help understanding packages, prep instructions, or policies.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Detailing technicians and site managers",
+        "roleContext": "Make procedures easier to find during busy shifts, training, and quality-control checks.",
+        "bullets": [
+          {
+            "text": "Search approved SOPs for interior detailing, paint-safe care, bay opening tasks, closing checks, and add-on instructions.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Pull vehicle intake notes or service descriptions into a clear handoff before a customer arrives, when configured with live context.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep stormwater, vehicle washing, and housekeeping guidance visible when local practices require documented wash-water controls.",
+            "icon": "CloudIcon",
+            "sourceIds": [
+              "src-epa-stormwater"
+            ]
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ibisworld-market",
+      "metric": "$18.6 billion U.S. industry revenue in 2025",
+      "claim": "IBISWorld estimates the U.S. Car Wash & Auto Detailing industry at $18.6 billion in 2025, with 201,000 employees and 59,394 businesses.",
+      "sourceTitle": "Car Wash & Auto Detailing in the US - Market Research Report (2015-2030)",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-research-reports/car-wash-auto-detailing-industry/",
+      "sourceDate": "March 2025",
+      "bestUsedFor": [
+        "market scale",
+        "labor scale",
+        "competitive pressure",
+        "multi-site growth"
+      ]
+    },
+    {
+      "id": "src-ica-consumer-study",
+      "metric": "Professional-wash preference rose to 79% in 2023",
+      "claim": "IBISWorld cites International Carwash Association research showing the share of drivers who most often wash at professional shops rose from 50% in 1996 to 79% in 2023.",
+      "sourceTitle": "Car Wash & Auto Detailing in the US - Market Research Report (2015-2030)",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-research-reports/car-wash-auto-detailing-industry/",
+      "sourceDate": "March 2025",
+      "bestUsedFor": [
+        "consumer behavior",
+        "demand growth",
+        "customer expectations"
+      ]
+    },
+    {
+      "id": "src-epa-stormwater",
+      "metric": "Vehicle washing can create detergent-rich stormwater runoff",
+      "claim": "EPA stormwater guidance says outdoor vehicle washing can generate detergent-rich wash water and recommends pollution-prevention best management practices.",
+      "sourceTitle": "Stormwater Best Management Practice: Vehicle Maintenance and Washing",
+      "sourceUrl": "https://www.epa.gov/system/files/documents/2023-01/bmp-vehicle-maintenance-and-washing.pdf",
+      "sourceDate": "January 2023",
+      "bestUsedFor": [
+        "environmental practices",
+        "wash-water procedures",
+        "SOP and training content"
+      ]
+    },
+    {
+      "id": "src-osha-car-wash-standards",
+      "metric": "OSHA tracks cited standards for NAICS 811192 car washes",
+      "claim": "OSHA publishes frequently cited federal standards for NAICS 811192 car wash establishments, useful for identifying recurring safety and workplace compliance topics.",
+      "sourceTitle": "Frequently Cited OSHA Standards Results: NAICS 811192 Car Washes",
+      "sourceUrl": "https://www.osha.gov/ords/imis/citedstandard.naics?p_naics=811192&p_state=FEFederal",
+      "sourceDate": "October 2024-September 2025 period",
+      "bestUsedFor": [
+        "employee safety",
+        "training topics",
+        "operations documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Package, membership, and add-on concierge",
+      "problem": "Customers often compare exterior wash tiers, interior details, ceramic-style add-ons, monthly plans, and fleet options before deciding whether to visit or book.",
+      "agentWorkflow": "DocsBot answers from your service menu, pricing guidance, FAQs, membership rules, vehicle prep instructions, and care guides. It can ask clarifying questions, explain tradeoffs in your voice, collect lead details, and route qualified fleet or high-value detail inquiries to the right team.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved package availability, submit a lead form, create a task, or forward a summarized inquiry to CRM, email, helpdesk, Slack, or Microsoft Teams.",
+      "exampleQuestionsOrRequests": [
+        "Which package removes salt and road grime from under my SUV?",
+        "Do you offer monthly plans for two family vehicles?",
+        "I manage 18 vans. Can someone send me a fleet wash quote?"
+      ],
+      "businessOutcome": "Turn service-menu confusion into guided self-service while giving sales or managers structured context for higher-value inquiries.",
+      "icon": "ShoppingCartIcon",
+      "sourceIds": [
+        "src-ica-consumer-study"
+      ]
+    },
+    {
+      "name": "Detail appointment intake and preparation",
+      "problem": "Detailing jobs need better intake than a basic contact form: vehicle type, condition, pet hair, stains, odor, paint concerns, location, timing, and expectations all affect fit and follow-up.",
+      "agentWorkflow": "DocsBot gathers structured details, answers prep questions from approved policies, summarizes the requested work, and hands the customer to your booking or estimate workflow. For complex paint correction, high-value vehicles, or subjective condition issues, it can escalate instead of committing to final pricing.",
+      "liveContextOrTools": "Configured scheduling Skills can collect preferred times and use an approved booking workflow such as Calendly, Cal.com, TidyCal, or a similar scheduling tool. APIs or connectors can pass intake notes to internal systems.",
+      "exampleQuestionsOrRequests": [
+        "Can I book an interior detail for a truck with heavy dog hair?",
+        "What should I remove from the vehicle before my appointment?",
+        "Can you send my request to the mobile detailing team?"
+      ],
+      "businessOutcome": "Reduce back-and-forth before appointments and give technicians clearer expectations before the vehicle arrives.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Membership, billing, and issue routing",
+      "problem": "Membership cancellations, rewash requests, billing questions, lost items, tunnel incidents, and damage claims need fast triage but often require human review.",
+      "agentWorkflow": "DocsBot answers routine policy questions, collects missing details, summarizes the timeline, and routes the case to the appropriate manager or support queue. It can keep boundaries clear for damage, refunds, and account changes that require staff approval.",
+      "liveContextOrTools": "Through customer-configured helpdesk connections, exported ticket sources, Skills, APIs, or workflow triggers, the agent can create a ticket, update approved fields, notify a manager, or draft a response for review.",
+      "exampleQuestionsOrRequests": [
+        "I was charged after canceling my wash plan. Who can help?",
+        "My vehicle still has mud after the wash. What is your rewash policy?",
+        "I need to report a possible scratch after today’s visit."
+      ],
+      "businessOutcome": "Shorten the path from complaint to accountable follow-up while preserving human control over sensitive customer-impacting decisions.",
+      "icon": "ShieldCheckIcon"
+    },
+    {
+      "name": "Employee SOP and safety knowledge agent",
+      "problem": "Car wash and detailing teams rely on rotating staff, site-specific procedures, chemical handling notes, equipment checks, and local environmental practices that are easy to miss during busy shifts.",
+      "agentWorkflow": "DocsBot trains on SOPs, checklists, training PDFs, equipment guides, internal wikis, policy docs, and manager notes. Employees can ask natural-language questions and receive source-grounded answers with links back to approved materials.",
+      "liveContextOrTools": "In private chat, Slack, Microsoft Teams, or an internal widget, the agent can retrieve procedures, generate shift summaries, flag knowledge gaps, and route unanswered safety or operations questions for manager review.",
+      "exampleQuestionsOrRequests": [
+        "What is the closing checklist for Bay 3?",
+        "Where is the procedure for handling wash-water containment?",
+        "How do I explain the difference between a basic wash and full interior detail?"
+      ],
+      "businessOutcome": "Make training and daily operations knowledge easier to access, especially for new hires, seasonal teams, and multi-location operators.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-epa-stormwater",
+        "src-osha-car-wash-standards"
+      ]
+    },
+    {
+      "name": "Review insights and knowledge-gap discovery",
+      "problem": "Customers repeatedly ask about the same unclear policies, add-ons, wait times, prep steps, and membership terms, but those patterns can be hard to see across chats and tickets.",
+      "agentWorkflow": "DocsBot logs conversations, supports review workflows, tracks common topics, and helps teams identify missing or weak content. Operators can update FAQs, service pages, scripts, and training material based on what customers and employees actually ask.",
+      "liveContextOrTools": "When connected to approved ticket exports or helpdesk-style workflows, DocsBot can summarize recurring issues and draft article updates for a human to review.",
+      "exampleQuestionsOrRequests": [
+        "What questions are customers asking before booking ceramic protection?",
+        "Which membership terms are causing confusion this month?",
+        "Show me unanswered questions about mobile detailing availability."
+      ],
+      "businessOutcome": "Improve self-service content and staff training with real customer-language insights instead of guessing what to document next.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Multi-language care and after-service assistant",
+      "problem": "Customers may need clear after-care instructions for wax, ceramic add-ons, stain treatment, odor service, tint-safe cleaning, or post-detail drying times in the language they are most comfortable using.",
+      "agentWorkflow": "DocsBot answers from your approved care guides and after-service documents in more than 100 languages. It can send concise guidance, clarify what the service includes, and route concerns that need a technician or manager.",
+      "liveContextOrTools": "With approved workflows, the agent can attach a care-guide summary to a follow-up email, create a task for staff outreach, or notify the team when a customer reports a post-service concern.",
+      "exampleQuestionsOrRequests": [
+        "How long should I wait before washing after a wax service?",
+        "Can you explain my after-care instructions in Spanish?",
+        "The seat still smells after the odor treatment. What should I do?"
+      ],
+      "businessOutcome": "Support a broader customer base while keeping after-care answers consistent with your own procedures and service promises.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing agent that explains services before customers arrive",
+    "intro": "Place DocsBot on your website, booking page, help center, QR code landing page, or product-style chat widget so customers can understand services, memberships, hours, policies, prep steps, and next actions without waiting for a call back.",
+    "requests": [
+      {
+        "request": "“Which detail package should I choose for a leased SUV before turn-in?”",
+        "agentResponseStrategy": "Ask about interior condition, exterior needs, timing, and any lease-return concerns, then explain approved service options without promising inspection outcomes.",
+        "sourceTypes": [
+          "Service menu",
+          "Detailing FAQs",
+          "Care guides",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Collect contact details and vehicle notes, then route the lead to a human estimator or booking workflow.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Can I pause or cancel my monthly wash membership?”",
+        "agentResponseStrategy": "Answer from your membership policy, explain required account details, and avoid making account changes unless an approved workflow is configured.",
+        "sourceTypes": [
+          "Membership terms",
+          "Billing policy",
+          "Support macros"
+        ],
+        "optionalAction": "Create a support ticket or send a summarized request to the membership team through a configured workflow.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do I need an appointment for pet hair removal?”",
+        "agentResponseStrategy": "Explain whether pet hair service is walk-in or appointment-based, what affects timing, and what customers should remove from the vehicle first.",
+        "sourceTypes": [
+          "Appointment policy",
+          "Add-on service descriptions",
+          "Prep instructions"
+        ],
+        "optionalAction": "Collect scheduling intent and hand off to an approved booking tool or staff follow-up process.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What happens if it rains after my wash?”",
+        "agentResponseStrategy": "Respond from your weather, rain-check, rewash, or satisfaction policy so customers hear the same answer online and on-site.",
+        "sourceTypes": [
+          "Rain policy",
+          "Rewash policy",
+          "Customer FAQ"
+        ],
+        "optionalAction": "Route exceptions or complaints to a manager with a summary of the customer’s visit details.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“Can you wash our company vans every week?”",
+        "agentResponseStrategy": "Ask for fleet size, location, frequency, service needs, and decision timeline, then qualify the inquiry using your rules.",
+        "sourceTypes": [
+          "Fleet service page",
+          "Sales playbook",
+          "Lead qualification rules"
+        ],
+        "optionalAction": "Forward a qualified fleet lead and conversation summary to CRM, email, or a sales queue through customer-configured actions.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Is your wash water safe for the environment?”",
+        "agentResponseStrategy": "Answer from your approved environmental practices, site guidance, and wash-water handling documentation rather than making unsupported claims.",
+        "sourceTypes": [
+          "Environmental policy",
+          "Stormwater SOPs",
+          "Local compliance notes"
+        ],
+        "optionalAction": "Escalate technical or regulatory questions to a manager when a location-specific answer is required.",
+        "icon": "CloudIcon",
+        "sourceIds": [
+          "src-epa-stormwater"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "An internal knowledge agent for faster shifts and cleaner handoffs",
+    "intro": "Give managers, attendants, detailers, and support staff a private DocsBot agent trained on operational knowledge so they can find the right procedure, customer answer, or escalation path during a busy day.",
+    "workflows": [
+      {
+        "name": "Shift procedure lookup",
+        "problem": "Opening, closing, bay checks, equipment resets, and cleaning procedures are often scattered across binders, shared drives, and manager messages.",
+        "agentWorkflow": "Employees ask DocsBot for the exact checklist or step, and the agent responds from approved SOPs with source-grounded guidance.",
+        "sourceTypes": [
+          "SOPs",
+          "Checklists",
+          "Equipment guides",
+          "Manager notes"
+        ],
+        "optionalAction": "Generate a shift-summary draft or create a task for an unresolved equipment issue when configured.",
+        "outcome": "Fewer interruptions for managers and more consistent execution across locations and shifts.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "New-hire training assistant",
+        "problem": "New employees need quick answers about services, scripts, safety reminders, upsell language, and when to escalate customer issues.",
+        "agentWorkflow": "DocsBot retrieves training content, role guides, service explanations, and approved scripts so new hires can learn while staying aligned with shop standards.",
+        "sourceTypes": [
+          "Training manuals",
+          "Service guides",
+          "Customer scripts",
+          "HR policies"
+        ],
+        "optionalAction": "Log unanswered training questions so managers can update onboarding material.",
+        "outcome": "Help new and seasonal staff become productive faster without relying only on shadowing or memory.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Ticket and complaint triage",
+        "problem": "Managers need a clear picture of what happened before responding to a billing, damage, lost-item, or membership complaint.",
+        "agentWorkflow": "DocsBot summarizes the customer’s message, extracts key details, suggests relevant policy references, and prepares a handoff for human review.",
+        "sourceTypes": [
+          "Support tickets",
+          "Policies",
+          "Incident templates",
+          "Membership terms"
+        ],
+        "optionalAction": "Route the case, create a ticket, notify the right team, or draft a response through approved helpdesk-style workflows.",
+        "outcome": "Give staff better context while keeping final decisions with the accountable manager.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "name": "Environmental and safety reference",
+        "problem": "Wash-water, chemical, housekeeping, equipment, and employee safety questions can be location-sensitive and must be answered from approved materials.",
+        "agentWorkflow": "DocsBot retrieves internal procedures, training documents, and policy references, then flags questions that need management or compliance review.",
+        "sourceTypes": [
+          "Stormwater SOPs",
+          "Chemical handling notes",
+          "Safety policies",
+          "Inspection checklists"
+        ],
+        "optionalAction": "Create a task for manager review when a question reveals an outdated or missing procedure.",
+        "outcome": "Keep practical guidance close to the work while maintaining controlled escalation for sensitive topics.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-car-wash-standards"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents train on approved content and answer in your company’s voice instead of relying on generic model memory.",
+      "industryApplication": "Answer questions about wash tiers, memberships, add-ons, policies, prep steps, hours, and after-care using your own service menu and documents.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and customer-configured Skills",
+      "mainLandingPageContext": "AI Actions and Skills let an agent take bounded steps such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs.",
+      "industryApplication": "Collect vehicle details, qualify fleet leads, create support tasks, route complaints, or hand off booking intent through approved APIs, connectors, webhooks, or MCP server tools.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can be used privately by teams to retrieve SOPs, policies, onboarding materials, playbooks, and operational guidance.",
+      "industryApplication": "Help attendants, detailers, and managers find shift checklists, service definitions, customer scripts, safety reminders, and site-specific procedures.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation review, reports, topic management, satisfaction and resolution analysis, and visibility into unanswered questions.",
+      "industryApplication": "See which memberships, add-ons, prep instructions, refund policies, and detailing services create the most confusion, then improve FAQs and training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the same approved knowledge sources.",
+      "industryApplication": "Help customers understand packages, appointment prep, after-care, and policies in the language they prefer while keeping answers aligned with your source material.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, and role-based permissions.",
+      "industryApplication": "Limit private SOPs, customer workflows, billing guidance, and internal procedures to the right teams while keeping customer-facing answers scoped to approved sources.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "gareth-it-marketing"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own service content, manuals, FAQs, and internal procedures.",
+      "Support high-volume customer questions with source-grounded answers and escalation paths.",
+      "Deploy customer-facing and internal agents without forcing staff to rebuild your knowledge system."
+    ],
+    "whyTheseReviewsFit": "Car wash and detailing buyers need practical automation that is easy to maintain, grounded in owned content, and useful for both customers and staff. DocsBot proof spans scalable customer support, multilingual manuals, self-service answers, and internal knowledge access for teams that need fast, consistent information.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "CogIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for car wash and detailing businesses",
+    "audience": [
+      "Car wash owners",
+      "Auto detailing operators",
+      "Multi-site car wash groups",
+      "Mobile detailing teams",
+      "Customer service managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "motor-vehicle-repair",
+    "fleet-management",
+    "used-car-sales",
+    "vehicle-leasing",
+    "motor-vehicle-rental",
+    "automotive-part-sales"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "car-wash-detailing",
+    "webSearchQueries": [
+      "IBISWorld car wash auto detailing industry revenue United States 2024",
+      "BLS car washers employment NAICS 811192",
+      "International Carwash Association consumer study professional car wash frequency",
+      "EPA car washing environmental best management practices water runoff"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/market-research-reports/car-wash-auto-detailing-industry/",
+      "https://www.epa.gov/system/files/documents/2023-01/bmp-vehicle-maintenance-and-washing.pdf",
+      "https://www.osha.gov/ords/imis/citedstandard.naics?p_naics=811192&p_state=FEFederal",
+      "https://www.carwash.org/industry-information"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40922,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28378,
+        "outputTokens": 7891,
+        "reasoningOutputTokens": 136,
+        "totalTokens": 48813,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192447,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202447
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21689,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14393,
+          "outputTokens": 5043,
+          "reasoningOutputTokens": 120,
+          "totalTokens": 26732,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.113452,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.123452
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19233,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13985,
+          "outputTokens": 2848,
+          "reasoningOutputTokens": 16,
+          "totalTokens": 22081,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078995,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078995
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1602164739720-56aa3f074a0b?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzkyOTV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Car Wash & Detailing background image",
+    "source": "legacy-industry",
+    "query": "Car Wash & Detailing"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot explain our wash packages and memberships without giving the wrong price or overpromising results?",
+      "answer": "Yes. DocsBot answers from your approved service menu, pricing notes, membership terms, FAQs, and care guides rather than generic model knowledge. You can define boundaries for subjective services like stain removal, pet hair, odor treatment, ceramic add-ons, or paint correction so the agent collects context and escalates when a human estimate is needed.",
+      "role": "Owners and multi-site operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this reduce phone calls when most customer questions are quick but repetitive?",
+      "answer": "DocsBot can handle common pre-visit questions about hours, package differences, rain policies, rewash rules, prep steps, memberships, and add-ons through your website, booking page, QR codes, or chat widget. That gives customers instant answers while freeing front-desk staff to handle on-site traffic, complaints, and higher-value detail or fleet inquiries.",
+      "role": "Customer service and front-desk teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent understand the difference between express wash, full-service wash, detailing, ceramic protection, and mobile detailing?",
+      "answer": "It can if those distinctions exist in your source content. DocsBot trains on your package descriptions, add-on definitions, prep instructions, service limitations, and internal scripts, then uses that approved knowledge to guide customers. If your documentation is vague, analytics can show which service comparisons are causing confusion so you can improve the source material.",
+      "role": "Owners and multi-site operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot qualify detailing requests before we spend time texting back and forth?",
+      "answer": "Yes. The agent can ask for vehicle type, condition, service goals, stains, pet hair, odor concerns, location, preferred timing, and contact details. It can summarize the request and hand it to your estimator, scheduler, mobile team, or booking workflow. For subjective work, it should avoid final pricing unless your approved rules allow it.",
+      "role": "Detailing technicians and site managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it book appointments directly in our scheduling system?",
+      "answer": "DocsBot can support booking workflows when you configure approved Skills, APIs, connectors, forms, webhooks, or scheduling tools. A common setup is to collect scheduling intent and vehicle details, then pass the customer to an approved booking flow or create a follow-up task. Complex estimates, high-value vehicles, and exceptions can remain human-reviewed.",
+      "role": "Customer service and front-desk teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What happens with sensitive issues like damage claims, billing disputes, lost items, or refund requests?",
+      "answer": "DocsBot is best used to triage, not decide, those cases. It can collect the visit date, location, membership details, photos or notes if your workflow supports them, summarize the timeline, cite the relevant policy, and route the issue to a manager or support queue. Final decisions about refunds, damage, and account corrections can stay with staff.",
+      "role": "Owners and multi-site operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use one agent across multiple locations with different hours, prices, and policies?",
+      "answer": "Yes, but the knowledge structure matters. Multi-site operators should separate location-specific details such as hours, membership rules, package names, weather policies, fleet availability, and manager contacts. With the right source organization and configured live context, DocsBot can answer based on the relevant location and escalate when a location-specific rule is missing.",
+      "role": "Owners and multi-site operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help with training new attendants and detailers?",
+      "answer": "DocsBot can act as a private internal knowledge agent trained on SOPs, checklists, service guides, scripts, safety notes, equipment guides, and manager instructions. New hires can ask practical questions during training or shifts and get source-grounded answers instead of relying only on memory, shadowing, or interrupting a manager.",
+      "role": "Detailing technicians and site managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can employees ask operational questions from a phone during a busy shift?",
+      "answer": "Yes. DocsBot can be deployed as a private internal chat experience, team chat assistant, or internal widget depending on your setup. Staff can look up opening and closing checklists, bay procedures, service explanations, customer scripts, or escalation steps from approved materials without digging through binders, shared drives, or old messages.",
+      "role": "Detailing technicians and site managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent answer in Spanish or other languages without changing our policies?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge sources. That means customers can ask about packages, prep instructions, memberships, or after-care in the language they prefer while the underlying answer stays aligned with your service menu, policies, and care guides.",
+      "role": "Customer service and front-desk teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from inventing answers about environmental practices or wash-water handling?",
+      "answer": "Train it only on your approved environmental policy, stormwater SOPs, location guidance, and compliance notes, then instruct it to escalate unsupported or location-specific regulatory questions. This matters because EPA guidance says outdoor vehicle washing can generate detergent-rich wash water and recommends pollution-prevention best practices.",
+      "role": "Detailing technicians and site managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-stormwater"
+      ]
+    },
+    {
+      "question": "Can DocsBot help keep safety and compliance procedures easier for staff to find?",
+      "answer": "Yes. DocsBot can retrieve approved safety policies, chemical handling notes, inspection checklists, housekeeping procedures, and equipment guidance for employees. OSHA publishes frequently cited federal standards for NAICS 811192 car wash establishments, which makes searchable, current safety documentation especially useful for training and day-to-day operations.",
+      "role": "Detailing technicians and site managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-car-wash-standards"
+      ]
+    },
+    {
+      "question": "What integrations should we expect for CRM, helpdesk, forms, Slack, Teams, or booking tools?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, MCP Connectors, webhooks, forms, and workflow automations. It can route leads, create tasks or tickets, notify teams, draft responses, or update approved fields when you authorize those actions. You should scope each action clearly, especially for billing, memberships, and complaints.",
+      "role": "Owners and multi-site operators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it help us capture fleet wash leads instead of losing them in general contact forms?",
+      "answer": "Yes. DocsBot can ask for fleet size, vehicle types, wash frequency, location, service needs, decision timeline, and contact details. It can then qualify the inquiry using your rules and forward a structured summary to your CRM, email, sales queue, or manager through an approved workflow.",
+      "role": "Owners and multi-site operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would we measure whether the AI agent is working?",
+      "answer": "Track avoided repetitive questions, qualified booking or fleet inquiries, escalation volume, unanswered questions, customer satisfaction, resolution trends, and the topics that keep creating confusion. DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so operators can improve content over time.",
+      "role": "Owners and multi-site operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can managers review what the agent said to a customer after a complaint?",
+      "answer": "Yes. DocsBot supports conversation logs and review workflows, so managers can see the customer’s question, the agent’s response, and where the answer came from. That is useful for billing disputes, rewash requests, membership confusion, damage reports, and training moments where a policy or FAQ needs to be clarified.",
+      "role": "Owners and multi-site operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What content do we need before launching a car wash or detailing AI agent?",
+      "answer": "Start with your service menu, membership terms, hours, location pages, pricing guidance, appointment rules, prep instructions, rewash or rain policy, refund and complaint process, after-care guides, fleet lead criteria, and core SOPs. You do not need perfect documentation on day one, but weak or conflicting source material should be cleaned up before broad launch.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does implementation take if our procedures are scattered across PDFs, Google Drive, and manager notes?",
+      "answer": "Implementation depends more on content readiness than industry complexity. DocsBot can train on sources such as websites, PDFs, Word documents, text files, Google Drive, Notion, Confluence, wikis, and internal documents. A practical rollout is to start with high-volume customer questions, then add internal SOPs and action workflows after the answers are validated.",
+      "role": "Owners and multi-site operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we keep internal SOPs separate from customer-facing answers?",
+      "answer": "Yes. DocsBot supports access controls and role-based permissions, so you can separate public customer knowledge from private operational content. For example, customers may see package, membership, and prep answers, while employees can access chemical handling notes, incident procedures, equipment resets, and manager-approved scripts.",
+      "role": "Owners and multi-site operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Is our customer and business data used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions for teams that need stronger governance around customer conversations, SOPs, and workflow actions.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we control what actions the agent is allowed to take?",
+      "answer": "Use customer-defined Skills and AI Actions with scoped permissions, approved instructions, secrets management, metadata bindings, network policy, logging, and clear review paths. For a car wash, that may mean the agent can create a support ticket or route a membership request, but cannot issue a refund or accept liability for damage without human approval.",
+      "role": "Owners and multi-site operators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support both a website agent and a private employee agent?",
+      "answer": "Yes. Many operators would use one customer-facing agent for service questions, bookings, memberships, and after-care, plus a private internal agent for SOPs, training, shift checklists, safety guidance, and complaint handling. The key is keeping sources, permissions, and escalation rules appropriate for each audience.",
+      "role": "Owners and multi-site operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will this work for mobile detailing where availability, travel radius, and job fit change often?",
+      "answer": "Yes, with the right rules and workflow design. DocsBot can explain your mobile service area, intake requirements, prep steps, appointment policies, and service limitations. If availability or routing changes frequently, connect approved live context through Skills, APIs, or workflow automations, or have the agent collect details and request human follow-up.",
+      "role": "Detailing technicians and site managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a basic website chatbot or FAQ widget?",
+      "answer": "A basic widget usually points people to static answers. DocsBot is designed as an AI agent trained on your approved knowledge, with source-grounded responses, analytics, knowledge-gap discovery, multilingual answers, private internal use cases, and optional bounded actions such as routing, summaries, task creation, and customer-configured workflow handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can it help us compete in a crowded market without adding more front-desk labor?",
+      "answer": "DocsBot can make your existing knowledge easier to access at all hours, helping customers understand services, memberships, prep steps, and next actions before they call or arrive. That matters in a U.S. car wash and auto detailing market estimated at $18.6 billion in 2025 with 59,394 businesses competing for convenience and loyalty.",
+      "role": "Owners and multi-site operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ibisworld-market"
+      ]
+    },
+    {
+      "question": "Why prioritize self-service now if customers are already used to professional car washes?",
+      "answer": "As professional washing becomes the normal choice for more drivers, customers expect fast, clear answers before they choose a package, membership, or detail appointment. IBISWorld cites International Carwash Association research showing drivers who most often wash at professional shops rose from 50% in 1996 to 79% in 2023.",
+      "role": "Owners and multi-site operators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ica-consumer-study"
+      ]
+    },
+    {
+      "question": "What if the agent cannot answer a question confidently?",
+      "answer": "DocsBot can be configured to say it does not know, ask for missing details, show source-grounded context, or escalate to a person. Conversation analytics can also reveal unanswered or weakly answered questions, helping you update FAQs, policies, scripts, or SOPs instead of letting the same gap frustrate customers and staff repeatedly.",
+      "role": "Customer service and front-desk teams",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

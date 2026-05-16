@@ -1,0 +1,701 @@
+{
+  "slug": "health-coaching",
+  "business": "Health Coaching",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Health Coaching Client Support",
+    "description": "DocsBot helps health coaching teams answer client questions, guide onboarding, and route sensitive requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/health-coaching"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for coaching programs and wellness teams",
+    "headline": "DocsBot AI agents keep health coaching clients supported between sessions",
+    "subheadline": "Train DocsBot on your coaching resources, onboarding guides, FAQs, policies, program materials, and internal SOPs so clients and staff can get instant answers while sensitive health, diagnosis, billing, or scope-of-practice questions route to a human.",
+    "proofBullets": [
+      {
+        "text": "Answer client questions from approved coaching guides, habit trackers, FAQs, program rules, and wellness resources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect intake details, scheduling intent, and support context before handing off to a coach or coordinator.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Summarize conversations, surface repeated client questions, and identify gaps in your education materials.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "text": "Support private team knowledge access for protocols, onboarding, service policies, and client communication standards.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build your health coaching agent",
+    "secondaryCta": "See source-grounded support in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps health coaching businesses create AI agents trained on their own knowledge. The agent can answer from approved client resources, support onboarding, retrieve internal policies, summarize context for coaches, identify knowledge gaps, and trigger bounded workflows through customer-configured Skills, APIs, connectors, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Health coaches and wellness practitioners",
+        "roleContext": "Coaches can keep educational support consistent without asking clients to wait for every basic program, habit, resource, or scheduling question.",
+        "bullets": [
+          {
+            "text": "Give clients fast answers from your approved nutrition, movement, sleep, stress, and behavior-change resources.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Route medical, emergency, diagnosis, medication, or out-of-scope questions to a human-defined escalation path.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Review analytics to see which topics clients ask about most often and where resources need improvement.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Practice managers and client success teams",
+        "roleContext": "Operational teams can reduce repetitive intake, onboarding, billing, booking, and program-navigation questions while keeping staff in control of sensitive workflows.",
+        "bullets": [
+          {
+            "text": "Collect missing intake details, program interest, time zone, preferred contact method, and scheduling intent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Create a cleaner handoff summary for coaches before consultation calls or follow-up tasks.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Maintain consistent answers across website chat, internal team chat, and helpdesk-style support workflows.",
+            "icon": "RectangleGroupIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Clinical, employer, or wellness program leaders",
+        "roleContext": "Teams serving people with lifestyle risk factors or chronic-condition goals need consistent education and clear boundaries between coaching support and clinical advice.",
+        "bullets": [
+          {
+            "text": "CDC reports that three in four U.S. adults have at least one chronic condition, making scalable lifestyle support a major operational need.",
+            "icon": "HeartIcon",
+            "sourceIds": [
+              "src-cdc-chronic-disease"
+            ]
+          },
+          {
+            "text": "Make program eligibility, coaching scope, privacy notices, referral rules, and escalation steps easier for staff to find.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use controlled AI Actions for approved lookups, task creation, routing, summaries, or workflow triggers.",
+            "icon": "CogIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon",
+        "sourceIds": [
+          "src-cdc-chronic-disease"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cdc-chronic-disease",
+      "metric": "Three in four U.S. adults have at least one chronic condition.",
+      "claim": "The CDC reports that chronic diseases are leading drivers of U.S. health care costs and that three in four American adults have at least one chronic condition.",
+      "sourceTitle": "CDC: About Chronic Diseases",
+      "sourceUrl": "https://www.cdc.gov/chronic-disease/about/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "chronic condition demand",
+        "lifestyle support need",
+        "health coaching market context"
+      ]
+    },
+    {
+      "id": "src-cdc-obesity-costs",
+      "metric": "Obesity affects 40% of U.S. adults.",
+      "claim": "CDC fast facts report obesity affects 40% of adults and increases risk for chronic diseases such as type 2 diabetes, heart disease, and some cancers.",
+      "sourceTitle": "CDC: Fast Facts: Health and Economic Costs of Chronic Conditions",
+      "sourceUrl": "https://www.cdc.gov/chronic-disease/data-research/facts-stats/index.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "weight management context",
+        "prevention programs",
+        "client education demand"
+      ]
+    },
+    {
+      "id": "src-nbhwc-scope",
+      "metric": "NBHWC defines a professional scope for health and wellness coaching.",
+      "claim": "NBHWC emphasizes standards, continuing education, and scope-of-practice awareness for National Board Certified Health & Wellness Coaches.",
+      "sourceTitle": "National Board Certified Health & Wellness Coaches",
+      "sourceUrl": "https://nbhwc.org/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "scope boundaries",
+        "credentialing context",
+        "professional coaching standards"
+      ]
+    },
+    {
+      "id": "src-ama-telehealth",
+      "metric": "AMA provides guidance for telehealth and remote patient monitoring implementation.",
+      "claim": "The AMA maintains telehealth and remote patient monitoring resources for practices navigating digital health workflows, coding, coverage, and patient pain points.",
+      "sourceTitle": "AMA Telehealth Resource Center: Guides & Reports",
+      "sourceUrl": "https://www.ama-assn.org/practice-management/digital-health/telehealth-resource-center-guides-reports",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "digital health operations",
+        "remote coaching workflows",
+        "technology adoption context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client resource and program question agent",
+      "problem": "Clients often ask repeat questions about program expectations, meal-prep guidance, habit tracking, session cadence, supplements policy, or what to do before the next call.",
+      "agentWorkflow": "DocsBot answers from your approved coaching curriculum, FAQs, client handbooks, worksheets, and policy pages. When the request is personal, clinical, urgent, or outside your coaching scope, the agent explains the boundary and escalates according to your instructions.",
+      "liveContextOrTools": "Can appear in a website or client portal chat widget and can prepare summaries or handoffs through customer-configured Skills, APIs, connectors, or helpdesk workflows.",
+      "exampleQuestionsOrRequests": [
+        "What should I bring to my first coaching session?",
+        "Where is the sleep-tracking worksheet?",
+        "Can you explain how this habit scorecard works?",
+        "Is this question something my coach needs to answer directly?"
+      ],
+      "businessOutcome": "Clients get faster guidance between sessions while coaches spend less time repeating the same program navigation answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Lead qualification and consultation booking support",
+      "problem": "Prospective clients want to know whether coaching fits their goals, pricing model, program length, schedule, and health concerns before booking a call.",
+      "agentWorkflow": "DocsBot answers from your service pages, program descriptions, pricing guidance, eligibility rules, and FAQs. It can collect lead details, goals, timeline, preferred coach type, and scheduling intent, then forward a summary for human follow-up.",
+      "liveContextOrTools": "With approved scheduling workflows, Skills, forms, webhooks, or APIs, the agent can request a consultation slot or route qualified leads to CRM, email, helpdesk, or team chat systems configured by the customer.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer coaching for stress and sleep?",
+        "Which program is best for someone starting from zero?",
+        "Can I book a discovery call next week?",
+        "Do you work with clients who have diabetes, or should I ask my clinician first?"
+      ],
+      "businessOutcome": "The practice can respond to inquiries quickly, qualify fit consistently, and keep a human responsible for enrollment decisions or regulated advice.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Onboarding and intake preparation agent",
+      "problem": "New clients may miss forms, misunderstand expectations, or arrive at the first session without goals, baseline details, or completed worksheets.",
+      "agentWorkflow": "DocsBot guides clients through your onboarding checklist, explains what each form is for, links to approved resources, and gathers missing non-sensitive context for staff review. It can generate a concise pre-session summary for the coach.",
+      "liveContextOrTools": "Customer-configured AI Actions can create tasks, notify a coordinator, update approved fields, or trigger onboarding workflows when the practice has authorized the connection.",
+      "exampleQuestionsOrRequests": [
+        "Which forms do I need before my first appointment?",
+        "What goals should I write down before session one?",
+        "Can you remind the team that my intake form is complete?",
+        "Please summarize what I said about my goals for my coach."
+      ],
+      "businessOutcome": "Clients arrive better prepared, coordinators spend less time chasing routine details, and coaches start sessions with clearer context.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "name": "Internal protocol and scope-of-practice assistant",
+      "problem": "Growing coaching teams need consistent answers about program rules, referral criteria, documentation standards, escalation steps, and what coaches should avoid answering.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, service policies, training materials, scripts, compliance notes, and escalation guidance. Staff can ask operational questions and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "Can be used in private team chat, Slack, Microsoft Teams, or internal chat experiences when configured. Sensitive actions can stay bounded by permissions, logs, and review paths.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy for supplement questions?",
+        "When should a coach refer a client back to a clinician?",
+        "How do we document missed sessions?",
+        "What script should I use for a client asking for a diagnosis?"
+      ],
+      "businessOutcome": "Teams maintain consistent coaching boundaries and reduce time spent searching through SOPs, especially as programs scale.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nbhwc-scope"
+      ]
+    },
+    {
+      "name": "Knowledge gap and client education improvement agent",
+      "problem": "Coaching programs improve when leaders know what clients cannot find, misunderstand, or repeatedly ask across onboarding, program delivery, and follow-up.",
+      "agentWorkflow": "DocsBot logs conversations, analyzes recurring topics, surfaces unanswered questions, and helps teams see where client resources need revision. Leaders can review patterns before updating FAQs, worksheets, scripts, and program content.",
+      "liveContextOrTools": "Analytics, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery support ongoing content improvement.",
+      "exampleQuestionsOrRequests": [
+        "What questions came up most often this month?",
+        "Which onboarding article is confusing clients?",
+        "What topics should we add to the resource library?",
+        "Summarize unresolved questions for the team meeting."
+      ],
+      "businessOutcome": "The business can improve client education materials using real question patterns instead of guessing what clients need.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Digital health support and remote-program navigation",
+      "problem": "Many coaching programs now combine video sessions, portals, forms, trackers, remote-monitoring data, or app-based assignments, creating extra support questions for clients and staff.",
+      "agentWorkflow": "DocsBot helps clients understand approved digital workflow steps, where to upload materials, how to access resources, and which support channel to use. It can also summarize technical or navigation issues for staff.",
+      "liveContextOrTools": "For authorized systems, Skills, APIs, connectors, or MCP Connectors can provide scoped live context such as record status, task creation, routing, or workflow triggers.",
+      "exampleQuestionsOrRequests": [
+        "Where do I upload my weekly reflection?",
+        "How do I find my habit tracker?",
+        "Can you tell the coordinator I cannot access the portal?",
+        "What is the next step after my remote check-in?"
+      ],
+      "businessOutcome": "Clients experience fewer digital workflow blockers, and staff receive clearer, more actionable support requests.",
+      "icon": "DevicePhoneMobileIcon",
+      "sourceIds": [
+        "src-ama-telehealth"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients a reliable guide without replacing the coach",
+    "intro": "DocsBot can support clients and prospects from your approved coaching knowledge while respecting the boundaries you define. It is best for education, navigation, intake, scheduling intent, and handoffs—not diagnosis, emergency guidance, medication decisions, or individualized clinical judgment.",
+    "requests": [
+      {
+        "request": "“What happens in the first four weeks of the program?”",
+        "agentResponseStrategy": "Answer from program pages and onboarding materials, explain the expected cadence, link to preparation resources, and offer to collect consultation interest.",
+        "sourceTypes": [
+          "Program guides",
+          "Onboarding FAQs",
+          "Service pages"
+        ],
+        "optionalAction": "Collect name, email, goals, and preferred follow-up channel for a coordinator review.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "request": "“Can you help me decide if this symptom is serious?”",
+        "agentResponseStrategy": "Decline to assess symptoms, explain that the agent cannot provide diagnosis or emergency advice, and route the client to the practice’s human escalation or emergency instructions.",
+        "sourceTypes": [
+          "Scope policy",
+          "Escalation scripts",
+          "Safety notices"
+        ],
+        "optionalAction": "Create a flagged handoff summary for staff when the client is already in an authorized support workflow.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Where is the meal-planning worksheet?”",
+        "agentResponseStrategy": "Retrieve the approved worksheet, summarize how to use it, and suggest related resources from the coaching library.",
+        "sourceTypes": [
+          "PDF worksheets",
+          "Resource library",
+          "Client handbook"
+        ],
+        "optionalAction": "Log the topic so the team can see which resources clients request most often.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Do you coach people with weight-management goals?”",
+        "agentResponseStrategy": "Answer from approved service descriptions, clarify fit and limitations, and invite the prospect to book a consultation with a human coach.",
+        "sourceTypes": [
+          "Service pages",
+          "Eligibility FAQs",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Start a structured lead-intake form and route qualified prospects to the follow-up workflow.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-cdc-obesity-costs"
+        ]
+      },
+      {
+        "request": "“Can you remind me what my coach asked me to do this week?”",
+        "agentResponseStrategy": "Answer only from approved notes, resources, or workflow context the customer has connected and authorized; otherwise direct the client to their coach or client portal.",
+        "sourceTypes": [
+          "Approved session summaries",
+          "Program tasks",
+          "Client portal guidance"
+        ],
+        "optionalAction": "Use a scoped lookup or prepare a request for the coach when live context is configured.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can I switch my appointment time?”",
+        "agentResponseStrategy": "Collect scheduling intent and explain the practice’s rescheduling policy from approved materials.",
+        "sourceTypes": [
+          "Scheduling policy",
+          "Client FAQ",
+          "Cancellation terms"
+        ],
+        "optionalAction": "Trigger a customer-configured scheduling request or notify the coordinator for confirmation.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep coaching teams aligned on protocols, policies, and client handoffs",
+    "intro": "A private DocsBot agent can help coaches, coordinators, sales staff, and program managers retrieve the same source-grounded internal answers without digging through folders, wikis, PDFs, or training files.",
+    "workflows": [
+      {
+        "name": "Coach SOP lookup",
+        "problem": "Coaches need fast answers about documentation, escalation, missed sessions, referrals, and communication standards.",
+        "agentWorkflow": "DocsBot searches internal SOPs, policies, training manuals, and scripts, then returns a source-grounded answer with the relevant reference.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "Scope policies",
+          "Referral criteria"
+        ],
+        "optionalAction": "Create a task or handoff summary when a coordinator needs to review the situation.",
+        "outcome": "Coaches spend less time searching and more time preparing for client conversations.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Coordinator support triage",
+        "problem": "Administrative teams must sort routine requests, sensitive questions, scheduling changes, billing issues, and coach-specific follow-ups.",
+        "agentWorkflow": "DocsBot can summarize the client message, identify the likely request type, draft a response from approved templates, and route the issue to the right queue or person.",
+        "sourceTypes": [
+          "Email templates",
+          "Support policies",
+          "Scheduling rules",
+          "Billing FAQs"
+        ],
+        "optionalAction": "Route a ticket, notify a team channel, or create a task through approved workflow automation.",
+        "outcome": "Support requests reach the right person faster with clearer context.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Program content maintenance",
+        "problem": "Resource libraries become outdated as coaching programs, forms, group calls, and policies change.",
+        "agentWorkflow": "DocsBot analytics highlight repeated questions, unresolved topics, and missing documentation so leaders know which resources to update next.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base articles",
+          "Program documents",
+          "FAQ pages"
+        ],
+        "optionalAction": "Generate a draft content-gap report for weekly operations review.",
+        "outcome": "Client education improves based on actual question patterns from your audience.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Sales and enrollment enablement",
+        "problem": "Founders, coaches, or enrollment staff need consistent answers about packages, fit, boundaries, and objections during discovery calls.",
+        "agentWorkflow": "DocsBot can retrieve pricing guidance, service comparisons, testimonials, FAQs, objection handling, and follow-up language for staff to review before sending.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Pricing guidance",
+          "FAQ pages"
+        ],
+        "optionalAction": "Draft a follow-up email for human review or prepare a lead summary for the next call.",
+        "outcome": "Enrollment conversations stay consistent while humans retain control over commitments and health-related nuance.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on company knowledge and answer from approved sources in the organization’s voice.",
+      "industryApplication": "Health coaching teams can answer questions from program guides, onboarding resources, worksheets, FAQs, and policies instead of relying on generic wellness responses.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can be deployed in customer-facing chat experiences and private internal team environments.",
+      "industryApplication": "Use a website agent for prospects and clients, and a private internal agent for coaches, coordinators, and program managers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot can take bounded actions when customers configure approved Skills, APIs, connectors, workflows, or MCP Connectors.",
+      "industryApplication": "A coaching agent can collect intake details, request booking, create tasks, route support requests, summarize context, or update approved fields within customer-defined permissions.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "Leaders can see which client questions recur, which resources are missing, and where program education needs clearer language.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Health coaching businesses can define access boundaries, keep sensitive actions scoped, and require human review for out-of-scope health, safety, or enrollment decisions.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare communications teams use DocsBot to reduce direct human interaction while supporting internal decision-making.",
+      "Training-based answers help coaching teams make owned educational materials easier to access.",
+      "Source-grounded support keeps client and staff answers aligned with the resources your business approves."
+    ],
+    "whyTheseReviewsFit": "Health coaching buyers need more than a generic bot. DocsBot proof spans healthcare communications, education, and training-material retrieval, showing how teams use owned knowledge to support decisions, reinforce concepts, and answer common questions with human oversight where it matters.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for health coaching client support and internal knowledge access",
+    "audience": [
+      "Health coaches",
+      "Wellness coaching practices",
+      "Client success teams",
+      "Employer wellness programs",
+      "Digital health coaching teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "home-health-services",
+    "occupational-health",
+    "alternative-medicine",
+    "athletic-trainer",
+    "healthcare-revenue-cycle-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "health-coaching",
+    "webSearchQueries": [
+      "CDC chronic disease adults health care costs 2026",
+      "CDC obesity affects adults chronic disease fast facts",
+      "NBHWC health and wellness coaching scope standards",
+      "AMA telehealth remote patient monitoring digital health implementation resources"
+    ],
+    "sourceUrls": [
+      "https://www.cdc.gov/chronic-disease/about/",
+      "https://www.cdc.gov/chronic-disease/data-research/facts-stats/index.html",
+      "https://nbhwc.org/",
+      "https://www.ama-assn.org/practice-management/digital-health/telehealth-resource-center-guides-reports"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40057,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 19321,
+        "outputTokens": 7203,
+        "reasoningOutputTokens": 121,
+        "totalTokens": 47260,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.161532,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.171532
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21648,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6160,
+          "outputTokens": 4666,
+          "reasoningOutputTokens": 121,
+          "totalTokens": 26314,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.089262,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.099262
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18409,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13161,
+          "outputTokens": 2537,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 20946,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07227,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07227
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1482100199117-a4a38a64e7e3?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHx3ZWxsbmVzc3xlbnwwfDB8fHwxNzE0ODc4MDU1fDA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Health Coaching background image",
+    "source": "legacy-industry",
+    "query": "Health Coaching"
+  },
+  "faq": [
+    {
+      "question": "How do we keep the AI from giving medical advice, diagnosis, medication guidance, or emergency instructions?",
+      "answer": "DocsBot should be trained on your approved coaching scope, safety notices, escalation scripts, and referral policies. You can instruct the agent to answer education and navigation questions, decline clinical judgment, and route urgent, symptom, medication, or diagnosis requests to a human-defined escalation path.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot answer client questions between sessions without sounding like a generic wellness chatbot?",
+      "answer": "Yes. DocsBot answers from your own coaching curriculum, worksheets, FAQs, client handbooks, program rules, and policies, so responses reflect your voice and approved methodology. It is best for program navigation, habit resources, onboarding, scheduling intent, and handoffs—not replacing the coach-client relationship.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of client questions are safe to automate in a health coaching program?",
+      "answer": "Good candidates include session logistics, onboarding steps, where to find trackers or worksheets, program cadence, cancellation policies, resource explanations, and general education from your approved materials. Personal symptoms, diagnosis, medication, emergencies, billing disputes, and out-of-scope health decisions should be routed to staff.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this reduce workload for our coordinators without creating more review work for coaches?",
+      "answer": "DocsBot can handle repeated intake, onboarding, resource-location, scheduling-policy, and program navigation questions first. When a human is needed, it can collect context, summarize the request, and route it to the right person, so staff review a clearer handoff instead of starting from a vague message thread.",
+      "role": "Practice managers and client success teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent collect intake details before a discovery call or first session?",
+      "answer": "Yes. DocsBot can collect structured details such as goals, program interest, preferred contact method, time zone, readiness, scheduling intent, and non-sensitive context. With customer-configured Skills, forms, APIs, or workflows, that summary can be forwarded to the appropriate coordinator, CRM-style system, inbox, or team channel.",
+      "role": "Practice managers and client success teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually improving client support?",
+      "answer": "Track repeated-question volume, resolution or deflection trends, handoff quality, response time, unresolved topics, satisfaction signals, consultation conversion, onboarding completion, and resource gaps. DocsBot analytics, logs, reports, conversation review, topic management, and knowledge-gap discovery help leaders see what clients ask and what content needs improvement.",
+      "role": "Practice managers and client success teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support both prospects on our website and paying clients inside our program?",
+      "answer": "Yes, but most teams should separate the knowledge and instructions. A public-facing agent can answer program fit, pricing guidance, eligibility, and booking-intent questions, while a client-facing or internal agent can use onboarding materials, program resources, SOPs, and authorized workflow context with stricter access controls.",
+      "role": "Practice managers and client success teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if a client asks the same question in a way that sounds clinical or urgent?",
+      "answer": "You can define escalation rules for urgent language, symptoms, medication, diagnosis, mental health crisis, pregnancy, chronic-condition concerns, or anything outside coaching scope. DocsBot can respond with your approved boundary language, avoid assessment, and prepare a flagged handoff for human review when configured.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can our coaches use DocsBot internally for SOPs, referral rules, and scripts?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on SOPs, training manuals, scope policies, referral criteria, scripts, documentation standards, and service rules. Coaches and coordinators can ask operational questions and receive source-grounded answers with references to the underlying material.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot help with scope-of-practice consistency across a growing coaching team?",
+      "answer": "DocsBot can make your internal scope policies, escalation scripts, referral criteria, and approved client-facing language easier for staff to retrieve. That matters because NBHWC emphasizes standards, continuing education, and scope-of-practice awareness for certified health and wellness coaches.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nbhwc-scope"
+      ]
+    },
+    {
+      "question": "Can the AI agent help with weight-management or chronic-condition education without creating compliance risk?",
+      "answer": "It can answer from approved educational resources and clarify program boundaries, while routing personal clinical questions to a coach, clinician, or escalation path. This is especially relevant because CDC reports obesity affects 40% of U.S. adults and increases risk for chronic diseases such as type 2 diabetes and heart disease.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cdc-obesity-costs"
+      ]
+    },
+    {
+      "question": "Will DocsBot integrate with our scheduling, portal, CRM, or helpdesk tools?",
+      "answer": "DocsBot can support approved workflows through customer-configured Skills, APIs, connectors, forms, webhooks, and MCP Connectors. Typical actions include collecting scheduling intent, creating tasks, routing requests, preparing summaries, updating approved fields, or notifying staff. Specific system access depends on what your team authorizes and configures.",
+      "role": "Practice managers and client success teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot if our program runs through telehealth, a client portal, forms, trackers, and video sessions?",
+      "answer": "Yes. DocsBot can guide clients through approved digital workflow steps such as where to upload reflections, how to find habit trackers, which support channel to use, or what happens after a remote check-in. AMA maintains telehealth and remote patient monitoring resources for practices navigating digital health workflows.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ama-telehealth"
+      ]
+    },
+    {
+      "question": "What content do we need before launch?",
+      "answer": "Start with program guides, onboarding FAQs, client handbooks, worksheets, scheduling and cancellation policies, scope-of-practice language, escalation scripts, pricing or eligibility guidance, and internal SOPs. You do not need a perfect knowledge base; DocsBot analytics can reveal missing or confusing resources after launch.",
+      "role": "Practice managers and client success teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we avoid the AI giving outdated answers when our programs, forms, or policies change?",
+      "answer": "Treat the agent like an operational knowledge layer. Assign content owners, connect or upload current source materials, remove stale documents, review unanswered questions, and use DocsBot conversation logs and knowledge-gap reporting to identify where program language needs updates.",
+      "role": "Practice managers and client success teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can staff review conversations and see why the agent answered a certain way?",
+      "answer": "Yes. DocsBot supports logs, conversation review, reports, topic management, and source-grounded answers. That helps managers audit sensitive conversations, evaluate whether the source material was clear, and decide whether to adjust instructions, update content, or change escalation rules.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security controls matter for a health coaching business evaluating AI agents?",
+      "answer": "Buyers should look for data protection, access control, auditability, and clear limits on what the agent can access or do. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we limit what different team members or agents can access?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. A public website agent, client-support agent, and private internal SOP agent can be designed with different knowledge sources, instructions, permissions, and review paths so sensitive materials are not exposed to the wrong audience.",
+      "role": "Practice managers and client success teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this replace our coaches or just reduce repetitive support?",
+      "answer": "DocsBot is best positioned as support between human interactions. It can answer repeat questions, explain approved resources, summarize context, and route requests, while coaches remain responsible for judgment, motivation, relationship-building, individualized guidance, enrollment decisions, and sensitive health-related conversations.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or a general AI assistant?",
+      "answer": "The main difference is control. DocsBot is trained on your approved sources, can cite or ground answers in your materials, supports private internal knowledge use, provides analytics, and can trigger bounded workflows when configured. A generic bot is less aligned with your program rules, scope boundaries, and escalation needs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent qualify leads without promising outcomes or making inappropriate health claims?",
+      "answer": "Yes. Train it on your service pages, eligibility rules, pricing guidance, consultation process, and approved disclaimers. The agent can collect goals and fit signals, clarify limitations, and route prospects to a human for enrollment decisions, regulated advice, guarantees, or complex health concerns.",
+      "role": "Practice managers and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What is the business case for AI support in health coaching if our team is still small?",
+      "answer": "Even small teams lose time to repeated questions about forms, scheduling, worksheets, program expectations, and resource links. DocsBot can extend responsiveness without hiring immediately, while analytics show which questions consume staff time and which resources should be improved before the program scales.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How should employer wellness or digital health leaders think about scale?",
+      "answer": "Scalable support matters when programs serve large populations with chronic-condition or lifestyle-risk goals. CDC reports that three in four U.S. adults have at least one chronic condition, so teams need consistent education, clear boundaries, and efficient routing without asking coaches to manually answer every routine question.",
+      "role": "Clinical, employer, or wellness program leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-cdc-chronic-disease"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us identify what clients are confused about in our curriculum?",
+      "answer": "Yes. DocsBot can surface repeated questions, unresolved topics, resource requests, and knowledge gaps from real conversations. Program leaders can use those patterns to revise worksheets, FAQs, onboarding emails, group-call materials, and coach scripts instead of guessing what clients need clarified.",
+      "role": "Health coaches and wellness practitioners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a client asks about billing, cancellations, refunds, or rescheduling?",
+      "answer": "DocsBot can answer from your approved billing FAQs, cancellation terms, scheduling policies, and support templates. For exceptions, disputes, or high-impact decisions, it can collect context and route the request to a coordinator or manager rather than making an unauthorized commitment.",
+      "role": "Practice managers and client success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much human review should we plan for after launch?",
+      "answer": "Plan heavier review during the first few weeks, especially for sensitive topics, unanswered questions, and lead qualification. As policies, instructions, and content improve, review can focus on edge cases, analytics, content gaps, and escalation quality rather than every routine answer.",
+      "role": "Practice managers and client success teams",
+      "category": "Implementation"
+    }
+  ]
+}

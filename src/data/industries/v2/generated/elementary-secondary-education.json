@@ -1,0 +1,775 @@
+{
+  "slug": "elementary-secondary-education",
+  "business": "Elementary & Secondary Education",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for K-12 School Support and Operations",
+    "description": "DocsBot helps elementary and secondary schools answer parent questions, support staff, and route routine requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/elementary-secondary-education"
+  },
+  "hero": {
+    "eyebrow": "AI agents for elementary and secondary school communication",
+    "headline": "Give K-12 families and staff faster answers from trusted school knowledge",
+    "subheadline": "DocsBot helps districts and schools create AI support agents trained on handbooks, calendars, policies, FAQs, curriculum resources, internal SOPs, and approved web content. Deploy agents for families, students, teachers, office staff, and district teams with source-grounded answers, analytics, and human escalation for sensitive requests.",
+    "proofBullets": [
+      {
+        "text": "Answer recurring family questions about schedules, attendance, enrollment, transportation, fees, technology, and school procedures from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give teachers and staff a private knowledge agent for policies, onboarding, IT troubleshooting, HR guidance, forms, and district workflows.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize requests, route tickets, create tasks, or hand off sensitive issues to the right human team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review conversation logs, repeated topics, unresolved questions, and knowledge gaps so school communications improve over time.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a K-12 AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your school’s existing knowledge into AI agents that answer questions, retrieve source-backed information, summarize context, and take bounded actions when configured. Schools can use a public website widget for families and a private internal assistant for staff while keeping high-impact decisions, student records, discipline, legal, and safety issues routed to authorized people.",
+    "whoItHelps": [
+      {
+        "role": "District communications and family engagement leaders",
+        "roleContext": "For teams managing high volumes of repetitive questions across websites, handbooks, announcements, enrollment materials, and family resource pages.",
+        "bullets": [
+          {
+            "text": "Offer families always-available answers grounded in approved district and school content, not improvised guidance.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Surface repeated parent questions and missing content so communications teams can improve FAQs, announcements, and web pages.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Support multilingual family access with DocsBot agents that can answer in more than 100 languages.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      },
+      {
+        "role": "Principals and school office teams",
+        "roleContext": "For front offices handling daily questions about attendance, pickup, field trips, forms, bell schedules, events, meals, and school procedures.",
+        "bullets": [
+          {
+            "text": "Deflect routine inquiries before they become phone calls, emails, or hallway interruptions.",
+            "icon": "PhoneIcon"
+          },
+          {
+            "text": "Collect request details and route them to attendance, transportation, counseling, technology, or administration workflows when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Escalate sensitive, urgent, student-specific, or safety-related questions to staff instead of letting the agent decide.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Teachers, counselors, and instructional support staff",
+        "roleContext": "For staff who need fast access to internal guidance, approved instructional resources, school procedures, and student-support process information.",
+        "bullets": [
+          {
+            "text": "Search policies, internal documents, training materials, curriculum references, and SOPs through a private knowledge agent.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Summarize approved resources or draft source-grounded responses that staff can review before sending.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Help teams find intervention guidance, attendance procedures, and family outreach steps without digging through folders and portals.",
+            "icon": "FolderIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Technology and operations leaders",
+        "roleContext": "For district teams supporting devices, accounts, platforms, cybersecurity guidance, facilities communication, and staff help requests.",
+        "bullets": [
+          {
+            "text": "Train an internal assistant on IT help articles, device guides, password procedures, acceptable-use policies, and operational playbooks.",
+            "icon": "ComputerDesktopIcon"
+          },
+          {
+            "text": "Use customer-configured Skills, APIs, connectors, or MCP options to look up approved live context and trigger scoped workflows.",
+            "icon": "PuzzlePieceIcon"
+          },
+          {
+            "text": "Apply role-based permissions, encryption, SOC 2 Type II controls, and GDPR-ready governance for private school knowledge.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nces-enrollment-2023",
+      "metric": "49.5 million public preK-12 students in fall 2023",
+      "claim": "NCES reported that public prekindergarten through grade 12 enrollment in the 50 states and D.C. reached 49.5 million students in fall 2023.",
+      "sourceTitle": "NCES Data Show Public School Enrollment Held Steady Overall From Fall 2022 to Fall 2023",
+      "sourceUrl": "https://nces.ed.gov/learn/press-release/nces-data-show-public-school-enrollment-held-steady-overall-fall-2022-fall-2023",
+      "sourceDate": "December 5, 2024",
+      "bestUsedFor": [
+        "K-12 scale",
+        "family and student support volume",
+        "district communication demand"
+      ]
+    },
+    {
+      "id": "src-nces-behind-grade-level-2024",
+      "metric": "32% of students estimated behind grade level in at least one subject",
+      "claim": "NCES School Pulse Panel data found public school leaders estimated that 32% of students ended the 2023-24 school year behind grade level in at least one academic subject.",
+      "sourceTitle": "About a Third of Public School Students Ended the 2023–24 School Year Behind Grade Level in at Least One Academic Subject, Principals Say",
+      "sourceUrl": "https://nces.ed.gov/learn/press-release/about-third-public-school-students-ended-2023-24-school-year-behind-grade-level-least-one-academic",
+      "sourceDate": "August 15, 2024",
+      "bestUsedFor": [
+        "learning recovery",
+        "teacher workload",
+        "student support demand"
+      ]
+    },
+    {
+      "id": "src-ed-chronic-absenteeism",
+      "metric": "Chronic absenteeism decreased from about 31% to 28%",
+      "claim": "The U.S. Department of Education reported that chronic absenteeism reached about 31% in 2021-22 and decreased to 28% in 2022-23, while remaining a major school improvement priority.",
+      "sourceTitle": "Chronic Absenteeism",
+      "sourceUrl": "https://www.ed.gov/teaching-and-administration/supporting-students/chronic-absenteeism",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "attendance workflows",
+        "family outreach",
+        "student support processes"
+      ]
+    },
+    {
+      "id": "src-cosn-cybersecurity",
+      "metric": "Cybersecurity remains a top K-12 technology leadership priority",
+      "claim": "CoSN reports that its EdTech Leadership Survey consistently identifies cybersecurity as a top priority for school system IT leaders.",
+      "sourceTitle": "K-12 Cybersecurity Framework & Resources",
+      "sourceUrl": "https://www.cosn.org/edtech-topics/cybersecurity/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "IT operations",
+        "security governance",
+        "district technology workload"
+      ]
+    },
+    {
+      "id": "src-cosn-edtech-2026",
+      "metric": "65% cite insufficient cybersecurity staffing and lack of dedicated budget as top barriers",
+      "claim": "CoSN’s State of EdTech Leadership materials report that nearly two-thirds of respondents identify insufficient cybersecurity staffing and lack of a dedicated budget as top barriers to addressing cybersecurity challenges.",
+      "sourceTitle": "State of EdTech Leadership Report",
+      "sourceUrl": "https://www.cosn.org/edtech-topics/state-of-edtech-leadership/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "IT staffing constraints",
+        "operations workload",
+        "cybersecurity readiness"
+      ]
+    },
+    {
+      "id": "src-schoolstatus-family-communication-2024",
+      "metric": "72% of families favor email and 70% prefer texts",
+      "claim": "A 2024 SchoolStatus survey of 1,000 U.S. K-12 families and caregivers found that 72% favored emails and 70% preferred texts for school communication.",
+      "sourceTitle": "Survey: What K-12 Families Really Want from School Comms",
+      "sourceUrl": "https://www.schoolstatus.com/blog/national-survey-k12-communications-preferences",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "family communication expectations",
+        "parent engagement",
+        "digital communication channels"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Family information agent for school websites",
+      "problem": "Families often need quick answers to routine questions, and U.S. public schools serve tens of millions of students, creating large communication demand across offices and districts.",
+      "agentWorkflow": "Train a DocsBot agent on school and district websites, handbooks, calendars, enrollment pages, meal information, transportation FAQs, attendance rules, device guidance, and policy documents. The agent answers in the school’s voice, cites approved sources, asks clarifying questions, and escalates student-specific or sensitive issues.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can collect contact details, summarize the request, create a ticket or task, and route it to the right office workflow without exposing private systems in the chat.",
+      "exampleQuestionsOrRequests": [
+        "What time is early dismissal next Friday?",
+        "How do I report an absence for my child?",
+        "Where can I find the bus route policy and transportation contact?",
+        "What forms are required for a new student enrollment appointment?"
+      ],
+      "businessOutcome": "Reduces repetitive calls and emails while giving families consistent, accessible answers after office hours.",
+      "icon": "HomeIcon",
+      "sourceIds": [
+        "src-nces-enrollment-2023"
+      ]
+    },
+    {
+      "name": "Attendance and family outreach assistant",
+      "problem": "Chronic absenteeism remains a major K-12 challenge, with the U.S. Department of Education reporting a decrease from about 31% in 2021-22 to 28% in 2022-23.",
+      "agentWorkflow": "Create a staff-facing DocsBot agent trained on attendance policies, family outreach scripts, escalation steps, intervention resources, and state or district guidance. Staff can ask what to do next, generate a reviewable outreach draft, or summarize prior context from approved notes they provide.",
+      "liveContextOrTools": "When configured, AI Actions can create follow-up tasks, route attendance questions to the correct staff member, or prepare handoff summaries for counselors, social workers, or administrators.",
+      "exampleQuestionsOrRequests": [
+        "What is our process after a student reaches the attendance threshold?",
+        "Draft a family outreach message based on our attendance policy.",
+        "Summarize the attendance intervention steps for a new counselor.",
+        "Create a task for the attendance clerk to review this case."
+      ],
+      "businessOutcome": "Helps teams apply attendance processes consistently while keeping student-specific judgments and interventions with authorized staff.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-ed-chronic-absenteeism"
+      ]
+    },
+    {
+      "name": "Learning recovery and academic resource navigator",
+      "problem": "NCES reported that public school leaders estimated 32% of students ended the 2023-24 school year behind grade level in at least one academic subject.",
+      "agentWorkflow": "Train a DocsBot agent on approved curriculum resources, tutoring program pages, intervention menus, family learning guides, assessment FAQs, and teacher support documents. Students, families, and staff can find the right resource faster while the agent stays grounded in school-approved content.",
+      "liveContextOrTools": "The agent can summarize relevant resources, recommend where to start based on grade and subject information supplied by the user, and escalate academic placement or special services questions to staff review.",
+      "exampleQuestionsOrRequests": [
+        "Where can a 5th grader get extra math practice approved by the district?",
+        "What tutoring options are available after school?",
+        "Summarize the reading intervention resources for families.",
+        "Which staff member should a parent contact about academic concerns?"
+      ],
+      "businessOutcome": "Improves access to approved academic support information without replacing teachers, counselors, or individualized educational decisions.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-nces-behind-grade-level-2024"
+      ]
+    },
+    {
+      "name": "Internal staff policy and operations assistant",
+      "problem": "Teachers, office teams, substitutes, and administrators often lose time searching across handbooks, shared drives, policy portals, forms, and training materials.",
+      "agentWorkflow": "Deploy a private DocsBot knowledge agent trained on staff handbooks, HR documents, substitute plans, emergency procedures, field trip rules, procurement steps, technology guides, and department SOPs. Staff ask questions in a private chat experience and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "Use Slack, Microsoft Teams, private chat, or API-based deployment options where configured. For operational requests, Skills can create tasks, draft emails, or route a request for approval.",
+      "exampleQuestionsOrRequests": [
+        "What is the field trip approval process?",
+        "Where is the form for a classroom purchase request?",
+        "Summarize the procedure for onboarding a long-term substitute.",
+        "What do I do when a classroom device will not connect to Wi-Fi?"
+      ],
+      "businessOutcome": "Shortens staff search time and improves procedural consistency across buildings and departments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "District IT help and cybersecurity guidance agent",
+      "problem": "CoSN reports cybersecurity is a consistent top priority for K-12 IT leaders, and its 2026 materials cite insufficient cybersecurity staffing and dedicated budget as leading barriers.",
+      "agentWorkflow": "Train an internal DocsBot agent on acceptable-use policies, device troubleshooting, password guidance, incident reporting steps, application request procedures, data privacy FAQs, and staff training materials. The agent can answer common IT questions and remind users when to escalate suspected security incidents.",
+      "liveContextOrTools": "With customer-configured APIs, connectors, or MCP servers, the agent can look up approved device or ticket context, create a helpdesk task, summarize a user’s issue, and route urgent security reports to the IT team.",
+      "exampleQuestionsOrRequests": [
+        "How do I report a suspicious email?",
+        "What is the approved process for requesting a new classroom app?",
+        "Create a helpdesk ticket summary for this Chromebook issue.",
+        "What should staff do if a student account may be compromised?"
+      ],
+      "businessOutcome": "Gives staff faster help while reserving security decisions, access changes, and incident response for authorized IT personnel.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-cosn-cybersecurity",
+        "src-cosn-edtech-2026"
+      ]
+    },
+    {
+      "name": "Enrollment and school-choice inquiry assistant",
+      "problem": "Prospective and current families compare programs, deadlines, transportation, boundaries, services, and enrollment steps, often outside office hours.",
+      "agentWorkflow": "Train a DocsBot presales-style agent on enrollment pages, program descriptions, open house details, eligibility rules, FAQs, school calendars, and contact information. The agent answers fit questions, collects structured inquiry details, and summarizes the family’s needs for admissions or enrollment staff.",
+      "liveContextOrTools": "With approved scheduling and form workflows, the agent can collect tour interest, preferred contact method, grade level, language preference, and timeline, then forward a summary to the enrollment team.",
+      "exampleQuestionsOrRequests": [
+        "What documents do we need for kindergarten registration?",
+        "Can we schedule a school tour?",
+        "Which programs are available for middle school students?",
+        "Please send my question to the enrollment office."
+      ],
+      "businessOutcome": "Improves the family inquiry experience and gives enrollment teams cleaner context before follow-up.",
+      "icon": "IdentificationIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A family-facing AI agent that answers from your school’s approved sources",
+    "intro": "DocsBot can power a website or portal assistant for families, students, and community members. It is best used for general information, navigation, forms, schedules, policies, and next-step guidance, with clear escalation for private student records, discipline, safety, legal, medical, or individualized services questions.",
+    "requests": [
+      {
+        "request": "“How do I excuse an absence or report that my child will be late?”",
+        "agentResponseStrategy": "Answer from attendance policy pages, provide the approved reporting method, clarify school-specific steps, and route student-specific questions to the attendance office if configured.",
+        "sourceTypes": [
+          "Attendance policies",
+          "School office FAQs",
+          "Family handbooks",
+          "Contact directories"
+        ],
+        "optionalAction": "Collect student name, guardian contact, school, and reason category for a staff-reviewed attendance workflow when the school has configured that action.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What time is the concert, and where should families park?”",
+        "agentResponseStrategy": "Retrieve event details from calendars, announcements, and campus instructions, then provide concise directions with links to the original source.",
+        "sourceTypes": [
+          "School calendars",
+          "Event pages",
+          "Campus maps",
+          "Announcements"
+        ],
+        "optionalAction": "Offer to send a summary or route accessibility questions to the office through an approved workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What technology support is available if my student’s device is not working?”",
+        "agentResponseStrategy": "Use approved device guides and help pages to explain first steps, loaner procedures, support hours, and escalation options.",
+        "sourceTypes": [
+          "Technology FAQs",
+          "Device guides",
+          "Acceptable-use policies",
+          "Helpdesk instructions"
+        ],
+        "optionalAction": "Create a helpdesk-style request or summarize the issue for IT if the district has configured a ticketing workflow.",
+        "icon": "ComputerDesktopIcon"
+      },
+      {
+        "request": "“Does the school provide tutoring or academic help?”",
+        "agentResponseStrategy": "Answer from approved tutoring, intervention, teacher office-hour, and family learning resources while avoiding promises about placement or outcomes.",
+        "sourceTypes": [
+          "Academic support pages",
+          "Curriculum resources",
+          "Program descriptions",
+          "Family guides"
+        ],
+        "optionalAction": "Route individualized academic concerns to the teacher, counselor, or school office with a short request summary.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“Can you explain the enrollment process for next year?”",
+        "agentResponseStrategy": "Walk families through deadlines, documents, eligibility notes, appointments, and contacts from enrollment materials.",
+        "sourceTypes": [
+          "Enrollment pages",
+          "Registration checklists",
+          "Boundary information",
+          "Program FAQs"
+        ],
+        "optionalAction": "Collect inquiry details and scheduling intent, then forward the summary to enrollment staff through a configured form, email, CRM, or helpdesk workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can I get this information in another language?”",
+        "agentResponseStrategy": "Respond in the family’s preferred language when appropriate while staying grounded in the same approved school sources.",
+        "sourceTypes": [
+          "Translated family resources",
+          "District web pages",
+          "Handbooks",
+          "FAQs"
+        ],
+        "optionalAction": "Route requests for formal translation, interpretation, or legally required notices to the appropriate staff process.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private K-12 knowledge agent for staff, operations, and district teams",
+    "intro": "DocsBot can also run as an internal assistant trained on private documents, wikis, shared drives, PDFs, SOPs, policies, and training content. Staff get faster answers while administrators can review usage, identify documentation gaps, and keep sensitive workflows inside permissioned boundaries.",
+    "workflows": [
+      {
+        "name": "Staff onboarding and procedure lookup",
+        "problem": "New teachers, substitutes, paraprofessionals, and office staff need answers across many documents and systems during busy school days.",
+        "agentWorkflow": "Train DocsBot on staff handbooks, onboarding materials, bell procedures, school safety instructions, HR FAQs, forms, and department SOPs. Staff ask natural-language questions and receive cited answers from the approved source set.",
+        "sourceTypes": [
+          "Staff handbooks",
+          "Onboarding documents",
+          "HR policies",
+          "School SOPs"
+        ],
+        "optionalAction": "Create an onboarding checklist task or summarize unresolved questions for HR or administration when configured.",
+        "outcome": "Helps staff follow procedures consistently without repeatedly asking administrators for routine guidance.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "IT and device support triage",
+        "problem": "Device, account, application, and connectivity issues interrupt teaching time and add repetitive work for school technology teams.",
+        "agentWorkflow": "Deploy an internal IT agent trained on support articles, device guides, app approval processes, network instructions, data privacy reminders, and incident reporting procedures. The agent asks for missing context and provides first-step troubleshooting.",
+        "sourceTypes": [
+          "IT knowledge base",
+          "Device guides",
+          "Security policies",
+          "Application request procedures"
+        ],
+        "optionalAction": "Create a ticket summary, route urgent incidents, or update approved fields through customer-configured helpdesk workflows.",
+        "outcome": "Resolves common questions faster while giving IT better summaries for issues that need human support.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Policy, compliance, and communications drafting support",
+        "problem": "Administrators need consistent language when responding to families and staff about policies, programs, procedures, and district initiatives.",
+        "agentWorkflow": "Train DocsBot on board policies, communications templates, program FAQs, legal-reviewed language, and operating procedures. Staff can draft a source-grounded response, compare it to policy language, and review before sending.",
+        "sourceTypes": [
+          "Board policies",
+          "Approved templates",
+          "Program FAQs",
+          "Legal-reviewed guidance"
+        ],
+        "optionalAction": "Send a draft to a review queue, create a task for a communications lead, or route sensitive topics to authorized staff.",
+        "outcome": "Improves consistency while keeping final messaging and sensitive decisions under human review.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Knowledge-gap analytics for district operations",
+        "problem": "Repeated unanswered questions reveal missing or outdated resources, but they are often buried across emails, calls, and support conversations.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery to see what families and staff are asking and where the source content needs improvement.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base reports",
+          "Topic analytics",
+          "Source documents"
+        ],
+        "optionalAction": "Create content-update tasks or notify the responsible team when repeated gaps appear, using configured workflows.",
+        "outcome": "Turns support conversations into a practical roadmap for better handbooks, web pages, FAQs, and internal documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from school knowledge",
+      "mainLandingPageContext": "DocsBot agents train on websites, documents, PDFs, wikis, help centers, internal content, and other configured sources to answer in an organization’s voice.",
+      "industryApplication": "Use approved handbooks, district policy pages, calendars, enrollment materials, technology guides, program FAQs, and staff procedures as the knowledge base for K-12 answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private staff chat",
+      "mainLandingPageContext": "DocsBot can work through an embeddable website or product chat widget and private team chat experiences.",
+      "industryApplication": "Put a family-facing assistant on district and school websites while giving staff a private internal agent for policies, forms, IT help, and operations.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support live lookups, summaries, record updates, workflow triggers, ticket or task creation, notifications, and handoffs through customer-configured connections.",
+      "industryApplication": "Route attendance questions, create IT support tasks, collect enrollment details, summarize family inquiries, or trigger approved workflows using school-defined permissions and boundaries.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive school workflows",
+      "mainLandingPageContext": "DocsBot supports human escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate questions involving student records, safety, discipline, medical issues, special education decisions, legal matters, and individualized academic placement to authorized staff.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which family and staff questions repeat, where content is missing, and which school web pages, FAQs, or internal documents need improvement.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and no customer data training of public models.",
+      "industryApplication": "Support district expectations for private policies, staff-only content, controlled access, secure configuration, and accountable use of AI in school operations.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "sony-nuro-resolution-rate"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Education users already rely on DocsBot to help learners find source-grounded support from course and training materials.",
+      "DocsBot can scale high-volume question answering while preserving analytics that show what people ask most.",
+      "Teams can train agents on their own content libraries instead of starting from a custom RAG build."
+    ],
+    "whyTheseReviewsFit": "K-12 leaders need AI that is useful, explainable, and grounded in approved materials. DocsBot proof spans education support, training-material answers, and high-volume service environments, giving schools a practical foundation for family communication, staff knowledge access, and routine request handling.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "ChartBarIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents for K-12 school communication, family support, staff knowledge, and workflow automation",
+    "audience": [
+      "District communications leaders",
+      "School administrators",
+      "K-12 technology directors",
+      "Enrollment and family engagement teams",
+      "Teachers and instructional support staff"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "AcademicCapIcon"
+  },
+  "relatedIndustrySlugs": [
+    "education",
+    "child-care-services",
+    "business-information",
+    "ai-automation-agency",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "elementary-secondary-education",
+    "webSearchQueries": [
+      "NCES public schools enrollment elementary secondary United States 2023 2024",
+      "National Center for Education Statistics public school teachers students fall 2022 2023",
+      "CoSN K-12 cybersecurity report 2024 edtech support IT staffing",
+      "NCES school pulse panel schools report students behind grade level 2023-24",
+      "National Center for Education Statistics chronic absenteeism 2023 2024 public schools",
+      "K-12 parent communication school survey parents prefer texts emails 2024"
+    ],
+    "sourceUrls": [
+      "https://nces.ed.gov/learn/press-release/nces-data-show-public-school-enrollment-held-steady-overall-fall-2022-fall-2023",
+      "https://nces.ed.gov/learn/press-release/about-third-public-school-students-ended-2023-24-school-year-behind-grade-level-least-one-academic",
+      "https://www.ed.gov/teaching-and-administration/supporting-students/chronic-absenteeism",
+      "https://www.cosn.org/edtech-topics/cybersecurity/",
+      "https://www.cosn.org/edtech-topics/state-of-edtech-leadership/",
+      "https://www.schoolstatus.com/blog/national-survey-k12-communications-preferences"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 48425,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 35881,
+        "outputTokens": 8915,
+        "reasoningOutputTokens": 186,
+        "totalTokens": 57340,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.226564,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.246564
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27592,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20296,
+          "outputTokens": 5939,
+          "reasoningOutputTokens": 186,
+          "totalTokens": 33531,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.141649,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.161649
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20833,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15585,
+          "outputTokens": 2976,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23809,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.084915,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.084915
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDUxMTJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Elementary & Secondary Education background image",
+    "source": "legacy-industry",
+    "query": "Elementary & Secondary Education"
+  },
+  "faq": [
+    {
+      "question": "Can we use one AI agent for families and another private agent for staff?",
+      "answer": "Yes. A common K-12 setup is a public website agent for families and a permissioned internal knowledge agent for teachers, office staff, administrators, IT, and operations teams. The family agent can answer from approved public sources, while the staff agent can use private handbooks, SOPs, forms, policies, and training materials with role-based access controls.",
+      "role": "Technology and operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving unofficial guidance about discipline, safety, special education, or student records?",
+      "answer": "DocsBot should be configured to answer routine, source-backed questions and escalate sensitive or individualized issues to authorized staff. Schools can train it on approved policy language, set instructions for topics that require human review, and use escalation paths for student records, discipline, safety, legal, medical, special education, or placement questions.",
+      "role": "Principals and school office teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kinds of parent questions are realistic to automate first?",
+      "answer": "Start with high-volume, low-risk questions: bell schedules, early dismissal, attendance reporting steps, enrollment documents, transportation contacts, meal information, device support, event details, school calendars, forms, and where to find policies. Those are useful because they are usually answerable from approved web pages, handbooks, calendars, and FAQs.",
+      "role": "District communications and family engagement leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this actually reduce front-office interruptions, or will it create another channel to manage?",
+      "answer": "The best rollout targets repeat questions that already arrive by phone, email, website contact forms, and walk-ins. DocsBot can answer routine questions directly, collect missing details, and route requests when configured. Conversation logs also show what families keep asking, so schools can improve the underlying pages instead of repeatedly answering the same questions.",
+      "role": "Principals and school office teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How should we measure ROI in a school district where the goal is not revenue?",
+      "answer": "Use operational and service metrics: fewer repetitive calls and emails, faster response times, after-hours answer coverage, reduced staff search time, fewer misrouted requests, better completion of enrollment or attendance steps, and fewer unanswered website questions. For context, U.S. public schools served 49.5 million preK-12 students in fall 2023, so even small reductions in repeated inquiries can matter at district scale.",
+      "role": "District communications and family engagement leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nces-enrollment-2023"
+      ]
+    },
+    {
+      "question": "Can the agent support multilingual families without maintaining separate FAQ pages for every language?",
+      "answer": "DocsBot agents can answer in more than 100 languages while staying grounded in the same approved school sources. That can help families navigate schedules, enrollment, attendance, technology, and program information. Schools should still route legally required translation, interpretation, and formal notices through their established human process.",
+      "role": "District communications and family engagement leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot connect to our student information system or helpdesk?",
+      "answer": "DocsBot can support live lookups, ticket creation, task routing, summaries, and workflow triggers through customer-configured Skills, APIs, connectors, MCP options, or approved workflows. It should not be given broad access by default. District teams decide which systems, fields, permissions, and actions are allowed, and sensitive student-specific decisions should remain with staff.",
+      "role": "Technology and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "What if our information is spread across the district website, school sites, PDFs, Google Drive, board policies, and staff handbooks?",
+      "answer": "That is a typical K-12 knowledge problem. DocsBot can be trained on websites, documents, PDFs, internal content, wikis, shared-drive materials, policies, and SOPs. The important implementation step is governance: decide which sources are authoritative, remove outdated documents, separate public and private content, and assign owners for updates.",
+      "role": "Technology and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much cleanup do we need before launching?",
+      "answer": "You do not need a perfect knowledge base, but you do need trusted starting sources. Most districts should begin with a focused use case—such as attendance, enrollment, calendars, or IT help—then review test conversations for gaps, outdated pages, contradictory answers, and missing escalation language before expanding to more topics.",
+      "role": "Technology and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with chronic absenteeism workflows without making student-specific intervention decisions?",
+      "answer": "Yes. A staff-facing agent can explain attendance procedures, summarize outreach steps, draft reviewable family messages from approved scripts, and create follow-up tasks when configured. It should not decide interventions or make judgments about a student. Chronic absenteeism remains a major issue: the U.S. Department of Education reported it fell from about 31% in 2021-22 to 28% in 2022-23.",
+      "role": "Teachers, counselors, and instructional support staff",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ed-chronic-absenteeism"
+      ]
+    },
+    {
+      "question": "Can teachers use it to find approved intervention, tutoring, or curriculum resources faster?",
+      "answer": "Yes. A private or carefully scoped academic resource agent can point teachers, counselors, families, or students to approved tutoring pages, intervention menus, curriculum references, family learning guides, and support contacts. It should help people find resources and next steps, not replace teacher judgment or make individualized academic placement decisions.",
+      "role": "Teachers, counselors, and instructional support staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Where does this fit with learning recovery and student support priorities?",
+      "answer": "DocsBot can make approved academic support information easier to find: tutoring options, intervention resources, family guides, teacher office hours, and program contacts. That matters because NCES School Pulse Panel data found public school leaders estimated 32% of students ended the 2023-24 school year behind grade level in at least one academic subject.",
+      "role": "Teachers, counselors, and instructional support staff",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-nces-behind-grade-level-2024"
+      ]
+    },
+    {
+      "question": "How do we keep the AI from hallucinating when families ask policy questions?",
+      "answer": "Use source-grounded configuration. Train the agent on approved handbooks, policy pages, calendars, FAQs, and district documents; require it to cite or link back to sources; and instruct it to say when it does not know. Conversation review and knowledge-gap reports help identify where the source material is missing, unclear, or contradictory.",
+      "role": "District communications and family engagement leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can administrators review what the agent is telling families and staff?",
+      "answer": "Yes. DocsBot provides conversation logs, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. That lets district and school leaders review recurring topics, unresolved questions, low-confidence areas, and outdated content so they can improve FAQs, handbooks, web pages, and internal SOPs over time.",
+      "role": "Principals and school office teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What security controls should our technology department look for before approving this?",
+      "answer": "K-12 technology leaders should evaluate access controls, encryption, data retention expectations, auditability, permission boundaries, and whether customer data is used to train public models. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and no customer data training of public models.",
+      "role": "Technology and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can this help an understaffed IT team with device and account questions?",
+      "answer": "Yes. A staff-facing IT agent can answer from device guides, password procedures, app request rules, acceptable-use policies, cybersecurity training, and helpdesk instructions. It can also collect issue details and create a ticket summary when configured. CoSN’s 2026 materials cite insufficient cybersecurity staffing and lack of dedicated budget as top barriers for nearly two-thirds of respondents.",
+      "role": "Technology and operations leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-cosn-edtech-2026"
+      ]
+    },
+    {
+      "question": "How should we handle cybersecurity questions like suspicious emails or compromised accounts?",
+      "answer": "Use the agent for approved first-step guidance: how to report a suspicious email, what not to click, where to send details, and when to stop using an account or device. It should route urgent security concerns to IT rather than diagnose incidents. CoSN reports cybersecurity is consistently a top priority for school system technology leaders.",
+      "role": "Technology and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cosn-cybersecurity"
+      ]
+    },
+    {
+      "question": "Can the agent create tickets or tasks without exposing private systems in the chat?",
+      "answer": "Yes, when configured through approved Skills, APIs, connectors, or workflows. The agent can collect missing details, summarize the request, and create or route a task using scoped permissions. Credentials should not be placed in chats, and actions should be limited to approved fields, approved systems, logging, and human review where needed.",
+      "role": "Technology and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we avoid giving families the wrong answer when school-level and district-level policies differ?",
+      "answer": "Separate and label sources carefully. The agent should know which school, grade level, program, or campus the user is asking about, then answer from the most relevant approved source. If sources conflict, it should surface the uncertainty, link to the source material, and route the question to the school or district office for confirmation.",
+      "role": "District communications and family engagement leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can office staff use DocsBot to draft replies to parents instead of starting from scratch?",
+      "answer": "Yes. Staff can use DocsBot to draft source-grounded responses from approved policies, templates, event details, program FAQs, or handbook language. The staff member should review and edit before sending, especially for sensitive topics, individualized circumstances, complaints, legal matters, discipline, medical issues, or special services questions.",
+      "role": "Principals and school office teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What is a realistic pilot for a district that is cautious about AI?",
+      "answer": "Choose a bounded, low-risk pilot such as enrollment FAQs, school calendar and event questions, IT self-help for staff, or internal policy lookup. Define success metrics, test with office staff and communications leads, review logs weekly, tune escalation language, and expand only after source quality and governance are proven.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot compare with building our own retrieval-augmented AI tool?",
+      "answer": "Building your own can offer deep customization, but it usually requires engineering time for ingestion, permissions, retrieval quality, chat UI, analytics, logging, security review, workflow actions, and ongoing maintenance. DocsBot is a build-vs-buy option for teams that want source-grounded agents, analytics, access controls, and scoped actions without starting from a custom RAG build.",
+      "role": "Technology and operations leaders",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will this replace our mass notification, SIS messaging, or parent communication platform?",
+      "answer": "No. DocsBot is better viewed as an AI support and knowledge layer, not a replacement for official notification or messaging systems. It can answer questions from approved sources, collect context, and route requests, while your SIS, mass notification, email, text, website, and staff workflows remain the systems of record and official communication channels.",
+      "role": "District communications and family engagement leaders",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help us understand what families are confused about after we publish announcements?",
+      "answer": "Yes. Conversation analytics can show repeated questions, unresolved topics, and knowledge gaps after announcements, policy changes, enrollment windows, schedule changes, or technology rollouts. That gives communications teams a practical feedback loop for improving web pages, FAQs, handbooks, and follow-up messages.",
+      "role": "District communications and family engagement leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we handle procurement concerns about privacy, AI risk, and board approval?",
+      "answer": "Prepare a clear governance packet: intended use cases, excluded high-risk topics, approved data sources, public versus private agents, escalation rules, security controls, access roles, action permissions, and review cadence. For cautious boards, emphasize that the agent answers from approved sources and routes sensitive matters to humans instead of making school decisions.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent scale across multiple schools without every building losing its own procedures and voice?",
+      "answer": "Yes, but structure matters. Districts can maintain shared district-level sources for common policies while adding school-specific calendars, handbooks, event pages, contacts, and procedures. The agent should ask clarifying questions when the school or grade is unclear and answer from the right source set for that campus.",
+      "role": "Technology and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What training will staff need before using an internal knowledge agent?",
+      "answer": "Staff training should focus on practical use: where to ask, what sources the agent covers, how to verify cited answers, when to escalate, what not to enter, and how to report bad or outdated answers. Administrators and content owners also need a process for reviewing analytics and updating source documents.",
+      "role": "Principals and school office teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can families still reach a person if the AI answer is not enough?",
+      "answer": "Yes. DocsBot supports human escalation for questions that are unresolved, sensitive, urgent, student-specific, or outside the approved knowledge base. Schools can configure the agent to collect contact details, summarize the issue, and route the handoff to the right office, department, or staff workflow.",
+      "role": "District communications and family engagement leaders",
+      "category": "Human oversight"
+    }
+  ]
+}

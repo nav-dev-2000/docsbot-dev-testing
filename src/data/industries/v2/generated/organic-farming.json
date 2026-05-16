@@ -1,0 +1,798 @@
+{
+  "slug": "organic-farming",
+  "business": "Organic Farming",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Organic Farm Operations & Support",
+    "description": "DocsBot helps organic farming teams answer certification, crop, buyer, and crew questions faster with source-grounded AI agents.",
+    "canonicalPath": "/industry/organic-farming"
+  },
+  "hero": {
+    "eyebrow": "Organic farm knowledge, ready when the field team needs it",
+    "headline": "DocsBot AI agents for organic farm teams, buyers, and crews",
+    "subheadline": "Turn your organic system plans, SOPs, crop notes, certification documents, product pages, buyer FAQs, and training materials into source-grounded AI agents that answer questions, summarize context, route requests, and trigger approved workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer crew, customer, and buyer questions from approved farm documents, manuals, FAQs, policies, and web pages.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Retrieve organic certification procedures, input-use rules, harvest logs, packing instructions, and training notes without digging through folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Collect lead, CSA, wholesale, tour, or farm-stand inquiries and route qualified requests to the right person or system when configured.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "text": "Use AI Actions and Skills for scoped lookups, task creation, summaries, notifications, and handoffs while keeping sensitive decisions with your team.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build an organic farm agent",
+    "secondaryCta": "Explore farm workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps organic farms create AI agents trained on their own knowledge sources. Teams can deploy those agents in a website widget, private team chat, Slack, Microsoft Teams, API-powered experiences, or customer-configured workflows to answer questions, summarize farm context, identify knowledge gaps, and take bounded actions through approved Skills, APIs, connectors, or MCP-connected tools.",
+    "whoItHelps": [
+      {
+        "role": "Farm owners and operations managers",
+        "roleContext": "For teams that juggle field work, certification paperwork, buyer communication, seasonal labor, and day-to-day decision support.",
+        "bullets": [
+          {
+            "text": "Make organic system plans, SOPs, harvest procedures, wash-pack rules, input lists, and crew training materials searchable from one AI agent.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Give managers faster summaries of repeated crew questions, missing documentation, and topics that need clearer SOPs.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Use customer-configured workflows to create tasks, notify supervisors, or prepare handoffs when a request cannot be answered from approved sources.",
+            "icon": "BellIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Certification, compliance, and recordkeeping leads",
+        "roleContext": "For farms preparing inspections, keeping organic records organized, and helping staff follow documented procedures.",
+        "bullets": [
+          {
+            "text": "Certified operations must maintain records for organic production, harvesting, and handling, and make them available for inspection during normal business hours.",
+            "icon": "DocumentTextIcon",
+            "sourceIds": [
+              "src-nop-recordkeeping"
+            ]
+          },
+          {
+            "text": "Help employees locate the right procedure, form, field log, label guidance, input record, or inspection-prep note from farm-approved sources.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Keep sensitive certification, labeling, and compliance actions within customer-defined review paths instead of letting the agent make high-impact decisions alone.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      },
+      {
+        "role": "CSA, farm stand, wholesale, and customer support teams",
+        "roleContext": "For customer-facing staff who answer recurring questions about availability, growing practices, pickup logistics, ingredients, labels, and wholesale fit.",
+        "bullets": [
+          {
+            "text": "Answer recurring product, CSA, delivery, farm-store, and organic-practice questions in more than 100 languages from approved content.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect structured inquiry details such as crop interest, volume, pickup location, delivery region, season, budget range, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Forward qualified wholesale, restaurant, distributor, or CSA leads to configured email, CRM, helpdesk, form, or team workflows with conversation summaries.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "ShoppingBagIcon"
+      },
+      {
+        "role": "Crew leads, seasonal workers, and field teams",
+        "roleContext": "For employees who need fast access to correct procedures while working across fields, greenhouses, wash-pack areas, and market channels.",
+        "bullets": [
+          {
+            "text": "Provide always-available answers from onboarding guides, safety notes, harvest quality standards, packing instructions, equipment checklists, and farm policies.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Help new staff learn farm-specific routines without repeatedly interrupting experienced crew leaders.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Escalate unclear, safety-related, or crop-critical questions to a supervisor with a concise summary and source context.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "SunIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-organic-sales-2024",
+      "metric": "$71.6 billion",
+      "claim": "U.S. organic sales reached $71.6 billion in 2024, according to the Organic Trade Association’s 2025 Organic Market Report announcement.",
+      "sourceTitle": "Growth of U.S. Organic Marketplace Accelerated in 2024",
+      "sourceUrl": "https://ota.com/about-ota/press-releases/growth-us-organic-marketplace-accelerated-2024",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "buyer demand",
+        "market growth",
+        "customer expectations"
+      ]
+    },
+    {
+      "id": "src-usda-ers-organic-growth",
+      "metric": "17,445 certified organic farms in 2021; certified operations increased more than 90% from 2011 to 2021",
+      "claim": "USDA ERS reports certified organic cropland reached 3.6 million acres in 2021 and certified operations increased by more than 90% over the 2011–2021 period.",
+      "sourceTitle": "Organic Agriculture",
+      "sourceUrl": "https://primary.ers.usda.gov/topics/natural-resources-environment/organic-agriculture",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "industry growth",
+        "operations complexity",
+        "labor scale"
+      ]
+    },
+    {
+      "id": "src-usda-2022-census-organic",
+      "metric": "32% increase in organic sales from 2017 to 2022",
+      "claim": "USDA reported that organic sales increased 32% from 2017 to 2022, with California accounting for 39% of total U.S. organic product sales in 2022.",
+      "sourceTitle": "Growing Organic Agriculture Sector Gets a Boost from Northeast States",
+      "sourceUrl": "https://www.usda.gov/about-usda/news/blog/growing-organic-agriculture-sector-gets-boost-northeast-states",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market growth",
+        "regional concentration",
+        "buyer demand"
+      ]
+    },
+    {
+      "id": "src-nop-recordkeeping",
+      "metric": "7 CFR § 205.103",
+      "claim": "Federal organic regulations require certified operations to maintain records concerning production, harvesting, and handling of products represented as organic and make those records available for inspection.",
+      "sourceTitle": "7 CFR § 205.103 - Recordkeeping by certified operations",
+      "sourceUrl": "https://www.law.cornell.edu/cfr/text/7/205.103",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "recordkeeping",
+        "inspection readiness"
+      ]
+    },
+    {
+      "id": "src-usda-organic-records",
+      "metric": "USDA recordkeeping guides and templates",
+      "claim": "USDA AMS provides organic recordkeeping guides, templates, and resources for organic certification and verification requirements.",
+      "sourceTitle": "Organic Recordkeeping: Guides, Templates and Other Resources",
+      "sourceUrl": "https://www.ams.usda.gov/services/organic-certification/organic-records",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "recordkeeping workload",
+        "inspection readiness",
+        "documentation needs"
+      ]
+    },
+    {
+      "id": "src-usda-labeling",
+      "metric": "USDA organic labeling categories",
+      "claim": "USDA AMS explains the key labeling categories and requirements for products represented as organic, including USDA organic labeling and National List constraints.",
+      "sourceTitle": "Labeling Organic Products",
+      "sourceUrl": "https://www.ams.usda.gov/rules-regulations/organic/labeling",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "labeling questions",
+        "customer education",
+        "compliance pressure"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Organic certification knowledge agent",
+      "problem": "Certification knowledge often lives across organic system plans, certifier emails, inspection notes, field records, input lists, and PDF templates. Staff may know the answer exists but not where to find it.",
+      "agentWorkflow": "Train a DocsBot internal knowledge agent on certification documents, SOPs, inspection-prep notes, approved inputs, recordkeeping templates, and internal policies. Staff can ask procedural questions and receive source-grounded answers with citations back to farm-approved content.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up a record location, create a missing-document task, summarize an inspection-prep checklist, or route a question to the certification lead for review.",
+      "exampleQuestionsOrRequests": [
+        "Where do I record a compost application for Field 4?",
+        "What records do we need ready before the organic inspection?",
+        "Summarize the open certification tasks for this week.",
+        "Which document explains our buffer-zone procedure?"
+      ],
+      "businessOutcome": "Reduces time spent hunting for records and helps staff follow the same documented process for organic certification support.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-nop-recordkeeping",
+        "src-usda-organic-records"
+      ]
+    },
+    {
+      "name": "Crew training and field procedure assistant",
+      "problem": "Seasonal and cross-trained crews need consistent answers about harvest standards, wash-pack routines, equipment procedures, safety reminders, and crop-specific handling without waiting for a supervisor.",
+      "agentWorkflow": "DocsBot can train on onboarding docs, field SOPs, crop guides, packing standards, equipment checklists, HR policies, and training PDFs. Crew members can ask in a private team chat or mobile-friendly chat experience and get concise, source-grounded answers.",
+      "liveContextOrTools": "When configured, AI Actions can create a follow-up task, notify a crew lead, generate a shift summary, or escalate unclear safety or crop-quality questions to a human reviewer.",
+      "exampleQuestionsOrRequests": [
+        "What is the harvest standard for salad mix this week?",
+        "How do I clean and store these harvest bins?",
+        "What should I do if a packing label is missing?",
+        "Send this unresolved question to the wash-pack lead."
+      ],
+      "businessOutcome": "Helps new and returning workers get consistent guidance from farm-approved procedures while keeping supervisors focused on field execution.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "CSA, farm store, and buyer support agent",
+      "problem": "Organic farms answer many repeat questions about availability, pickup times, substitutions, storage, allergens, growing practices, farm visits, wholesale minimums, and seasonal expectations.",
+      "agentWorkflow": "Deploy a DocsBot support agent on the farm website or customer portal, trained on CSA FAQs, product pages, availability notes, pickup policies, refund rules, farm-practice explanations, and wholesale information.",
+      "liveContextOrTools": "With approved Skills, connectors, or APIs, the agent can collect inquiry details, look up customer-configured availability context, create a ticket or task, notify staff, or prepare a handoff summary for a human.",
+      "exampleQuestionsOrRequests": [
+        "What is in this week’s CSA box?",
+        "Do you sell organic carrots wholesale to restaurants?",
+        "Can I change my pickup location?",
+        "Tell me how your farm handles pest management under organic practices."
+      ],
+      "businessOutcome": "Provides faster self-service for customers and buyers while capturing qualified demand for the farm team to follow up.",
+      "icon": "ShoppingBagIcon",
+      "sourceIds": [
+        "src-organic-sales-2024"
+      ]
+    },
+    {
+      "name": "Organic labeling and product FAQ assistant",
+      "problem": "Customers, market staff, and buyers often ask what organic labels mean, what claims can be made, and where to find ingredient or product-specific information.",
+      "agentWorkflow": "Train an agent on approved label guidance, product descriptions, packaging FAQs, ingredient lists, market scripts, and customer education pages. The agent can answer routine questions and direct sensitive or compliance-specific questions to an authorized employee.",
+      "liveContextOrTools": "Configured workflows can route label-change questions, create review tasks, or send a prepared summary to compliance, marketing, or sales before any public-facing update is made.",
+      "exampleQuestionsOrRequests": [
+        "What does this product label mean?",
+        "Can our market team say this item is 100% organic?",
+        "Where is the approved description for our organic tomato sauce?",
+        "Route this label wording question to compliance."
+      ],
+      "businessOutcome": "Keeps customer-facing answers aligned with approved farm language and helps avoid ad hoc explanations about organic claims.",
+      "icon": "BookmarkIcon",
+      "sourceIds": [
+        "src-usda-labeling"
+      ]
+    },
+    {
+      "name": "Wholesale and distributor lead qualification agent",
+      "problem": "Organic farms need to separate serious wholesale, restaurant, institutional, and distributor inquiries from casual questions while collecting enough context for follow-up.",
+      "agentWorkflow": "Use DocsBot as a presales agent trained on crop lists, seasonal availability, pack sizes, delivery regions, pricing guidance, buyer FAQs, certifications, and sales policies. The agent can ask structured questions and apply customer-defined qualification rules.",
+      "liveContextOrTools": "With approved workflows, the agent can forward qualified leads to CRM, email, helpdesk software, a form, or a sales task queue. It can also draft a follow-up email for human review.",
+      "exampleQuestionsOrRequests": [
+        "Do you have organic greens available for weekly restaurant delivery?",
+        "I need 200 cases of certified organic apples next month. Who should I talk to?",
+        "Collect this buyer’s volume, delivery region, timeline, and crop interests.",
+        "Draft a follow-up email for our sales manager."
+      ],
+      "businessOutcome": "Improves lead capture and helps farm teams respond to high-fit buyers with organized context instead of scattered emails.",
+      "icon": "BriefcaseIcon",
+      "sourceIds": [
+        "src-usda-2022-census-organic"
+      ]
+    },
+    {
+      "name": "Knowledge-gap and documentation improvement agent",
+      "problem": "Farm documentation can lag behind real questions from crews, customers, certifiers, and buyers, especially during fast-moving seasons.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see what people are asking and where approved content is missing.",
+      "liveContextOrTools": "Managers can review unanswered questions, add missing SOPs or FAQs, update outdated content, and retrain the agent on the improved source material.",
+      "exampleQuestionsOrRequests": [
+        "What questions did the crew ask most this month?",
+        "Which customer questions were not answered from our current FAQ?",
+        "Show topics that need a new SOP before harvest season.",
+        "Summarize common buyer objections from recent chats."
+      ],
+      "businessOutcome": "Turns real questions into better documentation, training, and customer education.",
+      "icon": "ChartPieIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give organic customers and buyers answers without overloading the farm office",
+    "intro": "A DocsBot customer-facing agent can sit on your farm website, CSA page, farm-store page, or buyer inquiry flow. It answers from approved sources, collects structured details, supports multilingual visitors, and escalates when a person should decide.",
+    "requests": [
+      {
+        "request": "“Are your vegetables certified organic, and what does that mean?”",
+        "agentResponseStrategy": "Answer from the farm’s approved organic practice pages, certification description, FAQs, and customer education content. If the question becomes legal, labeling, or certification-specific, route it to the right employee.",
+        "sourceTypes": [
+          "Organic practice pages",
+          "Certification FAQs",
+          "Customer education pages",
+          "Approved label language"
+        ],
+        "optionalAction": "Create a follow-up task for the compliance or customer support lead when the answer needs review.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Can I buy 50 cases of organic lettuce every week for my restaurant?”",
+        "agentResponseStrategy": "Ask for buyer type, volume, delivery region, timing, crop needs, pack preferences, and contact details; then apply customer-defined qualification rules.",
+        "sourceTypes": [
+          "Wholesale crop lists",
+          "Seasonal availability notes",
+          "Delivery policies",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Forward the qualified lead, transcript, and summary to a configured CRM, email, helpdesk, or task workflow.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“What is in this week’s CSA box and how do I store it?”",
+        "agentResponseStrategy": "Use approved CSA content, weekly notes, storage guides, substitution policies, and pickup instructions to give a clear answer in the farm’s voice.",
+        "sourceTypes": [
+          "CSA weekly notes",
+          "Storage guides",
+          "Pickup policies",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Trigger a configured support ticket or handoff if the customer needs account-specific changes.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can I visit the farm or book an educational tour?”",
+        "agentResponseStrategy": "Answer from farm-tour pages, agro-tourism policies, safety rules, group-size limits, and seasonal availability. Collect visitor details before handing off booking intent.",
+        "sourceTypes": [
+          "Tour pages",
+          "Visitor policies",
+          "Safety rules",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Use an approved scheduling workflow or create a booking request for staff review.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What does this organic label or claim allow us to say at market?”",
+        "agentResponseStrategy": "Provide a cautious answer from approved label guidance and the farm’s own product copy, then direct compliance-sensitive wording to a human reviewer.",
+        "sourceTypes": [
+          "Approved product copy",
+          "Labeling guidance",
+          "Market scripts",
+          "Compliance notes"
+        ],
+        "optionalAction": "Route a proposed claim or label wording question to a review queue before staff use it publicly.",
+        "icon": "BookmarkIcon",
+        "sourceIds": [
+          "src-usda-labeling"
+        ]
+      },
+      {
+        "request": "“I speak Spanish. Can you explain pickup instructions?”",
+        "agentResponseStrategy": "Answer in the visitor’s language from the same approved farm policies and pickup instructions, preserving consistent meaning across languages.",
+        "sourceTypes": [
+          "Pickup policies",
+          "CSA FAQs",
+          "Farm-store instructions",
+          "Refund and substitution policies"
+        ],
+        "optionalAction": "Escalate to staff when the customer asks for an account-specific exception.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make organic farm knowledge easier to use across fields, packing, and office work",
+    "intro": "DocsBot can act as a private internal knowledge agent for farm owners, crew leads, office staff, certification managers, and sales teams. It retrieves procedures from approved sources, summarizes context, supports onboarding, and can trigger bounded workflows when configured.",
+    "workflows": [
+      {
+        "name": "Inspection prep and document retrieval",
+        "problem": "Organic inspection prep can involve many records, templates, policies, and evidence trails spread across drives, binders, emails, and spreadsheets.",
+        "agentWorkflow": "The agent answers questions from the farm’s organic system plan, inspection notes, input records, harvest logs, and recordkeeping procedures, then points staff to the source document.",
+        "sourceTypes": [
+          "Organic system plan",
+          "Inspection checklists",
+          "Input records",
+          "Harvest and handling records",
+          "USDA recordkeeping templates"
+        ],
+        "optionalAction": "Create a missing-record task or send a summary of open items to the certification lead through a configured workflow.",
+        "outcome": "Faster inspection preparation and fewer repeated searches for the same files.",
+        "icon": "ArchiveBoxIcon",
+        "sourceIds": [
+          "src-nop-recordkeeping"
+        ]
+      },
+      {
+        "name": "Seasonal onboarding support",
+        "problem": "New workers need to learn farm-specific routines quickly, but experienced staff are often busiest during planting, harvest, and market weeks.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, SOPs, field maps, tool procedures, policies, and crop-specific standards so workers can ask practical questions as they learn.",
+        "sourceTypes": [
+          "Onboarding manuals",
+          "Crew handbooks",
+          "Field SOPs",
+          "Equipment checklists",
+          "Crop standards"
+        ],
+        "optionalAction": "Escalate unanswered questions to a crew lead and log documentation gaps for later improvement.",
+        "outcome": "More consistent training and fewer interruptions for supervisors.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Field-to-office issue summaries",
+        "problem": "Important issues from the field can arrive as fragmented messages, photos, calls, or notes without enough context for office or management follow-up.",
+        "agentWorkflow": "A team member can ask the agent to summarize a field issue, identify related SOPs, draft a handoff, and list missing details needed from the crew.",
+        "sourceTypes": [
+          "Field SOPs",
+          "Crop guides",
+          "Incident templates",
+          "Internal policies",
+          "Crew notes"
+        ],
+        "optionalAction": "Create a task, notify a supervisor, or route the summary to the appropriate operations channel through configured Skills or APIs.",
+        "outcome": "Cleaner handoffs between field, packhouse, compliance, and management teams.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Sales enablement for organic buyers",
+        "problem": "Sales and office staff need quick answers on crop specs, certifications, availability language, pricing guidance, delivery policies, and buyer objections.",
+        "agentWorkflow": "The agent retrieves approved answers from product sheets, buyer FAQs, case notes, proposal templates, pricing guidance, and certification documents. If configured with web search and approved Skills, it can also summarize public account context for a human seller.",
+        "sourceTypes": [
+          "Product sheets",
+          "Buyer FAQs",
+          "Wholesale policies",
+          "Proposal templates",
+          "Certification documents"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or route a qualified lead summary for human review.",
+        "outcome": "Faster, more consistent buyer follow-up without making the agent responsible for final pricing or contract commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Documentation-gap review",
+        "problem": "The same unanswered questions can keep resurfacing if nobody sees patterns across chat, email, and internal requests.",
+        "agentWorkflow": "DocsBot reports, logs, topic management, conversation review, and knowledge-gap analytics help managers identify weak or missing content and prioritize updates.",
+        "sourceTypes": [
+          "Agent logs",
+          "Conversation reports",
+          "FAQs",
+          "SOPs",
+          "Helpdesk exports where configured"
+        ],
+        "optionalAction": "Assign documentation tasks, update source files, and retrain the agent on revised content.",
+        "outcome": "Farm knowledge improves over time based on real crew, customer, and buyer questions.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the knowledge sources a business configures and answer from approved content.",
+      "industryApplication": "Organic farms can ground answers in their own organic system plans, SOPs, product pages, CSA FAQs, training manuals, crop guides, and certification notes instead of generic web advice.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and customer support workflows",
+      "mainLandingPageContext": "DocsBot can support customers through embeddable chat experiences and helpdesk-connected workflows when configured.",
+      "industryApplication": "Use a farm website agent to answer CSA, farm-store, wholesale, pickup, tour, and organic-practice questions, then escalate or route account-specific issues to staff.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can be used privately by employees to retrieve procedures, policies, onboarding information, troubleshooting steps, and operational knowledge.",
+      "industryApplication": "Crew leads, office teams, and certification managers can ask questions about harvest procedures, packing standards, inspection prep, label notes, and farm policies from one internal assistant.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs through customer-defined rules.",
+      "industryApplication": "An organic farm can configure approved actions to create missing-record tasks, send buyer summaries, route certification questions, notify supervisors, or retrieve live context from authorized systems.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "MCP, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot can use Skills, APIs, connectors, and MCP Connectors for remote Model Context Protocol servers when a customer authorizes access to external tools.",
+      "industryApplication": "Farm teams can connect the agent to approved operational systems for scoped lookups or workflow triggers without claiming an out-of-the-box integration with any specific farm platform.",
+      "icon": "LinkIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the same configured knowledge base.",
+      "industryApplication": "Support multilingual crews, market customers, CSA members, and wholesale buyers while keeping answers anchored to the farm’s approved policies and documents.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Analytics and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which crop, pickup, certification, label, training, and buyer questions recur, then improve FAQs, SOPs, onboarding materials, and sales content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal organic records, buyer notes, staff policies, and operational documents behind appropriate permissions while still making them useful to authorized teams.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own farm content library, manuals, websites, PDFs, policies, and internal knowledge sources.",
+      "Use DocsBot for both customer-facing support and private internal knowledge workflows.",
+      "Support sensitive operational knowledge with SOC 2 Type II certification, GDPR-ready governance, encryption, granular access controls, and role-based permission",
+      "Review conversations, identify knowledge gaps, and improve the source material that powers future answers."
+    ],
+    "whyTheseReviewsFit": "Organic farming teams need source-grounded answers, training support, customer communication, and easy maintenance more than generic automation. The selected reviews emphasize training on owned content, answering common queries from training materials, and helping a community access information that supports conversions.",
+    "trustClaimIcons": [
+      "FolderIcon",
+      "UserGroupIcon",
+      "ShieldCheckIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents for organic farm operations, customer support, certification knowledge, and workflow automation",
+    "audience": [
+      "Organic farm owners",
+      "Farm operations managers",
+      "Certification and compliance leads",
+      "CSA and farm-store teams",
+      "Wholesale sales teams",
+      "Crew leaders and seasonal workers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SunIcon"
+  },
+  "relatedIndustrySlugs": [
+    "farming",
+    "agriculture-forestry-wildlife",
+    "agro-tourism",
+    "crop-consulting",
+    "greenhouse-operations",
+    "seed-production"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "organic-farming",
+    "webSearchQueries": [
+      "USDA organic agriculture sales 2022 census organic farms United States",
+      "USDA National Organic Program recordkeeping requirements organic certification",
+      "Organic Trade Association organic sales United States 2024 report food sales",
+      "USDA ERS organic market overview certified organic acres farms"
+    ],
+    "sourceUrls": [
+      "https://ota.com/about-ota/press-releases/growth-us-organic-marketplace-accelerated-2024",
+      "https://primary.ers.usda.gov/topics/natural-resources-environment/organic-agriculture",
+      "https://www.usda.gov/about-usda/news/blog/growing-organic-agriculture-sector-gets-boost-northeast-states",
+      "https://www.law.cornell.edu/cfr/text/7/205.103",
+      "https://www.ams.usda.gov/services/organic-certification/organic-records",
+      "https://www.ams.usda.gov/rules-regulations/organic/labeling"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41337,
+        "cachedInputTokens": 13952,
+        "billableInputTokens": 27385,
+        "outputTokens": 9000,
+        "reasoningOutputTokens": 126,
+        "totalTokens": 50337,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.413901,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.423901
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20301,
+          "cachedInputTokens": 13952,
+          "billableInputTokens": 6349,
+          "outputTokens": 5955,
+          "reasoningOutputTokens": 104,
+          "totalTokens": 26256,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217371,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227371
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 21036,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 21036,
+          "outputTokens": 3045,
+          "reasoningOutputTokens": 22,
+          "totalTokens": 24081,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.19653,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.19653
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1571091374875-3e354ceb6ed3?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQzNTd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Organic Farming background image",
+    "source": "legacy-industry",
+    "query": "Organic Farming"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer organic certification questions without giving staff risky compliance advice?",
+      "answer": "Yes. DocsBot can be trained on your organic system plan, certifier guidance, inspection notes, input lists, SOPs, and recordkeeping templates so staff get source-grounded answers from approved farm materials. For higher-risk questions—such as label wording, input eligibility, corrective actions, or anything that should go to your certifier—you can configure the agent to escalate to a certification lead instead of presenting the answer as a final decision. That matters because certified organic operations must maintain records for production, harvesting,和",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nop-recordkeeping"
+      ]
+    },
+    {
+      "question": "Will the agent use generic internet farming advice, or only our farm’s approved procedures?",
+      "answer": "DocsBot agents are designed to answer from the knowledge sources you configure. For an organic farm, that can include your SOPs, crop notes, crew handbook, wash-pack instructions, product pages, CSA FAQs, organic system plan, inspection-prep documents, and approved customer-facing language. If the answer is not in those sources, the agent can be instructed to say it does not know, ask for more detail, or route the question to a manager instead of improvising.",
+      "role": "Farm owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help during organic inspection prep?",
+      "answer": "A DocsBot internal knowledge agent can make inspection materials easier to find by answering questions like “Where is our compost application log?” or “Which records do we need for Field 4?” from your approved documents. It can summarize open checklist items, point staff back to the relevant source file, and create a missing-record task through a customer-configured workflow. USDA AMS also provides organic recordkeeping guides and templates, which reflects how documentation-heavy certification preparation can be for organic operations.",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-usda-organic-records"
+      ]
+    },
+    {
+      "question": "Can we use this with seasonal workers who need quick answers in the field or wash-pack area?",
+      "answer": "Yes. DocsBot can support seasonal onboarding by answering from crew handbooks, harvest standards, crop-specific handling notes, equipment checklists, safety reminders, and packing procedures. Workers can ask practical questions in a private team chat or mobile-friendly chat experience, while unclear, safety-related, or crop-critical questions can be escalated to a supervisor with a concise summary.",
+      "role": "Crew leads, seasonal workers, and field teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support Spanish-speaking or multilingual crew members and customers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same configured knowledge base. That means pickup policies, crew procedures, CSA instructions, market scripts, and buyer FAQs can be explained in the user’s language while staying anchored to the farm’s approved source material.",
+      "role": "Crew leads, seasonal workers, and field teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent help customers understand what “certified organic” means without creating labeling risk?",
+      "answer": "Yes, if you train it on approved organic practice pages, product copy, certification FAQs, and labeling guidance. The agent can answer routine customer education questions in the farm’s voice and route sensitive wording or label-claim questions to an authorized employee. USDA AMS publishes organic labeling categories and requirements, so keeping public-facing answers aligned with approved language is especially important.",
+      "role": "CSA, farm stand, wholesale, and customer support teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-usda-labeling"
+      ]
+    },
+    {
+      "question": "How would this reduce office interruptions during CSA season or market weeks?",
+      "answer": "A customer-facing DocsBot agent can answer recurring questions about CSA box contents, pickup windows, substitutions, storage, farm-store hours, tour policies, refund rules, and growing practices from your approved FAQs and weekly notes. When a customer needs an account-specific change or exception, the agent can collect details and hand the request to staff instead of trying to resolve it on its own.",
+      "role": "CSA, farm stand, wholesale, and customer support teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot qualify wholesale or restaurant inquiries before our sales manager gets involved?",
+      "answer": "Yes. A DocsBot presales agent can ask structured questions about buyer type, crop interest, volume, pack preferences, delivery region, timing, budget range, and preferred follow-up channel. It can then apply your qualification rules and forward the lead summary to a configured CRM, email inbox, form, helpdesk, or task workflow. This is useful in a growing organic market: U.S. organic sales reached $71.6 billion in 2024, according to the Organic Trade Association’s 2025 Organic Market Report announcement.",
+      "role": "CSA, farm stand, wholesale, and customer support teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-organic-sales-2024"
+      ]
+    },
+    {
+      "question": "Can the agent check live availability, pricing, or customer records?",
+      "answer": "DocsBot can use live context only when you configure the right Skill, API, connector, metadata binding, or approved workflow. For example, it could look up a customer-configured availability source, create a task, draft a handoff, or route a buyer request. Final pricing, contract terms, substitutions, compliance decisions, and account exceptions should remain with your team unless you deliberately define a narrow, reviewed workflow.",
+      "role": "Farm owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to replace our farm management software, spreadsheets, CRM, or helpdesk?",
+      "answer": "No. DocsBot is not positioned as a replacement for your farm management, accounting, CRM, helpdesk, or recordkeeping systems. It works as an AI agent layer trained on approved knowledge and, when configured, can connect through Skills, APIs, connectors, customer-defined workflows, or MCP-connected tools for scoped lookups and actions. Many farms would start with document-based answers before adding live system actions.",
+      "role": "Farm owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What documents should we prepare before implementing an organic farm AI agent?",
+      "answer": "Good starting sources include your organic system plan, inspection checklists, certifier correspondence you want staff to use, input-use procedures, field and harvest logs, wash-pack SOPs, crew handbook, safety notes, CSA FAQs, product pages, wholesale policies, farm-tour policies, and approved label or market language. You do not need perfect documentation on day one; DocsBot analytics can help reveal which topics need better source material after launch.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much staff time will implementation require from a small farm team?",
+      "answer": "Most teams should plan implementation around a focused knowledge audit rather than a large software project. The practical work is deciding which documents are authoritative, removing outdated files, setting escalation rules, testing real crew and customer questions, and assigning an owner for ongoing updates. A phased rollout—first internal certification and SOP lookup, then customer FAQs, then approved actions—is usually easier than trying to automate every workflow at once.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent outdated crop notes or old policies from producing wrong answers?",
+      "answer": "Use a clear source-of-truth process. Keep obsolete SOPs, old market scripts, retired label language, and superseded certifier notes out of the agent’s approved sources. DocsBot can provide logs, conversation review, topic management, reports, and knowledge-gap discovery so managers can see which answers need better documentation and retrain the agent on revised content.",
+      "role": "Farm owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can managers review what the agent is being asked and where it failed?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For organic farms, that can reveal repeated questions about harvest standards, pickup changes, label claims, wholesale minimums, inspection records, or training gaps so managers can improve SOPs, FAQs, and onboarding materials.",
+      "role": "Farm owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep internal records, buyer notes, and staff policies protected?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. You can separate internal agents from public website agents and restrict sensitive sources such as certification records, staff policies, buyer notes, and operational procedures to authorized users. DocsBot also does not use customer data to train public models.",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we let the agent create tasks or notify supervisors without giving it too much control?",
+      "answer": "Yes. DocsBot AI Actions and Skills are meant for bounded, customer-defined actions such as creating a task, routing a question, sending a notification, preparing a handoff summary, looking up approved context, or updating an approved field. Sensitive workflows can include scoped permissions, logs, review paths, and clear rules about what the agent may and may not do.",
+      "role": "Farm owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What should remain human-controlled on an organic farm?",
+      "answer": "Keep humans responsible for organic compliance decisions, certifier communications, label approvals, input-use determinations, pricing commitments, contract terms, food safety escalation, crop-critical judgment calls, employee discipline, and customer exceptions. DocsBot is best used to retrieve approved information, summarize context, collect missing details, draft responses, and route work to the right person.",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with recordkeeping pressure as our organic acreage, crops, or sales channels grow?",
+      "answer": "Yes. As operations grow, the same procedures often spread across more fields, crews, buyers, and documents. DocsBot can help staff locate the right recordkeeping procedure, form, or checklist and can route missing-document issues to the right person. USDA ERS reports 17,445 certified organic farms in 2021 and says certified operations increased more than 90% from 2011 to 2021, which reflects the broader growth and complexity of the organic sector.",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-usda-ers-organic-growth"
+      ]
+    },
+    {
+      "question": "How would we measure ROI beyond “fewer questions”?",
+      "answer": "Common measures include fewer repeated interruptions to owners and crew leads, faster inspection-prep document retrieval, faster response time for CSA and wholesale inquiries, higher capture of qualified buyer leads, reduced onboarding friction for seasonal workers, fewer unresolved customer questions, and better visibility into documentation gaps. For customer-facing use, you can also review conversation volume, resolution trends, satisfaction signals, and escalation reasons.",
+      "role": "Farm owners and operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can this support both direct-to-consumer and wholesale channels?",
+      "answer": "Yes. A farm can use one set of approved knowledge for CSA, farm stand, and farm-store questions, and another for wholesale or distributor inquiries. The customer-facing agent can answer public questions, collect structured buyer details, and hand off qualified opportunities, while an internal sales enablement agent helps staff find crop specs, certification details, pack sizes, delivery rules, proposal language, and objection-handling notes.",
+      "role": "CSA, farm stand, wholesale, and customer support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can a public website agent accidentally expose internal SOPs or buyer information?",
+      "answer": "A public agent should only be trained on sources intended for public or customer-facing use, while internal documents should be kept in a separate private agent or restricted knowledge scope. DocsBot’s granular access controls and role-based permissions help teams separate public answers from internal records, staff policies, buyer notes, and certification materials.",
+      "role": "Certification, compliance, and recordkeeping leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How is this different from a generic chatbot on our website?",
+      "answer": "DocsBot is more than a generic chat widget. It can be trained on your farm’s approved knowledge, provide source-grounded answers, support internal team use, collect structured lead or support details, identify knowledge gaps, and trigger bounded actions through customer-configured Skills, APIs, connectors, or workflows. The goal is not just conversation; it is reliable farm knowledge access and operational handoff.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will this work for farms that still rely on binders, PDFs, email threads, and spreadsheets?",
+      "answer": "Yes, although the results depend on source quality. DocsBot can train on many common knowledge sources such as websites, PDFs, Word documents, text files, internal documents, Google Drive, Notion, and Confluence. For farms with mixed digital and paper records, a practical first step is digitizing the most frequently requested SOPs, FAQs, inspection checklists, and training materials before expanding into broader workflows.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us standardize answers across owners, market staff, CSA support, and crew leads?",
+      "answer": "Yes. When everyone answers from the same approved source material, customers and employees are less likely to get conflicting guidance about pickup rules, product availability, organic practices, harvest standards, packing instructions, or label language. DocsBot can also show which questions keep recurring so leadership can update the underlying SOP or FAQ instead of correcting answers one conversation at a time.",
+      "role": "Farm owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What concerns should we raise with IT, compliance, or ownership before buying?",
+      "answer": "Agree on which sources are authoritative, which users can access internal content, what should be public versus private, when the agent must escalate, what actions it is allowed to take, how logs will be reviewed, and who owns source updates. Also decide whether the first rollout is customer support, crew training, certification lookup, wholesale qualification, or analytics for documentation gaps.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

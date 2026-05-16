@@ -1,0 +1,728 @@
+{
+  "slug": "ecotourism",
+  "business": "Ecotourism",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Ecotourism Guest Support",
+    "description": "DocsBot helps ecotourism operators give travelers faster trip answers, safer pre-arrival guidance, and source-grounded sustainability education.",
+    "canonicalPath": "/industry/ecotourism"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for responsible travel teams",
+    "headline": "Help eco-travelers plan, learn, and book with DocsBot AI agents",
+    "subheadline": "Train a DocsBot agent on your itineraries, safety notes, conservation policies, local partner information, FAQs, and visitor education content. Then use it to answer traveler questions, qualify inquiries, summarize handoffs, and support field teams without replacing expert guides or safety-critical judgment.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about tour fit, activity difficulty, accessibility, packing lists, weather preparation, conservation rules, and local stewardship from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect trip preferences, group details, dates, mobility needs, and sustainability interests before routing qualified inquiries to your booking team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give guides and operations staff quick access to SOPs, emergency checklists, interpretation notes, vendor details, and guest communication templates.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated traveler questions, missing pre-trip content, and gaps in your sustainability education materials.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your ecotourism AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps ecotourism businesses create AI agents trained on their own knowledge: trip pages, guide manuals, conservation education, booking policies, FAQs, safety procedures, partner information, PDFs, websites, and internal documents. Agents can provide source-grounded answers, support multilingual travelers, collect lead details, summarize conversations, and trigger scoped workflows through customer-configured Skills, APIs, connectors, or MCP connections.",
+    "whoItHelps": [
+      {
+        "role": "Guest experience and reservations teams",
+        "roleContext": "Ecotourism guests often ask detailed questions before they commit: fitness level, wildlife viewing expectations, cancellations, transportation, gear, dietary needs, and the operator’s sustainability practices.",
+        "bullets": [
+          {
+            "text": "Give prospective travelers instant answers from your trip pages, policies, FAQs, and local guidance instead of relying only on inbox response times.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Qualify inquiries by collecting dates, group size, experience level, accessibility needs, lodging preferences, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Route complex itinerary, private group, or high-value booking requests to a human with a concise conversation summary.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Owners and sustainability leaders",
+        "roleContext": "Responsible travel operators need to explain environmental practices clearly while keeping claims consistent across websites, emails, guide briefings, and partner conversations.",
+        "bullets": [
+          {
+            "text": "Make your sustainability policy, community benefit commitments, wildlife etiquette, and certification documentation easier for travelers and staff to understand.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support content improvement by reviewing unanswered questions and recurring topics in DocsBot analytics and logs.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Keep sensitive pricing, partnership, or incident decisions with humans while letting the agent prepare summaries and handoffs.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "GlobeAltIcon"
+      },
+      {
+        "role": "Guides, naturalists, and field operations",
+        "roleContext": "Field teams need fast access to reliable procedures and interpretation material, especially when seasonal staff, remote work, and changing local conditions make knowledge hard to find.",
+        "bullets": [
+          {
+            "text": "Provide a private internal knowledge agent for guide notes, route briefings, emergency SOPs, cultural interpretation, packing checklists, and guest communication templates.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Help new or seasonal staff find approved answers without searching through PDFs, shared drives, wikis, or long onboarding binders.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Summarize guest context before departure so guides can see dietary notes, mobility considerations, interests, and unresolved questions when authorized.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-booking-sustainable-travel-2026",
+      "metric": "85% of global travelers say more sustainable travel is important or very important.",
+      "claim": "Booking.com’s 2026 Travel & Sustainability Report highlights continued traveler demand for sustainable travel choices and better guidance from providers.",
+      "sourceTitle": "What Locals Want: Booking.com’s Guide to More Sustainable Travel Habits Informed by Residents",
+      "sourceUrl": "https://news.booking.com/what-locals-want-bookingcoms-guide-to-more-sustainable-travel-habits-informed-by-residents/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "traveler demand for sustainable options",
+        "need for clearer sustainability communication",
+        "guest education expectations"
+      ]
+    },
+    {
+      "id": "src-nps-visitor-spending-2023",
+      "metric": "325.5 million U.S. national park recreation visits and $26.4 billion in gateway-region spending in 2023.",
+      "claim": "National Park Service data shows the economic scale of nature-based tourism and the importance of well-run visitor experiences in gateway communities.",
+      "sourceTitle": "2023 National Park Visitor Spending Effects: Economic Contributions to Local Communities, States, and the Nation",
+      "sourceUrl": "https://www.nps.gov/nature/customcf/NPS_Data_Visualization/docs/NPS_2023_Visitor_Spending_Effects.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "nature tourism economic impact",
+        "gateway community value",
+        "visitor volume pressure"
+      ]
+    },
+    {
+      "id": "src-gstc-tour-operator-standard",
+      "metric": "GSTC Tour Operator Standards are organized around sustainability planning, local community benefit, cultural heritage, and environmental impact reduction.",
+      "claim": "The Global Sustainable Tourism Council provides a common framework for sustainable tourism practices and communication across tour operators.",
+      "sourceTitle": "GSTC Tour Operator Standard",
+      "sourceUrl": "https://www.gstc.org/gstc-criteria/gstc-tour-operator-standard/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "sustainability documentation",
+        "responsible tourism criteria",
+        "operator standards"
+      ]
+    },
+    {
+      "id": "src-nps-leave-no-trace",
+      "metric": "Leave No Trace is organized into seven principles for minimum-impact outdoor recreation.",
+      "claim": "National Park Service visitor education uses Leave No Trace principles to promote responsible outdoor behavior across many recreation settings.",
+      "sourceTitle": "Leave No Trace",
+      "sourceUrl": "https://www.nps.gov/places/lntapp.htm",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "visitor behavior education",
+        "conservation guidance",
+        "pre-trip stewardship messaging"
+      ]
+    },
+    {
+      "id": "src-nps-trip-planning-safety",
+      "metric": "NPS trip planning guidance asks visitors to prepare for medical emergencies, wildlife encounters, severe weather, closures, reservations, and changing conditions.",
+      "claim": "Outdoor travel providers must communicate preparation, safety, access, and local hazard information clearly before visitors arrive.",
+      "sourceTitle": "Plan Your Visit",
+      "sourceUrl": "https://home.nps.gov/planyourvisit/index.htm",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "pre-trip safety preparation",
+        "visitor readiness",
+        "weather and access guidance"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Pre-trip traveler support agent",
+      "problem": "Guests often need detailed answers before booking or departure, and many questions repeat across email, phone, social, and website forms.",
+      "agentWorkflow": "Train DocsBot on itinerary pages, FAQs, waiver language, packing lists, cancellation policies, transportation notes, accessibility guidance, and conservation information. The agent answers in your voice, cites approved knowledge, asks clarifying questions, and escalates complex or sensitive requests to staff.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved trip availability, collect missing booking details, create a ticket or task, and send a handoff summary to reservations.",
+      "exampleQuestionsOrRequests": [
+        "Is this rainforest walk suitable for a beginner hiker with a knee injury?",
+        "What should I pack for the kayak tour if rain is forecast?",
+        "Do you offer private wildlife tours for a family of six in July?"
+      ],
+      "businessOutcome": "Reduce repetitive pre-arrival questions while giving travelers clearer, more consistent guidance before they book or depart.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Sustainability and conservation education agent",
+      "problem": "Travelers increasingly care about sustainable choices, but operators must explain practices accurately without overloading trip pages or staff inboxes.",
+      "agentWorkflow": "Train the agent on your sustainability policy, conservation projects, wildlife etiquette, community partner notes, interpretation scripts, and certification documents. It can turn static education content into guided Q&A for travelers before, during, and after a trip.",
+      "liveContextOrTools": "The agent can collect traveler interests, suggest relevant reading from approved materials, and flag recurring education gaps for content review.",
+      "exampleQuestionsOrRequests": [
+        "How does this tour support local communities?",
+        "Why can’t we approach nesting wildlife for photos?",
+        "What are the low-impact rules I should know before I arrive?"
+      ],
+      "businessOutcome": "Make stewardship guidance easier to understand while keeping sustainability claims consistent across guest-facing channels. Booking.com reported that 85% of global travelers say traveling more sustainably is important or very important.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-booking-sustainable-travel-2026"
+      ]
+    },
+    {
+      "name": "Responsible visitor behavior assistant",
+      "problem": "Ecotourism teams must prepare guests for low-impact behavior, sensitive habitats, cultural respect, and safety expectations before people reach the trailhead, dock, lodge, or reserve.",
+      "agentWorkflow": "DocsBot can answer from Leave No Trace guidance, your site-specific rules, cultural protocols, gear requirements, field safety notes, and guest policies. It can present practical reminders without asking staff to repeat the same briefing details manually.",
+      "liveContextOrTools": "When connected to approved systems, the agent can send pre-trip reminders, route policy exceptions for human review, and create a checklist task for staff follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can I fly a drone near the nesting area?",
+        "What are the waste rules for the overnight trek?",
+        "How far should we stay from wildlife during the tour?"
+      ],
+      "businessOutcome": "Improve pre-trip readiness and reduce confusion around responsible travel rules. NPS describes Leave No Trace as seven principles for minimum-impact outdoor recreation.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nps-leave-no-trace"
+      ]
+    },
+    {
+      "name": "Guide and seasonal staff knowledge agent",
+      "problem": "Ecotourism operators rely on guides, seasonal staff, and local partners who need accurate internal information quickly, often across scattered files and changing procedures.",
+      "agentWorkflow": "Create a private DocsBot agent trained on guide manuals, SOPs, route notes, emergency plans, supplier details, guest service standards, onboarding materials, and approved interpretation content. Staff can ask natural-language questions and receive source-grounded answers.",
+      "liveContextOrTools": "With configured connectors, the agent can summarize the day’s guest notes, retrieve approved operational context, draft staff briefings, or trigger an internal task for missing information.",
+      "exampleQuestionsOrRequests": [
+        "What is our protocol if a guest reports heat illness symptoms?",
+        "Where is the latest guide script for the mangrove restoration stop?",
+        "What do we tell guests if the trail section is closed?"
+      ],
+      "businessOutcome": "Help teams preserve operating knowledge, onboard faster, and reduce time spent searching through manuals, shared drives, and message threads.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Booking inquiry qualification and handoff",
+      "problem": "Private tours, school groups, conservation trips, and multi-day packages need more context than a basic contact form can capture.",
+      "agentWorkflow": "A DocsBot presales agent can answer trip-fit questions, collect structured details, apply your qualification rules, and prepare a concise lead summary for staff. Humans remain responsible for final pricing, contracts, risk review, and custom commitments.",
+      "liveContextOrTools": "Customer-configured AI Actions can submit a custom lead form, forward qualified inquiries to CRM or helpdesk software, create a follow-up task, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "We are a university group of 18. Can you help us plan a field ecology trip?",
+        "Do you offer conservation volunteer add-ons for corporate retreats?",
+        "Can someone call me about a custom low-impact itinerary?"
+      ],
+      "businessOutcome": "Capture richer booking intent while keeping expert staff focused on high-value itinerary design and relationship-building.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Documentation gap and guest question analytics",
+      "problem": "Repeated traveler questions reveal what your website, trip packets, and pre-arrival emails do not explain clearly enough.",
+      "agentWorkflow": "Use DocsBot conversation logs, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery to understand what travelers and staff keep asking. Teams can update source content and retrain the agent as policies or itineraries change.",
+      "liveContextOrTools": "The agent can summarize recurring topics for content review and route unresolved questions to operations, sustainability, or reservations owners.",
+      "exampleQuestionsOrRequests": [
+        "Which questions about accessibility are going unanswered?",
+        "What do travelers ask most before booking the sea turtle tour?",
+        "Which sustainability claims need clearer source material?"
+      ],
+      "businessOutcome": "Turn support conversations into a feedback loop for better trip pages, FAQs, guide notes, and conservation education.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give eco-conscious travelers confident answers before they arrive",
+    "intro": "A DocsBot customer-facing agent can live in your website or booking experience and answer from your approved ecotourism content. It helps guests understand trip fit, preparation, low-impact behavior, and your conservation approach while escalating sensitive or custom requests to people.",
+    "requests": [
+      {
+        "request": "“Which tour is best if we want wildlife viewing without a strenuous hike?”",
+        "agentResponseStrategy": "Compare approved trip descriptions, difficulty levels, accessibility notes, group formats, and seasonality. Ask for traveler preferences, then recommend a staff follow-up if the request is custom or safety-sensitive.",
+        "sourceTypes": [
+          "Trip pages",
+          "Activity difficulty notes",
+          "Accessibility guidance",
+          "FAQs"
+        ],
+        "optionalAction": "Collect preferred dates, group size, and contact details, then route a summarized inquiry to reservations through a configured workflow.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What makes your lodge or tour sustainable?”",
+        "agentResponseStrategy": "Answer from your sustainability policy, conservation reports, community partner information, and certification documents. Keep claims source-grounded and avoid unsupported environmental promises.",
+        "sourceTypes": [
+          "Sustainability policy",
+          "Certification documents",
+          "Partner pages",
+          "Impact reports"
+        ],
+        "optionalAction": "Offer relevant follow-up materials or route detailed partnership and media questions to the sustainability lead.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“What should I know before visiting a protected habitat?”",
+        "agentResponseStrategy": "Explain your site-specific rules, wildlife etiquette, waste guidance, cultural protocols, and preparation steps in traveler-friendly language. NPS trip planning guidance emphasizes preparation for emergencies, wildlife encounters, severe weather, access rules, and changing conditions.",
+        "sourceTypes": [
+          "Visitor rules",
+          "Safety briefings",
+          "Leave No Trace materials",
+          "Pre-trip emails"
+        ],
+        "optionalAction": "Trigger a pre-arrival reminder or checklist when the customer has configured an approved messaging or task workflow.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-nps-trip-planning-safety"
+        ]
+      },
+      {
+        "request": "“Can you help me book a private conservation-focused itinerary?”",
+        "agentResponseStrategy": "Gather structured details such as dates, party size, goals, accommodation needs, physical ability, budget range, and preferred follow-up. Make clear that final itinerary and pricing commitments come from staff.",
+        "sourceTypes": [
+          "Private tour pages",
+          "Pricing guidance",
+          "Lead qualification rules",
+          "Booking policies"
+        ],
+        "optionalAction": "Forward a qualified lead summary to CRM, email, helpdesk, or scheduling tools through customer-configured Skills, APIs, connectors, or workflow automation.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Can you answer in my language?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual support to answer from the same approved source material in more than 100 languages, while preserving your policies and guest guidance.",
+        "sourceTypes": [
+          "FAQs",
+          "Trip documents",
+          "Policies",
+          "Website content"
+        ],
+        "optionalAction": "Escalate to a multilingual staff member or approved human review path when a nuanced booking, safety, or accessibility question needs personal handling.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What local rules or conditions changed for tomorrow’s tour?”",
+        "agentResponseStrategy": "Answer only from approved operational updates, staff notes, and connected live context you authorize. If information is missing or safety-critical, the agent escalates rather than guessing.",
+        "sourceTypes": [
+          "Operations updates",
+          "Guide notes",
+          "Closure notices",
+          "Internal policies"
+        ],
+        "optionalAction": "Use an approved Skill or connector to retrieve current status and notify the operations team when a traveler needs human confirmation.",
+        "icon": "BellIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep guides, reservations, and sustainability teams aligned",
+    "intro": "DocsBot can serve as a private internal knowledge agent for ecotourism teams that manage trip logistics, guest expectations, guide training, conservation communication, and partner coordination. Staff get fast answers from approved internal sources, with permissions and boundaries set by your organization.",
+    "workflows": [
+      {
+        "name": "Guide briefing and SOP retrieval",
+        "problem": "Guide teams often need current procedures, scripts, route details, and guest notes without searching across shared drives, PDFs, and message threads.",
+        "agentWorkflow": "Train DocsBot on SOPs, guide manuals, emergency procedures, interpretation notes, maps, and training material. Staff can ask questions and receive source-grounded answers with links back to the source material.",
+        "sourceTypes": [
+          "Guide manuals",
+          "SOPs",
+          "Training PDFs",
+          "Internal wikis"
+        ],
+        "optionalAction": "Summarize the day’s tour notes or create a task for operations when a guide identifies missing or outdated documentation.",
+        "outcome": "Faster pre-departure preparation and more consistent staff communication across teams and seasons.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Reservations handoff summaries",
+        "problem": "Booking conversations can include accessibility needs, dietary requirements, expectations, sustainability interests, and custom itinerary details that are easy to lose during handoff.",
+        "agentWorkflow": "Use DocsBot to summarize conversations, extract structured details, and prepare handoffs for reservations, guide leads, or operations staff. Humans review final commitments and sensitive accommodations.",
+        "sourceTypes": [
+          "Chat transcripts",
+          "Booking forms",
+          "Guest policies",
+          "Internal routing rules"
+        ],
+        "optionalAction": "Forward the summary to email, CRM, helpdesk, Slack, Microsoft Teams, or another configured workflow when authorized.",
+        "outcome": "Reduce missed context and help staff respond with the right details on the first follow-up.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Sustainability content governance",
+        "problem": "Environmental and community-impact claims must stay consistent as programs, partners, routes, and certifications change.",
+        "agentWorkflow": "Train the internal agent on approved sustainability policies, partner agreements, impact reports, and communication guidelines. Teams can ask how to explain practices and spot places where public content needs an update.",
+        "sourceTypes": [
+          "Sustainability reports",
+          "Certification files",
+          "Partner documents",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Create a review task for marketing or leadership when the agent finds a content gap or outdated source.",
+        "outcome": "More consistent sustainability communication across guest support, sales, guide briefings, and public education.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Prospect and group sales preparation",
+        "problem": "School groups, companies, and conservation partners often ask detailed questions about fit, outcomes, logistics, and risk before committing.",
+        "agentWorkflow": "A sales enablement agent can retrieve service details, approved pricing guidance, case materials, trip requirements, objection-handling notes, and proposal templates. With approved web search and Skills, it can summarize public account context for a human seller.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Pricing guidance",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Draft a follow-up email or proposal outline for staff review and create a CRM task through customer-configured actions.",
+        "outcome": "Help sales and reservations teams prepare more complete responses while keeping final pricing and contract terms with humans.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your ecotourism knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved sources such as websites, help centers, internal documents, PDFs, wikis, and other configured knowledge bases.",
+      "industryApplication": "Train an agent on itineraries, safety briefings, conservation education, booking policies, guide manuals, local partner information, and multilingual guest resources.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer support",
+      "mainLandingPageContext": "DocsBot support agents answer customer questions in the company’s voice from configured knowledge sources and can escalate when needed.",
+      "industryApplication": "Answer traveler questions about trip fit, gear, activity level, accessibility, cancellations, sustainability practices, and responsible visitor behavior without relying on generic AI responses.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and scoped workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support approved lookups, routing, summaries, record creation, updates, workflow triggers, and handoffs through customer-configured APIs, connectors, or MCP servers.",
+      "industryApplication": "Collect booking details, look up approved trip context, create follow-up tasks, forward qualified leads, send staff handoff summaries, or trigger pre-arrival reminders within your defined boundaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can provide private team access to SOPs, policies, onboarding material, troubleshooting guides, and operational documents.",
+      "industryApplication": "Help guides, seasonal staff, reservations, and sustainability teams find the latest procedure, script, local rule, partner detail, or guest service standard quickly.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which tour questions, safety topics, accessibility issues, or sustainability claims guests ask about most, then improve your website, FAQs, and pre-trip materials.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, partner files, guest context, pricing guidance, and operational documents controlled while giving teams practical AI access to approved knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for owned knowledge, so answers stay grounded in your itineraries, policies, guides, and training materials.",
+      "Supports high-volume customer questions while preserving escalation paths for complex guest needs.",
+      "Works for travel training, multilingual manuals, embedded website support, and internal knowledge access."
+    ],
+    "whyTheseReviewsFit": "Ecotourism teams need more than a generic bot: they need trusted answers from their own trip content, training resources, policies, and guest materials. DocsBot proof spans travel training, owned content libraries, multilingual support documents, embedded customer support, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ArrowTrendingUpIcon",
+      "LanguageIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for ecotourism operators",
+    "audience": [
+      "Ecotourism operators",
+      "Nature tour companies",
+      "Eco-lodges and retreats",
+      "Conservation travel teams",
+      "Adventure and wildlife tour providers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "GlobeAltIcon"
+  },
+  "relatedIndustrySlugs": [
+    "conservation-organizations",
+    "environmental-consultancy",
+    "environmental-monitoring",
+    "carbon-accounting",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "ecotourism",
+    "webSearchQueries": [
+      "UN Tourism ecotourism sustainable tourism market trends travelers sustainable travel report 2024",
+      "Booking.com sustainable travel report 2024 travelers want sustainable travel statistics",
+      "Adventure Travel Trade Association adventure tourism market report guide staffing sustainability pain points",
+      "National Park Service visitor spending effects 2023 report tourism gateway communities",
+      "NOAA weather ready nation outdoor recreation lightning heat safety tourism guides",
+      "National Park Service plan like a park ranger safety wildlife weather visitor preparedness",
+      "Leave No Trace Center for Outdoor Ethics seven principles official",
+      "Global Sustainable Tourism Council criteria tour operators sustainability visitor information"
+    ],
+    "sourceUrls": [
+      "https://news.booking.com/what-locals-want-bookingcoms-guide-to-more-sustainable-travel-habits-informed-by-residents/",
+      "https://www.nps.gov/nature/customcf/NPS_Data_Visualization/docs/NPS_2023_Visitor_Spending_Effects.pdf",
+      "https://www.gstc.org/gstc-criteria/gstc-tour-operator-standard/",
+      "https://www.nps.gov/places/lntapp.htm",
+      "https://home.nps.gov/planyourvisit/index.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47713,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 35169,
+        "outputTokens": 11652,
+        "reasoningOutputTokens": 210,
+        "totalTokens": 59365,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.265838,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.285838
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27676,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 20380,
+          "outputTokens": 9029,
+          "reasoningOutputTokens": 210,
+          "totalTokens": 36705,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.188209,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.208209
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20037,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14789,
+          "outputTokens": 2623,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22660,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077629,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077629
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1448375240586-882707db888b?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxmb3Jlc3R8ZW58MHwwfHx8MTcxNDg3ODA2NHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Ecotourism background image",
+    "source": "legacy-industry",
+    "query": "Ecotourism"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer nuanced trip-fit questions without making unsafe recommendations?",
+      "answer": "Yes, if you train it on approved itinerary details, difficulty ratings, accessibility notes, packing guidance, waiver language, and safety policies. DocsBot can ask clarifying questions, answer from those sources, and escalate when a traveler’s health, mobility, weather, wildlife, or route-specific risk needs human judgment.",
+      "role": "Guest experience and reservations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our reservations team during peak inquiry season?",
+      "answer": "DocsBot can handle repetitive pre-booking questions about dates, trip difficulty, gear, cancellations, transportation, dietary needs, sustainability practices, and accessibility. It can also collect group size, preferred dates, mobility needs, and follow-up details, then send a concise handoff so staff spend more time on high-value bookings and exceptions.",
+      "role": "Guest experience and reservations teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot qualify private tours, school groups, and conservation travel inquiries?",
+      "answer": "Yes. You can configure a presales agent to collect structured details such as dates, party size, goals, age range, physical ability, lodging needs, budget range, risk considerations, and preferred follow-up channel. With approved Skills, APIs, connectors, or workflows, it can forward the lead summary to your team while humans retain control of pricing and commitments.",
+      "role": "Guest experience and reservations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it help us communicate sustainability claims without sounding like greenwashing?",
+      "answer": "DocsBot is useful when your approved sources are clear: sustainability policies, conservation reports, community partner notes, certification documents, and guide scripts. The agent answers from those materials instead of inventing claims, helping teams stay consistent as travelers ask for proof of impact and responsible travel practices.",
+      "role": "Owners and sustainability leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we use it to educate guests on Leave No Trace or site-specific visitor rules?",
+      "answer": "Yes. DocsBot can answer from your site rules, pre-trip emails, wildlife etiquette, cultural protocols, and approved Leave No Trace materials. This matters because the National Park Service describes Leave No Trace around seven principles for minimum-impact outdoor recreation, which many ecotourism operators adapt into guest education.",
+      "role": "Owners and sustainability leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-nps-leave-no-trace"
+      ]
+    },
+    {
+      "question": "Can the agent support multilingual travelers without creating separate FAQs for every language?",
+      "answer": "DocsBot supports answers in more than 100 languages from the same approved source material. That can help international guests understand trip fit, packing requirements, conservation rules, cancellation policies, and accessibility guidance while preserving the same source-grounded policies you use in English.",
+      "role": "Guest experience and reservations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from answering questions about weather, closures, or changing field conditions incorrectly?",
+      "answer": "Set boundaries. For changing conditions, train the agent to use only approved operational updates or authorized live context from configured Skills, APIs, connectors, or MCP connections. If current information is missing or safety-critical, the agent should escalate to operations instead of guessing.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can guides and seasonal staff use DocsBot internally, or is it only for website visitors?",
+      "answer": "DocsBot can also serve as a private internal knowledge agent. Guides, naturalists, reservations staff, and operations teams can ask questions about SOPs, route notes, emergency checklists, interpretation scripts, partner details, onboarding materials, and guest communication templates, with access controlled by your organization.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a guest asks about a medical condition, injury, or accessibility concern?",
+      "answer": "DocsBot can provide source-grounded information from your accessibility notes, activity descriptions, and preparation guidance, then route the case to a human when judgment is needed. It should not decide whether a guest is medically fit; it can collect context and prepare a clear handoff for reservations or guide leadership.",
+      "role": "Guest experience and reservations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we measure whether the agent is improving our guest experience content?",
+      "answer": "Yes. DocsBot provides logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Ecotourism teams can use this to spot repeated questions about packing, accessibility, wildlife rules, sustainability claims, cancellations, transportation, or confusing trip descriptions.",
+      "role": "Owners and sustainability leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot fit with our booking engine, CRM, helpdesk, or team messaging tools?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, webhooks, MCP servers, or workflow automation to support approved lookups, lead handoffs, ticket creation, team notifications, and summaries. You should scope each connection carefully, especially for availability, pricing, refunds, and guest records.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent answer from both public trip pages and private guide manuals?",
+      "answer": "Yes, but you should separate access by audience. A public website agent can use approved guest-facing content, while a private internal agent can use SOPs, guide manuals, emergency procedures, vendor notes, and staff-only policies. DocsBot supports granular access controls and role-based permissions for governed use.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will DocsBot replace our guides or naturalists?",
+      "answer": "No. DocsBot is best used to reduce repetitive questions, surface approved information, summarize context, and support preparation. Guides and naturalists should still own interpretation, field judgment, guest safety decisions, cultural sensitivity, wildlife encounters, and any situation where local expertise matters.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How much work is required before launch?",
+      "answer": "Most of the work is knowledge preparation: deciding which trip pages, FAQs, PDFs, policies, safety notes, sustainability documents, guide materials, and booking rules are approved sources. A practical launch usually starts with one use case—such as pre-trip support—then expands after reviewing logs and unresolved questions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help us onboard seasonal staff faster?",
+      "answer": "Yes. A private DocsBot agent can make SOPs, guide scripts, route briefings, emergency checklists, partner instructions, and guest service standards easier to find. Seasonal staff can ask natural-language questions instead of searching shared drives, binders, old emails, or message threads.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if our policies vary by location, season, permit, or local partner?",
+      "answer": "DocsBot can handle variation if your source material is structured clearly. Use location-specific trip pages, seasonal notes, partner policies, closure procedures, and escalation rules. For ambiguous questions, the agent can ask clarifying questions or route the request to staff rather than applying the wrong policy.",
+      "role": "Guides, naturalists, and field operations",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does this support responsible visitor behavior before guests arrive?",
+      "answer": "DocsBot can reinforce pre-arrival guidance on waste rules, wildlife distance, drones, trail etiquette, cultural protocols, gear, and emergency preparation. NPS trip planning guidance asks visitors to prepare for medical emergencies, wildlife encounters, severe weather, closures, reservations, and changing conditions.",
+      "role": "Guest experience and reservations teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nps-trip-planning-safety"
+      ]
+    },
+    {
+      "question": "Can we use the agent to explain our certifications and sustainability standard alignment?",
+      "answer": "Yes. Train it on your certification documents, sustainability policy, partner commitments, impact reports, and approved messaging. For example, GSTC Tour Operator Standards organize criteria around sustainability planning, local community benefit, cultural heritage, and environmental impact reduction, which can guide how your materials are structured.",
+      "role": "Owners and sustainability leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-gstc-tour-operator-standard"
+      ]
+    },
+    {
+      "question": "How do we keep guest data, internal SOPs, and partner information protected?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. You can also keep sensitive Skills scoped with customer-defined controls, logging, secrets, and permissions.",
+      "role": "Owners and sustainability leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What KPIs should we use to judge whether this is working?",
+      "answer": "Common metrics include repetitive inquiry reduction, response time, qualified lead capture, booking handoff quality, unresolved question rate, guest satisfaction, staff time saved, multilingual usage, top missing-content topics, and fewer pre-trip clarification calls. For internal use, track staff adoption and repeated SOP questions.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us capture demand from travelers who care about sustainability?",
+      "answer": "Yes. The agent can answer sustainability questions immediately, explain stewardship practices from approved sources, and qualify travelers by interests such as conservation, low-impact activities, local community benefit, or wildlife viewing. Booking.com reported that 85% of global travelers say traveling more sustainably is important or very important.",
+      "role": "Owners and sustainability leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-booking-sustainable-travel-2026"
+      ]
+    },
+    {
+      "question": "What makes DocsBot different from a generic website chatbot?",
+      "answer": "DocsBot is built around owned knowledge and governed workflows. Instead of giving generic travel advice, it can answer from your trip pages, policies, PDFs, guide manuals, sustainability materials, and internal documents, then escalate, summarize, qualify leads, or trigger scoped actions when you configure those workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle high-volume visitor questions without losing our voice?",
+      "answer": "Yes, as long as your approved knowledge and instructions reflect your brand, safety posture, and sustainability language. DocsBot agents answer in the company’s voice from configured sources, and conversation review helps you refine tone, missing content, and escalation rules over time.",
+      "role": "Guest experience and reservations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can we use it for gateway-community or protected-area visitor demand planning?",
+      "answer": "DocsBot will not replace destination planning tools, but its analytics can reveal what guests ask before arrival: closures, permits, transport, packing, wildlife rules, accessibility, and local spending questions. Nature-based tourism is economically significant; NPS reported 325.5 million recreation visits and $26.4 billion in gateway-region spending in 2023.",
+      "role": "Owners and sustainability leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-nps-visitor-spending-2023"
+      ]
+    },
+    {
+      "question": "Who should own the implementation internally?",
+      "answer": "The best owner is usually a cross-functional lead from reservations, operations, or sustainability. Reservations knows guest questions, guides know safety and field reality, sustainability leaders own claims, and operations controls procedures. Assign one content owner to approve sources, review logs, and manage escalation rules.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we start with customer support and later expand into internal operations?",
+      "answer": "Yes. Many ecotourism teams should start with a narrow customer-facing agent for pre-trip questions, then expand into lead qualification, staff SOP retrieval, guide briefings, sustainability content governance, and analytics-driven content improvements once the first knowledge base and escalation process are proven.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should procurement think about pricing and ROI for a smaller ecotourism operator?",
+      "answer": "Evaluate the cost against seasonal inquiry volume, staff hours spent answering repeat questions, missed leads after hours, multilingual support needs, onboarding load, and the value of better-qualified group inquiries. The strongest ROI case is usually fewer repetitive questions plus better handoffs for higher-value bookings.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

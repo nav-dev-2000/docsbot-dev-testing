@@ -1,0 +1,748 @@
+{
+  "slug": "alternative-medicine",
+  "business": "Alternative Medicine",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Alternative Medicine Practice Support",
+    "description": "DocsBot helps alternative medicine practices deliver source-grounded answers, intake routing, and staff knowledge support without overloading the front desk.",
+    "canonicalPath": "/industry/alternative-medicine"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for holistic and integrative care teams",
+    "headline": "DocsBot AI agents help alternative medicine practices guide patients safely",
+    "subheadline": "Train an AI support agent on your approved service pages, intake instructions, policies, practitioner bios, aftercare guides, FAQs, and internal SOPs so patients and staff can get consistent answers, route requests, and escalate sensitive health questions to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer patient questions from approved clinic content, service descriptions, pricing policies, preparation guides, and post-visit instructions.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect consultation intent, symptoms-at-a-high-level, modality interest, location, preferred times, and contact details for human follow-up.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Route urgent, diagnosis-related, medication, supplement safety, or adverse-reaction concerns to staff instead of letting the agent speculate.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "text": "Help practitioners and coordinators find SOPs, contraindication notes, intake scripts, product policies, and care-plan documentation faster.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build your clinic AI agent",
+    "secondaryCta": "Explore healthcare-ready workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps alternative medicine clinics create AI agents trained on their own knowledge sources. A practice can use it as a website support agent for patient education and intake, a private internal knowledge agent for staff, and a bounded workflow assistant that summarizes requests, creates handoffs, or triggers approved follow-up steps through customer-configured Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Clinic owners and practice managers",
+        "roleContext": "Keep patient communication consistent while protecting practitioner time and making sure sensitive questions move to a human review path.",
+        "bullets": [
+          {
+            "text": "Turn approved FAQs, policies, modality pages, intake requirements, and cancellation rules into always-available patient answers.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Use conversation logs and reports to see repeated questions, confusing service pages, and documentation gaps.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "For HIPAA-covered workflows, HHS says covered health care providers must protect health information and provide individual privacy rights.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-hipaa-covered-entities"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Front desk, intake, and care coordination teams",
+        "roleContext": "Give staff a reliable assistant for repetitive questions, consultation preparation, and handoffs while keeping high-impact health decisions with licensed professionals.",
+        "bullets": [
+          {
+            "text": "Collect missing details for appointment requests, package inquiries, insurance or superbill questions, and practitioner preference before staff follows up.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize patient requests for a human coordinator and route the conversation to the right inbox, ticket queue, or team workflow when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Help staff respond consistently about preparation instructions, late-arrival rules, telehealth availability, and post-session expectations.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Practitioners, educators, and wellness product teams",
+        "roleContext": "Make approved educational material easier to retrieve without turning the AI agent into a clinician, diagnostician, or unrestricted supplement advisor.",
+        "bullets": [
+          {
+            "text": "Search internal protocols, patient education sheets, practitioner bios, and modality explainers from a private team chat experience.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft source-grounded explanations of services such as acupuncture, massage therapy, naturopathy, meditation programs, or herbal consultations from clinic-approved language.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "The FTC says health-related product benefit claims must be supported by competent and reliable scientific evidence, which makes controlled messaging important.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-ftc-health-products"
+            ]
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-nccih-2022-use",
+      "metric": "36.7% of U.S. adults used selected complementary health approaches in 2022.",
+      "claim": "NCCIH reported that U.S. adult use of selected complementary health approaches rose over 20 years, reaching 36.7% in 2022.",
+      "sourceTitle": "NCCIH: Use of Select Complementary Health Approaches: 20-Year Trends",
+      "sourceUrl": "https://www.nccih.nih.gov/research/national-health-interview-survey-2022/graph-titled-use-of-select-complementary-health-approaches-20-year-trends",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "market demand",
+        "patient education volume",
+        "alternative medicine adoption"
+      ]
+    },
+    {
+      "id": "src-nccih-pain",
+      "metric": "Yoga, meditation, and massage therapy increased the most from 2002 to 2022.",
+      "claim": "NCCIH summarized 2022 NHIS findings showing increased U.S. adult use of complementary health approaches, especially for pain management.",
+      "sourceTitle": "NCCIH: National Health Interview Survey 2022",
+      "sourceUrl": "https://www.nccih.nih.gov/research/national-health-interview-survey-2022",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "pain-management questions",
+        "consumer demand",
+        "service education"
+      ]
+    },
+    {
+      "id": "src-fda-supplements-101",
+      "metric": "FDA monitors adverse event reports and firms must report serious dietary supplement adverse events within 15 days.",
+      "claim": "FDA explains that dietary supplement companies are responsible for safety and labeling, while FDA monitors adverse events after products are on the market.",
+      "sourceTitle": "FDA 101: Dietary Supplements",
+      "sourceUrl": "https://www.fda.gov/consumers/consumer-updates/fda-101-dietary-supplements",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "supplement safety",
+        "adverse event escalation",
+        "patient education boundaries"
+      ]
+    },
+    {
+      "id": "src-fda-report-supplements",
+      "metric": "Consumers and health professionals can report dietary supplement reactions or illnesses to FDA.",
+      "claim": "FDA instructs consumers and professionals to stop use and submit a safety report if a supplement may have caused a serious reaction or illness.",
+      "sourceTitle": "FDA: How to Report a Problem with Dietary Supplements",
+      "sourceUrl": "https://www.fda.gov/Food/DietarySupplements/ReportAdverseEvent/default.htm?mbid=synd_msnhealth",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "adverse reaction workflows",
+        "supplement escalation",
+        "safety routing"
+      ]
+    },
+    {
+      "id": "src-ftc-health-products",
+      "metric": "Health benefit claims need competent and reliable scientific evidence.",
+      "claim": "FTC guidance says health-related advertising claims, including for supplements and alternative products, must meet substantiation standards.",
+      "sourceTitle": "FTC: Health Products Compliance Guidance",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "marketing compliance",
+        "approved content control",
+        "claim review"
+      ]
+    },
+    {
+      "id": "src-hipaa-covered-entities",
+      "metric": "HIPAA applies to covered entities, including certain health care providers that transmit standard electronic transactions.",
+      "claim": "HHS explains that covered entities must comply with HIPAA requirements to protect health information and provide individual rights.",
+      "sourceTitle": "HHS: Covered Entities and Business Associates",
+      "sourceUrl": "https://www.hhs.gov/hipaa/for-professionals/covered-entities/index.html?hl=en",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "privacy expectations",
+        "health data governance",
+        "regulated workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient education and service-fit support",
+      "problem": "Patients often ask broad questions about modalities, visit length, preparation, pricing, credentials, contraindications, and what to expect before they are ready to call.",
+      "agentWorkflow": "DocsBot answers from approved clinic pages, PDFs, FAQs, service menus, practitioner bios, and intake guidance. It can explain the difference between services, cite the source content, ask clarifying intake questions, and hand off diagnosis, emergency, medication, supplement, pregnancy, or adverse-reaction questions to staff.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up clinic location, practitioner availability categories, service eligibility rules, or package information and then create a lead, ticket, or callback request.",
+      "exampleQuestionsOrRequests": [
+        "What should I expect at my first acupuncture appointment?",
+        "Do you offer massage therapy for people managing chronic pain?",
+        "Can I book a consultation before choosing a practitioner?"
+      ],
+      "businessOutcome": "More patients get clear next steps from clinic-approved material while staff spend less time repeating basic explanations and more time on clinical or relationship-driven conversations.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-nccih-pain"
+      ]
+    },
+    {
+      "name": "Consultation intake and appointment handoff",
+      "problem": "Front desks lose time gathering the same details across phone calls, contact forms, website chat, and email before a coordinator can recommend the right next step.",
+      "agentWorkflow": "The agent collects name, contact details, requested service, goals, practitioner preference, location, time window, and consent to follow up. It summarizes the request for staff, flags sensitive health content, and routes the handoff to a human coordinator instead of making clinical judgments.",
+      "liveContextOrTools": "DocsBot AI Actions can trigger a customer-configured scheduling workflow, create a task or ticket, forward the intake summary to a CRM or helpdesk, or notify the right team channel through approved connectors.",
+      "exampleQuestionsOrRequests": [
+        "I want a naturopathic consultation next week—what information do you need?",
+        "Can someone call me about your herbal consultation packages?",
+        "I’m interested in acupuncture but not sure which practitioner is right for me."
+      ],
+      "businessOutcome": "The practice receives cleaner intake context, patients feel acknowledged quickly, and staff can prioritize follow-up without manually reconstructing every conversation.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Supplement and herbal product question boundaries",
+      "problem": "Alternative medicine teams may receive questions about herbs, supplements, dosage, interactions, reactions, and product claims that require careful boundaries and staff review.",
+      "agentWorkflow": "DocsBot can answer from approved product education, clinic disclaimers, purchase policies, and safety instructions, while refusing to diagnose or personalize supplement dosing. It can route possible adverse reactions, medication-interaction questions, pregnancy concerns, and high-risk symptoms to a practitioner or urgent care instructions defined by the clinic.",
+      "liveContextOrTools": "With scoped Skills, the agent can collect product name, lot number, purchase date, symptoms reported, and contact details, then create a review task or incident handoff for staff without storing secrets in the chat.",
+      "exampleQuestionsOrRequests": [
+        "I felt unwell after taking a supplement I bought from the clinic—what should I do?",
+        "Can I take this herb with my prescription medication?",
+        "Where can I find your supplement return and safety reporting policy?"
+      ],
+      "businessOutcome": "Clinics can provide consistent safety routing and documentation while keeping supplement recommendations, adverse-event review, and medical decisions with qualified humans.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-supplements-101",
+        "src-fda-report-supplements"
+      ]
+    },
+    {
+      "name": "Internal protocol and practitioner knowledge assistant",
+      "problem": "Practitioners and coordinators often search across shared drives, SOPs, PDFs, training notes, and policy documents to answer operational questions during a busy clinic day.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves approved SOPs, intake scripts, room turnover procedures, contraindication checklists, aftercare templates, documentation standards, and escalation rules. It provides source-grounded answers and helps reveal where internal documentation is missing or outdated.",
+      "liveContextOrTools": "Teams can use private chat, Slack, Microsoft Teams, or customer-configured connectors. Where appropriate, MCP Connectors can connect to remote Model Context Protocol servers that expose approved tools from systems the clinic already uses.",
+      "exampleQuestionsOrRequests": [
+        "What is our process when a patient reports dizziness after a session?",
+        "Where is the latest cupping aftercare handout?",
+        "What should the front desk say about missed appointment fees?"
+      ],
+      "businessOutcome": "Staff get faster access to the same approved operating knowledge, reducing inconsistent answers and repeated interruptions to senior practitioners.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Marketing and claims review support",
+      "problem": "Alternative medicine websites, emails, and product descriptions need careful language because patients are making health decisions and regulators scrutinize unsupported health claims.",
+      "agentWorkflow": "DocsBot can draft or review copy against approved brand guidance, modality descriptions, evidence summaries, disclaimers, and internal claim rules. It can identify risky phrasing for human review and suggest source-grounded alternatives from approved clinic material.",
+      "liveContextOrTools": "With configured workflows, the agent can create a review task, attach the draft and supporting sources, notify the marketing or compliance owner, and log recurring claim questions for content improvement.",
+      "exampleQuestionsOrRequests": [
+        "Rewrite this service description using our approved acupuncture language.",
+        "Does this supplement page make a treatment claim we should review?",
+        "Create a short educational email from our approved meditation program guide."
+      ],
+      "businessOutcome": "Marketing teams can move faster while keeping final approval, clinical claims, and compliance decisions with humans.",
+      "icon": "PencilIcon",
+      "sourceIds": [
+        "src-ftc-health-products"
+      ]
+    },
+    {
+      "name": "Multilingual patient support for community practices",
+      "problem": "Clinics serving diverse communities may need to explain services, forms, preparation steps, and follow-up instructions consistently across languages.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from the same approved sources, helping patients understand clinic logistics and education while preserving escalation rules for clinical, urgent, or sensitive concerns.",
+      "liveContextOrTools": "When paired with approved intake workflows, the agent can capture preferred language, request type, and contact details so staff can follow up with the right context.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain your first-visit process in Spanish?",
+        "What should I bring to my appointment?",
+        "Do you have post-massage instructions in my language?"
+      ],
+      "businessOutcome": "Practices can improve accessibility and reduce repetitive translation burden while keeping the authoritative source content centralized.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients a careful, source-grounded guide before they call",
+    "intro": "A DocsBot patient-facing agent can sit on your website as a chat widget or intake assistant trained on approved clinic knowledge. It should educate, collect context, and route—not diagnose, prescribe, or replace practitioner judgment.",
+    "requests": [
+      {
+        "request": "“Which service is right for me: acupuncture, massage, naturopathy, or meditation coaching?”",
+        "agentResponseStrategy": "Explain each service from approved clinic descriptions, ask what the patient hopes to accomplish, share booking or consultation next steps, and recommend human guidance for condition-specific decisions.",
+        "sourceTypes": [
+          "Service pages",
+          "Practitioner bios",
+          "FAQs",
+          "Intake policies"
+        ],
+        "optionalAction": "Create a consultation request or forward a summarized service-fit inquiry to the front desk when configured.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“I’m managing pain and want to know what options you offer.”",
+        "agentResponseStrategy": "Answer from clinic-approved educational pages and avoid promising outcomes. NCCIH notes that complementary health approaches have increasingly been used for pain management, so patients often need clear expectations and next steps.",
+        "sourceTypes": [
+          "Patient education pages",
+          "Modality explainers",
+          "Aftercare guides",
+          "Research summaries"
+        ],
+        "optionalAction": "Offer to collect contact details and route the question to a practitioner or coordinator for a consultation discussion.",
+        "icon": "HeartIcon",
+        "sourceIds": [
+          "src-nccih-pain"
+        ]
+      },
+      {
+        "request": "“Can I take this supplement with my medication?”",
+        "agentResponseStrategy": "Decline to personalize medication or supplement interaction advice, provide the clinic’s safety language, and route to a licensed professional or urgent instructions defined by the clinic.",
+        "sourceTypes": [
+          "Supplement safety policy",
+          "Disclaimers",
+          "Escalation SOPs",
+          "Product education sheets"
+        ],
+        "optionalAction": "Collect the product name, concern, and callback details for staff review without giving dosage or interaction advice.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“What do I need to do before and after my first visit?”",
+        "agentResponseStrategy": "Provide preparation and aftercare instructions from the clinic’s approved guides, including arrival time, forms, clothing, hydration, payment expectations, and when to contact the clinic.",
+        "sourceTypes": [
+          "Welcome packets",
+          "Preparation PDFs",
+          "Aftercare sheets",
+          "Office policies"
+        ],
+        "optionalAction": "Send a summarized checklist or direct the patient to the correct form or booking workflow when configured.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "request": "“Do you have appointments this week?”",
+        "agentResponseStrategy": "Collect scheduling intent and preferences, then use an approved scheduling workflow or handoff. The agent should not overbook, promise availability, or make high-impact commitments outside configured rules.",
+        "sourceTypes": [
+          "Scheduling rules",
+          "Service duration tables",
+          "Location pages",
+          "Staff routing instructions"
+        ],
+        "optionalAction": "Trigger a configured booking request, create a task, or route the conversation to staff with a concise summary.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Is my information private?”",
+        "agentResponseStrategy": "Answer from the practice’s privacy policy and explain the boundaries of website chat, intake forms, and staff follow-up using approved wording.",
+        "sourceTypes": [
+          "Privacy policy",
+          "Terms of use",
+          "Consent language",
+          "Security FAQs"
+        ],
+        "optionalAction": "Escalate privacy or records-access questions to the designated office contact.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make protocols, policies, and patient education easier for staff to find",
+    "intro": "DocsBot can also run as a private internal knowledge agent for practice teams. Train it on approved SOPs, policies, provider resources, HR documents, scripts, and education libraries so staff can retrieve consistent answers during daily operations.",
+    "workflows": [
+      {
+        "name": "Front-desk answer assistant",
+        "problem": "Reception and intake teams need quick answers about services, forms, fees, packages, practitioner schedules, and escalation rules while patients are waiting.",
+        "agentWorkflow": "The agent searches approved clinic documents, summarizes the answer, cites the source, and suggests the next step or escalation path defined by the practice.",
+        "sourceTypes": [
+          "Office policies",
+          "Service catalog",
+          "Pricing guidance",
+          "Escalation SOPs"
+        ],
+        "optionalAction": "Create a task, draft a callback note, or route a question to the practice manager through a configured workflow.",
+        "outcome": "Patients receive more consistent operational answers and staff avoid interrupting practitioners for routine information.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "name": "Practitioner protocol retrieval",
+        "problem": "Care teams may need to quickly locate the latest version of an intake script, contraindication checklist, post-session note, or education handout.",
+        "agentWorkflow": "DocsBot retrieves the most relevant approved internal document, summarizes it, and links the source so the practitioner can verify before using it.",
+        "sourceTypes": [
+          "Clinical operations SOPs",
+          "Training PDFs",
+          "Care-plan templates",
+          "Aftercare handouts"
+        ],
+        "optionalAction": "Flag outdated or missing documents through analytics and knowledge-gap review.",
+        "outcome": "Teams can standardize operational knowledge while keeping clinical judgment and patient-specific decisions with practitioners.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Safety and adverse-reaction handoff",
+        "problem": "Reports involving supplements, herbs, reactions, fainting, worsening symptoms, or medication concerns require reliable capture and rapid human review.",
+        "agentWorkflow": "The internal agent can guide staff through the practice’s approved incident intake checklist, summarize the facts, and remind them which escalation path the clinic has defined.",
+        "sourceTypes": [
+          "Incident SOPs",
+          "Supplement policies",
+          "Adverse-event checklists",
+          "Emergency scripts"
+        ],
+        "optionalAction": "Create a review task or notify the responsible practitioner through a customer-configured connector.",
+        "outcome": "Staff capture consistent context without relying on the AI agent to determine diagnosis, causality, or treatment.",
+        "icon": "BellIcon"
+      },
+      {
+        "name": "Marketing and education library assistant",
+        "problem": "Teams creating newsletters, service pages, or workshop materials need to reuse approved language and avoid unsupported health claims.",
+        "agentWorkflow": "DocsBot drafts copy from approved content, compares proposed text against clinic claim guidelines, and highlights language that should go to a human reviewer.",
+        "sourceTypes": [
+          "Brand guidelines",
+          "Approved claims library",
+          "Research summaries",
+          "Disclaimers"
+        ],
+        "optionalAction": "Generate a review summary and route it to the designated reviewer before publication.",
+        "outcome": "The practice can publish educational material more efficiently while keeping final compliance and clinical review in human hands.",
+        "icon": "MegaphoneIcon",
+        "sourceIds": [
+          "src-ftc-health-products"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from clinic knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on websites, help centers, documents, internal content, PDFs, and other configured knowledge sources to produce answers grounded in approved material.",
+      "industryApplication": "Alternative medicine practices can answer questions about modalities, preparation, aftercare, pricing policies, practitioner bios, and office rules without relying on generic internet wellness advice.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Embeddable website support agent",
+      "mainLandingPageContext": "DocsBot agents can work through a website or product chat widget and provide instant support in the company’s voice.",
+      "industryApplication": "Place the agent on service pages, booking pages, workshop pages, or product education pages to help prospective patients understand next steps before contacting the clinic.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, routing, summaries, task creation, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved workflows to collect consultation requests, summarize supplement safety concerns, create intake tasks, route complex questions, or trigger follow-up notifications with defined permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other internal sources.",
+      "industryApplication": "Give front-desk teams, practitioners, and managers a searchable source for protocols, intake scripts, patient education sheets, package rules, and staff procedures.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, satisfaction and resolution analysis, topic management, and insight into missing knowledge.",
+      "industryApplication": "See what patients ask about most—pricing, pain-related services, preparation, supplements, insurance, or practitioner fit—and improve the content your agent and staff rely on.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Health-service practices can set clearer boundaries for private knowledge, staff access, review paths, and sensitive patient or supplement-related workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare communications teams use DocsBot to streamline internal decision-making and reduce direct human handoffs.",
+      "DocsBot can turn owned education libraries into source-grounded answers that patients, students, or staff can understand.",
+      "Teams can train agents on their own content instead of relying on generic AI responses for sensitive service explanations."
+    ],
+    "whyTheseReviewsFit": "Alternative medicine practices need a careful balance of education, access, and human oversight. DocsBot proof from healthcare communications, education, and owned-content teams shows how source-grounded agents can support high-volume questions, internal decision-making, and consistent explanations without replacing expert review.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for alternative medicine practices",
+    "audience": [
+      "Alternative medicine clinic owners",
+      "Integrative health practice managers",
+      "Naturopathic and acupuncture clinics",
+      "Holistic wellness operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "acupuncturist-health-services",
+    "chiropractic-office",
+    "health-coaching",
+    "sports-medicine",
+    "athletic-trainer",
+    "dentistry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "alternative-medicine",
+    "webSearchQueries": [
+      "NCCIH complementary health approaches adults United States percent 2022",
+      "NIH National Center for Complementary and Integrative Health complementary health approaches use adults 2022",
+      "FDA dietary supplement adverse event reporting safety consumers herbal supplements",
+      "FTC health products claims substantiation alternative medicine advertising",
+      "HHS HIPAA covered entities health care providers electronic transactions summary",
+      "National Health Interview Survey complementary health approaches adults 2022 yoga meditation chiropractic acupuncture massage"
+    ],
+    "sourceUrls": [
+      "https://www.nccih.nih.gov/research/national-health-interview-survey-2022/graph-titled-use-of-select-complementary-health-approaches-20-year-trends",
+      "https://www.nccih.nih.gov/research/national-health-interview-survey-2022",
+      "https://www.fda.gov/consumers/consumer-updates/fda-101-dietary-supplements",
+      "https://www.fda.gov/Food/DietarySupplements/ReportAdverseEvent/default.htm?mbid=synd_msnhealth",
+      "https://www.ftc.gov/business-guidance/resources/health-products-compliance-guidance",
+      "https://www.hhs.gov/hipaa/for-professionals/covered-entities/index.html?hl=en"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45984,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33440,
+        "outputTokens": 8467,
+        "reasoningOutputTokens": 182,
+        "totalTokens": 54451,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.213741,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.233741
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25668,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18372,
+          "outputTokens": 5630,
+          "reasoningOutputTokens": 182,
+          "totalTokens": 31298,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.132204,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.152204
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20316,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15068,
+          "outputTokens": 2837,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23153,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.081537,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.081537
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1514733670139-4d87a1941d55?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxoZXJiYWx8ZW58MHwwfHx8MTcxNDg3ODA1OHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Alternative Medicine background image",
+    "source": "legacy-industry",
+    "query": "Alternative Medicine"
+  },
+  "faq": [
+    {
+      "question": "How do we keep the AI agent from giving medical advice, diagnoses, or supplement dosing recommendations?",
+      "answer": "Train the agent on approved clinic content and define clear refusal and escalation rules. DocsBot can answer logistics and education questions from your sources, then route diagnosis, medication, pregnancy, supplement interaction, adverse-reaction, or urgent symptom questions to staff instead of speculating.",
+      "role": "Clinic owners and practice managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help patients choose between acupuncture, massage, naturopathy, meditation, or herbal consultation without overstepping?",
+      "answer": "Yes, if you frame it as service education and consultation routing. DocsBot can compare services using your modality pages, practitioner bios, FAQs, and intake instructions, ask what the patient is looking for, and recommend a human consultation for condition-specific decisions rather than making a clinical recommendation.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this reduce front-desk calls, or just create another inbox for staff to monitor?",
+      "answer": "The best fit is repetitive, pre-visit communication: service explanations, pricing policy, forms, preparation, cancellation rules, package questions, and callback requests. With configured workflows, DocsBot can collect missing details and summarize handoffs so staff start with cleaner context instead of re-asking every question.",
+      "role": "Clinic owners and practice managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What should we measure to know whether an AI agent is actually helping the practice?",
+      "answer": "Track repetitive question deflection, completed intake handoffs, after-hours inquiries captured, staff time spent on routine questions, escalation quality, patient satisfaction, and knowledge gaps. DocsBot logs, reports, topic management, satisfaction and resolution analysis, and conversation review can show which pages, policies, or scripts need improvement.",
+      "role": "Clinic owners and practice managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot handle supplement or herbal product questions safely?",
+      "answer": "It can support boundaries, not replace practitioner judgment. DocsBot can answer from your approved product education, return policy, disclaimers, and safety instructions, while routing dosage, drug interaction, pregnancy, adverse reaction, or serious symptom questions to a human review path. FDA says supplement firms are responsible for safety and labeling, and serious adverse events must be reported within 15 days.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-supplements-101"
+      ]
+    },
+    {
+      "question": "What happens if a patient reports feeling dizzy, faint, worse, or unwell after a treatment or supplement?",
+      "answer": "DocsBot should follow your escalation SOP: avoid diagnosing, collect only the approved incident details, provide your defined urgent-care language, and notify the right staff workflow when configured. FDA also tells consumers and health professionals they can report dietary supplement reactions or illnesses, so supplement-related workflows should be especially structured.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-report-supplements"
+      ]
+    },
+    {
+      "question": "Can we use this on our website if we are worried about HIPAA?",
+      "answer": "DocsBot provides governance controls such as SOC 2 Type II certification, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models. For HIPAA-covered workflows, your team still needs to decide what information the website agent should collect, what should route to secure systems, and whether your practice is a covered entity or business associate scenario. HHS says covered entities include certain providers that transmit standard electronic transactions.",
+      "role": "Clinic owners and practice managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-hipaa-covered-entities"
+      ]
+    },
+    {
+      "question": "Can we train separate agents for patients and staff so internal protocols are not exposed publicly?",
+      "answer": "Yes. A patient-facing agent can be trained on approved public service pages, FAQs, forms, and education materials, while a private internal knowledge agent can use SOPs, escalation scripts, practitioner resources, HR policies, and training documents. Role-based access controls help keep internal content limited to the right users.",
+      "role": "Clinic owners and practice managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much work is required before launch if our content is scattered across PDFs, Google Drive, web pages, and old SOPs?",
+      "answer": "Most of the work is content governance, not AI setup. Start with high-value sources: service pages, pricing rules, intake instructions, preparation and aftercare guides, supplement safety language, privacy policy, and escalation SOPs. DocsBot can train on websites, PDFs, Word documents, Google Drive, Notion, Confluence, wikis, and other configured knowledge sources, but your team should approve what is current.",
+      "role": "Clinic owners and practice managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent book appointments directly in our scheduling system?",
+      "answer": "DocsBot can support booking-related workflows when you configure approved Skills, APIs, connectors, forms, or scheduling automations. A safer pattern is to collect service interest, location, preferred times, practitioner preference, and contact details, then request a booking or create a staff task rather than letting the agent overbook or make high-impact commitments.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will it integrate with our EHR, practice management software, CRM, helpdesk, or team chat?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, webhooks, workflow automations, and MCP Connectors where your systems expose approved access. It can create tasks, route summaries, look up permitted live context, or notify Slack, Microsoft Teams, CRM, helpdesk, or scheduling-style workflows when configured, without claiming uncontrolled access by default.",
+      "role": "Clinic owners and practice managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can our practitioners use it during the day to find protocols, contraindication notes, or aftercare handouts?",
+      "answer": "Yes. A private DocsBot internal knowledge agent can retrieve answers from approved SOPs, training PDFs, contraindication checklists, intake scripts, room turnover procedures, aftercare templates, and policy documents. It should cite or link the source so practitioners and coordinators can verify the latest guidance before using it.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent outdated policies or old practitioner bios from showing up in answers?",
+      "answer": "Create a content owner, source approval process, and review cadence before launch. DocsBot can surface conversation logs, topic reports, and knowledge gaps, but your team should remove stale files, consolidate duplicate PDFs, and decide which source wins when policies conflict. For sensitive clinics, launch with fewer approved sources rather than every historical document.",
+      "role": "Clinic owners and practice managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with marketing copy without making risky health claims?",
+      "answer": "DocsBot can draft or review copy against your approved brand guidance, modality descriptions, disclaimers, evidence summaries, and claim rules. It can flag language for human review and suggest source-grounded alternatives. This matters because the FTC says health-related product benefit claims need competent and reliable scientific evidence.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-health-products"
+      ]
+    },
+    {
+      "question": "Will the agent answer in Spanish or other languages for our community clinic?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved clinic sources. For alternative medicine practices, the important safeguard is that translated answers still follow the same escalation rules for urgent symptoms, diagnosis, medication, supplement safety, pregnancy, or adverse-reaction concerns.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we get practitioners comfortable with AI when they are worried it will misrepresent their care philosophy?",
+      "answer": "Position DocsBot as a source-grounded support and routing layer, not an autonomous clinician. Let practitioners review the source library, approve service language, define no-answer boundaries, and test real patient questions before launch. Conversation review then shows where wording, handoffs, or content need refinement.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent handle after-hours questions without creating liability for the clinic?",
+      "answer": "It can answer approved operational and educational questions after hours, such as forms, preparation, location, pricing policies, and what to expect. For urgent, symptom-related, adverse-reaction, medication, pregnancy, or diagnosis questions, configure the agent to give your approved escalation language and route a summary to staff rather than trying to resolve the issue.",
+      "role": "Clinic owners and practice managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What if patients ask pain-management questions and expect guaranteed outcomes?",
+      "answer": "DocsBot can explain your services from approved education pages while avoiding promises, cures, or personalized treatment claims. That demand is real: NCCIH reported that use of selected complementary health approaches reached 36.7% of U.S. adults in 2022, and its 2022 NHIS summary highlights increased use of approaches such as yoga, meditation, and massage therapy, especially for pain management.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-nccih-2022-use",
+        "src-nccih-pain"
+      ]
+    },
+    {
+      "question": "Can the agent qualify new patient inquiries before staff call them back?",
+      "answer": "Yes. It can collect structured details such as name, contact information, service interest, goals at a high level, location, preferred appointment times, practitioner preference, consent to follow up, and whether the question needs clinical review. With approved workflows, DocsBot can send a concise handoff to the front desk, CRM, helpdesk, or task queue.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot or form builder?",
+      "answer": "A generic chatbot or form can capture messages, but DocsBot is designed around source-grounded answers, private knowledge retrieval, analytics, conversation review, knowledge-gap discovery, and bounded AI Actions. For alternative medicine, that matters because the agent needs to educate from approved clinic content, preserve safety boundaries, and escalate sensitive questions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can staff review what the agent said if there is a patient complaint or safety concern?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, and satisfaction or resolution analysis. For clinics, this supports quality review: you can inspect what the patient asked, what sources the agent used, whether the question escalated properly, and what content or workflow needs correction.",
+      "role": "Clinic owners and practice managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should we not automate in an alternative medicine practice?",
+      "answer": "Do not automate diagnosis, treatment decisions, supplement dosing, medication interaction advice, emergency triage, practitioner-specific clinical judgment, legal consent interpretation, or final claim approval. Use DocsBot for education, intake, routing, summaries, source retrieval, task creation, and workflow triggers, with humans owning sensitive or high-impact decisions.",
+      "role": "Clinic owners and practice managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support multiple locations, practitioners, services, and policy variations?",
+      "answer": "Yes, if the source content is organized clearly. You can train agents on location pages, practitioner bios, service menus, pricing guidance, scheduling rules, and policy documents. For complex practices, use structured instructions and configured lookups or workflows so the agent asks location and service questions before answering.",
+      "role": "Clinic owners and practice managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we onboard receptionists and coordinators so they actually use the internal agent?",
+      "answer": "Start with daily pain points: missed appointment fees, package rules, first-visit instructions, contraindication scripts, supplement escalation steps, practitioner bios, and where forms live. Train staff to ask the internal agent, verify cited sources, flag gaps, and escalate anything clinical. Review logs weekly at first to tune content and instructions.",
+      "role": "Front desk, intake, and care coordination teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What budget argument will resonate with an owner or buying committee?",
+      "answer": "Frame the ROI around recovered staff time, faster inquiry response, cleaner intakes, after-hours lead capture, fewer repeated practitioner interruptions, and more consistent patient education. The strongest pilot is usually one location or service line with measurable call drivers, intake volume, escalation accuracy, and content gaps before expanding.",
+      "role": "Clinic owners and practice managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How do we make sure the agent reflects our practice’s tone instead of sounding like generic wellness advice from the internet?",
+      "answer": "Train it on your own service pages, practitioner bios, care philosophy, preparation guides, aftercare instructions, FAQs, and approved scripts. DocsBot is built to answer from configured knowledge sources in your company’s voice, so the quality of the experience depends on giving it current, approved clinic language rather than relying on broad web knowledge.",
+      "role": "Practitioners, educators, and wellness product teams",
+      "category": "Vendor trust"
+    }
+  ]
+}

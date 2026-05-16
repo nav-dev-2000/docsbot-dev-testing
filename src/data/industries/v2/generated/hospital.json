@@ -1,0 +1,801 @@
+{
+  "slug": "hospital",
+  "business": "Hospital",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Hospital Patient Support and Operations",
+    "description": "DocsBot helps hospitals deliver source-grounded AI agents for patient FAQs, staff knowledge, intake routing, and safer handoffs at scale.",
+    "canonicalPath": "/industry/hospital"
+  },
+  "hero": {
+    "eyebrow": "Hospital AI agents for patient access, staff knowledge, and operational handoffs",
+    "headline": "Make hospital knowledge easier to find, trust, and act on",
+    "subheadline": "DocsBot helps hospitals create AI agents trained on approved service pages, patient instructions, policies, FAQs, internal SOPs, and care-team resources. Give patients clearer self-service answers, help staff retrieve the right information faster, and route sensitive requests to people with context intact.",
+    "proofBullets": [
+      {
+        "text": "Answer visitor and patient questions from approved hospital pages, FAQs, policies, and care instructions with source-grounded responses.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Support internal teams with a private knowledge agent for SOPs, HR policies, IT help, compliance notes, and department procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use configured AI Actions to collect intake details, summarize requests, create tickets, route handoffs, or trigger approved workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Escalate medical, billing, privacy, identity, or safety-sensitive questions to human teams while preserving conversation context.",
+        "icon": "HandRaisedIcon"
+      }
+    ],
+    "primaryCta": "Build a hospital AI agent",
+    "secondaryCta": "Explore healthcare workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns hospital-approved content into AI support and internal knowledge agents. Teams can deploy agents in a website widget, private team chat, API-driven experience, helpdesk workflow, Slack, Microsoft Teams, or other configured channels. Agents answer from approved sources, summarize context, detect documentation gaps, support multilingual access, and take bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+    "whoItHelps": [
+      {
+        "role": "Patient access and contact center leaders",
+        "roleContext": "Hospitals field high volumes of repeated questions about locations, visiting, appointments, preparation, records, billing, and next steps. DocsBot can reduce repetitive searching while keeping complex or sensitive requests ready for human follow-up.",
+        "bullets": [
+          {
+            "text": "Offer 24/7 answers for directions, hours, parking, visitor rules, service-line FAQs, and preparation instructions.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Collect missing details, summarize the request, and route it to the right department or ticket queue when configured.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Support patients in more than 100 languages from the same approved knowledge sources.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Clinical operations and nursing leadership",
+        "roleContext": "Care teams need fast access to the latest internal procedures without relying on memory, shared drives, or informal messages. DocsBot can surface policy and SOP answers while keeping clinical judgment and patient-care decisions with licensed staff.",
+        "bullets": [
+          {
+            "text": "Make unit procedures, escalation paths, equipment references, and administrative workflows searchable through a private agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize policy references or handoff notes for review instead of replacing clinician decision-making.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use role-based permissions so staff only access the sources and actions appropriate for their team.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Patient experience and quality teams",
+        "roleContext": "Patient communication, responsiveness, and access to clear information are central to hospital experience measurement. DocsBot can help standardize answers and reveal where patients repeatedly encounter confusion.",
+        "bullets": [
+          {
+            "text": "HCAHPS includes patient-experience measures such as communication, responsiveness, discharge information, and care transition topics.",
+            "icon": "StarIcon",
+            "sourceIds": [
+              "src-ahrq-hcahps"
+            ]
+          },
+          {
+            "text": "Review logs, topics, reports, satisfaction signals, and unanswered questions to identify knowledge gaps in patient-facing content.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route feedback, complaints, or safety-sensitive messages to human review with the conversation summary attached.",
+            "icon": "BellIcon"
+          }
+        ],
+        "roleIcon": "FaceSmileIcon",
+        "sourceIds": [
+          "src-ahrq-hcahps"
+        ]
+      },
+      {
+        "role": "IT, compliance, and digital health teams",
+        "roleContext": "Hospital AI deployments need governance, clear source control, and scoped actions. DocsBot supports private knowledge sources, access controls, encryption, SOC 2 Type II, GDPR-ready governance, logs, and customer-defined boundaries for sensitive workflows.",
+        "bullets": [
+          {
+            "text": "Train agents on approved PDFs, Word documents, websites, policies, wikis, Google Drive, Notion, Confluence, and other configured sources.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Connect approved workflows through Skills, APIs, connectors, webhooks, and MCP Connectors for remote Model Context Protocol servers.",
+            "icon": "PuzzlePieceIcon"
+          },
+          {
+            "text": "Keep credentials out of chats while using environment values, secrets, metadata bindings, network policy, logging, and scoped controls.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "CpuChipIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-aha-fast-facts",
+      "metric": "6,100 total U.S. hospitals in FY2024",
+      "claim": "The American Hospital Association reported 6,100 total U.S. hospitals in its 2026 Fast Facts infographic, reflecting the scale of hospital operations and patient access needs.",
+      "sourceTitle": "Fast Facts on U.S. Hospitals, 2026",
+      "sourceUrl": "https://annualmeeting.aha.org/system/files/media/file/2026/02/Fast-Facts-on-US-Hospitals-2026-Infographics.pdf",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "hospital scale",
+        "patient access volume",
+        "operational complexity"
+      ]
+    },
+    {
+      "id": "src-cdc-ed-visits",
+      "metric": "CDC tracks U.S. emergency department visits from 2016 through 2022",
+      "claim": "CDC’s National Center for Health Statistics publishes estimates of emergency department visits, demonstrating the continuing need for reliable pre-visit and post-visit information pathways.",
+      "sourceTitle": "Estimates of Emergency Department Visits in the United States, 2016–2022",
+      "sourceUrl": "https://www.cdc.gov/nchs/dhcs/ed-visits/index.htm",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "emergency department demand",
+        "patient routing",
+        "access pressure"
+      ]
+    },
+    {
+      "id": "src-ahrq-hcahps",
+      "metric": "Adult HCAHPS produces 11 patient-experience measures effective January 1, 2025",
+      "claim": "AHRQ says the Adult HCAHPS survey measures patient experiences with hospital care, including communication and health literacy-related items.",
+      "sourceTitle": "CAHPS Adult Hospital Survey",
+      "sourceUrl": "https://www.ahrq.gov/cahps/surveys-guidance/hospital/about/adult_hp_survey.html",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "patient experience",
+        "communication quality",
+        "health literacy"
+      ]
+    },
+    {
+      "id": "src-joint-commission-npg",
+      "metric": "Joint Commission National Performance Goals became effective January 1, 2026",
+      "claim": "The Joint Commission describes 14 National Performance Goals for hospitals and critical access hospitals focused on safety, quality, and outcomes.",
+      "sourceTitle": "National Performance Goals",
+      "sourceUrl": "https://www.jointcommission.org/en-us/standards/national-performance-goals",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "quality pressure",
+        "patient safety",
+        "hospital governance"
+      ]
+    },
+    {
+      "id": "src-joint-commission-right-patient",
+      "metric": "Joint Commission highlights communication failures among common medical-error categories",
+      "claim": "The Joint Commission’s Right Patient, Right Care goal discusses patient identifiers, handoff communications, timely critical test reporting, patient flow, and other safety-critical systems.",
+      "sourceTitle": "National Performance Goal #1: Right Patient, Right Care",
+      "sourceUrl": "https://www.jointcommission.org/standards/national-performance-goals/right-patient-right-care",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "handoff communication",
+        "patient safety",
+        "workflow boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Patient access and visitor information agent",
+      "problem": "Hospital websites often contain the right information, but patients and caregivers may struggle to find department-specific instructions, parking details, visiting rules, records guidance, or what to bring before arrival.",
+      "agentWorkflow": "Train DocsBot on service-line pages, visitor policies, campus maps, preparation PDFs, FAQs, insurance guidance, and patient portal instructions. The agent answers from approved sources, asks clarifying questions when needed, and escalates clinical, urgent, identity, privacy, or billing-specific requests to staff.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up approved non-clinical context such as location metadata, service categories, request type, or ticket status, then create a handoff summary for the appropriate team.",
+      "exampleQuestionsOrRequests": [
+        "Where do I park for outpatient surgery and what entrance should I use?",
+        "What should I bring for my imaging appointment?",
+        "How do I request my medical records?",
+        "Can you connect me with the billing office about this statement?"
+      ],
+      "businessOutcome": "Reduces repetitive front-desk and call-center questions while helping patients get clearer next steps before they arrive.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Pre-admission and procedure preparation assistant",
+      "problem": "Patients frequently need clear instructions before tests, surgery, or inpatient admission, and missed details can create avoidable calls, confusion, delays, and day-of-service friction.",
+      "agentWorkflow": "DocsBot can answer from approved pre-admission checklists, department instructions, fasting guidance documents, arrival instructions, visitor rules, and scheduling FAQs. The agent can summarize what the patient asked, collect missing administrative details, and route exceptions to staff.",
+      "liveContextOrTools": "AI Actions can trigger an approved workflow to create a task, notify a pre-admission team, or forward the conversation summary to a ticketing system when the patient needs human help.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need before my procedure?",
+        "Where do I check in for my colonoscopy?",
+        "I lost my preparation instructions. Can you help me find the right PDF?",
+        "Can someone call me about a medication question before surgery?"
+      ],
+      "businessOutcome": "Improves consistency in pre-visit information while keeping medication, diagnosis, and care-plan questions under human review.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Discharge instruction and after-visit guidance finder",
+      "problem": "After leaving the hospital, patients and caregivers may need to re-check discharge documents, follow-up instructions, portal steps, warning-sign guidance, or contact options, but the right answer may be spread across multiple documents.",
+      "agentWorkflow": "Train DocsBot on general discharge education, portal help, care-transition FAQs, service-line recovery instructions, and follow-up scheduling guidance. The agent retrieves source-grounded information and directs urgent symptoms, medication concerns, or individualized medical questions to the care team or emergency pathway.",
+      "liveContextOrTools": "When configured, the agent can collect the patient’s concern category, create a follow-up request, route it to the right department, and include a concise summary for staff review.",
+      "exampleQuestionsOrRequests": [
+        "How do I schedule my follow-up visit?",
+        "Where can I find the wound care instructions I was given?",
+        "What number do I call if I have a question after discharge?",
+        "I am worried about a symptom. Can you tell me who to contact now?"
+      ],
+      "businessOutcome": "Gives caregivers a reliable place to re-find approved instructions while preserving clinical escalation boundaries.",
+      "icon": "HomeIcon"
+    },
+    {
+      "name": "Internal policy and SOP knowledge agent",
+      "problem": "Hospital staff often need fast answers from changing policies, department SOPs, IT instructions, onboarding materials, compliance notes, and HR procedures while working across shifts and locations.",
+      "agentWorkflow": "Create a private DocsBot agent trained on internal policies, SOPs, wikis, PDFs, Word documents, HR materials, IT help guides, and operational playbooks. Staff ask natural-language questions and receive source-grounded answers with citations back to approved materials.",
+      "liveContextOrTools": "Role-based permissions can separate public, department, and leadership content. Configured Skills can create an IT ticket, summarize a policy request, or notify an owner when a document gap appears.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a downtime procedure?",
+        "Where is the latest badge-access request form?",
+        "What is the policy for remote work documentation?",
+        "How do I request equipment support after hours?"
+      ],
+      "businessOutcome": "Reduces time spent searching across drives and wikis while helping teams use the current approved procedure.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Patient experience and knowledge-gap analytics",
+      "problem": "Repeated questions reveal where hospital pages, instructions, and staff-facing resources are unclear, but those signals are hard to collect across chat, tickets, websites, and internal requests.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review recurring topics, unanswered questions, and escalation patterns to improve patient and staff content.",
+      "liveContextOrTools": "Configured workflows can route content gaps to a documentation owner, create a task for a service-line team, or summarize themes from patient-facing conversations for review.",
+      "exampleQuestionsOrRequests": [
+        "Which patient questions are going unanswered this month?",
+        "What discharge topics are triggering escalations?",
+        "Which service-line pages need clearer instructions?",
+        "What are employees asking about during onboarding?"
+      ],
+      "businessOutcome": "Turns support conversations into a practical improvement loop for patient education, staff enablement, and digital experience.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Service-line inquiry and referral routing agent",
+      "problem": "Hospitals need to respond quickly to non-urgent inquiries about services, locations, eligibility information, appointment pathways, and referral instructions without making regulated clinical commitments in an automated conversation.",
+      "agentWorkflow": "DocsBot can answer service-line questions from approved web pages, brochures, FAQs, and referral guides. It can collect structured intake details such as name, contact preference, service interest, location, urgency category, and referral status, then prepare a handoff.",
+      "liveContextOrTools": "With approved Skills, APIs, forms, or connectors, the agent can forward qualified inquiries, create a ticket or task, notify a scheduling or access team, and attach a summary for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer cardiac rehab at this location?",
+        "How do I start a referral for a specialist clinic?",
+        "Can someone contact me about maternity tours?",
+        "Which department handles sleep-study questions?"
+      ],
+      "businessOutcome": "Helps patients navigate hospital services while keeping scheduling, eligibility, clinical advice, and financial commitments under staff control.",
+      "icon": "ArrowTrendingUpIcon",
+      "sourceIds": [
+        "src-aha-fast-facts"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give patients and caregivers clearer answers before, during, and after a hospital visit",
+    "intro": "A DocsBot patient-facing agent can sit on hospital websites, service-line pages, and other configured experiences to answer from approved content, collect useful context, and escalate sensitive requests. It is best used for education, navigation, preparation, and handoff—not diagnosis, emergency triage, or clinical decision-making.",
+    "requests": [
+      {
+        "request": "“What entrance should I use for my appointment and where can I park?”",
+        "agentResponseStrategy": "Answer from campus maps, department pages, parking instructions, and visitor information. If location details are ambiguous, ask a clarifying question before giving the source-grounded answer.",
+        "sourceTypes": [
+          "Hospital website pages",
+          "Campus maps",
+          "Visitor FAQs",
+          "Department instructions"
+        ],
+        "optionalAction": "Create a support task or route the question to patient access if the patient needs disability access, transportation assistance, or a human callback.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“How do I prepare for my procedure tomorrow?”",
+        "agentResponseStrategy": "Retrieve the approved preparation document or service-line instructions and clearly state when the patient should contact the care team for medication, symptom, or individualized clinical questions.",
+        "sourceTypes": [
+          "Procedure PDFs",
+          "Pre-admission checklists",
+          "Service-line FAQs",
+          "Patient portal help"
+        ],
+        "optionalAction": "Collect the department and procedure category, then forward a summarized callback request through a configured workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I do not understand my discharge instructions.”",
+        "agentResponseStrategy": "Help the patient locate general discharge education and follow-up guidance, then escalate urgent symptoms, medication concerns, or patient-specific care questions to the appropriate human pathway.",
+        "sourceTypes": [
+          "Discharge education",
+          "After-visit FAQs",
+          "Care-transition resources",
+          "Contact directories"
+        ],
+        "optionalAction": "Create a follow-up request or route the conversation summary to a nurse line, care coordination team, or helpdesk workflow when configured.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“Can you explain this bill or connect me with someone?”",
+        "agentResponseStrategy": "Answer general billing FAQs, financial assistance pages, insurance guidance, and payment portal instructions while avoiding account-specific financial determinations unless an approved lookup workflow is configured.",
+        "sourceTypes": [
+          "Billing FAQs",
+          "Financial assistance policies",
+          "Payment portal instructions",
+          "Insurance guidance"
+        ],
+        "optionalAction": "Collect non-sensitive routing details and create a handoff to billing staff with a concise summary of the patient’s question.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do you provide interpretation or language support?”",
+        "agentResponseStrategy": "Answer from approved accessibility, interpreter services, and patient rights resources. DocsBot can also provide AI responses in more than 100 languages when configured for multilingual support.",
+        "sourceTypes": [
+          "Accessibility pages",
+          "Interpreter service policies",
+          "Patient rights documents",
+          "Visitor resources"
+        ],
+        "optionalAction": "Route a request for language assistance to the appropriate team when a configured workflow exists.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this an emergency?”",
+        "agentResponseStrategy": "Do not diagnose or triage. Provide the hospital’s approved emergency guidance and direct the person to emergency services, urgent contact channels, or a human care team according to the organization’s policy.",
+        "sourceTypes": [
+          "Emergency guidance pages",
+          "Patient safety notices",
+          "Contact directories",
+          "Escalation policies"
+        ],
+        "optionalAction": "Escalate immediately to a human-reviewed pathway when the hospital has configured one; otherwise provide approved emergency instructions.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-cdc-ed-visits"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help hospital teams find the current answer without digging through drives and wikis",
+    "intro": "DocsBot can serve as a private internal knowledge agent for hospital employees. Train it on approved SOPs, policies, onboarding materials, department references, IT guides, HR resources, compliance notes, and operational playbooks so teams can retrieve consistent answers with source context.",
+    "workflows": [
+      {
+        "name": "Clinical operations knowledge retrieval",
+        "problem": "Policies, escalation paths, and operational procedures change, and staff need the current source without searching multiple systems during busy shifts.",
+        "agentWorkflow": "The internal agent answers from approved SOPs, department procedures, policy documents, and training materials with links back to sources. It can clarify the department, role, or scenario before answering.",
+        "sourceTypes": [
+          "SOPs",
+          "Policy PDFs",
+          "Training materials",
+          "Department playbooks"
+        ],
+        "optionalAction": "Create a documentation-gap task when staff ask a question the source library cannot answer.",
+        "outcome": "Improves access to current procedures while keeping clinical decisions with qualified staff.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "IT and facilities helpdesk routing",
+        "problem": "Employees need quick help with badge access, devices, printers, rooms, portals, and downtime procedures, but many requests do not need a live helpdesk agent first.",
+        "agentWorkflow": "DocsBot answers from IT and facilities FAQs, collects issue details, summarizes the request, and routes it to the right queue through configured helpdesk workflows.",
+        "sourceTypes": [
+          "IT guides",
+          "Facilities FAQs",
+          "Downtime procedures",
+          "Access request forms"
+        ],
+        "optionalAction": "Create or update a ticket, notify the right team, and include the employee’s location, asset type, and issue summary when authorized.",
+        "outcome": "Reduces repetitive helpdesk questions and gives technicians better context before they respond.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Compliance and privacy guidance finder",
+        "problem": "Hospital staff need consistent answers about privacy, consent, records, incident reporting, and approved communication practices, but those answers must stay within policy boundaries.",
+        "agentWorkflow": "Train DocsBot on compliance policies, privacy guidance, reporting procedures, and approved templates. The agent can retrieve policy language, summarize the relevant procedure, and direct uncertain cases to compliance staff.",
+        "sourceTypes": [
+          "Compliance policies",
+          "Privacy procedures",
+          "Incident reporting guides",
+          "Approved templates"
+        ],
+        "optionalAction": "Route a sensitive question to compliance review and attach the agent’s source-grounded summary.",
+        "outcome": "Supports consistent policy access without turning the agent into a legal, clinical, or compliance decision-maker.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-joint-commission-npg"
+        ]
+      },
+      {
+        "name": "HR and onboarding support",
+        "problem": "New and rotating staff need quick answers about onboarding steps, benefits, training requirements, scheduling procedures, and internal tools.",
+        "agentWorkflow": "DocsBot answers from HR policies, onboarding checklists, benefits guides, orientation documents, and tool instructions. It can suggest the right next step or owner when the documentation points to a human process.",
+        "sourceTypes": [
+          "HR policies",
+          "Onboarding checklists",
+          "Benefits guides",
+          "Training resources"
+        ],
+        "optionalAction": "Create a task, send a summary to HR, or notify a manager through a configured workflow when follow-up is needed.",
+        "outcome": "Makes onboarding and employee self-service more consistent across departments and shifts.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Handoff and communication support",
+        "problem": "Hospitals operate through many transitions of care and administrative handoffs, where missing context can create delays and rework.",
+        "agentWorkflow": "DocsBot can summarize conversation context, retrieve approved handoff guidance, and prepare structured notes for human review. It can also answer staff questions about approved communication procedures.",
+        "sourceTypes": [
+          "Handoff policies",
+          "Communication protocols",
+          "Care coordination resources",
+          "Department procedures"
+        ],
+        "optionalAction": "Generate a structured summary for review or create a routed task when a configured workflow permits it.",
+        "outcome": "Supports clearer administrative handoffs while keeping patient safety and clinical judgment with hospital teams.",
+        "icon": "ArrowPathRoundedSquareIcon",
+        "sourceIds": [
+          "src-joint-commission-right-patient"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from hospital-approved knowledge",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s own documents, websites, help centers, internal content, and other configured knowledge sources so answers reflect approved material.",
+      "industryApplication": "Hospitals can train agents on service pages, visitor policies, preparation instructions, patient education, internal SOPs, HR guides, IT instructions, and compliance resources.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflow automation",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform customer-configured lookups, summaries, record updates, task creation, workflow triggers, and handoffs under defined rules.",
+      "industryApplication": "A hospital can configure an agent to collect intake details, create a ticket, route a patient access request, notify a department, summarize a conversation, or trigger a review workflow.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive or complex requests",
+      "mainLandingPageContext": "DocsBot supports human escalation when a question is complex, sensitive, or requires a person.",
+      "industryApplication": "Hospitals can escalate medical, emergency, privacy, billing-account, identity, complaint, and safety-sensitive questions with the conversation summary attached.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant trained on company policies, wikis, SOPs, PDFs, Word documents, and other internal sources.",
+      "industryApplication": "Hospital employees can ask about procedures, tools, onboarding, access requests, downtime steps, HR guidance, or administrative policies in private team experiences.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Patient experience, digital, and operations teams can see repeated patient questions, unanswered content gaps, service-line confusion, and employee knowledge needs.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-ahrq-hcahps"
+      ]
+    },
+    {
+      "feature": "Security and governance for healthcare buyers",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Hospital teams can govern access to sensitive internal sources, define what an agent may retrieve or do, and keep AI workflows scoped to approved sources and actions.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare communications teams use DocsBot to streamline internal decision-making and reduce direct human handling of routine queries.",
+      "DocsBot supports source-grounded learning and knowledge retrieval for complex, regulated information environments.",
+      "Teams can train agents on their own content libraries and keep answers tied to approved materials."
+    ],
+    "whyTheseReviewsFit": "Hospital buyers need AI that respects approved knowledge, governance, and human accountability. DocsBot proof spans healthcare communications, education, and content-library use cases where source-grounded answers, internal knowledge access, and repeatable workflows matter more than generic automation.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for hospitals",
+    "audience": [
+      "Hospital patient access leaders",
+      "Clinical operations teams",
+      "Patient experience leaders",
+      "Healthcare IT and compliance teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingOffice2Icon"
+  },
+  "relatedIndustrySlugs": [
+    "emergency-medical-services",
+    "emergency-medical-transportation",
+    "healthcare-revenue-cycle-management",
+    "dentistry",
+    "cosmetic-surgery",
+    "child-youth-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "hospital",
+    "webSearchQueries": [
+      "AHA Fast Facts on U.S. Hospitals 2025 total admissions emergency department visits",
+      "AHRQ CAHPS health literacy hospital communication patient experience",
+      "Joint Commission National Patient Safety Goals hospital 2025 discharge medication communication",
+      "CDC National Center for Health Statistics emergency department visits hospital outpatient"
+    ],
+    "sourceUrls": [
+      "https://annualmeeting.aha.org/system/files/media/file/2026/02/Fast-Facts-on-US-Hospitals-2026-Infographics.pdf",
+      "https://www.cdc.gov/nchs/dhcs/ed-visits/index.htm",
+      "https://www.ahrq.gov/cahps/surveys-guidance/hospital/about/adult_hp_survey.html",
+      "https://www.jointcommission.org/en-us/standards/national-performance-goals",
+      "https://www.jointcommission.org/standards/national-performance-goals/right-patient-right-care"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 69630,
+        "cachedInputTokens": 35200,
+        "billableInputTokens": 34430,
+        "outputTokens": 20896,
+        "reasoningOutputTokens": 289,
+        "totalTokens": 90526,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.408315,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.438315
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27257,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12281,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 170,
+          "totalTokens": 39257,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.214446,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.234446
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21528,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6552,
+          "outputTokens": 5815,
+          "reasoningOutputTokens": 119,
+          "totalTokens": 27343,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.107349,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.117349
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20845,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15597,
+          "outputTokens": 3081,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23926,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08652,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08652
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1578991624414-276ef23a534f?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzYxNzZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Hospital background image",
+    "source": "legacy-industry",
+    "query": "Hospital"
+  },
+  "faq": [
+    {
+      "question": "Can we use a hospital AI agent without creating clinical risk or giving medical advice?",
+      "answer": "Yes—if the agent is scoped for education, navigation, preparation, and handoff rather than diagnosis, triage, or treatment decisions. DocsBot can answer from approved hospital content, show source-grounded responses, and escalate urgent symptoms, medication questions, identity issues, privacy requests, billing-account questions, complaints, or other sensitive cases to human teams with context attached.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce call-center volume without frustrating patients who still need a person?",
+      "answer": "DocsBot is best used for repetitive, high-volume questions such as parking, visiting hours, locations, records instructions, portal help, preparation PDFs, financial assistance pages, and service-line FAQs. When the request is account-specific, clinical, urgent, or unclear, the agent can collect routing details, summarize the conversation, and hand it to the right queue or department instead of trapping the patient in automation.",
+      "role": "Patient access and contact center leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What patient access use cases should we start with first?",
+      "answer": "Start where the answers already exist and the risk is low: directions, parking, entrances, visiting rules, appointment preparation, medical-record request steps, interpreter services, billing office contact paths, and service-line navigation. These areas usually have approved web pages or PDFs, clear escalation rules, and measurable deflection opportunities before expanding into more complex handoffs.",
+      "role": "Patient access and contact center leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent answer differently by location, department, or service line?",
+      "answer": "Yes. DocsBot can be trained on approved service-line pages, department instructions, campus maps, visitor policies, FAQs, and procedure documents. The agent can ask clarifying questions when location or service context is ambiguous, then answer from the relevant source. Role-based permissions can also separate internal sources by department or team.",
+      "role": "Patient access and contact center leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep outdated policies or old PDFs from becoming the agent’s answer?",
+      "answer": "Treat the AI agent like a governed knowledge channel. Assign owners for source libraries, remove obsolete documents, use approved URLs and files, and review unanswered or low-confidence topics. DocsBot’s logs, topic management, reports, conversation review, and knowledge-gap discovery help teams see where content is missing, conflicting, or unclear.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support internal staff questions without exposing employee-only policies to the public?",
+      "answer": "Yes. DocsBot can be deployed as a private internal knowledge agent trained on SOPs, HR policies, IT guides, compliance notes, wikis, PDFs, Word documents, Google Drive, Notion, Confluence, and other configured sources. Access controls and role-based permissions help keep public, department-specific, and leadership content separated.",
+      "role": "Clinical operations and nursing leadership",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Would this replace nurses, schedulers, or patient-access representatives?",
+      "answer": "No. The realistic role is to reduce repetitive searching, provide consistent approved information, collect context, and prepare better handoffs. Clinical judgment, triage, scheduling commitments, billing determinations, privacy decisions, complaints, and safety-sensitive conversations should remain with qualified human teams under hospital policy.",
+      "role": "Clinical operations and nursing leadership",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we use the agent for discharge or after-visit questions?",
+      "answer": "Yes, but with clear boundaries. DocsBot can help patients re-find general discharge education, follow-up scheduling guidance, portal help, care-transition resources, and contact options. It should escalate urgent symptoms, medication concerns, individualized care questions, or uncertainty to the hospital’s approved emergency, nurse-line, or care-team pathway.",
+      "role": "Patient experience and quality teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this help with HCAHPS or patient experience work?",
+      "answer": "DocsBot can make approved information easier to find and help teams identify recurring confusion in patient-facing content. That matters because Adult HCAHPS measures patient experience with hospital care, including communication and health literacy-related items effective January 1, 2025. Conversation logs and unanswered-question reports can guide content improvements.",
+      "role": "Patient experience and quality teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-ahrq-hcahps"
+      ]
+    },
+    {
+      "question": "Can the agent support multiple languages for patients and caregivers?",
+      "answer": "Yes. DocsBot can provide AI responses in more than 100 languages when configured. Hospitals can use the same approved source library for common navigation, preparation, accessibility, interpreter-services, and patient-rights questions, while still routing complex, clinical, or sensitive language-access needs to human teams.",
+      "role": "Patient access and contact center leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a patient asks, ‘Is this an emergency?’",
+      "answer": "The agent should not diagnose or triage. It can provide the hospital’s approved emergency guidance, direct the person to emergency services or urgent contact channels, and escalate through a human-reviewed pathway when configured. CDC tracks U.S. emergency department visits from 2016 through 2022, underscoring the need for reliable access and routing information.",
+      "role": "Patient access and contact center leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-cdc-ed-visits"
+      ]
+    },
+    {
+      "question": "Can DocsBot create tickets or route requests into our existing workflows?",
+      "answer": "Yes, when the hospital configures the appropriate Skills, APIs, connectors, webhooks, forms, MCP Connectors, or workflow access. The agent can collect missing details, summarize the request, create a ticket or task, notify a team, update approved fields, or route a handoff under customer-defined rules. DocsBot should not be presented as having a specific native integration unless your team has configured it.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot integrate with our EHR?",
+      "answer": "DocsBot can connect to approved systems only through customer-configured Skills, APIs, connectors, MCP Connectors, metadata bindings, or workflows. Many hospital teams start without EHR access by answering from approved public pages, policies, PDFs, and internal SOPs. If live EHR context is later considered, scope it tightly, avoid credentials in chat, log actions, and keep high-impact decisions under human review.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we evaluate ROI beyond ‘chat deflection’?",
+      "answer": "Track avoided repetitive calls, reduced transfer volume, faster website self-service, fewer misrouted inquiries, shorter handoff notes, lower staff search time, improved first-contact routing, and fewer documentation gaps. For internal use, measure time saved finding SOPs, HR answers, IT instructions, and downtime procedures—not just patient-facing conversations.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What analytics would patient experience or operations teams actually review?",
+      "answer": "Useful reports include top patient questions, unanswered topics, escalation reasons, service-line confusion, satisfaction and resolution signals, repeated discharge or preparation issues, content gaps, and staff questions by department. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "role": "Patient experience and quality teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent hallucinations or answers that sound too confident?",
+      "answer": "Build the agent around approved sources, not open-ended guessing. DocsBot provides source-grounded answers from hospital-controlled content, can ask clarifying questions, and can escalate when information is missing or sensitive. During rollout, review logs, tune instructions, remove conflicting documents, and define no-answer behavior for clinical, emergency, billing-account, identity, and privacy scenarios.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can compliance review what the agent said after the fact?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, and analytics so teams can inspect responses, identify escalation patterns, and find documentation gaps. For sensitive workflows, hospitals should define retention, review, approval, and escalation procedures that match internal compliance, privacy, legal, and patient-safety policies.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle security expectations for a hospital buyer?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. Skills can be configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls so credentials stay out of chats.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams manage their own content without IT owning every update?",
+      "answer": "Yes, but governance matters. Many hospitals should assign content owners by service line, compliance area, HR, IT, patient access, or clinical operations. IT can manage security, permissions, connectors, and deployment patterns, while operational owners maintain approved source content and review topic reports for gaps or outdated instructions.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "What would a safe pilot look like for a hospital system?",
+      "answer": "A practical pilot starts with one or two bounded workflows: public visitor information, procedure preparation lookup, billing FAQ routing, or an internal SOP assistant. Define source documents, prohibited topics, escalation rules, success metrics, review owners, and launch channels. After reviewing logs and gaps, expand to additional locations, service lines, or staff teams.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help with handoffs between departments?",
+      "answer": "Yes. DocsBot can summarize patient or staff conversations, collect structured intake details, retrieve approved handoff guidance, and create a routed task when configured. The Joint Commission’s Right Patient, Right Care goal discusses patient identifiers, handoff communications, timely critical test reporting, patient flow, and related safety-critical systems, so handoff automation should support—not replace—human accountability.",
+      "role": "Clinical operations and nursing leadership",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-joint-commission-right-patient"
+      ]
+    },
+    {
+      "question": "Can this support quality and safety priorities without becoming another uncontrolled tool?",
+      "answer": "Yes, if the deployment is governed. Use approved sources, role-based permissions, logs, bounded Skills, human escalation, and review workflows. The Joint Commission describes 14 National Performance Goals for hospitals and critical access hospitals focused on safety, quality, and outcomes, which is why AI agents in hospitals should be scoped, auditable, and source-grounded.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-joint-commission-npg"
+      ]
+    },
+    {
+      "question": "How is DocsBot different from a generic website chatbot?",
+      "answer": "DocsBot is positioned as an AI agent trained on hospital-approved knowledge, not a generic scripted bot. It can support source-grounded answers, internal knowledge retrieval, multilingual responses, analytics, knowledge-gap discovery, human escalation, and bounded actions through configured Skills, APIs, connectors, and workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use this for service-line inquiries and referrals?",
+      "answer": "Yes, for non-urgent navigation and intake. DocsBot can answer from service-line pages, referral guides, brochures, eligibility information, and FAQs; collect details such as service interest, location, referral status, urgency category, and contact preference; then route the summary to scheduling or access teams. It should avoid clinical commitments, eligibility determinations, or financial promises unless an approved human-reviewed workflow exists.",
+      "role": "Patient access and contact center leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it work across a multi-hospital system with different policies by campus?",
+      "answer": "Yes, if the knowledge structure reflects that complexity. Train the agent on campus-specific pages, maps, visitor rules, service-line instructions, and policy documents, then use clarifying questions and metadata where needed. For internal use, role-based permissions can help separate content by hospital, department, role, or team.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What do procurement and legal teams usually need to review?",
+      "answer": "Expect review around security, data handling, access controls, model training boundaries, support commitments, workflow scope, auditability, escalation responsibilities, and whether the agent will touch protected, billing, or identity-related information. DocsBot product claims to anchor that review include SOC 2 Type II, encryption in transit and at rest, role-based permissions, GDPR-ready governance, and no training of public models on customer data.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How much training will staff need before using an internal knowledge agent?",
+      "answer": "For most staff, the workflow is natural-language search: ask about a policy, procedure, form, or tool and review the cited source. Training should focus less on prompts and more on boundaries—when to trust a source-grounded answer, when to open the referenced policy, when to escalate, and what information not to enter into chat.",
+      "role": "Clinical operations and nursing leadership",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot identify gaps in our hospital website or internal documentation?",
+      "answer": "Yes. DocsBot’s analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can show repeated questions, unanswered topics, confusing service-line content, and missing SOP coverage. That helps patient experience, digital, compliance, HR, and operations teams prioritize documentation updates based on actual demand.",
+      "role": "Patient experience and quality teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should we not automate with DocsBot in a hospital setting?",
+      "answer": "Avoid automating diagnosis, emergency triage, individualized medical advice, medication decisions, account-specific billing determinations, privacy or identity judgments, legal interpretations, final scheduling commitments, and complaint resolution unless the workflow is explicitly approved and human-reviewed. DocsBot is strongest for approved information retrieval, structured intake, summaries, routing, and operational handoffs.",
+      "role": "IT, compliance, and digital health teams",
+      "category": "Human oversight"
+    }
+  ]
+}

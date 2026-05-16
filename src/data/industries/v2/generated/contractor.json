@@ -1,0 +1,698 @@
+{
+  "slug": "contractor",
+  "business": "Contractor",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Contractors and Field Service Teams",
+    "description": "DocsBot helps contractors answer client questions, retrieve job details, qualify estimate requests, and keep crews aligned from approved company knowledge.",
+    "canonicalPath": "/industry/contractor"
+  },
+  "hero": {
+    "eyebrow": "AI automation for contractors, estimators, project managers, and field crews",
+    "headline": "Keep contractor clients, crews, and project knowledge moving",
+    "subheadline": "DocsBot helps contracting businesses create AI agents trained on their own service pages, proposals, SOPs, manuals, safety notes, FAQs, and project documentation. Give clients faster answers, help teams find approved information, and automate bounded handoffs without replacing human judgment on pricing, contracts, or safety-critical decisions.",
+    "proofBullets": [
+      {
+        "text": "Answer service, process, warranty, scheduling, and documentation questions from your approved contractor knowledge base.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect estimate details, qualify the request, and route a structured summary to the right sales or operations workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Give office staff and field teams fast access to SOPs, product manuals, safety reminders, and project procedures.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Use AI Actions to look up live job context, create tasks, trigger handoffs, or escalate sensitive requests when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a contractor AI agent",
+    "secondaryCta": "Explore contractor workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the contractor knowledge you approve: service pages, estimate FAQs, project documents, onboarding guides, safety procedures, manuals, PDFs, policies, and internal SOPs. Agents can answer from those sources, summarize context, identify knowledge gaps, collect structured details, and take scoped actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep inbound questions moving while protecting your team’s time for estimates, site visits, change orders, and customer relationships.",
+        "bullets": [
+          {
+            "text": "Turn repetitive website questions into source-grounded answers about services, coverage areas, timelines, financing language, and next steps.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Capture project type, location, photos, urgency, budget range, and contact details before a human follows up.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Review analytics to see which service, warranty, and estimate questions keep coming up so your website and proposal materials improve.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Estimators and sales coordinators",
+        "roleContext": "Respond faster to qualified prospects and keep estimate intake consistent across remodeling, commercial, specialty trade, maintenance, or repair work.",
+        "bullets": [
+          {
+            "text": "Give prospects clear answers from approved service descriptions, scope assumptions, exclusions, and scheduling policies.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Summarize intake conversations into handoff notes for CRM, email, forms, helpdesk software, or scheduling workflows when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Draft follow-up emails that reference the prospect’s stated needs while leaving final pricing and contract commitments to your team.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "CalculatorIcon"
+      },
+      {
+        "role": "Project managers, dispatch, and field supervisors",
+        "roleContext": "Reduce time spent hunting through folders, texts, PDFs, and old emails when crews need the current procedure or office staff need project context.",
+        "bullets": [
+          {
+            "text": "Search internal SOPs, equipment manuals, onboarding documents, warranty notes, and project procedures from one private assistant.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Generate job summaries, customer handoff notes, or punch-list context from approved records and documents when connected.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate safety, legal, pricing, or scope-change decisions to the right person instead of allowing the agent to make high-impact commitments.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-construction-employment",
+      "metric": "Construction employment continued growing in 2024",
+      "claim": "BLS reported that specialty trade contractors added 112,000 jobs in 2024, while construction of buildings added 44,000 and heavy and civil engineering added 35,000.",
+      "sourceTitle": "Total nonfarm employment growth continues to slow in 2024",
+      "sourceUrl": "https://www.bls.gov/opub/mlr/2025/article/total-nonfarm-employment-growth-continues-to-slow-in-2024.htm",
+      "sourceDate": "August 2025",
+      "bestUsedFor": [
+        "labor scale",
+        "contractor workforce pressure",
+        "field and office coordination"
+      ]
+    },
+    {
+      "id": "src-abc-labor-shortage-2025",
+      "metric": "439,000 additional construction workers needed in 2025",
+      "claim": "Associated Builders and Contractors estimated the construction industry needed to attract 439,000 new workers in 2025 to balance labor demand and supply.",
+      "sourceTitle": "ABC: Construction Industry Must Attract 439,000 Workers in 2025",
+      "sourceUrl": "https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-439000-workers-in-2025",
+      "sourceDate": "February 2025",
+      "bestUsedFor": [
+        "labor shortage",
+        "onboarding pressure",
+        "knowledge retention"
+      ]
+    },
+    {
+      "id": "src-osha-focus-four",
+      "metric": "Falls, struck-by, electrocution, and caught-in/between are OSHA construction Focus Four hazards",
+      "claim": "OSHA construction training materials identify falls, struck-by, electrocution, and caught-in/between hazards as the Construction Focus Four.",
+      "sourceTitle": "Construction Focus Four: Caught-In or -Between Hazards",
+      "sourceUrl": "https://www.osha.gov/sites/default/files/caught_iorb_ig.pdf",
+      "sourceDate": "OSHA training material",
+      "bestUsedFor": [
+        "safety risk",
+        "field training",
+        "crew procedure access"
+      ]
+    },
+    {
+      "id": "src-trimble-fmi-rework",
+      "metric": "Rework and communication breakdowns create large construction losses",
+      "claim": "Trimble cites FMI Corporation analysis that more than $177 billion is lost each year in the United States due to construction inefficiencies such as rework, searching for data, and communication breakdowns.",
+      "sourceTitle": "How poor design drives $177B in construction rework",
+      "sourceUrl": "https://www.trimble.com/blog/construction/en-US/article/collaborative-design-sketchup-cut-construction-rework-costs",
+      "sourceDate": "August 2025",
+      "bestUsedFor": [
+        "rework",
+        "communication gaps",
+        "document retrieval"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Estimate intake and lead qualification agent",
+      "problem": "Contractor websites often receive incomplete requests: “Can you do this job?” “How much will it cost?” “When can someone come out?” Staff then spend time chasing missing details before deciding whether the job fits.",
+      "agentWorkflow": "DocsBot answers service-fit questions from approved service pages, FAQs, and proposal language. It collects structured intake details such as location, project type, timeline, budget range, photos, access constraints, and preferred contact method, then applies customer-defined qualification rules before routing the summary for human follow-up.",
+      "liveContextOrTools": "With approved Skills, APIs, forms, webhooks, or scheduling workflows, the agent can forward qualified leads, create a task, request a meeting, or send a structured handoff to sales, dispatch, CRM, email, or helpdesk software configured by the contractor.",
+      "exampleQuestionsOrRequests": [
+        "Do you handle commercial tenant improvements in my area?",
+        "I need a roof repair estimate after a storm. What information do you need?",
+        "Can someone visit this week, and should I upload photos first?"
+      ],
+      "businessOutcome": "Sales and office teams receive cleaner opportunities, prospects get faster next steps, and humans remain responsible for final pricing, scope, and contract terms.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Client-facing project information assistant",
+      "problem": "Clients repeatedly ask about next steps, document requirements, warranty terms, maintenance guidance, payment process, and how to prepare before crews arrive.",
+      "agentWorkflow": "DocsBot gives source-grounded answers from welcome packets, FAQs, warranty documents, maintenance guides, pre-job checklists, and approved policy language. If the question is project-specific, the agent can request identifying details and prepare a handoff instead of guessing.",
+      "liveContextOrTools": "When configured with live context, the agent can look up approved record status, summarize a customer’s request, create a ticket, notify the office, or route a sensitive issue to the assigned project manager.",
+      "exampleQuestionsOrRequests": [
+        "What should I clear before the crew arrives?",
+        "Where do I find the warranty terms for this installation?",
+        "I have a change request. Who should review it?"
+      ],
+      "businessOutcome": "Clients get consistent answers after hours while project managers avoid repetitive status and policy questions.",
+      "icon": "HomeModernIcon"
+    },
+    {
+      "name": "Field crew SOP and safety knowledge agent",
+      "problem": "Crews need fast access to procedures, equipment notes, installation steps, jobsite policies, and safety reminders, especially when new employees join or supervisors are unavailable.",
+      "agentWorkflow": "DocsBot acts as a private internal assistant trained on SOPs, training materials, manuals, checklists, and policy documents. Workers can ask natural-language questions and receive answers grounded in approved sources, with citations back to the relevant document where available.",
+      "liveContextOrTools": "The agent can support private team chat, Slack, Microsoft Teams, or other configured internal experiences. Safety-critical decisions can be escalated to supervisors, and permissions can limit access to the right internal content.",
+      "exampleQuestionsOrRequests": [
+        "What is our ladder inspection checklist before setup?",
+        "Where is the install guide for this product line?",
+        "What is the closeout photo checklist for this job type?"
+      ],
+      "businessOutcome": "Contractors preserve tribal knowledge, support onboarding, and reduce time spent searching for procedures. OSHA’s Focus Four construction hazards make fast access to safety guidance especially important.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-focus-four"
+      ]
+    },
+    {
+      "name": "Project document retrieval and handoff summaries",
+      "problem": "Contractor teams lose time searching across PDFs, folders, emails, plan notes, warranty files, and closeout documents, and miscommunication can contribute to costly rework.",
+      "agentWorkflow": "DocsBot can retrieve information from approved project documentation, summarize long files, draft internal handoff notes, and highlight repeated questions that reveal documentation gaps. It helps office and field teams ask for the information they need without manually opening every document.",
+      "liveContextOrTools": "With customer-configured Skills or connectors, the agent can trigger a review workflow, create a task, update approved fields, or send a summary to the right project channel or ticketing queue.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the customer’s requested change and open questions.",
+        "Which closeout documents still need to be sent?",
+        "What does our SOP say about documenting hidden conditions?"
+      ],
+      "businessOutcome": "Faster access to current information can reduce avoidable back-and-forth. Trimble cites FMI analysis that U.S. construction loses more than $177 billion annually to inefficiencies including rework, searching for data, and communication breakdowns.",
+      "icon": "FolderIcon",
+      "sourceIds": [
+        "src-trimble-fmi-rework"
+      ]
+    },
+    {
+      "name": "Onboarding and training assistant for growing crews",
+      "problem": "Construction labor pressure makes it harder to onboard consistently, especially when experienced staff are pulled into active jobs instead of repeating the same training answers.",
+      "agentWorkflow": "DocsBot answers new-hire questions from onboarding guides, HR policies, safety orientation materials, tool procedures, service standards, and company SOPs. Managers can review analytics to see where training materials are unclear or missing.",
+      "liveContextOrTools": "The agent can route policy exceptions, document acknowledgments, or training questions to HR, operations, or a supervisor through approved workflows when configured.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find the timecard policy?",
+        "What should I do before taking a company vehicle to a jobsite?",
+        "Which checklist do we use for final walkthroughs?"
+      ],
+      "businessOutcome": "Managers can scale consistent training while protecting senior employees’ time. ABC estimated the industry needed 439,000 additional workers in 2025 to balance labor demand and supply.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-abc-labor-shortage-2025"
+      ]
+    },
+    {
+      "name": "Helpdesk and service-request triage",
+      "problem": "Warranty issues, repair calls, inspection follow-ups, and customer complaints arrive through many channels and often need the same initial clarification before the right person can act.",
+      "agentWorkflow": "DocsBot can answer routine questions from approved support content, collect missing details, summarize the issue, draft a response, and route the request to the appropriate team when the customer has configured helpdesk, ticketing, form, API, or connector workflows.",
+      "liveContextOrTools": "AI Actions can create a ticket, classify urgency, attach conversation context, notify dispatch, or escalate to a human for safety, legal, payment, or high-friction customer issues.",
+      "exampleQuestionsOrRequests": [
+        "My newly installed fixture is leaking. What should I do first?",
+        "I need to report a warranty issue with photos.",
+        "Can you route this to service instead of estimating?"
+      ],
+      "businessOutcome": "Support requests arrive with better context, customers receive a faster first response, and teams maintain human oversight for complex or sensitive issues.",
+      "icon": "TicketIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and clients a knowledgeable first response without overpromising",
+    "intro": "A DocsBot customer-facing agent can live on your website or customer portal, trained on your approved contractor content. It helps visitors understand your services, prepare for an estimate, find documentation, and know when a person needs to step in.",
+    "requests": [
+      {
+        "request": "“Do you handle this type of project in my ZIP code?”",
+        "agentResponseStrategy": "Answer from service pages and coverage-area content, ask clarifying questions, collect location and project details, then route a qualified summary to the right team if the job appears to fit.",
+        "sourceTypes": [
+          "Service pages",
+          "Coverage-area FAQs",
+          "Estimate intake rules",
+          "Lead qualification instructions"
+        ],
+        "optionalAction": "Submit a custom lead form or forward the summarized request to a customer-configured CRM, email, or scheduling workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What happens after I request an estimate?”",
+        "agentResponseStrategy": "Explain the contractor’s approved process, what information the client should prepare, expected communication steps, and where human review is required for scope, pricing, and contracts.",
+        "sourceTypes": [
+          "Estimate process pages",
+          "Welcome packets",
+          "Proposal templates",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Collect scheduling intent and hand off to an approved booking workflow when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where are my warranty documents and maintenance instructions?”",
+        "agentResponseStrategy": "Answer from warranty PDFs, care guides, maintenance checklists, and closeout materials. If the client needs account-specific documents, collect identifying details and escalate to the office.",
+        "sourceTypes": [
+          "Warranty PDFs",
+          "Maintenance guides",
+          "Closeout packets",
+          "Customer support policies"
+        ],
+        "optionalAction": "Create a support ticket or notify the responsible coordinator with the conversation summary.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“I need to change the scope before work starts.”",
+        "agentResponseStrategy": "Explain the approved change-request process, capture the requested change, summarize context, and escalate to the project manager instead of committing to price or schedule changes.",
+        "sourceTypes": [
+          "Change-order procedures",
+          "Contract language",
+          "Project communication policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Trigger a review workflow, create a task, or send a structured handoff to the assigned team when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Can you answer this in another language?”",
+        "agentResponseStrategy": "Provide multilingual assistance from the same approved knowledge sources so customers can understand service steps, preparation requirements, and support options more clearly.",
+        "sourceTypes": [
+          "Website content",
+          "FAQs",
+          "Policies",
+          "Approved support articles"
+        ],
+        "optionalAction": "Escalate to a bilingual team member or human reviewer if the request involves contracts, payments, safety, or sensitive project details.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Is this an emergency?”",
+        "agentResponseStrategy": "Provide approved guidance about how to contact the contractor, what information to share, and when to call emergency services or a licensed professional, without diagnosing hazards or making safety-critical judgments.",
+        "sourceTypes": [
+          "Emergency contact policies",
+          "Service FAQs",
+          "Escalation rules",
+          "Safety disclaimers"
+        ],
+        "optionalAction": "Route urgent requests to a monitored inbox, phone process, or dispatch workflow when the contractor has configured one.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make contractor knowledge usable for office, sales, and field teams",
+    "intro": "DocsBot can also run as a private internal knowledge agent trained on documents your employees already depend on: SOPs, manuals, onboarding files, policy docs, templates, proposals, project notes, and support history. Teams get faster answers while managers see where documentation needs improvement.",
+    "workflows": [
+      {
+        "name": "SOP and manual lookup",
+        "problem": "Field supervisors and office staff waste time searching through folders or interrupting experienced team members for routine procedure questions.",
+        "agentWorkflow": "Train DocsBot on SOPs, product manuals, checklists, policies, and PDFs so employees can ask questions in natural language and receive answers grounded in approved sources.",
+        "sourceTypes": [
+          "SOPs",
+          "PDF manuals",
+          "Installation guides",
+          "Quality checklists"
+        ],
+        "optionalAction": "Escalate ambiguous or safety-sensitive answers to a supervisor through a configured review path.",
+        "outcome": "Fewer interruptions, more consistent procedures, and faster access to current company knowledge.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Project and customer handoff summaries",
+        "problem": "When a job moves from sales to production or from production to service, details can be scattered across conversations, forms, documents, and tickets.",
+        "agentWorkflow": "Use DocsBot to summarize approved context, extract open questions, and prepare handoff notes for the next person in the workflow.",
+        "sourceTypes": [
+          "Intake forms",
+          "Proposal notes",
+          "Project documents",
+          "Support tickets"
+        ],
+        "optionalAction": "Create a task, update approved fields, or notify a team channel through customer-configured Skills, APIs, connectors, or MCP-connected tools.",
+        "outcome": "Cleaner handoffs between sales, estimating, project management, service, and dispatch.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "New employee onboarding support",
+        "problem": "New hires ask repeat questions about policies, forms, tools, timekeeping, service standards, and jobsite expectations.",
+        "agentWorkflow": "Train an internal agent on onboarding documents, training guides, HR policies, and operations playbooks so employees can self-serve routine answers at any time.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "HR policies",
+          "Training materials",
+          "Operations playbooks"
+        ],
+        "optionalAction": "Route unresolved questions to HR, operations, or a supervisor and use analytics to identify missing training content.",
+        "outcome": "More consistent onboarding for office and field employees during periods of labor pressure.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales enablement and proposal support",
+        "problem": "Estimators and account managers need quick access to service language, exclusions, objection handling, case examples, and approved proposal wording.",
+        "agentWorkflow": "DocsBot can answer internal sales questions from service catalogs, proposal templates, pricing guidance, FAQs, testimonials, and sales playbooks. It can draft follow-up language for human review.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Sales playbooks",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft an email, summarize a prospect conversation, or prepare a follow-up task through approved sales workflows.",
+        "outcome": "Sales teams respond with more consistent language while humans keep control of final estimates, legal terms, and commitments.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on contractor knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, documents, internal content, help centers, conversations, and other configured knowledge sources.",
+      "industryApplication": "Train a contractor agent on service pages, estimate FAQs, proposal templates, SOPs, manuals, warranty files, onboarding guides, and project documentation.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers",
+      "mainLandingPageContext": "DocsBot agents provide instant answers grounded in the customer’s approved content and can surface documentation gaps through analytics and logs.",
+      "industryApplication": "Help clients, estimators, coordinators, and field teams get consistent answers from approved sources instead of relying on memory, scattered folders, or repeated calls.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded actions such as live lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Route estimate requests, create service tasks, summarize change requests, notify dispatch, or look up approved job context through customer-configured workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Website widget and internal team access",
+      "mainLandingPageContext": "DocsBot can support embeddable customer experiences and private internal knowledge assistants for employees and teams.",
+      "industryApplication": "Put an agent on your contractor website for prospects and clients, and give office or field teams a private assistant for SOPs, manuals, policies, and project procedures.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, conversation review, reporting, satisfaction and resolution analysis, topic management, and knowledge-gap discovery.",
+      "industryApplication": "See which service questions, warranty concerns, estimate blockers, onboarding topics, or support issues appear repeatedly, then improve your documentation and workflows.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private project documents, internal procedures, customer context, and business policies inside governed agent experiences with permissions and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "anders-boligsiden-communication"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume customer support, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Train agents on your own content library so answers reflect your services, policies, and documentation.",
+      "Support customer and stakeholder communication with source-grounded answers and analytics."
+    ],
+    "whyTheseReviewsFit": "Contractors need dependable first responses, practical knowledge retrieval, and clear communication across prospects, clients, office teams, and field crews. DocsBot proof spans high-volume support, owned-content training, and customer communication improvements that map directly to contractor operations.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "ArchiveBoxIcon",
+      "ChatBubbleLeftIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for contractor customer support, estimate intake, field knowledge, and internal operations",
+    "audience": [
+      "Contractor owners",
+      "General contractors",
+      "Specialty trade contractors",
+      "Estimators and sales coordinators",
+      "Project managers and field supervisors"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "building-construction",
+    "building-inspection",
+    "architect-services",
+    "business-information",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "contractor",
+    "webSearchQueries": [
+      "construction industry employment number contractors United States 2024 BLS construction",
+      "OSHA construction fatal four falls struck-by electrocution caught-in between",
+      "construction project communication rework cost statistics FMI report",
+      "Associated Builders and Contractors construction workforce shortage 2025"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/opub/mlr/2025/article/total-nonfarm-employment-growth-continues-to-slow-in-2024.htm",
+      "https://www.abc.org/News-Media/News-Releases/abc-construction-industry-must-attract-439000-workers-in-2025",
+      "https://www.osha.gov/sites/default/files/caught_iorb_ig.pdf",
+      "https://www.trimble.com/blog/construction/en-US/article/collaborative-design-sketchup-cut-construction-rework-costs"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41177,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28633,
+        "outputTokens": 7876,
+        "reasoningOutputTokens": 108,
+        "totalTokens": 49053,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.192859,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.202859
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21550,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14254,
+          "outputTokens": 5219,
+          "reasoningOutputTokens": 108,
+          "totalTokens": 26769,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115744,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125744
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19627,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14379,
+          "outputTokens": 2657,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22284,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077115,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077115
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1512207736890-6ffed8a84e8d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDQ4NjB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Contractor background image",
+    "source": "legacy-industry",
+    "query": "Contractor"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify estimate requests without letting the AI quote prices or promise availability?",
+      "answer": "Yes. You can train the agent on approved service pages, scope assumptions, estimate FAQs, and intake rules so it collects the right details—project type, location, urgency, photos, budget range, access constraints, and preferred contact method. Final pricing, site-visit decisions, scope commitments, and contract terms stay with your team.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this fit into our current lead intake process if requests come through our website, phone forms, email, and office staff?",
+      "answer": "DocsBot is best used as a consistent front-end intake and handoff layer. It can answer common questions, collect missing information, and send a structured summary to your configured workflow, such as email, forms, CRM, helpdesk, scheduling, or dispatch processes. It does not require you to replace your estimator’s review process.",
+      "role": "Estimators and sales coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What documents should we train the contractor AI agent on first?",
+      "answer": "Start with high-confidence content: service pages, coverage areas, estimate process FAQs, warranty language, maintenance guides, proposal templates, closeout checklists, SOPs, safety reminders, product manuals, and onboarding guides. Avoid uploading outdated pricing sheets, conflicting procedures, or draft contract language until someone has reviewed them.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can field crews use DocsBot for SOPs and manuals, or is it only for customers on our website?",
+      "answer": "DocsBot can support both. A customer-facing agent can answer prospect and client questions, while a private internal knowledge agent can help crews and office staff search SOPs, manuals, policies, checklists, onboarding files, warranty notes, and project procedures from approved sources.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from giving unsafe jobsite advice?",
+      "answer": "Use approved safety documents, clear escalation instructions, and permissions. The agent can provide source-grounded reminders from your materials, but safety-critical, ambiguous, emergency, or site-specific decisions should route to a supervisor or emergency process. This matters because OSHA construction training identifies falls, struck-by, electrocution, and caught-in/between as Focus Four hazards.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-focus-four"
+      ]
+    },
+    {
+      "question": "Will DocsBot help reduce the back-and-forth before an estimator calls a prospect?",
+      "answer": "Yes. The agent can ask the same qualifying questions your best coordinator would ask, summarize the answers, and route the handoff for human follow-up. That helps estimators spend less time chasing basics and more time reviewing fit, scope, site constraints, and next steps.",
+      "role": "Estimators and sales coordinators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent handle change-order or scope-change questions from clients?",
+      "answer": "It can explain your approved change-request process, collect the client’s requested change, summarize context, and route it to the project manager. It should not approve schedule changes, price changes, contract modifications, or scope commitments unless your team has created a very specific reviewed workflow for that action.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What integrations would we need for job status, tickets, CRM, or scheduling?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, MCP-connected tools, forms, webhooks, and workflow automations. Depending on what you authorize, the agent can look up approved live context, create a task or ticket, send a lead summary, notify a team, or request a meeting. Avoid exposing credentials or unrestricted system access.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we know whether the AI agent is actually saving time?",
+      "answer": "Track practical operating metrics: qualified leads captured, incomplete requests reduced, repetitive questions answered, tickets routed with complete context, internal SOP searches, escalations, response times, and topics that repeatedly need human help. DocsBot analytics, logs, reports, conversation review, satisfaction/resolution analysis, and knowledge-gap discovery help you review those patterns.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Could this help with onboarding new hires when our senior people are already overloaded?",
+      "answer": "Yes. An internal DocsBot agent can answer routine new-hire questions from onboarding guides, HR policies, safety orientation, tool procedures, vehicle policies, timekeeping instructions, and operations playbooks. That is especially relevant in a tight labor market: ABC estimated construction needed 439,000 additional workers in 2025 to balance labor demand and supply.",
+      "role": "Owners and general managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-abc-labor-shortage-2025"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer in Spanish or other languages for clients and crews?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge sources. For contracts, payments, safety, legal issues, or sensitive project details, configure the agent to escalate to a bilingual employee or human reviewer rather than treating translation as approval to make commitments.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a client asks a project-specific question the agent cannot know?",
+      "answer": "The agent should not guess. You can configure it to request identifying details, explain what information your office needs, and route a summary to the assigned team. If connected to approved live systems, it may look up allowed record status or create a ticket, but only within the access and actions you define.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How does DocsBot protect private project files, customer details, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. Customer data is not used to train public models. For internal use, permissions should separate customer-facing content from private SOPs, job records, pricing guidance, and employee policies.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent said after a dispute, warranty issue, or complaint?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, topic management, satisfaction/resolution analysis, and knowledge-gap discovery. Those records help managers inspect responses, improve content, tighten escalation rules, and identify repeated warranty, service, estimate, or documentation issues.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much cleanup is required before we launch? Our folders have old PDFs and conflicting SOPs.",
+      "answer": "You do not need a perfect knowledge base, but you do need a trusted starting set. Launch with current, approved documents and exclude outdated or conflicting files. Use early conversation logs and unanswered questions to find gaps, then add or revise content in phases instead of waiting for a full documentation overhaul.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot reduce rework or miscommunication between sales, production, and service?",
+      "answer": "DocsBot can help by retrieving approved project information, summarizing handoffs, surfacing open questions, and routing context to the next team. It is not a substitute for project management discipline, but it supports cleaner communication. Trimble cites FMI analysis that U.S. construction loses more than $177 billion annually to inefficiencies including rework, searching for data, and communication breakdowns.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-trimble-fmi-rework"
+      ]
+    },
+    {
+      "question": "Will the agent work for specialty trades, remodeling, commercial contractors, and maintenance teams?",
+      "answer": "Yes, if the knowledge base and workflows match your business. A roofing contractor might emphasize storm repair intake and warranties; an HVAC or electrical team might emphasize service triage and manuals; a remodeler may focus on estimate qualification, selections, change requests, and client preparation.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we stop the agent from sending unqualified or bad-fit leads to our estimators?",
+      "answer": "Define qualification rules in the agent instructions: service area, project type, minimum budget range, timeline, property type, photos required, emergency handling, and disqualifying work. The agent can still respond politely, collect context, and route only the leads that meet your criteria or need human judgment.",
+      "role": "Estimators and sales coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot draft follow-up emails or proposal-support notes for our sales team?",
+      "answer": "Yes. DocsBot can draft follow-up language from the prospect’s conversation and your approved service, proposal, FAQ, and sales enablement content. Treat drafts as sales assistance, not automatic commitments: a human should review pricing, scope, exclusions, legal language, and promised timelines before sending.",
+      "role": "Estimators and sales coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What if customers try to use the website agent for emergencies?",
+      "answer": "Configure the agent with approved emergency guidance, disclaimers, and routing rules. It can tell customers how to contact your monitored channel, what details to share, and when to call emergency services or a licensed professional. It should not diagnose hazards, guarantee response times, or make safety-critical judgments.",
+      "role": "Owners and general managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot?",
+      "answer": "Compare the depth of knowledge training, source-grounded answers, internal knowledge use cases, analytics, review logs, permissions, and ability to take bounded actions through configured workflows. For contractors, the bigger value is not small talk—it is cleaner estimate intake, better document retrieval, safer escalation, and more consistent handoffs.",
+      "role": "Owners and general managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can office staff and field supervisors use different permissions?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so you can separate public website content, internal SOPs, project procedures, sales enablement, HR policies, and sensitive operating documents. That helps keep crews, coordinators, and managers focused on the knowledge they are allowed to use.",
+      "role": "Project managers, dispatch, and field supervisors",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What does a realistic first rollout look like for a contractor?",
+      "answer": "A practical rollout starts with one or two bounded workflows: estimate intake on the website, internal SOP lookup, warranty triage, or onboarding support. Upload approved content, define escalation rules, test with real questions, review logs, refine answers, then connect actions such as ticket creation, lead routing, or team notifications.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help us see what our website or proposal documents are missing?",
+      "answer": "Yes. DocsBot can surface recurring questions, unresolved topics, low-confidence areas, and content gaps through analytics and conversation review. For example, repeated questions about exclusions, warranty coverage, preparation steps, or service areas may show where your website, proposal templates, or closeout packets need clearer language.",
+      "role": "Estimators and sales coordinators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is DocsBot appropriate for a small contractor without an IT department?",
+      "answer": "Yes, especially if you start with owned documents and a focused use case. A small contractor can begin with website FAQs, service pages, estimate intake, and a few core SOPs. More advanced actions—live lookups, CRM updates, ticket creation, or scheduling workflows—can be added later with customer-configured Skills, APIs, or connectors.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What buyer should own this internally: operations, sales, IT, or the owner?",
+      "answer": "Ownership usually depends on the first workflow. Sales or estimating should own lead qualification; operations or project management should own SOPs and handoffs; the owner or general manager should approve risk boundaries; IT or an admin should help with permissions, systems access, and integration governance.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "slug": "ged-certification",
+  "business": "GED Certification",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for GED Certification Programs",
+    "description": "DocsBot helps GED certification programs answer learner questions, surface approved study resources, and route enrollment or exam support faster.",
+    "canonicalPath": "/industry/ged-certification"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for GED learners and adult education teams",
+    "headline": "DocsBot AI agents keep GED certification support moving",
+    "subheadline": "Train a DocsBot agent on your GED program FAQs, study guides, orientation materials, testing policies, accommodation instructions, transcripts guidance, and internal procedures so learners and staff can get reliable answers without waiting for office hours.",
+    "proofBullets": [
+      {
+        "text": "Answer learner questions from approved GED prep, enrollment, scheduling, accommodation, and transcript resources.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect missing details, summarize support requests, and route complex cases to advisors or testing staff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Help instructors and coordinators find internal SOPs, lesson resources, policies, and recurring knowledge gaps.",
+        "icon": "FolderIcon"
+      }
+    ],
+    "primaryCta": "Build a GED support agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps GED certification and adult education programs create AI agents trained on their own knowledge. The agent can answer learner and staff questions, retrieve approved resources, summarize conversations, identify content gaps, and trigger scoped workflows through customer-configured Skills, APIs, connectors, MCP servers, or review paths.",
+    "whoItHelps": [
+      {
+        "role": "Program directors and adult education administrators",
+        "roleContext": "Keep learner communication consistent across enrollment, orientation, prep, testing, and credential follow-up while giving staff visibility into repeated questions.",
+        "bullets": [
+          {
+            "text": "Review analytics and logs to spot unclear policies, missing study resources, and recurring learner barriers.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Keep answers aligned with your own program documents instead of scattered email threads or outdated handouts.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route sensitive or unusual questions to human staff with conversation context already summarized.",
+            "icon": "UserGroupIcon"
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      },
+      {
+        "role": "Instructors, tutors, and advisors",
+        "roleContext": "Support learners who need quick clarification on concepts, study plans, class expectations, testing steps, and next actions between scheduled sessions.",
+        "bullets": [
+          {
+            "text": "Make course concepts, assignment instructions, practice resources, and program FAQs available after class hours.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Draft learner follow-up summaries for staff review after intake, advising, or helpdesk conversations.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Use question trends to improve orientation materials, lesson pages, and exam-readiness guidance.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "AcademicCapIcon"
+      },
+      {
+        "role": "Learners preparing for a high school equivalency credential",
+        "roleContext": "Adult learners often balance study with work, family, transportation, and scheduling constraints. A DocsBot agent gives them a consistent place to ask what to do next.",
+        "bullets": [
+          {
+            "text": "GED Testing Service says the GED test covers four subjects: Math, Science, Social Studies, and Reasoning Through Language Arts.",
+            "icon": "ListBulletIcon",
+            "sourceIds": [
+              "src-ged-official-test"
+            ]
+          },
+          {
+            "text": "Find approved program resources for registration steps, class attendance, practice materials, accommodations, and transcripts.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Get clear next-step guidance while complex eligibility, payment, identity, or testing issues stay with staff.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Enrollment, testing, and support teams",
+        "roleContext": "Reduce repetitive intake and support work by letting an agent collect details, answer routine questions, and prepare structured handoffs.",
+        "bullets": [
+          {
+            "text": "Capture name, contact details, location, preferred schedule, language needs, and program interest through custom intake flows.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Create or route a ticket, task, form submission, or staff notification when a learner needs human help.",
+            "icon": "BellIcon"
+          },
+          {
+            "text": "Support multilingual learner communication with DocsBot agents that can answer in more than 100 languages.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ged-official-test",
+      "metric": "GED test has 4 subjects",
+      "claim": "The official GED website states that the GED test covers Math, Science, Social Studies, and Reasoning Through Language Arts.",
+      "sourceTitle": "GED Home",
+      "sourceUrl": "https://ged.com/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "GED learner support scope",
+        "Study resource organization",
+        "Exam information accuracy"
+      ]
+    },
+    {
+      "id": "src-ged-graduates",
+      "metric": "More than 21 million GED graduates",
+      "claim": "GED Testing Service says there are more than 21 million GED graduates and that GED graduates can earn on average $9,000 more per year.",
+      "sourceTitle": "GED Home",
+      "sourceUrl": "https://ged.com/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Learner motivation",
+        "Credential value",
+        "Adult education demand"
+      ]
+    },
+    {
+      "id": "src-ged-recognition",
+      "metric": "Recognized by 97% of employers and colleges",
+      "claim": "GED Testing Service describes the GED as the only high school equivalency credential recognized by 97% of employers and colleges.",
+      "sourceTitle": "About Us - GED",
+      "sourceUrl": "https://ged.com/about-us.html",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Employer and college recognition",
+        "Credential credibility",
+        "Learner outcomes messaging"
+      ]
+    },
+    {
+      "id": "src-nj-ged-passing-rate",
+      "metric": "2025 national GED passing rate shown as 74% in NJ report",
+      "claim": "New Jersey Department of Education reports 2025 GED results with 4,280 completed test batteries, 3,331 diplomas, a 78% New Jersey passing rate, and a 74% national passing rate.",
+      "sourceTitle": "New Jersey Adult Education Reports",
+      "sourceUrl": "https://nj.gov/education/adulted/resources/reports/",
+      "sourceDate": "2025 data, accessed May 2026",
+      "bestUsedFor": [
+        "Exam completion support",
+        "Learner readiness",
+        "Testing operations"
+      ]
+    },
+    {
+      "id": "src-nrs-adult-ed",
+      "metric": "National Reporting System tracks adult education performance",
+      "claim": "The National Reporting System for Adult Education publishes aggregate and state performance reports covering participants, measurable skill gains, distance education, employment, credentials, and program outcomes.",
+      "sourceTitle": "National Reporting System Aggregate Reports for 2023",
+      "sourceUrl": "https://nrs.ed.gov/rt/reports/aggregate/2023/all",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "Adult education accountability",
+        "Program reporting",
+        "Operational performance context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Learner FAQ and next-step support",
+      "problem": "GED programs receive repeated questions about enrollment, class options, test subjects, accommodations, accounts, score follow-up, transcripts, and what to study next.",
+      "agentWorkflow": "Train a DocsBot support agent on your program website, orientation deck, learner handbook, FAQs, study resource pages, and transcript instructions. The agent answers from approved sources, asks clarifying questions, and escalates eligibility or account-specific issues to staff.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can collect intake details, create a support ticket, send a summary to staff, or route the learner to the right program contact.",
+      "exampleQuestionsOrRequests": [
+        "What subjects do I need to prepare for?",
+        "How do I request testing accommodations?",
+        "I passed one section. What should I do next?",
+        "Where do I request my transcript after I finish?"
+      ],
+      "businessOutcome": "Learners get faster direction, staff spend less time repeating standard answers, and administrators can see which topics need clearer documentation.",
+      "icon": "ChatBubbleLeftIcon",
+      "sourceIds": [
+        "src-ged-official-test"
+      ]
+    },
+    {
+      "name": "Study resource navigation by subject",
+      "problem": "Learners can feel overwhelmed when study guides, practice links, class recordings, worksheets, and local policies are spread across many systems.",
+      "agentWorkflow": "DocsBot retrieves the right approved resource for Math, Science, Social Studies, or Reasoning Through Language Arts, explains where it came from, and points learners to the next class, handout, or practice activity without inventing unofficial requirements.",
+      "liveContextOrTools": "If connected to approved repositories, the agent can pull current PDFs, web pages, Google Drive files, Notion pages, or other configured knowledge sources.",
+      "exampleQuestionsOrRequests": [
+        "Show me the official math study resources from my program.",
+        "What should I review before the social studies practice test?",
+        "Where is the writing lesson from last week?",
+        "Explain this science handout in simpler language."
+      ],
+      "businessOutcome": "Programs make existing learning materials easier to find and reduce avoidable one-to-one navigation questions.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Enrollment and orientation intake",
+      "problem": "Prospective learners may be ready to start but need help understanding class formats, schedules, required documents, contact paths, and whether they should talk to an advisor.",
+      "agentWorkflow": "A DocsBot agent can answer from the program’s intake pages, collect structured information through a custom form, qualify the request using program-defined rules, and forward the summary to admissions, advising, or support staff.",
+      "liveContextOrTools": "Customer-configured actions can submit an intake form, create a CRM or ticketing record, notify a team, or request a meeting through an approved scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "I work evenings. Do you have classes I can attend?",
+        "Can someone contact me about starting GED prep?",
+        "What documents do I need for orientation?",
+        "I need Spanish-language support. Who should I talk to?"
+      ],
+      "businessOutcome": "Programs capture better intake context before staff follow-up and reduce lost interest from learners who cannot find the next step.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Staff knowledge assistant for policies and procedures",
+      "problem": "Adult education teams often rely on institutional memory for funding rules, class procedures, advising scripts, testing workflows, and reporting definitions.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, policy documents, staff handbooks, reporting guides, templates, and approved internal notes. Staff can ask questions and receive source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "For approved internal workflows, Skills can summarize learner conversations, draft follow-up messages, or create staff tasks while preserving human review for sensitive decisions.",
+      "exampleQuestionsOrRequests": [
+        "What is our procedure when a learner misses orientation?",
+        "Which template do I use for test-readiness outreach?",
+        "Summarize this learner’s last three support conversations.",
+        "Where is the current accommodation referral process?"
+      ],
+      "businessOutcome": "New and part-time staff find consistent answers faster, while leaders gain a clearer view of documentation gaps.",
+      "icon": "FolderIcon",
+      "sourceIds": [
+        "src-nrs-adult-ed"
+      ]
+    },
+    {
+      "name": "Exam readiness and support trend reporting",
+      "problem": "Programs need to understand where learners get stuck before testing, especially when questions repeat across subjects, scheduling steps, or credential follow-up.",
+      "agentWorkflow": "DocsBot conversation logs, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery help teams review what learners ask, which answers were helpful, and where documentation should be improved.",
+      "liveContextOrTools": "A configured workflow can export summaries, route unresolved topics to curriculum leads, or notify staff when a high-priority category appears repeatedly.",
+      "exampleQuestionsOrRequests": [
+        "What are learners asking most often about math prep?",
+        "Which questions did the agent escalate this month?",
+        "Show unanswered transcript questions from the last 30 days.",
+        "What content should we add to orientation?"
+      ],
+      "businessOutcome": "Administrators can improve resource pages and learner communication based on actual questions rather than anecdotes.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-nj-ged-passing-rate"
+      ]
+    },
+    {
+      "name": "Credential value and pathway guidance",
+      "problem": "Learners often ask whether a GED credential will be accepted by employers, colleges, training programs, or workforce partners.",
+      "agentWorkflow": "Train DocsBot on approved career pathway pages, partner program details, college transition resources, and employer-facing materials. The agent can explain general pathways and route personalized admissions, financial aid, or employment questions to the right human advisor.",
+      "liveContextOrTools": "When connected to approved scheduling or handoff workflows, the agent can request a college transition appointment, workforce referral, or advisor follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can I apply to college after earning my GED?",
+        "What career training programs can I ask about next?",
+        "Who can help me plan my next step after passing?",
+        "Is this credential accepted by employers?"
+      ],
+      "businessOutcome": "Learners see the broader value of completing the credential while advisors retain control over individualized academic, employment, and financial guidance.",
+      "icon": "TrophyIcon",
+      "sourceIds": [
+        "src-ged-graduates",
+        "src-ged-recognition"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give GED learners one reliable place to ask what comes next",
+    "intro": "A customer-facing DocsBot agent can sit on your GED program website or learner portal and answer from your approved content. It helps learners find resources, understand program steps, and reach staff when the issue requires a person.",
+    "requests": [
+      {
+        "request": "“How do I start GED classes with your program?”",
+        "agentResponseStrategy": "Answer from intake and orientation materials, ask for missing context if needed, and offer a structured handoff for staff follow-up.",
+        "sourceTypes": [
+          "Program website",
+          "Orientation pages",
+          "Enrollment FAQs",
+          "Contact policies"
+        ],
+        "optionalAction": "Submit a custom intake form or create a ticket with the learner’s preferred contact method.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "request": "“What should I study for the math test?”",
+        "agentResponseStrategy": "Point to approved math prep resources, class materials, tutoring options, and program guidance while avoiding unsupported score guarantees.",
+        "sourceTypes": [
+          "Study guides",
+          "Course pages",
+          "Instructor handouts",
+          "Practice resource lists"
+        ],
+        "optionalAction": "Route persistent subject-specific questions to a tutor or instructor with a concise summary.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“I need help with accommodations or a testing issue.”",
+        "agentResponseStrategy": "Provide approved instructions and eligibility-neutral next steps, then escalate sensitive or account-specific issues to staff.",
+        "sourceTypes": [
+          "Accommodation instructions",
+          "Testing policies",
+          "Support procedures",
+          "Official resource links"
+        ],
+        "optionalAction": "Create a priority handoff that includes the learner’s question, timeline, and contact details.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Can I use my GED credential for college or a job?”",
+        "agentResponseStrategy": "Share approved general information about credential recognition and local pathways, then refer individualized admissions or employment questions to an advisor.",
+        "sourceTypes": [
+          "Career pathway pages",
+          "College transition materials",
+          "Employer partner resources",
+          "Advisor FAQs"
+        ],
+        "optionalAction": "Offer a scheduling request or advisor follow-up workflow when configured.",
+        "icon": "BriefcaseIcon",
+        "sourceIds": [
+          "src-ged-recognition"
+        ]
+      },
+      {
+        "request": "“Where do I get my transcript after I pass?”",
+        "agentResponseStrategy": "Retrieve the program’s transcript instructions and distinguish general guidance from account-specific support that needs a human or official system.",
+        "sourceTypes": [
+          "Transcript instructions",
+          "Completion FAQs",
+          "Credential follow-up pages"
+        ],
+        "optionalAction": "Create a support ticket if the learner cannot access the official transcript process.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you explain this lesson in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual answer capability to explain approved program content while preserving the meaning of the source material.",
+        "sourceTypes": [
+          "Lesson pages",
+          "Handouts",
+          "FAQs",
+          "Study guides"
+        ],
+        "optionalAction": "Escalate to bilingual staff when the learner asks about eligibility, identity, payment, or other sensitive steps.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help GED program teams find procedures, resources, and learner context faster",
+    "intro": "DocsBot can also run as a private internal knowledge agent for instructors, advisors, enrollment staff, testing coordinators, and administrators who need quick answers from approved internal documents.",
+    "workflows": [
+      {
+        "name": "Advisor and instructor knowledge lookup",
+        "problem": "Staff lose time searching through handbooks, shared drives, emails, and policy PDFs before answering learner questions.",
+        "agentWorkflow": "Train DocsBot on internal SOPs, lesson plans, advising guides, orientation materials, and policy documents. Staff ask natural-language questions and get source-grounded responses with links back to the approved source.",
+        "sourceTypes": [
+          "SOPs",
+          "Staff handbooks",
+          "Shared-drive documents",
+          "Policy PDFs"
+        ],
+        "optionalAction": "Draft a staff-reviewed learner response based on the cited policy or lesson material.",
+        "outcome": "Faster, more consistent staff responses across full-time, part-time, and new team members.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Support conversation summarization",
+        "problem": "When a learner’s question moves from the website agent to a person, staff need the context without rereading the full conversation.",
+        "agentWorkflow": "DocsBot can summarize the learner’s issue, missing information, prior answers, and recommended next step for a human advisor or support representative.",
+        "sourceTypes": [
+          "Chat logs",
+          "Ticket notes",
+          "Approved workflows",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a ticket, send a Slack or Microsoft Teams notification, or route the summary through a configured helpdesk workflow.",
+        "outcome": "Human follow-up starts with context instead of asking the learner to repeat everything.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Program documentation gap review",
+        "problem": "If many learners ask the same question, the answer may be missing, outdated, or difficult to find.",
+        "agentWorkflow": "Use DocsBot analytics, reports, conversation review, satisfaction and resolution analysis, and topic management to identify unanswered questions and recurring themes.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge-gap reports",
+          "FAQ pages",
+          "Help articles"
+        ],
+        "optionalAction": "Assign a content update task to the right staff member through a customer-configured workflow.",
+        "outcome": "Improve orientation pages, study resources, and support articles based on what learners actually ask.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Reporting and accountability support",
+        "problem": "Adult education teams track outcomes, credentials, measurable skill gains, and program activity, but staff may need help finding definitions and procedures.",
+        "agentWorkflow": "Train a private agent on reporting manuals, data-entry procedures, internal definitions, and local compliance guidance so staff can quickly locate the right policy language.",
+        "sourceTypes": [
+          "Reporting manuals",
+          "NRS guidance",
+          "Local data procedures",
+          "Internal checklists"
+        ],
+        "optionalAction": "Prepare a staff-reviewed summary or checklist for a reporting task without submitting official data automatically.",
+        "outcome": "Reduce confusion around operational definitions while keeping official reporting under staff control.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-nrs-adult-ed"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your approved GED knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, documentation, internal content, PDFs, Word documents, text files, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Use your program’s orientation materials, study guides, instructor handouts, policies, FAQs, transcript instructions, and staff procedures as the knowledge base for learner and staff support.",
+      "icon": "CpuChipIcon"
+    },
+    {
+      "feature": "Source-grounded learner answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers grounded in configured sources and can cite or reference the underlying material.",
+      "industryApplication": "Help learners understand test subjects, class expectations, resource locations, and program next steps while reducing unsupported or inconsistent guidance.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded lookups, summaries, routing, record updates, workflow triggers, and handoffs through customer-configured tools and APIs.",
+      "industryApplication": "Let a GED support agent collect intake details, create a ticket, send a staff notification, request an advising appointment, or connect to approved tools exposed through a Model Context Protocol server.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive situations",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Route questions about eligibility, identity, accommodations, payment, account access, test incidents, or individualized academic planning to staff with a concise summary.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what GED learners ask most often, which content is missing, which topics need revision, and where staff handoffs are happening.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Multilingual support and private team access",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be deployed through website widgets, private team chat, Slack, Microsoft Teams, API, and helpdesk-style workflows when configured.",
+      "industryApplication": "Support diverse adult learners on your public site while giving instructors and advisors a private assistant for internal policies and procedures.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Education teams use DocsBot to reinforce assignments, exams, projects, and course concepts from their own materials.",
+      "DocsBot can be trained on owned content libraries so GED programs keep answers aligned with approved resources.",
+      "High-volume support proof shows DocsBot can handle many learner or customer questions without replacing human escalation."
+    ],
+    "whyTheseReviewsFit": "GED certification programs need dependable support across study resources, learner questions, and staff knowledge. DocsBot proof spans education use, training-material answers, owned content libraries, and high-volume inquiry handling, giving adult education teams confidence that AI support can stay grounded in their materials.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "BookOpenIcon",
+      "SignalIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for GED certification and adult education programs",
+    "audience": [
+      "GED program administrators",
+      "Adult education instructors",
+      "Enrollment and advising teams",
+      "Testing coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "AcademicCapIcon"
+  },
+  "relatedIndustrySlugs": [
+    "colleges-universities",
+    "business-information",
+    "child-care-services",
+    "ai-automation-agency",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "ged-certification",
+    "webSearchQueries": [
+      "GED Testing Service annual statistical report GED graduates 2023",
+      "National Reporting System adult education participants high school equivalency 2023 report",
+      "COABE adult education waiting lists learner access GED programs 2024"
+    ],
+    "sourceUrls": [
+      "https://ged.com/",
+      "https://ged.com/about-us.html",
+      "https://nj.gov/education/adulted/resources/reports/",
+      "https://nrs.ed.gov/rt/reports/aggregate/2023/all"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46796,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 26572,
+        "outputTokens": 7678,
+        "reasoningOutputTokens": 186,
+        "totalTokens": 54474,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.186657,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.206657
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27645,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 12669,
+          "outputTokens": 4994,
+          "reasoningOutputTokens": 167,
+          "totalTokens": 32639,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.110327,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.130327
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19151,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13903,
+          "outputTokens": 2684,
+          "reasoningOutputTokens": 19,
+          "totalTokens": 21835,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07633,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07633
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDU1MzR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "GED Certification background image",
+    "source": "legacy-industry",
+    "query": "GED Certification"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer GED learner questions without giving unofficial testing advice?",
+      "answer": "Yes. DocsBot is designed to answer from your approved program content, such as orientation pages, study guides, testing policies, accommodation instructions, and transcript guidance. For sensitive or account-specific topics, you can define escalation rules so the agent provides approved next steps and routes the learner to staff instead of making a decision.",
+      "role": "Program directors and adult education administrators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce the repetitive calls and emails our enrollment team handles every week?",
+      "answer": "A DocsBot agent can answer routine questions about class options, orientation steps, required documents, schedules, language support, and how to get started. It can also collect missing intake details and send a structured summary to staff through customer-configured forms, tickets, notifications, or other approved workflows.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help learners understand which GED subjects they still need to study?",
+      "answer": "DocsBot can organize your approved study resources around the official GED subject areas and point learners to the right materials for their next step. The official GED website states that the GED test covers four subjects: Math, Science, Social Studies, and Reasoning Through Language Arts.",
+      "role": "Learners preparing for a high school equivalency credential",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ged-official-test"
+      ]
+    },
+    {
+      "question": "Will the agent work for adult learners who ask questions after office hours or between classes?",
+      "answer": "Yes. A website or learner-portal agent can provide always-available answers from your approved materials, helping learners find class expectations, study links, orientation instructions, or transcript steps when staff are unavailable. Complex issues can still be escalated to advisors, instructors, or testing staff with the conversation context summarized.",
+      "role": "Instructors, tutors, and advisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it support learners in Spanish or other languages without changing the meaning of our policies?",
+      "answer": "DocsBot agents can answer in more than 100 languages and can be trained on your approved source material. For GED programs, that means learners can ask for explanations of lessons, orientation steps, or FAQs in another language while the agent stays grounded in your documents. Sensitive eligibility, payment, identity, or testing issues should still route to staff.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep instructors from getting different answers than enrollment or testing staff?",
+      "answer": "You can train DocsBot on a shared, approved knowledge base instead of relying on email threads, handouts, or institutional memory. Staff can ask the internal agent questions about SOPs, advising scripts, class procedures, reporting definitions, and testing workflows, then see answers grounded in the same underlying materials.",
+      "role": "Program directors and adult education administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent handle accommodation questions safely?",
+      "answer": "DocsBot can provide your approved accommodation instructions, required contact paths, deadlines, and general next steps. It should not decide eligibility or interpret a learner’s individual case unless your team has explicitly configured an approved workflow for that purpose. Most programs use the agent to inform, collect context, and escalate accommodation questions to trained staff.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kinds of GED program content should we train the agent on first?",
+      "answer": "Start with the materials that answer high-volume questions: enrollment pages, orientation slides, learner handbooks, class schedules, attendance expectations, subject study resources, accommodation instructions, testing policies, transcript guidance, and staff escalation procedures. For internal use, add SOPs, advising templates, reporting manuals, and shared-drive resources.",
+      "role": "Program directors and adult education administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot connect to our forms, CRM, ticketing system, or scheduling workflow?",
+      "answer": "DocsBot can trigger bounded actions through customer-configured Skills, APIs, connectors, forms, webhooks, MCP servers, or approved workflows. A GED program might use this to collect intake details, create a support ticket, notify an advisor, request a meeting, or route a testing issue. Specific connections depend on what your team authorizes and configures.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we avoid the agent making promises about passing scores, timelines, or credential outcomes?",
+      "answer": "Configure the agent to answer only from approved sources, avoid unsupported guarantees, and escalate uncertain or individualized questions. For example, it can point learners to readiness resources and testing policies, but it should not promise a passing result, guarantee acceptance by a specific employer, or make individualized academic decisions without human review.",
+      "role": "Instructors, tutors, and advisors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can administrators see what learners are asking about most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Program leaders can use those trends to identify unclear orientation content, missing study resources, repeated transcript questions, or topics that should be escalated more quickly.",
+      "role": "Program directors and adult education administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent help us improve exam-readiness communication?",
+      "answer": "Yes. By reviewing repeated learner questions, unanswered topics, and escalations, your team can see where learners are getting stuck before testing. That is useful in a GED environment where pass rates and completion outcomes matter; New Jersey’s 2025 adult education report, for example, shows a 74% national GED passing rate and a 78% New Jersey passing rate.",
+      "role": "Program directors and adult education administrators",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-nj-ged-passing-rate"
+      ]
+    },
+    {
+      "question": "Is this meant to replace advisors, tutors, or testing coordinators?",
+      "answer": "No. DocsBot is best positioned as a first-line support and knowledge agent. It can answer routine questions, retrieve resources, summarize context, and prepare handoffs, while humans remain responsible for individualized advising, accommodation decisions, eligibility questions, testing incidents, payment issues, and learner support that requires judgment.",
+      "role": "Instructors, tutors, and advisors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would we measure whether a GED support agent is worth the investment?",
+      "answer": "Common success measures include fewer repetitive calls and emails, faster intake follow-up, more completed support handoffs, reduced staff time searching for documents, higher learner satisfaction, fewer unanswered questions, and clearer documentation gaps. Programs can also track which topics are resolved by the agent versus escalated to staff.",
+      "role": "Program directors and adult education administrators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help with learner pathway questions after they pass the GED?",
+      "answer": "Yes. Train the agent on your approved college transition, workforce partner, career pathway, and advisor referral materials. It can explain general next steps and route individualized admissions, financial aid, or employment questions to a person. GED Testing Service says the credential is recognized by 97% of employers and colleges.",
+      "role": "Learners preparing for a high school equivalency credential",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ged-recognition"
+      ]
+    },
+    {
+      "question": "Can staff use DocsBot privately, separate from the learner-facing agent?",
+      "answer": "Yes. DocsBot can run as a private internal knowledge agent for instructors, advisors, enrollment staff, testing coordinators, and administrators. That internal agent can be trained on staff-only SOPs, policy documents, reporting guides, lesson resources, templates, and escalation procedures, while the public learner agent uses only learner-appropriate sources.",
+      "role": "Program directors and adult education administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security controls matter if we include learner conversations or internal procedures?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It does not use customer data to train public models. For sensitive workflows, Skills can use scoped permissions, secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "Program directors and adult education administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent summarize a learner’s issue before staff follow up?",
+      "answer": "Yes. When a question needs a person, DocsBot can summarize the learner’s request, missing details, prior answers, urgency, and recommended next step. That helps advisors or support staff avoid asking the learner to repeat the whole story and gives the team a cleaner handoff for enrollment, testing, accommodations, or transcript issues.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much staff work is required to launch the first version?",
+      "answer": "Most teams should start with a focused pilot: gather current FAQs, orientation materials, study resource links, transcript instructions, and escalation rules; train the agent; test common learner questions; then refine answers before publishing. The biggest staff lift is usually deciding which source documents are current and who owns updates.",
+      "role": "Program directors and adult education administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when a learner asks something our documentation does not answer?",
+      "answer": "DocsBot can be configured to avoid guessing, ask clarifying questions, escalate to a human, or log the gap for review. Administrators can then use knowledge-gap reporting to decide whether to update a FAQ, revise orientation content, add a study resource, or create a clearer staff procedure.",
+      "role": "Program directors and adult education administrators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use it for NRS or adult education reporting support?",
+      "answer": "DocsBot can help staff find definitions, procedures, checklists, and local guidance from approved reporting materials, but official reporting should remain under staff control. The National Reporting System publishes adult education reports covering participants, measurable skill gains, distance education, employment, credentials, and program outcomes.",
+      "role": "Program directors and adult education administrators",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-nrs-adult-ed"
+      ]
+    },
+    {
+      "question": "How does this compare with adding a generic chatbot to our website?",
+      "answer": "A generic chatbot may answer broadly, but GED programs need controlled, source-grounded responses tied to their own policies, study resources, and escalation paths. DocsBot is better suited when the buyer cares about approved knowledge sources, internal staff use, analytics, human handoff, multilingual answers, and bounded workflow actions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can instructors use the agent to support class materials without doing one-on-one tutoring all night?",
+      "answer": "Yes. Instructors can train the agent on lesson pages, assignments, handouts, practice links, and approved explanations. Learners can ask where to find a worksheet, what to review before class, or how to interpret instructions. The agent should escalate when the learner needs individualized tutoring, assessment, or intervention.",
+      "role": "Instructors, tutors, and advisors",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we control what actions the agent is allowed to take?",
+      "answer": "Yes. DocsBot actions are customer-configured and bounded. You decide whether the agent can collect intake details, create a ticket, send a notification, request a meeting, update an approved field, or only provide answers. Sensitive actions can require human review, scoped permissions, logs, and clear escalation rules.",
+      "role": "Program directors and adult education administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will this help part-time staff or new hires find the right procedure faster?",
+      "answer": "Yes. A private internal DocsBot agent can answer staff questions from approved SOPs, handbooks, templates, policy PDFs, reporting guides, and shared-drive documents. That reduces dependence on institutional memory and helps new or part-time team members respond consistently across enrollment, advising, instruction, and testing workflows.",
+      "role": "Enrollment, testing, and support teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can the agent support learners who are deciding whether the GED is worth pursuing?",
+      "answer": "Yes. If trained on approved motivational, workforce, and pathway content, the agent can explain the credential’s general value and connect learners with advisors for personal planning. GED Testing Service says there are more than 21 million GED graduates and that GED graduates can earn on average $9,000 more per year.",
+      "role": "Learners preparing for a high school equivalency credential",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ged-graduates"
+      ]
+    }
+  ]
+}

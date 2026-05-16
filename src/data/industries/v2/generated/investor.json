@@ -1,0 +1,701 @@
+{
+  "slug": "investor",
+  "business": "Investor",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Investor Research and Client Support",
+    "description": "DocsBot helps investor teams deliver source-grounded answers, faster research, and controlled workflow automation from approved finance content.",
+    "canonicalPath": "/industry/investor"
+  },
+  "hero": {
+    "eyebrow": "AI agents for investor relations, research, and support teams",
+    "headline": "DocsBot AI agents turn investor knowledge into faster, safer answers",
+    "subheadline": "Train DocsBot on approved investment research, disclosures, FAQs, policies, memos, and client education materials so prospects, clients, analysts, and internal teams can find source-grounded answers without searching through scattered documents.",
+    "proofBullets": [
+      {
+        "text": "Answer recurring investor questions from approved content with source-grounded responses and human escalation for sensitive topics.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Summarize investment memos, market notes, fund FAQs, policy documents, and onboarding materials for internal teams.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions and Skills for bounded lookups, intake forms, ticket routing, handoffs, and workflow triggers when configured.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Review analytics, logs, and knowledge gaps to see which investment topics, disclosures, and support questions need better documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build an investor knowledge agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps investor-focused organizations create AI agents trained on their own approved knowledge. Use it as a customer-facing support agent for FAQs and education, a private internal research assistant for policies and memos, or a workflow automation agent that collects details, summarizes context, routes requests, and triggers approved actions through Skills, APIs, connectors, or MCP-enabled tools.",
+    "whoItHelps": [
+      {
+        "role": "Investor relations and client service teams",
+        "roleContext": "Teams answering questions about funds, account processes, documents, fees, educational resources, or general service workflows can keep responses consistent and grounded in approved materials.",
+        "bullets": [
+          {
+            "text": "Give clients 24/7 answers from FAQs, relationship summaries, onboarding guides, and service policies.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Collect missing details before routing requests to a licensed professional or operations queue.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate suitability, personalized advice, complaint, or high-impact financial questions to humans.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Investment research and analyst teams",
+        "roleContext": "Analysts can use DocsBot to retrieve and summarize approved research notes, due diligence checklists, committee materials, portfolio commentary, and archived investment theses.",
+        "bullets": [
+          {
+            "text": "Ask natural-language questions across PDFs, notes, reports, and internal knowledge libraries.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize long documents into review-ready briefs with links back to source material.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Spot repeated questions and documentation gaps from agent analytics.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "Compliance, operations, and enablement leaders",
+        "roleContext": "Investor organizations operate in a disclosure-heavy environment where consistency, permissions, and review paths matter. DocsBot can make approved guidance easier to find without replacing regulated judgment.",
+        "bullets": [
+          {
+            "text": "Keep teams aligned on approved policies, escalation rules, fee language, and disclosure workflows.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support Reg BI and Form CRS readiness by making approved relationship, fee, conflict, and service information easier to retrieve.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-sec-reg-bi"
+            ]
+          },
+          {
+            "text": "Use logs, role-based access, and customer-defined boundaries for sensitive investor workflows.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ici-households",
+      "metric": "56% of US households owned registered investment company shares in 2024",
+      "claim": "ICI reported that 74 million US households, representing more than 125 million individual investors, owned mutual funds, ETFs, closed-end funds, or UITs in 2024.",
+      "sourceTitle": "Investment Company Institute 2025 Fact Book release",
+      "sourceUrl": "https://www.ici.org/news-release/25-factbook",
+      "sourceDate": "April 28, 2025",
+      "bestUsedFor": [
+        "Investor scale",
+        "Client education demand",
+        "Support volume context"
+      ]
+    },
+    {
+      "id": "src-ici-assets",
+      "metric": "US registered investment company net assets reached $39.2 trillion",
+      "claim": "ICI’s 2025 quick facts guide reported $39.2 trillion in US-registered investment company total net assets, including $28.5 trillion in mutual funds and $10.3 trillion in ETFs.",
+      "sourceTitle": "2025 Investment Company Fact Book Quick Facts Guide",
+      "sourceUrl": "https://www.ici.org/system/files/2025-05/2025-factbook-quick-facts-guide.pdf",
+      "sourceDate": "May 2025",
+      "bestUsedFor": [
+        "Market scale",
+        "Asset management complexity",
+        "Documentation volume"
+      ]
+    },
+    {
+      "id": "src-sec-reg-bi",
+      "metric": "SEC rules require clearer retail investor relationship and recommendation disclosures",
+      "claim": "The SEC states that Regulation Best Interest, Form CRS, and related interpretations were designed to enhance the quality and transparency of retail investors’ relationships with broker-dealers and investment advisers.",
+      "sourceTitle": "SEC Regulation Best Interest, Form CRS and Related Interpretations",
+      "sourceUrl": "https://www.sec.gov/regulation-best-interest",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Compliance pressure",
+        "Disclosure workflows",
+        "Investor-facing support boundaries"
+      ]
+    },
+    {
+      "id": "src-finra-snapshot",
+      "metric": "FINRA Industry Snapshot tracks representatives, firms, revenues, marketing, and trading activity",
+      "claim": "FINRA describes its Industry Snapshot as a high-level overview of the securities industry, including registered individuals, firm revenues, trading activity, and marketing practices.",
+      "sourceTitle": "FINRA Industry Snapshot data catalog",
+      "sourceUrl": "https://www.finra.org/finra-data/browse-catalog/industry-snapshot-facts",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Industry operational scale",
+        "Broker-dealer context",
+        "Support and compliance complexity"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Investor FAQ and education agent",
+      "problem": "Investor teams repeat the same explanations about services, documents, fund basics, timelines, fees, and account processes while needing to avoid unapproved advice.",
+      "agentWorkflow": "DocsBot answers from approved FAQs, educational articles, disclosures, website pages, product documentation, and onboarding materials. It can explain where information appears, show source-backed answers, collect follow-up details, and escalate personalized recommendations or regulated issues to a human.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up non-sensitive request status, create a support ticket, notify the right queue, or attach a summary for review.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the latest fund fact sheet?",
+        "What documents do I need to open an account?",
+        "Can you explain the difference between these account service options?",
+        "I need a person to discuss whether this investment fits my situation."
+      ],
+      "businessOutcome": "Reduce repetitive service questions while keeping sensitive investment decisions in human hands.",
+      "icon": "InformationCircleIcon"
+    },
+    {
+      "name": "Internal research retrieval agent",
+      "problem": "Analysts and portfolio teams lose time searching across memos, PDFs, committee notes, market commentary, and due diligence materials.",
+      "agentWorkflow": "DocsBot trains on approved internal research libraries, PDFs, Word documents, Notion or Confluence spaces, Google Drive folders, and knowledge bases. Team members ask questions, receive concise summaries, and follow citations back to the source material.",
+      "liveContextOrTools": "When configured, Skills can generate summaries, prepare review notes, or trigger a task for an analyst to update stale research.",
+      "exampleQuestionsOrRequests": [
+        "Summarize our last three memos on this sector.",
+        "What risks did the committee flag in the previous review?",
+        "Find the approved language for this investment theme.",
+        "Which diligence checklist covers this asset class?"
+      ],
+      "businessOutcome": "Help investment teams reuse institutional knowledge faster without relying on memory or scattered files.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Disclosure and policy guidance assistant",
+      "problem": "Investor-facing teams need quick access to approved policies and disclosure language, especially in a market where 56% of US households owned registered investment company shares in 2024.",
+      "agentWorkflow": "DocsBot makes approved Form CRS references, fee explanations, conflict disclosures, escalation rules, compliance FAQs, and internal procedures searchable. It can answer operational questions while flagging topics that require compliance or licensed professional review.",
+      "liveContextOrTools": "Use customer-defined permissions, logs, and scoped Skills to route policy exceptions, create review tasks, or send summaries to compliance workflows.",
+      "exampleQuestionsOrRequests": [
+        "What is our approved explanation of advisory fees?",
+        "When must this question be escalated to compliance?",
+        "Where is the current relationship summary language?",
+        "Which disclosures apply before this type of meeting?"
+      ],
+      "businessOutcome": "Improve consistency across teams while supporting governance in disclosure-heavy workflows.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ici-households"
+      ]
+    },
+    {
+      "name": "Investor intake and handoff automation",
+      "problem": "Prospective investors, LPs, or clients often submit incomplete questions that require follow-up before a human can respond effectively.",
+      "agentWorkflow": "DocsBot can run a structured intake flow, collect contact details and topic context, qualify the request using customer-defined rules, summarize the conversation, and forward the handoff to sales, investor relations, support, or compliance systems configured by the customer.",
+      "liveContextOrTools": "AI Actions can create tasks, submit forms, update approved CRM fields, trigger notifications, or request a meeting through approved scheduling workflows.",
+      "exampleQuestionsOrRequests": [
+        "I want to speak with someone about your strategy.",
+        "Please send my question to investor relations.",
+        "Can I book an introductory call?",
+        "Here are my details; route this to the right team."
+      ],
+      "businessOutcome": "Shorten response cycles and give human teams cleaner context before follow-up.",
+      "icon": "PaperAirplaneIcon"
+    },
+    {
+      "name": "Knowledge gap and question trend reporting",
+      "problem": "Investor content becomes outdated when teams cannot see which questions clients, prospects, and employees keep asking.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, conversation review, and reports help teams identify unanswered questions, recurring investor concerns, confusing policies, and missing documentation.",
+      "liveContextOrTools": "Teams can turn repeated gaps into content-update tasks, internal reviews, or support workflow improvements using configured actions.",
+      "exampleQuestionsOrRequests": [
+        "What topics are investors asking about most this month?",
+        "Which answers had low satisfaction?",
+        "Where do we need better source material?",
+        "Which questions should become new FAQ entries?"
+      ],
+      "businessOutcome": "Keep investor documentation aligned with real questions and reduce repeated manual explanation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Client service ticket drafting and routing",
+      "problem": "Investor service queues can fill with recurring document, process, and policy questions that still need careful review before sending.",
+      "agentWorkflow": "DocsBot can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access. It can summarize incoming messages, retrieve source-grounded answer drafts, classify the topic, and route complex or regulated matters to the right person.",
+      "liveContextOrTools": "Configured connectors can support ticket summaries, draft replies, routing decisions, and handoffs; humans remain responsible for final regulated advice or commitments.",
+      "exampleQuestionsOrRequests": [
+        "Draft a response using our approved rollover FAQ.",
+        "Summarize this investor’s issue for the service team.",
+        "Route this complaint-language message to the right queue.",
+        "Find the policy that answers this ticket."
+      ],
+      "businessOutcome": "Save service time while maintaining review paths for sensitive investor communications.",
+      "icon": "EnvelopeIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give investors answers from approved content, not improvised replies",
+    "intro": "A DocsBot customer-facing agent can live on a website, portal, or support experience to answer common investor questions from your approved knowledge sources. It can collect context, route requests, and escalate high-impact or personalized financial questions to a human.",
+    "requests": [
+      {
+        "request": "“Where do I find your latest fact sheet, disclosure, or relationship summary?”",
+        "agentResponseStrategy": "Retrieve the relevant approved document, summarize what it covers, and link the user back to the source instead of creating unsupported claims.",
+        "sourceTypes": [
+          "Fund pages",
+          "Disclosures",
+          "Form CRS materials",
+          "Website FAQs"
+        ],
+        "optionalAction": "Create a follow-up task if the visitor asks for a document that is missing or outdated.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you explain your fees, conflicts, or service model?”",
+        "agentResponseStrategy": "Answer from approved disclosure and policy sources, keep the response educational, and escalate personalized or suitability-related questions.",
+        "sourceTypes": [
+          "Fee schedules",
+          "Disclosure policies",
+          "Relationship summaries",
+          "Compliance FAQs"
+        ],
+        "optionalAction": "Route sensitive questions to compliance or a licensed professional with a conversation summary.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-sec-reg-bi"
+        ]
+      },
+      {
+        "request": "“I’m interested in investing or learning more.”",
+        "agentResponseStrategy": "Collect contact details, investment interest, role, region, timeline, and preferred follow-up channel using a structured intake flow.",
+        "sourceTypes": [
+          "Lead forms",
+          "Investor relations FAQs",
+          "Sales enablement notes",
+          "Eligibility guidance"
+        ],
+        "optionalAction": "Forward the qualified handoff to a CRM, inbox, ticketing system, or scheduling workflow configured by the customer.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“What does this term or document mean?”",
+        "agentResponseStrategy": "Provide plain-language education from approved glossary, help center, and educational content, then point to source documents for detail.",
+        "sourceTypes": [
+          "Glossaries",
+          "Education articles",
+          "Help center content",
+          "Onboarding guides"
+        ],
+        "optionalAction": "Escalate if the user asks for an individualized recommendation or risk assessment.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“What is the status of my request?”",
+        "agentResponseStrategy": "Use only authorized live context when configured, explain the visible status, and avoid exposing private data outside the user’s permitted scope.",
+        "sourceTypes": [
+          "Support records",
+          "Workflow status fields",
+          "Service policies",
+          "Account process FAQs"
+        ],
+        "optionalAction": "Trigger a notification, create a ticket update, or prepare a handoff through an approved Skill or API.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can I speak with someone?”",
+        "agentResponseStrategy": "Recognize escalation intent, collect the minimum useful context, and route the request to investor relations, support, sales, or compliance.",
+        "sourceTypes": [
+          "Escalation rules",
+          "Team routing guides",
+          "Contact policies",
+          "Scheduling instructions"
+        ],
+        "optionalAction": "Use an approved scheduling workflow to request or book a meeting when configured.",
+        "icon": "PhoneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help investment teams find the right answer before the next call, memo, or review",
+    "intro": "DocsBot can serve as a private knowledge agent for research, investor relations, operations, compliance, and sales enablement teams. It retrieves answers from controlled sources, summarizes long materials, and keeps sensitive workflows inside customer-defined boundaries.",
+    "workflows": [
+      {
+        "name": "Research memo search",
+        "problem": "Investment notes and committee materials accumulate across folders, making prior thinking hard to reuse.",
+        "agentWorkflow": "Train DocsBot on approved memos, reports, diligence files, and committee notes so analysts can ask questions and receive summarized answers with source references.",
+        "sourceTypes": [
+          "PDFs",
+          "Word documents",
+          "Research archives",
+          "Committee notes"
+        ],
+        "optionalAction": "Generate a draft briefing summary or create a task to refresh outdated material.",
+        "outcome": "Faster internal research retrieval with clearer source trails.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Compliance desk guidance",
+        "problem": "Employees need fast answers on policies, disclosures, escalation rules, and approved language without guessing.",
+        "agentWorkflow": "DocsBot answers from compliance manuals, FAQs, policy documents, disclosure language, and internal procedures, while routing exceptions for review.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Disclosure libraries",
+          "Policy FAQs",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Create a review task or notify the compliance team when a question falls outside approved guidance.",
+        "outcome": "More consistent internal answers for sensitive investor-facing workflows.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Sales and investor relations enablement",
+        "problem": "Relationship teams need current approved talking points, service details, objection handling, and follow-up drafts.",
+        "agentWorkflow": "DocsBot can retrieve approved service information, product FAQs, case materials, proposal notes, and outreach guidance. With configured web search and Skills, it can also summarize public account context for a human seller.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Investor FAQs",
+          "Approved talking points",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a follow-up email or prepare an account brief for human review.",
+        "outcome": "Give relationship teams faster preparation without letting the agent make commitments, pricing decisions, or regulated advice.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Operations knowledge and onboarding",
+        "problem": "New hires and service teams need repeatable answers about systems, document workflows, task routing, and internal procedures.",
+        "agentWorkflow": "DocsBot answers from SOPs, onboarding guides, tool instructions, and operational checklists, reducing dependency on senior staff for routine process questions.",
+        "sourceTypes": [
+          "SOPs",
+          "Onboarding guides",
+          "Tool guides",
+          "Process checklists"
+        ],
+        "optionalAction": "Route unresolved questions to an operations owner and log the missing knowledge topic.",
+        "outcome": "Shorten onboarding and make operational knowledge easier to reuse.",
+        "icon": "CogIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved knowledge sources",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, internal content, documents, and other configured knowledge sources.",
+      "industryApplication": "Train on investor FAQs, policy documents, disclosures, educational content, market commentary, memos, and operations guides so answers stay grounded in approved material.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers and summaries",
+      "mainLandingPageContext": "DocsBot agents retrieve information, summarize context, and provide consistent answers in the company’s voice.",
+      "industryApplication": "Summarize investment memos, explain approved investor education content, and cite the underlying source for review.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, record updates, task creation, routing, summaries, and workflow triggers when configured.",
+      "industryApplication": "Support approved status lookups, intake forms, ticket creation, routing to investor relations, and review workflows using customer-configured APIs, connectors, or Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which investor questions are recurring, which documents are unclear, and where new education, disclosure, or support content is needed.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Use private sources, permissions, logs, and customer-defined action boundaries for investor data, internal research, compliance content, and regulated workflows.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Built for owned knowledge libraries, not generic answers.",
+      "Proven at high-volume support and self-service workflows.",
+      "Useful for internal decision support where teams need faster access to trusted information."
+    ],
+    "whyTheseReviewsFit": "Investor teams need fast answers grounded in their own material, strong self-service, and private knowledge access. DocsBot proof spans content-library training, business self-service, build-versus-buy RAG decisions, high-volume support, and internal decision workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI knowledge agents and workflow automation for investor support, research, compliance, and internal enablement",
+    "audience": [
+      "Investor relations teams",
+      "Investment research teams",
+      "Asset managers",
+      "Financial service operations leaders",
+      "Compliance and client service teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "PresentationChartBarIcon"
+  },
+  "relatedIndustrySlugs": [
+    "investment-advisory",
+    "financial-consulting",
+    "finance-insurance",
+    "bank-credit-union",
+    "accountant",
+    "auditing-finance-insurance",
+    "insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "investor",
+    "webSearchQueries": [
+      "SEC investor alerts investment advisers fiduciary duty retail investors source",
+      "FINRA 2024 industry snapshot registered representatives investment advisers statistics",
+      "Investment Company Institute 2025 fact book mutual fund ETF assets households",
+      "SEC Regulation Best Interest Form CRS retail investor recommendations obligations"
+    ],
+    "sourceUrls": [
+      "https://www.ici.org/news-release/25-factbook",
+      "https://www.ici.org/system/files/2025-05/2025-factbook-quick-facts-guide.pdf",
+      "https://www.sec.gov/regulation-best-interest",
+      "https://www.finra.org/finra-data/browse-catalog/industry-snapshot-facts"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40006,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 19782,
+        "outputTokens": 7291,
+        "reasoningOutputTokens": 104,
+        "totalTokens": 47297,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.163876,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.173876
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21586,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6610,
+          "outputTokens": 4612,
+          "reasoningOutputTokens": 104,
+          "totalTokens": 26198,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.089449,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.099449
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18420,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13172,
+          "outputTokens": 2679,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21099,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074427,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074427
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1606004899248-0df9309cc093?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUzNTN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Investor background image",
+    "source": "legacy-industry",
+    "query": "Investor"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer investor questions without drifting into personalized financial advice?",
+      "answer": "Yes, when configured with clear boundaries. DocsBot can answer from approved FAQs, disclosures, education materials, service policies, and relationship summaries, then escalate suitability, recommendation, complaint, or high-impact financial questions to a licensed professional or compliance queue. It is best used to standardize retrieval and education, not to replace regulated judgment.",
+      "role": "Investor relations and client service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our client service team during recurring document, fee, and account-process questions?",
+      "answer": "DocsBot can provide 24/7 source-grounded answers from approved investor FAQs, onboarding guides, fund pages, relationship summaries, fee explanations, and service policies. It can also collect missing details, summarize the request, and route the handoff to support, investor relations, operations, or compliance when a human needs to respond.",
+      "role": "Investor relations and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use DocsBot internally for investment memos and diligence materials, or is it only for website support?",
+      "answer": "DocsBot can be used as a private internal knowledge agent. Research and analyst teams can train it on approved PDFs, Word documents, committee notes, diligence checklists, market commentary, Notion or Confluence spaces, and Google Drive folders so employees can ask questions, summarize materials, and follow answers back to source content.",
+      "role": "Investment research and analyst teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What prevents the agent from citing stale fact sheets, outdated disclosures, or old commentary?",
+      "answer": "DocsBot answers from the sources you connect and approve, so governance depends on keeping those sources current and scoping the agent to the right libraries. Teams can use analytics, logs, topic management, and knowledge-gap reporting to identify confusing or missing content, then create review tasks or update stale documents through their own workflow.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can compliance review what the agent said to clients or employees?",
+      "answer": "Yes. DocsBot provides logs, conversation review, analytics, reports, and satisfaction or resolution analysis so teams can inspect interactions, identify risky topics, and improve source material. For investor workflows, that review trail is especially useful for monitoring questions about fees, disclosures, relationship summaries, complaints, and escalation rules.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we measure ROI if our current pain is scattered knowledge rather than ticket volume?",
+      "answer": "Measure time saved finding approved answers, reduction in repeated internal questions, faster onboarding for service or analyst teams, fewer avoidable escalations, and better documentation coverage. For client-facing teams, also track deflected routine questions, response time, handoff quality, unresolved topics, and which investor education content needs improvement.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support Reg BI, Form CRS, and disclosure-heavy workflows?",
+      "answer": "DocsBot can make approved relationship, fee, conflict, service-model, and escalation information easier to retrieve, while keeping personalized recommendations in human hands. That fits a market where the SEC says Regulation Best Interest, Form CRS, and related interpretations are intended to enhance the quality and transparency of retail investor relationships with broker-dealers and investment advisers.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-sec-reg-bi"
+      ]
+    },
+    {
+      "question": "Will DocsBot integrate with our CRM, ticketing queue, or internal workflow tools?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, workflow automations, and MCP-enabled tools for bounded actions such as creating tickets, routing requests, submitting forms, updating approved fields, triggering notifications, or attaching summaries. It should be scoped to the systems, permissions, and review paths your team approves.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent qualify prospective investors or LP inquiries before a human follows up?",
+      "answer": "Yes. DocsBot can run a structured intake flow to collect contact details, role, region, investment interest, timeline, eligibility context, and preferred follow-up channel. Using your rules, it can summarize the inquiry and forward the handoff to investor relations, sales, support, compliance, a CRM, an inbox, or a scheduling workflow when configured.",
+      "role": "Investor relations and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep private research, client data, and compliance materials separated by role?",
+      "answer": "DocsBot supports granular access controls, role-based permissions, private sources, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and no training of public models on customer data. For sensitive actions, Skills can be configured with secrets, metadata bindings, logging, network policy, and customer-defined boundaries.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot summarize long research notes without losing the source trail?",
+      "answer": "Yes. DocsBot can summarize approved memos, market notes, diligence files, committee materials, and portfolio commentary while linking back to the underlying source material. That makes it useful for preparing analyst briefs, reviewing prior investment theses, and finding where a risk, assumption, or committee decision was documented.",
+      "role": "Investment research and analyst teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when an investor asks something the agent cannot answer confidently?",
+      "answer": "DocsBot should be configured to avoid unsupported answers, point to available approved sources, collect context, and escalate when the topic is missing, sensitive, personalized, or outside scope. Analytics and knowledge-gap reports can then show which unanswered questions should become new FAQ entries, disclosure updates, or internal guidance.",
+      "role": "Investor relations and client service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we deploy one agent for clients and another for internal research or compliance?",
+      "answer": "Yes. Many investor organizations should separate use cases by audience and source permissions. A public or portal agent can answer approved investor FAQs and route requests, while private internal agents can search research archives, compliance procedures, SOPs, sales playbooks, and operations guides with role-appropriate access.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help in an industry with a large investor audience and heavy documentation burden?",
+      "answer": "Investor-facing teams operate at scale: ICI reported that 74 million US households, representing more than 125 million individual investors, owned registered investment company shares in 2024. DocsBot helps by turning approved FAQs, disclosures, education content, and service policies into source-grounded answers and cleaner human handoffs.",
+      "role": "Investor relations and client service teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-ici-households"
+      ]
+    },
+    {
+      "question": "Can the agent draft client service responses without sending them automatically?",
+      "answer": "Yes. DocsBot can retrieve the relevant approved policy or FAQ, summarize the investor’s issue, and draft a response for human review. For regulated or sensitive communications, teams can keep final approval with client service, compliance, or a licensed professional rather than allowing the agent to make commitments or provide advice.",
+      "role": "Investor relations and client service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What would implementation look like for a compliance-led rollout?",
+      "answer": "Start with a limited source set: approved FAQs, Form CRS references, fee language, escalation rules, service policies, and internal procedures. Define prohibited topics, escalation triggers, permissions, and review ownership. Then test common investor questions, review logs with compliance, fill knowledge gaps, and expand to workflow actions only after controls are validated.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help relationship managers prepare for investor meetings?",
+      "answer": "Yes. An internal DocsBot agent can retrieve approved talking points, fund education, service details, proposal notes, objection handling, and past internal guidance. When configured with approved web search and Skills, it can also summarize public account context for a human seller, while leaving final outreach, pricing, and regulated advice to the team.",
+      "role": "Investor relations and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we handle complaint-like language or potential regulatory issues in conversations?",
+      "answer": "Configure the agent to recognize complaint terms, dissatisfaction, suitability concerns, data-access issues, or requests for individualized recommendations, then stop routine handling and route the conversation summary to the correct compliance or service queue. DocsBot can support the intake, classification, source retrieval, and handoff; humans remain responsible for regulated review.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot report what investors and employees are asking most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can see recurring investor questions, low-confidence topics, confusing documents, and internal process gaps, then prioritize new education content, disclosure updates, or operational fixes.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this replace our analysts, advisors, or client service representatives?",
+      "answer": "No. DocsBot is best positioned as a source-grounded knowledge and workflow assistant. It can reduce repetitive searching, summarize approved materials, draft responses, collect intake details, and route requests, but analysts, advisors, compliance staff, and service representatives should remain responsible for investment judgment, recommendations, exceptions, and client commitments.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant?",
+      "answer": "DocsBot gives teams a ready platform for owned knowledge sources, source-grounded answers, analytics, permissions, logs, and scoped AI Actions or Skills. Building in-house may offer deeper customization, but it usually requires engineering ownership for ingestion, retrieval quality, evaluation, security, workflow integrations, monitoring, and ongoing governance.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for multilingual investor education and support?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, using the approved knowledge sources you provide. For investor communications, teams should still decide which languages are approved for which audiences, whether translated disclosures are authoritative, and when the agent should route a user to a human for clarification.",
+      "role": "Investor relations and client service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What data should we train the first investor agent on?",
+      "answer": "A strong first source set usually includes current investor FAQs, fund or strategy education, help center articles, onboarding steps, fee and service explanations, relationship summaries, disclosure references, escalation procedures, and support policies. For internal agents, add approved memos, diligence checklists, SOPs, compliance manuals, and sales enablement materials.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both asset manager and broker-dealer operating models?",
+      "answer": "DocsBot can support investor-facing and internal knowledge workflows across different securities organizations because the agent is trained on your approved content and governed by your rules. FINRA describes its Industry Snapshot as covering registered individuals, firm revenues, trading activity, marketing practices, and other securities industry context, which reflects the operational complexity these teams manage.",
+      "role": "General buyer",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-finra-snapshot"
+      ]
+    },
+    {
+      "question": "How do we make procurement and IT comfortable with AI access to investor systems?",
+      "answer": "Limit the first deployment to approved documents and read-only knowledge sources, then add actions only where there is a clear business case. DocsBot supports SOC 2 Type II certification, encryption in transit and at rest, role-based permissions, granular access controls, logs, and customer-defined Skill boundaries so IT can review what the agent can access and do.",
+      "role": "Compliance, operations, and enablement leaders",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us keep investor content aligned with actual demand?",
+      "answer": "Yes. Conversation analytics and knowledge-gap reporting show what clients, prospects, and employees ask repeatedly, where answers are missing, and which topics create confusion. That gives marketing, investor relations, service, and compliance a practical feedback loop for refreshing FAQs, education pages, disclosure guidance, and internal enablement materials.",
+      "role": "Investor relations and client service teams",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

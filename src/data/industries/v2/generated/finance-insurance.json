@@ -1,0 +1,746 @@
+{
+  "slug": "finance-insurance",
+  "business": "Finance & Insurance",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Finance and Insurance Operations",
+    "description": "DocsBot helps finance and insurance teams deliver source-grounded answers, route requests, and support faster compliant service workflows.",
+    "canonicalPath": "/industry/finance-insurance"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for regulated financial service teams",
+    "headline": "Make finance and insurance support faster, safer, and easier to scale",
+    "subheadline": "DocsBot helps banks, insurers, brokerages, lenders, and advisory teams create AI agents trained on approved policies, product documents, claims guides, FAQs, SOPs, and internal knowledge so customers and employees get accurate answers with clear escalation paths.",
+    "proofBullets": [
+      {
+        "text": "Answer policy, account, claims, billing, product, and onboarding questions from approved knowledge sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize context, route requests, create tickets, or trigger approved workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support customers and employees in more than 100 languages while keeping sensitive work inside configured boundaries.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "text": "Review logs, analytics, satisfaction signals, and repeated question patterns to improve documentation and service coverage.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a finance-ready AI agent",
+    "secondaryCta": "Explore source-grounded support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your finance and insurance knowledge: public FAQs, product pages, policy documents, claims guides, compliance notes, SOPs, PDFs, wikis, and internal playbooks. Agents can answer from approved sources, summarize conversations, identify knowledge gaps, and take bounded actions through Skills, APIs, connectors, MCP connections, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and contact center leaders",
+        "roleContext": "For teams managing repetitive policy, billing, account, claim, loan, card, and coverage questions across digital channels.",
+        "bullets": [
+          {
+            "text": "Deflect routine questions with source-grounded answers before a customer opens a ticket.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Route complex, licensed, regulated, or high-impact requests to the right human team with conversation context attached.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Use analytics to find missing FAQs, confusing policy language, and recurring service bottlenecks.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Claims, servicing, and operations managers",
+        "roleContext": "For back-office teams that need faster access to procedures, customer context, document checklists, and status explanations.",
+        "bullets": [
+          {
+            "text": "Give staff instant access to SOPs, claim-stage definitions, document requirements, and escalation rules.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Configure actions to create tasks, summarize claim notes, collect missing information, or update approved fields.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Help teams respond consistently when claim handling and service explanations are under regulatory scrutiny.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-naic-complaints"
+            ]
+          }
+        ],
+        "roleIcon": "ArchiveBoxIcon"
+      },
+      {
+        "role": "Compliance, risk, and security teams",
+        "roleContext": "For organizations that need AI assistance without losing control over permissions, source quality, review paths, or data governance.",
+        "bullets": [
+          {
+            "text": "Train agents on approved compliance guidance, scripts, disclosures, and internal policy libraries.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Keep sensitive actions scoped with role-based permissions, logs, secrets management, and customer-defined controls.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Support fraud-awareness workflows as consumers reported $12.5 billion in fraud losses to the FTC in 2024.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-ftc-fraud-2024"
+            ]
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      },
+      {
+        "role": "Sales, advisory, and relationship teams",
+        "roleContext": "For teams that need faster answers about products, eligibility, service fit, onboarding steps, and approved positioning.",
+        "bullets": [
+          {
+            "text": "Help reps retrieve product details, service limits, pricing guidance, case studies, and objection-handling notes.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect prospect requirements through structured forms and forward qualified summaries to approved sales workflows.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Prepare follow-up drafts for human review while keeping regulated advice, pricing, and contract commitments with licensed staff.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BanknotesIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cfpb-complaints-2024",
+      "metric": "CFPB analyzed complaints submitted from January through December 2024.",
+      "claim": "The CFPB’s 2024 Consumer Response Annual Report analyzes consumer complaints involving financial products and services, showing the scale of service and dispute workflows in finance.",
+      "sourceTitle": "2024 Consumer Response Annual Report",
+      "sourceUrl": "https://www.consumerfinance.gov/data-research/research-reports/2024-consumer-response-annual-report/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "consumer complaint volume",
+        "service operations pressure",
+        "financial dispute workflows"
+      ]
+    },
+    {
+      "id": "src-ftc-fraud-2024",
+      "metric": "Consumers reported $12.5 billion in fraud losses in 2024.",
+      "claim": "FTC data shows reported fraud losses rose to $12.5 billion in 2024, with investment-related and imposter scams among the largest loss categories.",
+      "sourceTitle": "New FTC Data Show a Big Jump in Reported Losses to Fraud to $12.5 Billion in 2024",
+      "sourceUrl": "https://www.ftc.gov/node/87602",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fraud education",
+        "consumer risk",
+        "security-sensitive workflows"
+      ]
+    },
+    {
+      "id": "src-finra-industry-snapshot",
+      "metric": "FINRA publishes annual broker-dealer and registered representative data.",
+      "claim": "FINRA’s Industry Snapshot provides transparency into registered firms, representatives, branches, customer activity, and related securities industry data.",
+      "sourceTitle": "Industry Snapshot Data",
+      "sourceUrl": "https://www.finra.org/finra-data/browse-catalog/industry-snapshot",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "securities industry scale",
+        "advisor enablement",
+        "regulated workforce"
+      ]
+    },
+    {
+      "id": "src-naic-complaints",
+      "metric": "Claim handling was the top reason for insurance complaints in 2024, based on NAIC data analysis.",
+      "claim": "A 2024 analysis of NAIC closed complaint data found claim handling was the leading reason consumers complained about insurers.",
+      "sourceTitle": "Majority of Insurance Complaints Resolved in Consumers’ Favor",
+      "sourceUrl": "https://www.valuepenguin.com/most-common-insurance-complaints",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "claims service pressure",
+        "insurance customer experience",
+        "complaint drivers"
+      ]
+    },
+    {
+      "id": "src-insurance-fraud-cost",
+      "metric": "Insurance fraud is estimated to cost the U.S. $308.6 billion annually.",
+      "claim": "The Coalition Against Insurance Fraud estimates U.S. insurance fraud costs $308.6 billion annually, a benchmark often cited by insurance regulators and fraud-prevention organizations.",
+      "sourceTitle": "Insurance Fraud Costs the U.S. $308.6 Billion Annually",
+      "sourceUrl": "https://financialpolicycouncil.org/wp-content/uploads/2023/05/The-Impact-of-Insurance-Fraud-on-the-U.S.-Economy-Report-2022-8.26.2022.pdf",
+      "sourceDate": "2022",
+      "bestUsedFor": [
+        "insurance fraud pressure",
+        "risk operations",
+        "consumer education"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Policy, product, and account support agent",
+      "problem": "Finance and insurance customers often ask repetitive questions about coverage, rates, billing, cards, loans, account access, eligibility, and documents before they are ready for a human conversation.",
+      "agentWorkflow": "DocsBot answers from approved FAQs, product pages, policy documents, rate explanations, onboarding guides, and support articles. If the question is sensitive, unclear, or outside the knowledge base, the agent asks clarifying questions and escalates with a concise summary for the servicing team.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved status fields, create a support ticket, route the customer by product type, or pass a summary to a helpdesk workflow.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need to update my beneficiary?",
+        "Why did my premium change this renewal period?",
+        "Which small-business account option fits a company with multiple users?",
+        "Can you summarize my question for a licensed representative?"
+      ],
+      "businessOutcome": "Reduce repetitive service load while giving customers consistent answers from controlled sources and clear handoffs for regulated decisions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Claims intake and status guidance",
+      "problem": "Insurance teams face high customer anxiety around claim next steps, missing documents, deductibles, timelines, and status explanations; claim handling was the top insurance complaint reason in 2024 based on NAIC data analysis.",
+      "agentWorkflow": "DocsBot can guide customers through claim FAQs, document checklists, coverage explanations, repair or medical billing next steps, and escalation paths. Internally, it can help adjusters retrieve SOPs, summarize claim context, and draft customer-ready explanations for review.",
+      "liveContextOrTools": "AI Actions can collect missing details, create a task, trigger a review workflow, or retrieve approved claim status when the insurer has configured the relevant Skill, API, or connector.",
+      "exampleQuestionsOrRequests": [
+        "What photos and documents should I upload for this claim?",
+        "What does this claim status mean?",
+        "Summarize this claim conversation for the adjuster.",
+        "Create a follow-up task for missing repair documents."
+      ],
+      "businessOutcome": "Improve clarity at stressful claim moments and help teams move routine intake and explanation work forward without automating coverage judgments.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-naic-complaints"
+      ]
+    },
+    {
+      "name": "Fraud education and scam-response assistant",
+      "problem": "Customers need fast guidance when they suspect impersonation, account takeover, suspicious payments, phishing, or insurance fraud; consumers reported $12.5 billion in fraud losses to the FTC in 2024.",
+      "agentWorkflow": "DocsBot can answer from approved fraud education, account-security articles, claims fraud guidance, payment-safety FAQs, and incident response scripts. It can collect non-sensitive context, explain next steps, and escalate urgent situations to fraud or security teams.",
+      "liveContextOrTools": "With scoped actions, the agent can create a fraud-support ticket, notify a team, route by risk type, or generate a customer handoff summary. Credentials, card numbers, and secrets should remain outside chat instructions.",
+      "exampleQuestionsOrRequests": [
+        "I received a suspicious text about my bank account. What should I do?",
+        "How do I report a possible fraudulent insurance claim?",
+        "Summarize this suspected account takeover for the fraud team.",
+        "Route this to the right security queue."
+      ],
+      "businessOutcome": "Help customers act quickly with approved guidance while preserving human oversight for account freezes, investigations, identity decisions, and legal steps.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-ftc-fraud-2024"
+      ]
+    },
+    {
+      "name": "Internal compliance and procedure knowledge agent",
+      "problem": "Employees across branches, agencies, call centers, underwriting, finance, and advisory teams need current procedures, disclosures, escalation rules, and policy language without searching across disconnected systems.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, compliance memos, sales scripts, disclosure libraries, underwriting guides, policy manuals, and onboarding materials. Employees ask natural-language questions and receive source-grounded answers with citations to the underlying material.",
+      "liveContextOrTools": "Teams can deploy the agent in private chat, Slack, Microsoft Teams, or internal portals. Permissions and role-based access help separate public support content from private operational knowledge.",
+      "exampleQuestionsOrRequests": [
+        "Which disclosure applies to this loan servicing scenario?",
+        "What is the escalation path for a customer complaint?",
+        "Where is the latest renewal procedure for this policy type?",
+        "Summarize the steps for onboarding a new commercial account."
+      ],
+      "businessOutcome": "Reduce internal search time, improve answer consistency, and make institutional knowledge easier to preserve across distributed finance and insurance teams.",
+      "icon": "BuildingLibraryIcon"
+    },
+    {
+      "name": "Advisor and sales enablement agent",
+      "problem": "Relationship managers, producers, brokers, and advisors need fast access to approved product information, account context, prospect notes, and follow-up language while keeping final advice and commitments with qualified humans.",
+      "agentWorkflow": "DocsBot can retrieve approved product details, service eligibility notes, proposal templates, objection handling, case studies, and implementation guidance. When configured with web search and approved Skills, it can summarize public prospect context for a human seller.",
+      "liveContextOrTools": "AI Actions can collect lead details, qualify based on customer-defined rules, draft follow-up emails, create CRM tasks, or request a meeting through approved scheduling workflows.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the differences between these two business insurance packages.",
+        "Draft a follow-up email after this retirement plan consultation.",
+        "Does this prospect match our small-business lending criteria?",
+        "Create a task for a licensed advisor to review this request."
+      ],
+      "businessOutcome": "Give revenue teams faster preparation and cleaner handoffs while keeping regulated advice, pricing, contracts, and suitability judgments under human control.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Complaint and dispute response intelligence",
+      "problem": "Financial providers and insurers manage high-stakes complaints involving credit reporting, debt collection, servicing, payments, claims, billing, and policy disputes; the CFPB analyzes complaints submitted across financial products and services each year.",
+      "agentWorkflow": "DocsBot can help teams search complaint procedures, response templates, evidence checklists, escalation rules, and customer communication standards. It can summarize inbound complaints and draft internal response notes for review.",
+      "liveContextOrTools": "Configured Skills can route complaints by product, create a case record, attach a conversation summary, or notify compliance reviewers before any official response is sent.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this complaint and list the missing documents.",
+        "Which internal procedure applies to this billing dispute?",
+        "Route this complaint to the mortgage servicing queue.",
+        "Draft a response outline for compliance review."
+      ],
+      "businessOutcome": "Support faster triage and more consistent documentation while preserving required human review for formal complaint responses.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-cfpb-complaints-2024"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers clear answers before they wait for an agent",
+    "intro": "A DocsBot customer-facing agent can live in a website, product portal, or support flow and answer from your approved finance and insurance content. It can guide customers through routine questions, collect context, and escalate when a person, license, or judgment is required.",
+    "requests": [
+      {
+        "request": "“What coverage applies if my business equipment is stolen?”",
+        "agentResponseStrategy": "Answer from approved policy and FAQ language, explain where to find limits or exclusions, and offer escalation to a licensed representative for coverage interpretation.",
+        "sourceTypes": [
+          "Policy documents",
+          "Coverage FAQs",
+          "Disclosure language"
+        ],
+        "optionalAction": "Create a support ticket with the policy type, question summary, and preferred contact channel.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“I think I was contacted by someone pretending to be my bank.”",
+        "agentResponseStrategy": "Provide approved fraud-response steps, warn against sharing credentials in chat, and route urgent issues to the fraud or security team.",
+        "sourceTypes": [
+          "Fraud education articles",
+          "Security procedures",
+          "Customer support scripts"
+        ],
+        "optionalAction": "Open a fraud-support workflow and notify the appropriate queue with a safe summary.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“What documents do I need before applying?”",
+        "agentResponseStrategy": "Retrieve the correct onboarding checklist by product, customer type, region, or account category from approved source material.",
+        "sourceTypes": [
+          "Onboarding checklists",
+          "Product pages",
+          "Application FAQs"
+        ],
+        "optionalAction": "Collect lead or application-readiness details through a structured intake form.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can someone call me about commercial coverage?”",
+        "agentResponseStrategy": "Qualify the request with customer-defined questions such as business type, location, current coverage, renewal date, and preferred follow-up.",
+        "sourceTypes": [
+          "Sales qualification rules",
+          "Service catalogs",
+          "Contact workflows"
+        ],
+        "optionalAction": "Forward the qualified summary to sales, CRM, helpdesk, or scheduling software through an approved workflow.",
+        "icon": "PhoneIcon"
+      },
+      {
+        "request": "“Why was my claim delayed?”",
+        "agentResponseStrategy": "Explain general claim-stage definitions and required documents from approved guides, then escalate account-specific or disputed questions to a human adjuster.",
+        "sourceTypes": [
+          "Claims guides",
+          "Status definitions",
+          "Escalation rules"
+        ],
+        "optionalAction": "Request missing information or create a follow-up task for the claims team when configured.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Do you support Spanish, French, or Japanese?”",
+        "agentResponseStrategy": "Respond in the customer’s preferred language using the same approved knowledge sources and company voice.",
+        "sourceTypes": [
+          "Multilingual help content",
+          "Public FAQs",
+          "Product documentation"
+        ],
+        "optionalAction": "Route the conversation to a bilingual staff member when the issue requires human review.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Turn policies, procedures, and playbooks into an internal knowledge agent",
+    "intro": "Finance and insurance employees need dependable answers from internal material, not hallway knowledge. DocsBot can train on SOPs, wikis, PDFs, compliance guidance, product manuals, sales enablement assets, and internal tickets to support faster work across teams.",
+    "workflows": [
+      {
+        "name": "Procedure lookup for service teams",
+        "problem": "Agents lose time searching across policy manuals, product notes, intranet pages, and escalation matrices while customers wait.",
+        "agentWorkflow": "DocsBot answers employee questions from internal SOPs, product documentation, policy guides, and support playbooks with source-grounded responses.",
+        "sourceTypes": [
+          "SOPs",
+          "Internal wikis",
+          "PDF manuals",
+          "Support playbooks"
+        ],
+        "optionalAction": "Draft a customer response or create an internal task for a specialist review.",
+        "outcome": "Shorten service research time and improve consistency across branches, call centers, and remote teams.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Compliance review preparation",
+        "problem": "Teams must document complaint handling, disclosure use, escalation reasons, and response drafts before regulated communications are finalized.",
+        "agentWorkflow": "The agent retrieves applicable procedures, summarizes the issue, lists supporting documents, and prepares a draft response outline for human review.",
+        "sourceTypes": [
+          "Compliance policies",
+          "Disclosure libraries",
+          "Complaint procedures",
+          "Audit notes"
+        ],
+        "optionalAction": "Route the summary to compliance, legal, or a licensed reviewer through a configured workflow.",
+        "outcome": "Improve preparation quality without letting the agent make legal, credit, coverage, or suitability decisions.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Sales and advisor desk assistant",
+        "problem": "Producers, bankers, brokers, and advisory teams need quick product and positioning support while avoiding unapproved claims.",
+        "agentWorkflow": "DocsBot retrieves approved product language, eligibility notes, proposal templates, objection handling, implementation steps, and customer-facing FAQs.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product guides",
+          "Proposal templates",
+          "Approved messaging"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or prepare a meeting summary through approved Skills or connectors.",
+        "outcome": "Help revenue teams respond faster while keeping final outreach, advice, pricing, and contracts in human hands.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Employee onboarding and knowledge retention",
+        "problem": "New hires in service, claims, compliance, and sales need role-specific guidance that is often scattered across documents and senior employees.",
+        "agentWorkflow": "The agent answers onboarding questions, explains workflows, surfaces training material, and identifies gaps in documentation when employees repeatedly ask the same questions.",
+        "sourceTypes": [
+          "Training guides",
+          "HR policies",
+          "Role playbooks",
+          "Team knowledge bases"
+        ],
+        "optionalAction": "Generate a learning summary or route unanswered questions to content owners.",
+        "outcome": "Reduce dependency on tribal knowledge and help teams improve internal documentation over time.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved finance and insurance knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from help centers, websites, product documentation, PDFs, internal content, team knowledge, and other configured sources.",
+      "industryApplication": "Train on policy documents, product pages, claims guides, onboarding checklists, compliance notes, sales playbooks, and servicing FAQs so answers stay grounded in approved material.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot agents can take bounded actions such as lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved actions to look up statuses, create tickets, collect missing claim details, route complaint summaries, create sales tasks, or trigger review workflows.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive or high-impact workflows",
+      "mainLandingPageContext": "DocsBot supports human escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Escalate coverage interpretations, credit decisions, fraud investigations, legal questions, suitability discussions, complaints, and account-specific disputes to licensed or authorized staff.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, reports, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which claim questions, billing issues, policy gaps, fraud concerns, and onboarding steps cause repeated support demand so teams can improve content and workflows.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Private internal knowledge access",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant trained on SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and text files.",
+      "industryApplication": "Give employees fast answers about procedures, disclosures, servicing rules, complaint routing, claim documentation, sales enablement, and internal finance policies.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Support regulated teams that need permissioned knowledge access, private source handling, reviewable logs, and customer-defined limits on what agents can access or do.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support scale, including over 30,000 inquiries handled in one month in the Sony NURO case study.",
+      "Built for source-grounded answers from owned content libraries, policies, docs, and support knowledge.",
+      "Useful for self-service, internal knowledge access, and workflow support where teams need consistent information."
+    ],
+    "whyTheseReviewsFit": "Finance and insurance teams need AI that can answer from controlled knowledge, scale repetitive service, and support internal decision workflows. DocsBot proof spans high-volume support, owned-content training, and practical self-service use cases that map well to regulated customer and employee operations.",
+    "trustClaimIcons": [
+      "ArrowTrendingUpIcon",
+      "DocumentTextIcon",
+      "CheckCircleIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for finance and insurance organizations",
+    "audience": [
+      "Banks and credit unions",
+      "Insurance carriers and brokerages",
+      "Lenders and mortgage servicers",
+      "Investment and advisory firms",
+      "Claims and customer operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BanknotesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "insurance",
+    "insurance-brokerage",
+    "bank-credit-union",
+    "financial-consulting",
+    "investment-advisory",
+    "auditing-finance-insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "finance-insurance",
+    "webSearchQueries": [
+      "CFPB consumer complaint database annual report 2024 banking credit reporting debt collection complaints",
+      "NAIC insurance department 2024 complaint data report consumers insurance",
+      "FINRA 2024 industry snapshot registered representatives firms statistics",
+      "FTC impersonation fraud losses 2024 report financial services",
+      "Insurance Information Institute insurance fraud costs United States annually 308 billion"
+    ],
+    "sourceUrls": [
+      "https://www.consumerfinance.gov/data-research/research-reports/2024-consumer-response-annual-report/",
+      "https://www.ftc.gov/node/87602",
+      "https://www.finra.org/finra-data/browse-catalog/industry-snapshot",
+      "https://www.valuepenguin.com/most-common-insurance-complaints",
+      "https://financialpolicycouncil.org/wp-content/uploads/2023/05/The-Impact-of-Insurance-Fraud-on-the-U.S.-Economy-Report-2022-8.26.2022.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45481,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32937,
+        "outputTokens": 7968,
+        "reasoningOutputTokens": 201,
+        "totalTokens": 53449,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.204999,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.224999
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25576,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18280,
+          "outputTokens": 5464,
+          "reasoningOutputTokens": 201,
+          "totalTokens": 31040,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.129484,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.149484
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19905,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14657,
+          "outputTokens": 2504,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22409,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075515,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075515
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUyODR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Finance & Insurance background image",
+    "source": "legacy-industry",
+    "query": "Finance & Insurance"
+  },
+  "faq": [
+    {
+      "question": "How do we keep an AI agent from giving regulated advice, coverage interpretations, or credit decisions?",
+      "answer": "Configure the agent around approved source material and explicit escalation rules. DocsBot can answer general questions from policies, FAQs, SOPs, and disclosures, then hand off suitability, legal, underwriting, credit, coverage, fraud, or complaint decisions to licensed or authorized staff with a conversation summary attached.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support both customer self-service and internal employee procedure lookup?",
+      "answer": "Yes. A customer-facing DocsBot agent can answer routine billing, claims, account, product, onboarding, or fraud-awareness questions from approved public content. A separate internal knowledge agent can be trained on SOPs, compliance guidance, wikis, PDFs, playbooks, and policy manuals with private access controls.",
+      "role": "Customer service and contact center leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of finance and insurance questions are safe to automate first?",
+      "answer": "Good first use cases are repetitive, low-judgment questions: document checklists, claim-stage definitions, billing explanations, account access steps, product FAQs, application readiness, branch or service routing, and approved fraud education. High-impact decisions should route to a human rather than be fully automated.",
+      "role": "Claims, servicing, and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with claims intake without making claim decisions?",
+      "answer": "Yes. DocsBot can guide customers through approved claims FAQs, required-document lists, status definitions, and next-step instructions. With configured actions, it can collect missing details, create a task, summarize a claim conversation, or route to an adjuster while keeping coverage determinations and disputes with humans.",
+      "role": "Claims, servicing, and operations managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-naic-complaints"
+      ]
+    },
+    {
+      "question": "How would this reduce call volume without creating compliance risk?",
+      "answer": "Use the agent for source-grounded answers and bounded workflows: answer from approved content, show clear escalation paths, capture context, and route sensitive issues. That helps deflect repeat questions while preserving review for regulated matters such as complaints, disputes, advice, fraud investigations, and account-specific decisions.",
+      "role": "Customer service and contact center leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent summarize complaints or disputes for compliance review?",
+      "answer": "Yes. DocsBot can summarize inbound complaints, list missing information, retrieve applicable internal procedures, draft response outlines, and route the matter to compliance or servicing teams. The CFPB’s 2024 Consumer Response Annual Report highlights the scale of financial product and service complaint workflows.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cfpb-complaints-2024"
+      ]
+    },
+    {
+      "question": "What integrations do we need for account status, claim status, or ticket creation?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP connections, or workflow automations to perform approved lookups and actions. Typical patterns include reading a permitted status field, creating a ticket, routing by product type, creating a task, or sending a handoff summary to a helpdesk or CRM workflow.",
+      "role": "Claims, servicing, and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it with our existing CRM, helpdesk, or claims platform?",
+      "answer": "Usually the right approach is to connect only the specific workflow the agent needs: create a case, pass a summary, update an approved field, request a meeting, or notify a queue. DocsBot should not be positioned as replacing your core system; it works through customer-authorized Skills, APIs, connectors, or workflows.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent staff from seeing knowledge they should not access?",
+      "answer": "Use separate agents, segmented sources, granular access controls, and role-based permissions. Public FAQs, employee SOPs, underwriting guidance, sales playbooks, and compliance material can be handled with different access patterns so the agent only uses the knowledge and actions appropriate for the audience.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security posture does DocsBot offer for regulated teams?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logs, secrets management for Skills, and no training of public models on customer data. Credentials should stay out of chat and inside configured secure workflows.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support fraud education or suspected scam workflows?",
+      "answer": "Yes. DocsBot can answer from approved fraud education, security procedures, and incident-response scripts, then route urgent cases to fraud or security teams. This is useful because consumers reported $12.5 billion in fraud losses to the FTC in 2024, making fast, consistent guidance a high-priority service need.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-fraud-2024"
+      ]
+    },
+    {
+      "question": "Will the agent answer in other languages without creating separate knowledge bases?",
+      "answer": "DocsBot can support customers and employees in more than 100 languages while using the same approved source material and company instructions. For regulated conversations, teams should still define when multilingual conversations must route to bilingual staff, licensed representatives, or compliance reviewers.",
+      "role": "Customer service and contact center leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we measure ROI beyond generic deflection rates?",
+      "answer": "Track the operational metrics your teams already care about: repeat-contact reduction, ticket deflection, handle-time savings, claim intake completeness, time to route complaints, knowledge-gap closure, employee search reduction, CSAT or satisfaction signals, escalation quality, and volume by topic or product line.",
+      "role": "Customer service and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What analytics will tell us whether our knowledge base is ready for AI?",
+      "answer": "DocsBot analytics, logs, topic reporting, conversation review, satisfaction signals, and knowledge-gap discovery can show where customers or employees ask questions your sources do not answer well. That helps content owners prioritize missing FAQs, unclear policy language, outdated SOPs, and confusing claim or billing explanations.",
+      "role": "Customer service and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much cleanup do our policies, PDFs, and SOPs need before launch?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved, current sources and clear ownership. Start with high-volume topics, remove obsolete versions, label source authority, define escalation triggers, and use early conversation logs to find gaps before expanding into more sensitive workflows.",
+      "role": "Claims, servicing, and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can sales or advisory teams use it without creating unapproved promises?",
+      "answer": "Yes, if the agent is trained on approved product language, eligibility notes, sales playbooks, proposal templates, and customer-facing FAQs. It can draft follow-ups, prepare summaries, qualify leads, or create CRM tasks, while humans retain control over regulated advice, pricing, contracts, suitability, and final outreach.",
+      "role": "Sales, advisory, and relationship teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Could this help producers, bankers, or relationship managers prepare for client conversations?",
+      "answer": "DocsBot can retrieve approved product details, service limits, onboarding steps, case studies, objection-handling notes, and proposal language. When configured with web search and approved Skills, it can also summarize public prospect context for a human seller to review before outreach.",
+      "role": "Sales, advisory, and relationship teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or a custom RAG project?",
+      "answer": "Finance and insurance buyers usually need more than a chat interface. DocsBot combines source-grounded answers, internal and customer-facing agents, analytics, permissions, human escalation, and bounded AI Actions. Compared with a custom build, teams avoid owning every retrieval, logging, workflow, and governance component themselves.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start with one department and expand later?",
+      "answer": "Yes. Many regulated teams should start narrowly: one line of business, one support queue, one claims workflow, or one internal SOP library. After validating answer quality, escalation rules, permissions, and reporting, you can expand to additional products, branches, agencies, languages, or employee groups.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when a customer asks something outside approved sources?",
+      "answer": "The agent can be instructed to say it does not have enough approved information, ask clarifying questions, suggest the closest safe resource, or escalate to a human. For regulated teams, that behavior is often better than guessing because it preserves source control and auditability.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent create tickets or tasks without over-automating sensitive work?",
+      "answer": "Yes. Bounded actions are a strong fit: create a ticket, collect missing information, notify a queue, route by product, summarize a conversation, or update an approved field. Sensitive decisions such as complaint responses, account freezes, coverage judgments, or credit approvals should remain review-based.",
+      "role": "Claims, servicing, and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How will compliance review what the agent said or did?",
+      "answer": "DocsBot provides logs, conversation review, analytics, reports, and action visibility so teams can inspect answers, escalations, satisfaction signals, and repeated question patterns. For sensitive workflows, configure review paths, limited permissions, and source-grounded instructions before allowing live actions.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can this help with insurance fraud awareness as well as customer fraud reporting?",
+      "answer": "Yes. DocsBot can publish approved fraud-awareness guidance, explain reporting steps, and route suspected fraud to the right team. Insurance fraud is estimated to cost the U.S. $308.6 billion annually, so consistent education and triage can support broader risk and service operations.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-insurance-fraud-cost"
+      ]
+    },
+    {
+      "question": "What internal stakeholders should be involved before procurement approves this?",
+      "answer": "A realistic buying group includes customer service or claims leadership, compliance, security, IT, operations, legal, knowledge owners, and sometimes sales or advisory leaders. Each group should agree on source ownership, allowed actions, escalation rules, data access, success metrics, and rollout scope.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How do we keep answers current when products, rates, procedures, or disclosures change?",
+      "answer": "Assign owners for each knowledge source, retire outdated PDFs, and use approved update workflows before expanding automation. DocsBot can surface repeated questions and knowledge gaps, but your team should define who approves content changes for policy language, disclosures, claims procedures, and product guidance.",
+      "role": "Compliance, risk, and security teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can it support broker-dealer, advisory, or registered representative environments?",
+      "answer": "DocsBot can support internal retrieval of approved product information, procedures, disclosures, sales enablement material, and escalation rules for registered or advisory teams. FINRA’s Industry Snapshot provides annual data on broker-dealers, registered representatives, branches, customer activity, and related securities industry scale.",
+      "role": "Sales, advisory, and relationship teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-finra-industry-snapshot"
+      ]
+    }
+  ]
+}

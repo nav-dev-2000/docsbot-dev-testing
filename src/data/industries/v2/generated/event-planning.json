@@ -1,0 +1,716 @@
+{
+  "slug": "event-planning",
+  "business": "Event Planning",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents That Keep Event Planning Moving",
+    "description": "DocsBot helps event planning teams answer client questions, qualify leads, coordinate details, and reduce repetitive planning admin.",
+    "canonicalPath": "/industry/event-planning"
+  },
+  "hero": {
+    "eyebrow": "Event planning AI agents trained on your playbooks, packages, and policies",
+    "headline": "Keep every event detail moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps event planners turn service guides, venue notes, vendor policies, timelines, FAQs, and past planning knowledge into AI agents that answer clients, support staff, qualify inquiries, summarize details, and route next steps through approved workflows.",
+    "proofBullets": [
+      {
+        "text": "Answer package, timeline, venue, guest, cancellation, accessibility, and add-on questions from your approved event knowledge.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details, event dates, guest counts, budget ranges, preferred style, and follow-up preferences before your team joins.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "text": "Summarize client conversations, vendor notes, and planning context so coordinators can act without rereading every message.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Trigger scoped actions such as task creation, handoffs, ticket routing, meeting requests, or approved status lookups when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your event planning agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your event planning business already relies on: packages, consultation scripts, venue checklists, vendor FAQs, design guides, day-of timelines, contract policies, and internal SOPs. Agents provide source-grounded answers, gather structured intake details, support employees in private chat, and use configured AI Actions for bounded workflow steps.",
+    "whoItHelps": [
+      {
+        "role": "Event planning owners and studio managers",
+        "roleContext": "Reduce repetitive lead and client questions while keeping pricing, scope, and policy answers aligned with the way your business actually sells and delivers events.",
+        "bullets": [
+          {
+            "text": "Qualify inquiries by event type, date, location, guest count, budget range, and readiness to book a consultation.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Route complex pricing, contract, or high-value scope decisions to a human with the intake summary attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which questions your website, proposals, and planning guides do not answer yet.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Lead planners and client experience teams",
+        "roleContext": "Give clients faster access to approved answers while your planners stay focused on creative direction, vendor coordination, and decisions that need judgment.",
+        "bullets": [
+          {
+            "text": "Answer questions about planning milestones, RSVP timing, menu deadlines, room flips, rain plans, and what happens next.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Summarize prior conversations before planning calls so coordinators start with the client’s preferences and open items.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Support more than 100 languages for multilingual guests, families, vendors, or destination-event stakeholders.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, venue, and vendor coordinators",
+        "roleContext": "Make internal procedures easier to find during fast-moving planning weeks, site visits, rehearsals, setup windows, and event-day handoffs.",
+        "bullets": [
+          {
+            "text": "Search SOPs, setup checklists, preferred vendor notes, packing lists, and escalation procedures from one internal agent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Create or route tasks through customer-configured Skills, APIs, connectors, or MCP servers when approved by your workflow.",
+            "icon": "PuzzlePieceIcon"
+          },
+          {
+            "text": "Keep staffing notes, equipment requirements, and event-day run-of-show details easier to retrieve from private team chat.",
+            "icon": "ClockIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-event-planners-outlook",
+      "metric": "155,800 U.S. event planner jobs in 2024; 5% projected growth from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics reports 155,800 meeting, convention, and event planner jobs in 2024, with employment projected to grow 5% from 2024 to 2034 and about 15,500 openings each year.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Meeting, Convention, and Event Planners",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "sourceDate": "August 28, 2025",
+      "bestUsedFor": [
+        "labor scale",
+        "operations workload",
+        "staffing pressure",
+        "market demand"
+      ]
+    },
+    {
+      "id": "src-ibisworld-party-event-market",
+      "metric": "$6.9 billion U.S. party and event planners market size in 2024",
+      "claim": "IBISWorld estimates the U.S. Party & Event Planners industry market size at $6.9 billion in 2024.",
+      "sourceTitle": "IBISWorld: Party & Event Planners in the US - Market Size",
+      "sourceUrl": "https://www.ibisworld.com/industry-statistics/market-size/party-event-planners-united-states/",
+      "sourceDate": "September 2024",
+      "bestUsedFor": [
+        "market size",
+        "competitive pressure",
+        "business opportunity"
+      ]
+    },
+    {
+      "id": "src-eventbrite-trnds-2025",
+      "metric": "63% of organizers expect more demand for micro-events and intimate gatherings",
+      "claim": "Eventbrite’s TRNDS 2025 report says 63% of organizers think consumers are looking for more micro-events and intimate gatherings.",
+      "sourceTitle": "Eventbrite TRNDS 2025: Annual Event Trends Report",
+      "sourceUrl": "https://www.eventbrite.com/blog/event-trends/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "buyer behavior",
+        "event format complexity",
+        "personalization demand"
+      ]
+    },
+    {
+      "id": "src-cvent-planner-pulse-rfp",
+      "metric": "Average hotel RFP response time rose to 5.08 days in March 2026",
+      "claim": "The Northstar/Cvent Meetings Industry PULSE Report reported average hotel RFP response time increased from 4.84 days in March 2025 to 5.08 days in March 2026.",
+      "sourceTitle": "Northstar/Cvent Meetings Industry PULSE Report",
+      "sourceUrl": "https://plannerpulse.cvent.com/",
+      "sourceDate": "March 2026",
+      "bestUsedFor": [
+        "venue response delays",
+        "supplier coordination",
+        "proposal workflow bottlenecks"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client inquiry qualification and consultation handoff",
+      "problem": "Event planners often receive incomplete inquiries that require back-and-forth before a human can judge fit, availability, and next steps.",
+      "agentWorkflow": "A DocsBot agent answers common package and process questions, then collects structured intake details such as event type, date, city, guest count, budget range, preferred style, venue status, services needed, and follow-up preference. It can summarize the lead and route it to the right planner or sales workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, webhooks, or scheduling workflows, the agent can forward qualified lead summaries, create a task, or request a consultation booking without making final pricing commitments.",
+      "exampleQuestionsOrRequests": [
+        "We’re planning a 150-person corporate reception in October. What information do you need before a consultation?",
+        "Do you handle full-service planning or month-of coordination?",
+        "Can someone follow up if our venue is not confirmed yet?"
+      ],
+      "businessOutcome": "Planners receive cleaner inquiries, prospects get immediate guidance, and human consultation time starts with useful context instead of basic discovery.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Planning timeline and client FAQ support",
+      "problem": "Clients ask repeated questions about deadlines, deposits, design milestones, guest lists, menus, room layouts, and what happens next.",
+      "agentWorkflow": "DocsBot trains on your planning guides, client portal instructions, FAQs, templates, and policy documents. The agent gives source-grounded answers in your voice and escalates questions involving exceptions, contract terms, or sensitive client situations.",
+      "liveContextOrTools": "In a website widget or private client-facing chat experience, the agent can answer from approved documents and collect missing details for a human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "When do we need final guest counts?",
+        "What decisions should we make before the design call?",
+        "What happens if our outdoor ceremony needs a rain plan?"
+      ],
+      "businessOutcome": "Clients get faster answers, planners spend less time repeating process details, and your guidance stays consistent across accounts.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Vendor and venue coordination knowledge agent",
+      "problem": "Vendor rules, venue limitations, preferred supplier notes, insurance requirements, load-in instructions, and contact details can be scattered across files and messages.",
+      "agentWorkflow": "An internal DocsBot agent retrieves venue profiles, vendor notes, SOPs, previous event summaries, setup instructions, and escalation paths from approved internal sources. Coordinators can ask practical questions before site visits, vendor calls, and event-day setup.",
+      "liveContextOrTools": "When configured, AI Actions can look up approved live records, create follow-up tasks, notify a team channel, or prepare a handoff summary for the planner responsible.",
+      "exampleQuestionsOrRequests": [
+        "What are the loading dock rules for this venue?",
+        "Which florist handled the spring gala and what were the setup notes?",
+        "Create a follow-up task to confirm power needs with AV."
+      ],
+      "businessOutcome": "Teams spend less time searching across folders and message threads and more time resolving coordination details before they become event-day issues.",
+      "icon": "BuildingStorefrontIcon"
+    },
+    {
+      "name": "Proposal and scope-answer assistant",
+      "problem": "Prospects compare planners on scope, responsiveness, services, and event fit; generic answers can lose momentum before the sales conversation.",
+      "agentWorkflow": "DocsBot can train on service catalogs, proposal templates, package descriptions, FAQs, testimonials, and sales enablement notes. The agent answers fit questions, explains what is included, identifies missing requirements, and drafts follow-up summaries for a human seller.",
+      "liveContextOrTools": "With customer-configured CRM, inbox, calendar, proposal, or form workflows, the agent can prepare drafts, create tasks, update approved fields, or send a handoff for review.",
+      "exampleQuestionsOrRequests": [
+        "What is the difference between partial planning and event management?",
+        "Can you draft a follow-up summary for this nonprofit gala inquiry?",
+        "What objections should I prepare for a client comparing us with a venue coordinator?"
+      ],
+      "businessOutcome": "Sales conversations become more informed and consistent while planners keep control over final pricing, scope, contracts, and client commitments.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Event-day run-of-show and staff support",
+      "problem": "During setup and live events, staff need quick answers about schedules, contacts, room changes, packing lists, assignments, and escalation rules.",
+      "agentWorkflow": "A private DocsBot agent can answer from the final run-of-show, staffing plan, floor plan notes, emergency contacts, vendor arrival windows, and internal SOPs. It can summarize what changed and direct staff to the right human when judgment or approval is required.",
+      "liveContextOrTools": "If connected to approved task or team systems, the agent can create a follow-up, route an issue, or notify the appropriate coordinator with a concise summary.",
+      "exampleQuestionsOrRequests": [
+        "Who is the point person for catering load-in?",
+        "What changed in the latest run-of-show?",
+        "Summarize the open setup issues for the lead planner."
+      ],
+      "businessOutcome": "Event teams get faster operational answers while keeping high-impact decisions and client-facing changes under human control.",
+      "icon": "ClockIcon"
+    },
+    {
+      "name": "Post-event feedback and knowledge-gap review",
+      "problem": "Lessons from completed events often stay buried in emails, survey exports, and planner memory instead of improving future templates and training.",
+      "agentWorkflow": "DocsBot can summarize post-event notes, feedback themes, support conversations, and repeated questions. Analytics, logs, topic management, and conversation review help identify content gaps in client guides, FAQs, and internal procedures.",
+      "liveContextOrTools": "Through approved workflows, the agent can draft a post-event recap, create improvement tasks, or route documentation gaps to the operations lead.",
+      "exampleQuestionsOrRequests": [
+        "What questions came up most often during this planning cycle?",
+        "Summarize vendor issues from the gala debrief.",
+        "Which FAQ topics should we add before the next season?"
+      ],
+      "businessOutcome": "Teams turn repeated questions and event lessons into better documentation, smoother onboarding, and more consistent client experiences.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give prospects and clients instant answers without losing the human touch",
+    "intro": "Event planning is personal, but many early questions are repetitive. DocsBot helps your website, client portal, or support workflow respond from your approved knowledge while collecting the details planners need for thoughtful follow-up.",
+    "requests": [
+      {
+        "request": "“Are you available for a 200-person product launch next spring?”",
+        "agentResponseStrategy": "Explain the information needed to check fit, collect date, city, venue status, guest count, event type, service needs, budget range, and contact details, then hand off to the assigned planner.",
+        "sourceTypes": [
+          "Service packages",
+          "Lead intake rules",
+          "Availability guidance",
+          "Consultation scripts"
+        ],
+        "optionalAction": "Create a qualified lead summary or consultation request through an approved form, CRM, email, or scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What is included in full-service event planning?”",
+        "agentResponseStrategy": "Answer from your service catalog and proposal language, clarify exclusions, identify whether the inquiry may need custom scope, and route edge cases to a person.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Pricing guidance",
+          "FAQs"
+        ],
+        "optionalAction": "Collect missing scope details and prepare a follow-up brief for human review before any final quote is sent.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“When do we need to confirm catering numbers and seating?”",
+        "agentResponseStrategy": "Use the approved planning timeline to explain typical deadlines, dependencies, and what the client should prepare next, while noting that venue or caterer policies may change specifics.",
+        "sourceTypes": [
+          "Planning timelines",
+          "Client guides",
+          "Vendor policies",
+          "Venue notes"
+        ],
+        "optionalAction": "Route a date-specific question to the planner or create a task to verify the deadline with the vendor.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“Can you help guests in another language?”",
+        "agentResponseStrategy": "Provide approved guest-facing information, event logistics, or FAQs in the visitor’s language while keeping official changes and sensitive issues routed to staff.",
+        "sourceTypes": [
+          "Guest FAQs",
+          "Event logistics",
+          "Accessibility notes",
+          "Travel instructions"
+        ],
+        "optionalAction": "Escalate personal accommodation, payment, or identity-sensitive questions to the event team with context.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Why are smaller, more intimate event formats so popular right now?”",
+        "agentResponseStrategy": "Share your firm’s positioning and planning advice for intimate experiences, then connect the prospect to relevant service options and examples from your approved content.",
+        "sourceTypes": [
+          "Trend commentary",
+          "Service pages",
+          "Portfolio notes",
+          "Planning guides"
+        ],
+        "optionalAction": "Collect event goals and recommend a consultation path for micro-events or experience-led gatherings.",
+        "icon": "UserGroupIcon",
+        "sourceIds": [
+          "src-eventbrite-trnds-2025"
+        ]
+      },
+      {
+        "request": "“Can you send our request to the right person?”",
+        "agentResponseStrategy": "Classify the request by event type, urgency, client status, and required expertise, then prepare a concise handoff summary for the correct planner or support queue.",
+        "sourceTypes": [
+          "Routing rules",
+          "Team roles",
+          "Escalation policies",
+          "Client status notes"
+        ],
+        "optionalAction": "Trigger a customer-configured ticket, task, email, Slack, Microsoft Teams, or helpdesk workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put planning SOPs, vendor details, and event knowledge where your team can ask for them",
+    "intro": "DocsBot can act as a private internal knowledge agent for planners, coordinators, sales staff, and operations teams. Train it on your internal documents and let staff retrieve source-grounded answers instead of searching across drives, wikis, PDFs, and old messages.",
+    "workflows": [
+      {
+        "name": "Run-of-show retrieval",
+        "problem": "Final timelines, room sets, vendor arrivals, and staffing instructions change often and are hard to confirm under time pressure.",
+        "agentWorkflow": "Staff ask the internal agent for the latest approved instructions from the run-of-show, event brief, staffing plan, and setup checklists. The agent answers with context and can summarize changed items.",
+        "sourceTypes": [
+          "Run-of-show documents",
+          "Event briefs",
+          "Staffing plans",
+          "Setup checklists"
+        ],
+        "optionalAction": "Notify a coordinator or create a task when a question reveals a missing detail or unresolved issue.",
+        "outcome": "Fewer delays caused by searching and fewer inconsistent answers during setup and live execution.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Vendor and venue memory",
+        "problem": "Practical knowledge about venues and suppliers is often stored in individual planner notes rather than a reusable system.",
+        "agentWorkflow": "Train DocsBot on venue profiles, vendor recaps, insurance instructions, preferred supplier lists, load-in rules, and past event notes so coordinators can retrieve practical guidance before outreach.",
+        "sourceTypes": [
+          "Venue notes",
+          "Vendor recaps",
+          "Insurance requirements",
+          "Preferred supplier lists"
+        ],
+        "optionalAction": "Create follow-up tasks, route vendor questions, or summarize open dependencies through configured AI Actions.",
+        "outcome": "The team preserves operational knowledge and shortens prep time for repeat venues and recurring suppliers.",
+        "icon": "BuildingStorefrontIcon"
+      },
+      {
+        "name": "Sales and proposal enablement",
+        "problem": "New team members need fast access to package differences, objection handling, brand voice, past examples, and proposal language.",
+        "agentWorkflow": "A sales enablement agent answers internal questions from service catalogs, pricing guidance, proposal templates, testimonials, and approved objection-handling notes. It can draft follow-up language for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Case examples",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Prepare a call recap, draft a follow-up email, or update approved CRM fields through customer-configured workflows.",
+        "outcome": "Sales staff respond with more consistent language while owners retain control over final quotes and commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Documentation gaps and service improvement",
+        "problem": "The same questions recur across leads, clients, vendors, and staff, but the business may not know which documents need improvement.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, and conversation review surface repeated questions and unresolved topics from customer-facing and internal agent use.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Help articles",
+          "Client guides",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Generate documentation gap summaries or route improvement tasks to the operations owner.",
+        "outcome": "Your guides, templates, and onboarding materials improve based on the questions people actually ask.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Seasonal staffing and onboarding support",
+        "problem": "Event businesses often need temporary staff, assistants, or new coordinators to understand procedures quickly before peak seasons.",
+        "agentWorkflow": "Train DocsBot on onboarding manuals, brand standards, client communication rules, event-day expectations, and escalation paths so new staff can ask practical questions privately.",
+        "sourceTypes": [
+          "Onboarding manuals",
+          "Brand guidelines",
+          "Communication rules",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Route unanswered onboarding questions to a manager and log them as training-material gaps.",
+        "outcome": "New and seasonal team members ramp faster without interrupting lead planners for every procedural detail.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-event-planners-outlook"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded event answers",
+      "mainLandingPageContext": "DocsBot agents train on company knowledge sources and answer from approved materials in the company’s voice.",
+      "industryApplication": "Use your service pages, client guides, vendor policies, venue notes, proposal language, and internal SOPs to give consistent answers across prospect, client, and staff conversations.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website and client-facing agent experiences",
+      "mainLandingPageContext": "DocsBot agents can work through embeddable website widgets and customer-facing support experiences.",
+      "industryApplication": "Place an event planning agent on your inquiry pages to answer service questions, collect intake details, and guide prospects toward the right consultation path.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "Lead qualification and handoffs",
+      "mainLandingPageContext": "DocsBot can collect structured lead details, apply customer-defined qualification instructions, and forward summaries through approved workflows.",
+      "industryApplication": "Qualify event inquiries by date, location, size, budget range, event type, venue status, service fit, and urgency before planners spend time on manual discovery.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow bounded actions such as live lookups, summaries, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Create tasks, route vendor issues, send lead summaries, request meetings, update approved fields, or connect to remote Model Context Protocol servers that expose tools your team already uses.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private team assistant trained on internal documents, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other knowledge sources.",
+      "industryApplication": "Give planners and coordinators quick access to run-of-show details, venue rules, supplier notes, brand standards, escalation paths, and training materials.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which client, vendor, and team questions recur most often so you can improve FAQs, planning guides, onboarding docs, and proposal materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and customer-defined controls.",
+      "industryApplication": "Keep contract exceptions, high-value pricing decisions, identity-sensitive guest issues, and final client commitments routed to humans with scoped access and review paths.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your owned content so answers reflect your packages, policies, and planning process.",
+      "Support client and team communication with always-available answers and human handoffs when needed.",
+      "Use DocsBot for high-volume inquiry handling, internal knowledge access, and workflow-ready support operations."
+    ],
+    "whyTheseReviewsFit": "Event planning teams need fast client answers, dependable internal knowledge, and easy-to-maintain tools. DocsBot proof spans owned-content training, common-query support, booking-oriented information access, and large-scale inquiry handling, giving service businesses a practical path to AI agents without replacing expert planners.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "ArrowTrendingUpIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for event planning businesses",
+    "audience": [
+      "Event planning firms",
+      "Wedding and social event planners",
+      "Corporate event agencies",
+      "Venue and vendor coordination teams",
+      "Client experience teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CalendarIcon"
+  },
+  "relatedIndustrySlugs": [
+    "wedding-planning",
+    "entertainment-party-rentals",
+    "florist",
+    "beauty-salon",
+    "image-consultant"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "event-planning",
+    "webSearchQueries": [
+      "event planning industry statistics client communication response time survey",
+      "U.S. Bureau of Labor Statistics meeting convention event planners outlook employment",
+      "Eventbrite event trends report event creators challenges 2024",
+      "IBISWorld party event planners industry US market size"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "https://www.ibisworld.com/industry-statistics/market-size/party-event-planners-united-states/",
+      "https://www.eventbrite.com/blog/event-trends/",
+      "https://plannerpulse.cvent.com/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41141,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28597,
+        "outputTokens": 7922,
+        "reasoningOutputTokens": 119,
+        "totalTokens": 49063,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.193459,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.203459
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21452,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14156,
+          "outputTokens": 5250,
+          "reasoningOutputTokens": 119,
+          "totalTokens": 26702,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115964,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125964
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19689,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14441,
+          "outputTokens": 2672,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22361,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077495,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077495
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDExMDJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Event Planning background image",
+    "source": "legacy-industry",
+    "query": "Event Planning"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify event inquiries before a planner spends time on discovery?",
+      "answer": "Yes. A DocsBot agent can ask for event type, date, city, venue status, guest count, budget range, services needed, style preferences, urgency, and follow-up channel. It can then summarize the inquiry and route it through your approved form, inbox, CRM-style workflow, task system, or scheduling process while leaving final fit, pricing, and commitments to your team.",
+      "role": "Event planning owners and studio managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent give pricing or package answers that conflict with how we sell custom events?",
+      "answer": "DocsBot should be trained on your approved service catalog, proposal language, pricing guidance, exclusions, and escalation rules. You can have it explain package differences, collect scope details, and flag custom requests, while routing final quotes, discounts, contract terms, and high-value exceptions to a human planner for review.",
+      "role": "Event planning owners and studio managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help during peak season when our team is buried in client questions?",
+      "answer": "Event planning has real staffing pressure: BLS reported 155,800 U.S. meeting, convention, and event planner jobs in 2024, with about 15,500 openings projected each year from 2024 to 2034. DocsBot can reduce repetitive questions about timelines, packages, vendor deadlines, and next steps so planners can focus on judgment-heavy work.",
+      "role": "Event planning owners and studio managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-event-planners-outlook"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer client timeline questions without exposing internal notes?",
+      "answer": "Yes. You can separate client-facing sources from private internal sources. A public agent might answer from client guides, FAQs, planning timelines, and policy pages, while a private team agent uses SOPs, vendor notes, staffing plans, and run-of-show documents. Role-based permissions help keep internal material out of customer conversations.",
+      "role": "Lead planners and client experience teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it support corporate events as well as weddings and social events?",
+      "answer": "Yes. DocsBot is trained on your own knowledge, so the agent can reflect different workflows for corporate receptions, nonprofit galas, conferences, weddings, private parties, product launches, or destination events. You can define different intake questions, service explanations, routing rules, and escalation paths by event type.",
+      "role": "Event planning owners and studio managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit with our existing forms, calendars, CRM, inbox, or project management tools?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, and workflow automations. Typical actions include forwarding a lead summary, creating a task, requesting a meeting, updating approved fields, notifying a team channel, or routing a handoff. It should be scoped to your approved workflows rather than treated as an unrestricted system user.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent help with venue and vendor coordination, or is it only for website leads?",
+      "answer": "It can support both. Internally, DocsBot can answer from venue profiles, preferred vendor notes, insurance requirements, load-in rules, prior event recaps, and escalation procedures. Coordinators can ask practical questions before site visits or event setup, and configured actions can create follow-up tasks or route unresolved vendor issues.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a client asks about cancellations, contract exceptions, or a sensitive issue?",
+      "answer": "Those should be treated as escalation topics. DocsBot can provide general guidance from approved policies, collect the relevant context, and prepare a concise handoff, but you can instruct it not to make exceptions, interpret legal terms, approve refunds, or promise changes without human review.",
+      "role": "Event planning owners and studio managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us respond faster to prospects while venues and hotels are slow to reply?",
+      "answer": "Yes. The agent can keep the prospect moving by explaining your process, collecting complete requirements, and preparing follow-up summaries while your team waits on venue or hotel details. That matters when supplier coordination is slow: Northstar/Cvent reported average hotel RFP response time rose to 5.08 days in March 2026.",
+      "role": "Event planning owners and studio managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cvent-planner-pulse-rfp"
+      ]
+    },
+    {
+      "question": "How much documentation do we need before launching an event planning agent?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved source material. Good starting inputs include service pages, package descriptions, intake scripts, planning timelines, FAQs, cancellation policies, vendor rules, venue notes, proposal templates, onboarding guides, and SOPs. DocsBot analytics can then show which unanswered questions need better documentation.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot for event-day staff support without creating chaos from outdated instructions?",
+      "answer": "Yes, if you define the approved source of truth. Train the internal agent on the final run-of-show, event brief, staffing plan, setup checklist, contact list, and escalation rules. For fast-changing details, use clear document ownership and update processes, and route uncertain or conflicting answers to the lead planner.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Will DocsBot replace our planners or make the client experience feel impersonal?",
+      "answer": "DocsBot is best used for repetitive information access, intake, summaries, and routing—not creative direction, relationship management, negotiation, or final event decisions. It helps clients get immediate answers while preserving human involvement for taste, judgment, conflict resolution, custom scope, and high-stakes commitments.",
+      "role": "Lead planners and client experience teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can clients, family members, vendors, or guests ask questions in other languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved event information, which is useful for destination events, multilingual families, international guests, and vendor coordination. You can still require human escalation for identity-sensitive, payment-related, accommodation, legal, or official change requests.",
+      "role": "Lead planners and client experience teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What ROI should an event planning owner look for in the first 90 days?",
+      "answer": "Track fewer repetitive emails, faster lead response, more complete inquiry forms, fewer planner interruptions, reduced time searching for vendor or venue details, and better consultation handoffs. Also review unanswered questions: early ROI often comes from fixing content gaps in packages, planning guides, and FAQs that were creating avoidable back-and-forth.",
+      "role": "Event planning owners and studio managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us compete when prospects are comparing multiple planners?",
+      "answer": "Yes. A customer-facing agent can answer service-fit questions immediately, explain package differences, clarify what is included, collect missing scope details, and prepare a polished handoff for a seller. It keeps momentum without letting the agent make final pricing, contract, or availability commitments.",
+      "role": "Event planning owners and studio managers",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How do we keep answers consistent across planners, assistants, and seasonal staff?",
+      "answer": "Train DocsBot on approved playbooks, proposal language, brand standards, communication rules, onboarding materials, and SOPs. A private internal agent gives new and seasonal staff a place to ask procedural questions, while conversation review shows which policies or training materials need clarification.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot surface what clients keep asking so we can improve our planning guides?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For event teams, that can reveal recurring questions about deposits, room flips, guest counts, menu deadlines, rain plans, vendor rules, or service scope.",
+      "role": "Event planning owners and studio managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should we measure besides deflected conversations?",
+      "answer": "Measure qualified lead volume, percentage of inquiries with complete intake fields, consultation booking readiness, repeated topic trends, unresolved questions, handoff quality, client satisfaction, planner time spent on repetitive questions, and documentation gaps closed. For internal agents, track search reduction, onboarding questions, and event-day issue routing.",
+      "role": "Event planning owners and studio managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent handle smaller, highly personalized event formats without giving generic advice?",
+      "answer": "Yes, if your source content reflects your positioning, examples, and planning approach. That is increasingly relevant: Eventbrite’s 2025 trends report said 63% of organizers expected more demand for micro-events and intimate gatherings. DocsBot can connect those prospects to the right service path while collecting their goals and constraints.",
+      "role": "Lead planners and client experience teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-eventbrite-trnds-2025"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from hallucinating venue rules or vendor policies?",
+      "answer": "Use source-grounded answers, keep venue and vendor documents organized, and set instructions for uncertainty. The agent should cite or rely on approved sources, say when information is missing, and route questions to a coordinator when rules are outdated, conflicting, or dependent on a specific contract or event date.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What security controls matter if we upload contracts, guest details, and internal SOPs?",
+      "answer": "For sensitive event operations, buyers should look for access controls, encryption, clear data boundaries, and auditability. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "Event planning owners and studio managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we approve what actions the agent is allowed to take?",
+      "answer": "Yes. DocsBot AI Actions and Skills are designed for bounded workflows. You can allow low-risk actions such as creating a task, preparing a summary, routing a ticket, notifying a team, or requesting a meeting, while blocking actions like sending final quotes, changing contracts, approving refunds, or making client commitments.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How difficult is implementation if our knowledge is spread across PDFs, Google Drive, Notion, emails, and spreadsheets?",
+      "answer": "DocsBot can train on many company knowledge sources, including PDFs, documents, websites, wikis, Google Drive, Notion, Confluence, and other configured sources. The main implementation work is deciding which content is approved, separating public from private knowledge, cleaning outdated policies, and defining escalation rules.",
+      "role": "Operations, venue, and vendor coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is positioned as an AI agent trained on your event business knowledge, not a generic scripted chatbot. It can provide source-grounded answers, collect structured intake, support internal staff, summarize context, surface knowledge gaps, and trigger approved workflow actions when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support both a client-facing agent and a private team agent?",
+      "answer": "Yes. Many event teams would use one agent experience for prospects or clients and another for staff. The client-facing agent can answer service and timeline questions, while the private internal agent can retrieve SOPs, venue notes, vendor recaps, run-of-show details, onboarding guidance, and escalation procedures.",
+      "role": "Lead planners and client experience teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we prepare before asking procurement or leadership to approve DocsBot?",
+      "answer": "Bring a focused use case, sample source documents, expected handoff workflows, security requirements, ownership for content updates, and success metrics. For budget justification, connect the purchase to faster inquiry handling, planner capacity, better onboarding, fewer repetitive questions, and more consistent client communication.",
+      "role": "Event planning owners and studio managers",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

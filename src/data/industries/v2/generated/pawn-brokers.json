@@ -1,0 +1,781 @@
+{
+  "slug": "pawn-brokers",
+  "business": "Pawn Broker",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "Pawn Broker AI Agents for Support and Store Workflows",
+    "description": "DocsBot helps pawn brokers answer loan, ticket, item, and store policy questions faster while routing sensitive issues to staff review.",
+    "canonicalPath": "/industry/pawn-brokers"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for modern pawn operations",
+    "headline": "DocsBot AI agents help pawn brokers answer faster and operate with control",
+    "subheadline": "Train a DocsBot agent on your pawn shop’s FAQs, loan policies, renewal rules, item intake SOPs, store hours, inventory guidance, and compliance notes so customers and employees can get source-grounded answers, live status lookups, and clean handoffs without exposing sensitive decisions to automation.",
+    "proofBullets": [
+      {
+        "text": "Answer common questions about pawn loans, renewals, redemptions, layaway, store policies, accepted items, hours, and required documents.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use AI Actions to collect intake details, look up approved record status, route requests, create tasks, or prepare staff handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give employees a private knowledge agent for SOPs, item category guidance, disclosure checklists, and escalation procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Keep sensitive financial, identity, firearm, stolen-property, or pricing decisions inside customer-defined permissions and human review paths.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a pawn shop AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets pawn brokers create AI agents trained on their own approved knowledge: website content, FAQs, loan and renewal policies, SOPs, PDFs, internal notes, and helpdesk history when connected. Agents can answer in a website widget or private team chat, summarize context, surface documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Store owners and operators",
+        "roleContext": "Owners need consistent customer answers, faster front-counter support, and better visibility into recurring questions without letting AI make high-impact lending or compliance decisions.",
+        "bullets": [
+          {
+            "text": "Publish one approved answer base for loan terms, redemption steps, renewal windows, store policies, and accepted collateral categories.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use conversation logs and analytics to see which policies customers and employees ask about most often.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route sensitive disputes, identity questions, firearm-related issues, stolen-property concerns, and exceptions to a human manager.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Counter teams and appraisers",
+        "roleContext": "Frontline staff field rapid-fire questions while checking IDs, explaining fees, documenting items, and deciding when a manager or specialist should step in.",
+        "bullets": [
+          {
+            "text": "Find SOPs, intake checklists, item category notes, and customer explanation scripts without searching binders or shared drives.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Generate concise handoff summaries when a customer’s question moves from online inquiry to in-store service.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep appraisals and final loan offers with trained staff while using the agent to retrieve approved reference material.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance and back-office teams",
+        "roleContext": "Pawn operations sit at the intersection of consumer credit disclosures, identity practices, local reporting rules, inventory records, and customer privacy.",
+        "bullets": [
+          {
+            "text": "The FTC says the Truth in Lending Act requires written disclosures for finance charges, APR, and related credit terms, making consistent disclosure references important for loan conversations.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-tila-disclosures"
+            ]
+          },
+          {
+            "text": "Maintain searchable procedures for record retention, law-enforcement holds, ticket documentation, customer notices, and exception escalation.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Use scoped Skills and permissions so live lookups or record updates happen only in workflows the business has approved.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-tila-disclosures"
+        ]
+      },
+      {
+        "role": "Sales and online customer service teams",
+        "roleContext": "Many pawn shops combine short-term loans with retail sales, buy offers, jewelry, electronics, tools, musical instruments, and specialty categories.",
+        "bullets": [
+          {
+            "text": "Answer product, layaway, warranty, shipping, pickup, and store availability questions from approved retail and policy content.",
+            "icon": "ShoppingBagIcon"
+          },
+          {
+            "text": "Collect lead details for high-value items, jewelry inquiries, bulk sales, or specialty appointments before staff follow up.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft follow-up messages or tasks for sales staff after a customer asks about an item, loan, renewal, or pickup.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "ShoppingCartIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fdic-unbanked",
+      "metric": "4.2% of U.S. households were unbanked in 2023.",
+      "claim": "The FDIC reported that 4.2% of U.S. households, about 5.6 million households, had no checking or savings account in 2023.",
+      "sourceTitle": "2023 FDIC National Survey of Unbanked and Underbanked Households",
+      "sourceUrl": "https://www.fdic.gov/household-survey",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "consumer financial access",
+        "demand for alternative financial services",
+        "customer service context"
+      ]
+    },
+    {
+      "id": "src-fdic-nonbank-credit",
+      "metric": "5.8% of U.S. households used at least one nonbank credit product tracked by FDIC in 2023.",
+      "claim": "FDIC survey data includes rent-to-own, payday, pawn shop, auto title, and tax refund anticipation loans among nonbank alternatives to mainstream credit.",
+      "sourceTitle": "2023 FDIC National Survey of Unbanked and Underbanked Households",
+      "sourceUrl": "https://www.fdic.gov/household-survey",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "alternative credit usage",
+        "pawn customer context",
+        "financial inclusion"
+      ]
+    },
+    {
+      "id": "src-tila-disclosures",
+      "metric": "TILA requires consumer credit disclosures covering finance charges and APR.",
+      "claim": "The Federal Trade Commission summarizes the Truth in Lending Act as requiring written disclosures about finance charges, APR, and related credit terms for covered consumer credit transactions.",
+      "sourceTitle": "Truth in Lending Act",
+      "sourceUrl": "https://www.ftc.gov/legal-library/browse/statutes/truth-lending-act",
+      "sourceDate": "Current FTC legal library page",
+      "bestUsedFor": [
+        "compliance pressure",
+        "loan disclosure consistency",
+        "regulated customer conversations"
+      ]
+    },
+    {
+      "id": "src-cfpb-pawn-loan-costs",
+      "metric": "CFPB enforcement actions have targeted misstated pawn loan costs.",
+      "claim": "The CFPB has taken action against pawn companies for allegedly deceiving consumers about loan costs, citing Truth in Lending Act and Dodd-Frank concerns.",
+      "sourceTitle": "CFPB Takes Action Against Pawn Companies for Deceiving Consumers About Loan Costs",
+      "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-takes-action-against-pawn-companies-deceiving-consumers-about-loan-costs/",
+      "sourceDate": "2016",
+      "bestUsedFor": [
+        "risk of inconsistent cost explanations",
+        "compliance training",
+        "staff answer controls"
+      ]
+    },
+    {
+      "id": "src-fbi-organized-retail-theft",
+      "metric": "FBI identifies pawn shops among resale channels used in organized retail theft schemes.",
+      "claim": "The FBI notes that organized retail theft involves stolen merchandise resold for financial gain and lists pawn shops among possible resale channels.",
+      "sourceTitle": "Organized Retail Theft",
+      "sourceUrl": "https://www.fbi.gov/investigate/transnational-organized-crime/organized-retail-theft",
+      "sourceDate": "Current FBI topic page",
+      "bestUsedFor": [
+        "stolen-property risk",
+        "law-enforcement escalation",
+        "inventory intake controls"
+      ]
+    },
+    {
+      "id": "src-atf-ffl-theft-loss",
+      "metric": "FFLs must report firearm theft or loss within 48 hours of discovery.",
+      "claim": "ATF states that Federal Firearms Licensees who know of firearm theft or loss from inventory must report it to ATF and local law enforcement within 48 hours.",
+      "sourceTitle": "Report Firearms Theft or Loss",
+      "sourceUrl": "https://www.atf.gov/firearms/report-firearms-theft-or-loss",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "firearm inventory sensitivity",
+        "regulated escalation",
+        "compliance reminders"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Loan and renewal question agent",
+      "problem": "Customers often ask the same questions about loan terms, redemption, renewal windows, required ID, fees, and what happens if they miss a due date.",
+      "agentWorkflow": "DocsBot answers from approved loan FAQs, ticket language, policy pages, and disclosure reference material. When a customer asks about a specific ticket, a configured Skill can collect identifying details, look up approved status fields, summarize the request, and route anything sensitive to staff.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, or connectors can support status lookups, ticket summaries, task creation, and handoffs while keeping final lending, fee, identity, and exception decisions with employees.",
+      "exampleQuestionsOrRequests": [
+        "What do I need to bring to redeem my item?",
+        "Can I renew my pawn ticket online or do I need to come in?",
+        "What happens if my due date was yesterday?",
+        "Can someone else pick up my item for me?"
+      ],
+      "businessOutcome": "Customers get faster, more consistent answers while staff spend less time repeating policy explanations and more time on in-store service.",
+      "icon": "CreditCardIcon"
+    },
+    {
+      "name": "Compliance-aware disclosure assistant",
+      "problem": "Pawn loan conversations can create risk when staff explain charges, APR, renewal terms, or exceptions inconsistently across phone, website, and counter interactions.",
+      "agentWorkflow": "Train an internal DocsBot agent on approved disclosure scripts, training documents, state or local operating notes, and escalation rules. Staff can ask how to explain a policy, find the right form reference, or generate a manager handoff summary before responding.",
+      "liveContextOrTools": "The FTC says TILA requires written disclosures for finance charges, APR, and related credit terms, and the CFPB has brought pawn-loan-cost enforcement actions, so workflows should use approved language and review paths for exceptions.",
+      "exampleQuestionsOrRequests": [
+        "Where is the approved explanation for finance charges?",
+        "Which disclosure checklist should I use for this ticket type?",
+        "Summarize this customer’s renewal concern for manager review.",
+        "What should I say if a customer disputes the APR shown on the ticket?"
+      ],
+      "businessOutcome": "Teams can standardize explanations, reduce avoidable confusion, and preserve human review for regulated or disputed loan-cost conversations.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-tila-disclosures",
+        "src-cfpb-pawn-loan-costs"
+      ]
+    },
+    {
+      "name": "Item intake and stolen-property escalation support",
+      "problem": "Pawn shops must move quickly at the counter while carefully documenting items, serial numbers, customer details, hold procedures, and red flags.",
+      "agentWorkflow": "DocsBot can retrieve intake SOPs, category-specific documentation checklists, serial-number reminders, photo standards, hold procedures, and escalation steps. If configured, AI Actions can create an internal task, notify a manager, or prepare a record summary for review.",
+      "liveContextOrTools": "Use scoped workflows for store systems, reporting queues, or manager notifications. The FBI identifies pawn shops among resale channels that can appear in organized retail theft schemes, so escalation language should be precise and staff-led.",
+      "exampleQuestionsOrRequests": [
+        "What details do we capture for electronics with serial numbers?",
+        "What is our hold procedure if an item may match a police report?",
+        "Create a manager review task for this intake concern.",
+        "Summarize the item notes and customer explanation for the file."
+      ],
+      "businessOutcome": "Counter teams can document consistently and escalate concerns without relying on memory during busy intake periods.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-fbi-organized-retail-theft"
+      ]
+    },
+    {
+      "name": "Retail product and layaway support agent",
+      "problem": "Retail customers want quick answers about item condition, layaway rules, warranty policies, payment options, pickup timing, and shipping before they call or visit.",
+      "agentWorkflow": "A customer-facing DocsBot agent answers from product descriptions, store policy pages, retail FAQs, and approved condition notes. It can collect contact details, product interest, budget range, and preferred follow-up channel for a staff member.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up public availability fields, create a sales task, route a product inquiry, or draft a follow-up message for staff review.",
+      "exampleQuestionsOrRequests": [
+        "Is this guitar still available?",
+        "Do you offer layaway on jewelry?",
+        "Can I reserve this item until tomorrow?",
+        "What is your return policy on electronics?"
+      ],
+      "businessOutcome": "More shoppers get answers outside store hours, and employees receive cleaner inquiries with product context already summarized.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Employee onboarding and SOP knowledge agent",
+      "problem": "New hires must learn loan procedures, item categories, customer service scripts, inventory steps, local rules, and escalation paths while serving customers in real time.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge assistant trained on SOPs, onboarding guides, policy PDFs, manager notes, forms, and training materials. Employees can ask procedural questions and receive source-grounded answers with links back to approved documents.",
+      "liveContextOrTools": "Deploy in private chat, Slack, Microsoft Teams, or other configured team experiences; use analytics to identify repeated employee questions and documentation gaps.",
+      "exampleQuestionsOrRequests": [
+        "How do I process a partial payment?",
+        "Where is the checklist for jewelry intake?",
+        "What should I do when a customer lost a pawn ticket?",
+        "Show me the escalation path for an angry customer."
+      ],
+      "businessOutcome": "Stores can reduce training friction, keep procedures consistent, and spot where internal documentation needs improvement.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Firearm workflow knowledge support",
+      "problem": "Pawn brokers that hold a Federal Firearms License must treat firearm inventory, theft or loss, transfer questions, and customer eligibility issues with special care.",
+      "agentWorkflow": "DocsBot can make firearm SOPs, transfer policy references, theft-or-loss reporting steps, and manager escalation checklists searchable for staff. It should not make eligibility or legal judgments; it retrieves approved procedures and routes sensitive cases.",
+      "liveContextOrTools": "ATF states FFLs must report firearm theft or loss from inventory to ATF and local law enforcement within 48 hours of discovery, so configured workflows can remind staff of the approved reporting checklist and notify responsible personnel.",
+      "exampleQuestionsOrRequests": [
+        "Where is our firearm inventory discrepancy checklist?",
+        "What is the escalation path for a suspected theft or loss?",
+        "Summarize this issue for the compliance manager.",
+        "Which approved SOP covers firearm pickup questions?"
+      ],
+      "businessOutcome": "Employees can find controlled procedures quickly while managers retain responsibility for regulated firearm decisions and required reports.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-atf-ffl-theft-loss"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give pawn customers clear answers before they call or visit",
+    "intro": "A DocsBot customer-facing agent can sit on your website, answer in your shop’s voice, and guide people to the right next step from approved store content. For sensitive financial, identity, stolen-property, firearm, or exception questions, the agent can collect context and hand off to staff.",
+    "requests": [
+      {
+        "request": "“How much can I get for my item?”",
+        "agentResponseStrategy": "Explain the store’s approved valuation process, list what details staff need, clarify that final offers require inspection, and collect item details for follow-up if configured.",
+        "sourceTypes": [
+          "Valuation policy",
+          "Accepted item FAQs",
+          "Lead intake form",
+          "Store hours"
+        ],
+        "optionalAction": "Create a staff follow-up task with item category, photos or description, customer contact details, and preferred visit time when the workflow is approved.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“Can I extend or renew my pawn loan?”",
+        "agentResponseStrategy": "Answer from renewal policies, due-date guidance, and required documentation while avoiding unsupported promises about a specific account unless a live lookup is authorized.",
+        "sourceTypes": [
+          "Loan FAQ",
+          "Renewal policy",
+          "Disclosure references",
+          "Ticket status fields"
+        ],
+        "optionalAction": "Use a scoped Skill to look up permitted ticket status information, then route exceptions or disputes to an employee.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“What do I need to pick up my item?”",
+        "agentResponseStrategy": "Provide approved redemption requirements, ID reminders, payment options, and store hours; escalate questions about third-party pickup, lost tickets, or identity mismatches.",
+        "sourceTypes": [
+          "Redemption SOP",
+          "ID policy",
+          "Payment policy",
+          "Escalation rules"
+        ],
+        "optionalAction": "Collect missing details and prepare a handoff summary so staff can review before the customer arrives.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“Is this product still available?”",
+        "agentResponseStrategy": "Answer from retail product pages or catalog content and clarify reservation, layaway, pickup, and return rules based on approved store policy.",
+        "sourceTypes": [
+          "Product catalog",
+          "Layaway policy",
+          "Return policy",
+          "Pickup policy"
+        ],
+        "optionalAction": "Create a sales inquiry, draft a reply, or notify the store team through a customer-configured workflow.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“I think an item in your store is stolen.”",
+        "agentResponseStrategy": "Give calm, approved guidance about contacting the store and law enforcement, collect non-sensitive context if allowed, and route directly to a manager rather than debating ownership.",
+        "sourceTypes": [
+          "Stolen-property SOP",
+          "Manager escalation rules",
+          "Customer communication script",
+          "Law-enforcement hold procedure"
+        ],
+        "optionalAction": "Create a high-priority internal review task with the customer’s statement and item details for manager handling.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you speak Spanish?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages when trained on the right source content, helping customers understand store policies and next steps in their preferred language.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Store policies",
+          "Loan process guides",
+          "Customer service scripts"
+        ],
+        "optionalAction": "Route complex or regulated questions to bilingual staff or a manager when the conversation needs human review.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make pawn shop procedures searchable for every employee",
+    "intro": "DocsBot can serve as a private internal knowledge agent for counter staff, managers, compliance leads, retail teams, and back-office employees. Train it on approved SOPs, PDFs, policies, wikis, forms, and training materials so answers stay tied to the shop’s own sources.",
+    "workflows": [
+      {
+        "name": "Manager escalation summaries",
+        "problem": "Sensitive customer issues often arrive through phone, website, email, and counter conversations with incomplete context.",
+        "agentWorkflow": "The agent can summarize the customer’s request, identify the relevant policy section, list missing details, and prepare a concise manager handoff without making the final decision.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Policy docs",
+          "Escalation SOPs",
+          "Ticket notes"
+        ],
+        "optionalAction": "Create a task or route a summary to the correct manager through a configured workflow.",
+        "outcome": "Managers get cleaner context and staff avoid re-explaining the same issue across shifts.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "name": "Disclosure and script lookup",
+        "problem": "Employees need consistent language when discussing loan costs, renewal rules, redemption steps, or disputes.",
+        "agentWorkflow": "DocsBot retrieves approved scripts, disclosure references, and training notes so staff can answer from current source material instead of memory.",
+        "sourceTypes": [
+          "Disclosure scripts",
+          "Training manuals",
+          "Loan policy PDFs",
+          "Compliance notes"
+        ],
+        "optionalAction": "Log repeated questions as documentation gaps for compliance or operations review.",
+        "outcome": "Customers hear more consistent explanations, and managers can see which topics need better training.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Inventory and category SOP assistant",
+        "problem": "Item intake, cleaning, testing, hold periods, product listing, and condition notes vary by category and location.",
+        "agentWorkflow": "The internal agent answers employee questions from item category SOPs, product listing rules, photo standards, testing checklists, and manager notes.",
+        "sourceTypes": [
+          "Inventory SOPs",
+          "Category checklists",
+          "Photo standards",
+          "Retail listing guides"
+        ],
+        "optionalAction": "Trigger a checklist, create a follow-up task, or prepare notes for a listing workflow when configured.",
+        "outcome": "Staff can document and list items more consistently across busy shifts.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "New employee onboarding",
+        "problem": "Pawn shop training mixes financial services, retail, customer service, inventory, and local operating rules.",
+        "agentWorkflow": "New hires can ask questions in private chat and receive source-grounded answers from onboarding guides, policy documents, service scripts, and internal FAQs.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Employee handbook",
+          "Store FAQs",
+          "Training videos and transcripts"
+        ],
+        "optionalAction": "Use analytics to identify repeated new-hire questions and update training content.",
+        "outcome": "Employees ramp faster and managers can improve the materials that create confusion.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Sales follow-up and lead qualification",
+        "problem": "Retail and high-value item inquiries often lack the details staff need to respond quickly.",
+        "agentWorkflow": "DocsBot can collect structured information such as item interest, budget, timeline, preferred store, contact details, and follow-up channel, then summarize the lead for a human employee.",
+        "sourceTypes": [
+          "Retail FAQs",
+          "Product catalog",
+          "Sales scripts",
+          "Lead forms"
+        ],
+        "optionalAction": "Forward a qualified inquiry to CRM, email, helpdesk software, or a sales task queue through customer-configured Skills, APIs, or connectors.",
+        "outcome": "Sales staff receive organized, actionable inquiries instead of incomplete messages.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your approved pawn knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, help centers, internal documents, PDFs, wikis, and other configured knowledge sources.",
+      "industryApplication": "Train a pawn broker agent on loan FAQs, renewal policies, redemption instructions, store SOPs, accepted item lists, retail policies, and compliance notes.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer support answers",
+      "mainLandingPageContext": "DocsBot support agents provide instant answers in the company’s voice and can escalate complex or sensitive questions to humans.",
+      "industryApplication": "Answer pawn loan, pickup, layaway, product, and store-policy questions while routing disputes, identity issues, firearm concerns, and exceptions to staff.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform approved lookups, summaries, record updates, task creation, workflow triggers, and handoffs through configured connections.",
+      "industryApplication": "Use bounded actions for ticket status lookups, intake summaries, manager notifications, lead routing, sales tasks, and approved store-system workflows, including MCP connector options where your team authorizes them.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can help employees retrieve SOPs, policies, onboarding materials, troubleshooting notes, and operational procedures from private company sources.",
+      "industryApplication": "Give counter staff and managers fast access to item intake procedures, disclosure language, inventory steps, customer scripts, and escalation rules.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, conversation review, reporting, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which pawn policies, renewal questions, item categories, retail products, and customer objections create the most confusion, then improve source content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no customer data training of public models.",
+      "industryApplication": "Protect pawn shop knowledge, customer context, and internal procedures while keeping credentials out of chats and limiting what agents can access or do.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for self-service answers that reduce repetitive front-counter and website questions.",
+      "Train agents on your own content library so answers reflect approved store knowledge.",
+      "Support both website visitors and human teams with source-grounded assistance."
+    ],
+    "whyTheseReviewsFit": "Pawn brokers need fast customer self-service, reliable answers from approved policies, and practical support for employees handling repeat questions. DocsBot proof spans high-volume inquiry handling, content-grounded answering, embedded website assistance, and helpdesk-style workflows that fit busy pawn and retail operations.",
+    "trustClaimIcons": [
+      "FaceSmileIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for pawn brokers",
+    "audience": [
+      "Pawn shop owners",
+      "Pawn brokerage operators",
+      "Pawn compliance managers",
+      "Retail and counter staff",
+      "Multi-location pawn teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "cash-advances",
+    "bank-credit-union",
+    "collection-agency",
+    "finance-insurance",
+    "insurance",
+    "bookkeeping"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "pawn-brokers",
+    "webSearchQueries": [
+      "pawn industry statistics United States pawn shops loans unbanked FDIC pawn broker regulation",
+      "CFPB pawn loans Truth in Lending Act pawn transactions",
+      "National Pawnbrokers Association industry pawn shops consumers statistics",
+      "FBI pawn shops stolen property reporting leads law enforcement",
+      "FDIC 2023 national survey unbanked underbanked households percent pawn shops",
+      "IBISWorld pawn shops in US number businesses revenue 2025 pawn shops"
+    ],
+    "sourceUrls": [
+      "https://www.fdic.gov/household-survey",
+      "https://www.ftc.gov/legal-library/browse/statutes/truth-lending-act",
+      "https://www.consumerfinance.gov/about-us/newsroom/cfpb-takes-action-against-pawn-companies-deceiving-consumers-about-loan-costs/",
+      "https://www.fbi.gov/investigate/transnational-organized-crime/organized-retail-theft",
+      "https://www.atf.gov/firearms/report-firearms-theft-or-loss"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46309,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 33765,
+        "outputTokens": 8383,
+        "reasoningOutputTokens": 198,
+        "totalTokens": 54692,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.213294,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.233294
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25633,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18337,
+          "outputTokens": 5820,
+          "reasoningOutputTokens": 198,
+          "totalTokens": 31453,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.134967,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.154967
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20676,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15428,
+          "outputTokens": 2563,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23239,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078327,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078327
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1676334627193-ecd68722a7b1?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUzODF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Pawn Broker background image",
+    "source": "legacy-industry",
+    "query": "Pawn Broker"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer pawn loan and renewal questions without creating compliance risk?",
+      "answer": "Yes, if you train it on approved loan FAQs, ticket language, renewal rules, disclosure references, and escalation policies. DocsBot should explain general store policy, collect context, and route disputes or account-specific exceptions to staff. That matters because TILA requires written disclosures for finance charges, APR, and related credit terms.",
+      "role": "Compliance and back-office teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-tila-disclosures"
+      ]
+    },
+    {
+      "question": "Will DocsBot tell a customer how much we will lend on an item?",
+      "answer": "It should not make final appraisal or loan-offer decisions. A good pawn workflow uses DocsBot to explain your valuation process, list details staff need, collect photos or descriptions if allowed, and prepare a follow-up task. Final value, loan amount, condition judgment, and exception handling stay with trained employees.",
+      "role": "Counter teams and appraisers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot look up a customer’s pawn ticket or renewal status?",
+      "answer": "Yes, when your team configures a scoped Skill, API, connector, or workflow with approved access. The agent can collect identifying details, retrieve permitted status fields, summarize the request, and hand off sensitive identity, payment, fee, or exception questions to staff instead of exposing full account data in chat.",
+      "role": "Store owners and operators",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would this reduce call volume at a busy pawn counter?",
+      "answer": "DocsBot can answer repetitive questions about hours, accepted items, required ID, redemption steps, renewals, layaway, return policy, and pickup rules before customers call or visit. The bigger ROI usually comes from keeping counter staff focused on inspections, sales, documentation, and in-store service instead of repeating the same policy explanations.",
+      "role": "Store owners and operators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can we use one agent for both pawn loans and retail sales?",
+      "answer": "Yes, but most shops should separate the knowledge and permissions by use case. The same DocsBot deployment can support customer-facing answers for loan, redemption, product, layaway, and store-policy questions while using stricter instructions and human review for regulated loan, identity, firearm, or stolen-property issues.",
+      "role": "Sales and online customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a customer asks about a disputed APR, fee, or due date?",
+      "answer": "DocsBot can retrieve the approved explanation, identify the relevant policy or disclosure reference, and create a manager handoff summary. It should not improvise legal or account-specific determinations. CFPB enforcement actions have targeted pawn companies for allegedly deceiving consumers about loan costs, so disputed cost conversations need approved language and review paths.",
+      "role": "Compliance and back-office teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-cfpb-pawn-loan-costs"
+      ]
+    },
+    {
+      "question": "Can the agent help with stolen-property concerns without mishandling the situation?",
+      "answer": "Yes. Train it on your stolen-property SOP, law-enforcement hold procedure, customer script, and escalation rules. The agent can collect non-sensitive context, avoid debating ownership, and route the issue to a manager. The FBI identifies pawn shops among possible resale channels used in organized retail theft schemes, so escalation should remain precise and staff-led.",
+      "role": "Compliance and back-office teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fbi-organized-retail-theft"
+      ]
+    },
+    {
+      "question": "How can DocsBot help new counter employees without letting them rely on bad AI answers?",
+      "answer": "DocsBot gives employees source-grounded answers from your approved SOPs, onboarding guides, scripts, forms, and category checklists. Staff can see the underlying source material, while managers can review logs and knowledge gaps. It is best used as a searchable procedure assistant, not a replacement for supervision or required training.",
+      "role": "Counter teams and appraisers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we restrict what the agent knows by store, role, or department?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so internal SOPs, firearm procedures, compliance notes, and management policies can be limited to the right users. For live actions, Skills should be scoped so the agent only accesses approved systems, fields, and workflows.",
+      "role": "Store owners and operators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will our customer data be used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and access controls, which are important for pawn teams handling customer identity, loan, ticket, and operational information.",
+      "role": "Compliance and back-office teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support firearm-related pawn workflows?",
+      "answer": "DocsBot can make firearm SOPs, transfer policy references, inventory discrepancy checklists, and escalation steps searchable for authorized staff. It should not decide eligibility or provide legal judgments. ATF states FFLs must report firearm theft or loss from inventory to ATF and local law enforcement within 48 hours of discovery.",
+      "role": "Compliance and back-office teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-atf-ffl-theft-loss"
+      ]
+    },
+    {
+      "question": "How much work is required before launch?",
+      "answer": "The main work is gathering the right source content: loan FAQs, renewal policies, redemption rules, accepted-item guidance, store hours, layaway terms, return policies, SOPs, scripts, and escalation rules. Many pawn shops start with a narrow public FAQ agent, review conversations, then add internal SOPs and approved live lookups.",
+      "role": "Store owners and operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot work if our policies differ by location?",
+      "answer": "Yes. You can train the agent with location-specific policy content and configure instructions so it asks which store the customer uses before answering. For multi-location operators, this helps avoid applying the wrong renewal window, hold practice, hours, item category rule, or manager escalation path.",
+      "role": "Store owners and operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the agent from giving outdated loan or store-policy answers?",
+      "answer": "Treat DocsBot as an approved knowledge layer. Update the source documents when policies change, review conversation logs for confusing answers, and use knowledge-gap reporting to find missing or stale content. For regulated topics, route exceptions to staff and keep disclosure scripts under compliance or manager ownership.",
+      "role": "Compliance and back-office teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent answer in Spanish or other languages for walk-in customers and website visitors?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when trained on the right source content. For pawn shops, the safest setup is to provide translated policy guidance for common questions while routing complex loan, identity, dispute, firearm, or exception conversations to bilingual staff or a manager.",
+      "role": "Sales and online customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we measure to know if the AI agent is paying off?",
+      "answer": "Track reduced repetitive calls, website questions answered, after-hours inquiries captured, staff time saved, lead handoffs created, renewal or redemption questions resolved, customer satisfaction, escalation rate, and documentation gaps. For internal use, monitor which SOPs employees search for most and where managers still receive avoidable questions.",
+      "role": "Store owners and operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot create tasks for managers or sales staff?",
+      "answer": "Yes, through customer-configured AI Actions, Skills, APIs, connectors, or workflow automations. Common pawn workflows include creating a manager review task, routing a stolen-property concern, sending a retail item inquiry to sales, preparing a renewal handoff, or notifying staff about a high-value item lead.",
+      "role": "Sales and online customer service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will it integrate with our pawn software or inventory system?",
+      "answer": "DocsBot can support approved live lookups and actions when your team configures the right Skill, API, connector, webhook, MCP connector, or workflow. The practical question is what your pawn or inventory system exposes safely: ticket status, public availability, item details, task creation, or limited record updates.",
+      "role": "Store owners and operators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we review what customers and employees asked the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For pawn operators, that can reveal which policies confuse customers, which item categories generate repeated questions, and which SOPs employees cannot easily find.",
+      "role": "Store owners and operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we handle questions about lost tickets, third-party pickup, or identity mismatches?",
+      "answer": "Those should be escalation workflows. DocsBot can provide general approved guidance, list required documents, collect context, and prepare a staff handoff. It should not decide whether someone can redeem an item, override identity policy, or approve a third-party pickup without human review.",
+      "role": "Counter teams and appraisers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with item intake checklists and serial-number documentation?",
+      "answer": "Yes. An internal DocsBot agent can retrieve category-specific intake procedures, serial-number reminders, photo standards, testing steps, condition-note guidance, and hold procedures. If configured, it can also trigger a checklist or create a follow-up task for manager review.",
+      "role": "Counter teams and appraisers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is this useful for independent pawn shops, or only larger chains?",
+      "answer": "Independent shops can start with a focused website agent for FAQs, hours, loan process, accepted items, and retail policy. Larger or multi-location teams may add internal SOP search, location-specific rules, analytics, and live system actions. The value depends more on repeat questions and documentation quality than store count.",
+      "role": "Store owners and operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent trained on your approved content, not a generic scripted bot. It can support customer answers, internal knowledge retrieval, summaries, workflow routing, and bounded actions. That distinction matters when answers involve pawn policies, disclosures, inventory procedures, and escalation rules.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help customers who are underbanked or using nonbank credit options?",
+      "answer": "Yes, by making loan process, required ID, redemption, renewal, and store-policy information easier to understand before a visit. The FDIC reported that 4.2% of U.S. households were unbanked in 2023, and 5.8% used at least one tracked nonbank credit product, including pawn shop loans.",
+      "role": "Store owners and operators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fdic-unbanked",
+        "src-fdic-nonbank-credit"
+      ]
+    },
+    {
+      "question": "What internal approvals are usually needed before buying an AI agent for a pawn operation?",
+      "answer": "Expect input from the owner or operator, store managers, compliance or back office, IT or software administrators, and frontline staff. The buying committee usually wants to know what the agent can access, which answers are approved, how escalations work, how logs are reviewed, and whether live actions are tightly scoped.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot draft customer replies for staff instead of answering automatically?",
+      "answer": "Yes. For higher-risk topics, DocsBot can retrieve approved policy language, summarize context, and draft a response for employee review. This is useful for fee disputes, renewal exceptions, identity issues, firearm questions, stolen-property reports, and complaints where a human should approve the final message.",
+      "role": "Compliance and back-office teams",
+      "category": "Human oversight"
+    }
+  ]
+}

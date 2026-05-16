@@ -1,0 +1,724 @@
+{
+  "slug": "oil-gas-distribution",
+  "business": "Oil & Gas Distribution",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Oil & Gas Distribution Operations",
+    "description": "DocsBot helps oil and gas distribution teams answer customer, dispatch, safety, and SOP questions while routing urgent issues faster.",
+    "canonicalPath": "/industry/oil-gas-distribution"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for fuel, gas, terminal, and pipeline teams",
+    "headline": "Keep oil and gas distribution answers moving with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your tariffs, service policies, safety procedures, delivery FAQs, product specs, terminal instructions, and internal SOPs so customers, drivers, dispatchers, and support teams can get source-grounded answers and scoped workflow help around the clock.",
+    "proofBullets": [
+      {
+        "text": "Answer customer questions about service areas, delivery requirements, documentation, billing policies, product handling, and escalation paths from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give dispatch, customer care, and field teams quick access to SOPs, emergency contacts, safety checklists, terminal rules, and maintenance references.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, look up approved order or ticket context, route urgent issues, create tasks, and prepare human handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review analytics, logs, repeated questions, and knowledge gaps to improve customer FAQs, driver instructions, and internal operating content.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a distribution AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your oil and gas distribution organization approves: public FAQs, product documentation, safety policies, SOPs, service guides, PDFs, internal wikis, and ticket history when connected. Agents can answer in a website widget or private team chat, summarize context, route requests, draft responses, and trigger bounded workflows through customer-configured Skills, APIs, connectors, or MCP-enabled tools.",
+    "whoItHelps": [
+      {
+        "role": "Customer care and commercial service teams",
+        "roleContext": "Support teams field recurring questions about deliveries, invoices, account setup, safety documentation, service interruptions, and who to contact when a shipment or utility issue needs a person.",
+        "bullets": [
+          {
+            "text": "Answer routine customer questions from approved FAQs, account policies, product sheets, and service documentation.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect structured details such as location, account type, product, delivery window, invoice number, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route complex, urgent, or regulated questions to the right internal queue with a concise conversation summary.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Dispatch, terminal, and field operations leaders",
+        "roleContext": "Distribution operations depend on consistent procedures across shifts, locations, drivers, contractors, and terminals, especially when teams need fast access to current instructions.",
+        "bullets": [
+          {
+            "text": "Make loading procedures, site access rules, driver instructions, emergency contacts, and maintenance references searchable in private chat.",
+            "icon": "TruckIcon"
+          },
+          {
+            "text": "Use configured live lookups to check approved order, ticket, or asset context before escalating a delivery or service issue.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize shift notes, incident intake, or repeated operational questions so supervisors can spot documentation gaps.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Safety, compliance, and training managers",
+        "roleContext": "Oil and gas distribution teams need consistent, auditable communication around procedures, reporting obligations, and safety-sensitive work without letting AI make final safety judgments.",
+        "bullets": [
+          {
+            "text": "Provide source-grounded reminders from SOPs, training materials, SDS references, and internal policies for authorized employees.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Create review-ready summaries or task handoffs for incident intake, corrective action tracking, and documentation follow-up.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Keep sensitive workflows bounded with permissions, logs, human escalation, and customer-defined controls for high-impact actions.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ScaleIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-phmsa-gas-distribution-mileage",
+      "metric": "2,395,772 miles of gas distribution mains and estimated services in 2025",
+      "claim": "PHMSA reported 2,395,772 total miles of gas distribution mains and estimated services and 73,074,061 distribution services for 2025.",
+      "sourceTitle": "PHMSA Annual Report Mileage for Gas Distribution Systems",
+      "sourceUrl": "https://www.phmsa.dot.gov/data-and-statistics/pipeline/annual-report-mileage-gas-distribution-systems",
+      "sourceDate": "May 1, 2026",
+      "bestUsedFor": [
+        "Infrastructure scale",
+        "customer service volume",
+        "operations complexity"
+      ]
+    },
+    {
+      "id": "src-phmsa-annual-report-data",
+      "metric": "PHMSA annual reports are required under 49 CFR Parts 191 and 195",
+      "claim": "PHMSA states that gas distribution, gas gathering, gas transmission, hazardous liquid, LNG, and underground natural gas storage operators must submit annual reports with pipeline mileage, facility, commodity, material, and installation-date data.",
+      "sourceTitle": "PHMSA Gas Distribution, Gas Gathering, Gas Transmission, Hazardous Liquids, LNG, and UNGS Annual Report Data",
+      "sourceUrl": "https://www.phmsa.dot.gov/data-and-statistics/pipeline/gas-distribution-gas-gathering-gas-transmission-hazardous-liquids",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "Compliance reporting pressure",
+        "regulated documentation",
+        "pipeline records"
+      ]
+    },
+    {
+      "id": "src-eia-energy-infrastructure",
+      "metric": "EIA maps petroleum product pipelines and hundreds of product terminals",
+      "claim": "EIA describes public map layers for petroleum product pipelines and notes that terminal information comes from EIA petroleum product storage survey data, including hundreds of petroleum product terminals across the United States.",
+      "sourceTitle": "EIA’s mapping system highlights energy infrastructure across the United States",
+      "sourceUrl": "https://www.eia.gov/todayinenergy/detail.php?id=21672",
+      "sourceDate": "June 18, 2015",
+      "bestUsedFor": [
+        "Terminal and pipeline network complexity",
+        "geographic operations",
+        "distribution infrastructure"
+      ]
+    },
+    {
+      "id": "src-bls-pipeline-transportation",
+      "metric": "BLS defines pipeline transportation as moving crude oil, natural gas, refined petroleum products, and slurry",
+      "claim": "The Bureau of Labor Statistics describes the pipeline transportation subsector as using transmission pipelines to transport crude oil, natural gas, refined petroleum products, and slurry, and provides injury, illness, fatality, employment, and wage data for the subsector.",
+      "sourceTitle": "BLS Industries at a Glance: Pipeline Transportation: NAICS 486",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag486.htm",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "Industry scope",
+        "workforce context",
+        "safety data"
+      ]
+    },
+    {
+      "id": "src-osha-oil-gas-hazards",
+      "metric": "OSHA identifies vehicle-related hazards in oil and gas work",
+      "claim": "OSHA’s oil and gas hazard resources include guidance on recognizing and controlling vehicle-related hazards, along with other hazards relevant to oil and gas operations.",
+      "sourceTitle": "OSHA Oil and Gas Extraction - Hazards",
+      "sourceUrl": "https://www.osha.gov/oil-and-gas-extraction/hazards",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "Safety risk",
+        "driver and field operations",
+        "training content"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Customer delivery and account support agent",
+      "problem": "Customers often need quick answers about delivery windows, service areas, documentation, billing policies, emergency contacts, or how to resolve a missed or delayed delivery.",
+      "agentWorkflow": "DocsBot answers from approved customer policies, FAQs, product pages, service notices, and support history when connected. If the request needs account-specific attention, the agent collects structured details, summarizes the conversation, and routes it to a human support or dispatch workflow.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, or connectors, the agent can perform approved order-status or ticket-status lookups, create a ticket, notify a team, or attach a summary to a helpdesk workflow.",
+      "exampleQuestionsOrRequests": [
+        "Where do I send a certificate of insurance or tax exemption form?",
+        "My delivery is late; what information do you need to investigate?",
+        "Do you serve commercial accounts in my county?",
+        "What should I do if I smell gas or suspect a leak?"
+      ],
+      "businessOutcome": "Reduces repetitive support load while giving customers faster, consistent answers and clearer escalation paths for urgent or account-specific issues.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "name": "Driver and dispatcher knowledge assistant",
+      "problem": "Dispatchers, drivers, and terminal staff need the current version of procedures across many locations, shifts, products, and customer requirements.",
+      "agentWorkflow": "DocsBot retrieves source-grounded answers from SOPs, terminal guides, loading instructions, route handoff notes, safety bulletins, and internal policies. Employees can ask natural-language questions in private chat instead of searching folders or relying on tribal knowledge.",
+      "liveContextOrTools": "AI Actions can summarize shift notes, create follow-up tasks, route procedure questions to operations leaders, or look up approved context from internal systems when the company authorizes the connection.",
+      "exampleQuestionsOrRequests": [
+        "What is the loading procedure for this terminal?",
+        "Which documents should the driver confirm before leaving the rack?",
+        "What is our escalation process for a customer site access issue?",
+        "Summarize this delivery issue for the next shift supervisor."
+      ],
+      "businessOutcome": "Keeps frontline teams aligned on approved procedures and reduces time lost searching for operating instructions.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Safety and incident intake assistant",
+      "problem": "Safety-sensitive operations require accurate intake, consistent reminders, and human review instead of ad hoc notes spread across email, chat, and paper forms.",
+      "agentWorkflow": "DocsBot can answer from safety manuals, SDS references, emergency response procedures, training materials, and internal reporting policies. For incidents or near misses, the agent can collect a structured narrative, identify missing fields, summarize facts, and route the report for review.",
+      "liveContextOrTools": "Configured Skills can create a task or draft an incident record in an approved workflow, while permissions, logs, and escalation rules keep final decisions with trained personnel.",
+      "exampleQuestionsOrRequests": [
+        "What information should I capture for a near-miss report?",
+        "Where is the spill response procedure for this product class?",
+        "Summarize this incident intake for the safety manager.",
+        "Who needs to be notified for an after-hours terminal issue?"
+      ],
+      "businessOutcome": "Improves consistency in safety documentation and helps teams move from incomplete intake to review-ready follow-up faster.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-oil-gas-hazards"
+      ]
+    },
+    {
+      "name": "Compliance documentation and reporting assistant",
+      "problem": "Distribution operators manage regulated records, forms, manuals, inspection references, and reporting calendars that must stay consistent across departments.",
+      "agentWorkflow": "DocsBot helps employees find the right policy, form instructions, reporting definitions, and document location from approved knowledge sources. It can summarize source material, answer internal questions, and flag repeated knowledge gaps for documentation owners.",
+      "liveContextOrTools": "Through customer-configured APIs, connectors, or workflows, an agent can prepare a checklist, create a documentation task, or route a question to compliance without submitting regulatory filings on its own.",
+      "exampleQuestionsOrRequests": [
+        "Which data elements are needed for this annual report workflow?",
+        "Where is the current procedure for updating facility records?",
+        "Summarize the latest internal guidance on reporting responsibilities.",
+        "Create a task for compliance to review this documentation question."
+      ],
+      "businessOutcome": "Helps regulated teams find consistent internal guidance while preserving human accountability for final reporting and certification.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-phmsa-annual-report-data"
+      ]
+    },
+    {
+      "name": "Commercial presales and lead qualification agent",
+      "problem": "Prospective commercial, municipal, agricultural, or industrial customers may ask detailed service, product, region, delivery, pricing-process, and documentation questions before speaking with sales.",
+      "agentWorkflow": "DocsBot answers from approved service pages, product catalogs, safety documentation, pricing guidance, and sales enablement materials. It can collect lead details, qualify fit using your rules, and prepare a handoff summary for an account manager.",
+      "liveContextOrTools": "With approved Skills, forms, webhooks, CRM workflows, or scheduling tools, the agent can forward qualified leads, request a meeting, create a sales task, or attach conversation context for human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can you support a fleet fueling program in our region?",
+        "What information do you need for a commercial propane quote?",
+        "Do you provide product documentation for procurement review?",
+        "Route this request to the right account manager."
+      ],
+      "businessOutcome": "Captures qualified demand from technical buyers while keeping pricing, contracts, and regulated commitments under human control.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge gap and content improvement agent",
+      "problem": "Support and operations leaders often know the same questions keep coming back, but the underlying documentation gaps are hard to see across channels.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams identify repeated questions, low-confidence answers, and missing source material.",
+      "liveContextOrTools": "Managers can use reports to prioritize new FAQs, revised SOPs, better driver instructions, and customer-facing documentation updates.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are customers asking that our help center does not answer?",
+        "What topics are dispatchers asking about most often?",
+        "Show common unresolved questions from the last month.",
+        "Which SOP needs clearer language based on employee questions?"
+      ],
+      "businessOutcome": "Turns real questions into a practical content roadmap for customer support, training, and operations documentation.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers a reliable first stop for delivery, service, and documentation questions",
+    "intro": "A DocsBot customer-facing agent can sit in your website or product chat widget and answer from your approved distribution knowledge. It can handle routine questions instantly, gather missing information, and escalate emergencies, account-specific issues, or contract-sensitive requests to your team.",
+    "requests": [
+      {
+        "request": "“I need documentation for a commercial fuel delivery account.”",
+        "agentResponseStrategy": "Answer from approved onboarding, documentation, and customer policy sources, then collect company, location, product, account type, and contact details for follow-up.",
+        "sourceTypes": [
+          "Customer FAQs",
+          "Onboarding forms",
+          "Product documentation",
+          "Account policies"
+        ],
+        "optionalAction": "Submit a structured lead or support request through a customer-configured form, webhook, CRM workflow, or helpdesk workflow.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“My delivery did not arrive during the expected window.”",
+        "agentResponseStrategy": "Collect order number, address, product, date, access notes, and urgency; provide general next steps from policy; and route the case when live account review is needed.",
+        "sourceTypes": [
+          "Delivery policies",
+          "Support macros",
+          "Service notices",
+          "Ticket history"
+        ],
+        "optionalAction": "Look up approved order or ticket status when connected, create a support ticket, and notify dispatch with a concise summary.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“What should I do if I smell gas or see a spill?”",
+        "agentResponseStrategy": "Provide only the approved emergency guidance and escalation language from company safety sources, then direct the customer to the proper emergency contact or human response path.",
+        "sourceTypes": [
+          "Emergency procedures",
+          "Safety FAQs",
+          "Public service notices",
+          "Escalation policies"
+        ],
+        "optionalAction": "Trigger an approved urgent routing workflow or notification, while keeping emergency response decisions with qualified personnel.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you serve my location and business type?”",
+        "agentResponseStrategy": "Use approved service-area pages, customer qualification rules, and sales materials to answer basic fit questions and collect details for a commercial representative.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales enablement content",
+          "Product catalogs",
+          "Regional policies"
+        ],
+        "optionalAction": "Qualify the lead and request a meeting through a customer-configured scheduling or CRM workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you explain your terminal or driver requirements?”",
+        "agentResponseStrategy": "Answer from customer-approved terminal, pickup, access, safety, and documentation materials without exposing private internal procedures unless intended for that audience.",
+        "sourceTypes": [
+          "Terminal instructions",
+          "Customer pickup guides",
+          "Safety documentation",
+          "Policy PDFs"
+        ],
+        "optionalAction": "Route unusual access requests or exception questions to operations for review.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can I get help in another language?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages from the same approved knowledge base, helping multilingual customers understand standard policies and support steps.",
+        "sourceTypes": [
+          "Translated FAQs",
+          "Product manuals",
+          "Customer policies",
+          "Website content"
+        ],
+        "optionalAction": "Escalate to a bilingual team member or regional queue when the conversation requires human judgment.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make procedures, policies, and field knowledge easier to find across every shift",
+    "intro": "DocsBot can serve as a private internal knowledge agent for dispatch, safety, compliance, sales, HR, and operations teams. Train it on SOPs, PDFs, Word documents, wikis, Google Drive, Notion, Confluence, policy files, and internal knowledge so employees can get consistent answers with source context.",
+    "workflows": [
+      {
+        "name": "Dispatcher procedure lookup",
+        "problem": "Dispatch teams lose time switching between binders, shared drives, emails, and tribal knowledge to answer routine operating questions.",
+        "agentWorkflow": "Employees ask DocsBot for the relevant procedure, escalation path, customer requirement, or site instruction and receive a source-grounded answer with references to the approved material.",
+        "sourceTypes": [
+          "SOPs",
+          "Terminal guides",
+          "Customer requirements",
+          "Shift handoff notes"
+        ],
+        "optionalAction": "Create a follow-up task or route a documentation correction request when an answer is missing or outdated.",
+        "outcome": "Faster access to approved instructions and clearer ownership of content gaps.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Safety and training reinforcement",
+        "problem": "Safety managers need consistent communication across new hires, contractors, and experienced employees without rewriting the same answers repeatedly.",
+        "agentWorkflow": "DocsBot answers from training decks, manuals, policies, SDS references, and onboarding materials, then logs question patterns so safety leaders know what needs better training content.",
+        "sourceTypes": [
+          "Training materials",
+          "SDS references",
+          "Safety manuals",
+          "Policy documents"
+        ],
+        "optionalAction": "Summarize a recurring training question and notify the documentation owner through an approved workflow.",
+        "outcome": "More consistent guidance for employees and better visibility into confusing procedures.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Compliance document search",
+        "problem": "Regulated teams need to find definitions, form instructions, retention guidance, and reporting responsibilities quickly while maintaining review controls.",
+        "agentWorkflow": "DocsBot retrieves answers from approved compliance files, regulatory notes, and internal reporting procedures. It can summarize the source context and escalate uncertain questions to compliance reviewers.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Reporting checklists",
+          "Internal policies",
+          "PHMSA-related procedures"
+        ],
+        "optionalAction": "Prepare a review checklist or create a task for the compliance owner without filing or certifying reports automatically.",
+        "outcome": "Reduces internal search time while keeping final regulated submissions under human review.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Sales enablement for commercial accounts",
+        "problem": "Account managers need quick answers about product fit, service capabilities, documentation, objection handling, and proposal language.",
+        "agentWorkflow": "DocsBot answers from approved catalogs, sales playbooks, pricing guidance, FAQs, testimonials, contract language, and onboarding notes. When configured with web search and approved Skills, it can summarize public prospect context for human sellers.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Sales playbooks",
+          "Proposal templates",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or prepare a meeting brief through customer-configured sales workflows.",
+        "outcome": "Helps sales teams respond faster while keeping pricing, legal terms, and commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from your distribution knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved company knowledge sources and returns answers grounded in that material.",
+      "industryApplication": "Use approved customer FAQs, product sheets, safety policies, delivery procedures, SOPs, terminal guides, and compliance notes to keep answers consistent across customer care and operations.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can support customer-facing chat experiences and private internal knowledge access for employees.",
+      "industryApplication": "Deploy a public support agent for account, delivery, and documentation questions while giving dispatchers, drivers, sales, and compliance teams a private assistant for internal procedures.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded, customer-configured actions such as lookups, summaries, routing, record updates, and workflow triggers.",
+      "industryApplication": "Authorize scoped live context for order or ticket lookups, incident intake, lead routing, task creation, CRM handoffs, or remote Model Context Protocol tools while preserving permissions and logs.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports human escalation when questions are complex, sensitive, or need a person.",
+      "industryApplication": "Route emergencies, safety-sensitive issues, regulated reporting questions, pricing exceptions, and contract commitments to qualified employees with conversation context attached.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot helps teams review conversations, analyze recurring topics, measure satisfaction or resolution patterns, and identify missing documentation.",
+      "industryApplication": "Find repeated customer delivery questions, unclear terminal instructions, missing SOP details, and training topics that should be added to your knowledge base.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Give regulated distribution teams a governed way to use internal manuals, policies, and operational knowledge while controlling who can access sensitive sources and actions.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where fast, consistent first answers matter.",
+      "Train agents on your own content library so answers reflect approved procedures and policies.",
+      "Support customer-facing widgets and internal support workflows from the same governed knowledge approach."
+    ],
+    "whyTheseReviewsFit": "Oil and gas distribution teams need reliable answers at scale, grounded in controlled knowledge, with clear paths to human support. DocsBot proof spans high-volume inquiry handling, owned-content training, embedded support experiences, and helpdesk-assisted workflows that map well to customer care and operational support.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "RectangleGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for oil and gas distribution teams",
+    "audience": [
+      "Oil and gas distribution companies",
+      "Fuel delivery operators",
+      "Gas utilities and distribution teams",
+      "Pipeline and terminal operations leaders",
+      "Energy customer support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "oil-gas-extraction-production",
+    "pipeline",
+    "energy-storage-systems",
+    "carbon-accounting",
+    "environmental-health"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "oil-gas-distribution",
+    "webSearchQueries": [
+      "PHMSA gas distribution annual report miles main services 2023",
+      "BLS oil and gas pipeline transportation employment injury fatalities data",
+      "EIA petroleum products distribution pipelines trucks storage terminals United States",
+      "OSHA oil and gas industry hazards transportation distribution"
+    ],
+    "sourceUrls": [
+      "https://www.phmsa.dot.gov/data-and-statistics/pipeline/annual-report-mileage-gas-distribution-systems",
+      "https://www.phmsa.dot.gov/data-and-statistics/pipeline/gas-distribution-gas-gathering-gas-transmission-hazardous-liquids",
+      "https://www.eia.gov/todayinenergy/detail.php?id=21672",
+      "https://www.bls.gov/iag/tgs/iag486.htm",
+      "https://www.osha.gov/oil-and-gas-extraction/hazards"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41484,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28940,
+        "outputTokens": 8502,
+        "reasoningOutputTokens": 125,
+        "totalTokens": 49986,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.203016,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.213016
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21692,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14396,
+          "outputTokens": 5302,
+          "reasoningOutputTokens": 125,
+          "totalTokens": 26994,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.117344,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.127344
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19792,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14544,
+          "outputTokens": 3200,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22992,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.085672,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.085672
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1553159925-02b2e24f471d?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDAyMDJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Oil & Gas Distribution background image",
+    "source": "legacy-industry",
+    "query": "Oil & Gas Distribution"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer customer delivery and account questions without giving out account-specific information incorrectly?",
+      "answer": "Yes. DocsBot can answer general questions from approved FAQs, service policies, product documentation, and delivery guidance. For account-specific issues, it can collect details such as location, product, order number, invoice number, and urgency, then route the request to support or dispatch with a summary. Live order or ticket lookups should be limited to customer-configured Skills, APIs, connectors, and permissioned workflows.",
+      "role": "Customer care and commercial service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would an AI agent handle emergency questions like gas odor, a spill, or a suspected leak?",
+      "answer": "DocsBot should be configured to provide only your approved emergency language, contact instructions, and escalation path—not make safety judgments. It can recognize urgent wording, display the right instructions, collect limited intake details if appropriate, and trigger a human escalation or notification. This matters because oil and gas work includes vehicle-related and other operational hazards identified by OSHA.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-oil-gas-hazards"
+      ]
+    },
+    {
+      "question": "Can dispatchers and terminal staff use DocsBot for SOP lookup across multiple locations and shifts?",
+      "answer": "Yes. DocsBot can serve as a private internal knowledge agent trained on SOPs, terminal guides, loading instructions, customer requirements, maintenance references, and shift handoff notes. Employees can ask natural-language questions and receive source-grounded answers, helping reduce reliance on tribal knowledge or outdated files. If an answer is missing, analytics can show documentation gaps for operations leaders to fix.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot integrate with our dispatch, ticketing, CRM, or order systems?",
+      "answer": "DocsBot can support approved live lookups and workflow actions when your team configures the right Skills, APIs, connectors, webhooks, or MCP-enabled tools. Common patterns include checking approved order or ticket context, creating a task, forwarding a qualified lead, notifying dispatch, or attaching a conversation summary to a case. It should be scoped so the agent only accesses and updates fields your organization authorizes.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we keep customer-facing answers separate from internal operating procedures?",
+      "answer": "Yes. A strong deployment should separate public and private knowledge sources. Your website agent can use customer-approved FAQs, service-area pages, onboarding documents, product sheets, and emergency notices, while internal agents use SOPs, terminal procedures, compliance notes, and private policies. DocsBot supports granular access controls and role-based permissions so sensitive internal material is not exposed to the wrong audience.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot help with PHMSA-related documentation and reporting workflows?",
+      "answer": "DocsBot can help employees find internal reporting definitions, form instructions, facility-record procedures, checklists, and document locations from approved sources. It can summarize guidance and route uncertain questions to compliance reviewers, but it should not file or certify regulated reports automatically. PHMSA annual reports are required under 49 CFR Parts 191 and 195 for covered pipeline and LNG operators, so human accountability remains essential.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-phmsa-annual-report-data"
+      ]
+    },
+    {
+      "question": "What should we measure to decide whether an AI agent is actually reducing support workload?",
+      "answer": "Measure repetitive question deflection, first-contact resolution, escalation rate, handoff quality, average response time, after-hours containment, customer satisfaction, and the number of incomplete tickets reaching dispatch. DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis can help show which customer questions are resolved, which require a person, and where your documentation needs improvement.",
+      "role": "Customer care and commercial service teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support both commercial fuel customers and residential or utility customers?",
+      "answer": "Yes, as long as each audience has approved source material and clear routing rules. A commercial customer might need tax exemption, certificate of insurance, fleet fueling, product documentation, or quote intake. A residential or utility customer might need service-area, billing, safety, or appointment guidance. DocsBot can collect different fields and escalate to the right team based on product, account type, location, and urgency.",
+      "role": "Customer care and commercial service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from giving wrong pricing, contract, tariff, or service-commitment answers?",
+      "answer": "Train the agent only on approved pricing-process guidance, tariffs, service policies, proposal language, and escalation rules. For exceptions, quotes, legal terms, contract commitments, or regulated service interpretations, configure DocsBot to explain the standard process and route the request to a qualified employee. This keeps the agent useful for intake and explanation without letting it make commitments your sales, legal, or compliance teams must control.",
+      "role": "Customer care and commercial service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help our drivers, contractors, and field teams find safety or terminal instructions on mobile devices?",
+      "answer": "DocsBot can provide source-grounded answers through private chat experiences trained on approved safety manuals, SDS references, terminal instructions, access rules, and training materials. The rollout should match your access policies, device practices, and safety rules. For high-risk tasks, the agent should reinforce approved procedures and escalate uncertainty rather than replace supervisor, dispatcher, or safety-manager judgment.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much cleanup do our SOPs and PDFs need before we can launch?",
+      "answer": "You do not need perfect documentation to start, but the first agent should be trained on current, approved, audience-specific sources. Before launch, remove obsolete procedures, label documents clearly, separate internal from customer-facing content, and identify owners for updates. DocsBot conversation logs and knowledge-gap reporting can then show where employees or customers are asking questions your current content does not answer well.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent summarize incident intake without becoming the system of record?",
+      "answer": "Yes. DocsBot can collect structured incident or near-miss details, identify missing fields, summarize the narrative, and create a task or draft record through an approved workflow. The final incident record, classification, investigation, corrective action, and regulatory decision should remain with trained personnel and your official EHS or compliance systems.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What is the implementation path for a first oil and gas distribution AI agent?",
+      "answer": "Most teams should start with one bounded use case: customer delivery support, dispatcher SOP lookup, safety intake, or compliance document search. Choose approved source content, define what the agent may and may not answer, configure escalation paths, test with real questions, review logs, then expand to live lookups or AI Actions only after governance is clear. This reduces risk while proving operational value quickly.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we handle multilingual customers or drivers without maintaining separate answer sets?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge base. That helps customers or employees understand standard policies, delivery requirements, and support steps without duplicating every article manually. For safety-sensitive, legal, contractual, or ambiguous conversations, configure escalation to a bilingual employee or regional queue so a person can review the situation.",
+      "role": "Customer care and commercial service teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help us manage communication across a large gas distribution footprint?",
+      "answer": "Yes. DocsBot is well suited to organizations with many locations, services, documents, and recurring customer or employee questions. PHMSA reported 2,395,772 miles of gas distribution mains and estimated services and 73,074,061 distribution services for 2025, which illustrates the scale and complexity distribution teams may need to support with consistent answers and escalation paths.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-phmsa-gas-distribution-mileage"
+      ]
+    },
+    {
+      "question": "Will our customer data, operational procedures, and private documents be used to train public AI models?",
+      "answer": "DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. For sensitive workflows, Skills can be configured with secrets, metadata bindings, logging, network policy, and customer-defined boundaries so your team controls what the agent can access and do.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can managers see what customers and employees are asking, not just whether the agent answered?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. Managers can review repeated delivery questions, low-confidence answers, unresolved dispatcher questions, unclear terminal instructions, and missing safety or compliance content. That turns agent activity into a practical roadmap for better FAQs, SOPs, training, and handoff processes.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with building our own RAG assistant internally?",
+      "answer": "Building internally can work if you have AI engineering capacity, security review bandwidth, retrieval tuning expertise, analytics needs covered, and ongoing support ownership. DocsBot is a faster path for teams that want source-grounded answers, website and private chat experiences, analytics, access controls, and bounded AI Actions without maintaining the entire RAG stack themselves. Many buyers still involve IT early to validate governance and integration fit.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent qualify commercial leads without overstepping sales or regulated commitments?",
+      "answer": "Yes. DocsBot can answer from approved service pages, product catalogs, documentation, pricing-process guidance, and sales enablement materials. It can collect company, region, product, volume, timeline, use case, and follow-up preferences, then qualify fit using your rules. Pricing exceptions, contracts, credit terms, regulated commitments, and final proposals should be routed to an account manager with the conversation summary attached.",
+      "role": "Customer care and commercial service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a customer asks a question the agent cannot answer confidently?",
+      "answer": "DocsBot should be configured to avoid guessing. When the answer is missing, sensitive, account-specific, or outside the approved sources, the agent can ask clarifying questions, explain that a person needs to review it, and route the conversation to the right queue with a concise summary. Logs of unanswered or low-confidence questions help content owners improve the knowledge base over time.",
+      "role": "Customer care and commercial service teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support terminals, pipelines, bulk plants, and product distribution workflows in one program?",
+      "answer": "Yes, but the best design is usually multiple scoped agents or permissioned knowledge collections rather than one unrestricted assistant. EIA’s infrastructure mapping includes petroleum product pipelines and hundreds of petroleum product terminals, reflecting the geographic and operational complexity of the sector. DocsBot can support that complexity by separating sources, audiences, permissions, escalation paths, and actions by location, product, or team.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-eia-energy-infrastructure"
+      ]
+    },
+    {
+      "question": "How do we train frontline employees to trust the agent without bypassing supervisors?",
+      "answer": "Position DocsBot as a source-grounded lookup and workflow assistant, not a replacement for operational authority. Train employees on what sources it uses, when to escalate, how to report a wrong or missing answer, and which safety or compliance decisions still require a supervisor. Early pilots should include shift supervisors, dispatch, safety, and content owners so adoption improves without weakening chain-of-command practices.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help reduce after-hours support pressure?",
+      "answer": "Yes. A customer-facing agent can answer routine after-hours questions about service areas, documentation, delivery policies, account setup, safety instructions, and next steps from approved sources. It can also collect structured details for delayed deliveries or urgent issues and route them to the right on-call or next-business-day workflow. Human escalation rules should be explicit for emergencies, regulated issues, and account-specific decisions.",
+      "role": "Customer care and commercial service teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What internal stakeholders should be involved before procurement approves an AI agent?",
+      "answer": "Include customer care, dispatch or operations, safety, compliance, IT/security, legal, and the business owner for the first use case. Customer care defines repetitive questions and handoffs; operations validates procedures; safety and compliance set boundaries; IT reviews access and integrations; legal reviews public-facing risk; and the business owner defines success metrics such as response time, deflection, escalation quality, and documentation improvement.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent work with old PDFs, Word documents, shared drives, and wikis?",
+      "answer": "Yes. DocsBot can train on PDFs, Word documents, text files, internal wikis, Google Drive, Notion, Confluence, websites, SOPs, policies, and other approved knowledge sources. The bigger issue is governance: decide which files are current, who owns updates, what is customer-facing versus internal, and which documents should be excluded because they are obsolete, sensitive, or not approved for AI-assisted answers.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep the agent current when procedures, service areas, contacts, or terminal rules change?",
+      "answer": "Assign content owners for each knowledge area and make updates part of your normal change-management process. When service policies, emergency contacts, terminal rules, product documents, or SOPs change, update the approved source content and review agent behavior. DocsBot analytics and conversation review can help identify stale answers, repeated confusion, and documents that need clearer language or replacement.",
+      "role": "Dispatch, terminal, and field operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support compliance and safety teams without creating audit risk?",
+      "answer": "Yes, if the agent is designed with boundaries. Use approved source material, permissioned access, logs, human escalation, and review workflows. Let DocsBot retrieve guidance, summarize intake, prepare checklists, and create tasks, while trained personnel remain responsible for final interpretations, regulatory filings, incident classifications, corrective actions, and certifications. This keeps the agent helpful without turning it into an unsupervised decision-maker.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance"
+    }
+  ]
+}

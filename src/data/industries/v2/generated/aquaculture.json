@@ -1,0 +1,755 @@
+{
+  "slug": "aquaculture",
+  "business": "Aquaculture",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "Aquaculture AI Agents for Farm Knowledge & Support",
+    "description": "DocsBot helps aquaculture teams answer buyer questions, surface SOPs, route requests, and keep farm knowledge accessible across shifts.",
+    "canonicalPath": "/industry/aquaculture"
+  },
+  "hero": {
+    "eyebrow": "Aquaculture AI automation",
+    "headline": "AI agents that keep aquaculture knowledge moving",
+    "subheadline": "DocsBot helps hatcheries, shellfish farms, finfish producers, seaweed growers, equipment suppliers, and seafood teams turn manuals, SOPs, permits, product pages, and support history into source-grounded AI agents for customers and staff.",
+    "proofBullets": [
+      {
+        "text": "Answer buyer, distributor, and visitor questions from approved product pages, FAQs, species guides, certifications, and service policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give farm teams fast access to SOPs for feeding, grading, biosecurity, harvesting, maintenance, packing, and incident reporting.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect lead details, qualify requests, summarize context, and route inquiries to sales, farm managers, support, or compliance reviewers.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Use approved Skills, APIs, connectors, or MCP-connected tools for scoped lookups, ticket creation, notifications, and human-reviewed workflow actions.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ],
+    "primaryCta": "Build an aquaculture AI agent",
+    "secondaryCta": "Explore farm support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your aquaculture business knowledge—SOPs, product sheets, hatchery protocols, food safety notes, maintenance guides, permitting references, customer FAQs, and internal documents—so customers and employees can get consistent, source-grounded answers and handoffs without digging through scattered files.",
+    "whoItHelps": [
+      {
+        "role": "Farm owners and operations managers",
+        "roleContext": "Keep procedures consistent across sites, shifts, and seasonal crews while preserving human control over safety, animal-health, regulatory, and commercial decisions.",
+        "bullets": [
+          {
+            "text": "Make feeding, harvest, grading, biosecurity, mortalities, equipment, and storm-response procedures searchable from private team chat or approved internal experiences.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Surface repeated staff questions and documentation gaps with analytics, logs, conversation review, and topic reporting.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support audit readiness by helping teams find the right SOP or policy quickly while managers approve sensitive actions and final records.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      },
+      {
+        "role": "Sales, customer service, and distributor teams",
+        "roleContext": "Aquaculture buyers often need practical details about species, availability, handling, delivery windows, certifications, and farm practices before they talk to a person.",
+        "bullets": [
+          {
+            "text": "Answer common questions from product catalogs, availability notes, handling sheets, FAQs, and website content in the company’s voice.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Collect structured lead details such as species interest, volume, region, timeline, required documentation, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft response summaries and route qualified inquiries to sales or support systems through customer-configured workflows, with humans approving pricing, contracts, and commitments.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, quality, and food safety leads",
+        "roleContext": "Aquaculture teams handle complex operating documentation because U.S. aquaculture facilities must navigate federal, state, and local requirements covering areas such as environmental protection, water quality, and ocean health.",
+        "bullets": [
+          {
+            "text": "Help staff find approved policies, permit references, training notes, recall procedures, sanitation steps, and reporting pathways without treating the agent as a legal decision‑of‑",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-noaa-regulation"
+            ]
+          },
+          {
+            "text": "Route sensitive questions—medication, discharge, protected species, worker safety, food safety, or permit interpretation—to qualified reviewers.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Summarize an incident, customer complaint, or internal request into a structured handoff for human review.",
+            "icon": "DocumentTextIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-noaa-regulation"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-census",
+      "metric": "3,453 farms and $1.9 billion in 2023 U.S. aquaculture product sales",
+      "claim": "USDA NASS reported 3,453 U.S. aquaculture farms with sales in 2023 and $1.9 billion in total aquaculture product sales, up 18% and 26% respectively from 2018.",
+      "sourceTitle": "USDA Releases the 2023 Census of Aquaculture Results",
+      "sourceUrl": "https://data.nass.usda.gov/Newsroom/2024/12-16-2024.php",
+      "sourceDate": "2024-12-16",
+      "bestUsedFor": [
+        "market scale",
+        "growth",
+        "operations complexity"
+      ]
+    },
+    {
+      "id": "src-noaa-imports",
+      "metric": "70–85% of U.S. seafood is imported",
+      "claim": "NOAA Fisheries states that the United States imports 70–85% of the seafood it eats and that more than half of imported seafood is produced by foreign aquaculture.",
+      "sourceTitle": "U.S. Aquaculture",
+      "sourceUrl": "https://www.fisheries.noaa.gov/national/aquaculture/us-aquaculture",
+      "sourceDate": "2022-10-19",
+      "bestUsedFor": [
+        "buyer education",
+        "domestic supply opportunity",
+        "market context"
+      ]
+    },
+    {
+      "id": "src-noaa-regulation",
+      "metric": "Federal, state, and local regulatory layers",
+      "claim": "NOAA Fisheries explains that aquaculture operations must meet federal, state, and local regulations intended to ensure environmental protection, water quality, and healthy oceans.",
+      "sourceTitle": "Aquaculture: Regulation And Policy",
+      "sourceUrl": "https://www.fisheries.noaa.gov/topic/aquaculture/regulation-and-policy",
+      "sourceDate": "2026-05-08",
+      "bestUsedFor": [
+        "compliance pressure",
+        "permitting complexity",
+        "documentation need"
+      ]
+    },
+    {
+      "id": "src-noaa-permitting",
+      "metric": "Permitting guide for marine finfish, shellfish, invertebrates, and seaweed",
+      "claim": "NOAA’s permitting guide is designed to help applicants navigate the federal marine aquaculture permitting process across finfish, shellfish, invertebrates, and seaweed.",
+      "sourceTitle": "Guide to Permitting Marine Aquaculture in the United States 2022",
+      "sourceUrl": "https://www.fisheries.noaa.gov/resource/document/guide-permitting-marine-aquaculture-united-states-2022",
+      "sourceDate": "2022-06-01",
+      "bestUsedFor": [
+        "permitting documentation",
+        "regulated workflows",
+        "human review"
+      ]
+    },
+    {
+      "id": "src-fao-global",
+      "metric": "Aquaculture surpassed capture fisheries in aquatic animal production",
+      "claim": "FAO’s 2024 reporting found aquaculture surpassed capture fisheries in aquatic animal production, reaching 94.4 million tonnes and 51% of the world total.",
+      "sourceTitle": "The State of World Fisheries and Aquaculture 2024",
+      "sourceUrl": "https://www.fao.org/publications/home/fao-flagship-publications/the-state-of-world-fisheries-and-aquaculture/en",
+      "sourceDate": "2024-06-07",
+      "bestUsedFor": [
+        "global growth",
+        "industry importance",
+        "buyer demand"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Buyer and distributor self-service",
+      "problem": "Prospects ask recurring questions about species, sizes, availability, certifications, harvest timing, delivery, acclimation, handling, and sustainability practices.",
+      "agentWorkflow": "Train a DocsBot AI support agent on product pages, availability notes, FAQs, packing guides, certifications, and sales enablement content. The agent answers routine questions, cites approved sources, collects missing purchase details, and escalates complex pricing or contract terms.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up customer-configured availability data, create a lead record, notify sales, or forward a summary to CRM, helpdesk, email, Slack, or Microsoft Teams workflows.",
+      "exampleQuestionsOrRequests": [
+        "Do you have oyster seed available for late June delivery?",
+        "What handling instructions should our restaurant follow after receiving live shellfish?",
+        "Can you send a summary of your farm practices and certifications to our purchasing team?"
+      ],
+      "businessOutcome": "Faster first responses, better-qualified leads, and fewer repetitive questions for staff during harvest and shipping windows.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Internal SOP and shift knowledge assistant",
+      "problem": "Aquaculture operations rely on detailed procedures, but staff may need answers while on docks, in hatcheries, in processing rooms, or at remote farm sites.",
+      "agentWorkflow": "DocsBot becomes a private internal knowledge agent trained on SOPs, training materials, maintenance manuals, biosecurity policies, incident steps, HR policies, and farm-specific guides. Employees ask plain-language questions and receive source-grounded answers.",
+      "liveContextOrTools": "When configured, Skills can generate a shift handoff summary, create a maintenance task, route a question to a supervisor, or notify a team channel—without letting the agent make safety-critical decisions independently.",
+      "exampleQuestionsOrRequests": [
+        "What is the approved net-cleaning checklist for this site?",
+        "Where is the SOP for grading fingerlings before transfer?",
+        "Summarize this pump issue for the maintenance lead."
+      ],
+      "businessOutcome": "More consistent procedures across shifts and faster onboarding for seasonal, cross-trained, or newly promoted staff.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Permitting and compliance knowledge routing",
+      "problem": "Marine and land-based aquaculture teams must navigate layered documentation, and NOAA notes that U.S. aquaculture operations face federal, state, and local requirements tied to environmental protection, water quality, and healthy oceans.",
+      "agentWorkflow": "Train an internal agent on your permit library, reporting calendars, approved policy notes, regulator correspondence, inspection checklists, and NOAA or state reference materials selected by your team. The agent helps staff find the right source, summarize a request, and prepare a handoff.",
+      "liveContextOrTools": "Approved actions can create a compliance task, route a question to the quality lead, assemble a document checklist, or draft a human-reviewed response to an internal inquiry.",
+      "exampleQuestionsOrRequests": [
+        "Which documents are needed before we expand this lease area?",
+        "Summarize the inspection follow-up items for the compliance manager.",
+        "Where is the approved procedure for reporting an unusual mortality event?"
+      ],
+      "businessOutcome": "Less time searching for policy documents and clearer escalation for regulated or high-impact questions.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-noaa-regulation",
+        "src-noaa-permitting"
+      ]
+    },
+    {
+      "name": "Equipment, feed, and supplier support agent",
+      "problem": "Aquaculture suppliers and farms receive technical questions about pumps, aerators, sensors, feeds, nets, tanks, dosing equipment, warranties, troubleshooting, and compatibility.",
+      "agentWorkflow": "DocsBot can train on manuals, spec sheets, warranty policies, troubleshooting guides, installation videos or transcripts, support tickets, and service documentation so customers and technicians get accurate first-line guidance.",
+      "liveContextOrTools": "With scoped connectors, the agent can retrieve order or warranty status, draft a support ticket, summarize diagnostic details, or route urgent equipment failures to a human support queue.",
+      "exampleQuestionsOrRequests": [
+        "Which replacement part fits this aerator model?",
+        "Create a support ticket with the alarm code, site name, and photos I described.",
+        "What maintenance interval does the pump manual recommend?"
+      ],
+      "businessOutcome": "Reduced repetitive support load and faster triage for problems that require a specialist.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Market education and public-facing farm guide",
+      "problem": "Domestic aquaculture producers often need to explain farmed seafood, local production, traceability, and farm practices to buyers, visitors, restaurants, and community stakeholders.",
+      "agentWorkflow": "A DocsBot website agent answers from your approved public content, sustainability statements, species guides, recipes, tour policies, and FAQs, then routes sensitive community, media, or regulatory questions to a person.",
+      "liveContextOrTools": "The agent can collect newsletter signups, tour requests, wholesale inquiries, or event questions using customer-defined forms and workflow triggers.",
+      "exampleQuestionsOrRequests": [
+        "What does your farm raise and how is it harvested?",
+        "Do you sell directly to restaurants?",
+        "Can I book a farm tour for our culinary class?"
+      ],
+      "businessOutcome": "Better education for customers and stakeholders while keeping approved messaging consistent.",
+      "icon": "GlobeAltIcon",
+      "sourceIds": [
+        "src-noaa-imports"
+      ]
+    },
+    {
+      "name": "Knowledge-gap analytics for farm documentation",
+      "problem": "As aquaculture grows, documentation can lag behind recurring questions from buyers, staff, and support teams. USDA reported 3,453 U.S. aquaculture farms with sales in 2023 and $1.9 billion in sales, showing the size of the operating base that depends on clear production and sales information.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review show which questions are unanswered or repeated so teams can update SOPs, FAQs, manuals, and customer-facing pages.",
+      "liveContextOrTools": "Teams can configure reports, review conversations, and use summaries to prioritize new content for operations, sales, support, or compliance.",
+      "exampleQuestionsOrRequests": [
+        "Which customer questions are not answered by our current FAQ?",
+        "What SOP topics did seasonal staff ask about most this month?",
+        "Summarize recurring support issues by species or product line."
+      ],
+      "businessOutcome": "Continuous improvement of documentation and more reliable self-service over time.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-usda-census"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give aquaculture buyers answers before the inbox fills up",
+    "intro": "A customer-facing DocsBot agent can live on your website or product experience to answer from approved farm content, manuals, FAQs, catalogs, and policies—then collect details or escalate when a human should step in.",
+    "requests": [
+      {
+        "request": "“What species, sizes, and delivery windows do you currently support?”",
+        "agentResponseStrategy": "Answer from approved product and availability content, explain any limits, ask for region and volume, and route the summary to sales if the request looks qualified.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Availability pages",
+          "Wholesale FAQs",
+          "Sales qualification rules"
+        ],
+        "optionalAction": "Submit a custom lead form or forward the conversation summary through a customer-configured CRM, email, or helpdesk workflow.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“How should we handle live product after delivery?”",
+        "agentResponseStrategy": "Return source-grounded handling guidance from approved packing, acclimation, storage, and care instructions while warning that urgent quality or animal-health issues should be escalated.",
+        "sourceTypes": [
+          "Handling guides",
+          "Packing instructions",
+          "Customer education PDFs",
+          "Support articles"
+        ],
+        "optionalAction": "Create a support ticket with shipment details if the customer reports a problem.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Can you explain your farming practices and local seafood benefits?”",
+        "agentResponseStrategy": "Use your public sustainability, traceability, and farm-practice pages to educate buyers while avoiding unsupported claims. U.S. seafood import reliance is high—NOAA states the United States imports 70–85% of the seafood it eats, and more than half of imported seafood is produced by foreign aqu υπο-?",
+        "sourceTypes": [
+          "Public farm pages",
+          "Sustainability statements",
+          "Traceability FAQs",
+          "Buyer education materials"
+        ],
+        "optionalAction": "Route media, community, or certification questions to an approved human contact.",
+        "icon": "GlobeAltIcon",
+        "sourceIds": [
+          "src-noaa-imports"
+        ]
+      },
+      {
+        "request": "“I need a quote for recurring wholesale supply.”",
+        "agentResponseStrategy": "Collect structured requirements—species, volume, frequency, destination, timeline, documentation needs, and buying role—then qualify according to your rules.",
+        "sourceTypes": [
+          "Pricing guidance",
+          "Sales playbooks",
+          "Lead qualification instructions",
+          "Service territory policies"
+        ],
+        "optionalAction": "Request a meeting through an approved scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar configured tool.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“My pump alarm is showing an error code.”",
+        "agentResponseStrategy": "Ask for the model, alarm code, site context, and symptoms; answer from manuals and troubleshooting docs; and escalate urgent failures or safety concerns.",
+        "sourceTypes": [
+          "Equipment manuals",
+          "Troubleshooting guides",
+          "Warranty policies",
+          "Support ticket history"
+        ],
+        "optionalAction": "Create a ticket or notify a maintenance/support channel through a scoped Skill or connector.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Do you have documentation for audits or purchasing review?”",
+        "agentResponseStrategy": "Point to approved certifications, policies, and document request paths while keeping restricted documents behind the right access controls.",
+        "sourceTypes": [
+          "Certification pages",
+          "Policy summaries",
+          "Customer onboarding packets",
+          "Document request SOPs"
+        ],
+        "optionalAction": "Route restricted-document requests to the compliance or account team for review.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep farm procedures searchable across every shift",
+    "intro": "DocsBot can act as a private internal knowledge agent for aquaculture teams, trained on SOPs, manuals, permit references, training content, policies, and operational notes. Staff get consistent answers, while managers keep control over sensitive decisions.",
+    "workflows": [
+      {
+        "name": "Shift handoff and incident summaries",
+        "problem": "Farm managers need clean handoffs when equipment, mortality, weather, water quality, or harvest issues span multiple shifts.",
+        "agentWorkflow": "Staff describe the situation in chat; the agent structures the summary, references the relevant SOP, and prepares a handoff for a supervisor.",
+        "sourceTypes": [
+          "Incident SOPs",
+          "Shift logs",
+          "Maintenance procedures",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create a task, notify a team channel, or route the summary to a designated reviewer through approved Skills or connectors.",
+        "outcome": "Clearer handoffs without letting the AI decide production or safety actions alone.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Training and onboarding assistant",
+        "problem": "Seasonal and cross-trained employees need quick access to procedures without interrupting senior staff for every repeat question.",
+        "agentWorkflow": "The agent answers onboarding questions from training materials, policies, SOPs, videos or transcripts, PDFs, and site-specific documents.",
+        "sourceTypes": [
+          "Training guides",
+          "HR policies",
+          "SOP binders",
+          "Video transcripts",
+          "Internal wiki pages"
+        ],
+        "optionalAction": "Log unanswered onboarding questions for documentation updates.",
+        "outcome": "Faster ramp-up and more consistent procedural guidance.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Compliance document finder",
+        "problem": "Aquaculture permitting can involve multiple agencies and document types, especially for marine finfish, shellfish, invertebrate, and seaweed operations.",
+        "agentWorkflow": "The agent helps users find permit references, document checklists, approved reporting steps, and internal owners, then summarizes the question for compliance review.",
+        "sourceTypes": [
+          "Permit libraries",
+          "NOAA reference materials selected by the team",
+          "Inspection checklists",
+          "Reporting calendars"
+        ],
+        "optionalAction": "Create a compliance task or route the request to the designated reviewer.",
+        "outcome": "Fewer lost documents and clearer human review paths for regulated questions.",
+        "icon": "FolderIcon",
+        "sourceIds": [
+          "src-noaa-permitting"
+        ]
+      },
+      {
+        "name": "Maintenance and equipment knowledge base",
+        "problem": "Equipment documentation is often scattered across PDFs, vendor portals, emails, and technician notes.",
+        "agentWorkflow": "DocsBot answers from manuals, maintenance schedules, spare-parts lists, warranty guidance, and service notes, then asks clarifying questions when details are missing.",
+        "sourceTypes": [
+          "PDF manuals",
+          "Vendor guides",
+          "Maintenance logs",
+          "Warranty policies",
+          "Technician notes"
+        ],
+        "optionalAction": "Draft a maintenance ticket or update an approved field through a scoped API workflow.",
+        "outcome": "Faster triage and less dependence on one person remembering every manual.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Sales enablement for farm and seafood teams",
+        "problem": "Sales reps and account managers need reliable answers about product specs, farm practices, availability language, objection handling, and buyer documentation.",
+        "agentWorkflow": "An internal sales agent retrieves approved talking points, product sheets, case notes, FAQs, and proposal language; when configured with web search, it can summarize public prospect context for human review.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Product sheets",
+          "Buyer FAQs",
+          "Proposal templates",
+          "Case studies"
+        ],
+        "optionalAction": "Draft a follow-up email or prepare a CRM note for review, using approved Skills, APIs, connectors, or MCP Connectors where authorized.",
+        "outcome": "More consistent customer conversations while humans own final outreach, pricing, and contractual claims.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI answers",
+      "mainLandingPageContext": "DocsBot agents answer from the company knowledge sources you provide instead of relying on generic AI memory.",
+      "industryApplication": "Train on farm SOPs, product sheets, harvest guides, handling instructions, certifications, FAQs, and equipment manuals so aquaculture staff and buyers receive consistent answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website and product chat widget",
+      "mainLandingPageContext": "DocsBot can deploy agents in website or product chat experiences for customer self-service.",
+      "industryApplication": "Let restaurants, distributors, hobbyists, hatchery customers, tour visitors, or equipment buyers ask practical questions without waiting for office hours.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve private teams with answers from internal documents, wikis, PDFs, Google Drive, Notion, Confluence, Word documents, and other configured sources.",
+      "industryApplication": "Give hatchery, grow-out, packing, maintenance, sales, and quality teams one place to ask about approved procedures.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow bounded actions such as lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Create support tickets, summarize incidents, route compliance questions, notify maintenance, collect lead details, or trigger approved scheduling workflows with logs and boundaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, reports, logs, topic management, satisfaction or resolution analysis, and conversation review.",
+      "industryApplication": "See whether customers keep asking about availability, handling, certifications, pricing, or setup—and whether employees lack clear SOPs for recurring farm questions.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Human escalation",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person.",
+      "industryApplication": "Route animal-health, worker-safety, medication, regulatory, pricing, export/import, legal, and contract questions to qualified people.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved knowledge sources.",
+      "industryApplication": "Support multilingual crews, international buyers, visitors, distributors, and equipment customers while preserving consistent source material.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private farm procedures, customer records, support history, and restricted compliance documents governed with access controls and approval boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own aquaculture content library, manuals, SOPs, and public site content.",
+      "Deploy customer-facing self-service and private internal knowledge experiences without inventing unapproved integrations.",
+      "Use analytics and conversation review to improve FAQs, training materials, and farm documentation over time.",
+      "Apply enterprise trust controls including SOC 2 Type II, GDPR-ready governance, encryption, permissions, and boundaries for AI Actions."
+    ],
+    "whyTheseReviewsFit": "The selected reviews emphasize training on owned content, multilingual manuals and websites, common-query answering, and scalable first-line support—patterns that map well to aquaculture operations with manuals, SOPs, product education, buyer questions, and distributed teams.",
+    "trustClaimIcons": [
+      "ArchiveBoxIcon",
+      "ComputerDesktopIcon",
+      "ChartBarIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for aquaculture operations",
+    "audience": [
+      "Aquaculture farm owners",
+      "Hatchery managers",
+      "Shellfish growers",
+      "Finfish producers",
+      "Seaweed farms",
+      "Seafood distributors",
+      "Aquaculture equipment suppliers",
+      "Quality and compliance teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "agriculture-forestry-wildlife",
+    "farming",
+    "fishing-hunting",
+    "greenhouse-operations",
+    "farm-equipment-sales",
+    "organic-farming"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-14T00:00:00Z",
+    "sourceIndustrySlug": "aquaculture",
+    "webSearchQueries": [
+      "NOAA aquaculture United States seafood consumption imports by value half source",
+      "FAO State of World Fisheries and Aquaculture 2024 aquaculture surpassed capture fisheries aquatic animals",
+      "NOAA Fisheries aquaculture environmental permitting regulations United States",
+      "USDA Census of Aquaculture 2023 United States farms sales"
+    ],
+    "sourceUrls": [
+      "https://data.nass.usda.gov/Newsroom/2024/12-16-2024.php",
+      "https://www.fisheries.noaa.gov/national/aquaculture/us-aquaculture",
+      "https://www.fisheries.noaa.gov/topic/aquaculture/regulation-and-policy",
+      "https://www.fisheries.noaa.gov/resource/document/guide-permitting-marine-aquaculture-united-states-2022",
+      "https://www.fao.org/publications/home/fao-flagship-publications/the-state-of-world-fisheries-and-aquaculture/en"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40821,
+        "cachedInputTokens": 0,
+        "billableInputTokens": 40821,
+        "outputTokens": 8959,
+        "reasoningOutputTokens": 133,
+        "totalTokens": 49780,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.472875,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.482875
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20570,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20570,
+          "outputTokens": 5722,
+          "reasoningOutputTokens": 113,
+          "totalTokens": 26292,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.27451,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.28451
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "reasoningEffort": "low",
+          "inputTokens": 20251,
+          "cachedInputTokens": 0,
+          "billableInputTokens": 20251,
+          "outputTokens": 3237,
+          "reasoningOutputTokens": 20,
+          "totalTokens": 23488,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.198365,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.198365
+        }
+      ]
+    }
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent for both wholesale buyer questions and internal farm SOPs, or should those be separate?",
+      "answer": "Most aquaculture teams should separate public buyer self-service from private internal operations knowledge. A customer-facing agent can answer from approved product pages, handling guides, certifications, availability language, and FAQs, while an internal agent can use SOPs, maintenance manuals, biosecurity procedures, permit references, and shift notes with tighter access controls. That separation helps prevent restricted procedures, customer records, or compliance documents from appearing in public conversations.",
+      "role": "Farm owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot help during harvest, packing, or shipping windows when our team is already overloaded?",
+      "answer": "DocsBot can answer repetitive questions about species, sizes, delivery windows, handling instructions, pickup policies, and documentation requirements from your approved content. It can also collect structured details such as volume, region, timeline, product interest, and preferred follow-up channel, then route a summary to sales, customer service, or operations through customer-configured workflows. Humans still approve allocations, pricing, delivery commitments, and exceptions.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent check live availability, inventory, or order status?",
+      "answer": "Yes, if your team configures the right Skill, API, connector, metadata binding, or approved workflow. DocsBot can use live context for scoped lookups such as product availability, order status, warranty status, or customer-specific records, but it should be limited to the fields and actions you authorize. For high-impact decisions like allocation, substitutions, export claims, or recurring supply commitments, the agent should prepare the context and escalate to a person.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will it make up answers about animal health, medication, water quality, or regulatory requirements?",
+      "answer": "DocsBot is designed to answer from the knowledge sources you provide rather than generic AI memory, and sensitive topics can be routed to qualified reviewers. For aquaculture, we recommend explicit escalation rules for animal-health judgments, medication use, discharge questions, protected species, worker safety, food safety, permit interpretation, and unusual mortality events. The agent can find relevant SOPs, summarize the situation, and prepare a handoff, but managers and qualified professionals should make the final decision.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does this fit with our permit library and compliance documentation?",
+      "answer": "DocsBot can be trained on approved permit references, reporting calendars, inspection checklists, regulator correspondence, policy notes, and internal document owners so staff can find the right source faster. This is especially useful because U.S. aquaculture operations must navigate federal, state, and local requirements tied to environmental protection, water quality, and healthy oceans. The agent should not submit filings or provide legal advice on its own; it should route interpretations and external communications for human review.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-noaa-regulation"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us prepare for audits or customer purchasing reviews?",
+      "answer": "Yes. A DocsBot agent can point employees or approved customers to the right certifications, policy summaries, food safety notes, traceability information, document request procedures, and restricted-document handoff paths. For restricted files, role-based permissions and access controls should determine what the agent can retrieve, and document releases should go through your compliance, quality, or account team.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What would implementation look like for a hatchery, shellfish farm, or finfish operation with documents scattered across PDFs, binders, Drive folders, and emails?",
+      "answer": "A practical rollout usually starts with one high-value knowledge area: customer FAQs, equipment manuals, SOPs, or compliance document finding. Your team uploads or connects approved sources such as PDFs, Word documents, wikis, Google Drive content, Notion, Confluence, website pages, manuals, and policy files. Then you test answers with real farm questions, add escalation instructions, review logs, and expand once the first use case is reliable.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much cleanup do our SOPs need before launching an internal knowledge agent?",
+      "answer": "You do not need a perfect documentation system, but the agent can only be as reliable as the approved sources it is allowed to use. Start by identifying current SOPs, removing obsolete versions, labeling site-specific procedures, and making clear which documents are authoritative. DocsBot analytics and conversation review can then show unanswered or repeated questions, helping you prioritize which SOPs, training materials, and troubleshooting guides need improvement.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can seasonal crews or multilingual employees use it without learning another complicated system?",
+      "answer": "DocsBot can support private team chat or approved internal experiences where employees ask plain-language questions and receive source-grounded answers. It can answer in more than 100 languages from the knowledge sources you provide, which can help multilingual crews access consistent guidance on training, safety, maintenance, grading, packing, or escalation procedures. For critical procedures, the source material and supervisor review process should still define what is approved.",
+      "role": "Farm owners and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What kinds of questions should we not let the agent answer directly?",
+      "answer": "Avoid letting the agent independently decide medication use, animal-health interventions, worker-safety exceptions, discharge or permit interpretation, legal positions, pricing exceptions, contract terms, export/import claims, or emergency production actions. DocsBot can still be useful in those moments by locating the relevant policy, asking for missing details, summarizing the issue, and routing the request to a qualified person with logs and context.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure ROI if our farm team does not have a formal support department?",
+      "answer": "Measure the work the agent reduces or improves: fewer repetitive buyer emails, faster first response times, fewer interruptions to managers, faster onboarding answers, fewer lost manuals, better-qualified wholesale leads, and less time searching for SOPs or permit references. DocsBot analytics, reports, logs, topic management, satisfaction or resolution analysis, and conversation review can show which questions are being answered, which are escalating, and where documentation gaps remain.",
+      "role": "Farm owners and operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is this more useful for a large aquaculture company than a smaller farm?",
+      "answer": "It can help both, but the first use case may differ. A smaller farm may start with website self-service for buyers, visitors, restaurants, or distributors so staff are not answering the same handling and availability questions all day. A larger or multi-site operation may start with internal SOP search, compliance routing, shift handoffs, or equipment support. The U.S. aquaculture operating base is broad: USDA NASS reported 3,453 farms with sales in 2023 and $1.9 billion in total aquaculture product sales, up 18% and 26% from 2018.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-usda-census"
+      ]
+    },
+    {
+      "question": "Can the agent support seafood distributors, restaurants, or retailers that need farm-practice and traceability information?",
+      "answer": "Yes. A customer-facing agent can answer from your approved public farm pages, traceability FAQs, sustainability statements, species guides, certifications, handling instructions, and buyer education materials. It can also collect purchasing requirements and route sensitive claims, media questions, or certification requests to a person. This is relevant for domestic producers because NOAA states that the United States imports 70–85% of the seafood it eats, with more than half of imported seafood produced by foreign aquaculture.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-noaa-imports"
+      ]
+    },
+    {
+      "question": "Can it help our equipment or feed support team troubleshoot pumps, aerators, sensors, nets, tanks, or dosing systems?",
+      "answer": "Yes. DocsBot can train on manuals, spec sheets, installation guides, warranty policies, troubleshooting articles, service notes, support tickets, and video transcripts. It can ask for model numbers, alarm codes, symptoms, site context, and photos described by the user, then provide source-grounded first-line guidance or draft a support ticket. Urgent failures, warranty exceptions, repair recommendations, and anything affecting worker safety or animal welfare should escalate to a technician.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot replace our farm managers, technicians, sales reps, or compliance lead?",
+      "answer": "No. DocsBot is best used as a knowledge and workflow assistant, not as the final decision-maker. It can retrieve approved information, summarize context, collect missing details, draft handoffs, create tasks, and route requests. Your people remain responsible for production decisions, pricing, contracts, emergency response, animal welfare, worker safety, food safety, regulatory interpretation, and external commitments.",
+      "role": "Farm owners and operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot keep private farm procedures and customer information protected?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For aquaculture teams, that means private SOPs, customer records, support history, permit documents, and restricted compliance files can be governed with access rules and approval boundaries. Skills can also be configured with secrets, metadata bindings, logging, network policy, and scoped permissions.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent told a customer or employee after the conversation?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, and satisfaction or resolution analysis. That matters in aquaculture because recurring questions often reveal documentation gaps: unclear handling instructions, missing product specs, outdated SOPs, confusing warranty language, or permit procedures that only one person understands. Review workflows also help teams tune escalation rules and update approved sources over time.",
+      "role": "Farm owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What if our staff ask the same question different ways across sites or shifts?",
+      "answer": "That is a strong use case for a source-grounded internal knowledge agent. DocsBot can answer plain-language questions using the same approved SOPs, manuals, policies, and training materials, even when employees phrase the request differently. For multi-site teams, it is important to label site-specific procedures clearly so the agent can distinguish a hatchery protocol, grow-out site checklist, packing-room instruction, or regional compliance step.",
+      "role": "Farm owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot create tickets, notify a supervisor, or update another system?",
+      "answer": "Yes, when configured through approved Skills, APIs, connectors, MCP Connectors, or customer-defined workflows. Appropriate actions include creating a support or maintenance ticket, sending a notification to Slack or Microsoft Teams, forwarding a lead summary to a CRM-style workflow, updating approved fields, routing a compliance question, or triggering a scheduling request. Sensitive actions should use scoped permissions, logs, and human approval boundaries.",
+      "role": "Farm owners and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or a custom AI project?",
+      "answer": "For aquaculture, the key comparison is not whether the tool can chat—it is whether it can answer from approved farm knowledge, support private and public use cases, enforce escalation boundaries, provide analytics, and take scoped actions through configured workflows. A custom build may offer flexibility but can require more engineering, governance, retrieval tuning, and maintenance. A generic chatbot may be faster to launch but may not provide the same source-grounded knowledge workflow, review process, and action boundaries needed for SOPs, support, or",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use it for marine aquaculture permitting questions without creating legal risk?",
+      "answer": "Yes, if you position the agent as a document finder and routing assistant rather than a legal advisor. It can help staff find selected NOAA or state references, internal permit files, checklists, reporting calendars, and the right internal owner. NOAA’s marine aquaculture permitting guide is designed to help applicants navigate the federal permitting process across finfish, shellfish, invertebrates, and seaweed, but your authorized personnel should review interpretations, filings, and regulator communications.",
+      "role": "Compliance, quality, and food safety leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-noaa-permitting"
+      ]
+    },
+    {
+      "question": "What happens when the agent cannot answer from our approved sources?",
+      "answer": "The safest behavior is to say it does not have enough approved information, ask clarifying questions if useful, and escalate to the right person or queue. DocsBot conversation review and analytics can show those misses so your team can add or improve source material. This is especially important for aquaculture because many questions depend on site, species, season, customer type, equipment model, permit condition, or current availability.",
+      "role": "Farm owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we control the tone and claims the agent uses with customers?",
+      "answer": "Yes. DocsBot agents answer from the sources and instructions you provide, so you can align the agent with approved product language, farm-practice explanations, sustainability statements, service policies, and escalation rules. For claims about certifications, environmental performance, animal welfare, origin, traceability, pricing, availability, or delivery commitments, the agent should use approved source material and route exceptions to a person.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How does this help our sales team qualify wholesale inquiries instead of just answering questions?",
+      "answer": "DocsBot can collect structured lead details such as species interest, volume, frequency, destination, timeline, documentation needs, company, role, and preferred follow-up channel. It can apply your qualification rules, summarize the conversation, and forward qualified inquiries through customer-configured CRM, email, helpdesk, form, Slack, Microsoft Teams, or scheduling workflows. Sales still owns final outreach, pricing, availability commitments, and contract terms.",
+      "role": "Sales, customer service, and distributor teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What should we budget beyond the software subscription?",
+      "answer": "Plan for internal time to gather source materials, decide which documents are authoritative, define escalation rules, test real buyer and employee questions, configure any Skills or workflow connections, and review early conversations. If you want live lookups or system updates, budget for API or connector work from whoever manages those systems. The strongest launches usually assign an owner from operations, sales/support, or compliance to keep content current after go-live.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ],
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1654346713536-1c360c991704?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQyNTR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Aquaculture background image",
+    "source": "legacy-industry",
+    "query": "Aquaculture"
+  }
+}

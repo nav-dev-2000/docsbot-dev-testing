@@ -1,0 +1,706 @@
+{
+  "slug": "metal-fabrication",
+  "business": "Metal Fabrication",
+  "industryCategory": "Manufacturing & Industrial",
+  "pageMeta": {
+    "title": "AI Agents for Metal Fabrication Operations",
+    "description": "DocsBot helps metal fabrication teams answer quote, spec, SOP, and support questions faster with source-grounded AI agents trained on shop knowledge.",
+    "canonicalPath": "/industry/metal-fabrication"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for fabrication shops and sales teams",
+    "headline": "Help metal fabrication teams quote, support, and operate faster",
+    "subheadline": "DocsBot turns your drawings guidance, material notes, capabilities pages, SOPs, FAQs, manuals, and ticket history into AI agents that answer customers, support sales, and help employees find the right process without digging through folders.",
+    "proofBullets": [
+      {
+        "text": "Answer RFQ, tolerance, material, finish, capacity, shipping, and documentation questions from approved shop content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect project details, qualify fit, and route quote requests to sales or estimating workflows when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give welders, estimators, project managers, and support teams private answers from SOPs, policies, and production knowledge.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize requests, create tasks or tickets, trigger handoffs, and look up live context through approved APIs or connectors.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your fabrication AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps metal fabrication companies create AI agents trained on their own knowledge sources: service pages, equipment lists, material guides, weld procedures, QA checklists, customer FAQs, internal SOPs, manuals, PDFs, and helpdesk history. Agents can answer source-grounded questions, summarize context, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflow automations.",
+    "whoItHelps": [
+      {
+        "role": "Owners and operations leaders",
+        "roleContext": "Keep customers, front office staff, and shop teams aligned around the same current answers while protecting sensitive workflows behind permissions and human review where needed.",
+        "bullets": [
+          {
+            "text": "Reduce repeat questions about capabilities, lead times, materials, certifications, order status, and handoff steps.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Make SOPs, safety reminders, quality checklists, and job documentation easier to find across shifts and roles.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which questions expose missing documentation or unclear policies.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Sales, estimating, and customer service teams",
+        "roleContext": "Respond to prospects and customers with consistent answers from approved knowledge while collecting the details humans need to quote accurately.",
+        "bullets": [
+          {
+            "text": "Guide buyers through manufacturability, finishing, file requirements, minimums, and next steps before a human reviews the quote.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Summarize RFQ conversations and forward structured context to CRM, email, helpdesk, or ticketing workflows configured by the shop.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support multilingual buyers with answers in more than 100 languages when your source content is ready for it.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Production, QA, and training teams",
+        "roleContext": "Give employees a private knowledge agent for procedures, work instructions, onboarding, inspection notes, and troubleshooting guidance.",
+        "bullets": [
+          {
+            "text": "BLS reports 457,300 U.S. welders, cutters, solderers, and brazers, underscoring the scale of skilled production knowledge that shops must train and retain.",
+            "icon": "AcademicCapIcon",
+            "sourceIds": [
+              "src-bls-welders"
+            ]
+          },
+          {
+            "text": "Help new hires and cross-trained employees locate approved process guidance without interrupting supervisors for routine questions.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Escalate safety-critical, quality-critical, pricing, or contract questions to the right person instead of letting the agent decide alone.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "CogIcon",
+        "sourceIds": [
+          "src-bls-welders"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-naics-332-establishments",
+      "metric": "53,790 U.S. employer establishments",
+      "claim": "The Census Bureau profile for NAICS 332 reports 53,790 employer establishments in fabricated metal product manufacturing.",
+      "sourceTitle": "Census Bureau Profile: 332 - Fabricated metal product manufacturing",
+      "sourceUrl": "https://data.census.gov/profile/332_-_Fabricated_metal_product_manufacturing?codeset=naics~332",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "industry scale",
+        "fragmented market",
+        "multi-location operations"
+      ]
+    },
+    {
+      "id": "src-bls-naics-332",
+      "metric": "Fabricated metal product manufacturing industry data",
+      "claim": "BLS publishes current employment, wages, productivity, and establishment data for NAICS 332 fabricated metal product manufacturing.",
+      "sourceTitle": "Fabricated Metal Product Manufacturing: NAICS 332",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag332.htm",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "labor scale",
+        "manufacturing employment",
+        "industry operations"
+      ]
+    },
+    {
+      "id": "src-bls-welders",
+      "metric": "457,300 welders, cutters, solderers, and brazers",
+      "claim": "BLS reports 457,300 U.S. welders, cutters, solderers, and brazers, with work involving hand-held or remotely controlled equipment to join, repair, or cut metal parts and products.",
+      "sourceTitle": "Welders, Cutters, Solderers, and Brazers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/production/welders-cutters-solderers-and-brazers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "skilled labor",
+        "training burden",
+        "production knowledge"
+      ]
+    },
+    {
+      "id": "src-osha-welding-fumes",
+      "metric": "Welding fumes can create serious health hazards",
+      "claim": "OSHA notes welding fume hazards can include heavy metal poisoning, lung cancer, metal fume fever, and other health risks.",
+      "sourceTitle": "OSHA eTool: Welding Fumes",
+      "sourceUrl": "https://www.osha.gov/etools/hospitals/facilities-management/welding-fumes",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "safety risk",
+        "SOP access",
+        "training reminders"
+      ]
+    },
+    {
+      "id": "src-census-asm-2022",
+      "metric": "Annual Survey of Manufactures benchmark data",
+      "claim": "The Census Bureau’s 2022 Annual Survey of Manufactures benchmark tables provide U.S. manufacturing measures including employment, payroll, hours, materials, shipments, value added, inventories, and related data.",
+      "sourceTitle": "2022 Annual Survey of Manufactures Benchmark: Tables",
+      "sourceUrl": "https://www.census.gov/data/tables/time-series/econ/asm/2022asm.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "manufacturing economics",
+        "operational complexity",
+        "materials and shipment context"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "RFQ intake and quote-readiness agent",
+      "problem": "Fabrication buyers often submit incomplete requests: missing drawings, material grade, tolerances, finish, quantity, target date, inspection needs, or shipping location.",
+      "agentWorkflow": "A DocsBot presales agent answers capability questions from approved service pages and intake rules, then collects required RFQ fields through a structured flow. It can summarize the job, flag missing details, and hand the package to estimating through a customer-configured form, CRM, helpdesk, ticket, or email workflow.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can create a quote intake task, attach the conversation summary, route by material or process, and request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you fabricate 304 stainless brackets from my DXF file?",
+        "What details do you need before quoting laser cutting and powder coating?",
+        "Please send this RFQ to estimating and include my delivery deadline."
+      ],
+      "businessOutcome": "Estimators receive cleaner requests with less back-and-forth, while prospects get immediate guidance before a human reviews feasibility and pricing.",
+      "icon": "CalculatorIcon"
+    },
+    {
+      "name": "Customer support and order-status agent",
+      "problem": "Front office teams repeatedly answer the same questions about lead times, order status, documentation, packaging, delivery, revisions, and post-delivery support.",
+      "agentWorkflow": "DocsBot can answer from customer FAQs, service policies, shipping notes, documentation rules, and helpdesk history. When connected through customer-approved workflows, it can summarize a request, draft a response, route the issue, or escalate complex changes to a human.",
+      "liveContextOrTools": "A configured Skill can look up approved order metadata, create a ticket, notify the right team, or update a permitted field without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Where is my fabricated enclosure order?",
+        "Can I revise a drawing after the job is released?",
+        "Who should I contact for a missing certificate or packing list?"
+      ],
+      "businessOutcome": "Customers get faster answers, and support staff spend more time on exceptions, changes, and relationship-sensitive issues.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Internal SOP and work-instruction assistant",
+      "problem": "Fabrication knowledge is often scattered across binders, PDFs, shared drives, tribal knowledge, and supervisor experience, making onboarding and shift coverage harder.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent answers employee questions from approved SOPs, weld procedure references, QA checklists, maintenance notes, HR policies, and training materials. It gives source-grounded answers and points employees back to the underlying document.",
+      "liveContextOrTools": "The agent can be deployed in private chat experiences, Slack, Microsoft Teams, or team portals, depending on the shop’s configuration and permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is the setup checklist before running this press brake job?",
+        "Where is the inspection procedure for first article approval?",
+        "What is our process for nonconforming parts?"
+      ],
+      "businessOutcome": "Employees find routine guidance faster, supervisors get fewer interruptions, and documentation gaps become visible through analytics.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Safety and compliance knowledge assistant",
+      "problem": "Welding, cutting, grinding, confined spaces, fumes, PPE, and hot work require disciplined access to current safety instructions and escalation paths.",
+      "agentWorkflow": "DocsBot can make safety manuals, PPE rules, hot-work procedures, SDS references, training content, and incident-response guidance searchable for employees. It can answer routine questions from approved sources and escalate safety-critical or ambiguous situations to designated personnel.",
+      "liveContextOrTools": "The agent can trigger a safety review task, route a concern, or summarize a reported issue through customer-configured workflows, with permissions and logs for sensitive processes.",
+      "exampleQuestionsOrRequests": [
+        "Where is the hot-work permit procedure?",
+        "What PPE does our SOP require for stainless welding?",
+        "Who reviews a fume ventilation concern before work starts?"
+      ],
+      "businessOutcome": "Teams can access safety guidance quickly while keeping final safety judgments, incident handling, and compliance decisions with qualified humans.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-welding-fumes"
+      ]
+    },
+    {
+      "name": "Sales enablement and account-research agent",
+      "problem": "Sales reps need fast access to capabilities, industries served, finishing options, proposal language, competitive notes, and prospect context before calls.",
+      "agentWorkflow": "DocsBot can serve as an internal sales enablement agent trained on service catalogs, proposal templates, case studies, pricing guidance, FAQs, and objection-handling notes. When configured with web search and approved Skills, it can summarize public prospect context for human sellers.",
+      "liveContextOrTools": "With approved connectors or APIs, the agent can draft follow-up emails, prepare call notes, create CRM tasks, or retrieve permitted account context for review.",
+      "exampleQuestionsOrRequests": [
+        "Summarize our best talking points for a food equipment manufacturer.",
+        "Draft a follow-up email about our sheet metal and welding capabilities.",
+        "What objections should I expect from a buyer comparing local fab shops?"
+      ],
+      "businessOutcome": "Sales teams respond with more consistent information and spend less time hunting through old proposals and scattered folders.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Documentation gap and quality feedback agent",
+      "problem": "Repeated customer and employee questions reveal unclear documentation, but those patterns are easy to miss across emails, tickets, and conversations.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can review unanswered questions and update public FAQs, internal SOPs, or training content.",
+      "liveContextOrTools": "Configured workflows can send recurring topic summaries to operations, quality, sales, or documentation owners for follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Which finishing questions are customers asking most often?",
+        "What internal SOP topics are producing unresolved answers?",
+        "Summarize the last month of support questions about inspection documents."
+      ],
+      "businessOutcome": "The shop continuously improves the knowledge base that powers customer support, employee onboarding, and quoting workflows.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give fabrication buyers immediate answers before sales or estimating steps in",
+    "intro": "A DocsBot customer-facing AI agent can live on your website or product experience and answer from your approved capabilities, materials, finishes, file-prep instructions, shipping policies, FAQs, and quote-intake rules. Human teams stay responsible for pricing, feasibility, legal terms, and production commitments.",
+    "requests": [
+      {
+        "request": "“Can you make this part from stainless steel and powder coat it?”",
+        "agentResponseStrategy": "Answer from capability pages and material guidance, ask for drawing files, grade, quantity, tolerances, finish requirements, and target date, then prepare a quote-intake summary.",
+        "sourceTypes": [
+          "Capabilities pages",
+          "Material guides",
+          "Finish options",
+          "RFQ intake rules"
+        ],
+        "optionalAction": "Create a structured RFQ handoff or notify estimating through a customer-configured workflow.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“What files do I need to upload for laser cutting?”",
+        "agentResponseStrategy": "Provide source-grounded file-prep guidance, explain accepted formats from approved content, and point the buyer to any upload or quote-request process the shop provides.",
+        "sourceTypes": [
+          "Website FAQs",
+          "File-prep instructions",
+          "Service pages"
+        ],
+        "optionalAction": "Collect missing details and route the prospect to a custom form or sales handoff.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Can you ship fabricated assemblies to another state?”",
+        "agentResponseStrategy": "Answer from shipping, packaging, delivery, and service-area policies, then collect destination, quantity, schedule, and packaging requirements for human review.",
+        "sourceTypes": [
+          "Shipping policies",
+          "Packaging notes",
+          "Customer FAQs"
+        ],
+        "optionalAction": "Create a support ticket or send the summarized request to customer service.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“I need help with an order change.”",
+        "agentResponseStrategy": "Clarify the requested change, explain the documented revision process, and escalate anything affecting price, timeline, materials, or released production work.",
+        "sourceTypes": [
+          "Change-order policies",
+          "Order support FAQs",
+          "Helpdesk history"
+        ],
+        "optionalAction": "Draft a ticket summary with order number, requested change, urgency, and customer contact details.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "request": "“Do you work with drawings in another language?”",
+        "agentResponseStrategy": "Answer using approved policy content and, where appropriate, support the conversation in the buyer’s preferred language while keeping technical review with the shop team.",
+        "sourceTypes": [
+          "Service policies",
+          "Technical documentation",
+          "Multilingual manuals"
+        ],
+        "optionalAction": "Forward the translated request summary for human review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I book a call about a custom fabrication project?”",
+        "agentResponseStrategy": "Collect scheduling intent and project basics, then use a customer-configured booking workflow if the shop has authorized one.",
+        "sourceTypes": [
+          "Booking rules",
+          "Lead qualification instructions",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Request or book a meeting through configured scheduling tools such as Calendly, Cal.com, TidyCal, or similar systems.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put shop-floor and front-office knowledge where employees already work",
+    "intro": "DocsBot can operate as a private internal knowledge agent for fabrication teams, trained on controlled sources and governed with role-based permissions. Employees get faster answers; managers get insight into repeated questions and missing documentation.",
+    "workflows": [
+      {
+        "name": "Estimator knowledge lookup",
+        "problem": "Estimators need quick answers about process limits, material options, finishing constraints, packaging rules, and past proposal language.",
+        "agentWorkflow": "The agent searches approved sales, estimating, and technical sources, returns source-grounded answers, and can summarize assumptions for human review before a quote is issued.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Estimating playbooks",
+          "Proposal templates",
+          "Material notes"
+        ],
+        "optionalAction": "Draft quote notes, create a task, or route unusual requirements to engineering through configured workflows.",
+        "outcome": "Estimators spend less time searching and more time evaluating manufacturability, capacity, and pricing.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "name": "Production SOP retrieval",
+        "problem": "Workers and supervisors need fast access to setup, maintenance, quality, and escalation procedures without browsing shared drives during busy shifts.",
+        "agentWorkflow": "DocsBot answers from SOPs, work instructions, checklists, PDFs, and internal policies, then cites the source so employees can verify the procedure.",
+        "sourceTypes": [
+          "SOPs",
+          "Work instructions",
+          "QA checklists",
+          "Maintenance notes"
+        ],
+        "optionalAction": "Trigger a review task when employees ask questions the current documentation cannot answer.",
+        "outcome": "Routine guidance becomes easier to find, and documentation owners see where procedures need clarification.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "name": "Safety guidance triage",
+        "problem": "Metal fabrication work can involve hazardous fumes, hot work, sharp materials, electrical risks, and confined spaces; OSHA notes welding fumes can cause serious health hazards including heavy metal poisoning, lung cancer, and metal fume fever.",
+        "agentWorkflow": "The agent answers routine safety-policy questions from approved manuals and procedures, then escalates urgent, ambiguous, or high-risk situations to safety leaders.",
+        "sourceTypes": [
+          "Safety manuals",
+          "PPE policies",
+          "SDS documents",
+          "Training materials"
+        ],
+        "optionalAction": "Create a safety concern ticket, notify a supervisor, or summarize an incident report through approved workflows.",
+        "outcome": "Employees can locate safety instructions quickly while qualified people retain responsibility for safety decisions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-welding-fumes"
+        ]
+      },
+      {
+        "name": "Onboarding and cross-training assistant",
+        "problem": "As fabrication teams bring in new welders, operators, customer service reps, and estimators, training knowledge can depend heavily on the availability of experienced staff.",
+        "agentWorkflow": "DocsBot gives new employees guided answers from onboarding guides, HR policies, tool instructions, quality standards, and role-specific training content.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Training PDFs",
+          "HR policies",
+          "Role playbooks"
+        ],
+        "optionalAction": "Summarize recurring new-hire questions for HR or operations leaders.",
+        "outcome": "New employees can get consistent answers while supervisors focus on hands-on coaching and safety-critical instruction.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded agents trained on your shop knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from websites, internal documents, help centers, PDFs, Word files, Google Drive, Notion, Confluence, and other configured sources.",
+      "industryApplication": "Train an agent on fabrication capabilities, materials, finishes, quote requirements, SOPs, quality procedures, manuals, and customer FAQs so answers reflect your actual shop rules.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs through customer-configured tools.",
+      "industryApplication": "Use approved workflows to create RFQ tasks, summarize order changes, route safety concerns, look up permitted order context, or connect to remote Model Context Protocol servers that expose authorized tools.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Customer-facing widget and support workflows",
+      "mainLandingPageContext": "DocsBot agents can work in website or product chat widgets and helpdesk-connected workflows, with human escalation for complex or sensitive issues.",
+      "industryApplication": "Answer buyer questions about processes, materials, tolerances, file formats, finishes, shipping, and support while escalating pricing, manufacturability, contract, and production commitments.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private knowledge assistant for employees across operations, HR, IT, sales, compliance, finance, legal, and other teams.",
+      "industryApplication": "Give estimators, project managers, customer service reps, QA staff, and production leaders a controlled way to retrieve SOPs, policies, work instructions, and troubleshooting guidance.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which quote questions, order issues, finish options, inspection requirements, or internal procedures need clearer documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governance for controlled manufacturing knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect proprietary drawings guidance, customer records, pricing notes, internal policies, and operational content while giving the right employees access to approved answers.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own manuals, websites, and knowledge base content.",
+      "Support customers around the clock with scalable first-line answers and human escalation.",
+      "Use source-grounded responses to keep sales, support, and operations aligned."
+    ],
+    "whyTheseReviewsFit": "Metal fabrication teams need practical AI that can learn from real manuals, websites, training materials, and support content—not generic answers. DocsBot proof spans scalable customer support, owned-content training, and first-line assistance for manufactured products with assembly and maintenance needs.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ClockIcon",
+      "CheckCircleIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for metal fabrication companies",
+    "audience": [
+      "Metal fabrication owners",
+      "Operations managers",
+      "Estimating teams",
+      "Customer service teams",
+      "Production and QA leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "WrenchIcon"
+  },
+  "relatedIndustrySlugs": [
+    "industrial-manufacturing",
+    "contract-manufacturing",
+    "industrial-parts-distribution",
+    "aerospace-parts-manufacturing",
+    "additive-manufacturing",
+    "b2b-product-distributors"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "metal-fabrication",
+    "webSearchQueries": [
+      "metal fabrication industry market size United States IBISWorld metal fabrication 2024",
+      "BLS occupational outlook sheet metal workers welding cutters solderers brazers employment manufacturing",
+      "OSHA metal fabrication welding hazards safety",
+      "NAICS 332 fabricated metal product manufacturing establishments employment annual survey manufactures census 2022",
+      "Census Annual Survey of Manufactures fabricated metal product manufacturing value shipments 2022 NAICS 332"
+    ],
+    "sourceUrls": [
+      "https://data.census.gov/profile/332_-_Fabricated_metal_product_manufacturing?codeset=naics~332",
+      "https://www.bls.gov/iag/tgs/iag332.htm",
+      "https://www.bls.gov/ooh/production/welders-cutters-solderers-and-brazers.htm",
+      "https://www.osha.gov/etools/hospitals/facilities-management/welding-fumes",
+      "https://www.census.gov/data/tables/time-series/econ/asm/2022asm.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44436,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 31892,
+        "outputTokens": 7740,
+        "reasoningOutputTokens": 183,
+        "totalTokens": 52176,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.198967,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.218967
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 24807,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 17511,
+          "outputTokens": 5248,
+          "reasoningOutputTokens": 183,
+          "totalTokens": 30055,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.124322,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.144322
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19629,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14381,
+          "outputTokens": 2492,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22121,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074645,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074645
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1598302936625-6075fbd98dd7?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxNZXRhbCUyMEZhYnJpY2F0aW9ufGVufDB8MHx8fDE3Nzg4MjMzMTF8MA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "person in black jacket holding brown wooden rolling pin",
+    "source": "unsplash-search",
+    "query": "Metal Fabrication"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot help us get cleaner RFQs before an estimator spends time on them?",
+      "answer": "Yes. A DocsBot presales agent can ask for the details your estimators need—drawings, material grade, tolerances, finish, quantity, target date, inspection needs, and shipping location—then summarize the request for human review. It should support quote readiness, not replace estimating judgment, pricing decisions, or manufacturability review.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent answer fabrication capability questions differently for laser cutting, welding, bending, finishing, or assembly?",
+      "answer": "It can, as long as those distinctions exist in your approved content. You can train DocsBot on service pages, equipment lists, process limits, material notes, finish guides, and FAQs so the agent answers from your actual shop capabilities instead of giving generic manufacturing advice.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the AI from promising price, delivery, tolerances, or feasibility before our team reviews the job?",
+      "answer": "Set clear instructions and escalation rules. DocsBot can answer from approved content, collect missing information, and route the request, while reserving pricing, production commitments, contract terms, safety calls, and unusual technical decisions for qualified humans.",
+      "role": "Owners and operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot work for both customer-facing quote questions and private internal SOP lookup?",
+      "answer": "Yes. Many fabrication teams would use one customer-facing agent for website, RFQ, shipping, revision, and documentation questions, and a separate private internal agent for SOPs, work instructions, QA checklists, training, HR policies, and production knowledge with role-based access controls.",
+      "role": "Owners and operations leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Our knowledge is scattered across PDFs, shared drives, website pages, old proposals, and tribal knowledge. What has to be cleaned up first?",
+      "answer": "Start with high-volume, low-risk content: capabilities, file requirements, finish options, RFQ intake rules, shipping policies, customer FAQs, SOPs, and QA checklists. DocsBot can surface unanswered questions and knowledge gaps, but the best rollout usually includes owners for source cleanup and approval.",
+      "role": "Owners and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can an internal agent help newer welders, operators, and customer service reps without bypassing supervisors?",
+      "answer": "Yes. DocsBot can make approved procedures, onboarding guides, work instructions, and policy documents easier to find, while escalating safety-critical, quality-critical, or unclear situations. That matters in a skilled labor environment: BLS reports 457,300 U.S. welders, cutters, solderers, and brazers.",
+      "role": "Production, QA, and training teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-welders"
+      ]
+    },
+    {
+      "question": "How would DocsBot help with safety information around welding fumes, PPE, hot work, or SDS documents?",
+      "answer": "DocsBot can answer routine safety-policy questions from approved manuals, PPE rules, SDS references, and hot-work procedures, then route urgent or ambiguous issues to safety leaders. OSHA notes welding fumes can create serious health hazards, so the agent should support access to instructions—not make final safety decisions.",
+      "role": "Production, QA, and training teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-welding-fumes"
+      ]
+    },
+    {
+      "question": "Can the agent look up live order status or job information from our systems?",
+      "answer": "Only when you configure approved access. With DocsBot Skills, APIs, connectors, MCP options, or workflow automations, an agent can perform scoped lookups, create tickets, summarize requests, update permitted fields, or notify a team. Credentials stay out of chat, and access should be limited to the data each use case requires.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "We use a mix of ERP, quoting spreadsheets, email, CRM, and ticketing tools. Does DocsBot require us to replace them?",
+      "answer": "No. DocsBot is typically layered over existing knowledge and workflows. It can hand off summaries, create tasks or tickets, route quote requests, or connect to approved systems through customer-configured Skills, APIs, connectors, forms, webhooks, or workflow automations where your team authorizes access.",
+      "role": "Owners and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "What would success look like in the first 60 to 90 days for a fabrication shop?",
+      "answer": "Good early metrics include fewer incomplete RFQs, faster responses to capability and file-prep questions, fewer repeated internal SOP questions, cleaner handoffs to estimating or support, and a visible list of documentation gaps. For internal rollout, track adoption, unresolved questions, escalations, and whether supervisors see fewer routine interruptions.",
+      "role": "Owners and operations leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help identify where our documentation is weak or outdated?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That helps teams see recurring questions about tolerances, finishing, inspection documents, order changes, or SOPs that need better source material.",
+      "role": "Owners and operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent employees from seeing customer records, pricing notes, or proprietary process information they should not access?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, along with encryption in transit and at rest. For sensitive actions, Skills can be scoped with customer-defined controls, logging, secrets management, metadata bindings, and network policy so access is limited by role and use case.",
+      "role": "Owners and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Is DocsBot secure enough for proprietary drawings guidance, customer files, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. DocsBot also does not use customer data to train public models, which is important when protecting shop knowledge, customer records, pricing notes, and operational content.",
+      "role": "Owners and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer customers in other languages without changing our engineering review process?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when your source content supports the answer. For technical drawings, translated RFQs, contractual details, or fit questions, the agent should collect and summarize context, then route the request to the appropriate human reviewer.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot handle aerospace, defense, medical, or other controlled-work requirements differently?",
+      "answer": "DocsBot can reflect whatever rules you document, but it should not independently approve regulated work, export-controlled requirements, certifications, or customer quality clauses. Use it to retrieve approved procedures, collect required details, flag exceptions, and route controlled or contract-sensitive questions to qualified staff.",
+      "role": "Production, QA, and training teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot cite the source document so employees know which SOP or policy the answer came from?",
+      "answer": "Yes. DocsBot is designed for source-grounded answers, so employees can verify the underlying document instead of relying on an unsupported AI response. That is especially useful for SOP lookup, QA procedures, maintenance guidance, onboarding, and customer service policies.",
+      "role": "Production, QA, and training teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How should we roll this out without overwhelming estimators or shop supervisors?",
+      "answer": "Start with a narrow, high-value use case: RFQ intake, customer FAQs, SOP retrieval, or safety-policy lookup. Assign content owners, define escalation rules, review early conversations, and expand only after the agent is answering from approved sources with the right handoff paths.",
+      "role": "Owners and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can sales reps use DocsBot to prepare for calls with OEMs, contractors, or procurement teams?",
+      "answer": "Yes. An internal sales enablement agent can be trained on capabilities, industries served, proposal templates, case studies, pricing guidance, FAQs, and objection-handling notes. When configured with web search and approved Skills, it can summarize public prospect context for a human seller to review.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with building our own AI search tool or using a generic chatbot?",
+      "answer": "DocsBot is built for source-grounded agents trained on your own content, with analytics, permissions, human escalation, and scoped actions. A generic chatbot may answer broadly but will not automatically understand your shop rules, approved documents, handoff paths, or governance requirements without significant configuration.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot support multiple locations or departments with different procedures?",
+      "answer": "Yes. Fabricated metal product manufacturing is a fragmented market, with the Census Bureau reporting 53,790 U.S. employer establishments for NAICS 332. DocsBot can support separate agents, sources, and permissions for different teams, locations, processes, or customer-facing versus internal workflows.",
+      "role": "Owners and operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-naics-332-establishments"
+      ]
+    },
+    {
+      "question": "What happens when the agent does not know the answer or the source content conflicts?",
+      "answer": "The safest setup is to have DocsBot say it does not have enough approved information, show the relevant source context when available, and escalate to a human. Conversation review and knowledge-gap reports then help your team fix missing, outdated, or conflicting documentation.",
+      "role": "Owners and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can customer service use DocsBot for order changes, missing documents, certificates, packing lists, or shipping questions?",
+      "answer": "Yes. DocsBot can answer from approved support policies, shipping notes, documentation rules, and helpdesk history. When configured with approved workflows, it can collect order details, summarize the issue, create a ticket, notify the right team, or escalate changes that affect price, schedule, or released production work.",
+      "role": "Sales, estimating, and customer service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much IT involvement is usually needed?",
+      "answer": "A basic knowledge agent can start with approved documents, website pages, PDFs, and internal content. IT becomes more involved when you want private deployment, role-based access, live system lookups, API actions, ticket creation, CRM handoffs, network controls, secrets management, or MCP-connected tools.",
+      "role": "Owners and operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can procurement evaluate DocsBot without committing to a full plant-wide deployment?",
+      "answer": "Yes. A pilot can focus on one measurable workflow, such as RFQ intake, customer FAQs, or internal SOP retrieval. Procurement can evaluate security, pricing, support model, adoption, content effort, escalation handling, and whether the pilot reduces repeated questions or improves handoff quality.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "What reporting can managers use to justify expanding the agent after a pilot?",
+      "answer": "Managers can review usage, conversation logs, repeated topics, unanswered questions, satisfaction or resolution signals, escalation patterns, and knowledge gaps. For a fabrication shop, the most persuasive reports usually connect agent activity to quote readiness, support workload, onboarding friction, and documentation improvements.",
+      "role": "Owners and operations leaders",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

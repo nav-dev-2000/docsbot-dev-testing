@@ -1,0 +1,691 @@
+{
+  "slug": "car-sharing-service",
+  "business": "Car Sharing Service",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Car Sharing Support and Fleet Workflows",
+    "description": "DocsBot helps car sharing services answer rider questions, surface policy details, and route booking or vehicle issues with source-grounded AI agents.",
+    "canonicalPath": "/industry/car-sharing-service"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for shared vehicle services",
+    "headline": "Keep car sharing riders moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps car sharing teams create AI agents trained on service policies, vehicle guides, pricing pages, FAQs, onboarding docs, and support history. Give members fast answers, collect the right trip details, summarize incidents, and route complex issues to the right human team.",
+    "proofBullets": [
+      {
+        "text": "Answer membership, booking, cancellation, fuel, charging, parking, toll, insurance, and late-return questions from approved service content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to look up booking status, collect missing trip details, create tickets, or trigger handoffs when connected to your systems.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give operations and support teams a private knowledge agent for SOPs, vehicle issue triage, escalation rules, and new-market onboarding.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Analyze conversations to find repeated questions, policy confusion, and documentation gaps that slow down members and agents.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a car sharing AI agent",
+    "secondaryCta": "Explore support automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your car sharing knowledge into AI agents that can support members and employees around the clock. Agents respond from your approved sources, cite the policies they used, work in website or product chat experiences, support helpdesk-connected workflows when configured, and escalate sensitive or unresolved issues to people.",
+    "whoItHelps": [
+      {
+        "role": "Member support and trust teams",
+        "roleContext": "Support leaders can reduce repetitive questions while keeping answers consistent across app, website, and helpdesk experiences.",
+        "bullets": [
+          {
+            "text": "Answer trip rules, membership requirements, cancellation windows, vehicle pickup steps, and return expectations from your own content.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect booking ID, vehicle location, photos, damage notes, and contact details before routing a case to a human agent.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to identify unclear policies, recurring vehicle-access issues, and missing help articles.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Fleet operations and market managers",
+        "roleContext": "Operations teams can make SOPs, vehicle handling guidance, and market-specific procedures easier to find during time-sensitive issues.",
+        "bullets": [
+          {
+            "text": "Search internal procedures for cleaning, refueling, EV charging, parking-zone exceptions, vehicle swaps, and local operating rules.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize incident reports or repeated support tickets so operations teams can spot location, vehicle, or process patterns faster.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Trigger approved tasks, ticket updates, or team notifications through Skills, APIs, connectors, or MCP-enabled tools when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Growth, partnerships, and sales teams",
+        "roleContext": "Car sharing services selling to employers, apartments, campuses, hotels, or municipalities need fast answers about service fit and rollout requirements.",
+        "bullets": [
+          {
+            "text": "Answer prospect questions about coverage, eligibility, insurance, fleet options, launch timelines, and member onboarding from approved sales materials.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect lead details such as property size, location, fleet needs, target launch date, and preferred follow-up channel through structured intake.",
+            "icon": "AtSymbolIcon"
+          },
+          {
+            "text": "Draft handoff summaries for sales, partnerships, or customer success while leaving pricing, contracts, and commitments to your team.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-shared-mobility-scope",
+      "metric": "Shared mobility includes carsharing",
+      "claim": "The Transportation Data Exchange describes shared mobility as including carsharing along with bikesharing, scooters, microtransit, TNCs, and traditional ride-hailing.",
+      "sourceTitle": "Shared Mobility Data | NCHRP 08-119",
+      "sourceUrl": "https://data.transportationops.org/shared-mobility-data",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "shared mobility category context",
+        "multi-modal operations complexity",
+        "market definition"
+      ]
+    },
+    {
+      "id": "src-nacto-trip-volume",
+      "metric": "130 million shared micromobility trips in 2022",
+      "claim": "NACTO reported 130 million shared bike and e-scooter trips across the U.S. and Canada in 2022, showing the scale of app-based shared mobility support expectations.",
+      "sourceTitle": "Shared Micromobility Report: 2022",
+      "sourceUrl": "https://nacto.org/publication/shared-micromobility-report-2022/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "shared mobility volume",
+        "customer support scale",
+        "self-service demand"
+      ]
+    },
+    {
+      "id": "src-ftc-rental-car-advice",
+      "metric": "Rental customers face cancellation, insurance, driving-record, privacy, fuel, late-return, and other fee questions",
+      "claim": "The FTC advises rental car customers to check cancellation policies, insurance options, driving-record checks, connected-car privacy, and possible fees such as fuel, late returns, and airport surcharges.",
+      "sourceTitle": "Renting a Car | Consumer Advice",
+      "sourceUrl": "https://consumer.ftc.gov/node/78349",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "pricing and policy clarity",
+        "consumer protection expectations",
+        "privacy and fee questions"
+      ]
+    },
+    {
+      "id": "src-carsharing-decision-factors",
+      "metric": "Price, proximity, and availability influence reservations",
+      "claim": "Research on U.S. carsharing user decision-making found that prior operator surveys identified price, proximity, and availability as the top three factors influencing vehicle reservation decisions.",
+      "sourceTitle": "User decision-making and technology choices in the U.S. carsharing market",
+      "sourceUrl": "https://www.sciencedirect.com/science/article/abs/pii/S0967070X16000044",
+      "sourceDate": "2016",
+      "bestUsedFor": [
+        "reservation decision factors",
+        "availability questions",
+        "pricing and location support"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Trip policy and pricing explanation agent",
+      "problem": "Members often need fast clarification before booking, especially around insurance, cancellation, late returns, fuel, charging, tolls, parking, and fees. The FTC highlights many of these as common rental-car decision areas, including cancellation policies, insurance, connected-car privacy, fuel, and late-return charges.",
+      "agentWorkflow": "DocsBot answers from your member policies, pricing pages, FAQs, and terms. If the request is account-specific, the agent can collect booking details and route the case, or use approved AI Actions to look up status when connected to your systems.",
+      "liveContextOrTools": "Customer-configured Skills or APIs can support booking-status lookups, ticket creation, handoff summaries, and approved field updates without letting the agent invent policy exceptions.",
+      "exampleQuestionsOrRequests": [
+        "What happens if I return the car 40 minutes late?",
+        "Does my membership include insurance for this trip?",
+        "Can I cancel tonight’s booking without a penalty?"
+      ],
+      "businessOutcome": "Fewer repetitive policy tickets and more consistent member expectations before, during, and after a booking.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-ftc-rental-car-advice"
+      ]
+    },
+    {
+      "name": "Vehicle pickup, access, and return support",
+      "problem": "Car sharing depends on members finding, unlocking, using, and returning vehicles correctly. Small points of confusion can become urgent support contacts while a member is standing at the vehicle.",
+      "agentWorkflow": "DocsBot can guide members through approved pickup instructions, app troubleshooting steps, key or lockbox guidance, parking-zone rules, photo requirements, fuel or EV charging expectations, and return checklists. It escalates when access, safety, payment, or identity verification needs a human.",
+      "liveContextOrTools": "With configured live context, the agent can collect vehicle ID, reservation ID, location notes, and screenshots, then create or route a ticket to roadside, fleet, or member support.",
+      "exampleQuestionsOrRequests": [
+        "The app says the car is nearby, but I can’t find it.",
+        "Where do I leave the key when I return this vehicle?",
+        "The charger is blocked. What should I do?"
+      ],
+      "businessOutcome": "Members get step-by-step guidance at the moment of need, and support teams receive cleaner context when escalation is required.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Availability and reservation fit assistant",
+      "problem": "Carsharing research has identified price, proximity, and availability as top factors in vehicle reservation decisions, so members and prospects need clear guidance on service areas, vehicle types, timing, and booking rules.",
+      "agentWorkflow": "DocsBot answers from your service-area pages, vehicle class guides, eligibility rules, and reservation FAQs. For prospects, it can compare membership options, explain coverage limits, and collect intent for sales or onboarding follow-up.",
+      "liveContextOrTools": "Approved Skills can perform live availability or service-area lookups where your booking platform exposes that data, then summarize the next best action or route the member to the right workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you have vans near downtown this weekend?",
+        "Which membership is best if I only drive twice a month?",
+        "Can my apartment community add a shared car location?"
+      ],
+      "businessOutcome": "Better self-service during booking research and stronger lead capture for new locations, employer programs, and property partnerships.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-carsharing-decision-factors"
+      ]
+    },
+    {
+      "name": "Incident, damage, and escalation intake",
+      "problem": "Damage reports, accidents, parking tickets, citations, lost items, and vehicle cleanliness issues require accurate intake and careful handoff rather than generic answers.",
+      "agentWorkflow": "DocsBot can ask for required details, explain the documented next steps, summarize the report, and route it to the appropriate internal queue. Sensitive or high-impact decisions remain with trained staff through customer-defined boundaries.",
+      "liveContextOrTools": "Configured workflows can create tickets, attach summaries, notify operations, or update approved case fields while keeping permissions scoped and logged.",
+      "exampleQuestionsOrRequests": [
+        "I noticed a dent before starting my trip. How do I report it?",
+        "I received a parking ticket during my reservation.",
+        "I left my laptop in the vehicle after returning it."
+      ],
+      "businessOutcome": "More complete first-contact information, cleaner escalation, and fewer back-and-forth messages for cases that need human review.",
+      "icon": "ExclamationCircleIcon"
+    },
+    {
+      "name": "Internal fleet SOP and onboarding agent",
+      "problem": "Car sharing teams operate across markets with local parking rules, vehicle procedures, support scripts, cleaning standards, and partner commitments that are easy to scatter across documents.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, manuals, onboarding docs, market notes, vendor instructions, and policy updates. Employees can ask natural-language questions and receive source-grounded answers instead of searching folders or old messages.",
+      "liveContextOrTools": "Team access can be delivered through private chat experiences, Slack, Microsoft Teams, or other configured workflows, with granular access controls for private sources.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a vehicle that cannot be unlocked?",
+        "What are the cleaning standards before a car returns to active status?",
+        "Which markets require overnight parking-zone checks?"
+      ],
+      "businessOutcome": "Faster onboarding, more consistent operations, and fewer interruptions to experienced managers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Support analytics and knowledge-gap discovery",
+      "problem": "As shared mobility services grow, recurring member questions can signal unclear policies, app friction, fleet issues, or missing documentation. NACTO’s 2022 shared micromobility report counted 130 million shared bike and e-scooter trips in the U.S. and Canada, illustrating the scale of shared-mobility self-service expectations.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, conversation review, and knowledge-gap discovery so teams can see what members ask, where answers fail, and which topics should become better help articles or workflows.",
+      "liveContextOrTools": "Reports can inform help-center updates, agent instructions, support macros, and operational follow-up without requiring the AI to make unsupported decisions.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are increasing after the pricing update?",
+        "What did members ask most often about EV charging this month?",
+        "Where is the agent escalating because our docs are incomplete?"
+      ],
+      "businessOutcome": "A clearer feedback loop between member support, product operations, and documentation quality.",
+      "icon": "ChartPieIcon",
+      "sourceIds": [
+        "src-nacto-trip-volume"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give members a source-grounded assistant before they open a ticket",
+    "intro": "A DocsBot customer-facing agent can sit in your website, help center, or product chat experience to answer trip questions, collect details, and route issues. It stays grounded in your approved content and escalates when a person should decide.",
+    "requests": [
+      {
+        "request": "“Can I take the car out of state, and will there be extra fees?”",
+        "agentResponseStrategy": "Answer from your trip policy and fee pages, cite the source used, clarify that account-specific or exception-based decisions require support review, and offer to collect the reservation details.",
+        "sourceTypes": [
+          "Terms of service",
+          "Pricing and fee pages",
+          "Trip policy FAQs"
+        ],
+        "optionalAction": "Create a support ticket or handoff summary with reservation ID, travel dates, destination, and the member’s question.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "request": "“The car won’t unlock and my booking starts now.”",
+        "agentResponseStrategy": "Walk through approved troubleshooting steps, ask for vehicle ID and location, distinguish app guidance from safety or access escalation, and route urgent failures to the right team.",
+        "sourceTypes": [
+          "Vehicle access SOPs",
+          "App troubleshooting docs",
+          "Escalation rules"
+        ],
+        "optionalAction": "Trigger an urgent ticket, notify the support channel, or summarize the failed access steps when configured.",
+        "icon": "KeyIcon"
+      },
+      {
+        "request": "“What should I do before returning an EV?”",
+        "agentResponseStrategy": "Explain charging, parking, cleanup, photo, and return steps from approved EV and vehicle-return content, then ask whether the member needs location-specific guidance.",
+        "sourceTypes": [
+          "EV guides",
+          "Return checklists",
+          "Market parking rules"
+        ],
+        "optionalAction": "Collect vehicle, station, and charge details for operations if the charging location is unavailable or blocked.",
+        "icon": "BoltIcon"
+      },
+      {
+        "request": "“I’m interested in adding car sharing to our apartment building.”",
+        "agentResponseStrategy": "Answer from sales enablement and partnership materials, qualify the opportunity with structured intake, and prepare a concise handoff for a human partnerships lead.",
+        "sourceTypes": [
+          "Partnership pages",
+          "Service area docs",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Forward lead details to CRM, email, forms, or a sales workflow through customer-configured connectors.",
+        "icon": "BuildingOffice2Icon"
+      },
+      {
+        "request": "“How do I delete personal data from the vehicle’s infotainment system?”",
+        "agentResponseStrategy": "Provide your approved connected-vehicle privacy guidance and direct the member to the correct vehicle manual or support path. The FTC warns that newer rental cars may retain phone, location, call, message, or contact information after a trip.",
+        "sourceTypes": [
+          "Privacy policy",
+          "Vehicle manuals",
+          "Return checklist"
+        ],
+        "optionalAction": "Route privacy-sensitive follow-up to a trained support or compliance contact when needed.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ftc-rental-car-advice"
+        ]
+      },
+      {
+        "request": "“What vehicles are available near me this weekend?”",
+        "agentResponseStrategy": "Explain how members can check availability, vehicle classes, and service areas from your help content. If connected to live systems, the agent can use approved lookup workflows instead of guessing.",
+        "sourceTypes": [
+          "Service area pages",
+          "Vehicle class guides",
+          "Booking FAQs"
+        ],
+        "optionalAction": "Use a configured API or Skill to look up availability, then direct the member to the booking flow.",
+        "icon": "MapPinIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make fleet policies, SOPs, and support knowledge easier for teams to use",
+    "intro": "DocsBot can also work as a private internal knowledge agent for support, operations, sales, partnerships, and market-launch teams. Train it on your controlled sources so employees get consistent guidance without searching through disconnected documents.",
+    "workflows": [
+      {
+        "name": "Support response drafting",
+        "problem": "Agents handling late returns, fee confusion, membership questions, or app issues need consistent wording and quick access to the latest policy.",
+        "agentWorkflow": "DocsBot retrieves the relevant policy, summarizes the member’s issue, drafts a response in your voice, and flags when the case should be reviewed by a person.",
+        "sourceTypes": [
+          "Support macros",
+          "Terms and policies",
+          "Helpdesk exports"
+        ],
+        "optionalAction": "Draft a helpdesk response or route to a specialized queue through approved helpdesk-connected workflows.",
+        "outcome": "More consistent answers and faster ticket handling without removing human judgment from exceptions.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Market launch playbooks",
+        "problem": "New cities, campuses, apartment partners, or employer programs require teams to understand local parking, vehicle placement, member onboarding, and support procedures.",
+        "agentWorkflow": "DocsBot answers employee questions from launch checklists, partner agreements, local operating notes, fleet procedures, and training content.",
+        "sourceTypes": [
+          "Launch playbooks",
+          "Partner onboarding docs",
+          "Market SOPs"
+        ],
+        "optionalAction": "Generate a launch-readiness summary or task list for review by the market manager.",
+        "outcome": "Faster ramp-up for new markets and fewer repeated questions to operations leads.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "name": "Fleet issue trend summaries",
+        "problem": "Repeated reports about the same vehicle, parking location, or access flow can be buried across tickets and chat messages.",
+        "agentWorkflow": "DocsBot can summarize connected or exported support conversations, group recurring topics, and surface patterns for operations review.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Conversation logs",
+          "Vehicle issue notes"
+        ],
+        "optionalAction": "Create an operations task, notify a team channel, or update approved case fields when configured.",
+        "outcome": "Cleaner operational visibility into recurring member friction and vehicle-specific issues.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Sales and partnership enablement",
+        "problem": "Partnership teams need fast, consistent answers for employers, municipalities, apartment communities, hotels, and campuses considering shared vehicle programs.",
+        "agentWorkflow": "DocsBot retrieves service coverage, rollout requirements, member onboarding steps, proposal language, case notes, and objection-handling guidance for sellers and account managers.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Service catalogs"
+        ],
+        "optionalAction": "Draft a follow-up email or prepare a qualified lead summary for a human salesperson.",
+        "outcome": "Shorter prep time for partnership conversations while keeping commitments and pricing under human control.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on approved company sources and can answer customer questions in the company’s voice with source-grounded responses.",
+      "industryApplication": "Car sharing services can train agents on policies, help articles, vehicle guides, pricing pages, return checklists, and membership rules so members receive consistent trip guidance.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, ticket creation, record updates, and workflow triggers when configured.",
+      "industryApplication": "Use approved connections for reservation status lookups, vehicle issue intake, ticket routing, team notifications, lead forwarding, or Model Context Protocol server tools your team already governs.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on internal documents, SOPs, wikis, PDFs, policies, and other controlled team knowledge.",
+      "industryApplication": "Support and fleet teams can ask about market-specific parking rules, vehicle handling procedures, escalation paths, cleaning standards, onboarding steps, and partner obligations.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify which trip policies confuse members, which app or vehicle issues cause escalation, and which help-center articles need clearer answers.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "feature": "Multilingual customer and employee answers",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages, helping teams support diverse users from the same approved knowledge base.",
+      "industryApplication": "Offer trip guidance for travelers, residents, students, and international members while maintaining a consistent policy source of truth.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, partner details, support histories, and operational procedures behind the right permissions while still making them usable for approved teams.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "sony-nuro-resolution-rate",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where fast, consistent first answers matter.",
+      "Trains on owned manuals, websites, help centers, and internal knowledge instead of generic web guesses.",
+      "Works for customer-facing support and human-assist workflows connected to helpdesk-style processes."
+    ],
+    "whyTheseReviewsFit": "Car sharing teams need scalable self-service, dependable source grounding, and smooth human handoffs when a trip issue becomes urgent. DocsBot proof spans 24/7 mobility-style product support, high inquiry volumes, and AI assistance for human support teams.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "DocumentTextIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for car sharing services",
+    "audience": [
+      "Car sharing operators",
+      "Fleet operations teams",
+      "Member support leaders",
+      "Mobility partnership teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "motor-vehicle-rental",
+    "fleet-management",
+    "vehicle-leasing",
+    "car-wash-detailing",
+    "motor-vehicle-repair",
+    "motor-vehicle"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "car-sharing-service",
+    "webSearchQueries": [
+      "car sharing market user expectations support booking vehicle availability statistics",
+      "Bureau of Transportation Statistics car sharing mobility services report",
+      "NACTO shared micromobility carshare report carsharing users",
+      "Federal Trade Commission car rental car sharing fees rules"
+    ],
+    "sourceUrls": [
+      "https://data.transportationops.org/shared-mobility-data",
+      "https://nacto.org/publication/shared-micromobility-report-2022/",
+      "https://consumer.ftc.gov/node/78349",
+      "https://www.sciencedirect.com/science/article/abs/pii/S0967070X16000044"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40627,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20403,
+        "outputTokens": 7730,
+        "reasoningOutputTokens": 107,
+        "totalTokens": 48357,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.172014,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.182014
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21440,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6464,
+          "outputTokens": 4986,
+          "reasoningOutputTokens": 107,
+          "totalTokens": 26426,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.094694,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.104694
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19187,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13939,
+          "outputTokens": 2744,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21931,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07732,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07732
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1611088136159-d074182f2ca6?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxjYXJzaGFyaW5nfGVufDB8MHx8fDE3MTQ4NzgwNTl8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Car Sharing Service background image",
+    "source": "legacy-industry",
+    "query": "Car Sharing Service"
+  },
+  "faq": [
+    {
+      "question": "Can the AI agent answer trip-policy questions without making promises our support team would not honor?",
+      "answer": "Yes. DocsBot is designed to answer from your approved policies, terms, pricing pages, FAQs, and help articles, with source-grounded responses. For exception-based topics like fee waivers, insurance disputes, account eligibility, or late-return penalties, you can instruct the agent to explain the published policy, collect reservation context, and escalate to a human instead of deciding on its own.",
+      "role": "Member support and trust teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help when a member is standing next to a car that will not unlock?",
+      "answer": "DocsBot can guide the member through your approved access troubleshooting steps, ask for reservation ID, vehicle ID, location, screenshots, and contact details, then route the case to the right urgent support or fleet queue. With customer-configured Skills, APIs, or helpdesk workflows, it can create a ticket or handoff summary so human agents do not start from a blank conversation.",
+      "role": "Member support and trust teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent explain fees, fuel, tolls, insurance, cancellation windows, and late returns clearly enough to reduce billing tickets?",
+      "answer": "That is a strong fit. Rental-style vehicle customers commonly need clarity on cancellation policies, insurance, driving-record checks, connected-car privacy, fuel, late returns, and other possible fees. DocsBot can answer those questions from your own fee tables, member agreement, and support macros, then escalate account-specific billing disputes to staff.",
+      "role": "Member support and trust teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ftc-rental-car-advice"
+      ]
+    },
+    {
+      "question": "Will DocsBot know real-time vehicle availability or booking status?",
+      "answer": "Only if you connect it to approved live context. Out of the box, DocsBot can explain how availability, service areas, vehicle classes, and booking rules work from your documentation. If your reservation platform exposes the right API or workflow, a customer-configured Skill or connector can let the agent perform scoped lookups instead of guessing.",
+      "role": "Member support and trust teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the AI from giving the wrong answer for a specific city, campus, apartment property, or parking zone?",
+      "answer": "Train DocsBot on market-specific SOPs, parking rules, partner commitments, and member-facing help articles, then structure sources and permissions carefully. The agent can cite the source it used, ask clarifying questions about location or reservation context, and escalate when the policy depends on a local exception that is not documented clearly.",
+      "role": "Fleet operations and market managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can operations teams use DocsBot internally, or is it only for member support?",
+      "answer": "DocsBot can be used as a private internal knowledge agent for fleet operations, market managers, and support teams. Teams can ask about cleaning standards, refueling or EV charging rules, damage triage, parking-zone exceptions, vehicle swaps, escalation paths, and launch playbooks from controlled internal sources rather than searching folders, wikis, or old messages.",
+      "role": "Fleet operations and market managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What information can the agent collect before escalating an accident, damage report, citation, or lost-item case?",
+      "answer": "You can configure the agent to ask for the details your team needs: reservation ID, vehicle ID, location, timestamps, photos, damage notes, police report status, citation details, lost-item description, and contact information. It can then summarize the case and route it to the right queue while leaving liability, reimbursement, safety, and account decisions to trained staff.",
+      "role": "Member support and trust teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would we measure ROI for a car sharing support rollout?",
+      "answer": "Start with repetitive-contact deflection, first-response time, escalation quality, handle-time reduction, after-hours coverage, and fewer follow-up questions caused by incomplete intake. For operations, track recurring vehicle-access issues, documentation gaps, and faster onboarding. Because price, proximity, and availability influence carsharing reservation decisions, clearer self-service around those topics can also support booking confidence.",
+      "role": "Member support and trust teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-carsharing-decision-factors"
+      ]
+    },
+    {
+      "question": "Can DocsBot support both consumer members and B2B partnership leads for apartments, employers, campuses, or municipalities?",
+      "answer": "Yes. A customer-facing agent can answer member trip questions while also qualifying partnership inquiries from approved sales and service-area materials. It can collect property size, location, fleet needs, launch timing, use case, and preferred follow-up channel, then forward a structured summary through customer-configured CRM, email, form, or sales workflows.",
+      "role": "Growth, partnerships, and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation usually require from our team?",
+      "answer": "A practical implementation starts by gathering high-value sources: member FAQs, terms, pricing and fee pages, vehicle guides, return checklists, market SOPs, support macros, escalation rules, and onboarding docs. Then your team defines boundaries, handoff rules, tone, allowed actions, test scenarios, and success metrics before exposing the agent to members or employees.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we connect DocsBot to our helpdesk, booking platform, fleet systems, or internal tools?",
+      "answer": "DocsBot can support customer-configured connections through Skills, APIs, connectors, workflow automations, and MCP options. Those connections can enable approved lookups, ticket creation, routing, summaries, field updates, notifications, or lead forwarding. DocsBot should be scoped to the actions and data your team authorizes rather than given open-ended access.",
+      "role": "Fleet operations and market managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we handle privacy concerns around connected vehicles and member data?",
+      "answer": "Use DocsBot to deliver your approved privacy guidance, return checklists, and vehicle manual instructions, and route sensitive requests to trained support or compliance staff. This matters because the FTC warns that newer rental cars may retain phone, location, call, message, or contact information after a trip. DocsBot also supports security controls such as SOC 2 Type II, GDPR-ready governance, encryption, access controls, and no training of public models on customer data.",
+      "role": "Member support and trust teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-rental-car-advice"
+      ]
+    },
+    {
+      "question": "Can different teams see different knowledge sources?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so internal fleet SOPs, partner agreements, support histories, and compliance guidance can be restricted to approved teams. That is important for separating public member answers from internal procedures, pricing guidance, launch notes, or sensitive partner obligations.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will the agent work for multilingual members, tourists, students, or international drivers?",
+      "answer": "DocsBot can answer in more than 100 languages from the same approved knowledge base. For car sharing teams, that can help members understand pickup steps, return rules, EV charging, parking zones, fee policies, and escalation instructions while keeping the underlying policy source consistent across languages.",
+      "role": "Member support and trust teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How can we avoid launching an AI agent when our help center is incomplete or outdated?",
+      "answer": "Treat launch as a knowledge-quality project, not just an automation project. Start with your highest-volume and highest-risk topics, review test conversations, and use DocsBot analytics, logs, topic management, and knowledge-gap discovery to see where members ask questions your sources do not answer well. Those gaps can become help-center updates, macros, or SOP improvements.",
+      "role": "Member support and trust teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help us identify recurring vehicle, location, or app issues from support conversations?",
+      "answer": "Yes. DocsBot can review conversations, logs, and exported or connected support context to surface repeated questions, failed answers, escalation patterns, and knowledge gaps. Operations teams can use those insights to spot recurring issues around specific vehicles, parking locations, EV charging, app access, return instructions, or policy confusion.",
+      "role": "Fleet operations and market managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should stay with a human agent instead of the AI?",
+      "answer": "Humans should remain responsible for safety-sensitive cases, accidents, damage liability, insurance determinations, fee waivers, identity or driving-record exceptions, account restrictions, legal claims, privacy escalations, and contractual commitments. DocsBot can collect facts, explain documented next steps, and prepare summaries, but your workflows should route high-impact decisions to trained staff.",
+      "role": "Member support and trust teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot embedded in our help center?",
+      "answer": "DocsBot is positioned as a source-grounded AI agent rather than a generic scripted bot. It can train on your approved public and internal knowledge, cite relevant sources, support human handoffs, analyze conversation gaps, and take bounded actions when configured. That makes it better suited for operationally sensitive workflows like trip support, incident intake, and market-specific procedures.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent support after-hours and peak-demand periods without expanding our support team immediately?",
+      "answer": "Yes. DocsBot can provide always-available first-line answers for repetitive questions like booking rules, pickup steps, return requirements, EV charging, tolls, fuel, fees, and membership policies. Shared mobility users are accustomed to app-based service at scale; NACTO reported 130 million shared bike and e-scooter trips in the U.S. and Canada in 2022, illustrating the level of self-service expectation in adjacent mobility models.",
+      "role": "Member support and trust teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-nacto-trip-volume"
+      ]
+    },
+    {
+      "question": "What kinds of reports would support leaders or operations managers get from DocsBot?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a car sharing service, useful views might include top member questions, escalation reasons, unanswered topics, policy-confusion trends, vehicle-access issues, EV charging questions, and documentation gaps by market or workflow.",
+      "role": "Member support and trust teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help onboard new market managers, support agents, or field operations staff?",
+      "answer": "Yes. Train an internal agent on launch playbooks, SOPs, partner notes, vehicle procedures, escalation matrices, parking rules, cleaning standards, and support scripts. New employees can ask natural-language questions and receive source-grounded answers, which reduces interruptions to experienced managers and helps keep procedures consistent across markets.",
+      "role": "Fleet operations and market managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we keep the agent from exposing internal procedures to members?",
+      "answer": "Separate public and private sources, apply role-based access controls, and define different agents or experiences for member-facing support versus internal operations. DocsBot can use approved member content for external answers while keeping SOPs, partner agreements, internal escalation rules, and sensitive operational notes available only to authorized employees.",
+      "role": "Fleet operations and market managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent answer questions that affect whether someone books a vehicle?",
+      "answer": "Yes, if those answers are documented. DocsBot can explain service areas, membership options, eligibility, vehicle classes, pricing rules, cancellation policies, and how to check availability. That matters because carsharing research has identified price, proximity, and availability as top factors influencing vehicle reservation decisions.",
+      "role": "Growth, partnerships, and sales teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-carsharing-decision-factors"
+      ]
+    },
+    {
+      "question": "What if our policies change often by city, vehicle type, or partner location?",
+      "answer": "DocsBot works best when your source content is kept current and ownership is clear. You can train it on updated policy pages, SOPs, PDFs, wikis, and internal documents, then review logs to confirm answers match current rules. For fast-changing or account-specific cases, configure the agent to ask clarifying questions, use approved live lookups, or escalate.",
+      "role": "Fleet operations and market managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Who should be involved in buying and governing an AI agent for a car sharing service?",
+      "answer": "Typical stakeholders include member support, trust and safety, fleet operations, market managers, product or engineering, data/security, legal or compliance, and growth or partnerships. Support owns deflection and service quality, operations owns escalation accuracy, security reviews access and data handling, and business teams define where automation should or should not act.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

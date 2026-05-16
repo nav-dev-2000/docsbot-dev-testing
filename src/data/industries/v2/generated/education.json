@@ -1,0 +1,731 @@
+{
+  "slug": "education",
+  "business": "Education",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI agents for responsive education support",
+    "description": "DocsBot helps education teams give students, faculty, and staff source-grounded answers, faster service routing, and searchable institutional knowledge.",
+    "canonicalPath": "/industry/education"
+  },
+  "hero": {
+    "eyebrow": "AI support agents for schools, colleges, and learning teams",
+    "headline": "Give every learner a source-grounded education support agent",
+    "subheadline": "DocsBot helps education teams build AI agents trained on approved course materials, policies, FAQs, websites, handbooks, help docs, and internal knowledge. Support students, parents, faculty, and staff with instant answers, scoped workflows, analytics, and human escalation when a question needs a person.",
+    "proofBullets": [
+      {
+        "text": "Answer student and parent questions from approved course pages, catalogs, policies, handbooks, FAQs, and support articles.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "text": "Route admissions, financial aid, IT, accessibility, tutoring, and advising requests with summaries for the right team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give faculty and staff a private knowledge agent for SOPs, onboarding, technology guides, and department procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use AI Actions to collect intake details, create tasks or tickets, trigger approved workflows, and prepare human handoffs.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build an education AI agent",
+    "secondaryCta": "Explore source-grounded support"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns approved education knowledge into AI agents that answer questions, summarize context, identify content gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows. Deploy it in a website widget, private team chat, Slack, Microsoft Teams, helpdesk-style workflows, or your own interface through the API.",
+    "whoItHelps": [
+      {
+        "role": "Student services and enrollment leaders",
+        "roleContext": "Use DocsBot to make policies, deadlines, program requirements, forms, and next steps easier to find before students open a ticket or wait for office hours.",
+        "bullets": [
+          {
+            "text": "Explain admissions, registration, transcript, tuition, scholarship, housing, and orientation information from approved pages.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Collect missing details and route requests to admissions, advising, bursar, registrar, or financial aid workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Analyze repeated questions to spot confusing content, outdated pages, and service bottlenecks.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Faculty, instructional designers, and program teams",
+        "roleContext": "Give learners fast help with course expectations while keeping answers grounded in materials instructors control.",
+        "bullets": [
+          {
+            "text": "Answer syllabus, assignment, project, rubric, reading, exam-prep, and course concept questions from approved course content.",
+            "icon": "AcademicCapIcon"
+          },
+          {
+            "text": "Summarize lecture notes, PDFs, tutorials, and department resources for students and teaching assistants.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Escalate sensitive, grade-specific, accommodation, or academic-integrity issues to the appropriate human reviewer.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      },
+      {
+        "role": "IT, library, and operations teams",
+        "roleContext": "Support the systems and services learners depend on while reducing repetitive questions across help desks, libraries, and campus operations.",
+        "bullets": [
+          {
+            "text": "Guide users through LMS, account, device, printing, Wi-Fi, library database, and knowledge-base questions.",
+            "icon": "ComputerDesktopIcon"
+          },
+          {
+            "text": "Draft ticket responses and summaries when connected to helpdesk-style workflows configured by the institution.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Serve multilingual students and staff with answers in more than 100 languages from the same approved knowledge sources.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Administrators, compliance, and communications teams",
+        "roleContext": "Keep institutional messages consistent while respecting the privacy, access, and review expectations that come with education workflows.",
+        "bullets": [
+          {
+            "text": "Make board-approved policies, emergency updates, handbooks, and staff procedures searchable from a governed knowledge base.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use role-based permissions, logs, encryption, and customer-defined boundaries for sensitive internal knowledge.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "FERPA and PPRA are administered by the U.S. Department of Education’s Student Privacy Policy Office, making privacy-aware governance essential for education technology decisions.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-student-privacy"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-k12-enrollment",
+      "metric": "49.5 million U.S. public school students in fall 2023",
+      "claim": "NCES reported that public school enrollment in the 50 states and District of Columbia reached 49.5 million students in fall 2023.",
+      "sourceTitle": "NCES Data Show Public School Enrollment Held Steady Overall From Fall 2022 to Fall 2023",
+      "sourceUrl": "https://nces.ed.gov/learn/press-release/nces-data-show-public-school-enrollment-held-steady-overall-fall-2022-fall-2023",
+      "sourceDate": "December 5, 2024",
+      "bestUsedFor": [
+        "scale of K-12 education support demand",
+        "need for consistent student and family answers"
+      ]
+    },
+    {
+      "id": "src-higher-ed-enrollment",
+      "metric": "18.4 million U.S. postsecondary students in spring 2025",
+      "claim": "The National Student Clearinghouse Research Center reported total postsecondary enrollment of 18.4 million in spring 2025, up 3.2% from spring 2024.",
+      "sourceTitle": "Postsecondary Spring Enrollment Continues Progress Toward Pre-Pandemic Highs",
+      "sourceUrl": "https://www.studentclearinghouse.org/news/postsecondary-spring-enrollment-continues-progress-toward-pre-pandemic-highs/",
+      "sourceDate": "May 22, 2025",
+      "bestUsedFor": [
+        "higher education service volume",
+        "enrollment operations pressure",
+        "student services demand"
+      ]
+    },
+    {
+      "id": "src-student-privacy",
+      "metric": "FERPA and PPRA student privacy oversight",
+      "claim": "The U.S. Department of Education’s Student Privacy Policy Office administers and enforces federal student privacy laws including FERPA and PPRA.",
+      "sourceTitle": "Home | Protecting Student Privacy",
+      "sourceUrl": "https://studentprivacy.ed.gov/",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "privacy governance",
+        "education technology risk",
+        "student record boundaries"
+      ]
+    },
+    {
+      "id": "src-privacy-edtech",
+      "metric": "Federal guidance for privacy in online educational services",
+      "claim": "U.S. Department of Education resources address protecting student privacy when schools use online educational services and education technology.",
+      "sourceTitle": "Privacy and Education Technology | Protecting Student Privacy",
+      "sourceUrl": "https://studentprivacy.ed.gov/privacy-and-education-technology",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "edtech procurement",
+        "online service governance",
+        "privacy-aware workflow design"
+      ]
+    },
+    {
+      "id": "src-student-tech-report",
+      "metric": "Student expectations for technology-enabled support",
+      "claim": "EDUCAUSE’s student technology research tracks higher education student experiences and expectations around technology services, online success tools, and support.",
+      "sourceTitle": "2026 EDUCAUSE Students and Technology Report: Steady through Change",
+      "sourceUrl": "https://www.educause.edu/content/2026/students-and-technology-report",
+      "sourceDate": "April 2026",
+      "bestUsedFor": [
+        "student technology expectations",
+        "digital support planning",
+        "higher education service design"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Student services answer agent",
+      "problem": "Students often need help with deadlines, forms, fees, program rules, registration steps, and office ownership before they know which department to contact.",
+      "agentWorkflow": "Train a DocsBot agent on approved student services pages, FAQs, catalogs, handbooks, scholarship pages, and policy documents. The agent answers common questions, cites source material, asks for missing context, and escalates when the issue requires staff judgment or access to a student record.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or workflows, the agent can collect intake details, create a task or ticket, route the request, and attach a conversation summary for staff follow-up.",
+      "exampleQuestionsOrRequests": [
+        "What is the deadline to withdraw from a course this term?",
+        "Which office handles transcript holds?",
+        "I’m a transfer student. What documents do I still need to submit?"
+      ],
+      "businessOutcome": "Reduce repetitive front-desk questions while giving students clearer next steps and better routed support.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Admissions and enrollment guidance agent",
+      "problem": "Prospective students and families compare programs, costs, requirements, visits, scholarships, and deadlines across many pages.",
+      "agentWorkflow": "Use DocsBot as a presales-style education agent trained on program pages, admissions FAQs, tuition pages, housing information, event details, and approved recruitment materials. It answers fit questions, collects lead details, and prepares a structured handoff for enrollment staff.",
+      "liveContextOrTools": "When configured, AI Actions can submit a custom inquiry form, request a campus visit or advising appointment through an approved scheduling workflow, or forward a qualified summary to the institution’s CRM or admissions system.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer an online version of this certificate?",
+        "What scholarships should I review as an out-of-state applicant?",
+        "Can someone contact me about the nursing program?"
+      ],
+      "businessOutcome": "Help enrollment teams respond faster with consistent information while keeping humans responsible for final admissions, pricing, aid, and eligibility decisions.",
+      "icon": "MegaphoneIcon",
+      "sourceIds": [
+        "src-higher-ed-enrollment"
+      ]
+    },
+    {
+      "name": "Course and learning materials assistant",
+      "problem": "Learners need repeat explanations of syllabi, assignments, rubrics, lecture concepts, readings, and project expectations outside class time.",
+      "agentWorkflow": "Train DocsBot on instructor-approved syllabi, lecture notes, assignment briefs, rubrics, reading guides, tutorials, and course FAQs. The agent answers from those sources, reinforces course concepts, and surfaces recurring confusion to instructors through analytics and conversation review.",
+      "liveContextOrTools": "The agent can be embedded in a course site or accessed privately by students and teaching teams. Sensitive grade disputes, accommodations, and academic-integrity questions can be escalated to faculty or the appropriate office.",
+      "exampleQuestionsOrRequests": [
+        "What does the final project require?",
+        "Explain this week’s concept using the lecture notes.",
+        "Which readings should I review before the quiz?"
+      ],
+      "businessOutcome": "Give students always-available course help while helping instructors identify where materials need clarification.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "IT and LMS support agent",
+      "problem": "Education help desks handle recurring access, login, LMS, software, Wi-Fi, printing, device, and classroom technology questions.",
+      "agentWorkflow": "DocsBot can train on IT knowledge-base articles, LMS help docs, device guides, software instructions, service status notes, and support ticket exports. The agent answers common troubleshooting questions, drafts responses, summarizes issues, and routes unresolved cases.",
+      "liveContextOrTools": "With institution-approved APIs or connectors, the agent can look up non-sensitive status context, create a ticket, update approved fields, notify a support channel, or trigger a workflow for account or device support.",
+      "exampleQuestionsOrRequests": [
+        "How do I reset my LMS password?",
+        "Why can’t I access my course shell?",
+        "Create a support request for the classroom projector in Room 204."
+      ],
+      "businessOutcome": "Deflect repetitive help-desk traffic and give technicians clearer context when a human needs to take over.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "name": "Library and research navigation agent",
+      "problem": "Students and faculty may not know which database, citation guide, research service, or library policy applies to their work.",
+      "agentWorkflow": "Train a DocsBot agent on library FAQs, database guides, citation resources, borrowing policies, research consultation pages, and tutorial content. The agent can explain where to start, summarize source guidance, and route advanced research needs to librarians.",
+      "liveContextOrTools": "A configured workflow can collect topic, course, deadline, citation style, and preferred contact method before handing the request to library staff.",
+      "exampleQuestionsOrRequests": [
+        "Which database should I use for peer-reviewed education research?",
+        "How do I cite an article in APA style?",
+        "Can I book help with my literature review?"
+      ],
+      "businessOutcome": "Make library expertise more discoverable while preserving librarian time for high-value research support.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Faculty and staff internal knowledge agent",
+      "problem": "Employees lose time searching across handbooks, shared drives, department wikis, HR policies, procurement rules, onboarding docs, and technology procedures.",
+      "agentWorkflow": "DocsBot can act as a private internal knowledge agent trained on approved SOPs, policies, PDFs, Word documents, Google Drive, Notion, Confluence, and department resources. Staff ask questions in private chat, Slack, Microsoft Teams, or a secure internal interface and receive source-grounded answers.",
+      "liveContextOrTools": "AI Actions can summarize a policy, draft an internal request, create a task, or route a question to HR, IT, finance, operations, or compliance with scoped permissions and logs.",
+      "exampleQuestionsOrRequests": [
+        "What is the reimbursement process for conference travel?",
+        "Where is the adjunct onboarding checklist?",
+        "Summarize the new procurement policy for department chairs."
+      ],
+      "businessOutcome": "Reduce internal search time and keep staff aligned on current institutional procedures.",
+      "icon": "FolderIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Support students, families, alumni, and learners without making them hunt through portals",
+    "intro": "DocsBot gives education websites, program pages, course hubs, and support centers an AI agent that answers from approved sources, collects context, and hands off to people when the request is personal, sensitive, or outside the knowledge base.",
+    "requests": [
+      {
+        "request": "“What do I need to apply to this program?”",
+        "agentResponseStrategy": "Answer from admissions pages, program requirements, deadline calendars, tuition information, and approved FAQs, then ask whether the visitor wants follow-up from enrollment staff.",
+        "sourceTypes": [
+          "Admissions pages",
+          "Program catalogs",
+          "Tuition and aid FAQs",
+          "Application checklists"
+        ],
+        "optionalAction": "Submit a structured inquiry form or forward a qualified admissions summary through a customer-configured workflow.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“I’m locked out of the learning portal.”",
+        "agentResponseStrategy": "Guide the user through approved troubleshooting steps, identify the affected system, collect non-sensitive details, and escalate if account access requires staff action.",
+        "sourceTypes": [
+          "IT knowledge base",
+          "LMS help docs",
+          "Account support policies",
+          "Service desk articles"
+        ],
+        "optionalAction": "Create or route a helpdesk-style ticket with the user’s summary and troubleshooting already attempted.",
+        "icon": "KeyIcon"
+      },
+      {
+        "request": "“Where can I get tutoring or accessibility support?”",
+        "agentResponseStrategy": "Explain available services from approved student success, tutoring, disability services, and advising pages while routing individualized or eligibility-specific issues to staff.",
+        "sourceTypes": [
+          "Student success pages",
+          "Accessibility office resources",
+          "Tutoring schedules",
+          "Advising FAQs"
+        ],
+        "optionalAction": "Collect preferred contact method and prepare a handoff to the right student support team.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“What is your student data privacy policy?”",
+        "agentResponseStrategy": "Answer from the institution’s privacy notices, technology policies, and approved data-handling documentation, then route legal or record-specific questions to the proper office.",
+        "sourceTypes": [
+          "Privacy notices",
+          "Acceptable-use policies",
+          "Student records policies",
+          "Technology governance pages"
+        ],
+        "optionalAction": "Escalate record-specific or compliance-sensitive requests instead of attempting a final determination.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-privacy-edtech"
+        ]
+      },
+      {
+        "request": "“Can I get help in my preferred language?”",
+        "agentResponseStrategy": "Use DocsBot’s multilingual response capability to answer from the same approved knowledge sources while preserving institutional terminology and escalation paths.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Student services pages",
+          "Program documents",
+          "Support articles"
+        ],
+        "optionalAction": "Route the conversation summary to a multilingual support queue when human help is needed.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What should I do before orientation?”",
+        "agentResponseStrategy": "Summarize orientation checklists, account setup steps, placement testing information, housing reminders, and advising next steps from current approved resources.",
+        "sourceTypes": [
+          "Orientation pages",
+          "New student checklists",
+          "Housing FAQs",
+          "Advising resources"
+        ],
+        "optionalAction": "Create a reminder task or forward unresolved questions through an approved workflow when configured.",
+        "icon": "CalendarIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give education staff one governed place to ask policy, process, and support questions",
+    "intro": "Behind the scenes, DocsBot helps departments turn scattered knowledge into an internal AI agent for faculty, advisors, IT, HR, finance, operations, and administrators. Answers stay grounded in approved sources, with permissions and boundaries for sensitive workflows.",
+    "workflows": [
+      {
+        "name": "Advisor and registrar knowledge support",
+        "problem": "Advisors and registrars need fast access to program rules, degree requirements, transfer policies, catalog language, calendar deadlines, and exception procedures.",
+        "agentWorkflow": "Train the agent on catalogs, advising guides, registrar procedures, academic calendars, transfer equivalency guidance, and internal SOPs so staff can ask precise questions and get source-backed answers.",
+        "sourceTypes": [
+          "Academic catalogs",
+          "Registrar SOPs",
+          "Advising guides",
+          "Policy PDFs"
+        ],
+        "optionalAction": "Draft a student-facing explanation or prepare a summary for human review before sending.",
+        "outcome": "Improve consistency in advising and registrar responses without replacing staff judgment on student-specific decisions.",
+        "icon": "BookmarkIcon"
+      },
+      {
+        "name": "Faculty onboarding and technology enablement",
+        "problem": "New instructors must learn LMS setup, grading tools, accessibility expectations, department policies, classroom technology, and support channels quickly.",
+        "agentWorkflow": "DocsBot can answer from onboarding checklists, faculty handbooks, teaching guides, LMS tutorials, accessibility resources, and support procedures.",
+        "sourceTypes": [
+          "Faculty handbooks",
+          "Teaching guides",
+          "LMS tutorials",
+          "Accessibility resources"
+        ],
+        "optionalAction": "Generate a personalized onboarding checklist or route a setup issue to IT or instructional design.",
+        "outcome": "Help instructors start faster and reduce repetitive onboarding questions for department staff.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "HR, finance, and operations policy lookup",
+        "problem": "Staff questions about travel, purchasing, reimbursements, leave, hiring, contracts, facilities, and communications often live across multiple systems.",
+        "agentWorkflow": "Create a private internal knowledge agent trained on approved HR, finance, procurement, facilities, and communications documents, with role-based access controls for restricted content.",
+        "sourceTypes": [
+          "HR policies",
+          "Finance procedures",
+          "Procurement guides",
+          "Facilities SOPs"
+        ],
+        "optionalAction": "Create a task, draft an internal request, or route a policy question to the responsible office through an approved workflow.",
+        "outcome": "Reduce internal search time and keep employees aligned on current administrative procedures.",
+        "icon": "BriefcaseIcon"
+      },
+      {
+        "name": "Content gap and service trend review",
+        "problem": "Education teams may not know which pages, forms, or support articles are causing confusion until tickets pile up.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to identify repeated questions, unresolved topics, and missing documentation.",
+        "sourceTypes": [
+          "Agent conversation logs",
+          "Support topics",
+          "Knowledge-base analytics",
+          "Reviewed transcripts"
+        ],
+        "optionalAction": "Create a documentation task or notify the owner of a high-volume unanswered topic.",
+        "outcome": "Turn student and staff questions into a practical roadmap for better content and service design.",
+        "icon": "ChartBarIcon",
+        "sourceIds": [
+          "src-student-tech-report"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded education answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the organization’s own knowledge sources and answer in the institution’s voice with grounding in approved content.",
+      "industryApplication": "Use approved course materials, catalogs, student handbooks, admissions pages, IT docs, policies, FAQs, and library guides to keep education answers consistent.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot can appear where users already ask for help, including an embeddable website or product widget and private team experiences.",
+      "industryApplication": "Put an agent on admissions pages, student portals, course resource hubs, library pages, or internal staff knowledge spaces.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let teams configure bounded lookups, summaries, routing, record updates, workflow triggers, and handoffs.",
+      "industryApplication": "Collect student service intake details, create helpdesk-style tickets, route admissions inquiries, trigger approved workflows, or connect to tools exposed through remote Model Context Protocol servers.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which policies confuse students, which course concepts need clearer explanations, and which support pages create repeated escalation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and governed boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or require a person, and supports access controls, permissions, logs, and security practices.",
+      "industryApplication": "Escalate grade disputes, accommodations, financial aid determinations, student record requests, safety concerns, legal questions, and high-impact decisions to authorized staff.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-student-privacy"
+      ]
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the same configured knowledge sources.",
+      "industryApplication": "Support international students, multilingual families, alumni, and distributed learning communities without duplicating every support workflow.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Course teams can give learners help with assignments, exams, projects, and concepts from instructor-approved materials.",
+      "Education and training teams can build agents around their own content libraries, policies, and learning resources.",
+      "High-volume support proof shows DocsBot can handle large inquiry volumes while preserving source-grounded automation."
+    ],
+    "whyTheseReviewsFit": "Education buyers need AI that respects their own curriculum, policies, and support knowledge. DocsBot proof spans real course assistance, training-material answers, owned content libraries, and high-volume support operations, giving schools and learning teams confidence in both student-facing and internal use cases.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for education support, student services, course help, and internal knowledge operations",
+    "audience": [
+      "K-12 school administrators",
+      "Higher education student services teams",
+      "Admissions and enrollment leaders",
+      "Faculty and instructional design teams",
+      "Education IT and library teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "AcademicCapIcon"
+  },
+  "relatedIndustrySlugs": [
+    "elementary-secondary-education",
+    "child-care-services",
+    "business-information",
+    "ai-automation-agency",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "education",
+    "webSearchQueries": [
+      "National Center for Education Statistics fall enrollment postsecondary institutions 2023 2024",
+      "NCES public school enrollment number students teachers 2023",
+      "EDUCAUSE student technology report 2024 students want support online services",
+      "National Student Clearinghouse Current Term Enrollment Estimates Spring 2025 undergraduate enrollment increased",
+      "U.S. Department of Education FERPA student privacy AI guidance education technology"
+    ],
+    "sourceUrls": [
+      "https://nces.ed.gov/learn/press-release/nces-data-show-public-school-enrollment-held-steady-overall-fall-2022-fall-2023",
+      "https://www.studentclearinghouse.org/news/postsecondary-spring-enrollment-continues-progress-toward-pre-pandemic-highs/",
+      "https://studentprivacy.ed.gov/",
+      "https://studentprivacy.ed.gov/privacy-and-education-technology",
+      "https://www.educause.edu/content/2026/students-and-technology-report"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 42564,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 21828,
+        "outputTokens": 7858,
+        "reasoningOutputTokens": 173,
+        "totalTokens": 50422,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.177624,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.197624
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 22930,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 7442,
+          "outputTokens": 5250,
+          "reasoningOutputTokens": 173,
+          "totalTokens": 28180,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.101227,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.121227
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19634,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14386,
+          "outputTokens": 2608,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22242,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076397,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076397
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1610500796385-3ffc1ae2f046?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDUwMjJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Education background image",
+    "source": "legacy-industry",
+    "query": "Education"
+  },
+  "faq": [
+    {
+      "question": "How do we keep an education AI agent from giving students outdated policy or deadline information?",
+      "answer": "DocsBot is trained on the sources your institution approves, such as catalogs, academic calendars, handbooks, FAQs, course pages, and policy documents. Teams can review conversations, monitor unanswered topics, and use knowledge-gap reporting to find pages that need updates instead of letting the agent improvise from unapproved material.",
+      "role": "Student services and enrollment leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent answer admissions and enrollment questions without making eligibility or financial aid decisions?",
+      "answer": "Yes. DocsBot can explain published program requirements, deadlines, tuition pages, scholarship information, visit options, and next steps from approved content. For aid eligibility, admissions decisions, residency, transfer-credit judgment, or pricing exceptions, it can collect context and route the conversation summary to staff for review.",
+      "role": "Student services and enrollment leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What does implementation usually look like if our knowledge is spread across websites, PDFs, Google Drive, Confluence, and department documents?",
+      "answer": "A practical rollout starts with one high-volume area, such as admissions, IT help, advising, or course support. DocsBot can train on approved websites, PDFs, Word documents, Google Drive, Notion, Confluence, SOPs, and help docs, then expand by department once owners agree on source quality, permissions, escalation rules, and review cadence.",
+      "role": "IT, library, and operations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How can we use DocsBot without exposing student records or protected education data?",
+      "answer": "DocsBot supports source-grounded answers, role-based permissions, access controls, logs, encryption in transit and at rest, and customer-defined boundaries for Skills and actions. Education teams can keep the agent focused on approved public or internal knowledge and escalate record-specific, legal, financial aid, grade, or accommodation questions to authorized staff.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot help with FERPA-aware workflows, or is it only for public FAQs?",
+      "answer": "DocsBot can support both public FAQ-style answers and governed internal workflows, but the institution defines what the agent may access and do. FERPA and PPRA are administered and enforced by the U.S. Department of Education’s Student Privacy Policy Office, so many schools use AI agents for general guidance while routing student-record-specific questions to approved human processes.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-student-privacy"
+      ]
+    },
+    {
+      "question": "Can we use one agent for students, parents, faculty, and staff, or should we separate them?",
+      "answer": "Most education teams separate experiences by audience and risk. A public admissions or student-services agent can answer from approved web pages, while a private staff agent can use internal SOPs, HR policies, registrar procedures, and IT guides with role-based access. That reduces accidental disclosure and keeps answers appropriate to each user group.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would DocsBot fit with our help desk, ticketing, CRM, or student support workflows?",
+      "answer": "DocsBot can work alongside helpdesk-style, CRM-style, scheduling, form, email, Slack, Microsoft Teams, API, connector, webhook, Skill, or MCP-based workflows when your team configures the connection. It can collect intake details, summarize the issue, create or route a task or ticket, update approved fields, and hand off to the right team.",
+      "role": "IT, library, and operations teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it support LMS and IT questions like login issues, course shell access, Wi-Fi, printing, and software setup?",
+      "answer": "Yes. DocsBot can train on IT knowledge-base articles, LMS help docs, device guides, account support policies, service status notes, and troubleshooting procedures. It can answer common questions, collect non-sensitive details, summarize steps already tried, and route unresolved cases to the service desk.",
+      "role": "IT, library, and operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kinds of questions should still go to a person instead of the AI agent?",
+      "answer": "Grade disputes, academic-integrity issues, accommodations, student safety concerns, financial aid determinations, admissions decisions, student-record requests, legal questions, complaints, and unusual exceptions should escalate to staff. DocsBot can help by collecting context and summarizing the conversation, but humans should remain responsible for sensitive or high-impact decisions.",
+      "role": "Faculty, instructional designers, and program teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can faculty use DocsBot for course help without turning it into a homework-answer machine?",
+      "answer": "Faculty can train the agent on instructor-approved syllabi, rubrics, readings, lecture notes, tutorials, and course FAQs, then set boundaries around how it responds. It can clarify expectations, explain concepts from approved materials, and escalate grade-specific or integrity-sensitive questions instead of replacing instructor judgment.",
+      "role": "Faculty, instructional designers, and program teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether an education AI agent is actually reducing workload?",
+      "answer": "Useful measures include repetitive question deflection, resolution rate, escalation volume by department, time to first answer, unanswered topics, satisfaction signals, after-hours usage, ticket summaries created, and content gaps discovered. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "role": "Student services and enrollment leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot show us which policies, forms, or course pages are confusing students?",
+      "answer": "Yes. DocsBot analytics and conversation review can surface repeated questions, unresolved topics, and knowledge gaps. That helps student services, enrollment, IT, libraries, and faculty identify unclear pages, missing FAQs, outdated procedures, or concepts that need better explanation before those issues turn into more tickets.",
+      "role": "Student services and enrollment leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will the agent support multilingual students, families, and international learners?",
+      "answer": "DocsBot can answer in more than 100 languages from the same configured knowledge sources. Education teams can use that to support multilingual students, families, alumni, and distributed learners while preserving source grounding, institutional terminology, and escalation paths when human follow-up is needed.",
+      "role": "IT, library, and operations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we think about ROI for admissions, student services, and support teams?",
+      "answer": "ROI usually comes from reducing repetitive questions, improving inquiry routing, shortening response times, capturing better lead or intake details, and revealing content gaps that cause avoidable tickets. For higher education, this matters at scale: National Student Clearinghouse reported 18.4 million U.S. postsecondary students in spring 2025, up 3.2% from spring 2024.",
+      "role": "Student services and enrollment leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-higher-ed-enrollment"
+      ]
+    },
+    {
+      "question": "Is this relevant for K-12 districts as well as colleges and universities?",
+      "answer": "Yes. K-12 teams can use DocsBot for parent FAQs, enrollment, transportation guidance, technology help, staff procedures, policy lookup, and multilingual family support. The scale is significant: NCES reported 49.5 million public school students in the 50 states and District of Columbia in fall 2023.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-k12-enrollment"
+      ]
+    },
+    {
+      "question": "How do we avoid a messy rollout where every department wants different answers and ownership is unclear?",
+      "answer": "Start with a governed pilot: pick one audience, define source owners, approve content boundaries, document escalation rules, and review analytics weekly. Once the team trusts the answers and handoffs, expand to additional departments with the same operating model instead of launching one unmanaged campus-wide agent.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help prospective students without overpromising program fit, cost, or admission outcomes?",
+      "answer": "Yes. DocsBot can answer from approved program pages, catalogs, tuition pages, housing information, admissions FAQs, and recruitment materials. It can collect contact details and summarize interest for enrollment staff, while routing pricing, scholarship eligibility, transfer-credit judgment, and admissions decisions to humans.",
+      "role": "Student services and enrollment leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security proof will our IT, procurement, or legal team expect to see?",
+      "answer": "Education buyers typically want clear controls for data access, retention, permissions, encryption, auditability, and vendor governance. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logs, and a policy that customer data is not used to train public models.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we use DocsBot internally for faculty, adjunct, advisor, and staff onboarding?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on faculty handbooks, onboarding checklists, LMS tutorials, HR policies, finance procedures, procurement guides, accessibility resources, and department SOPs. Staff can ask questions in private chat, Slack, Microsoft Teams, or an internal interface and receive source-grounded answers.",
+      "role": "Faculty, instructional designers, and program teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot compare with adding another generic chatbot to our website?",
+      "answer": "DocsBot is designed as a source-grounded AI agent, not just a scripted chat widget. It can answer from approved institutional knowledge, summarize context, identify content gaps, support private internal knowledge use cases, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can library teams use DocsBot without replacing librarians or research consultations?",
+      "answer": "Yes. A library agent can answer from library FAQs, database guides, citation resources, borrowing policies, tutorials, and research consultation pages. It can help students find the right starting point, collect topic and deadline details, and route advanced research needs to librarians for expert support.",
+      "role": "IT, library, and operations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if the agent cannot answer a question from our approved sources?",
+      "answer": "DocsBot should be configured to avoid guessing when the knowledge base is insufficient. It can say it does not have enough information, ask clarifying questions, escalate to the correct office, create a task or ticket, and log the gap so the content owner can improve the source material.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations for quality, compliance, and staff coaching?",
+      "answer": "Yes. DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. That gives service owners a way to audit how questions are handled, find risky or unclear topics, improve source content, and coach staff on recurring issues.",
+      "role": "Administrators, compliance, and communications teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep Skills and live actions from doing too much?",
+      "answer": "DocsBot Skills and AI Actions are configured inside customer-defined boundaries. Teams can scope what the agent may look up, update, trigger, or route; keep secrets out of chats; use metadata bindings and network policy; log activity; and require human review for sensitive workflows such as records, aid, accommodations, or legal issues.",
+      "role": "IT, library, and operations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What budget owner is usually involved in buying an education AI agent?",
+      "answer": "It depends on the first use case. Admissions or enrollment may fund prospect support, IT may fund help-desk and LMS support, academic affairs may fund course or faculty enablement, and administration may fund internal knowledge or communications. The strongest business case usually ties one pilot to measurable volume, service quality, and risk controls.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

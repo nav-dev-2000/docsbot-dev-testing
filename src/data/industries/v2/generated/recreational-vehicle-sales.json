@@ -1,0 +1,712 @@
+{
+  "slug": "recreational-vehicle-sales",
+  "business": "Recreational Vehicle Sales",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for RV Sales and Dealer Support",
+    "description": "DocsBot helps RV sales teams answer model, financing, service, and ownership questions faster while qualifying buyers and improving showroom follow-up.",
+    "canonicalPath": "/industry/recreational-vehicle-sales"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for RV dealerships",
+    "headline": "Help RV shoppers choose, compare, and book with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your RV inventory pages, brochures, manuals, financing FAQs, service policies, trade-in guidance, and sales playbooks so buyers get instant answers and your team receives clearer, better-qualified leads.",
+    "proofBullets": [
+      {
+        "text": "Answer floorplan, towing, feature, warranty, delivery, and maintenance questions from approved dealership content.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect buyer details, travel style, budget range, trade-in notes, and follow-up preferences through structured intake flows.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Route qualified shoppers, appointment requests, service questions, and sensitive financing discussions to the right human team.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Summarize conversations for sales reps so in-person showroom visits start with context instead of repeated questions.",
+        "icon": "SparklesIcon"
+      }
+    ],
+    "primaryCta": "Build an RV sales agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your dealership’s own knowledge, including model pages, inventory descriptions, brochures, owner manuals, service FAQs, policies, sales scripts, and internal procedures. Agents can answer customer questions, support employees, identify knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "RV sales managers",
+        "roleContext": "Keep digital shoppers engaged before they visit the lot and give reps a clearer view of buyer intent, preferred RV types, family needs, timing, and budget range.",
+        "bullets": [
+          {
+            "text": "Help shoppers compare travel trailers, fifth wheels, Class A, Class B, Class C, and toy hauler options from approved content.",
+            "icon": "RectangleGroupIcon"
+          },
+          {
+            "text": "Use intake questions to qualify urgency, tow vehicle details, trade-in interest, and appointment readiness.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Send conversation summaries and lead context to sales systems through customer-configured workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "BDC and internet sales teams",
+        "roleContext": "Respond consistently when buyers ask about availability, features, pricing guidance, promotions, delivery, and next steps after hours.",
+        "bullets": [
+          {
+            "text": "Capture shopper questions that would otherwise sit in inboxes, web forms, or missed chat requests.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Escalate complex pricing, credit, contract, or final deal questions to a human with the full conversation history.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Spot repeated unanswered questions so managers can improve website pages, FAQs, and sales enablement materials.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Service, parts, and delivery coordinators",
+        "roleContext": "Give owners and new buyers easier access to preparation steps, orientation materials, maintenance basics, and policy answers without distracting staff from scheduled work.",
+        "bullets": [
+          {
+            "text": "Surface owner manual answers, PDI checklists, winterization basics, maintenance intervals, and dealership service policies.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Route warranty, parts, and service scheduling requests to the right queue when the workflow is configured.",
+            "icon": "CogIcon"
+          },
+          {
+            "text": "Support multilingual customers with answers in more than 100 languages from approved source material.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-rv-intenders-2025",
+      "metric": "16.9 million Americans are significant RV purchase intenders",
+      "claim": "RVIA reported that Go RVing research identified 16.9 million Americans with significant interest in purchasing an RV within five years, with 73% of near-term intenders under age 55.",
+      "sourceTitle": "New Study Reveals Emerging RV Buyers Are Younger, More Diverse, And Ready To Hit The Road",
+      "sourceUrl": "https://www.rvia.org/news-insights/new-study-reveals-emerging-rv-buyers-are-younger-more-diverse-and-ready-hit-road",
+      "sourceDate": "June 24, 2025",
+      "bestUsedFor": [
+        "buyer demand",
+        "younger digital shoppers",
+        "lead qualification"
+      ]
+    },
+    {
+      "id": "src-rv-transactions-2025",
+      "metric": "94% of RV transactions still occur in person",
+      "claim": "RVIA’s 2025 Go RVing RV Owner Demographic Profile page states that 94% of RV transactions still occur in person despite growing use of digital resources in the research phase.",
+      "sourceTitle": "Go RVing RV Owner Demographic Profile",
+      "sourceUrl": "https://www.rvia.org/2025-go-rving-rv-owner-demographic-profile",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "online-to-showroom handoff",
+        "buyer research behavior",
+        "appointment conversion"
+      ]
+    },
+    {
+      "id": "src-rvda-growth-challenges-2024",
+      "metric": "High repair event cycle times and affordability are dealer challenges",
+      "claim": "An RVDA member survey reported that dealers see growth opportunities in retaining new RV customers, fixed operations growth, employee training, younger buyers, and outdoor lifestyle interest, while identifying high repair event cycle times, product quality, and affordability as challenges.",
+      "sourceTitle": "RVDA Member Survey Reflects Optimism for the Future; Identifies Challenges to Growth",
+      "sourceUrl": "https://www.rvda.org/RVDA/Media/News_Releases/NewsReleases24/April/RVDA_Member_Survey_Reflects_Optimism_for_the_Future__Identifies_Challenges_to_Growth.aspx",
+      "sourceDate": "April 2024",
+      "bestUsedFor": [
+        "dealer operations",
+        "service bottlenecks",
+        "retention and training"
+      ]
+    },
+    {
+      "id": "src-rv-tech-shortage-2025",
+      "metric": "RV technician shortage creates operational and financial challenges",
+      "claim": "RVDA described the ongoing technician shortage as a major RV industry issue that creates operational and financial challenges for dealerships.",
+      "sourceTitle": "RVDA Convention Workshop to Cover Hiring and Retaining Good Technicians",
+      "sourceUrl": "https://www.rvda.org/RVDA/RVDA/Media/News_Releases/NewsReleases25/August/RVDA-Convention-Workshop-to-Cover-Hiring-and-Retaining-Good-Technicians.aspx",
+      "sourceDate": "August 2025",
+      "bestUsedFor": [
+        "fixed operations pressure",
+        "staff enablement",
+        "service knowledge access"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "RV model comparison and fit assistant",
+      "problem": "RV shoppers often need help narrowing many layouts, classes, tow requirements, sleeping capacities, storage options, and lifestyle tradeoffs before they are ready to speak with a salesperson.",
+      "agentWorkflow": "A DocsBot agent answers questions from model pages, brochures, spec sheets, FAQs, and sales enablement content. It asks follow-up questions about trip style, family size, tow vehicle, storage needs, pet needs, and budget range, then summarizes matching considerations for a human salesperson.",
+      "liveContextOrTools": "With approved APIs or connectors, the agent can look up current inventory status, create a lead, tag model interest, and route the summary to the sales team.",
+      "exampleQuestionsOrRequests": [
+        "Which bunkhouse travel trailers sleep six and stay under my towing limit?",
+        "Compare these two fifth wheels for full-time travel.",
+        "What should a first-time buyer know before visiting the dealership?"
+      ],
+      "businessOutcome": "More prepared buyers, fewer repetitive model questions, and a smoother handoff from digital research to showroom conversation.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Online-to-showroom appointment qualification",
+      "problem": "RVIA states that 94% of RV transactions still occur in person, so dealerships need digital research experiences that move shoppers into productive showroom visits rather than disconnected web sessions.",
+      "agentWorkflow": "The agent answers presales questions, captures contact details, preferred RV type, timing, trade-in intent, budget range, and visit preferences, then prepares a concise handoff for the BDC or sales rep.",
+      "liveContextOrTools": "Using customer-configured scheduling Skills, forms, webhooks, or CRM workflows, the agent can request a showroom appointment, create a task, or notify the right team for follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Can I see this model on Saturday morning?",
+        "I’m comparing RVs for a family of five. Can someone help me narrow options?",
+        "Here is my trade-in information. What is the next step?"
+      ],
+      "businessOutcome": "Better-qualified appointments and less time spent reconstructing buyer needs when the shopper arrives in person.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-rv-transactions-2025"
+      ]
+    },
+    {
+      "name": "Financing, promotion, and policy guidance with escalation",
+      "problem": "Affordability and high interest rates were identified by RVDA dealers as significant business challenges, while buyers still expect quick explanations of financing steps, deposits, promotions, and purchase policies.",
+      "agentWorkflow": "DocsBot answers from approved financing FAQs, promotional rules, dealership policies, and disclosure-safe guidance. It can explain required documents, general process steps, and what the dealership can discuss, while escalating credit decisions, legal terms, and final pricing to staff.",
+      "liveContextOrTools": "Configured Skills can collect missing information, route a financing inquiry, create an internal task, or hand off to a finance manager with conversation context and permissions boundaries.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I bring for RV financing?",
+        "Do you have current incentives on this model?",
+        "Can I put down a deposit before I visit?"
+      ],
+      "businessOutcome": "Buyers get clear next steps while finance-sensitive decisions remain with dealership personnel.",
+      "icon": "CreditCardIcon",
+      "sourceIds": [
+        "src-rvda-growth-challenges-2024"
+      ]
+    },
+    {
+      "name": "Owner orientation and post-sale knowledge assistant",
+      "problem": "New owners need guidance after delivery, and recurring questions about winterization, batteries, slide-outs, generators, appliances, and maintenance can consume sales and service staff time.",
+      "agentWorkflow": "Train the agent on owner manuals, walkthrough notes, delivery checklists, maintenance articles, warranty FAQs, and dealership service policies so owners can get source-grounded answers after the sale.",
+      "liveContextOrTools": "Where configured, the agent can create a service ticket, route a parts question, collect photos or issue details through a form, or summarize the customer’s concern for a service advisor.",
+      "exampleQuestionsOrRequests": [
+        "How do I winterize this model?",
+        "What should I check before my first camping trip?",
+        "Who do I contact for a warranty question?"
+      ],
+      "businessOutcome": "A better ownership experience, fewer repetitive calls, and stronger retention after the initial sale.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Service and parts triage for dealer operations",
+      "problem": "RVDA has identified high repair event cycle times as a dealer challenge, and the association has also described technician shortages as an ongoing issue creating operational and financial pressure.",
+      "agentWorkflow": "A DocsBot agent helps staff and customers find service policies, preparation steps, parts request requirements, warranty intake questions, and troubleshooting documentation before a technician or advisor gets involved.",
+      "liveContextOrTools": "With approved workflows, the agent can route requests by issue type, create a task or ticket, collect VIN and model details, and send summaries to service or parts teams.",
+      "exampleQuestionsOrRequests": [
+        "What information do you need before I bring my RV in?",
+        "Can I request a part for my awning?",
+        "How should we classify this service request internally?"
+      ],
+      "businessOutcome": "Cleaner intake, fewer avoidable back-and-forth messages, and better use of limited service-team capacity.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-rvda-growth-challenges-2024",
+        "src-rv-tech-shortage-2025"
+      ]
+    },
+    {
+      "name": "Sales enablement for complex RV inventory",
+      "problem": "Sales reps need quick, consistent answers across many brands, trims, floorplans, options, promotions, objection-handling notes, and ownership scenarios.",
+      "agentWorkflow": "An internal DocsBot agent gives reps answers from sales playbooks, spec sheets, brochures, competitive notes, policy documents, and proposal templates. It can draft follow-up emails and summarize buyer conversations for review before sending.",
+      "liveContextOrTools": "With approved CRM, inbox, calendar, or proposal workflows, the agent can retrieve context, draft responses, create follow-up tasks, or update approved fields under dealership rules.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up comparing these two units for a retired couple.",
+        "What objections should I prepare for on a first-time buyer call?",
+        "Summarize this customer conversation into CRM notes."
+      ],
+      "businessOutcome": "More consistent selling, faster follow-up, and less time spent searching through scattered documents.",
+      "icon": "PresentationChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give RV shoppers a guided digital showroom before they visit the lot",
+    "intro": "DocsBot can power a website agent that answers from dealership-approved content, helps buyers compare RV options, collects lead details, and routes the conversation to a human when a decision requires sales, finance, service, or management judgment.",
+    "requests": [
+      {
+        "request": "“Which RVs are good for a family with two kids and a midsize truck?”",
+        "agentResponseStrategy": "Ask about towing capacity, sleeping needs, trip length, storage, desired amenities, and budget range, then point to matching model pages or recommend a salesperson review the shortlist.",
+        "sourceTypes": [
+          "Inventory pages",
+          "Model brochures",
+          "Towing guidance",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Create a lead summary with preferred unit types and route it to the BDC or sales team.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“Is this model available, and can I see it this weekend?”",
+        "agentResponseStrategy": "Answer from approved availability content when available, collect scheduling intent and contact details, and avoid promising final availability unless connected to an authorized live lookup.",
+        "sourceTypes": [
+          "Inventory feed",
+          "Appointment policy",
+          "Store hours",
+          "Sales workflow rules"
+        ],
+        "optionalAction": "Use a configured scheduling workflow to request an appointment and notify the assigned salesperson.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What financing or promotions are available?”",
+        "agentResponseStrategy": "Explain general financing steps, documents, and approved promotion language, then escalate credit, APR, contract, and final price questions to the finance team.",
+        "sourceTypes": [
+          "Finance FAQs",
+          "Promotion rules",
+          "Disclosures",
+          "Dealership policies"
+        ],
+        "optionalAction": "Collect basic inquiry details and prepare a handoff for a finance manager.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“How do I maintain this RV after purchase?”",
+        "agentResponseStrategy": "Answer from owner manuals and dealership service content, cite the relevant source, and recommend human service review for safety-critical or warranty-sensitive issues.",
+        "sourceTypes": [
+          "Owner manuals",
+          "Service FAQs",
+          "Warranty notes",
+          "Delivery checklists"
+        ],
+        "optionalAction": "Create a service intake task or route the customer to the service department when configured.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "request": "“Can you explain the difference between travel trailers and fifth wheels?”",
+        "agentResponseStrategy": "Provide a plain-language comparison based on dealership education content, then ask buyer-specific questions to narrow fit without replacing salesperson judgment.",
+        "sourceTypes": [
+          "Buyer guides",
+          "Model category pages",
+          "Sales training content",
+          "FAQs"
+        ],
+        "optionalAction": "Save the comparison and buyer preferences into a lead summary for follow-up.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“Do you have resources for first-time RV owners?”",
+        "agentResponseStrategy": "Guide shoppers to walkthrough materials, delivery checklists, beginner FAQs, and post-sale support content while keeping answers grounded in approved sources.",
+        "sourceTypes": [
+          "Delivery guides",
+          "New owner FAQs",
+          "Manuals",
+          "How-to articles"
+        ],
+        "optionalAction": "Email or hand off a curated resource list through a customer-configured workflow.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep dealership teams aligned on inventory, policy, service, and sales knowledge",
+    "intro": "Use DocsBot as a private internal knowledge agent for sales, BDC, finance, parts, service, and management teams. Staff can ask natural-language questions and get source-grounded answers from approved dealership documents instead of searching folders, PDFs, and message threads.",
+    "workflows": [
+      {
+        "name": "Sales rep answer desk",
+        "problem": "Reps may need quick answers about specs, floorplans, options, packages, objections, and policies during calls or showroom conversations.",
+        "agentWorkflow": "DocsBot retrieves answers from spec sheets, brochures, sales playbooks, pricing guidance, and approved FAQs, then can draft a follow-up response for human review.",
+        "sourceTypes": [
+          "Spec sheets",
+          "Sales playbooks",
+          "Brochures",
+          "Objection notes"
+        ],
+        "optionalAction": "Draft a follow-up email or create a sales task through an approved workflow.",
+        "outcome": "Faster, more consistent answers during buyer conversations.",
+        "icon": "LightBulbIcon"
+      },
+      {
+        "name": "BDC lead summarization",
+        "problem": "Internet leads arrive across forms, chat, calls, and email, making it hard to prioritize who is ready for an appointment.",
+        "agentWorkflow": "The agent summarizes buyer intent, urgency, preferred RV type, trade-in notes, unanswered questions, and next best handoff based on customer-defined qualification rules.",
+        "sourceTypes": [
+          "Lead forms",
+          "Conversation logs",
+          "Qualification rules",
+          "Follow-up templates"
+        ],
+        "optionalAction": "Forward qualified leads or summaries to CRM, email, Slack, Microsoft Teams, or ticketing workflows when configured.",
+        "outcome": "Cleaner prioritization and less manual note-taking for the internet sales team.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Service advisor knowledge support",
+        "problem": "Service advisors and parts staff handle detailed questions while technician capacity is constrained across the industry.",
+        "agentWorkflow": "DocsBot makes policies, intake scripts, warranty notes, preparation instructions, and troubleshooting references searchable for frontline staff.",
+        "sourceTypes": [
+          "Service SOPs",
+          "Warranty notes",
+          "Parts procedures",
+          "Owner manuals"
+        ],
+        "optionalAction": "Create a task, route a request, or prepare a service handoff using scoped AI Actions.",
+        "outcome": "More complete intake and faster access to the information advisors need.",
+        "icon": "CogIcon",
+        "sourceIds": [
+          "src-rv-tech-shortage-2025"
+        ]
+      },
+      {
+        "name": "New employee onboarding",
+        "problem": "RV dealerships rely on product, process, and policy knowledge that is often spread across binders, PDFs, vendor materials, and experienced employees.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, SOPs, brand guides, HR policies, sales process documents, and tool instructions so new hires can ask questions as they learn.",
+        "sourceTypes": [
+          "SOPs",
+          "Training manuals",
+          "HR policies",
+          "Tool guides"
+        ],
+        "optionalAction": "Flag recurring onboarding questions as documentation gaps for managers to improve.",
+        "outcome": "Shorter search time and more consistent process adoption across departments.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on dealership knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents that answer from configured knowledge sources such as websites, help centers, PDFs, Word documents, internal docs, wikis, and other approved content.",
+      "industryApplication": "Train an RV sales agent on model pages, brochures, inventory descriptions, financing FAQs, warranty guidance, service policies, delivery checklists, and owner manuals.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents provide instant answers in the company’s voice and can cite or rely on approved source material rather than improvising from generic knowledge.",
+      "industryApplication": "Help shoppers understand RV classes, floorplans, towing considerations, ownership basics, and dealership policies with answers grounded in your own content.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "Presales qualification and handoff",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and apply customer-defined qualification rules before forwarding summaries to sales systems.",
+      "industryApplication": "Qualify RV shoppers by travel style, budget range, tow vehicle, trade-in interest, timing, preferred follow-up channel, and appointment readiness.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, routing, task creation, field updates, summaries, and workflow triggers through approved connections, including MCP connectors when configured.",
+      "industryApplication": "Use approved live lookups for inventory or lead records, create follow-up tasks, route service requests, notify teams, or trigger appointment workflows without giving the agent open-ended authority.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which RV models, towing questions, financing topics, service issues, and ownership concerns appear most often so managers can improve content and sales training.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Give dealership teams a controlled way to use private sales, finance, service, and policy knowledge while limiting access through roles, permissions, and customer-defined controls.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on owned content such as manuals, websites, knowledge bases, and sales resources.",
+      "Support high-volume customer questions while preserving human handoff for complex conversations.",
+      "Deploy AI assistance on the website and behind the scenes for teams answering support or sales messages."
+    ],
+    "whyTheseReviewsFit": "RV dealerships need accurate product knowledge, scalable customer support, and practical deployment across customer-facing and internal workflows. DocsBot proof spans owned-content training, embedded website assistance, multilingual manuals, and high-volume inquiry handling.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "SignalIcon",
+      "ComputerDesktopIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for recreational vehicle sales, presales support, lead qualification, and dealer knowledge management",
+    "audience": [
+      "RV dealership owners",
+      "Sales managers",
+      "BDC and internet sales teams",
+      "Service and parts managers",
+      "Dealer operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "new-motor-vehicle-sales",
+    "used-car-sales",
+    "automotive-part-sales",
+    "motor-vehicle",
+    "motor-vehicle-repair",
+    "vehicle-leasing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "recreational-vehicle-sales",
+    "webSearchQueries": [
+      "RV Industry Association 2024 RVs Move America economic impact ownership shipments report",
+      "RV Industry Association 2025 consumer demographic Go RVing report RV buyers research online",
+      "RVDA dealership workforce service technician shortage RV dealer survey"
+    ],
+    "sourceUrls": [
+      "https://www.rvia.org/news-insights/new-study-reveals-emerging-rv-buyers-are-younger-more-diverse-and-ready-hit-road",
+      "https://www.rvia.org/2025-go-rving-rv-owner-demographic-profile",
+      "https://www.rvda.org/RVDA/Media/News_Releases/NewsReleases24/April/RVDA_Member_Survey_Reflects_Optimism_for_the_Future__Identifies_Challenges_to_Growth.aspx",
+      "https://www.rvda.org/RVDA/RVDA/Media/News_Releases/NewsReleases25/August/RVDA-Convention-Workshop-to-Cover-Hiring-and-Retaining-Good-Technicians.aspx"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40870,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20646,
+        "outputTokens": 7836,
+        "reasoningOutputTokens": 99,
+        "totalTokens": 48706,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.174212,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.184212
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21441,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6465,
+          "outputTokens": 5096,
+          "reasoningOutputTokens": 99,
+          "totalTokens": 26537,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.096347,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.106347
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19429,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14181,
+          "outputTokens": 2740,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22169,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077865,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077865
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1596470693312-9a3686a0af0f?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzk3MDZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Recreational Vehicle Sales background image",
+    "source": "legacy-industry",
+    "query": "Recreational Vehicle Sales"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot help shoppers narrow down RV models before they talk to a salesperson?",
+      "answer": "Yes. DocsBot can answer from your model pages, brochures, spec sheets, inventory descriptions, buyer guides, and sales FAQs. It can ask follow-up questions about RV class, sleeping capacity, tow vehicle, trip style, storage needs, pets, budget range, and timing, then summarize the shopper’s preferences for your sales or BDC team.",
+      "role": "RV sales managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this improve the handoff from online research to an in-person showroom visit?",
+      "answer": "DocsBot can capture the buyer’s questions, preferred RV type, tow vehicle details, family needs, trade-in interest, timeline, budget range, and appointment preference before the visit. That matters because RVIA reports that 94% of RV transactions still occur in person, even as shoppers use digital resources during research.",
+      "role": "BDC and internet sales teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-rv-transactions-2025"
+      ]
+    },
+    {
+      "question": "Can the agent answer availability questions without promising a unit is still on the lot?",
+      "answer": "Yes, if you set the right boundaries. DocsBot can answer from approved inventory pages or use a customer-configured live lookup when authorized. If live inventory is not connected, it can collect the shopper’s contact details, note the unit of interest, and route the request to a salesperson instead of making a final availability promise.",
+      "role": "BDC and internet sales teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens when a shopper asks about price, APR, credit approval, or final deal terms?",
+      "answer": "DocsBot should be configured to explain approved process information, such as documents needed, deposit steps, promotional language, and who to contact. Credit decisions, contract language, APR quotes, legal terms, and final pricing can be escalated to your finance or sales team with the conversation history attached.",
+      "role": "BDC and internet sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot qualify RV leads instead of just collecting a name and email?",
+      "answer": "Yes. You can define qualification rules around RV type, travel plans, tow vehicle, buying timeline, trade-in status, budget range, location, financing interest, and appointment readiness. DocsBot can then collect structured information, summarize intent, and forward the lead through approved forms, webhooks, CRM workflows, email, Slack, Microsoft Teams, or other configured systems.",
+      "role": "RV sales managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot help us handle younger, more digital-first RV shoppers?",
+      "answer": "DocsBot gives shoppers instant answers while they are comparing layouts, towability, ownership costs, and next steps online. That is useful for an expanding digital research audience: RVIA reported 16.9 million Americans with significant interest in purchasing an RV within five years, and 73% of near-term intenders were under age 55.",
+      "role": "RV sales managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-rv-intenders-2025"
+      ]
+    },
+    {
+      "question": "Can the agent compare travel trailers, fifth wheels, Class A, Class B, Class C, and toy haulers accurately?",
+      "answer": "DocsBot can compare categories and specific units when it is trained on your approved model pages, brochures, spec sheets, floorplan data, sales guides, and educational content. It should present tradeoffs from those sources and ask buyer-specific questions rather than inventing recommendations from generic RV knowledge.",
+      "role": "RV sales managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for post-sale owner questions, not just presales chat?",
+      "answer": "Yes. DocsBot can be trained on owner manuals, delivery checklists, walkthrough notes, warranty FAQs, winterization guidance, service policies, and maintenance articles. It can answer common ownership questions and route warranty-sensitive, safety-critical, parts, or service scheduling issues to a human when configured.",
+      "role": "Service, parts, and delivery coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Could DocsBot reduce pressure on our service and parts teams?",
+      "answer": "DocsBot can help customers and staff find intake requirements, service policies, warranty notes, parts request steps, prep instructions, and troubleshooting references before an advisor or technician gets involved. This fits a real operating pressure: RVDA has identified high repair event cycle times as a dealer challenge and has described the RV technician shortage as a major issue creating operational and financial challenges.",
+      "role": "Service, parts, and delivery coordinators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-rvda-growth-challenges-2024",
+        "src-rv-tech-shortage-2025"
+      ]
+    },
+    {
+      "question": "How would a service triage workflow work in practice?",
+      "answer": "A DocsBot agent can ask for the unit, VIN if appropriate, issue type, photos or description, warranty context, urgency, and preferred contact method. With approved workflows, it can create a task or ticket, route the request to service or parts, and provide a summary so the advisor starts with cleaner intake.",
+      "role": "Service, parts, and delivery coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support our sales reps internally during calls and showroom conversations?",
+      "answer": "Yes. You can deploy a private internal knowledge agent trained on spec sheets, sales playbooks, brochures, objection-handling notes, policies, promotion guidance, and proposal templates. Reps can ask natural-language questions, draft follow-up emails for review, and summarize buyer conversations into cleaner notes.",
+      "role": "RV sales managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will our team be able to see what shoppers are asking most often?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. RV dealership managers can use this to spot repeated questions about towing, floorplans, promotions, delivery, service policies, ownership basics, or missing inventory content.",
+      "role": "RV sales managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much content do we need before launching an RV sales agent?",
+      "answer": "Most dealerships can start with high-value sources: inventory and model pages, brochures, spec sheets, financing FAQs, store policies, trade-in guidance, delivery checklists, owner manuals, service FAQs, and sales scripts. The key is not volume alone; it is keeping the content approved, current, and clear about when to escalate to staff.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot connect to our CRM, inventory feed, appointment tools, or service systems?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, MCP servers, forms, webhooks, and approved workflows. That can enable scoped actions such as live lookups, lead creation, task creation, field updates, routing, notifications, and appointment requests when your team authorizes the connection and defines the rules.",
+      "role": "BDC and internet sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we have to let the AI update records or book appointments automatically?",
+      "answer": "No. You can keep actions bounded. DocsBot can simply collect information and prepare a handoff, or you can allow specific approved actions such as creating a lead, requesting an appointment, notifying a team, or updating approved fields. Sensitive actions can remain human-reviewed with logs and permission controls.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot avoid giving made-up RV specifications or policy answers?",
+      "answer": "DocsBot is designed to answer from the knowledge sources you configure, such as model pages, PDFs, manuals, FAQs, and internal documents. For high-risk areas like towing limits, warranty interpretation, financing terms, availability, and service diagnosis, you can require source-grounded answers and escalation when the source is missing or ambiguous.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we separate customer-facing answers from internal-only dealership information?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. You can create customer-facing agents for public content and private internal agents for sales playbooks, pricing guidance, SOPs, finance policies, HR materials, and service procedures, so sensitive information is not exposed to shoppers.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security assurances matter if we upload finance policies, sales scripts, and customer conversations?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot answer in Spanish or support multilingual RV shoppers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from approved source material. For an RV dealership, that can help shoppers understand model differences, appointment steps, delivery requirements, ownership resources, and service policies in their preferred language while still using your controlled content.",
+      "role": "BDC and internet sales teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we measure whether DocsBot is worth the investment?",
+      "answer": "Track practical dealership metrics: lead capture rate, qualified appointment requests, after-hours conversations, speed to follow-up, repeated questions deflected, sales rep time saved, service intake completeness, owner support volume, and content gaps found. For showroom-driven sales, also compare appointment quality and how much context reps have before the visit.",
+      "role": "RV sales managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will this replace our BDC or salespeople?",
+      "answer": "It should not be positioned that way. DocsBot handles repetitive answers, structured intake, summaries, routing, and approved workflow steps so people can focus on deal strategy, relationship building, trade discussions, financing conversations, walkthroughs, and closing. Human escalation is especially important for complex pricing, credit, contracts, and safety-sensitive service issues.",
+      "role": "BDC and internet sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with employee onboarding at a dealership with lots of brands and processes?",
+      "answer": "Yes. An internal DocsBot agent can be trained on SOPs, brand guides, product brochures, HR policies, tool instructions, sales process documents, service procedures, and finance handoff rules. New hires can ask questions in plain language, and managers can review recurring questions to improve training materials.",
+      "role": "RV sales managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What if our inventory pages, brochures, and manufacturer PDFs contradict each other?",
+      "answer": "That is a content governance issue to resolve during setup. DocsBot can be trained on approved sources and configured with instructions about source priority, escalation, and answer style. Its analytics can also reveal recurring ambiguity, helping managers identify pages, PDFs, or policies that need cleanup.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How is DocsBot different from a basic website chat widget or form?",
+      "answer": "A basic form collects contact details. DocsBot can answer from dealership-approved knowledge, ask qualifying questions, summarize buyer intent, identify content gaps, and take bounded actions through configured Skills, APIs, connectors, or workflows. It can also support private internal use cases for sales, service, parts, delivery, and onboarding.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start with one department before rolling this out across the whole dealership?",
+      "answer": "Yes. Many dealerships would start with a focused use case such as presales model questions, BDC lead qualification, owner orientation, or service intake. Once sources, escalation rules, and workflows are proven, the same approach can expand to internal sales enablement, parts, delivery, onboarding, and management reporting.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should our finance manager and compliance-minded stakeholders review before launch?",
+      "answer": "They should review the approved financing content, promotional language, disclaimers, escalation rules, data fields collected, access permissions, logging, and any connected workflows. DocsBot should explain process steps and collect inquiry details, while final credit, APR, pricing, contract, and legal decisions stay with authorized staff.",
+      "role": "BDC and internet sales teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help us retain new RV owners after the sale?",
+      "answer": "Yes. DocsBot can provide always-available access to delivery checklists, manuals, maintenance basics, winterization guidance, service policies, and warranty next steps. That aligns with RVDA survey findings that dealers see growth opportunities in retaining new RV customers and fixed operations growth, while service cycle times remain a challenge.",
+      "role": "Service, parts, and delivery coordinators",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-rvda-growth-challenges-2024"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,717 @@
+{
+  "slug": "florist",
+  "business": "Florist",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Florist Orders, Events, and Delivery",
+    "description": "DocsBot helps florists answer order, care, wedding, and delivery questions with AI agents that qualify leads and reduce repetitive calls.",
+    "canonicalPath": "/industry/florist"
+  },
+  "hero": {
+    "eyebrow": "AI automation for busy flower shops and event floral teams",
+    "headline": "DocsBot AI agents keep florist customers moving from idea to order",
+    "subheadline": "Train an AI support agent on your flower catalog, care guides, delivery policies, event packages, FAQs, and internal procedures so shoppers get source-grounded answers while your team focuses on design, fulfillment, and high-touch consultations.",
+    "proofBullets": [
+      {
+        "text": "Answer bouquet, plant care, delivery-zone, substitution, pickup, and holiday ordering questions from your approved shop content.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Collect wedding, sympathy, corporate, and custom-order details through structured intake before a florist follows up.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or workflows to look up order context, route requests, create tasks, or prepare handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Review logs, reports, topics, and unresolved questions to improve FAQs, product pages, and seasonal ordering instructions.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your florist AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your florist already trusts: product pages, seasonal menus, delivery policies, consultation packets, care instructions, SOPs, PDFs, website pages, and team notes. The agent can answer customers, support staff in private chat, summarize requests, identify missing details, and trigger bounded workflows when you configure AI Actions.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Give customers fast answers without turning every availability, delivery, or care question into a phone interruption during design and fulfillment rushes.",
+        "bullets": [
+          {
+            "text": "Use conversation analytics to see repeated questions about delivery cutoffs, substitutions, holiday hours, and product care.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Qualify high-value wedding, sympathy, and corporate inquiries before assigning them to the right team member.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Keep answers consistent across website chat, private team chat, and helpdesk-style workflows configured by your shop.",
+            "icon": "CheckCircleIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Designers and sales staff",
+        "roleContext": "Make catalog, recipe, care, pricing-guidance, and consultation information searchable so staff can respond confidently while juggling phones, walk-ins, and production.",
+        "bullets": [
+          {
+            "text": "Find stem-care notes, vase guidance, substitution rules, and arrangement descriptions from approved internal sources.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Draft responses for complex custom orders, then let a human florist finalize tone, price, and feasibility.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support newer staff with SOPs for holidays, sympathy orders, delivery exceptions, and customer follow-up.",
+            "icon": "BookOpenIcon"
+          }
+        ],
+        "roleIcon": "PaintBrushIcon"
+      },
+      {
+        "role": "Event and wedding coordinators",
+        "roleContext": "Turn long inquiry threads into structured briefs so consultations start with the couple’s venue, date, colors, budget range, inspiration, and decision timeline already captured.",
+        "bullets": [
+          {
+            "text": "Collect event requirements and route summaries to the right person or system through customer-configured workflows.",
+            "icon": "CalendarIcon"
+          },
+          {
+            "text": "Answer package, deposit, consultation, and timeline questions from your event guide before a planner books a call.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Prepare handoffs for delicate or high-value work while keeping final commitments with your human team.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-floral-designers",
+      "metric": "43,800 floral designer jobs in 2024; 5,100 projected annual openings",
+      "claim": "BLS reports that floral designers perform customer-service duties, handle phone and internet orders, and get busier around holidays such as Christmas, Valentine’s Day, and Mother’s Day.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Floral Designers",
+      "sourceUrl": "https://www.bls.gov/ooh/arts-and-design/floral-designers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "seasonal staffing pressure",
+        "customer-service workload",
+        "order-channel complexity"
+      ]
+    },
+    {
+      "id": "src-usda-floriculture-sales",
+      "metric": "$6.69 billion in 2023 U.S. floriculture crop sales",
+      "claim": "USDA NASS reported total value of sales across all floriculture crops at $6.69 billion in 2023.",
+      "sourceTitle": "USDA NASS 2023 Floriculture Crops Highlights",
+      "sourceUrl": "https://data.nass.usda.gov/Publications/Highlights/2024/2023-floriculture-highlights.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market scale",
+        "product supply context",
+        "seasonal inventory pressure"
+      ]
+    },
+    {
+      "id": "src-saf-consumer-buying",
+      "metric": "77% of cut-flower purchases are occasion-driven",
+      "claim": "The Society of American Florists reports that about three quarters of cut-flower purchases are made with a specific reason or occasion in mind, while 23% are bought “just because.”",
+      "sourceTitle": "Society of American Florists: Consumer Buying Trends",
+      "sourceUrl": "https://safnow.org/aboutflowers/about-the-flower-industry/consumer-buying-trends/",
+      "sourceDate": "2016 study, page crawled 2026",
+      "bestUsedFor": [
+        "occasion-based buying",
+        "gift guidance",
+        "presales qualification"
+      ]
+    },
+    {
+      "id": "src-ibisworld-ecommerce-social",
+      "metric": "E-commerce and social media have reshaped florist sales",
+      "claim": "IBISWorld notes that online sales and platforms such as TikTok, Instagram, and Pinterest have been used by florists to reach broader audiences and showcase arrangements.",
+      "sourceTitle": "IBISWorld Florists in the US Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/florists/1096/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "digital buyer expectations",
+        "online merchandising",
+        "local competitive pressure"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Occasion-based bouquet guidance",
+      "problem": "Many flower buyers know the occasion but not the arrangement, color palette, care needs, delivery timing, or substitution rules.",
+      "agentWorkflow": "A DocsBot agent answers from your catalog, care guides, product descriptions, delivery policies, and seasonal FAQs. It can ask clarifying questions about recipient, occasion, budget range, color preferences, allergies, address timing, and message-card needs before handing off the order context.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can check configured product or order context, collect missing details, create a task, or route the shopper to checkout or staff review.",
+      "exampleQuestionsOrRequests": [
+        "What should I send for a sympathy arrangement under $125?",
+        "Can you deliver pastel flowers to this ZIP code tomorrow morning?",
+        "Which plants are safe for an office with low light?"
+      ],
+      "businessOutcome": "More shoppers get useful guidance before calling, while staff receive cleaner requests with fewer missing details.",
+      "icon": "GiftIcon",
+      "sourceIds": [
+        "src-saf-consumer-buying"
+      ]
+    },
+    {
+      "name": "Holiday rush support",
+      "problem": "BLS notes floral designers are busier around holidays such as Valentine’s Day, Mother’s Day, and Christmas, when perishable orders cannot be completed too far in advance.",
+      "agentWorkflow": "Train the agent on holiday menus, cutoff times, delivery rules, substitution policies, pickup instructions, message-card limits, and refund policies. It gives consistent answers, escalates exceptions, and summarizes urgent issues for staff.",
+      "liveContextOrTools": "Customer-configured workflows can look up order status, create a ticket, notify a team channel, or route delivery exceptions to a human dispatcher.",
+      "exampleQuestionsOrRequests": [
+        "Is it too late to order roses for Valentine’s Day delivery?",
+        "Can I change the card message on my Mother’s Day order?",
+        "What substitutions might happen if tulips sell out?"
+      ],
+      "businessOutcome": "Customers get faster, policy-grounded answers during peak periods, reducing repeated calls while the design bench stays focused.",
+      "icon": "ClockIcon",
+      "sourceIds": [
+        "src-bls-floral-designers"
+      ]
+    },
+    {
+      "name": "Wedding and event inquiry intake",
+      "problem": "Event floral inquiries often arrive incomplete, making it hard to estimate fit, urgency, and next steps before a consultation.",
+      "agentWorkflow": "The agent collects venue, date, guest count, colors, inspiration links, budget range, delivery/setup needs, rental items, and decision timeline. It summarizes the brief and routes it to the right event florist for human follow-up.",
+      "liveContextOrTools": "DocsBot AI Actions can submit a custom lead form, create a CRM-style record, trigger a scheduling workflow, or forward a summary by email, Slack, Microsoft Teams, or another configured system.",
+      "exampleQuestionsOrRequests": [
+        "Are you available for a June wedding at this venue?",
+        "Can I book a consultation for floral arches and centerpieces?",
+        "What details do you need for a corporate gala quote?"
+      ],
+      "businessOutcome": "Higher-value event leads become structured opportunities instead of scattered emails, voicemails, and inspiration screenshots.",
+      "icon": "HeartIcon"
+    },
+    {
+      "name": "Delivery, pickup, and order-status assistance",
+      "problem": "Florists handle time-sensitive questions about delivery windows, local ZIP codes, recipient availability, apartment access, pickup times, and same-day changes.",
+      "agentWorkflow": "DocsBot answers static policy questions from your delivery pages and, when configured, uses live context to look up order status or collect missing delivery information. It escalates sensitive changes, refunds, complaints, and exception handling to staff.",
+      "liveContextOrTools": "Skills, APIs, connectors, MCP Connectors for remote Model Context Protocol servers, or approved workflows can support scoped order lookups, task creation, notifications, and handoffs.",
+      "exampleQuestionsOrRequests": [
+        "Has my arrangement left the shop yet?",
+        "Can you call the recipient before delivery?",
+        "I entered the wrong apartment number—can I update it?"
+      ],
+      "businessOutcome": "Customers get clear next steps faster, and delivery staff receive cleaner exception summaries.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Internal SOP and training assistant",
+      "problem": "Small floral teams need seasonal procedures, care instructions, substitution rules, and customer policies available to part-time and new staff.",
+      "agentWorkflow": "Create a private internal knowledge agent trained on SOPs, PDFs, checklists, care sheets, brand guidelines, training notes, and policy documents. Staff can ask how to process claims, pack deliveries, hydrate stems, or explain substitutions.",
+      "liveContextOrTools": "The agent can summarize internal procedures, surface the source document, and flag documentation gaps based on repeated staff questions.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy for a missed funeral delivery?",
+        "How should we process peonies before arranging?",
+        "Where is the checklist for Valentine’s Day pickup staging?"
+      ],
+      "businessOutcome": "New and seasonal staff become productive faster while managers see which policies need clearer documentation.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Digital merchandising and product-page improvement",
+      "problem": "Florists increasingly compete through online sales and visual channels, so unclear product pages can create repeated questions before checkout.",
+      "agentWorkflow": "DocsBot reviews conversation topics and unresolved questions to show what shoppers are trying to learn about size, color, substitutions, flower availability, occasion fit, and delivery timing. Teams can update product pages and FAQs accordingly.",
+      "liveContextOrTools": "Analytics, reports, logs, topic management, and conversation review help identify knowledge gaps without relying on guesswork.",
+      "exampleQuestionsOrRequests": [
+        "Why do people keep asking about bouquet size?",
+        "Which sympathy products cause the most clarification questions?",
+        "What FAQ should we add before Mother’s Day?"
+      ],
+      "businessOutcome": "Better catalog and FAQ content can improve shopper confidence and reduce repeated presales questions.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-ibisworld-ecommerce-social"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A florist AI support agent that helps shoppers choose, customize, and follow through",
+    "intro": "Embed DocsBot on your website so customers can ask natural questions about flowers, plants, delivery, pickup, events, care, and shop policies. The agent answers from your approved sources, collects useful details, and escalates when a florist should decide.",
+    "requests": [
+      {
+        "request": "“What flowers should I send for a new baby, and can you deliver today?”",
+        "agentResponseStrategy": "Ask for budget, color preference, recipient location, delivery timing, and card-message needs, then answer from catalog and delivery policy content.",
+        "sourceTypes": [
+          "Product catalog",
+          "Delivery policies",
+          "Occasion guides",
+          "Care instructions"
+        ],
+        "optionalAction": "If configured, check delivery-zone or product context and route the shopper to checkout or staff follow-up.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“I need funeral flowers but I’m not sure what is appropriate.”",
+        "agentResponseStrategy": "Respond with a calm, source-grounded explanation of arrangement types, etiquette notes, timing, and delivery information while offering human help.",
+        "sourceTypes": [
+          "Sympathy guide",
+          "Arrangement descriptions",
+          "Delivery rules",
+          "FAQ pages"
+        ],
+        "optionalAction": "Collect service time, funeral home, recipient family, message-card text, and preferred follow-up channel for florist review.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can I change my delivery address?”",
+        "agentResponseStrategy": "Explain the shop’s change policy from approved content and gather order number, contact details, and requested update without promising a change that staff has not approved.",
+        "sourceTypes": [
+          "Order policies",
+          "Delivery FAQ",
+          "Customer service SOPs"
+        ],
+        "optionalAction": "Create a task, notify staff, or prepare a helpdesk handoff through a configured workflow.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you do wedding flowers for my date?”",
+        "agentResponseStrategy": "Capture date, venue, estimated scope, colors, inspiration, budget range, and consultation preference before forwarding a concise event summary.",
+        "sourceTypes": [
+          "Wedding packages",
+          "Consultation guide",
+          "Portfolio notes",
+          "Booking policies"
+        ],
+        "optionalAction": "Use an approved scheduling workflow to request or book a consultation when your rules allow it.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do I keep these roses fresh longer?”",
+        "agentResponseStrategy": "Answer from care instructions and suggest safe next steps such as trimming stems, changing water, and following the shop’s included care card.",
+        "sourceTypes": [
+          "Care cards",
+          "Plant guides",
+          "FAQ pages"
+        ],
+        "optionalAction": "Offer a link to the care guide or ask whether the customer needs help with a specific product.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“Do you have something like the arrangement I saw on Instagram?”",
+        "agentResponseStrategy": "Ask for the post or style details, explain availability and substitution limits from shop policy, and set expectations for custom work.",
+        "sourceTypes": [
+          "Custom order policy",
+          "Portfolio pages",
+          "Substitution rules",
+          "Seasonal menu"
+        ],
+        "optionalAction": "Collect inspiration details and route a custom-order summary to the design team.",
+        "icon": "PhotoIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Private knowledge automation for designers, sales staff, and delivery teams",
+    "intro": "Use DocsBot as a private team assistant trained on your internal procedures, seasonal playbooks, vendor notes, consultation scripts, policies, and care documentation. Staff get quick answers without searching folders or interrupting the manager.",
+    "workflows": [
+      {
+        "name": "Seasonal playbook lookup",
+        "problem": "Holiday staff need quick answers on cutoffs, substitutions, pickup staging, card-message limits, and exception handling.",
+        "agentWorkflow": "The internal agent answers from seasonal SOPs, checklists, and policy docs, then cites the source so staff can verify details.",
+        "sourceTypes": [
+          "Holiday SOPs",
+          "Pickup checklists",
+          "Delivery policies",
+          "Substitution rules"
+        ],
+        "optionalAction": "Create a manager-review task when staff ask about an exception outside the documented policy.",
+        "outcome": "More consistent holiday execution with fewer manager interruptions.",
+        "icon": "BookmarkIcon"
+      },
+      {
+        "name": "Consultation preparation",
+        "problem": "Wedding and corporate event leads are often spread across forms, emails, notes, and inspiration references.",
+        "agentWorkflow": "DocsBot summarizes the inquiry, pulls relevant package guidance, drafts follow-up questions, and prepares a human-readable brief for the event florist.",
+        "sourceTypes": [
+          "Lead forms",
+          "Event packages",
+          "Proposal templates",
+          "Sales notes"
+        ],
+        "optionalAction": "Forward the summary to a configured sales, calendar, email, or task workflow for next-step tracking.",
+        "outcome": "Consultations start with clearer context and fewer missed requirements.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Customer issue triage",
+        "problem": "Missed deliveries, damaged flowers, address mistakes, and dissatisfaction require fast, consistent escalation.",
+        "agentWorkflow": "The agent retrieves the relevant policy, asks for missing order details, summarizes the customer’s concern, and routes it for human review.",
+        "sourceTypes": [
+          "Refund policies",
+          "Delivery SOPs",
+          "Helpdesk exports",
+          "Customer service scripts"
+        ],
+        "optionalAction": "Create a ticket or task and include the conversation summary, order details, and requested resolution.",
+        "outcome": "Staff spend less time reconstructing issues and more time resolving them thoughtfully.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "name": "Training and care knowledge",
+        "problem": "New staff need to learn flower processing, plant care, packaging, merchandising, and brand voice quickly.",
+        "agentWorkflow": "DocsBot answers from training materials, care sheets, manuals, and brand guidelines, then logs common questions so managers can improve onboarding content.",
+        "sourceTypes": [
+          "Training PDFs",
+          "Care instructions",
+          "Brand guidelines",
+          "Vendor notes"
+        ],
+        "optionalAction": "Generate a short checklist or summary from approved procedures for a shift lead to review.",
+        "outcome": "Seasonal and part-time employees can access consistent guidance at the moment they need it.",
+        "icon": "AcademicCapIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from shop knowledge",
+      "mainLandingPageContext": "DocsBot trains AI agents on approved knowledge sources such as websites, help centers, PDFs, documents, wikis, and internal content.",
+      "industryApplication": "A florist can train the agent on product descriptions, care cards, delivery areas, substitution policies, event packages, and seasonal FAQs.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can work in a website chat widget for customers and in private chat experiences for employees.",
+      "industryApplication": "Shoppers can ask about flowers and delivery online, while staff can privately search SOPs, care guidance, and consultation notes.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot can use customer-configured Skills, APIs, connectors, and workflows for scoped lookups, summaries, routing, record creation, updates, and handoffs.",
+      "industryApplication": "Florists can configure bounded actions for order-status lookups, event lead forms, delivery exception tasks, consultation requests, or team notifications.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which products, policies, events, or delivery questions create confusion before the next holiday or wedding season.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the knowledge sources a business configures.",
+      "industryApplication": "Help more local shoppers understand delivery options, flower care, occasion guidance, and order policies in their preferred language.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Keep internal policies, event notes, customer-service procedures, and workflow credentials governed with permissions and customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on the content your team already uses instead of starting from a blank generic bot.",
+      "Support customer self-service and staff knowledge lookup from one source-grounded AI layer.",
+      "Use DocsBot for practical automation while keeping custom floral decisions with your human experts."
+    ],
+    "whyTheseReviewsFit": "Florists need a practical AI agent that is easy to maintain, grounded in their own catalog and procedures, and useful for both customer questions and team support. DocsBot’s customer feedback highlights owned-content training, common-query answers, and dependable business self-service.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "SparklesIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for florists",
+    "audience": [
+      "Florist owners",
+      "Flower shop managers",
+      "Wedding and event floral teams",
+      "Retail floral staff"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "event-planning",
+    "entertainment-party-rentals",
+    "beauty-salon",
+    "funeral-director",
+    "dry-cleaning-laundry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "florist",
+    "webSearchQueries": [
+      "US floral industry sales florists number establishments IBISWorld florist industry statistics",
+      "Society of American Florists consumer flower buying occasions statistics",
+      "US Bureau Labor Statistics florists occupational outlook employment",
+      "BLS floral designers occupational outlook 2024 employment",
+      "USDA NASS floriculture crops 2023 value sales report floriculture crops 2024"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/arts-and-design/floral-designers.htm",
+      "https://data.nass.usda.gov/Publications/Highlights/2024/2023-floriculture-highlights.pdf",
+      "https://safnow.org/aboutflowers/about-the-flower-industry/consumer-buying-trends/",
+      "https://www.ibisworld.com/united-states/industry/florists/1096/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 65901,
+        "cachedInputTokens": 28032,
+        "billableInputTokens": 37869,
+        "outputTokens": 19492,
+        "reasoningOutputTokens": 298,
+        "totalTokens": 85393,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.394061,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.424061
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21629,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6141,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 127,
+          "totalTokens": 33629,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.199225,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.209225
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25560,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18264,
+          "outputTokens": 4856,
+          "reasoningOutputTokens": 171,
+          "totalTokens": 30416,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.120324,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.140324
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18712,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13464,
+          "outputTokens": 2636,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21348,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074512,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074512
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1587317997383-2e6c1b24040f?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDEyNzd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Florist background image",
+    "source": "legacy-industry",
+    "query": "Florist"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer delivery-zone, same-day cutoff, pickup, and substitution questions without staff watching every chat?",
+      "answer": "Yes. Train the agent on your delivery pages, holiday cutoffs, pickup instructions, product descriptions, and substitution policy. It can answer routine questions from those approved sources, ask for missing details like ZIP code or timing, and escalate exceptions such as refund requests, address changes, or sensitive complaints to a florist.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help during Valentine’s Day, Mother’s Day, and other holiday rushes?",
+      "answer": "Holiday periods are exactly where repetitive questions pile up. BLS notes floral designers get busier around holidays such as Christmas, Valentine’s Day, and Mother’s Day, and also handle phone and internet orders. DocsBot can give consistent answers on menus, cutoffs, substitutions, pickup staging, and delivery rules while staff focus on production.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-floral-designers"
+      ]
+    },
+    {
+      "question": "Can the agent recommend arrangements by occasion instead of just repeating product names?",
+      "answer": "Yes. A DocsBot agent can guide shoppers from occasion to order by using your catalog, occasion guides, care notes, price ranges, and delivery policies. It can ask about recipient, budget, color preferences, allergies, card message, and timing before suggesting relevant options or preparing a handoff for staff.",
+      "role": "Designers and sales staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it make promises about flower availability, custom designs, or delivery timing that we cannot keep?",
+      "answer": "You can set the agent’s instructions and knowledge sources so it explains availability, substitutions, and delivery windows conservatively. For custom designs, sold-out flowers, funeral timing, address problems, refunds, or high-value orders, the agent should collect details and route the request to a human instead of making a final commitment.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot qualify wedding and event leads before our coordinator spends time on them?",
+      "answer": "Yes. The agent can collect venue, date, colors, inspiration, guest count, budget range, setup needs, rental interest, consultation preference, and decision timeline. It can then summarize the inquiry and send it through a customer-configured workflow so the event florist starts with a usable brief instead of scattered emails and screenshots.",
+      "role": "Event and wedding coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it handle sympathy and funeral questions with the right tone?",
+      "answer": "DocsBot can answer from your sympathy guide, arrangement descriptions, delivery rules, and service etiquette notes, then offer human help when the situation is delicate. For funeral work, a good setup should collect service time, funeral home, recipient family, message-card text, and follow-up details while avoiding unsupported promises.",
+      "role": "Designers and sales staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What systems can DocsBot connect to for orders, lead forms, or staff notifications?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP Connectors, webhooks, or workflows for scoped actions such as order-status lookup, task creation, form submission, team notification, CRM-style record creation, or handoff routing. It should be configured around the systems and permissions your shop approves.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it internally for seasonal staff, not just on the website?",
+      "answer": "Yes. DocsBot can run as a private internal knowledge agent trained on SOPs, care sheets, substitution rules, holiday playbooks, delivery procedures, brand guidelines, and training documents. New and seasonal staff can ask policy or processing questions and get source-grounded answers without interrupting a manager every time.",
+      "role": "Designers and sales staff",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How much content do we need before launching a florist AI agent?",
+      "answer": "Most shops can start with their website pages, product catalog, delivery policy, FAQs, care instructions, event packet, refund policy, and seasonal menus. Internal rollout can add SOPs, training PDFs, checklists, and team notes. The best launch scope is narrow enough to trust, then expanded as logs reveal missing questions.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep answers current when pricing, seasonal flowers, and cutoff times change?",
+      "answer": "Treat the agent’s knowledge like your public menu: update the source pages, PDFs, or documents whenever pricing, product availability, holiday cutoffs, or policies change. DocsBot’s logs, topics, reports, and unresolved questions help identify content that is stale, unclear, or missing before it becomes a recurring staff interruption.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it help reduce phone calls without making our shop feel impersonal?",
+      "answer": "Yes, if you position it as a first response and intake layer rather than a replacement for florists. It can answer repetitive delivery, care, pickup, and product questions immediately, while routing emotional, complex, custom, or high-value work to your team with a clear summary.",
+      "role": "Owners and general managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What should we measure to know if DocsBot is worth it for a flower shop?",
+      "answer": "Track repeated questions answered, conversations resolved without staff intervention, lead details captured, event inquiries qualified, after-hours questions handled, order-status requests summarized, and knowledge gaps found. Around holidays, also compare call volume, missed inquiries, response time, and staff interruptions against prior peak periods.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot help us improve product pages and FAQs before the next holiday?",
+      "answer": "Yes. Conversation logs, topics, unresolved questions, satisfaction signals, and reports can show where shoppers hesitate: size, colors, substitutions, delivery timing, care, occasion fit, or price expectations. Your team can use those insights to rewrite catalog pages and seasonal FAQs before the next rush.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Does this make sense for a small independent florist, or only a multi-location business?",
+      "answer": "It can fit both. A single shop may use DocsBot to reduce repetitive calls and support part-time staff, while a multi-location florist can standardize policies, delivery guidance, event intake, and internal procedures across teams. The key is training the agent on the content each location actually trusts.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the agent support online shoppers who come from Instagram, Pinterest, or other visual channels?",
+      "answer": "Yes. Florists increasingly compete through online sales and visual platforms; IBISWorld notes online sales and platforms such as TikTok, Instagram, and Pinterest have helped florists reach broader audiences and showcase arrangements. DocsBot can collect inspiration details, explain substitution limits, and route custom requests to designers.",
+      "role": "Designers and sales staff",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ibisworld-ecommerce-social"
+      ]
+    },
+    {
+      "question": "How does DocsBot handle multilingual customer questions?",
+      "answer": "DocsBot can answer in more than 100 languages from the knowledge sources your shop configures. That can help customers understand delivery options, pickup rules, flower care, occasion guidance, and order policies in their preferred language while still relying on your approved content.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can it look up order status or change an address automatically?",
+      "answer": "It can support scoped order lookups, task creation, notifications, or approved field updates only when you configure the right Skill, API, connector, or workflow. For address changes, refunds, missed deliveries, and complaints, many florists will prefer DocsBot to collect details and prepare a staff-reviewed handoff.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What happens when the AI does not know the answer?",
+      "answer": "DocsBot should be configured to say when the answer is not in the approved knowledge, ask clarifying questions when appropriate, and escalate to a human for exceptions. Conversation review and knowledge-gap reports then show which missing policies, products, or procedures should be added to your sources.",
+      "role": "Designers and sales staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we prevent staff-only SOPs or pricing guidance from showing to customers?",
+      "answer": "Yes. Use separate customer-facing and private internal agents or carefully scoped sources and permissions. DocsBot supports access controls and role-based permissions, so internal SOPs, vendor notes, event pricing guidance, and staff procedures can stay available to employees without being exposed in a public website widget.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Is our customer and shop data used to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions for teams that need stronger governance around customer conversations and internal procedures.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic website chatbot or form plugin?",
+      "answer": "Generic chat widgets often collect messages but do not deeply answer from your shop knowledge or support internal staff. DocsBot is built for source-grounded answers, approved knowledge sources, conversation analytics, knowledge-gap discovery, private team use, and bounded actions through customer-configured Skills, APIs, connectors, and workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can it help with plant and flower care questions after delivery?",
+      "answer": "Yes. Train the agent on your care cards, plant guides, product pages, and FAQ content. Customers can ask how to refresh roses, care for orchids, place low-light plants, or handle a drooping arrangement, and the agent can answer from your approved instructions or escalate product-quality concerns.",
+      "role": "Designers and sales staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will designers still control the final design, substitution, and pricing decisions?",
+      "answer": "Yes. DocsBot is best used to answer routine questions, gather context, and draft or summarize requests. Human florists should keep final control over custom design feasibility, premium substitutions, wedding pricing, funeral exceptions, refund decisions, and any promise that depends on inventory or delivery capacity.",
+      "role": "Designers and sales staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can an event coordinator use DocsBot before a consultation call?",
+      "answer": "DocsBot can summarize the couple’s inquiry, list missing details, pull package guidance, draft follow-up questions, and prepare a concise consultation brief. With approved workflows, it can forward the summary to email, a task system, CRM-style record, or scheduling process for human follow-up.",
+      "role": "Event and wedding coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support both retail orders and higher-value corporate or event work?",
+      "answer": "Yes. The same knowledge layer can answer everyday bouquet, plant, delivery, and care questions while also collecting structured event, wedding, sympathy, and corporate inquiry details. Different instructions and handoff rules can route simple questions to self-service and higher-value opportunities to the right person.",
+      "role": "Owners and general managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What buyer concern should we address before turning on AI Actions?",
+      "answer": "Define exactly what the agent may access, what it may change, and when a person must review. For florists, a safe first phase is usually read-only answers, lead intake, summaries, and task creation. Later, you can add scoped lookups or approved updates with logs, permissions, and clear exception rules.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Why is occasion-based guidance important for flower buyers?",
+      "answer": "Many customers shop around a specific moment rather than a product name. The Society of American Florists reports that 77% of cut-flower purchases are occasion-driven. DocsBot can use your occasion guides and catalog to ask better questions and help shoppers choose appropriate arrangements faster.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-saf-consumer-buying"
+      ]
+    }
+  ]
+}

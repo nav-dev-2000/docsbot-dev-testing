@@ -1,0 +1,749 @@
+{
+  "slug": "car-auction-house",
+  "business": "Car Auction House",
+  "industryCategory": "Motor Vehicle",
+  "pageMeta": {
+    "title": "AI Agents for Faster Car Auction Operations",
+    "description": "DocsBot helps car auction houses answer bidder questions, retrieve vehicle details, route issues, and reduce repetitive auction support work.",
+    "canonicalPath": "/industry/car-auction-house"
+  },
+  "hero": {
+    "eyebrow": "AI automation for vehicle auction teams, bidders, consignors, and staff",
+    "headline": "DocsBot AI agents keep car auction questions moving",
+    "subheadline": "Train DocsBot on auction rules, buyer guides, catalog notes, title procedures, transport policies, fee schedules, and internal SOPs so bidders and employees can get source-grounded answers before, during, and after the sale.",
+    "proofBullets": [
+      {
+        "text": "Answer bidder questions about registration, deposits, buyer fees, payment deadlines, vehicle pickup, title timing, and auction terms from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help staff retrieve auction SOPs, consignment rules, condition-report guidance, escalation paths, and post-sale procedures without digging through folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to collect missing details, route disputes, create tasks, summarize conversations, or hand off sensitive issues to a person.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build an auction AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps a car auction house create AI agents trained on its own auction documents, website pages, PDFs, policies, SOPs, internal knowledge, and support history. The agent can answer in a website widget, support internal teams in private chat, summarize inquiries, surface knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Bidder support and front-office teams",
+        "roleContext": "Auction support teams field repeat questions about bidder registration, sale rules, fees, deposits, inspection limits, title status, pickup windows, payment deadlines, and account access.",
+        "bullets": [
+          {
+            "text": "Give bidders consistent answers from current auction rules, terms, fee schedules, and public FAQs.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Collect the VIN, lot number, bidder ID, sale date, and contact details before routing an issue to a human agent.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate title, payment, dispute, or identity-sensitive questions instead of letting automation make high-impact decisions.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Auction operations managers",
+        "roleContext": "Operations managers need staff, lanes, online listings, title desks, arbitration, transport partners, and consignor updates to follow the same rules while inventory moves quickly.",
+        "bullets": [
+          {
+            "text": "Make internal SOPs searchable for check-in, condition reporting, lane procedures, post-sale paperwork, and release rules.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize recurring bidder questions and show which auction policies need clearer documentation.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support more than 100 languages for bidders or consignors who need help understanding approved auction information.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Sales, consignor, and dealer relations teams",
+        "roleContext": "Dealer relations teams can use a DocsBot agent as a presales and account support assistant trained on consignment packages, sale formats, marketing options, and seller onboarding documents.",
+        "bullets": [
+          {
+            "text": "Answer consignor questions about sale channels, required vehicle documents, title handling, fees, and next steps.",
+            "icon": "TruckIcon"
+          },
+          {
+            "text": "Qualify inbound seller interest with customer-defined rules, then forward summaries to CRM, email, forms, or other approved systems.",
+            "icon": "RocketLaunchIcon"
+          },
+          {
+            "text": "Draft follow-up notes for human review using approved service descriptions, policy language, and conversation context.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-naaa-2025-volume",
+      "metric": "More than 8 million wholesale vehicles sold in 2025",
+      "claim": "NAAA reported that member auctions sold more than an estimated 8 million wholesale used vehicles in 2025, including 820,000 digital-only transactions.",
+      "sourceTitle": "AuctionNetUSA - National Auto Auction Association",
+      "sourceUrl": "https://naaa.com/auctionnetusa/",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "auction volume",
+        "digital auction scale",
+        "operations workload"
+      ]
+    },
+    {
+      "id": "src-ftc-used-car-rule",
+      "metric": "Buyers Guide required for covered used vehicles",
+      "claim": "The FTC says most dealers selling or offering more than five used vehicles in a 12-month period must comply with the Used Car Rule, and public auctions involving dealers and auction companies must comply.",
+      "sourceTitle": "Dealer's Guide to the Used Car Rule",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/dealers-guide-used-car-rule",
+      "sourceDate": "FTC business guidance",
+      "bestUsedFor": [
+        "consumer disclosure requirements",
+        "public auction compliance",
+        "used vehicle documentation"
+      ]
+    },
+    {
+      "id": "src-ftc-buying-used-car",
+      "metric": "Used car buyers are entitled to Buyers Guides online and offline",
+      "claim": "The FTC advises consumers that dealers must display a Buyers Guide in every used car offered for sale and that buyers are entitled to a Buyers Guide when buying a used car online.",
+      "sourceTitle": "Buying a Used Car From a Dealer",
+      "sourceUrl": "https://consumer.ftc.gov/node/298671",
+      "sourceDate": "FTC consumer guidance",
+      "bestUsedFor": [
+        "buyer expectations",
+        "online used car disclosure",
+        "customer education"
+      ]
+    },
+    {
+      "id": "src-nmvtis-consumers",
+      "metric": "87% of U.S. vehicle population currently in NMVTIS",
+      "claim": "The Bureau of Justice Assistance says 87% of the U.S. vehicle population is currently in NMVTIS and that the system contains approximately 20 million salvage or total loss records.",
+      "sourceTitle": "For Consumers - National Motor Vehicle Title Information System",
+      "sourceUrl": "https://vehiclehistory.bja.ojp.gov/nmvtis_consumers",
+      "sourceDate": "BJA vehicle history guidance",
+      "bestUsedFor": [
+        "vehicle history complexity",
+        "title and salvage research",
+        "buyer risk education"
+      ]
+    },
+    {
+      "id": "src-nmvtis-report",
+      "metric": "NMVTIS reports can warn about brand, salvage, or total loss history",
+      "claim": "BJA explains that an NMVTIS Vehicle History Report can help consumers identify potentially unsafe vehicles when brand, total loss, or salvage history appears.",
+      "sourceTitle": "Understanding an NMVTIS Vehicle History Report",
+      "sourceUrl": "https://vehiclehistory.bja.ojp.gov/redirect-legacy/nmvtis_understandingvhr.html",
+      "sourceDate": "BJA vehicle history guidance",
+      "bestUsedFor": [
+        "title brand education",
+        "salvage disclosure context",
+        "vehicle history support"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Bidder registration and auction rule assistant",
+      "problem": "New and returning bidders often ask the same questions about registration, deposits, bidding rules, account setup, payment deadlines, pickup windows, and sale terms.",
+      "agentWorkflow": "DocsBot answers from the auction house’s registration pages, terms of sale, bidder FAQs, fee schedules, and policy documents. When configured, the agent can collect missing account details, summarize the request, and route it to bidder support for review or approval.",
+      "liveContextOrTools": "Use customer-configured Skills, APIs, forms, or helpdesk workflows to look up approved account status, create a support task, or hand off a registration issue with conversation context.",
+      "exampleQuestionsOrRequests": [
+        "What do I need before I can bid online?",
+        "How much is the deposit for this sale?",
+        "Can you explain the buyer fee and payment deadline for lot 184?",
+        "I registered but cannot bid. Can someone review my account?"
+      ],
+      "businessOutcome": "Reduces repetitive front-desk questions while keeping approval-sensitive bidder access decisions with staff.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Vehicle listing and condition-report Q&A",
+      "problem": "Bidders need fast answers about lot details, inspection notes, run condition, disclosures, photos, sale location, and document availability before they decide whether to bid.",
+      "agentWorkflow": "DocsBot can be trained on public catalog pages, lot descriptions, inspection notes, FAQs, auction policies, and vehicle disclosure documents so it can explain where information appears and what the auction house’s terms mean.",
+      "liveContextOrTools": "With approved live context, the agent can look up a lot number, retrieve current public listing metadata, summarize available disclosures, and escalate questions that require inspection judgment or legal interpretation.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find the condition report for this VIN?",
+        "Does this listing say the vehicle runs and drives?",
+        "What does the auction’s as-is policy mean?",
+        "Can I inspect this vehicle before sale day?"
+      ],
+      "businessOutcome": "Improves self-service for bidders while helping staff avoid giving inconsistent answers about high-stakes vehicle condition details.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-nmvtis-report"
+      ]
+    },
+    {
+      "name": "Title, Buyers Guide, and disclosure knowledge agent",
+      "problem": "Public auctions and used vehicle sellers handle sensitive disclosure questions that can involve Buyers Guides, warranty status, title brands, odometer information, salvage history, and state-specific paperwork.",
+      "agentWorkflow": "DocsBot can answer from approved compliance checklists, public guidance, internal title SOPs, Buyers Guide instructions, state process notes, and escalation policies. It can provide source-grounded procedural help without making legal determinations.",
+      "liveContextOrTools": "A configured Skill can gather VIN, lot number, sale date, buyer ID, and document type, then route a title or disclosure issue to the title desk, compliance team, or legal reviewer.",
+      "exampleQuestionsOrRequests": [
+        "Where is the Buyers Guide for this public auction vehicle?",
+        "What does rebuilt or salvage title mean in our auction documents?",
+        "Who handles a missing title after the sale?",
+        "What information should I include when contacting the title desk?"
+      ],
+      "businessOutcome": "Helps bidders and employees find the right disclosure information while preserving human review for legal, title, warranty, and dispute decisions.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ftc-used-car-rule",
+        "src-ftc-buying-used-car"
+      ]
+    },
+    {
+      "name": "Post-sale payment, release, and transport workflow",
+      "problem": "After the hammer falls, support volume shifts to invoices, payment confirmation, gate release, storage fees, pickup appointments, transport instructions, and document status.",
+      "agentWorkflow": "DocsBot answers from post-sale instructions, payment FAQs, release rules, transport policies, fee schedules, and storage timelines. It can summarize the buyer’s request and prepare the right handoff for accounting, gate, title, or transport teams.",
+      "liveContextOrTools": "Through approved APIs, connectors, or workflow automations, an agent can look up permitted order status, create a pickup task, notify an internal channel, or route a payment question for staff review.",
+      "exampleQuestionsOrRequests": [
+        "When is payment due for my winning bid?",
+        "What documents are needed before vehicle release?",
+        "How do I schedule pickup for a transported unit?",
+        "Why was a storage fee added to my invoice?"
+      ],
+      "businessOutcome": "Keeps post-sale work organized by giving buyers clear next steps and sending exceptions to the right team with context attached.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Consignor and dealer sales enablement assistant",
+      "problem": "Consignors and dealer partners want clear answers about sale lanes, digital-only options, marketing packages, title requirements, pricing support, and onboarding steps.",
+      "agentWorkflow": "DocsBot can act as a presales and account support agent trained on consignment guides, dealer onboarding materials, service catalogs, sales playbooks, case studies, and objection-handling notes. It can qualify seller interest using auction-defined rules.",
+      "liveContextOrTools": "With configured lead forms, CRM workflows, email, Slack, Microsoft Teams, or other approved systems, the agent can forward qualified seller summaries and draft follow-up for human review.",
+      "exampleQuestionsOrRequests": [
+        "What do I need to consign a fleet of off-lease vehicles?",
+        "Do you support digital-only sale channels?",
+        "Which documents are required before a car can run?",
+        "Can someone contact me about selling 30 units next month?"
+      ],
+      "businessOutcome": "Helps dealer relations teams respond quickly to seller inquiries while keeping pricing, contracts, and account commitments in human hands.",
+      "icon": "BriefcaseIcon",
+      "sourceIds": [
+        "src-naaa-2025-volume"
+      ]
+    },
+    {
+      "name": "Auction knowledge-gap and support trend reporting",
+      "problem": "Auction teams often know support is busy, but not always which policies, listings, or post-sale steps are causing the most confusion.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see repeated bidder and staff questions over time.",
+      "liveContextOrTools": "Teams can review conversation patterns, identify missing documentation, improve auction FAQs, and refine internal playbooks before high-volume sale days.",
+      "exampleQuestionsOrRequests": [
+        "Which sale-day questions are being asked most often?",
+        "Are bidders confused about payment deadlines or pickup rules?",
+        "What internal SOPs should we document better?",
+        "Which vehicle listing topics create the most escalations?"
+      ],
+      "businessOutcome": "Turns auction support conversations into practical documentation improvements and operational coaching opportunities.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give bidders a source-grounded auction helper before they contact staff",
+    "intro": "A DocsBot customer-facing AI agent can sit on your auction website or bidder portal and answer from the policies, catalogs, FAQs, fee schedules, and vehicle information you approve. It can collect context, explain next steps, and escalate sensitive issues to your team.",
+    "requests": [
+      {
+        "request": "“How do I register and get approved to bid?”",
+        "agentResponseStrategy": "Explain the registration steps from approved bidder documentation, identify missing information the bidder may need, and route account-specific approval issues to staff.",
+        "sourceTypes": [
+          "Bidder registration pages",
+          "Terms of sale",
+          "Account approval FAQs"
+        ],
+        "optionalAction": "Create a support task or forward a structured intake form through a customer-configured workflow.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“What fees apply if I win this vehicle?”",
+        "agentResponseStrategy": "Answer from current buyer fee schedules, payment instructions, storage rules, and sale terms, then advise the bidder to confirm any account-specific or sale-specific exception with staff.",
+        "sourceTypes": [
+          "Buyer fee schedules",
+          "Sale terms",
+          "Payment FAQs"
+        ],
+        "optionalAction": "Collect lot number and sale date, then hand off complex billing questions to accounting.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“Where can I find title, vehicle history, or salvage information?”",
+        "agentResponseStrategy": "Point the bidder to approved auction disclosures, title desk instructions, Buyers Guide resources where applicable, and vehicle-history guidance without making legal or safety judgments.",
+        "sourceTypes": [
+          "Title SOPs",
+          "Disclosure pages",
+          "Buyers Guide guidance",
+          "Vehicle history FAQs"
+        ],
+        "optionalAction": "Route VIN, lot number, and document questions to the title team for review.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-nmvtis-consumers"
+        ]
+      },
+      {
+        "request": "“Can I pick up my vehicle tomorrow?”",
+        "agentResponseStrategy": "Use pickup policies, gate hours, release requirements, payment rules, and transport instructions to explain what must happen before release.",
+        "sourceTypes": [
+          "Pickup policies",
+          "Gate procedures",
+          "Payment confirmation rules",
+          "Transport instructions"
+        ],
+        "optionalAction": "Trigger a configured pickup request, internal notification, or transport handoff when approved by the auction house.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I think the listing or condition report is wrong.”",
+        "agentResponseStrategy": "Collect the lot number, VIN, sale date, concern type, photos or documents if your workflow allows, and escalate to arbitration or support rather than deciding the dispute automatically.",
+        "sourceTypes": [
+          "Arbitration policies",
+          "Condition report guidance",
+          "Support escalation SOPs"
+        ],
+        "optionalAction": "Create an arbitration intake ticket or summarize the issue for human review.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I speak with someone about selling vehicles through your auction?”",
+        "agentResponseStrategy": "Answer from consignor onboarding materials and qualify the inquiry using auction-defined rules such as seller type, vehicle volume, location, timeline, and preferred sale format.",
+        "sourceTypes": [
+          "Consignor guides",
+          "Dealer onboarding docs",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Forward a qualified seller summary to CRM, email, forms, or a sales queue through configured automation.",
+        "icon": "RocketLaunchIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help auction staff find the right procedure while vehicles keep moving",
+    "intro": "DocsBot can also run as a private internal knowledge agent for title desks, gate teams, bidder support, arbitration, sales, operations, and managers. Train it on SOPs, policies, manuals, PDFs, internal wikis, and approved team knowledge so employees get consistent answers fast.",
+    "workflows": [
+      {
+        "name": "Title desk procedure lookup",
+        "problem": "Title and document questions can depend on sale type, state paperwork, buyer status, odometer notes, lien documents, and escalation rules.",
+        "agentWorkflow": "Staff ask the internal agent for the correct procedure, required documents, exception path, or handoff owner. The answer is grounded in internal SOPs and links back to source material.",
+        "sourceTypes": [
+          "Title SOPs",
+          "State process notes",
+          "Document checklists",
+          "Escalation policies"
+        ],
+        "optionalAction": "Summarize a title issue and create a task for the correct desk through a configured workflow.",
+        "outcome": "Fewer inconsistent answers and faster triage for title-related bottlenecks.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Lane, check-in, and vehicle release SOPs",
+        "problem": "Auction-day teams need quick access to lane procedures, check-in rules, gate release requirements, storage policies, and exception handling.",
+        "agentWorkflow": "The internal agent answers staff questions from approved operations playbooks, training materials, and policy documents, helping new or temporary staff follow current procedures.",
+        "sourceTypes": [
+          "Operations manuals",
+          "Lane procedures",
+          "Gate release SOPs",
+          "Training documents"
+        ],
+        "optionalAction": "Notify a manager or create an exception task when a staff member flags a blocked release or process issue.",
+        "outcome": "Keeps operational knowledge accessible during high-pressure sale-day work.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Arbitration and dispute intake support",
+        "problem": "Condition disputes, payment conflicts, vehicle pickup problems, and document issues need clean intake before a human reviewer can decide next steps.",
+        "agentWorkflow": "DocsBot gathers required details, summarizes the timeline, identifies the relevant policy section, and routes the case to the correct human workflow without deciding the outcome.",
+        "sourceTypes": [
+          "Arbitration policies",
+          "Terms of sale",
+          "Condition report rules",
+          "Support ticket history"
+        ],
+        "optionalAction": "Create a structured dispute summary in a helpdesk, ticketing system, or review queue through customer-configured connectors.",
+        "outcome": "Improves handoff quality while keeping dispute decisions under human control.",
+        "icon": "ScaleIcon"
+      },
+      {
+        "name": "Dealer relations sales desk",
+        "problem": "Sales and account teams need quick access to consignment options, seller onboarding steps, account notes, objections, and approved follow-up language.",
+        "agentWorkflow": "A sales enablement agent retrieves approved answers, drafts follow-up, summarizes seller conversations, and helps reps prepare for calls using internal sales materials and public prospect research when configured.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Consignment packages",
+          "Pricing guidance",
+          "Proposal templates",
+          "Approved public research"
+        ],
+        "optionalAction": "Draft an email, create a CRM task, or update approved fields through configured Skills and APIs.",
+        "outcome": "Helps reps respond faster while humans retain control over pricing, contracts, and commitments.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Support analytics and documentation improvement",
+        "problem": "Repeated bidder questions can reveal outdated FAQs, unclear lot pages, missing policy explanations, or training gaps.",
+        "agentWorkflow": "Managers review DocsBot logs, reports, topic trends, satisfaction and resolution analysis, and unresolved questions to improve help content and staff training.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support topics",
+          "FAQ pages",
+          "Internal policy docs"
+        ],
+        "optionalAction": "Create documentation tasks or notify content owners when a recurring knowledge gap appears.",
+        "outcome": "Improves self-service quality over time instead of treating every question as a one-off ticket.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer customer questions from the business’s own websites, help centers, documents, internal content, and other configured knowledge sources.",
+      "industryApplication": "Auction houses can train agents on bidder FAQs, terms of sale, fee schedules, catalog notes, pickup policies, title instructions, and public disclosure content so answers stay aligned with approved rules.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees using internal documents, SOPs, policies, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other company knowledge.",
+      "industryApplication": "Title desks, gate teams, bidder support, dealer relations, and managers can ask procedure questions from a controlled knowledge base instead of searching shared folders during live auction work.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, routing, record creation, record updates, notifications, and workflow triggers through customer-defined controls.",
+      "industryApplication": "A car auction house can configure approved actions for bidder intake, lot-status lookup, pickup request routing, title desk handoffs, arbitration summaries, CRM lead forwarding, or Model Context Protocol tool access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can connect to helpdesk software through customer-configured Skills, APIs, connectors, exports, or workflows to learn from, summarize, route, answer, or draft responses to tickets.",
+      "industryApplication": "Auction support teams can use DocsBot to summarize bidder issues, draft policy-grounded responses, route title or payment problems, and keep humans involved for exceptions and disputes.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Auction managers can see whether bidders are repeatedly confused about fees, deposits, vehicle release, Buyers Guides, title timing, online bidding, or transport instructions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Auction houses can keep internal SOPs, bidder support context, sales materials, and workflow credentials governed with access controls and customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions with source-grounded answers from approved business content.",
+      "Supports website widgets and human support workflows for teams that need self-service plus escalation.",
+      "Can train on manuals, websites, knowledge bases, and multilingual content for vehicle-related support experiences."
+    ],
+    "whyTheseReviewsFit": "Car auction houses need fast, reliable answers across listings, policies, documents, and support channels. DocsBot proof spans high-volume customer support, owned-content training, embedded website assistance, and multilingual vehicle-related support, all useful for auction teams serving bidders, dealers, and consignors.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "UserGroupIcon",
+      "LanguageIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for car auction houses",
+    "audience": [
+      "Car auction operators",
+      "Wholesale auto auction teams",
+      "Public vehicle auction houses",
+      "Dealer relations and consignor teams",
+      "Auction bidder support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "used-car-sales",
+    "new-motor-vehicle-sales",
+    "fleet-management",
+    "vehicle-leasing",
+    "motor-vehicle-rental",
+    "automotive-part-sales"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "car-auction-house",
+    "webSearchQueries": [
+      "National Auto Auction Association annual report vehicles sold auctions 2024",
+      "FTC used car rule buyers guide dealer auctions vehicles",
+      "National Motor Vehicle Title Information System salvage total loss vehicle history auctions",
+      "NAAA 2025 market intelligence report 8 million vehicles sold 2025 auctions",
+      "site:vehiclehistory.bja.ojp.gov NMVTIS vehicle history title brand salvage total loss consumers"
+    ],
+    "sourceUrls": [
+      "https://naaa.com/auctionnetusa/",
+      "https://www.ftc.gov/business-guidance/resources/dealers-guide-used-car-rule",
+      "https://consumer.ftc.gov/node/298671",
+      "https://vehiclehistory.bja.ojp.gov/nmvtis_consumers",
+      "https://vehiclehistory.bja.ojp.gov/redirect-legacy/nmvtis_understandingvhr.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 67459,
+        "cachedInputTokens": 18304,
+        "billableInputTokens": 49155,
+        "outputTokens": 20310,
+        "reasoningOutputTokens": 307,
+        "totalTokens": 87769,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.432115,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.462115
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21591,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14295,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 117,
+          "totalTokens": 33591,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217562,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227562
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25833,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18537,
+          "outputTokens": 5458,
+          "reasoningOutputTokens": 190,
+          "totalTokens": 31291,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.130037,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.150037
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20035,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 16323,
+          "outputTokens": 2852,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22887,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.084516,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.084516
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1573710459621-bb101783ca0f?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxhdWN0aW9ufGVufDB8MHx8fDE3MTQ4NzgwNTl8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Car Auction House background image",
+    "source": "legacy-industry",
+    "query": "Car Auction House"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer bidder questions without giving the wrong interpretation of our auction terms?",
+      "answer": "Yes. DocsBot is designed to answer from the auction documents, bidder FAQs, terms of sale, fee schedules, pickup policies, and disclosure content you approve. For sensitive questions—title disputes, account approvals, payment exceptions, arbitration, or legal interpretation—you can instruct the agent to explain the documented process and escalate to staff instead of deciding the outcome.",
+      "role": "Bidder support and front-office teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would an AI agent help during peak sale-day call volume?",
+      "answer": "DocsBot can handle repetitive questions about registration, deposits, buyer fees, payment deadlines, lot information, pickup windows, gate rules, and sale terms through a website widget or support workflow. That is especially useful in a high-volume auction environment: NAAA reported member auctions sold more than an estimated 8 million wholesale used vehicles in 2025, including 820,000 digital-only transactions.",
+      "role": "Auction operations managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-naaa-2025-volume"
+      ]
+    },
+    {
+      "question": "Can the agent look up a lot number, VIN, or buyer issue instead of only answering static FAQs?",
+      "answer": "It can when you configure the right Skills, APIs, connectors, metadata, or workflow access. A DocsBot agent can collect a lot number, VIN, bidder ID, sale date, and contact details, then use approved live context for bounded actions such as permitted status lookups, support-task creation, routing, summaries, or handoffs. You control which systems it can access and what it can do.",
+      "role": "Bidder support and front-office teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot replace our title desk, arbitration team, or bidder approval staff?",
+      "answer": "No. A realistic auction deployment keeps humans in charge of high-impact decisions. DocsBot can gather facts, point to the relevant policy, summarize the conversation, and route the issue to the title desk, accounting, compliance, arbitration, or bidder support. It should not approve bidders, resolve disputes, make warranty determinations, or decide title exceptions on its own.",
+      "role": "Auction operations managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us with Buyers Guide and used-vehicle disclosure questions?",
+      "answer": "DocsBot can answer procedural questions from your approved Buyers Guide instructions, disclosure pages, title SOPs, and compliance checklists, while escalating legal or vehicle-specific determinations. This matters because the FTC says public auctions involving dealers and auction companies must comply with the Used Car Rule, and buyers are entitled to Buyers Guides when buying covered used vehicles online or offline.",
+      "role": "Auction operations managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-used-car-rule",
+        "src-ftc-buying-used-car"
+      ]
+    },
+    {
+      "question": "How do we prevent the AI from making promises about vehicle condition, run status, or as-is terms?",
+      "answer": "Train the agent to quote or summarize only approved listing data, condition-report language, inspection policies, and sale terms. You can also define refusal and escalation rules so it avoids subjective judgments like “this car is safe” or “you should bid.” For disputed condition issues, the agent can collect lot details, photos, and the concern type, then route the case to a human reviewer.",
+      "role": "Bidder support and front-office teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent explain salvage, title brand, or vehicle history topics to bidders?",
+      "answer": "Yes, if you train it on your disclosure content, title procedures, and approved vehicle-history education. It should explain where the bidder can find information and what your documented terms say, not make legal or safety judgments. NMVTIS coverage makes this topic common: BJA says 87% of the U.S. vehicle population is currently in NMVTIS, with about 20 million salvage or total-loss records.",
+      "role": "Bidder support and front-office teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nmvtis-consumers"
+      ]
+    },
+    {
+      "question": "What internal knowledge would we need to prepare before launch?",
+      "answer": "Start with the documents your staff already rely on: bidder registration steps, terms of sale, fee schedules, payment deadlines, gate release rules, storage policies, title SOPs, arbitration procedures, consignment guides, lane/check-in playbooks, transport instructions, and escalation paths. DocsBot can train on websites, PDFs, Word files, wikis, Google Drive, Notion, Confluence, and other approved knowledge sources.",
+      "role": "Auction operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "How long does it take to get value if our policies are spread across PDFs, web pages, and shared folders?",
+      "answer": "DocsBot is a strong fit when auction knowledge is scattered but already documented. You can begin with high-volume public content—registration, fees, payment, pickup, title FAQs—and then add internal SOPs for staff. The first rollout should focus on a narrow set of repeat questions, review logs, fix missing content, and expand once answers are trusted.",
+      "role": "Auction operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use different answers for public bidders and internal staff?",
+      "answer": "Yes. You can deploy a customer-facing agent trained on public auction information and a private internal knowledge agent trained on SOPs, title procedures, escalation rules, sales playbooks, and internal documentation. Access controls and role-based permissions help keep internal policies separate from bidder-facing answers.",
+      "role": "Auction operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle multilingual bidders or consignors?",
+      "answer": "DocsBot can answer in more than 100 languages, which can help bidders or consignors understand approved auction information such as registration steps, fees, pickup rules, and title procedures. The safest approach is to keep the source material authoritative, require the agent to stay within approved policy language, and escalate sensitive issues regardless of language.",
+      "role": "Bidder support and front-office teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot reduce repetitive post-sale calls about payment, release, pickup, and storage fees?",
+      "answer": "Yes. Post-sale support is a strong use case because many questions are procedural: payment deadlines, invoice next steps, release requirements, gate hours, storage timelines, transport instructions, and document status. DocsBot can answer from approved policies and, when configured, collect the lot number or buyer ID before routing exceptions to accounting, gate, title, or transport staff.",
+      "role": "Bidder support and front-office teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What ROI should we measure for an auction AI agent?",
+      "answer": "Track avoided repetitive contacts, first-response time, after-hours self-service volume, escalation quality, registration completion support, post-sale ticket reduction, staff time spent searching SOPs, and recurring knowledge gaps fixed before sale day. For dealer relations, also measure qualified consignor inquiries captured, faster follow-up, and cleaner handoffs to sales.",
+      "role": "Auction operations managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help our dealer relations team qualify consignor leads?",
+      "answer": "Yes. DocsBot can be trained on consignment packages, seller onboarding documents, sale formats, marketing options, title requirements, and sales playbooks. It can collect seller type, vehicle volume, location, timeline, and preferred sale channel, then forward a structured summary to CRM, email, forms, or a sales queue through customer-configured workflows for human follow-up.",
+      "role": "Sales, consignor, and dealer relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will our operations team need developers to connect DocsBot to auction systems?",
+      "answer": "Basic knowledge-agent deployments can start with documents, web pages, PDFs, and internal content. Live lookups or actions—such as checking approved order status, creating a pickup task, or sending a title issue to a queue—typically require customer-configured Skills, APIs, connectors, webhooks, or MCP servers, with permissions and boundaries defined by your technical team.",
+      "role": "Auction operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot work with our helpdesk or ticketing process?",
+      "answer": "Yes, but it should be framed around your configured workflow. DocsBot can support helpdesk-connected use cases such as summarizing bidder issues, drafting policy-grounded replies, routing title or payment questions, creating structured intake, or learning from exported ticket sources when you provide the appropriate Skills, APIs, connectors, or approved access.",
+      "role": "Bidder support and front-office teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we audit what the AI told a bidder if there is a complaint or dispute?",
+      "answer": "DocsBot provides logs, conversation review, analytics, topic management, reports, and satisfaction or resolution analysis. For auction teams, that means managers can review what was asked, how the agent responded, where escalation happened, and which policy content may need improvement. Sensitive workflows should also keep human review points and ticket records in your systems.",
+      "role": "Auction operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we keep the agent current when fees, sale rules, pickup windows, or title procedures change?",
+      "answer": "Treat DocsBot as part of your policy-publishing workflow. Update the approved source document or page, remove outdated versions, and review recurring unanswered questions after each sale cycle. For high-risk content like buyer fees, payment deadlines, title timing, and release requirements, assign content owners and run periodic answer reviews before major auctions.",
+      "role": "Auction operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support temporary staff or new hires during busy auction weeks?",
+      "answer": "Yes. A private internal knowledge agent can answer staff questions from lane procedures, check-in rules, gate release SOPs, title desk processes, storage policies, and escalation paths. This helps new, seasonal, or cross-trained employees find the current procedure quickly without interrupting experienced staff during live auction operations.",
+      "role": "Auction operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What security controls matter if the agent can access internal SOPs or workflow credentials?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy of not using customer data to train public models. For actions, Skills can be configured with secrets, metadata bindings, logging, network policy, and customer-defined controls so credentials stay out of chat.",
+      "role": "Auction operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or website search tool?",
+      "answer": "The key difference is operational fit. DocsBot is not just a static FAQ widget: it can provide source-grounded answers from your auction documents, support private internal knowledge use cases, review conversations, surface knowledge gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or workflows. That makes it better suited to policy-heavy auction support.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What happens when the bidder asks for something the agent should not answer?",
+      "answer": "You can define boundaries for refusal, clarification, and escalation. For example, the agent can avoid legal advice, bidder approval decisions, arbitration outcomes, vehicle safety judgments, payment exceptions, and title determinations. Instead, it can collect required details, summarize the issue, cite the relevant policy section, and hand it to the right human team.",
+      "role": "Bidder support and front-office teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot tell managers which policies are causing the most confusion?",
+      "answer": "Yes. DocsBot analytics, logs, reports, topic management, satisfaction and resolution analysis, and knowledge-gap discovery can show repeated questions about deposits, fees, payment deadlines, pickup rules, Buyers Guides, title timing, online bidding, transport, or arbitration. Managers can use those patterns to improve FAQs, bidder emails, staff training, and sale-day documentation.",
+      "role": "Auction operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we avoid exposing internal rules, pricing guidance, or consignor notes to public bidders?",
+      "answer": "Separate the public bidder agent from the private internal or dealer-relations agent, and limit each one to the correct sources. DocsBot access controls and role-based permissions help keep internal SOPs, sales playbooks, account notes, pricing guidance, and escalation procedures restricted while public users only receive approved bidder-facing information.",
+      "role": "Sales, consignor, and dealer relations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent help with arbitration intake without creating liability?",
+      "answer": "It can support intake, not decide the case. Configure DocsBot to collect the lot number, VIN, sale date, buyer details, concern type, supporting photos or documents, and timeline. It can then summarize the issue, identify the relevant arbitration policy language, and route it to the correct human queue for review.",
+      "role": "Auction operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What procurement concerns should we address before approving an auction AI agent?",
+      "answer": "Common concerns include data security, access controls, whether customer data trains public models, implementation effort, ownership of source content, escalation rules, audit logs, integration scope, and who maintains policy updates. For auction houses, procurement should also confirm how title, payment, dispute, and identity-sensitive workflows remain under human control.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

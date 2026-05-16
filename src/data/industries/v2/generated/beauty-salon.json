@@ -1,0 +1,705 @@
+{
+  "slug": "beauty-salon",
+  "business": "Beauty Salon",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Beauty Salon Service and Booking Support",
+    "description": "DocsBot helps beauty salons answer service questions, guide booking requests, and surface aftercare instructions with AI agents trained on salon knowledge.",
+    "canonicalPath": "/industry/beauty-salon"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for modern salon teams",
+    "headline": "Keep beauty salon guests informed before and after every visit",
+    "subheadline": "DocsBot helps beauty salons create AI agents trained on service menus, booking policies, stylist bios, product guidance, aftercare instructions, promotions, and internal SOPs so guests get fast answers and staff spend less time repeating the same information.",
+    "proofBullets": [
+      {
+        "text": "Answer guest questions about services, preparation, aftercare, deposits, cancellations, products, and promotions from approved salon content.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Collect booking intent, preferred service, stylist, timing, and contact details before routing the request to your team or configured scheduling workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give stylists and front desk staff instant access to SOPs, consultation notes, retail guidance, and policy answers in private team chat.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated guest questions, missing FAQ topics, and unclear service descriptions.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a salon AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your salon’s own knowledge into customer-facing and internal AI agents. Train agents on service pages, FAQs, care guides, retail product notes, policies, PDFs, websites, and team documents, then deploy them in a website widget or private team experience. With configured AI Actions, Skills, APIs, connectors, or workflows, agents can collect details, trigger handoffs, summarize requests, and support approved booking or ticket flows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and managers",
+        "roleContext": "Salon leaders need every inquiry handled consistently without losing the warmth of a high-touch service business.",
+        "bullets": [
+          {
+            "text": "Keep answers aligned with your current service menu, cancellation policy, retail guidance, and promotion details.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "See analytics on unanswered questions so you can improve FAQs, intake forms, service descriptions, and staff training materials.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support evening and weekend inquiries when BLS notes salons and barbershops are often busiest during those times.",
+            "icon": "ClockIcon",
+            "sourceIds": [
+              "src-bls-cosmetology"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front desk and guest care teams",
+        "roleContext": "Reception staff often juggle calls, texts, walk-ins, appointment changes, and service questions at the same time.",
+        "bullets": [
+          {
+            "text": "Let an AI support agent answer routine questions before a guest asks the desk to repeat pricing ranges, prep steps, or policy details.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect missing booking information such as desired service, hair length, color history, preferred stylist, and timing before human follow-up.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Route complex, sensitive, or high-value consultations to a person with a conversation summary and the guest’s stated needs.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Stylists, estheticians, and service providers",
+        "roleContext": "Providers need quick access to internal standards while keeping their attention on guests in the chair.",
+        "bullets": [
+          {
+            "text": "Search approved SOPs, consultation scripts, patch-test reminders, aftercare notes, and retail talking points from one internal assistant.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Make product safety and care documentation easier to find when guests ask about ingredients, allergies, or maintenance steps.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Review recurring questions from clients to identify where service descriptions or aftercare handouts need clearer language.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "ScissorsIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-cosmetology",
+      "metric": "575,200 cosmetology jobs in 2024",
+      "claim": "The U.S. Bureau of Labor Statistics reports that hairdressers, hairstylists, and cosmetologists held about 575,200 jobs in 2024 and that evenings and weekends may be busy periods for salons and barbershops.",
+      "sourceTitle": "Barbers, Hairstylists, and Cosmetologists: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/barbers-hairstylists-and-cosmetologists.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "evening and weekend demand",
+        "staff workload"
+      ]
+    },
+    {
+      "id": "src-datausa-beauty-salons",
+      "metric": "Beauty salons employ 97.9% of the occupation",
+      "claim": "Data USA reports that beauty salons employ the largest share of hairdressers, hairstylists, and cosmetologists, at 97.9%.",
+      "sourceTitle": "Hairdressers, Hairstylists, & Cosmetologists | Data USA",
+      "sourceUrl": "https://datausa.io/profile/soc/hairdressers-hairstylists-cosmetologists",
+      "sourceDate": "2024 workforce data",
+      "bestUsedFor": [
+        "industry concentration",
+        "salon workforce context"
+      ]
+    },
+    {
+      "id": "src-osha-formaldehyde",
+      "metric": "OSHA salon formaldehyde and hazard communication requirements",
+      "claim": "OSHA says salon employers must comply with formaldehyde and hazard communication standards when they use products that contain or may release formaldehyde, including training and appropriate protective equipment.",
+      "sourceTitle": "Hair Salons: Facts about Formaldehyde in Hair Products - Protecting Worker Health",
+      "sourceUrl": "https://osha.prod.pace.dol.gov/hair-salons/worker-health",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "workplace safety",
+        "chemical documentation",
+        "training and SOP retrieval"
+      ]
+    },
+    {
+      "id": "src-fda-hair-dyes",
+      "metric": "FDA notes allergy risks from some hair dyes",
+      "claim": "The FDA states that some coal-tar hair dyes can cause allergic reactions or sensitization, including skin irritation and hair loss, and advises medical help for reactions.",
+      "sourceTitle": "Hair Dyes | FDA",
+      "sourceUrl": "https://www.fda.gov/cosmetics/cosmetic-products/hair-dyes",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "client safety questions",
+        "ingredient and allergy guidance",
+        "aftercare documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service menu and consultation triage",
+      "problem": "Guests often ask whether they need a cut, gloss, balayage, corrective color, facial, or treatment before they know what to book.",
+      "agentWorkflow": "A DocsBot agent answers from your service menu, preparation guides, pricing notes, stylist bios, and FAQs. It can ask structured follow-up questions, collect the guest’s goals and timing, summarize the request, and route it to the front desk or consultation queue for a human decision.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, forms, or workflow automations, the agent can submit a consultation intake, create a task, notify staff, or pass the summary into booking software where authorized.",
+      "exampleQuestionsOrRequests": [
+        "Which color service should I choose if I have box dye on my hair?",
+        "Do I need a consultation before booking extensions?",
+        "Can you send my request to someone who handles curly cuts?"
+      ],
+      "businessOutcome": "Reduces back-and-forth before appointments while keeping stylists responsible for service fit, final pricing, and chemical-service decisions.",
+      "icon": "ScissorsIcon"
+    },
+    {
+      "name": "Booking policy and appointment request support",
+      "problem": "Front desk teams can lose time repeating deposit rules, cancellation windows, late policies, service duration estimates, and rescheduling steps.",
+      "agentWorkflow": "The agent answers policy questions from approved salon documents, asks for service type and preferred times, and collects contact details. If a booking action is configured, it can trigger an approved scheduling workflow or prepare a handoff for staff to complete.",
+      "liveContextOrTools": "AI Actions can support scoped scheduling intent collection, handoffs, reminders, task creation, or approved lookup workflows through customer-configured connectors, APIs, Skills, or MCP servers.",
+      "exampleQuestionsOrRequests": [
+        "What is your cancellation policy for color appointments?",
+        "Can I request an appointment with Maya next Thursday?",
+        "How long should I plan for a full highlight and toner?"
+      ],
+      "businessOutcome": "Helps guests move from question to booking-ready request without forcing reception to manually gather the same details every time.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Aftercare and retail product guidance",
+      "problem": "Clients forget maintenance instructions after color, extensions, smoothing treatments, facials, waxing, or brow services.",
+      "agentWorkflow": "DocsBot can answer from salon-approved aftercare sheets, retail product notes, warranty language, and service-specific care instructions. It can explain what to avoid, when to wash, how to protect results, and when to contact the salon for help.",
+      "liveContextOrTools": "When configured, the agent can create a follow-up task, send a care-summary handoff, or route urgent issues to staff for review instead of making medical or diagnosis claims.",
+      "exampleQuestionsOrRequests": [
+        "When can I wash my hair after a keratin service?",
+        "Which shampoo did my stylist recommend for vivid color?",
+        "My scalp feels irritated after color. What should I do next?"
+      ],
+      "businessOutcome": "Improves consistency in post-service communication and keeps sensitive reaction questions escalated to a person or appropriate healthcare guidance.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-fda-hair-dyes"
+      ]
+    },
+    {
+      "name": "Internal SOP and safety knowledge assistant",
+      "problem": "Salon teams need quick access to procedures, product documentation, opening and closing checklists, sanitation steps, consultation standards, and chemical-service protocols.",
+      "agentWorkflow": "An internal DocsBot agent trains on SOPs, PDFs, vendor documents, safety notes, staff policies, and training content. Staff can ask questions in private chat and receive source-grounded answers instead of searching through binders, drives, and message threads.",
+      "liveContextOrTools": "The agent can summarize SOP gaps, draft updates for review, or route policy questions to a manager. OSHA notes formaldehyde and hazard communication duties for relevant salon products, making searchable safety documentation especially useful.",
+      "exampleQuestionsOrRequests": [
+        "Where is the SDS for this smoothing treatment?",
+        "What PPE do we require when mixing this product?",
+        "What is our closing checklist for color stations?"
+      ],
+      "businessOutcome": "Makes operational knowledge easier to retrieve while supporting manager review for safety, compliance, and training updates.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-formaldehyde"
+      ]
+    },
+    {
+      "name": "Promotion, membership, and lead qualification support",
+      "problem": "Guests may ask about bridal packages, memberships, gift cards, seasonal promotions, corrective color, extensions, or premium services before they are ready to call.",
+      "agentWorkflow": "A presales-style DocsBot agent answers from approved offer pages, package descriptions, FAQs, and pricing guidance. It can collect lead details, qualify intent using salon-defined rules, and forward a summary to email, CRM, helpdesk, or forms through configured workflows.",
+      "liveContextOrTools": "Customer-configured Skills or APIs can submit a lead form, create a follow-up task, update approved fields, or notify the right staff member while leaving final quotes and commitments to humans.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer bridal hair and makeup packages?",
+        "I’m interested in extensions. What do you need from me first?",
+        "Can someone contact me about a membership or package?"
+      ],
+      "businessOutcome": "Turns website interest into organized, follow-up-ready conversations without promising availability, price, or suitability beyond approved content.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Multilingual guest support",
+      "problem": "Beauty salons serve clients who may prefer to ask detailed service, care, or policy questions in another language.",
+      "agentWorkflow": "DocsBot agents can answer in more than 100 languages while staying grounded in the salon’s approved knowledge sources. The agent can clarify service terms, preparation steps, and aftercare instructions, then escalate when a human should confirm details.",
+      "liveContextOrTools": "A configured workflow can pass translated conversation summaries to staff, route the request to a bilingual team member, or create a follow-up task.",
+      "exampleQuestionsOrRequests": [
+        "Can you explain your balayage services in Spanish?",
+        "What should I do before my facial appointment?",
+        "Please summarize my question for the salon team in English."
+      ],
+      "businessOutcome": "Expands self-service access while keeping salon staff in control of service decisions and guest follow-up.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A front-desk AI agent that answers with your salon’s own policies",
+    "intro": "Place a DocsBot agent on your website so guests can ask about services, deposits, timing, preparation, products, promotions, and aftercare. The agent responds from approved sources, collects structured details when needed, and escalates conversations that require a person.",
+    "requests": [
+      {
+        "request": "“Which appointment should I book for a color correction?”",
+        "agentResponseStrategy": "Explain the difference between relevant services from the salon menu, ask for key context such as color history and desired result, and route the guest to consultation intake instead of making a final service decision.",
+        "sourceTypes": [
+          "Service menu",
+          "Consultation FAQ",
+          "Color policy",
+          "Stylist specialties"
+        ],
+        "optionalAction": "Submit a consultation form or create a staff follow-up task through an approved workflow.",
+        "icon": "ScissorsIcon"
+      },
+      {
+        "request": "“What is your deposit and cancellation policy?”",
+        "agentResponseStrategy": "Answer directly from the current policy page, clarify timing rules, and provide next steps for rescheduling or contacting the salon.",
+        "sourceTypes": [
+          "Booking policy",
+          "Cancellation policy",
+          "Website FAQ"
+        ],
+        "optionalAction": "Collect appointment details and prepare a handoff for staff if the guest needs an exception.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How do I care for my hair after a smoothing treatment?”",
+        "agentResponseStrategy": "Retrieve the salon’s approved aftercare instructions and product guidance, then recommend contacting the salon or a healthcare professional for irritation or adverse reactions.",
+        "sourceTypes": [
+          "Aftercare guides",
+          "Retail product notes",
+          "Safety guidance",
+          "Service FAQs"
+        ],
+        "optionalAction": "Create a follow-up request for the stylist if the client reports a concern.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Do you have any specials for new clients?”",
+        "agentResponseStrategy": "Share current approved promotions, eligibility rules, expiration language, and package details without inventing discounts or availability.",
+        "sourceTypes": [
+          "Promotion pages",
+          "Membership details",
+          "Gift card policy"
+        ],
+        "optionalAction": "Capture name, email, service interest, and preferred follow-up channel for a qualified lead handoff.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can you explain this service in my language?”",
+        "agentResponseStrategy": "Answer in the guest’s preferred language while grounding the response in the same approved service and policy content used for English answers.",
+        "sourceTypes": [
+          "Service descriptions",
+          "FAQs",
+          "Policies",
+          "Aftercare sheets"
+        ],
+        "optionalAction": "Send a bilingual conversation summary to the team for follow-up.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“Are your products safe if I have allergies?”",
+        "agentResponseStrategy": "Share the salon’s approved ingredient, patch-test, and consultation guidance while avoiding medical advice and escalating personal reaction concerns.",
+        "sourceTypes": [
+          "Product notes",
+          "Consultation policy",
+          "Safety documents",
+          "FDA-facing guest guidance"
+        ],
+        "optionalAction": "Route the question to staff for review before the appointment.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fda-hair-dyes"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give stylists and managers one searchable source for salon operations",
+    "intro": "DocsBot can serve as a private internal knowledge agent trained on SOPs, staff policies, service standards, vendor PDFs, safety documentation, onboarding materials, and brand guidelines so employees can get quick, source-grounded answers during busy days.",
+    "workflows": [
+      {
+        "name": "New-staff onboarding assistant",
+        "problem": "New receptionists and stylists need to learn policies, service language, booking rules, and guest experience standards quickly.",
+        "agentWorkflow": "Train DocsBot on onboarding documents, scripts, service menus, brand voice notes, and internal FAQs. Employees can ask questions and receive source-grounded answers with links back to the original materials.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Service menu",
+          "Reception scripts",
+          "Policy documents"
+        ],
+        "optionalAction": "Generate a manager-reviewed onboarding FAQ from repeated employee questions.",
+        "outcome": "Shortens the path from training binder to confident front-desk and service communication.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Safety and product documentation lookup",
+        "problem": "Chemical-service documentation, SDS files, PPE notes, and product procedures can be scattered across binders and shared drives.",
+        "agentWorkflow": "The internal agent retrieves relevant safety and product information from approved files. Staff can ask where a document is, what the salon procedure says, or which manager-owned checklist applies.",
+        "sourceTypes": [
+          "SDS files",
+          "Vendor PDFs",
+          "Chemical-service SOPs",
+          "Training checklists"
+        ],
+        "optionalAction": "Route missing or outdated documentation to a manager for review.",
+        "outcome": "Supports faster access to safety knowledge in a field where OSHA requires relevant salon employers to follow formaldehyde and hazard communication standards for applicable products.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-osha-formaldehyde"
+        ]
+      },
+      {
+        "name": "Manager analytics and content gaps",
+        "problem": "Repeated guest and employee questions reveal unclear service pages, missing aftercare instructions, or policies staff interpret differently.",
+        "agentWorkflow": "Use DocsBot analytics, logs, reports, topic management, and conversation review to identify repeated questions and unanswered topics. Managers can prioritize content updates based on what people actually ask.",
+        "sourceTypes": [
+          "Conversation logs",
+          "FAQs",
+          "Help articles",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Draft FAQ updates or policy clarifications for human approval before publishing.",
+        "outcome": "Improves guest self-service and team consistency over time.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Retail and service enablement for providers",
+        "problem": "Stylists need quick, consistent talking points for retail recommendations, memberships, packages, and premium services without memorizing every detail.",
+        "agentWorkflow": "Train an internal sales enablement agent on approved retail guides, service descriptions, objections, memberships, and package details. Providers can ask for concise talking points or follow-up summaries.",
+        "sourceTypes": [
+          "Retail guides",
+          "Package descriptions",
+          "Brand guidelines",
+          "Client follow-up templates"
+        ],
+        "optionalAction": "Draft a follow-up message for human review after a consultation or service.",
+        "outcome": "Keeps recommendations aligned with salon-approved language while leaving final advice and commitments to the provider.",
+        "icon": "ShoppingBagIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from configured knowledge sources such as websites, documents, help content, product information, and internal materials.",
+      "industryApplication": "Create a salon AI agent that explains services, preparation, policies, aftercare, promotions, and retail guidance from your current approved content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Embeddable website widget",
+      "mainLandingPageContext": "DocsBot can appear where customers ask questions, including a website or product chat widget.",
+      "industryApplication": "Let prospective clients ask appointment, service, and aftercare questions directly on your salon website before they call or book.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot can take bounded actions through customer-configured Skills, APIs, connectors, MCP Connectors, and workflow automations.",
+      "industryApplication": "Collect booking intent, submit consultation forms, create follow-up tasks, notify staff, update approved records, or trigger handoffs when your salon authorizes the workflow.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can train on internal documents, SOPs, policies, wikis, PDFs, and company knowledge for employee use.",
+      "industryApplication": "Give managers, stylists, estheticians, and reception staff one assistant for service standards, product procedures, safety notes, scripts, and onboarding questions.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which salon questions repeat most often, which services cause confusion, and where FAQs, care guides, or staff documents need improvement.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages while grounding responses in the business’s configured content.",
+      "industryApplication": "Support guests who want service explanations, preparation instructions, or aftercare guidance in their preferred language.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private staff documents, internal policies, and guest-support workflows with permissioned access and customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on your own salon content instead of relying on generic beauty answers.",
+      "Support customer-facing and internal workflows with source-grounded responses.",
+      "Deploy practical AI assistance without replacing human judgment for consultations or sensitive concerns."
+    ],
+    "whyTheseReviewsFit": "Beauty salon buyers need AI that is easy to maintain, grounded in their own service knowledge, and useful for both guest questions and staff support. DocsBot proof highlights owned-content training, common-query automation, and practical adoption for personal services teams.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "CheckCircleIcon",
+      "HandRaisedIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for beauty salons",
+    "audience": [
+      "Beauty salon owners",
+      "Salon managers",
+      "Front desk teams",
+      "Stylists and service providers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScissorsIcon"
+  },
+  "relatedIndustrySlugs": [
+    "nail-salon",
+    "tanning-salon",
+    "barber-shop",
+    "fitness-center",
+    "event-planning",
+    "florist"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "beauty-salon",
+    "webSearchQueries": [
+      "BLS hairdressers hairstylists cosmetologists employment 2024 beauty salons",
+      "Professional Beauty Association salon industry data 1.2 million businesses",
+      "OSHA hair salon chemical hazards formaldehyde cosmetology salon",
+      "FDA hair dyes cosmetics salon products safety adverse reactions"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/personal-care-and-service/barbers-hairstylists-and-cosmetologists.htm",
+      "https://datausa.io/profile/soc/hairdressers-hairstylists-cosmetologists",
+      "https://osha.prod.pace.dol.gov/hair-salons/worker-health",
+      "https://www.fda.gov/cosmetics/cosmetic-products/hair-dyes"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44470,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 31926,
+        "outputTokens": 7627,
+        "reasoningOutputTokens": 184,
+        "totalTokens": 52097,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.197357,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.217357
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25317,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18021,
+          "outputTokens": 5045,
+          "reasoningOutputTokens": 184,
+          "totalTokens": 30362,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.122552,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.142552
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19153,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13905,
+          "outputTokens": 2582,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21735,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074805,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074805
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1613754773306-532ec48b0de5?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDA2ODl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Beauty Salon background image",
+    "source": "legacy-industry",
+    "query": "Beauty Salon"
+  },
+  "faq": [
+    {
+      "question": "Can the AI answer booking questions without making promises our front desk has to undo later?",
+      "answer": "Yes. DocsBot can answer from your approved booking policy, service descriptions, deposit rules, cancellation language, and prep instructions. For availability, pricing exceptions, chemical-service suitability, or anything that needs judgment, the agent can collect details and route a summarized handoff to staff instead of making a final commitment.",
+      "role": "Front desk and guest care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce phone calls and DMs without making our salon feel less personal?",
+      "answer": "DocsBot is best used for repetitive questions that interrupt high-touch service: hours, policies, service prep, aftercare, deposits, promotion details, and what information is needed before booking. Staff still handle consultations, exceptions, and relationship-building, while the agent gives fast, consistent answers when the desk is busy or closed.",
+      "role": "Owners and managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it help clients choose between balayage, gloss, corrective color, extensions, or a consultation?",
+      "answer": "It can explain the differences using your service menu and consultation FAQ, then ask structured questions like color history, hair length, desired result, timing, and preferred stylist. For services that require professional assessment, DocsBot should route the request to a person with a summary rather than deciding the final service or quote.",
+      "role": "Stylists, estheticians, and service providers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent work with our existing booking software?",
+      "answer": "DocsBot should be evaluated as a flexible workflow layer rather than a guaranteed native integration with a specific salon platform. With customer-configured Skills, APIs, connectors, forms, webhooks, MCP Connectors, or scheduling workflows, it can collect booking intent, prepare handoffs, create tasks, or trigger approved booking-related actions where your systems allow it.",
+      "role": "Owners and managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it for both website guests and internal staff questions?",
+      "answer": "Yes. A customer-facing DocsBot agent can answer service, policy, promotion, preparation, and aftercare questions on your site. A private internal knowledge agent can support staff with SOPs, onboarding materials, retail talking points, safety notes, vendor PDFs, scripts, and manager-approved procedures.",
+      "role": "Owners and managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep answers current when prices, stylists, promotions, or policies change?",
+      "answer": "Train the agent on the sources your team already treats as authoritative: service pages, policy documents, aftercare sheets, retail notes, PDFs, and internal SOPs. When those sources change, update the knowledge base and review conversation logs to catch outdated or unclear answers before they become operational problems.",
+      "role": "Owners and managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can it handle aftercare questions without giving unsafe medical advice?",
+      "answer": "Yes, if configured with clear boundaries. DocsBot can share your approved aftercare instructions and product guidance, then escalate irritation, allergic reaction, injury, or diagnosis-like questions to staff or appropriate healthcare guidance. This matters because the FDA notes some hair dyes can cause allergic reactions or sensitization, including skin irritation and hair loss.",
+      "role": "Stylists, estheticians, and service providers",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-hair-dyes"
+      ]
+    },
+    {
+      "question": "Could stylists use it to find SDS files, PPE notes, or chemical-service procedures?",
+      "answer": "Yes. A private DocsBot agent can be trained on SDS files, vendor PDFs, chemical-service SOPs, PPE notes, and training checklists so staff can retrieve source-grounded answers quickly. OSHA says salon employers must follow formaldehyde and hazard communication standards when applicable products contain or may release formaldehyde.",
+      "role": "Stylists, estheticians, and service providers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-formaldehyde"
+      ]
+    },
+    {
+      "question": "What information should the AI collect before sending a color correction or extensions lead to a stylist?",
+      "answer": "Most salons should collect the client’s goal, current hair condition, color history, prior chemical services, hair length, inspiration photos if your workflow supports them, preferred timing, stylist preference, contact details, and whether a consultation is required. DocsBot can structure that intake and send a summary for human review.",
+      "role": "Front desk and guest care teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can it answer questions in Spanish or another language without creating a second FAQ library?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while grounding responses in the same approved salon knowledge sources. It can also pass a translated summary to staff, which is useful when the client prefers one language but the team needs an English handoff for follow-up.",
+      "role": "Front desk and guest care teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much setup work should we expect before launching a salon AI agent?",
+      "answer": "A practical first launch usually starts with your service menu, booking and cancellation policies, deposits, hours, stylist bios, promotion rules, FAQs, and top aftercare sheets. Internal use can follow with SOPs, onboarding guides, retail notes, and safety documents. The main work is deciding which sources are authoritative and where human escalation is required.",
+      "role": "Owners and managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can managers see what guests keep asking so we know what to fix on our website?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can use repeated questions to improve service descriptions, aftercare pages, intake forms, policy wording, training materials, and promotion copy.",
+      "role": "Owners and managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this help with evening and weekend inquiries when we are busiest?",
+      "answer": "Yes. DocsBot can answer routine questions and collect booking intent outside normal desk coverage, then hand off requests for staff follow-up. That fits salon demand patterns: BLS notes that evenings and weekends may be busy periods for salons and barbershops, and reported 575,200 U.S. cosmetology jobs in 2024.",
+      "role": "Owners and managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-cosmetology"
+      ]
+    },
+    {
+      "question": "Can the AI recommend retail products after a service?",
+      "answer": "It can share salon-approved product guidance, maintenance steps, and retail talking points from your configured sources. For personalized concerns like allergies, scalp irritation, pregnancy, medical conditions, or product reactions, the agent should use cautious language and route the client to staff or appropriate professional guidance.",
+      "role": "Stylists, estheticians, and service providers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we prevent the agent from inventing discounts, package terms, or appointment availability?",
+      "answer": "Use approved promotion pages, package descriptions, eligibility rules, expiration language, and booking policies as the source of truth. DocsBot can be instructed to answer only from those sources, avoid unsupported commitments, and escalate when a guest asks for an exception, custom quote, or unlisted offer.",
+      "role": "Owners and managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it qualify bridal, extensions, corrective color, or membership leads before we call them back?",
+      "answer": "Yes. DocsBot can act as a presales-style agent that answers from approved offer pages, collects structured lead details, applies salon-defined qualification rules, and forwards a summary to your chosen email, CRM, helpdesk, form, or task workflow when configured. Final quotes, contracts, and suitability decisions should remain with staff.",
+      "role": "Front desk and guest care teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What controls do we have over private staff documents and guest-support workflows?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy of not using customer data to train public models. Skills can also be scoped with secrets, logging, network policy, metadata bindings, and customer-defined boundaries.",
+      "role": "Owners and managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can booth renters or independent stylists have different answers than the main salon?",
+      "answer": "Yes, if your content and permissions are organized that way. You can separate approved service descriptions, policies, stylist specialties, and internal documents so the agent gives consistent answers for the salon while still routing stylist-specific requests or exceptions to the right person.",
+      "role": "Owners and managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will the AI replace our receptionist?",
+      "answer": "It should not be positioned that way. In a salon, the highest-value use is reducing repetitive interruptions so reception can focus on guests, appointment exceptions, payments, walk-ins, complaints, and relationship-based service. DocsBot handles consistent answers, structured intake, summaries, and handoffs; people stay responsible for judgment and hospitality.",
+      "role": "Front desk and guest care teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we measure whether the agent is worth paying for?",
+      "answer": "Track repeated-question deflection, fewer back-and-forth messages before booking, faster response times after hours, consultation forms completed, lead handoffs created, unanswered-topic reduction, staff time saved, and policy consistency. For internal use, measure onboarding questions answered, SOP retrieval, and documentation gaps found through analytics.",
+      "role": "Owners and managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it help new front desk hires learn service language and policies faster?",
+      "answer": "Yes. A private internal DocsBot agent can answer from onboarding guides, service menus, reception scripts, cancellation rules, deposit policies, brand voice notes, and internal FAQs. New staff can ask practical questions during training and get source-grounded answers instead of searching binders, drives, or old messages.",
+      "role": "Front desk and guest care teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What happens when a client is upset, asks for a refund, or reports a bad reaction?",
+      "answer": "Those should be escalation paths, not automation-only moments. DocsBot can acknowledge the concern, collect structured details, share approved next steps, and notify the right staff member with a summary. It should avoid diagnosing, assigning blame, promising refunds, or making policy exceptions unless your team has explicitly approved that workflow.",
+      "role": "Owners and managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is this different from the basic chatbot in our booking platform?",
+      "answer": "Many booking-platform bots are focused on appointment flow or simple scripted FAQs. DocsBot can be trained on broader salon knowledge: service pages, aftercare, retail notes, SOPs, PDFs, policies, promotions, and internal documents. It can also support private team knowledge use and customer-configured actions beyond a single booking script.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we review conversations before trusting it with more actions?",
+      "answer": "Yes. Start with answer-only or intake-only workflows, review logs and recurring topics, then add scoped actions once the team is comfortable. DocsBot’s analytics and conversation review help managers see where content is working, where answers need tuning, and where human escalation rules should be tightened.",
+      "role": "Owners and managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support salons with multiple locations or brands?",
+      "answer": "Yes, provided your knowledge sources are structured by location, brand, policy, service menu, and staff permissions. DocsBot can support consistent core answers while respecting location-specific hours, deposits, promotions, service availability, or escalation paths when those details are maintained in approved sources.",
+      "role": "Owners and managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What salon content should not be exposed to customers?",
+      "answer": "Internal SOPs, staff pay policies, vendor pricing, disciplinary processes, private client notes, credentials, and sensitive safety procedures should stay in a private internal agent or restricted source set. Customer-facing agents should use approved public-facing service, policy, promotion, preparation, aftercare, and contact guidance.",
+      "role": "Owners and managers",
+      "category": "Security and compliance"
+    }
+  ]
+}

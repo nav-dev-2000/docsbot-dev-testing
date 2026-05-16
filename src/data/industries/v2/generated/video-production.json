@@ -1,0 +1,706 @@
+{
+  "slug": "video-production",
+  "business": "Video Production",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Faster Video Production Workflows",
+    "description": "DocsBot helps video production teams answer client questions, retrieve project knowledge, and route production requests with AI agents trained on your sources.",
+    "canonicalPath": "/industry/video-production"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for studios, agencies, and production teams",
+    "headline": "Keep video projects moving with DocsBot AI agents",
+    "subheadline": "DocsBot turns your production guides, client FAQs, project notes, service pages, brand rules, and post-production documentation into AI agents that answer questions, summarize context, qualify new briefs, route requests, and escalate when a producer or editor needs to step in.",
+    "proofBullets": [
+      {
+        "text": "Answer client questions about packages, timelines, deliverables, revision policies, file specs, licensing notes, and onboarding steps from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help producers and coordinators retrieve shoot checklists, call-sheet guidance, brand rules, script notes, and post-production SOPs without digging through folders.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing brief details, create handoff summaries, route requests, or trigger approved project workflows when configured.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Review analytics and conversation logs to see repeated client questions, production knowledge gaps, and content that needs clearer documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a video production AI agent",
+    "secondaryCta": "Explore workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps video production companies build customer-facing support agents, presales agents, and private internal knowledge agents trained on the sources they approve. Teams can deploy agents in a website widget or private chat, connect bounded workflows through Skills, APIs, connectors, or MCP servers, and keep humans responsible for sensitive creative, contractual, or client-relationship decisions.",
+    "whoItHelps": [
+      {
+        "role": "Producers and project managers",
+        "roleContext": "Keep clients, creatives, and vendors aligned by making production rules, scope details, revision expectations, and handoff notes easier to find during fast-moving projects.",
+        "bullets": [
+          {
+            "text": "Summarize a client intake conversation into a production-ready handoff for a human producer to review.",
+            "icon": "ArchiveBoxIcon"
+          },
+          {
+            "text": "Answer recurring questions about timelines, revision rounds, deliverable formats, and next steps from your approved client documentation.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Route requests such as reshoots, new deliverables, or missing assets into customer-configured task or ticket workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Creative directors and post-production leads",
+        "roleContext": "Give editors, animators, colorists, and motion designers fast access to brand rules, platform specs, naming conventions, client notes, and post-production standards.",
+        "bullets": [
+          {
+            "text": "Retrieve style guidance, lower-third rules, caption preferences, audio standards, and export specs from internal knowledge sources.",
+            "icon": "PaintBrushIcon"
+          },
+          {
+            "text": "Summarize feedback threads into clear revision notes while preserving links back to the source material your team provided.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Identify common documentation gaps when editors repeatedly ask the same workflow or delivery questions.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "FilmIcon"
+      },
+      {
+        "role": "Sales, marketing, and account teams",
+        "roleContext": "Convert production inquiries into better-scoped conversations by answering service-fit questions, collecting brief details, and preparing handoffs for estimators or producers.",
+        "bullets": [
+          {
+            "text": "Qualify new video briefs using customer-defined rules such as budget range, timeline, format, location, industry, and production complexity.",
+            "icon": "UserGroupIcon"
+          },
+          {
+            "text": "Prepare follow-up summaries for sales or account managers before discovery calls, estimates, or creative consultations.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Video is used as a marketing tool by 89% of businesses, making fast, accurate presales answers important for production demand capture.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-wyzowl-video-marketing"
+            ]
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-video-occupations",
+      "metric": "Film and video editor and camera operator employment projected to grow 3% from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects about 8,200 openings each year for film and video editors and camera operators over the decade.",
+      "sourceTitle": "Film and Video Editors and Camera Operators: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/media-and-communication/film-and-video-editors-and-camera-operators.htm",
+      "sourceDate": "September 2025",
+      "bestUsedFor": [
+        "labor demand",
+        "production staffing",
+        "workflow bottlenecks"
+      ]
+    },
+    {
+      "id": "src-bls-motion-picture-industry",
+      "metric": "Motion picture and sound recording industries include thousands of producers, directors, editors, and camera roles",
+      "claim": "BLS industry data for NAICS 512 shows specialized employment across motion picture, video, and sound recording occupations.",
+      "sourceTitle": "Motion Picture and Sound Recording Industries: NAICS 512",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag512.htm",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "industry scale",
+        "specialized roles",
+        "operations complexity"
+      ]
+    },
+    {
+      "id": "src-wyzowl-video-marketing",
+      "metric": "89% of businesses use video as a marketing tool in 2025",
+      "claim": "Wyzowl reports that video remains widely adopted by businesses and is considered integral to the marketing strategy of most marketers surveyed.",
+      "sourceTitle": "Video Marketing Statistics 2025",
+      "sourceUrl": "https://wyzowl.com/video-marketing-statistics/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "buyer demand",
+        "marketing demand",
+        "client expectations"
+      ]
+    },
+    {
+      "id": "src-iab-genai-video-ads",
+      "metric": "About half of advertisers were already using generative AI to build video ads in 2025",
+      "claim": "IAB reported rising use of generative AI in video advertising production and strong advertiser interest in AI-supported creative workflows.",
+      "sourceTitle": "Nearly 90% of Advertisers will Use Gen AI to Build Video Ads, According to IAB",
+      "sourceUrl": "https://www.tvtechnology.com/news/nearly-90-percent-of-advertisers-will-use-gen-ai-to-build-video-ads-according-to-iab",
+      "sourceDate": "July 2025",
+      "bestUsedFor": [
+        "AI adoption",
+        "advertising production",
+        "competitive pressure"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client production concierge",
+      "problem": "Clients often ask the same questions about timelines, revision rounds, file delivery, usage rights, approvals, and what they need to provide before a shoot or edit can begin.",
+      "agentWorkflow": "A DocsBot support agent answers from your service pages, onboarding docs, FAQs, contract-safe policy summaries, project templates, and delivery guides. When the question needs judgment, pricing changes, or a relationship-sensitive answer, the agent prepares a summary and escalates to the right human.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up approved project status, collect missing assets, create a ticket, or notify a producer in an approved workflow.",
+      "exampleQuestionsOrRequests": [
+        "What do you need from us before the shoot?",
+        "How many revision rounds are included in our package?",
+        "Can you deliver a 9:16 cutdown for paid social too?",
+        "What happens if we need to reschedule the filming date?"
+      ],
+      "businessOutcome": "Fewer repetitive client interruptions, clearer expectations, and faster handoffs when a producer needs to handle scope, budget, or scheduling decisions.",
+      "icon": "VideoCameraIcon"
+    },
+    {
+      "name": "Video brief qualification agent",
+      "problem": "New production inquiries can arrive with vague goals, missing specs, unclear budget, and no production timeline, creating extra back-and-forth before sales can estimate the work.",
+      "agentWorkflow": "DocsBot can ask structured intake questions, answer service-fit questions from approved sales materials, apply customer-defined qualification rules, and create a brief summary for sales or production leadership.",
+      "liveContextOrTools": "AI Actions can forward qualified leads, brief summaries, and preferred follow-up details to customer-configured CRM, forms, email, helpdesk, or scheduling workflows.",
+      "exampleQuestionsOrRequests": [
+        "We need a product launch video in six weeks. What should we prepare?",
+        "Can you quote a testimonial video series across three locations?",
+        "Do you handle scripting, filming, editing, and motion graphics?",
+        "Book a discovery call for a training-video project."
+      ],
+      "businessOutcome": "Better-scoped inquiries, cleaner handoffs to humans, and less time spent chasing basic project details before a discovery call.",
+      "icon": "RocketLaunchIcon",
+      "sourceIds": [
+        "src-wyzowl-video-marketing"
+      ]
+    },
+    {
+      "name": "Internal post-production knowledge agent",
+      "problem": "Editors and producers lose time searching across folders, messages, brand docs, style guides, caption rules, export specs, and client-specific delivery notes.",
+      "agentWorkflow": "A private DocsBot knowledge agent answers team questions from your internal documents, SOPs, project notes, PDFs, wikis, and approved file references. It can summarize feedback, point to the source, and surface gaps when the answer is missing.",
+      "liveContextOrTools": "When configured, Skills can retrieve approved metadata, generate a revision summary, create a task, or trigger a workflow for review without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "What are the export specs for this client’s LinkedIn ads?",
+        "Summarize the client’s last three rounds of revision comments.",
+        "Where is our naming convention for multicam interview projects?",
+        "What is our standard QC checklist before client delivery?"
+      ],
+      "businessOutcome": "Faster internal answers, more consistent delivery practices, and fewer interruptions for senior editors and producers.",
+      "icon": "ScissorsIcon"
+    },
+    {
+      "name": "Knowledge-gap and client-question analytics",
+      "problem": "Production teams may not know which client questions, onboarding issues, or internal workflow topics are repeatedly slowing projects down.",
+      "agentWorkflow": "DocsBot analytics, logs, reports, topic management, satisfaction and resolution analysis, and conversation review help teams see recurring questions and unanswered topics. Teams can then improve FAQs, onboarding guides, creative briefs, and internal SOPs.",
+      "liveContextOrTools": "Reports can inform content updates, support training, sales enablement, and documentation cleanup. Human teams decide what gets published or changed.",
+      "exampleQuestionsOrRequests": [
+        "Which delivery questions are clients asking most often?",
+        "What topics are editors asking about that are missing from our SOPs?",
+        "Which website questions should become a better FAQ?",
+        "Where are we escalating most often?"
+      ],
+      "businessOutcome": "A clearer feedback loop between support, sales, production, and documentation so the knowledge base improves with real demand.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "AI-assisted account and proposal preparation",
+      "problem": "Sales and account teams need to respond quickly while still matching production recommendations to the prospect’s goals, industry, deliverables, and constraints.",
+      "agentWorkflow": "A DocsBot sales enablement agent can answer from service catalogs, proposal templates, case studies, pricing guidance, objection-handling notes, and approved customer-facing FAQs. With web research enabled by the customer, it can summarize public prospect context for a human seller.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or MCP servers can retrieve approved CRM context, draft follow-up emails, create tasks, or prepare a proposal outline for review.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up email for a SaaS explainer-video lead.",
+        "What package fits a brand needing five short paid-social ads?",
+        "Summarize this prospect’s public positioning before the call.",
+        "Which case study should our producer mention in the proposal?"
+      ],
+      "businessOutcome": "More prepared sales conversations while humans retain control over pricing, scope, legal language, and client commitments.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Production onboarding and freelancer enablement",
+      "problem": "Freelancers, assistants, and new hires need fast access to studio standards without repeatedly asking producers for basic operational details.",
+      "agentWorkflow": "DocsBot can train on onboarding docs, production checklists, equipment procedures, file naming rules, client communication norms, and internal policies to answer role-specific questions in private chat.",
+      "liveContextOrTools": "The agent can route unresolved onboarding questions to a producer or operations lead and help identify where training materials need updating.",
+      "exampleQuestionsOrRequests": [
+        "What should be included in a call-sheet draft?",
+        "How do we label interview selects for handoff?",
+        "Where is the release-form checklist?",
+        "What is our process for archiving completed projects?"
+      ],
+      "businessOutcome": "Faster ramp time for distributed production teams and more consistent execution across shoots, edits, and handoffs.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-video-occupations"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give clients a reliable place to ask production questions",
+    "intro": "A DocsBot customer-facing agent can sit on your website or client portal to answer from your approved production knowledge, capture new-project details, and prepare clean handoffs when a producer, account manager, or sales lead should take over.",
+    "requests": [
+      {
+        "request": "“What type of video should we make for a product launch?”",
+        "agentResponseStrategy": "Answer from your service pages, discovery questions, package descriptions, and approved examples, then collect goals, audience, timeline, channels, and budget range for human follow-up.",
+        "sourceTypes": [
+          "Service pages",
+          "Sales FAQs",
+          "Creative brief templates",
+          "Case studies"
+        ],
+        "optionalAction": "Submit a structured lead form or forward the summary to a customer-configured sales workflow.",
+        "icon": "LightBulbIcon"
+      },
+      {
+        "request": "“Can you explain your production process and timeline?”",
+        "agentResponseStrategy": "Walk the client through approved phases such as discovery, scripting, pre-production, shoot, edit, revisions, approval, and final delivery, using your own wording and policies.",
+        "sourceTypes": [
+          "Client onboarding docs",
+          "Production timelines",
+          "FAQ pages",
+          "Delivery guides"
+        ],
+        "optionalAction": "Offer a scheduling handoff for a discovery call through an approved booking workflow when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where do we upload brand assets and feedback?”",
+        "agentResponseStrategy": "Use approved onboarding and project guidance to explain asset requirements, naming expectations, review norms, and who to contact if access or permissions are missing.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Project instructions",
+          "Brand asset checklists",
+          "Support policies"
+        ],
+        "optionalAction": "Create a ticket or notify the project coordinator through a customer-configured workflow.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“Do you make videos for social ads, training, and explainers?”",
+        "agentResponseStrategy": "Answer from the studio’s service catalog and approved portfolio notes, then ask clarifying questions about format, audience, platform, length, localization, and deadline.",
+        "sourceTypes": [
+          "Service catalog",
+          "Portfolio notes",
+          "Sales enablement docs",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Route qualified inquiries with a summary to the appropriate sales or production owner.",
+        "icon": "FilmIcon",
+        "sourceIds": [
+          "src-wyzowl-video-marketing"
+        ]
+      },
+      {
+        "request": "“Can we get captions or multilingual delivery?”",
+        "agentResponseStrategy": "Answer only from your approved service, accessibility, localization, and delivery documentation. If the request needs a custom quote or vendor decision, escalate with context.",
+        "sourceTypes": [
+          "Delivery specs",
+          "Localization notes",
+          "Service policies",
+          "Client FAQs"
+        ],
+        "optionalAction": "Create a scoped request for an account manager or post-production lead to review.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What is the status of our edit?”",
+        "agentResponseStrategy": "If live context is configured, look up approved project status fields and provide only the information the customer is allowed to see. Otherwise, gather details and route the request.",
+        "sourceTypes": [
+          "Project status metadata",
+          "Support policies",
+          "Client portal guidance"
+        ],
+        "optionalAction": "Look up approved status, create a support ticket, or notify the project owner through a configured workflow.",
+        "icon": "ClockIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give your production team one place to ask operational questions",
+    "intro": "A private DocsBot internal agent helps producers, editors, coordinators, sales reps, and freelancers retrieve the production knowledge they need from approved internal sources, with source-grounded answers and analytics that show where documentation is missing.",
+    "workflows": [
+      {
+        "name": "Shoot preparation support",
+        "problem": "Pre-production details can be spread across checklists, client notes, schedules, vendor instructions, call-sheet templates, and release-form guidance.",
+        "agentWorkflow": "The internal agent answers questions from approved production documents, summarizes prep notes, and points staff back to source material so producers can verify details quickly.",
+        "sourceTypes": [
+          "Pre-production checklists",
+          "Call-sheet templates",
+          "Release-form guidance",
+          "Client notes"
+        ],
+        "optionalAction": "Route unresolved questions to a producer or create a task in a configured workflow.",
+        "outcome": "Cleaner prep, fewer repeated producer interruptions, and faster onboarding for assistants or freelancers.",
+        "icon": "CameraIcon"
+      },
+      {
+        "name": "Post-production SOP retrieval",
+        "problem": "Editors need accurate answers about file naming, QC checks, captions, color notes, audio specs, platform variants, and delivery folders.",
+        "agentWorkflow": "DocsBot retrieves answers from SOPs, brand guides, delivery specs, PDFs, wikis, and approved project documentation in private chat.",
+        "sourceTypes": [
+          "Editing SOPs",
+          "Brand guides",
+          "Delivery specs",
+          "QC checklists"
+        ],
+        "optionalAction": "Generate a revision summary or create a handoff task when configured through Skills or APIs.",
+        "outcome": "More consistent edits and less time searching through scattered internal documentation.",
+        "icon": "ScissorsIcon"
+      },
+      {
+        "name": "Sales enablement for production packages",
+        "problem": "Account teams need to answer quickly without overpromising on scope, price, turnaround, or creative commitments.",
+        "agentWorkflow": "The agent answers from service catalogs, proposal templates, pricing guidance, FAQs, and case studies, then drafts a follow-up for human review.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Proposal templates",
+          "Pricing guidance",
+          "Case studies"
+        ],
+        "optionalAction": "Prepare CRM notes, draft an email, or create a follow-up task through approved customer-configured connections.",
+        "outcome": "Faster, more consistent sales responses while humans control final pricing and scope.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "name": "Documentation gap review",
+        "problem": "Recurring questions reveal weak spots in onboarding, client FAQs, creative briefs, and internal SOPs, but those patterns are easy to miss.",
+        "agentWorkflow": "DocsBot conversation review, logs, analytics, topic management, reports, and knowledge-gap discovery help teams identify what clients and staff keep asking.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support questions",
+          "Internal chat history",
+          "Knowledge-base content"
+        ],
+        "optionalAction": "Turn high-frequency unanswered topics into documentation improvement tasks.",
+        "outcome": "A production knowledge base that improves as real client and team questions come in.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your production knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on company-approved sources such as websites, documents, PDFs, help centers, wikis, and internal knowledge bases.",
+      "industryApplication": "Train an agent on production packages, client FAQs, onboarding documents, revision policies, creative brief templates, post-production SOPs, and brand guidelines.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can support customer-facing chat experiences and private internal knowledge access for employees.",
+      "industryApplication": "Use the website widget for prospects and clients, and private chat for producers, editors, coordinators, sales reps, and freelancers who need fast operational answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect new-project details, look up approved project status, summarize revision feedback, create a handoff task, notify a producer, or route a support request through approved workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which client questions, delivery issues, internal SOP topics, and onboarding gaps repeatedly slow down video projects.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "feature": "Governance for private production knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Give teams access to internal production knowledge while keeping permissions, private sources, logs, and sensitive project data within customer-defined boundaries.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high inquiry volume, including more than 30,000 customer inquiries handled in one month for Sony NURO.",
+      "Designed for source-grounded answers from owned content libraries, documentation, websites, and internal materials.",
+      "Useful for time-saving summaries, knowledge retrieval, and recurring question analysis across client and team workflows."
+    ],
+    "whyTheseReviewsFit": "Video production teams rely on fast, accurate answers from their own materials: service docs, client FAQs, briefs, notes, and production SOPs. DocsBot proof spans high-volume support, owned-content training, and time-saving summaries that map naturally to busy studios and agencies.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "ClockIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and workflow automation for video production companies",
+    "audience": [
+      "Video production studios",
+      "Creative agencies",
+      "Post-production teams",
+      "Commercial video teams",
+      "Production operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "VideoCameraIcon"
+  },
+  "relatedIndustrySlugs": [
+    "augmented-reality-solutions",
+    "ai-automation-agency",
+    "business-information",
+    "architect-services",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "video-production",
+    "webSearchQueries": [
+      "video production industry statistics demand video content marketing 2024 report",
+      "BLS film and video editors camera operators employment outlook",
+      "Wyzowl video marketing statistics 2025 businesses use video",
+      "U.S. Bureau Labor Statistics producers directors motion picture video industries"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/media-and-communication/film-and-video-editors-and-camera-operators.htm",
+      "https://www.bls.gov/iag/tgs/iag512.htm",
+      "https://wyzowl.com/video-marketing-statistics/",
+      "https://www.tvtechnology.com/news/nearly-90-percent-of-advertisers-will-use-gen-ai-to-build-video-ads-according-to-iab"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40418,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 20194,
+        "outputTokens": 13436,
+        "reasoningOutputTokens": 114,
+        "totalTokens": 53854,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.257081,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.267081
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21400,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6424,
+          "outputTokens": 10706,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 32106,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.180394,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.190394
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19018,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13770,
+          "outputTokens": 2730,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21748,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076687,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076687
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1602743297108-4c9061884285?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUwODZ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Video Production background image",
+    "source": "legacy-industry",
+    "query": "Video Production"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer client questions without accidentally changing our scope or promising extra deliverables?",
+      "answer": "Yes. Train the agent on approved service pages, onboarding docs, revision policies, delivery specs, and contract-safe summaries. For anything involving pricing, scope changes, usage rights, rush fees, reshoots, or relationship-sensitive judgment, configure the answer to collect context and escalate to a producer or account owner instead of making a commitment.",
+      "role": "Producers and project managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our producers during a busy shoot or edit week?",
+      "answer": "DocsBot can reduce the “where is that?” work by answering from call-sheet guidance, production checklists, client notes, project handoff docs, revision policies, and post-production SOPs. Producers can use it to summarize intake conversations, retrieve next-step rules, and route missing-asset or approval requests into configured workflows.",
+      "role": "Producers and project managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can an AI agent qualify new video production inquiries before sales or a producer gets involved?",
+      "answer": "Yes. DocsBot can ask structured intake questions about goals, audience, timeline, budget range, format, platform, location, deliverables, and complexity. It can apply your qualification rules, answer service-fit questions from approved sales materials, and prepare a clean brief summary for a human estimator, producer, or account manager.",
+      "role": "Sales, marketing, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this work for both website visitors and our internal production team?",
+      "answer": "Yes. A customer-facing agent can answer prospect and client questions through a website widget or portal-style experience, while a private internal knowledge agent can support producers, editors, coordinators, sales reps, and freelancers with source-grounded answers from internal docs, SOPs, briefs, and guides.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What production knowledge should we train the agent on first?",
+      "answer": "Start with high-friction, repeatable knowledge: service pages, package descriptions, client FAQs, onboarding instructions, revision policies, delivery specs, creative brief templates, handoff checklists, file naming rules, export standards, brand guidelines, QC checklists, and post-production SOPs. Add project-status data or workflow actions later once the answer quality is stable.",
+      "role": "Producers and project managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help editors find client-specific specs without searching Drive, Slack, Notion, or old emails?",
+      "answer": "DocsBot can act as a private knowledge agent trained on approved internal sources such as documents, PDFs, wikis, SOPs, and project notes. Editors can ask for export specs, caption preferences, naming conventions, brand rules, lower-third guidance, QC steps, or delivery folder instructions and get a source-grounded answer with supporting context.",
+      "role": "Creative directors and post-production leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle revision feedback without replacing the editor’s judgment?",
+      "answer": "DocsBot is best used to summarize and organize feedback, not make creative decisions. It can turn long comment threads into clearer revision notes, preserve links back to the source material, and create a handoff task when configured. Editors, producers, and creative directors still decide what changes are in scope, on-brand, or creatively appropriate.",
+      "role": "Creative directors and post-production leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent look up a client’s project status or create a task?",
+      "answer": "Yes, when you configure the right Skills, APIs, connectors, MCP servers, or workflow automations. DocsBot can perform bounded actions such as looking up approved status fields, collecting missing information, creating a ticket or task, routing a request, notifying a producer, or preparing a handoff summary inside customer-defined permissions.",
+      "role": "Producers and project managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Do we need to connect every production tool before launch?",
+      "answer": "No. Many teams should start with a source-grounded knowledge agent using approved documents and FAQs, then add live lookups or actions after they understand the most common questions. That lowers implementation risk and helps you decide which integrations actually matter for client service, sales intake, or internal production support.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How would this fit with tools like project management, CRM, helpdesk, scheduling, or team chat?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, forms, webhooks, or MCP servers where your team authorizes access. Use cases include forwarding qualified leads, creating handoff tasks, drafting follow-ups, routing support requests, looking up approved project fields, or sending notifications to the systems your team already uses.",
+      "role": "Sales, marketing, and account teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent clients from seeing internal notes, pricing guidance, or sensitive project information?",
+      "answer": "Separate customer-facing and internal agents, train each on only the sources it should use, and apply granular access controls and role-based permissions. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we use this for freelancer onboarding without exposing everything in our studio?",
+      "answer": "Yes. Create a private onboarding agent trained only on the materials freelancers need: production checklists, file naming rules, call-sheet expectations, release-form guidance, communication norms, archive procedures, and role-specific SOPs. Use access controls so freelancers get operational answers without broad access to unrelated client, finance, or strategy materials.",
+      "role": "Producers and project managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What measurable ROI should a production company expect to track?",
+      "answer": "Track fewer repetitive client questions, faster lead qualification, reduced producer interruptions, shorter time to find SOPs, fewer missing-asset follow-ups, faster freelancer ramp time, higher self-service resolution, and fewer escalations caused by unclear documentation. For sales teams, measure how many qualified briefs reach humans with complete goals, timeline, budget, and deliverable details.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Why is this especially relevant now for video production companies?",
+      "answer": "Video demand remains high: Wyzowl reports that 89% of businesses use video as a marketing tool in 2025. That creates pressure for production teams to answer presales questions quickly, scope projects cleanly, and keep clients informed without pulling producers into every repetitive question.",
+      "role": "Sales, marketing, and account teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-wyzowl-video-marketing"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us compete as clients expect faster AI-supported production workflows?",
+      "answer": "DocsBot does not generate finished videos, but it supports the operational layer around production: faster intake, clearer handoffs, source-grounded client answers, internal SOP retrieval, revision summaries, and knowledge-gap reporting. That matters as IAB reported rising advertiser use of generative AI in video advertising production in 2025.",
+      "role": "General buyer",
+      "category": "Competitive comparisons",
+      "sourceIds": [
+        "src-iab-genai-video-ads"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "A generic chatbot often answers broadly or collects messages. DocsBot is positioned as a source-grounded AI agent trained on your approved production knowledge, with options for private team use, analytics, conversation review, human escalation, and bounded actions such as lead routing, status lookup, ticket creation, summaries, and workflow triggers when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent answer questions in our studio’s voice instead of sounding generic?",
+      "answer": "Yes. Because DocsBot answers from your approved service pages, FAQs, onboarding materials, and internal guidance, it can reflect your preferred language for timelines, process, deliverables, revision rules, and handoffs. The best results come from cleaning up source content and documenting how you want sensitive answers handled.",
+      "role": "Sales, marketing, and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when the client asks something the documentation does not cover?",
+      "answer": "DocsBot can be configured to say it does not have enough approved information, ask clarifying questions, and escalate with a summary. Conversation logs, topic management, reports, and knowledge-gap discovery then help your team see which missing answers should become better FAQs, onboarding docs, SOPs, or sales enablement content.",
+      "role": "Producers and project managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can it support multilingual clients or global production requests?",
+      "answer": "DocsBot can answer in more than 100 languages, but the answer should still be grounded in your approved service, localization, captioning, delivery, and vendor guidance. For custom translation, multilingual deliverables, accessibility requirements, or region-specific legal terms, configure escalation to the account manager or post-production lead.",
+      "role": "Sales, marketing, and account teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will producers and editors trust the answers enough to use it every day?",
+      "answer": "Adoption depends on source quality and workflow fit. Start with high-confidence SOPs, brand rules, export specs, onboarding docs, and client FAQs. Show source references, review conversation logs, tune weak answers, and make escalation easy. The goal is not blind automation; it is faster retrieval of approved production knowledge.",
+      "role": "Creative directors and post-production leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot help us identify which client questions are slowing projects down?",
+      "answer": "Yes. DocsBot analytics, logs, topic management, reports, satisfaction and resolution analysis, conversation review, and knowledge-gap discovery can show repeated questions around timelines, uploads, approvals, revisions, delivery specs, usage rights, project status, or onboarding. Those patterns help improve documentation and reduce recurring friction.",
+      "role": "Producers and project managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we evaluate answer quality before putting this in front of clients?",
+      "answer": "Test against real questions from discovery calls, client emails, project kickoff notes, revision threads, and website inquiries. Review whether answers cite the right source, avoid overpromising, use your preferred wording, escalate sensitive topics, and collect useful handoff details. Launch internally first, then expand to lower-risk client questions.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we use DocsBot for proposal prep without letting AI set prices?",
+      "answer": "Yes. A sales enablement agent can retrieve package guidance, case studies, proposal templates, objection-handling notes, and approved FAQs, then draft follow-up emails or proposal outlines for review. Humans should remain responsible for final pricing, scope, legal language, production feasibility, and client commitments.",
+      "role": "Sales, marketing, and account teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What procurement or IT questions should we expect before approval?",
+      "answer": "Expect questions about SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, access controls, role-based permissions, data retention expectations, source permissions, logging, human escalation, and whether customer data trains public models. DocsBot’s product context supports these governance points without requiring teams to expose credentials in chat.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How can we keep the agent accurate as packages, platform specs, and client rules change?",
+      "answer": "Assign owners for source documents, remove outdated PDFs or duplicated policy pages, review unanswered questions, and schedule content maintenance around package changes, platform delivery updates, and client-specific rules. DocsBot’s analytics and conversation review help reveal where source content is unclear, stale, or missing.",
+      "role": "Creative directors and post-production leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is this useful for small studios, or only large production teams?",
+      "answer": "Small studios can use DocsBot to capture better briefs, answer common client questions, and reduce producer interruptions. Larger studios can add private knowledge agents, role-based access, workflow actions, reporting, and integrations across sales, production, post, and support. The same source-grounded approach scales with documentation maturity.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does this address staffing pressure in production roles?",
+      "answer": "DocsBot will not replace skilled producers, editors, or camera teams, but it can reduce repetitive knowledge retrieval and coordination work. That matters in a labor market where BLS projects about 8,200 openings each year for film and video editors and camera operators from 2024 to 2034.",
+      "role": "Producers and project managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-video-occupations"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,731 @@
+{
+  "slug": "alcoholic-beverage-manufacturing",
+  "business": "Alcoholic Beverage Manufacturing",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Alcoholic Beverage Manufacturers",
+    "description": "DocsBot helps alcoholic beverage manufacturers answer product, compliance, distributor, and team questions with source-grounded AI agents.",
+    "canonicalPath": "/industry/alcoholic-beverage-manufacturing"
+  },
+  "hero": {
+    "eyebrow": "AI automation for breweries, wineries, cideries, distilleries, and beverage brands",
+    "headline": "DocsBot AI agents for alcoholic beverage manufacturing",
+    "subheadline": "Turn approved product sheets, tasting notes, SOPs, distributor guides, label files, compliance references, and support history into AI agents that answer buyer questions, help teams find the right source, collect lead details, route requests, and escalate sensitive issues to humans.",
+    "proofBullets": [
+      {
+        "text": "Answer product, ingredient, allergen, serving, availability, and pairing questions from approved brand and technical content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Help compliance, QA, sales, and support teams retrieve SOPs, label guidance, distributor policies, and packaging details faster.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize requests, create tickets, route trade inquiries, or trigger approved workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Support consumers, distributors, and internal teams in more than 100 languages with source-grounded answers and human escalation.",
+        "icon": "LanguageIcon"
+      }
+    ],
+    "primaryCta": "Build a beverage AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps alcoholic beverage manufacturers create AI agents trained on their own knowledge sources. Agents can serve website visitors, distributor partners, sales teams, compliance teams, support staff, and operations employees with source-grounded answers, analytics, multilingual support, and bounded AI Actions configured through Skills, APIs, connectors, MCP, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Brand, DTC, and customer support teams",
+        "roleContext": "Support teams can make approved product knowledge easier to access without asking customers to search across product pages, FAQs, tasting notes, shipping policies, and campaign pages.",
+        "bullets": [
+          {
+            "text": "Answer recurring questions about product lines, ingredients, formats, awards, availability, and serving suggestions from approved sources.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Collect contact details and request context before escalating distributor, wholesale, return, or sponsorship questions to a person.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to identify repeated questions and gaps in public product or support content.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Compliance, quality, and regulatory teams",
+        "roleContext": "Alcohol beverage teams work across label approvals, advertising rules, health warnings, claims, batch documentation, SOPs, and internal review processes.",
+        "bullets": [
+          {
+            "text": "TTB says many alcohol producers must apply for a Certificate of Label Approval or exemption and follow labeling and advertising regulations.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-ttb-labeling"
+            ]
+          },
+          {
+            "text": "Make internal guidance, approved claims, formula notes, quality procedures, and review checklists easier for staff to search.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Route sensitive compliance, legal, safety, or labeling questions to the right reviewer instead of letting the agent make final judgments.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ttb-labeling"
+        ]
+      },
+      {
+        "role": "Sales, trade marketing, and distributor enablement",
+        "roleContext": "Field reps and distributor partners need fast answers about product positioning, pricing guidance, specs, brand story, campaign assets, and account follow-up.",
+        "bullets": [
+          {
+            "text": "Equip reps with an internal sales enablement agent trained on product sheets, objection handling, account notes, and brand guidelines.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Collect lead details from restaurants, retailers, event buyers, and distributors, then forward summaries through approved sales workflows.",
+            "icon": "ArrowTrendingUpIcon"
+          },
+          {
+            "text": "Draft follow-up emails or account summaries for human review using approved product, policy, and campaign sources.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ttb-labeling",
+      "metric": "TTB label and advertising obligations",
+      "claim": "TTB states that alcohol producers must apply for a Certificate of Label Approval or exemption and comply with alcohol beverage labeling and advertising regulations.",
+      "sourceTitle": "Alcohol Beverage Labeling and Advertising | TTB",
+      "sourceUrl": "https://www.ttb.gov/consumer/alcohol-beverage-labeling-and-advertising",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "label review workflows",
+        "advertising claim review"
+      ]
+    },
+    {
+      "id": "src-ttb-social-advertising",
+      "metric": "Social media advertising is covered by alcohol advertising rules",
+      "claim": "TTB’s alcohol FAQs state that social media advertising is subject to the same requirements and restrictions as other advertising under the FAA Act and implementing regulations.",
+      "sourceTitle": "Alcohol FAQs | TTB",
+      "sourceUrl": "https://www.ttb.gov/faqs/alcohol",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "marketing review",
+        "social campaign governance",
+        "trade promotion questions"
+      ]
+    },
+    {
+      "id": "src-fda-fsma-cgmp",
+      "metric": "Food safety rules emphasize preventive controls and CGMPs",
+      "claim": "FDA explains that FSMA shifted the U.S. food safety system toward prevention and that 21 CFR Part 117 includes CGMPs, hazard analysis, and risk-based preventive controls for human food.",
+      "sourceTitle": "Current Good Manufacturing Practices for Food and Dietary Supplements | FDA",
+      "sourceUrl": "https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/current-good-manufacturing-practices-cgmps-food-and-dietary-supplements",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "quality procedures",
+        "SOP search",
+        "food safety documentation"
+      ]
+    },
+    {
+      "id": "src-fda-fsma-faq",
+      "metric": "Alcohol facilities may have specific FSMA applicability considerations",
+      "claim": "FDA’s FSMA FAQ notes that facilities manufacturing, processing, packing, or holding food generally face preventive-controls requirements, while certain alcoholic beverage facilities have specific exemptions under 21 CFR 117.5(i).",
+      "sourceTitle": "Frequently Asked Questions on FSMA | FDA",
+      "sourceUrl": "https://www.fda.gov/food/food-safety-modernization-act-fsma/frequently-asked-questions-fsma",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "compliance nuance",
+        "quality team questions",
+        "review boundaries"
+      ]
+    },
+    {
+      "id": "src-bls-distilleries",
+      "metric": "Distillery employment grew 214% from 2001 to 2021",
+      "claim": "BLS reported that total employment in the U.S. distillery industry increased 214% from 2001 to 2021, while brewery and winery employment also expanded substantially.",
+      "sourceTitle": "A Look at a Neat Industry: Distilleries | U.S. Bureau of Labor Statistics",
+      "sourceUrl": "https://www.bls.gov/spotlight/2023/a-look-at-a-neat-industry-distilleries/",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "industry growth",
+        "scaling operations",
+        "knowledge transfer"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Product and brand knowledge agent",
+      "problem": "Consumers, retail buyers, bartenders, and distributors ask detailed questions about formats, ingredients, tasting notes, serving ideas, availability, and brand story across many SKUs.",
+      "agentWorkflow": "A DocsBot support agent answers from approved product pages, spec sheets, tasting notes, FAQs, distributor guides, and policies. It can cite source content, ask clarifying questions, collect contact details, and escalate wholesale, legal, or sensitive questions to a person.",
+      "liveContextOrTools": "With configured Skills or APIs, the agent can look up live availability, route a sales request, create a ticket, or send a structured handoff to a configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which of your canned cocktails are gluten-free?",
+        "Do you have a product sheet for this IPA in 12 oz cans?",
+        "Can someone contact me about carrying your spirits in my restaurant?"
+      ],
+      "businessOutcome": "Reduce repetitive product questions while giving buyers and fans faster, more consistent answers from approved brand materials.",
+      "icon": "ShoppingBagIcon"
+    },
+    {
+      "name": "Label, advertising, and claims reference assistant",
+      "problem": "Marketing and sales teams need fast access to approved claims, label details, health warning language, and advertising guidance before content reaches review.",
+      "agentWorkflow": "An internal knowledge agent searches approved label files, compliance memos, brand guidelines, TTB references, social campaign rules, and review checklists. It can summarize what a team member should review and route uncertain questions to compliance or legal.",
+      "liveContextOrTools": "AI Actions can collect campaign details, generate a review summary, create a compliance review task, and notify the right reviewer through approved internal workflows.",
+      "exampleQuestionsOrRequests": [
+        "Can we use this calorie claim in an Instagram post?",
+        "Where is the approved COLA file for this seasonal release?",
+        "Summarize the open issues before compliance reviews this label."
+      ],
+      "businessOutcome": "Help teams find the right source before publishing while keeping final compliance decisions with qualified reviewers.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ttb-labeling",
+        "src-ttb-social-advertising"
+      ]
+    },
+    {
+      "name": "Quality and SOP retrieval agent",
+      "problem": "Production and quality staff need quick answers from batch procedures, sanitation checklists, lab instructions, preventive maintenance notes, and food safety documentation.",
+      "agentWorkflow": "DocsBot can train on SOPs, PDFs, wikis, training files, Word documents, and internal knowledge sources so employees can ask natural-language questions and receive source-grounded answers instead of searching shared drives.",
+      "liveContextOrTools": "When configured, the agent can summarize a deviation report, create a follow-up task, route a maintenance request, or trigger a documentation review workflow.",
+      "exampleQuestionsOrRequests": [
+        "What is the cleaning procedure for this filling line?",
+        "Which test results should be recorded before packaging?",
+        "Summarize the corrective action steps from the SOP."
+      ],
+      "businessOutcome": "Improve access to operational knowledge and surface documentation gaps in procedures that employees ask about repeatedly.",
+      "icon": "WrenchIcon",
+      "sourceIds": [
+        "src-fda-fsma-cgmp"
+      ]
+    },
+    {
+      "name": "Distributor and sales enablement agent",
+      "problem": "Sales reps and distributor partners often need current product specs, positioning, objection handling, event guidelines, retail talking points, and follow-up content.",
+      "agentWorkflow": "A private sales enablement agent answers from product sheets, brand decks, price guidance, promotion calendars, sales playbooks, case studies, and account notes. It can draft human-reviewed follow-ups and summarize account conversations.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or sales workflows, DocsBot can retrieve context, create tasks, update approved fields, or forward qualified leads to configured systems.",
+      "exampleQuestionsOrRequests": [
+        "Give me three talking points for this RTD line for a grocery buyer.",
+        "Draft a follow-up email after a tasting event.",
+        "What assets can I send a distributor for the new package size?"
+      ],
+      "businessOutcome": "Give commercial teams faster access to the latest approved materials without relying on scattered folders or one-off messages.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap and support trend analysis",
+      "problem": "Manufacturers may not know which product, shipping, compliance, or distributor questions are creating friction until those questions become tickets or missed sales opportunities.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams see repeated questions, unanswered topics, and gaps in public or internal documentation.",
+      "liveContextOrTools": "Teams can use insights to update FAQs, product sheets, distributor guides, onboarding materials, and SOPs, then retrain agents on approved content.",
+      "exampleQuestionsOrRequests": [
+        "What questions did visitors ask most about our non-alcoholic line?",
+        "Which distributor topics led to handoffs this month?",
+        "Where are customers confused about shipping or availability?"
+      ],
+      "businessOutcome": "Turn real conversations into documentation improvements, campaign ideas, and support process updates.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Onboarding and cross-functional knowledge agent",
+      "problem": "As breweries, wineries, distilleries, and beverage brands grow, new hires need fast access to safety, quality, brand, sales, and operational procedures.",
+      "agentWorkflow": "DocsBot can serve as a private internal assistant trained on onboarding docs, HR policies, training materials, production SOPs, brand rules, and team wikis. Employees ask questions in a private chat experience and receive source-grounded answers.",
+      "liveContextOrTools": "Permissions and role-based access controls help keep internal sources limited to the right teams, while analytics show where onboarding content needs improvement.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find the distributor onboarding checklist?",
+        "What is the escalation path for a product quality complaint?",
+        "Which brand claims are approved for the seasonal release?"
+      ],
+      "businessOutcome": "Support faster ramp-up and more consistent internal knowledge as the beverage business scales.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-distilleries"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give buyers and consumers answers from approved beverage knowledge",
+    "intro": "A customer-facing DocsBot agent can live on your website or product experience to answer recurring product, policy, and availability questions while collecting details for sales or support handoff. Sensitive compliance, quality, legal, and safety questions can be escalated to the right person.",
+    "requests": [
+      {
+        "request": "“Which products are available in cans, bottles, or kegs?”",
+        "agentResponseStrategy": "Answer from product catalogs, sell sheets, FAQs, and current approved product pages; ask for the buyer’s region or account type when needed.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Sell sheets",
+          "FAQ pages",
+          "Distributor guides"
+        ],
+        "optionalAction": "Look up live availability or route the request through a configured sales workflow when the connection is authorized.",
+        "icon": "CubeIcon"
+      },
+      {
+        "request": "“Can I get ingredient, allergen, or nutrition information?”",
+        "agentResponseStrategy": "Provide only approved information from product documentation, label files, FAQs, and compliance-reviewed content, with clear escalation for unanswered or sensitive questions.",
+        "sourceTypes": [
+          "Product pages",
+          "Approved label files",
+          "Compliance FAQs",
+          "Technical sheets"
+        ],
+        "optionalAction": "Create a support ticket or request a human follow-up when the agent cannot answer from approved sources.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "request": "“I’m a retailer or restaurant interested in carrying your brand.”",
+        "agentResponseStrategy": "Collect structured lead details such as business name, location, license type, product interest, volume, timeline, and preferred follow-up channel.",
+        "sourceTypes": [
+          "Wholesale pages",
+          "Sales qualification rules",
+          "Distributor policies",
+          "Lead forms"
+        ],
+        "optionalAction": "Forward a lead summary and conversation context to a configured CRM, helpdesk, email, Slack, or Teams workflow.",
+        "icon": "ArrowTrendingUpIcon"
+      },
+      {
+        "request": "“Can we use your products at an event or sponsorship?”",
+        "agentResponseStrategy": "Answer basic program and policy questions from approved event guidelines, then route details that require human review or regional compliance checks.",
+        "sourceTypes": [
+          "Event guidelines",
+          "Sponsorship policies",
+          "Brand rules",
+          "Regional notes"
+        ],
+        "optionalAction": "Create an intake task with event date, location, audience, product interest, and missing details for the trade marketing team.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“Does this social post or campaign meet alcohol advertising rules?”",
+        "agentResponseStrategy": "Provide internal teams with source-grounded guidance from approved materials and route final review to compliance, especially because TTB states social media advertising is subject to alcohol advertising requirements.",
+        "sourceTypes": [
+          "Advertising guidelines",
+          "Compliance memos",
+          "TTB references",
+          "Brand review checklists"
+        ],
+        "optionalAction": "Generate a campaign review summary and send it to a configured approval workflow.",
+        "icon": "MegaphoneIcon",
+        "sourceIds": [
+          "src-ttb-social-advertising"
+        ]
+      },
+      {
+        "request": "“Where can I buy this product near me?”",
+        "agentResponseStrategy": "Use approved website content first, then ask for location and product interest so the request can be routed or looked up through an authorized system.",
+        "sourceTypes": [
+          "Availability pages",
+          "Distributor notes",
+          "Retail policies",
+          "Product catalog"
+        ],
+        "optionalAction": "Use a configured live lookup, create a ticket, or hand off to sales where availability data is connected.",
+        "icon": "MapPinIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep compliance, quality, sales, and operations knowledge searchable",
+    "intro": "DocsBot can act as a private internal knowledge agent for beverage manufacturing teams. Train it on SOPs, policies, wikis, PDFs, Word files, Google Drive, Notion, Confluence, and other approved knowledge sources so employees can ask questions and get source-grounded answers.",
+    "workflows": [
+      {
+        "name": "Compliance and label review support",
+        "problem": "Approved claims, formula notes, COLA files, health warning requirements, and advertising rules can be scattered across folders and specialist knowledge.",
+        "agentWorkflow": "The agent retrieves relevant internal guidance and source references, summarizes what a reviewer should check, and identifies when a human compliance or legal review is required.",
+        "sourceTypes": [
+          "COLA files",
+          "Label review checklists",
+          "Compliance memos",
+          "Advertising guidance"
+        ],
+        "optionalAction": "Create a review task or send a structured summary to the configured approval queue.",
+        "outcome": "Reduce search time and give reviewers a clearer starting point without automating final regulatory decisions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-ttb-labeling"
+        ]
+      },
+      {
+        "name": "Quality, production, and maintenance help",
+        "problem": "Teams need reliable access to procedures for sanitation, packaging, batch records, equipment, deviations, and preventive maintenance.",
+        "agentWorkflow": "DocsBot answers from SOPs, maintenance logs, training docs, quality manuals, and operational policies, then flags missing or conflicting source material through analytics and review.",
+        "sourceTypes": [
+          "SOPs",
+          "Quality manuals",
+          "Maintenance notes",
+          "Training documents"
+        ],
+        "optionalAction": "Summarize a deviation, create a follow-up task, or route an equipment question to a maintenance workflow when configured.",
+        "outcome": "Make operational knowledge easier to retrieve during daily work and onboarding.",
+        "icon": "CogIcon",
+        "sourceIds": [
+          "src-fda-fsma-cgmp"
+        ]
+      },
+      {
+        "name": "Sales and distributor desk assistant",
+        "problem": "Commercial teams need product specs, pricing guidance, retailer talking points, campaign assets, and account-ready answers without waiting on brand or operations teams.",
+        "agentWorkflow": "A private agent answers from sales playbooks, product sheets, brand decks, promotional calendars, objection handling notes, and approved customer-facing FAQs.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Brand decks",
+          "Product sheets",
+          "Promotion calendars"
+        ],
+        "optionalAction": "Draft a follow-up, prepare an account summary, create a task, or update approved fields through customer-configured sales workflows.",
+        "outcome": "Help reps move faster while keeping pricing, contracts, and regulated claims under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Employee onboarding and policy access",
+        "problem": "New hires across production, taproom, sales, compliance, and administration often need the same procedures, policies, and brand answers.",
+        "agentWorkflow": "DocsBot provides always-available answers from onboarding materials, HR policies, IT instructions, brand guidelines, safety notes, and team knowledge bases.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "HR policies",
+          "IT guides",
+          "Brand standards"
+        ],
+        "optionalAction": "Route unresolved employee questions to HR, IT, operations, or the right department through approved workflows.",
+        "outcome": "Give employees a consistent place to start and reveal documentation gaps in onboarding content.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents",
+      "mainLandingPageContext": "DocsBot agents train on the knowledge sources a business provides and answer in the company’s voice with grounded responses.",
+      "industryApplication": "Use approved product sheets, label files, SOPs, tasting notes, distributor policies, training docs, and FAQs as the knowledge base for beverage-specific answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Customer support widget and private team chat",
+      "mainLandingPageContext": "DocsBot can appear in customer-facing chat experiences and private internal team workflows.",
+      "industryApplication": "Deploy an agent for consumers and trade buyers on your website while giving compliance, QA, sales, and operations teams a private knowledge assistant.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-configured APIs, connectors, workflows, and Model Context Protocol servers.",
+      "industryApplication": "Configure approved lookups, lead forms, task creation, ticket routing, review summaries, handoffs, and workflow triggers for beverage sales, support, compliance, and operations.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides conversation review, topic management, satisfaction and resolution analysis, reports, and insight into unanswered questions.",
+      "industryApplication": "See what consumers, distributors, sales reps, and employees ask most often, then improve FAQs, sell sheets, campaign pages, SOPs, and onboarding material.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages using configured knowledge sources.",
+      "industryApplication": "Support international distributors, multilingual consumer questions, export partners, and diverse production or hospitality teams with consistent source-grounded answers.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Keep private formulations, pricing guidance, compliance notes, distributor policies, and internal SOPs governed by permissions and customer-defined boundaries.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support experiences with source-grounded answers from approved content.",
+      "Easy to train on owned libraries such as manuals, websites, product docs, FAQs, and internal materials.",
+      "Analytics help teams understand what users ask and where documentation needs improvement."
+    ],
+    "whyTheseReviewsFit": "Beverage manufacturers need reliable answers from owned product, policy, and operations knowledge. DocsBot proof spans scalable support, multilingual documentation use, content-library training, embedded customer experiences, and insight into what users are trying to learn.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support, knowledge, and workflow automation agents for alcoholic beverage manufacturers",
+    "audience": [
+      "Breweries",
+      "Wineries",
+      "Distilleries",
+      "Cideries",
+      "Ready-to-drink beverage brands",
+      "Beverage compliance teams",
+      "Distributor sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BeakerIcon"
+  },
+  "relatedIndustrySlugs": [
+    "food-beverage-manufacturing",
+    "mobile-beverage-services",
+    "alcohol-tobacco-sales",
+    "coffee-roastery",
+    "caterer",
+    "food-hospitality"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "alcoholic-beverage-manufacturing",
+    "webSearchQueries": [
+      "TTB alcohol beverage labeling advertising requirements official",
+      "Alcohol and Tobacco Tax and Trade Bureau beverage alcohol industry statistics official",
+      "Bureau of Labor Statistics breweries wineries distilleries employment manufacturing NAICS",
+      "FDA Food Safety Modernization Act current good manufacturing practice alcoholic beverages"
+    ],
+    "sourceUrls": [
+      "https://www.ttb.gov/consumer/alcohol-beverage-labeling-and-advertising",
+      "https://www.ttb.gov/faqs/alcohol",
+      "https://www.fda.gov/food/guidance-regulation-food-and-dietary-supplements/current-good-manufacturing-practices-cgmps-food-and-dietary-supplements",
+      "https://www.fda.gov/food/food-safety-modernization-act-fsma/frequently-asked-questions-fsma",
+      "https://www.bls.gov/spotlight/2023/a-look-at-a-neat-industry-distilleries/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41330,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28786,
+        "outputTokens": 8234,
+        "reasoningOutputTokens": 114,
+        "totalTokens": 49564,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.198612,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.208612
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21705,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14409,
+          "outputTokens": 5197,
+          "reasoningOutputTokens": 114,
+          "totalTokens": 26902,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.115802,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.125802
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19625,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14377,
+          "outputTokens": 3037,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22662,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08281,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08281
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1585747733279-8f64c2b71381?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzU0NTB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Alcoholic Beverage Manufacturing background image",
+    "source": "legacy-industry",
+    "query": "Alcoholic Beverage Manufacturing"
+  },
+  "faq": [
+    {
+      "question": "Can we let an AI agent answer product, ingredient, allergen, and serving questions without risking off-brand or unapproved claims?",
+      "answer": "Yes, if the agent is trained only on approved product pages, spec sheets, label files, tasting notes, FAQs, and compliance-reviewed content. DocsBot gives source-grounded answers from those materials and can be instructed to avoid unsupported claims, ask clarifying questions, or escalate ingredient, nutrition, health, legal, or safety questions when the approved source does not answer them.",
+      "role": "Brand, DTC, and customer support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot help our compliance team without pretending to make final TTB or legal decisions?",
+      "answer": "DocsBot is best used as a retrieval and review-prep assistant, not the final authority. It can find approved claims, COLA files, label checklists, advertising guidance, and internal memos, then summarize what needs human review. That matters because TTB says many alcohol producers must apply for a Certificate of Label Approval or exemption and comply with alcohol beverage labeling and advertising regulations.",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-ttb-labeling"
+      ]
+    },
+    {
+      "question": "Can the agent help marketing review social posts, influencer copy, and promotions before they go live?",
+      "answer": "DocsBot can support internal pre-review by answering from approved advertising guidance, brand rules, TTB references, and compliance memos, then routing uncertain campaigns to the right reviewer. It should not be positioned as a final legal approval system, especially because TTB states that alcohol social media advertising is subject to the same requirements and restrictions as other advertising under the FAA Act and implementing regulations.",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-ttb-social-advertising"
+      ]
+    },
+    {
+      "question": "Our product information changes by vintage, batch, format, market, and distributor. How do we keep answers current?",
+      "answer": "DocsBot should be trained on the sources your team treats as authoritative: current product sheets, vintage notes, SKU catalogs, sell sheets, distributor guides, availability pages, and approved FAQs. When live data is needed, DocsBot can use customer-configured Skills, APIs, connectors, MCP, or workflows to look up authorized availability or route the request instead of guessing from stale content.",
+      "role": "Sales, trade marketing, and distributor enablement",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot for distributor and retailer lead capture, not just consumer FAQs?",
+      "answer": "Yes. A customer-facing agent can answer basic wholesale questions, collect structured details such as business name, location, license type, product interest, estimated volume, timeline, and preferred follow-up channel, then forward a summary through a customer-configured CRM, helpdesk, email, Slack, Microsoft Teams, form, webhook, or sales workflow. Humans remain responsible for qualification, pricing, contracts, and regulated commitments.",
+      "role": "Sales, trade marketing, and distributor enablement",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What would success look like for a beverage support or DTC team after launch?",
+      "answer": "Common success measures include fewer repetitive product and policy tickets, faster response times, higher self-service resolution, more complete wholesale inquiries, fewer internal pings for basic product details, and clearer visibility into unanswered questions. DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams see which questions are being answered and where content needs improvement.",
+      "role": "Brand, DTC, and customer support teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot answer “where can I buy this near me?” questions?",
+      "answer": "DocsBot can answer from approved availability pages, distributor notes, retail policies, and product catalogs. If you connect an authorized store locator, inventory source, distributor database, or sales workflow through configured Skills or APIs, the agent can ask for location and product interest, perform approved lookups, or route the request to sales. Without live data, it should collect context and hand off rather than invent availability.",
+      "role": "Brand, DTC, and customer support teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How does DocsBot fit into SOP, sanitation, quality, and production knowledge workflows?",
+      "answer": "DocsBot can act as a private internal knowledge agent trained on SOPs, quality manuals, batch procedures, sanitation checklists, maintenance notes, PDFs, Word files, wikis, Google Drive, Notion, Confluence, and other approved sources. Employees can ask natural-language questions and receive source-grounded answers, while sensitive deviations, food safety, or equipment issues can be routed to qualified personnel.",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this help with food safety documentation and preventive-control procedures?",
+      "answer": "DocsBot can make your existing food safety, CGMP, hazard analysis, preventive-control, sanitation, and QA documentation easier to retrieve and review. FDA explains that FSMA shifted the U.S. food safety system toward prevention, and 21 CFR Part 117 includes CGMPs, hazard analysis, and risk-based preventive controls for human food. DocsBot can surface the right internal source, but your QA leaders remain accountable for interpretation and execution.",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-fsma-cgmp"
+      ]
+    },
+    {
+      "question": "Some alcoholic beverage facilities have FSMA exemptions. Can the agent handle that nuance?",
+      "answer": "DocsBot can be trained on your facility-specific compliance position, legal guidance, SOPs, and FDA references, then instructed to explain only what the approved sources say and escalate applicability questions. That is important because FDA’s FSMA FAQ notes that facilities manufacturing, processing, packing, or holding food generally face preventive-controls requirements, while certain alcoholic beverage facilities have specific exemptions under 21 CFR 117.5(i).",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-fsma-faq"
+      ]
+    },
+    {
+      "question": "Can different teams see different knowledge, such as formulas, pricing, distributor terms, and public FAQs?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so you can separate public product knowledge from private formulas, pricing guidance, compliance notes, sales playbooks, distributor policies, and internal SOPs. That lets a website agent answer consumer questions while a private team agent supports sales, QA, compliance, operations, or support with the sources each group is allowed to access.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security and data-governance points will IT and legal care about?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data. For connected actions, Skills can be configured with environment values, secrets, metadata bindings, network policy, logging, and customer-defined controls so credentials stay out of chats and permissions stay scoped.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot work with our existing helpdesk, CRM, forms, Slack, Teams, or internal systems?",
+      "answer": "DocsBot can connect through customer-configured Skills, APIs, connectors, MCP, webhooks, and approved workflows. That can support ticket creation, lead forwarding, task creation, approved field updates, summaries, notifications, and handoffs to systems your team authorizes. DocsBot should not be described as having a specific native CRM or helpdesk integration unless your implementation has configured and validated that connection.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much internal content do we need before launching an agent?",
+      "answer": "You can start with a focused knowledge set: top product pages, FAQs, sell sheets, shipping or returns policies, distributor intake rules, approved label files, and the SOPs or playbooks tied to the first use case. The bigger implementation task is usually content ownership: deciding which sources are authoritative, removing outdated files, defining escalation rules, and assigning reviewers for gaps found in analytics.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when the agent finds conflicting product sheets, old distributor decks, or outdated SOPs?",
+      "answer": "DocsBot can surface source-grounded answers and help reviewers see where questions are being answered from, but your team should treat conflicting materials as a governance issue. A good rollout includes source owners, version rules, naming conventions, review cycles, and a process for retiring old PDFs or decks. Conversation review and knowledge-gap reporting can reveal where unclear or conflicting content is creating friction.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can this support our sales reps without giving them uncontrolled pricing or contract answers?",
+      "answer": "Yes. A private sales enablement agent can answer from approved product sheets, brand decks, promotional calendars, objection handling notes, retailer talking points, and sales playbooks. You can keep pricing, discounting, contract terms, regulated claims, and account commitments under human control by limiting sources, using role-based access, and routing sensitive questions to sales leadership, finance, compliance, or legal.",
+      "role": "Sales, trade marketing, and distributor enablement",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent draft follow-up emails to retailers, restaurants, distributors, or event buyers?",
+      "answer": "DocsBot can draft follow-ups for human review using approved product, policy, brand, and campaign materials. With configured workflows, it can also summarize the conversation, capture missing fields, create a task, or forward the lead to a CRM, helpdesk, inbox, Slack, Teams, or other authorized sales process. The human seller should still approve final outreach, pricing, claims, and commitments.",
+      "role": "Sales, trade marketing, and distributor enablement",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will customers know when a question should be escalated instead of answered by AI?",
+      "answer": "You can define escalation rules for sensitive categories such as adverse events, product quality complaints, legal questions, compliance interpretation, retailer contracts, sponsorship approvals, returns disputes, allergens not covered by approved sources, or availability that requires live confirmation. DocsBot can ask for missing context, summarize the request, and route it to the right team instead of forcing an unsupported answer.",
+      "role": "Brand, DTC, and customer support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support multilingual consumers, distributors, export partners, or production teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the knowledge sources you configure. For alcoholic beverage manufacturers, that can help international distributors, multilingual consumer support, export partners, taproom or hospitality staff, and production teams access consistent answers. For regulated or market-specific claims, the agent should be trained on approved regional content and route uncertain questions for human review.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we evaluate DocsBot against building our own RAG assistant?",
+      "answer": "Compare total implementation effort, source ingestion, permissions, analytics, conversation review, support workflows, action controls, security posture, and ongoing maintenance. Building internally may offer customization, but teams often underestimate the operational work: keeping sources current, handling escalations, reviewing conversations, measuring resolution, managing access, and safely connecting actions. DocsBot provides those agent, governance, analytics, and workflow capabilities as a productized platform.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can this help us onboard new hires as we add brands, facilities, markets, or distributors?",
+      "answer": "Yes. DocsBot can serve as a private onboarding and cross-functional knowledge agent trained on HR policies, IT instructions, safety notes, SOPs, brand standards, distributor checklists, sales playbooks, and team wikis. This is relevant in a growing sector: BLS reported that U.S. distillery employment increased 214% from 2001 to 2021, while brewery and winery employment also expanded substantially.",
+      "role": "General buyer",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-distilleries"
+      ]
+    },
+    {
+      "question": "What should compliance, QA, sales, IT, and marketing agree on before procurement signs off?",
+      "answer": "The buying committee should agree on the first use case, authoritative knowledge sources, restricted content, escalation rules, success metrics, required integrations, access levels, review cadence, and who owns unanswered questions. Compliance and QA usually care about boundaries and traceability; sales and support care about speed and consistency; IT cares about security, permissions, and connected actions; marketing cares about voice and approved claims.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can we see which questions consumers, distributors, and employees keep asking after launch?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Beverage teams can use this to see repeated questions about ingredients, formats, availability, shipping, distributor requirements, SOPs, claims, or onboarding, then update FAQs, sell sheets, campaign pages, distributor guides, SOPs, and training materials.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we prevent the agent from giving medical, intoxication, safety, or legal advice?",
+      "answer": "You should define explicit refusal and escalation rules for medical advice, responsible consumption, intoxication, pregnancy, medication interactions, recalls, quality complaints, legal interpretation, and market-specific alcohol rules. DocsBot can answer only from approved sources, provide a safe handoff path, and collect the context a human reviewer needs. The goal is faster routing and source retrieval, not replacing qualified legal, compliance, medical, or QA judgment.",
+      "role": "Compliance, quality, and regulatory teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot scale from one brand site to multiple brands, product lines, and internal teams?",
+      "answer": "Yes. Start with a focused agent for one brand, support workflow, or internal team, then expand by adding approved sources, permissions, additional agent instructions, and configured actions. Multi-brand beverage groups can separate public FAQs, brand voice, distributor materials, compliance guidance, and internal SOPs while using analytics to decide which knowledge gaps or workflows to improve next.",
+      "role": "General buyer",
+      "category": "Scalability"
+    }
+  ]
+}

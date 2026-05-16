@@ -1,0 +1,732 @@
+{
+  "slug": "financial-consulting",
+  "business": "Financial Consulting",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Financial Consulting Workflows",
+    "description": "DocsBot helps financial consulting teams answer client questions, route intake, and surface approved firm knowledge with governed AI agents.",
+    "canonicalPath": "/industry/financial-consulting"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for financial consulting firms",
+    "headline": "Give clients faster answers without loosening advisory controls",
+    "subheadline": "DocsBot turns your approved planning notes, FAQs, service pages, client onboarding materials, internal policies, and compliance guidance into AI agents that answer, summarize, qualify, route, and escalate financial consulting requests inside customer-defined boundaries.",
+    "proofBullets": [
+      {
+        "text": "Answer client and prospect questions from approved firm content, with source-grounded responses and human escalation for sensitive advice.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "text": "Collect onboarding details, summarize goals and constraints, and route qualified consultation requests to the right advisor or operations queue.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Help employees find procedures, fee language, planning checklists, CRM notes, and compliance references without searching across folders.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "text": "Use AI Actions and Skills for bounded live lookups, ticket creation, summaries, workflow triggers, and approved handoffs.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a financial consulting AI agent",
+    "secondaryCta": "Explore governed workflow automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps financial consulting firms create AI agents trained on their own knowledge sources. Teams can deploy customer-facing support agents for FAQs, onboarding, service-fit questions, and appointment intake, or private internal agents for advisor enablement, operations, compliance references, and document navigation. Actions stay scoped through customer-configured Skills, APIs, connectors, and review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Managing partners and firm owners",
+        "roleContext": "Scale responsiveness without turning regulated or high-impact financial guidance into unsupervised automation.",
+        "bullets": [
+          {
+            "text": "Standardize answers about services, fees, onboarding steps, document requests, and meeting preparation.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route complex planning, investment, tax, estate, insurance, or suitability questions to the right human expert.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which topics clients ask about repeatedly and where your firm content needs improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Advisors, planners, and consultants",
+        "roleContext": "Keep client conversations moving while preserving professional judgment for recommendations, planning decisions, and advice delivery.",
+        "bullets": [
+          {
+            "text": "Retrieve approved explanations, discovery questions, planning checklists, and internal playbooks during client preparation.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize intake conversations and prepare handoffs for follow-up, review, or scheduling workflows.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Make Form ADV, relationship summary, fee, conflict, and standard-of-conduct content easier to locate when responding to client education questions.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-sec-form-adv"
+            ]
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Operations, client service, and compliance teams",
+        "roleContext": "Reduce repetitive questions and make policy knowledge easier to apply across a distributed advisory or consulting team.",
+        "bullets": [
+          {
+            "text": "Give staff a private knowledge agent for SOPs, onboarding procedures, templates, disclosure language, and approved response guidance.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Create tickets, tasks, summaries, or routed handoffs through configured workflows when a request needs a person.",
+            "icon": "TicketIcon"
+          },
+          {
+            "text": "Keep permissions, logs, and review paths in place for sensitive client, compliance, and financial workflows.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-sec-form-adv",
+      "metric": "Form ADV Part 3 requires a plain-English relationship summary for retail investors.",
+      "claim": "SEC Investor.gov explains that Form ADV Part 3 covers services, fees and costs, conflicts, standard of conduct, disciplinary history, and key questions to ask an adviser.",
+      "sourceTitle": "Form ADV | Investor.gov",
+      "sourceUrl": "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-adv",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "client education",
+        "disclosure navigation",
+        "onboarding content"
+      ]
+    },
+    {
+      "id": "src-finra-ai-notice",
+      "metric": "FINRA says generative AI does not relieve firms of existing securities-law and FINRA obligations.",
+      "claim": "FINRA Regulatory Notice 24-09 notes that member firms using generative AI remain responsible for applicable obligations, including supervision, communications, and compliance controls.",
+      "sourceTitle": "FINRA Regulatory Notice 24-09: Artificial Intelligence (AI) Technology in the Securities Industry",
+      "sourceUrl": "https://www.finra.org/rules-guidance/notices/24-09",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "AI governance",
+        "human review",
+        "regulated workflow boundaries"
+      ]
+    },
+    {
+      "id": "src-cfp-ai-trust",
+      "metric": "31% of surveyed investors felt comfortable using generative-AI financial planning advice without verifying it.",
+      "claim": "CFP Board’s Trust, But Verify survey found that many investors engage with AI-generated financial planning information, reinforcing the need for advisor verification and trusted sources.",
+      "sourceTitle": "CFP Board Survey: Investors Trust AI More Than Social Media, But Advice Still Needs Advisor Verification",
+      "sourceUrl": "https://www.cfp.net/news/2023/08/cfp-board-survey-investors-trust-ai-more-than-social-media--but-advice-still",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "client trust",
+        "advisor verification",
+        "AI guardrails"
+      ]
+    },
+    {
+      "id": "src-iaa-industry-snapshot",
+      "metric": "The investment adviser industry reached record highs in firms, clients, employees, and AUM in 2024.",
+      "claim": "The Investment Adviser Association’s 2024 industry snapshot reports continued growth across adviser firms, clients, employees, and assets under management.",
+      "sourceTitle": "Investment Adviser Industry Snapshot 2024 | Investment Adviser Association",
+      "sourceUrl": "https://www.investmentadviser.org/industry-snapshots/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "industry scale",
+        "operational pressure",
+        "client service growth"
+      ]
+    },
+    {
+      "id": "src-finra-industry-snapshot",
+      "metric": "FINRA publishes annual industry snapshot data on registered firms and representatives.",
+      "claim": "FINRA’s Industry Snapshot provides data on securities-industry registered firms, representatives, and firm size, useful for understanding the scale and structure of regulated financial services.",
+      "sourceTitle": "Industry Snapshot Data | FINRA",
+      "sourceUrl": "https://www.finra.org/finra-data/browse-catalog/industry-snapshot",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "industry structure",
+        "registered representatives",
+        "firm scale"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Client service FAQ and intake agent",
+      "problem": "Prospects and clients repeatedly ask about services, fees, documents needed, meeting preparation, account logistics, and next steps before a consultation.",
+      "agentWorkflow": "A DocsBot agent answers from approved FAQs, service pages, onboarding guides, Form ADV summaries, and firm policies. It collects missing intake details, identifies whether the request is a service-fit, scheduling, support, or advisor-review issue, and routes the conversation with a concise summary.",
+      "liveContextOrTools": "With configured Skills, APIs, connectors, or workflows, the agent can submit a lead form, create a support task, request a meeting, or hand off to a client service queue.",
+      "exampleQuestionsOrRequests": [
+        "What documents should I gather before my first planning meeting?",
+        "Do you work with business owners preparing for a liquidity event?",
+        "Can someone explain your fee structure and schedule a consultation?"
+      ],
+      "businessOutcome": "Clients get faster first responses while advisors receive better-qualified context before spending time on a consultation.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Disclosure and relationship-summary navigator",
+      "problem": "Clients need plain-language explanations of services, fees, conflicts, disciplinary history, and standard-of-conduct topics, but the source documents can be hard to navigate.",
+      "agentWorkflow": "DocsBot can answer educational questions from approved Form ADV, relationship summary, fee schedule, service model, and conflict-disclosure materials. It cites the source content and escalates questions that require personalized interpretation or advice.",
+      "liveContextOrTools": "The agent can route disclosure questions to compliance review, create a follow-up task, or generate a summary for the advisor when configured.",
+      "exampleQuestionsOrRequests": [
+        "Where do you explain conflicts of interest?",
+        "What fees and costs should I ask about before becoming a client?",
+        "Can you point me to your standard-of-conduct explanation?"
+      ],
+      "businessOutcome": "Firms make required educational materials easier to find while keeping personalized judgments and regulated advice with humans.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-sec-form-adv"
+      ]
+    },
+    {
+      "name": "Advisor knowledge and meeting-prep assistant",
+      "problem": "Advisors and paraplanners often need to pull facts from playbooks, planning templates, client-service procedures, product notes, and prior internal guidance before a meeting.",
+      "agentWorkflow": "An internal DocsBot agent retrieves approved procedures, planning frameworks, discovery questions, objection-handling notes, and proposal templates. It can summarize relevant internal knowledge and draft preparation notes for human review.",
+      "liveContextOrTools": "When configured with approved live context, Skills, or MCP Connectors for remote Model Context Protocol servers, the agent can retrieve permitted account or workflow context and prepare a bounded summary.",
+      "exampleQuestionsOrRequests": [
+        "Summarize our checklist for onboarding an executive-compensation client.",
+        "What is our approved explanation of tax-loss harvesting limitations?",
+        "Find the internal process for preparing a retirement-income review."
+      ],
+      "businessOutcome": "Teams spend less time searching and more time applying judgment, relationship context, and professional expertise.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Compliance-aware AI workflow triage",
+      "problem": "Financial consulting firms want automation, but AI usage in securities and advisory contexts must respect existing supervision, communications, recordkeeping, and review obligations.",
+      "agentWorkflow": "DocsBot can classify requests, answer from approved sources, draft internal responses, summarize conversations, and send sensitive or high-impact issues to human review. Logs, source grounding, permissions, and customer-defined boundaries help teams operate within their own governance model.",
+      "liveContextOrTools": "AI Actions can create review tasks, notify compliance, route conversations by topic, or draft a response for approval instead of sending it automatically.",
+      "exampleQuestionsOrRequests": [
+        "Flag this client question for compliance review before we respond.",
+        "Summarize the prospect’s request and route it to the estate-planning specialist.",
+        "Draft a response using only our approved rollover education content."
+      ],
+      "businessOutcome": "Firms can automate repetitive service workflows while maintaining review paths for regulated, sensitive, or advice-adjacent interactions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-finra-ai-notice"
+      ]
+    },
+    {
+      "name": "Prospect qualification and sales enablement agent",
+      "problem": "Growth teams need to respond quickly to prospects while understanding fit, urgency, assets or revenue profile, planning needs, and the right next step.",
+      "agentWorkflow": "A DocsBot presales agent answers service-fit questions, collects structured intake details, applies firm-defined qualification rules, and forwards a summary to advisors, CRM workflows, inboxes, or scheduling tools when configured.",
+      "liveContextOrTools": "Approved Skills can submit custom forms, create or update CRM records, draft follow-up emails, or request a meeting through a customer-configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Do you advise physicians with 1099 income and retirement-plan questions?",
+        "We sold a business and need help coordinating tax, estate, and investment planning.",
+        "Can I speak with someone about whether your firm is a fit?"
+      ],
+      "businessOutcome": "Advisors receive better-qualified opportunities with documented context, while prospects get a clear path to the right human conversation.",
+      "icon": "ArrowTrendingUpIcon"
+    },
+    {
+      "name": "Client education content assistant",
+      "problem": "Financial clients often look for explanations about planning terms, market volatility, tax concepts, insurance, retirement income, and estate-planning coordination before contacting the firm.",
+      "agentWorkflow": "DocsBot can answer educational questions from approved articles, webinars, FAQs, newsletters, and planning guides. It can clarify general concepts, link to firm content, and escalate requests that cross into personalized advice.",
+      "liveContextOrTools": "The agent can recommend relevant approved articles, summarize a guide, capture topic interest, and send repeated-question trends to the marketing or education team.",
+      "exampleQuestionsOrRequests": [
+        "What is the difference between financial planning and investment management?",
+        "Do you have an article explaining Roth conversion considerations?",
+        "Can you summarize your guide to preparing for retirement income planning?"
+      ],
+      "businessOutcome": "Firms extend the value of their educational library while preserving advisor verification for decisions that affect a client’s financial life.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-cfp-ai-trust"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Client-facing agents that educate, qualify, and escalate with care",
+    "intro": "Financial consulting buyers want fast answers, but they also need confidence that regulated, sensitive, and personalized matters reach a professional. DocsBot helps your firm offer instant, source-grounded service while keeping boundaries around advice, commitments, and client-specific decisions.",
+    "requests": [
+      {
+        "request": "“What do I need to bring to my first consultation?”",
+        "agentResponseStrategy": "Answer from the firm’s onboarding checklist, explain typical document categories, collect missing context, and offer to route the request to client service or scheduling.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Meeting-prep checklists",
+          "Client service FAQs"
+        ],
+        "optionalAction": "Create a task or send a structured intake summary to the client service team when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“How are your fees, conflicts, and services described?”",
+        "agentResponseStrategy": "Point to approved disclosure and relationship-summary content, summarize in plain language, and escalate if the client asks for interpretation beyond the source material.",
+        "sourceTypes": [
+          "Form ADV materials",
+          "Relationship summary",
+          "Fee schedule",
+          "Compliance-approved FAQs"
+        ],
+        "optionalAction": "Route disclosure questions to a compliance or advisor review workflow.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-sec-form-adv"
+        ]
+      },
+      {
+        "request": "“Can you help me decide what to do with my portfolio?”",
+        "agentResponseStrategy": "Set a clear boundary: provide general educational resources from approved content, avoid personalized recommendations, and offer a handoff to an advisor for regulated or high-impact guidance.",
+        "sourceTypes": [
+          "Educational articles",
+          "Investment philosophy pages",
+          "Risk-disclosure content"
+        ],
+        "optionalAction": "Collect contact details and route the conversation to an advisor with a concise summary.",
+        "icon": "HandRaisedIcon",
+        "sourceIds": [
+          "src-cfp-ai-trust"
+        ]
+      },
+      {
+        "request": "“Do you work with clients like me?”",
+        "agentResponseStrategy": "Ask structured qualification questions based on firm-defined rules, explain relevant service models from approved pages, and identify the next best handoff.",
+        "sourceTypes": [
+          "Service pages",
+          "Ideal-client profiles",
+          "Sales enablement notes",
+          "Qualification rules"
+        ],
+        "optionalAction": "Submit a lead form, create a CRM task, or request a meeting through a configured scheduling workflow.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "request": "“Where can I find your article on year-end planning?”",
+        "agentResponseStrategy": "Search approved content, summarize the relevant resource, provide source-grounded guidance, and capture the topic as a content-interest signal.",
+        "sourceTypes": [
+          "Blog posts",
+          "Webinars",
+          "Newsletters",
+          "Planning guides"
+        ],
+        "optionalAction": "Send repeated-topic analytics to marketing or client education teams.",
+        "icon": "NewspaperIcon"
+      },
+      {
+        "request": "“I need help with a beneficiary, estate, or tax-related question.”",
+        "agentResponseStrategy": "Provide general firm-approved educational information, avoid legal or tax advice unless approved content permits it, and route the matter to the appropriate professional.",
+        "sourceTypes": [
+          "Approved education content",
+          "Referral workflows",
+          "Internal escalation rules"
+        ],
+        "optionalAction": "Create a review task and include a summary of the client’s concern for the advisor or operations team.",
+        "icon": "BuildingLibraryIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Internal knowledge agents for advisors, operations, and compliance support",
+    "intro": "DocsBot can give your team a private, governed assistant trained on firm knowledge so staff can locate policies, scripts, checklists, templates, and client-service procedures quickly. Sensitive workflows can use permissions, review paths, and customer-defined actions.",
+    "workflows": [
+      {
+        "name": "Advisor prep and playbook retrieval",
+        "problem": "Advisors need fast access to planning frameworks, firm language, discovery questions, and proposal materials before client calls.",
+        "agentWorkflow": "The internal agent retrieves approved playbooks, templates, planning checklists, and service-positioning content, then summarizes the material for human use.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Planning templates",
+          "Service catalogs",
+          "Internal wikis"
+        ],
+        "optionalAction": "Draft a meeting-prep brief or follow-up email for advisor review.",
+        "outcome": "Advisors spend less time searching and more time preparing thoughtful client conversations.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Client service SOP assistant",
+        "problem": "Operations teams field recurring questions about account logistics, document requests, meeting workflows, billing steps, and internal procedures.",
+        "agentWorkflow": "DocsBot answers from SOPs, PDFs, ticket history exports, internal docs, and client-service policies, then identifies gaps when the answer is missing.",
+        "sourceTypes": [
+          "SOPs",
+          "Ticket exports",
+          "Client service policies",
+          "Training documents"
+        ],
+        "optionalAction": "Create a task, route a ticket, or draft a response in helpdesk-style workflows when configured.",
+        "outcome": "Service teams handle routine requests more consistently and identify documentation gaps faster.",
+        "icon": "CogIcon"
+      },
+      {
+        "name": "Compliance reference and review triage",
+        "problem": "Teams need quick access to approved language and review processes, especially when a client question touches recommendations, disclosures, or communications rules.",
+        "agentWorkflow": "The agent retrieves approved compliance guidance, policy excerpts, disclosure references, and escalation rules. It can summarize the issue for a reviewer instead of providing unsupervised advice.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Disclosure language",
+          "Communication policies",
+          "Review procedures"
+        ],
+        "optionalAction": "Notify compliance, create a review task, or attach a source-grounded summary to the matter.",
+        "outcome": "Staff can move faster while preserving human review for regulated or sensitive communications.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-finra-ai-notice"
+        ]
+      },
+      {
+        "name": "Knowledge-gap and conversation analytics",
+        "problem": "Firm leaders often lack a clear view of repeated questions, unclear content, or client education topics that drive extra staff workload.",
+        "agentWorkflow": "DocsBot reports on conversations, unanswered topics, satisfaction and resolution patterns, and knowledge gaps so teams can improve content and training.",
+        "sourceTypes": [
+          "Agent logs",
+          "Conversation reviews",
+          "Help articles",
+          "Internal knowledge base"
+        ],
+        "optionalAction": "Generate a recurring report for operations, marketing, or compliance content owners.",
+        "outcome": "Your firm can improve documentation and reduce repeated manual explanations over time.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded answers from firm knowledge",
+      "mainLandingPageContext": "DocsBot agents train on approved company knowledge sources and answer in the company’s voice with grounding in the provided content.",
+      "industryApplication": "Use your service pages, planning guides, onboarding checklists, disclosure summaries, and internal playbooks to answer recurring financial consulting questions consistently.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions and customer-defined Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded tasks such as lookups, summaries, routing, ticket creation, record updates, and workflow triggers when configured.",
+      "industryApplication": "Collect intake details, summarize client questions, route sensitive topics, create follow-up tasks, or trigger approved scheduling and CRM handoffs without making unsupervised advice decisions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistants",
+      "mainLandingPageContext": "DocsBot can power private team assistants trained on internal documents, SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, and other knowledge sources.",
+      "industryApplication": "Give advisors, paraplanners, client service, and compliance teams a fast way to retrieve firm procedures, approved language, planning templates, and escalation rules.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what clients and employees ask most often, where disclosure or onboarding content is unclear, and which education topics deserve better resources.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support and web or private chat access",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and appear in website widgets, product experiences, private chats, Slack, Microsoft Teams, APIs, and helpdesk-connected workflows when configured.",
+      "industryApplication": "Support international clients, remote teams, and after-hours website visitors while preserving escalation paths for personalized planning and regulated discussions.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Use governed AI agents for sensitive financial consulting knowledge with permissions, logs, secrets handling, and customer-defined controls around what agents can access and do.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own content library so answers reflect firm-approved knowledge.",
+      "Support self-service questions while preserving escalation for complex client needs.",
+      "Summarize long-form resources and internal materials to save professional time.",
+      "Deploy customer-facing and internal agents with source-grounded answers and analytics."
+    ],
+    "whyTheseReviewsFit": "Financial consulting teams need AI that works from approved knowledge, supports self-service, and saves expert time without replacing professional judgment. DocsBot proof spans owned-content training, business self-service, summarization, high-volume support, and internal decision support—patterns that map directly to advisory operations.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChatBubbleLeftIcon",
+      "ClockIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for financial consulting firms",
+    "audience": [
+      "Financial consulting firm owners",
+      "Investment advisory operations teams",
+      "Client service teams",
+      "Compliance and advisor enablement leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BanknotesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "accountant",
+    "auditing-finance-insurance",
+    "bank-credit-union",
+    "bookkeeping",
+    "finance-insurance",
+    "insurance",
+    "investment-advisory",
+    "merchant-banking"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "financial-consulting",
+    "webSearchQueries": [
+      "SEC investment adviser marketing rule fiduciary duty Form ADV retail investors 2025",
+      "FINRA 2024 industry snapshot registered representatives investment adviser firms",
+      "CFP Board financial planning consumer survey trusted advisor financial planner",
+      "FINRA regulatory notice artificial intelligence broker dealers investment advisers 2024"
+    ],
+    "sourceUrls": [
+      "https://www.investor.gov/introduction-investing/investing-basics/glossary/form-adv",
+      "https://www.finra.org/rules-guidance/notices/24-09",
+      "https://www.cfp.net/news/2023/08/cfp-board-survey-investors-trust-ai-more-than-social-media--but-advice-still",
+      "https://www.investmentadviser.org/industry-snapshots/",
+      "https://www.finra.org/finra-data/browse-catalog/industry-snapshot"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40982,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28438,
+        "outputTokens": 7806,
+        "reasoningOutputTokens": 127,
+        "totalTokens": 48788,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.191322,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.201322
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21531,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14235,
+          "outputTokens": 5170,
+          "reasoningOutputTokens": 127,
+          "totalTokens": 26701,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.114962,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.124962
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19451,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14203,
+          "outputTokens": 2636,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22087,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07636,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07636
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1518183214770-9cffbec72538?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUyMjl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Financial Consulting background image",
+    "source": "legacy-industry",
+    "query": "Financial Consulting"
+  },
+  "faq": [
+    {
+      "question": "How do we prevent an AI agent from giving personalized investment, tax, estate, or insurance advice?",
+      "answer": "DocsBot should be configured around approved educational content, clear refusal rules, and escalation paths. The agent can answer general questions, cite firm-approved sources, collect context, and route advice-adjacent requests to a licensed advisor, planner, tax professional, attorney, or compliance reviewer instead of making recommendations.",
+      "role": "Managing partners and firm owners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot answer questions about our Form ADV, relationship summary, fees, conflicts, and services?",
+      "answer": "Yes. You can train a DocsBot agent on approved Form ADV materials, relationship summaries, fee schedules, service pages, and compliance-reviewed FAQs so clients can find plain-language information faster. Form ADV Part 3 covers services, fees and costs, conflicts, standard of conduct, disciplinary history, and key questions for retail investors.",
+      "role": "Advisors, planners, and consultants",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-sec-form-adv"
+      ]
+    },
+    {
+      "question": "Will using generative AI create new compliance obligations for our advisory or broker-dealer workflows?",
+      "answer": "DocsBot does not remove your existing compliance responsibilities. FINRA Regulatory Notice 24-09 says member firms using generative AI remain responsible for applicable securities-law and FINRA obligations, including supervision, communications, and compliance controls. DocsBot helps support governance with source grounding, logs, permissions, and review-oriented workflows.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-finra-ai-notice"
+      ]
+    },
+    {
+      "question": "What types of client questions are safe to automate first?",
+      "answer": "Most firms start with lower-risk, repeatable questions: consultation preparation, document checklists, service descriptions, office logistics, how to find disclosures, general educational articles, and next-step routing. Questions involving recommendations, suitability, account-specific instructions, beneficiary changes, tax decisions, or legal interpretation should escalate to a person.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent qualify prospects without making promises about whether we will accept them as clients?",
+      "answer": "Yes. DocsBot can ask structured intake questions, apply firm-defined qualification rules, summarize goals and constraints, and route the prospect to the right advisor or queue. It should present service-fit information from approved content while leaving acceptance, pricing, recommendations, and engagement decisions to your team.",
+      "role": "Managing partners and firm owners",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot fit with our CRM, scheduling, ticketing, or internal workflow tools?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, forms, webhooks, or workflow automations to pass summaries, create tasks, request meetings, update approved fields, or route handoffs. The key implementation decision is defining which systems the agent can access, what actions are allowed, and when human approval is required.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot internally for advisors and paraplanners, not just on our website?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on SOPs, planning playbooks, service models, approved language, templates, disclosure references, and onboarding documents. Advisors and paraplanners can use it to retrieve firm knowledge, summarize procedures, prepare meeting notes, and draft follow-ups for human review.",
+      "role": "Advisors, planners, and consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep answers aligned with our current compliance-approved language?",
+      "answer": "Use approved knowledge sources, restrict the agent’s scope, review unanswered or low-confidence topics, and refresh content when policies change. DocsBot’s source-grounded answers, logs, conversation review, topic management, and knowledge-gap reporting help content owners see where the agent is relying on outdated, missing, or unclear material.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What ROI should a financial consulting firm expect from an AI agent?",
+      "answer": "The clearest ROI usually comes from reducing repetitive client-service questions, improving lead qualification, shortening advisor prep time, and revealing content gaps that create avoidable calls or emails. Buyers should measure deflected routine inquiries, faster response times, qualified consultations routed, advisor time saved, and lower rework from inconsistent answers.",
+      "role": "Managing partners and firm owners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help during onboarding when clients are missing documents or unsure what happens next?",
+      "answer": "Yes. DocsBot can answer from onboarding guides and meeting-prep checklists, collect missing details, explain next steps, and route a structured summary to client service or an advisor. With configured Skills or workflows, it can create a task, submit an intake form, or request a scheduling handoff.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we evaluate whether the agent is improving client experience without increasing risk?",
+      "answer": "Track both service and governance metrics: resolution rate for approved topics, escalation rate for sensitive issues, unanswered questions, client satisfaction, response time, reviewer edits, and repeated compliance flags. DocsBot’s analytics, logs, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery support that operating model.",
+      "role": "Managing partners and firm owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens if a client asks, ‘Should I buy, sell, roll over, convert, or change beneficiaries?’",
+      "answer": "The agent should not make the decision. It can provide general educational content from approved sources, explain that the request requires personalized review, collect context if appropriate, and route the conversation to the right advisor, planner, compliance reviewer, tax professional, or estate-planning contact based on your rules.",
+      "role": "Advisors, planners, and consultants",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support multilingual or after-hours website visitors?",
+      "answer": "Yes. DocsBot agents can answer in more than 100 languages and can be deployed through website widgets or private chat experiences. For financial consulting, multilingual and after-hours workflows should still preserve the same boundaries around personalized advice, regulated communications, and human escalation.",
+      "role": "Managing partners and firm owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much cleanup do we need before training the agent on our content?",
+      "answer": "You do not need a perfect knowledge base, but you do need approved sources and clear ownership. Start with service pages, FAQs, onboarding checklists, disclosure summaries, education articles, SOPs, and escalation rules. DocsBot analytics can then show unanswered topics and documentation gaps so the content improves over time.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can compliance review conversations before anything goes to a client?",
+      "answer": "Yes. DocsBot can be configured to draft responses, summarize client questions, and create review tasks instead of automatically replying on sensitive topics. Teams can use permissions, logs, and customer-defined workflows to decide which answers are self-service, which require advisor review, and which go to compliance.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot or public AI tool?",
+      "answer": "DocsBot is designed around firm-approved knowledge, source-grounded answers, private internal agents, analytics, and bounded actions through customer-defined Skills or workflows. A generic AI tool may be useful for brainstorming, but financial consulting teams usually need controlled sources, permissions, logs, escalation, and governance around sensitive client interactions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will our client data be used to train public models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions to support sensitive financial consulting knowledge and workflows.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we control which employees can access internal policies, client-service SOPs, or compliance references?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so firms can separate public-facing content from private internal knowledge. This matters when advisors, operations, compliance, marketing, and leadership need different access to policies, procedures, templates, and review materials.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we handle recordkeeping and audit review for AI-assisted conversations?",
+      "answer": "DocsBot provides logs and conversation review capabilities that can support your internal supervision and review process. Your firm should decide what transcripts, summaries, approvals, exports, and retention workflows are required based on its regulatory status, policies, and existing communications-recordkeeping systems.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-finra-ai-notice"
+      ]
+    },
+    {
+      "question": "Could DocsBot help reduce advisor interruptions from routine internal questions?",
+      "answer": "Yes. An internal agent can answer staff questions about procedures, approved language, fee explanations, onboarding steps, document requests, and planning checklists. That gives client service and paraplanning teams a faster first stop before interrupting advisors, while still escalating ambiguous or judgment-heavy issues.",
+      "role": "Advisors, planners, and consultants",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent summarize a prospect or client conversation before routing it to an advisor?",
+      "answer": "Yes. DocsBot can collect details such as goals, timeline, current concern, service interest, preferred follow-up channel, and missing information, then generate a concise handoff summary. With approved workflows, that summary can be sent to a CRM, inbox, ticketing queue, scheduling process, or internal team channel.",
+      "role": "Advisors, planners, and consultants",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we avoid the agent giving inconsistent answers across advisors, locations, or service lines?",
+      "answer": "Train the agent on a shared set of approved materials and define when local, specialty, or advisor-specific rules apply. DocsBot can help standardize answers about services, onboarding, disclosures, and procedures while routing exceptions to the right specialist instead of improvising.",
+      "role": "Managing partners and firm owners",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should be included in the first implementation phase?",
+      "answer": "A practical first phase includes one public-facing use case and one internal use case: client FAQs or intake on the website, plus an internal SOP or advisor-prep assistant. Define source documents, escalation triggers, compliance review expectations, allowed actions, success metrics, and owners for ongoing content updates.",
+      "role": "Operations, client service, and compliance teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us understand what clients are confused about most often?",
+      "answer": "Yes. DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery can show repeated questions, unanswered topics, and unclear content. That helps operations, compliance, and marketing decide which FAQs, disclosures, onboarding materials, or education pieces need improvement.",
+      "role": "Managing partners and firm owners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we position the agent to clients so they trust it but do not mistake it for their advisor?",
+      "answer": "Present it as a source-grounded assistant for firm-approved education, logistics, disclosure navigation, and intake—not as a substitute for professional judgment. The need for verification is real: a CFP Board survey found 31% of surveyed investors felt comfortable using generative-AI financial planning advice without verifying it.",
+      "role": "Managing partners and firm owners",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-cfp-ai-trust"
+      ]
+    },
+    {
+      "question": "Can DocsBot scale across a growing firm with more advisors, clients, and service complexity?",
+      "answer": "Yes, if the rollout includes content governance. The adviser industry has reached record highs in firms, clients, employees, and AUM, increasing pressure on service teams. DocsBot can support scale with reusable knowledge agents, role-based access, analytics, and controlled workflows across client service, advisor enablement, and compliance.",
+      "role": "Managing partners and firm owners",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-iaa-industry-snapshot"
+      ]
+    }
+  ]
+}

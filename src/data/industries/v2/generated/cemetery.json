@@ -1,0 +1,723 @@
+{
+  "slug": "cemetery",
+  "business": "Cemetery",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "Cemetery AI Agents for Visitor Support and Operations",
+    "description": "DocsBot helps cemetery teams deliver respectful AI support, answer visitor questions, and route service requests from approved records and policies.",
+    "canonicalPath": "/industry/cemetery"
+  },
+  "hero": {
+    "eyebrow": "Respectful AI automation for cemetery visitor care",
+    "headline": "Help families find answers faster with cemetery AI agents",
+    "subheadline": "DocsBot lets cemeteries create AI agents trained on your maps, rules, service options, maintenance policies, FAQs, historical content, and internal procedures so visitors and staff can get source-grounded help without waiting for office hours.",
+    "proofBullets": [
+      {
+        "text": "Answer burial, visitation, flower, monument, and maintenance questions from approved cemetery policies and public pages.",
+        "icon": "InformationCircleIcon"
+      },
+      {
+        "text": "Guide visitors to the right next step by collecting context, summarizing requests, and routing handoffs to staff.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "text": "Support internal teams with searchable SOPs for service scheduling, records, family inquiries, and grounds workflows.",
+        "icon": "FolderIcon"
+      }
+    ],
+    "primaryCta": "Build a cemetery AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps cemeteries launch AI support and internal knowledge agents trained on their own approved content. Agents can answer routine questions, summarize conversations, collect request details, discover knowledge gaps, and trigger bounded workflows through customer-configured Skills, APIs, connectors, or review paths when a human needs to take over.",
+    "whoItHelps": [
+      {
+        "role": "Family services and office staff",
+        "roleContext": "Teams handling calls, emails, walk-ins, and emotionally sensitive questions can keep information consistent while preserving human care for complex conversations.",
+        "bullets": [
+          {
+            "text": "Provide consistent answers about visiting hours, decorations, flower policies, interment services, and documentation requirements.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Collect missing details for a grave marker, maintenance, genealogy, or appointment request before staff follow up.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Escalate sensitive, pricing, contract, or family-dispute questions to a person with a conversation summary.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Cemetery managers and administrators",
+        "roleContext": "Leaders can make policies, maps, records procedures, and recurring customer questions easier to manage across seasonal, part-time, and long-tenured staff.",
+        "bullets": [
+          {
+            "text": "Use analytics and conversation review to find repeated questions and content gaps in public FAQs or staff playbooks.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Support consistent intake for lot availability, pre-need inquiries, memorial options, and maintenance requests.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Give staff one approved place to search SOPs, forms, pricing guidance, and escalation rules.",
+            "icon": "BookOpenIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Grounds, records, and visitor services teams",
+        "roleContext": "Operational teams can spend less time hunting through binders, spreadsheets, maps, and policy documents while still relying on approved cemetery records and staff judgment.",
+        "bullets": [
+          {
+            "text": "Retrieve internal procedures for work orders, seasonal decoration cleanup, monument rules, and burial service preparation.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Summarize visitor requests into tasks or tickets through customer-configured workflows when approved.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Help visitors understand where to go, what to bring, and who can authorize changes without exposing private records publicly.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "MapPinIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-cremation-rate",
+      "metric": "U.S. cremation rate reached 61.8% in 2024.",
+      "claim": "CANA reports that the U.S. cremation rate was 61.8% in 2024, reflecting ongoing shifts in cemetery memorialization and interment needs.",
+      "sourceTitle": "Industry Statistical Information - Cremation Association of North America",
+      "sourceUrl": "https://www.cremationassociation.org/industrystatistics.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "changing burial and cremation preferences",
+        "memorialization service complexity",
+        "cemetery planning context"
+      ]
+    },
+    {
+      "id": "src-nfda-burial-cremation",
+      "metric": "NFDA projected 61.9% cremation and 33.2% burial for 2024.",
+      "claim": "NFDA’s 2024 Cremation & Burial Report projected a 61.9% U.S. cremation rate and a 33.2% burial rate for 2024.",
+      "sourceTitle": "NFDA 2024 Cremation and Burial Report",
+      "sourceUrl": "https://nfda.org/Portals/0/2024_NFDA_Cremation%20and%20Burial%20Report.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "service mix changes",
+        "pre-need education",
+        "family decision support"
+      ]
+    },
+    {
+      "id": "src-bls-funeral-workers",
+      "metric": "Funeral service worker employment was projected to grow 4% from 2024 to 2034.",
+      "claim": "The Bureau of Labor Statistics says funeral service workers often work irregular hours and are on call, with employment projected to grow 4% from 2024 to 2034.",
+      "sourceTitle": "Funeral Service Workers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/personal-care-and-service/funeral-service-occupations.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "staff workload",
+        "after-hours expectations",
+        "operations pressure"
+      ]
+    },
+    {
+      "id": "src-ftc-funeral-rule",
+      "metric": "Consumers have rights to price information and itemized choices under the Funeral Rule.",
+      "claim": "The FTC Funeral Rule gives consumers rights to choose only the goods and services they want, receive price information by telephone, and see written price lists for certain funeral goods and services.",
+      "sourceTitle": "The FTC Funeral Rule",
+      "sourceUrl": "https://consumer.ftc.gov/articles/ftc-funeral-rule",
+      "sourceDate": "FTC consumer guidance",
+      "bestUsedFor": [
+        "price transparency",
+        "consumer education",
+        "handoff boundaries"
+      ]
+    },
+    {
+      "id": "src-ftc-compliance-calls",
+      "metric": "FTC reported 39 undercover calls with refused or inconsistent cost answers.",
+      "claim": "In a 2024 undercover sweep, the FTC said 39 funeral home calls involved refusals to answer cost questions or inconsistent price information.",
+      "sourceTitle": "When consumers call funeral homes: FTC undercover sweep suggests seven compliance points for industry members",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/blog/2024/01/when-consumers-call-funeral-homes-ftc-undercover-sweep-suggests-seven-compliance-points-industry",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "phone inquiry consistency",
+        "staff training",
+        "price-information workflows"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Visitor and family question answering",
+      "problem": "Families often need basic information quickly, especially outside office hours, but cemetery staff still need to handle sensitive questions with care.",
+      "agentWorkflow": "A DocsBot support agent answers from approved cemetery pages, FAQs, maps, policies, and service guides. It can explain visiting hours, decoration rules, flower pickup dates, marker policies, accessibility information, and how to request staff help.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can collect request details, create a ticket, route a message, or prepare a staff handoff rather than making sensitive decisions on its own.",
+      "exampleQuestionsOrRequests": [
+        "What are your visiting hours this weekend?",
+        "Can I place artificial flowers or flags at a grave?",
+        "How do I request help finding a burial location?",
+        "Who can approve a marker change?"
+      ],
+      "businessOutcome": "Reduces repetitive calls while giving families a respectful first response and a clear path to human support.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Grave location and records intake assistance",
+      "problem": "Visitors may not know the exact legal name, date, section, or lot information needed for cemetery staff to locate records efficiently.",
+      "agentWorkflow": "The agent asks structured follow-up questions, explains what information is useful, and searches approved public location guides or non-sensitive record instructions. If the request requires private records, it summarizes the inquiry for staff review.",
+      "liveContextOrTools": "A customer-configured records lookup can be scoped to approved public fields, while private or uncertain matches can be routed to staff with logs and permission boundaries.",
+      "exampleQuestionsOrRequests": [
+        "I’m looking for my grandfather but only know his last name.",
+        "Can you help me find Section C from the main gate?",
+        "What information do you need to locate a grave?",
+        "Can I request a map before I visit?"
+      ],
+      "businessOutcome": "Improves visitor self-service and helps staff receive cleaner, better-contextualized search requests.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Pre-need and memorialization education",
+      "problem": "Families comparing burial, cremation, niches, markers, and memorial options need clear explanations without being pushed into complex decisions too early.",
+      "agentWorkflow": "A DocsBot agent answers from approved service catalogs, FAQs, pricing guidance, memorial rules, cemetery maps, and appointment instructions. It can collect interest, timeline, location preferences, and contact details for a family counselor follow-up.",
+      "liveContextOrTools": "AI Actions can qualify the request by customer-defined rules, forward a summary to a CRM or ticketing system, or request a meeting through a customer-configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "What is the difference between a niche and an in-ground cremation burial?",
+        "Do you offer family estates or companion spaces?",
+        "Can I schedule a pre-need appointment?",
+        "What marker options are allowed in this section?"
+      ],
+      "businessOutcome": "Helps families understand options before speaking with staff, while keeping final pricing, contracts, and commitments with humans.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-cremation-rate"
+      ]
+    },
+    {
+      "name": "Maintenance and grounds service requests",
+      "problem": "Cemeteries receive recurring requests about sunken markers, grass trimming, floral cleanup, damaged vases, and seasonal maintenance schedules.",
+      "agentWorkflow": "The agent answers from maintenance policies and care schedules, then gathers the grave location, requester contact details, photos or notes, urgency, and preferred follow-up channel for staff review.",
+      "liveContextOrTools": "Through customer-configured Skills, APIs, connectors, or MCP-enabled tools, the agent can create a work order, notify the grounds team, or update approved request fields.",
+      "exampleQuestionsOrRequests": [
+        "Can someone check a sunken marker?",
+        "When do you remove seasonal decorations?",
+        "How do I report a damaged vase?",
+        "What is included in perpetual care?"
+      ],
+      "businessOutcome": "Creates more complete service requests and reduces back-and-forth between families, office staff, and grounds crews.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Genealogy and historical information support",
+      "problem": "Genealogists, historians, and family members often ask similar research questions that can take staff time away from active family service.",
+      "agentWorkflow": "DocsBot can answer from digitized public burial indexes, historical pages, tour notes, policies for research access, and archive request instructions. It can explain what is available online and when staff research is required.",
+      "liveContextOrTools": "The agent can collect research details and generate an internal summary for staff, without exposing restricted records or promising that a match is definitive.",
+      "exampleQuestionsOrRequests": [
+        "Do you have burial records from the 1920s?",
+        "How do I request a copy of a cemetery record?",
+        "Are there notable historical sections I can visit?",
+        "Can you explain your research request process?"
+      ],
+      "businessOutcome": "Makes public history and research guidance easier to access while preserving staff review for official records.",
+      "icon": "BuildingLibraryIcon"
+    },
+    {
+      "name": "Staff onboarding and procedure lookup",
+      "problem": "Cemetery work depends on local rules, maps, forms, and procedures that may live across binders, drives, emails, and long-tenured employee knowledge.",
+      "agentWorkflow": "An internal DocsBot agent answers employee questions from SOPs, forms, internal policies, training documents, maps, and service playbooks. Staff can ask natural-language questions instead of searching multiple folders.",
+      "liveContextOrTools": "Private team chat, Slack, Microsoft Teams, and approved workflow connections can make the agent available where staff already work.",
+      "exampleQuestionsOrRequests": [
+        "What is our checklist before an interment service?",
+        "Where is the monument permit form?",
+        "What do we tell families about holiday cleanup?",
+        "How do I escalate a disputed authorization request?"
+      ],
+      "businessOutcome": "Improves consistency across office, grounds, and family-service teams, especially during weekends, holidays, and staff transitions.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-funeral-workers"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give families calm, accurate self-service before they call",
+    "intro": "A cemetery-facing DocsBot agent can sit on your website and answer from approved content in your voice. It can help visitors understand hours, directions, policies, memorial options, and request paths while escalating sensitive conversations to your staff.",
+    "requests": [
+      {
+        "request": "“Can you help me find where someone is buried?”",
+        "agentResponseStrategy": "Ask for available details, explain what information helps the office search, provide approved public location guidance when available, and route private record requests to staff.",
+        "sourceTypes": [
+          "Public burial search instructions",
+          "Cemetery maps",
+          "Records request policies"
+        ],
+        "optionalAction": "Create a staff review ticket with the visitor’s details and conversation summary.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“What decorations are allowed right now?”",
+        "agentResponseStrategy": "Answer from current decoration rules, holiday cleanup dates, flower policies, and section-specific restrictions, with a link or source reference where available.",
+        "sourceTypes": [
+          "Decoration policies",
+          "Seasonal notices",
+          "Section rules"
+        ],
+        "optionalAction": "Notify staff if the visitor reports a missing or damaged item.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“How much does this cost?”",
+        "agentResponseStrategy": "Provide approved public pricing guidance or explain how to request current price information, while routing complex, contract, or legally sensitive questions to staff.",
+        "sourceTypes": [
+          "Approved price pages",
+          "Service catalogs",
+          "Consumer disclosure guidance"
+        ],
+        "optionalAction": "Collect contact details and requested services so a staff member can respond with accurate information.",
+        "icon": "BanknotesIcon",
+        "sourceIds": [
+          "src-ftc-funeral-rule"
+        ]
+      },
+      {
+        "request": "“Can I schedule an appointment to discuss burial or cremation memorial options?”",
+        "agentResponseStrategy": "Collect scheduling intent, preferred contact method, timeline, and areas of interest before handing off to a family counselor or configured booking workflow.",
+        "sourceTypes": [
+          "Service options",
+          "Appointment instructions",
+          "Pre-need FAQs"
+        ],
+        "optionalAction": "Request a meeting through a customer-configured scheduling Skill or workflow.",
+        "icon": "CalendarIcon",
+        "sourceIds": [
+          "src-nfda-burial-cremation"
+        ]
+      },
+      {
+        "request": "“What should I bring for a committal service?”",
+        "agentResponseStrategy": "Answer from service-day instructions, parking maps, weather or accessibility notes supplied by the cemetery, and staff-approved checklists.",
+        "sourceTypes": [
+          "Service checklists",
+          "Visitor guides",
+          "Accessibility information"
+        ],
+        "optionalAction": "Escalate unusual timing, clergy, military honors, or authorization questions to the office.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“How do I report a maintenance concern?”",
+        "agentResponseStrategy": "Gather location, description, contact details, and optional photo information, then explain the cemetery’s response process and expected follow-up path.",
+        "sourceTypes": [
+          "Maintenance policies",
+          "Care schedules",
+          "Work order instructions"
+        ],
+        "optionalAction": "Create a task or ticket in the cemetery’s configured system for staff triage.",
+        "icon": "WrenchIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make cemetery procedures searchable for every team member",
+    "intro": "DocsBot can also work as a private internal knowledge agent for cemetery staff, trained on SOPs, internal forms, service playbooks, maps, policies, and approved records guidance. Employees get faster answers while managers see what documentation needs improvement.",
+    "workflows": [
+      {
+        "name": "Service-day preparation support",
+        "problem": "Interment and committal services require coordinated steps across office staff, grounds crews, funeral homes, clergy, families, and vendors.",
+        "agentWorkflow": "Staff ask the internal agent for checklists, timing rules, equipment notes, section-specific procedures, parking guidance, and escalation contacts. The agent answers from approved SOPs and source material.",
+        "sourceTypes": [
+          "Interment SOPs",
+          "Service checklists",
+          "Maps and section notes"
+        ],
+        "optionalAction": "Generate a service-prep summary or create a task through a customer-configured workflow.",
+        "outcome": "Reduces missed steps and helps newer staff follow the same process as experienced team members.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "name": "Policy and authorization lookup",
+        "problem": "Questions about who may authorize a burial, marker change, disinterment request, or record update can be sensitive and must follow local policy.",
+        "agentWorkflow": "The agent retrieves approved internal policies, forms, and escalation rules, then points staff to the proper human review path for high-impact decisions.",
+        "sourceTypes": [
+          "Authorization policies",
+          "Forms",
+          "Escalation procedures"
+        ],
+        "optionalAction": "Summarize the situation for a manager or compliance reviewer without making the final decision.",
+        "outcome": "Keeps sensitive decisions with authorized people while making the supporting procedure easier to find.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Front-office response drafting",
+        "problem": "Staff may answer the same email and phone questions many times a week, but responses must remain accurate and compassionate.",
+        "agentWorkflow": "DocsBot can draft replies from approved FAQs, service guides, policies, and prior approved examples. Staff review and send the final message.",
+        "sourceTypes": [
+          "FAQs",
+          "Approved response examples",
+          "Service guides"
+        ],
+        "optionalAction": "Draft a helpdesk response or route the inquiry through customer-configured ticketing workflows.",
+        "outcome": "Saves staff time while preserving human tone and oversight for family communications.",
+        "icon": "EnvelopeIcon",
+        "sourceIds": [
+          "src-ftc-compliance-calls"
+        ]
+      },
+      {
+        "name": "Knowledge gap reporting",
+        "problem": "If families repeatedly ask questions that are missing from the website, staff keep answering them manually.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, and conversation review help managers identify repeated questions, unresolved topics, and documentation gaps.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Website FAQs"
+        ],
+        "optionalAction": "Create a content-improvement task for a manager or marketing team.",
+        "outcome": "Turns real visitor questions into better public guidance and internal training materials.",
+        "icon": "ChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agent",
+      "mainLandingPageContext": "DocsBot agents are trained on configured knowledge sources and answer in the company’s voice with grounding in approved content.",
+      "industryApplication": "Use your cemetery’s public pages, policies, maps, service descriptions, and FAQs to answer visitor questions consistently.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Embeddable website widget and private team access",
+      "mainLandingPageContext": "DocsBot can appear in customer-facing chat experiences and private internal chat for employees.",
+      "industryApplication": "Offer families 24/7 website assistance while giving office and grounds staff a private assistant for procedures and forms.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot Skills can support live lookups, record updates, workflow triggers, summaries, and handoffs inside customer-defined rules.",
+      "industryApplication": "Route maintenance requests, create tasks, collect appointment intent, or prepare staff handoffs through approved cemetery workflows and Model Context Protocol connections where configured.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, reports, conversation review, satisfaction and resolution analysis, and topic management.",
+      "industryApplication": "See which visitor questions are repeated, which policies confuse families, and where your cemetery website or staff playbook needs clearer content.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Governance for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption, granular access controls, role-based permissions, and customer-defined controls.",
+      "industryApplication": "Keep private records, authorization questions, pricing commitments, and family disputes within scoped permissions and human review paths.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own cemetery content instead of generic internet answers.",
+      "Support high-volume question answering with source-grounded self-service and staff handoffs.",
+      "Give internal teams faster access to procedures, training materials, and approved guidance."
+    ],
+    "whyTheseReviewsFit": "Cemetery teams need dependable answers, respectful service, and internal consistency. DocsBot proof from customer support, owned-content training, and internal knowledge use shows how organizations use AI agents to reduce repetitive work while keeping answers grounded in their own materials.",
+    "trustClaimIcons": [
+      "FolderIcon",
+      "ChatBubbleLeftIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for cemetery operations",
+    "audience": [
+      "Cemetery owners and managers",
+      "Family services teams",
+      "Cemetery administrators",
+      "Grounds and records teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "MapPinIcon"
+  },
+  "relatedIndustrySlugs": [
+    "funeral-director",
+    "florist",
+    "event-planning",
+    "janitorial-cleaning-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "cemetery",
+    "webSearchQueries": [
+      "NFDA cremation burial rate 2024 2025 report cemetery funeral statistics",
+      "Cremation Association of North America cremation rate 2023 United States",
+      "BLS cemetery workers funeral service occupation employment statistics",
+      "FTC funeral rule cemetery funeral homes prices consumer guide",
+      "site:cremationassociation.org annual statistics report 2024 cremation rate United States 2023",
+      "NFDA 2024 cremation burial report cremation rate 2024 burial rate"
+    ],
+    "sourceUrls": [
+      "https://www.cremationassociation.org/industrystatistics.html",
+      "https://nfda.org/Portals/0/2024_NFDA_Cremation%20and%20Burial%20Report.pdf",
+      "https://www.bls.gov/ooh/personal-care-and-service/funeral-service-occupations.htm",
+      "https://consumer.ftc.gov/articles/ftc-funeral-rule",
+      "https://www.ftc.gov/business-guidance/blog/2024/01/when-consumers-call-funeral-homes-ftc-undercover-sweep-suggests-seven-compliance-points-industry"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44177,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 23953,
+        "outputTokens": 7754,
+        "reasoningOutputTokens": 172,
+        "totalTokens": 51931,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.181249,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.201249
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25233,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 10257,
+          "outputTokens": 4920,
+          "reasoningOutputTokens": 172,
+          "totalTokens": 30153,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.103187,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.123187
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18944,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13696,
+          "outputTokens": 2834,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21778,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.078062,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.078062
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1617630724949-55c4ae2b9cef?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDA3NzJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Cemetery background image",
+    "source": "legacy-industry",
+    "query": "Cemetery"
+  },
+  "faq": [
+    {
+      "question": "Can a cemetery AI agent answer family questions without sounding cold or generic?",
+      "answer": "Yes. DocsBot agents are trained on your approved cemetery content and configured to answer in your voice, so responses can stay calm, concise, and respectful. For sensitive situations—disputes, grief-heavy conversations, contract questions, or authorization issues—the agent can stop self-service and route the conversation to staff with a summary.",
+      "role": "Family services and office staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we keep the agent from giving wrong burial, plot, or ownership information?",
+      "answer": "Use DocsBot with scoped knowledge sources and review paths. Public-facing agents can answer from approved public maps, policies, and search instructions, while private ownership records, disputed matches, and official record changes can be kept behind staff review. If you configure live lookups, they should be limited to approved fields, permissions, logs, and human escalation rules.",
+      "role": "Grounds, records, and visitor services teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help reduce after-hours calls without replacing our office staff?",
+      "answer": "DocsBot is best used as a first-response layer for routine questions: hours, directions, decoration rules, maintenance intake, appointment requests, and what information families should provide. Funeral service workers often work irregular hours and may be on call, so always-available self-service can reduce repetitive interruptions while preserving staff attention for urgent or sensitive cases.",
+      "role": "Family services and office staff",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-funeral-workers"
+      ]
+    },
+    {
+      "question": "Will families still be able to reach a person when the question is emotional or complicated?",
+      "answer": "Yes. DocsBot can be configured to escalate when a question involves grief support, pricing commitments, family conflict, legal authorization, disinterment, private records, or anything outside approved content. The benefit is that staff receive a cleaner summary of what the family already asked instead of starting from scratch.",
+      "role": "Family services and office staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent explain decoration rules that change by season, holiday, or section?",
+      "answer": "Yes, as long as those rules are part of the approved sources you provide. You can train the agent on decoration policies, cleanup calendars, holiday notices, section restrictions, flower rules, and staff-approved exceptions. Conversation analytics can also show which rules families keep misunderstanding so you can improve public guidance.",
+      "role": "Cemetery managers and administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would DocsBot handle maintenance requests like sunken markers, damaged vases, or trimming concerns?",
+      "answer": "The agent can answer from your maintenance policies, then collect the grave location, requester contact information, description, urgency, and optional photo notes. With customer-configured Skills, APIs, connectors, or workflow automation, it can create a task or ticket for staff review instead of leaving office staff to chase missing details.",
+      "role": "Grounds, records, and visitor services teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for pre-need and cremation memorialization inquiries without creating sales pressure?",
+      "answer": "Yes. DocsBot can provide educational answers from approved service guides, niche and in-ground cremation options, marker rules, appointment instructions, and pricing guidance. That matters because U.S. cremation reached 61.8% in 2024, increasing the need to explain memorialization choices clearly while leaving final recommendations, contracts, and commitments to people.",
+      "role": "Cemetery managers and administrators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cremation-rate"
+      ]
+    },
+    {
+      "question": "Can the AI agent answer price questions, or should all pricing go to staff?",
+      "answer": "Many cemeteries will want the agent to provide only approved public pricing guidance or explain how to request current prices, then route complex or contract-specific questions to staff. This is especially important where cemetery operations overlap with funeral arrangements, because consumers have rights to price information and itemized choices under the FTC Funeral Rule.",
+      "role": "Cemetery managers and administrators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-funeral-rule"
+      ]
+    },
+    {
+      "question": "How does DocsBot support consistency when different staff members answer calls differently?",
+      "answer": "DocsBot gives staff and families one approved answer source for policies, service options, forms, maps, and procedures. It can also draft staff responses for review. Consistency matters: in a 2024 FTC undercover sweep of funeral homes, 39 calls involved refused or inconsistent cost answers, which highlights why approved response workflows are important in death-care communications.",
+      "role": "Family services and office staff",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-ftc-compliance-calls"
+      ]
+    },
+    {
+      "question": "What content do we need before launching a cemetery AI agent?",
+      "answer": "Start with your highest-confidence materials: website pages, visitor FAQs, cemetery maps, decoration rules, marker policies, maintenance request instructions, service-day checklists, pre-need appointment guidance, and escalation rules. Internal agents can also use SOPs, forms, staff playbooks, training documents, and records-handling procedures.",
+      "role": "Cemetery managers and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot work if our knowledge is spread across PDFs, binders, spreadsheets, and staff memory?",
+      "answer": "DocsBot can train on many digital knowledge sources such as PDFs, documents, websites, internal files, and structured content. For paper binders or staff-only knowledge, the implementation work is usually converting the most-used procedures into approved digital sources, then using conversation logs to identify what still needs documentation.",
+      "role": "Cemetery managers and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we deploy one agent for families and a separate private agent for employees?",
+      "answer": "Yes. A public-facing agent can answer visitor questions from approved public content, while a private internal knowledge agent can help staff search SOPs, forms, maps, pricing guidance, escalation rules, and service checklists. Role-based permissions and source separation help keep internal procedures and private records out of public responses.",
+      "role": "Cemetery managers and administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What cemetery systems can DocsBot connect with?",
+      "answer": "DocsBot can support customer-configured workflows through Skills, APIs, connectors, webhooks, and MCP connectivity where you authorize access. That can include approved lookups, task creation, ticket routing, CRM-style handoffs, scheduling requests, or notifications. It should not be connected broadly to sensitive records without scoped permissions and review rules.",
+      "role": "Cemetery managers and administrators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can the agent search burial records for visitors?",
+      "answer": "It can help with intake and approved public search guidance. If you have a public burial index or approved public fields, a configured lookup may help visitors find non-sensitive information. For private records, uncertain matches, ownership questions, or official changes, the agent should collect details and route the request to records staff.",
+      "role": "Grounds, records, and visitor services teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How do we measure whether the AI agent is actually helping?",
+      "answer": "Track repetitive question volume, after-hours self-service, completed maintenance intakes, appointment requests, escalation rate, unanswered topics, staff time spent searching for policies, and family satisfaction signals. DocsBot analytics, logs, topic management, conversation review, and knowledge-gap reporting help managers see what the agent resolved and what content needs improvement.",
+      "role": "Cemetery managers and administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when the agent does not know the answer?",
+      "answer": "DocsBot should be configured to rely on approved sources, admit when information is missing, ask clarifying questions when useful, and escalate to staff when the answer is uncertain or sensitive. Managers can review unresolved conversations and use knowledge-gap reports to improve the FAQ, policies, or internal playbook over time.",
+      "role": "Family services and office staff",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help train seasonal, part-time, or new cemetery staff?",
+      "answer": "Yes. A private internal agent can answer staff questions from approved SOPs, forms, service checklists, maps, and escalation rules. That is useful in an industry where funeral service workers often work irregular hours and employment is projected to grow 4% from 2024 to 2034, making consistent onboarding and procedure access important.",
+      "role": "Cemetery managers and administrators",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-funeral-workers"
+      ]
+    },
+    {
+      "question": "How do we prevent the AI from making commitments about availability, pricing, or service dates?",
+      "answer": "Set explicit instructions and action boundaries. The agent can explain approved options, collect interest, summarize needs, and request a meeting, but final lot availability, price commitments, contracts, service scheduling, and authorization decisions should remain with staff unless you intentionally configure a tightly scoped workflow.",
+      "role": "Cemetery managers and administrators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support genealogists without overwhelming our records team?",
+      "answer": "Yes. DocsBot can answer from public history pages, digitized indexes, archive policies, research request instructions, and tour materials. It can also collect names, dates, relationship details, and research goals before routing a clean request to staff, while avoiding definitive claims from uncertain or restricted records.",
+      "role": "Grounds, records, and visitor services teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security controls matter most for cemetery records and family inquiries?",
+      "answer": "Buyers should look for source separation, role-based permissions, granular access controls, encryption, logging, and human review for sensitive workflows. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and customer-defined controls for what agents can access and do.",
+      "role": "Cemetery managers and administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Will DocsBot use our cemetery records or family conversations to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. Your team controls the configured knowledge sources, permissions, and workflow boundaries, which is important when handling family inquiries, internal procedures, ownership questions, and potentially sensitive records.",
+      "role": "Cemetery managers and administrators",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How quickly can a cemetery start with AI without a major systems project?",
+      "answer": "A practical first phase is a public agent trained on website pages, visitor policies, maps, FAQs, and maintenance instructions, with escalation instead of deep integrations. After staff review real conversations, you can add internal SOP search, structured intake, ticket creation, scheduling requests, or approved record lookups in later phases.",
+      "role": "Cemetery managers and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support multiple cemetery locations or sections with different rules?",
+      "answer": "Yes, if the content is organized clearly. The agent can answer based on location pages, section rules, maps, cleanup schedules, and policy variations. For multi-location operators, access controls and source organization are important so public visitors and staff get answers that match the right cemetery, mausoleum, section, or office process.",
+      "role": "Cemetery managers and administrators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic website chatbot?",
+      "answer": "Compare on source-grounding, internal knowledge support, analytics, human escalation, workflow actions, governance, and the ability to train on your own cemetery content. A generic chatbot may answer simple prompts, but cemetery buyers usually need approved-policy answers, sensitive handoffs, staff procedure lookup, and controlled actions—not just a chat bubble.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent answer in languages other than English for visiting families?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help visitors understand hours, directions, decoration rules, appointment paths, and what information to provide. For legal, pricing, authorization, or records-sensitive questions, multilingual responses should still follow the same approved sources and escalation rules.",
+      "role": "Family services and office staff",
+      "category": "Scalability"
+    },
+    {
+      "question": "Who should own the rollout internally: operations, family services, records, or IT?",
+      "answer": "Most cemetery rollouts need a shared owner. Operations or administration usually defines success metrics and policies; family services validates tone and escalation; records sets privacy boundaries; grounds confirms maintenance intake; and IT or a systems vendor helps with access, integrations, and security review.",
+      "role": "Cemetery managers and administrators",
+      "category": "Implementation"
+    },
+    {
+      "question": "What are realistic ROI drivers for a cemetery AI agent?",
+      "answer": "The strongest ROI usually comes from reducing repetitive calls and emails, improving after-hours self-service, collecting complete maintenance and records requests, shortening staff search time, and reducing avoidable handoffs. DocsBot analytics can help prove value by showing resolved topics, escalations, repeated questions, and content gaps.",
+      "role": "Cemetery managers and administrators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot help us improve our website content over time?",
+      "answer": "Yes. DocsBot logs, analytics, topic management, conversation review, and knowledge-gap discovery show what families are actually asking. Managers can use that data to update public FAQs, clarify decoration and marker policies, add better directions, improve pre-need explanations, and strengthen staff training materials.",
+      "role": "Cemetery managers and administrators",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

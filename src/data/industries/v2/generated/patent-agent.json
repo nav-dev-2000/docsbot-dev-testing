@@ -1,0 +1,728 @@
+{
+  "slug": "patent-agent",
+  "business": "Patent Agent",
+  "industryCategory": "Safety/Security & Legal",
+  "pageMeta": {
+    "title": "AI Agents for Patent Agents and IP Workflows",
+    "description": "DocsBot helps patent agents answer client questions, retrieve filing knowledge, and route intake with source-grounded AI automation.",
+    "canonicalPath": "/industry/patent-agent"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for patent prosecution teams",
+    "headline": "AI agents that help patent agents move from intake to filing faster",
+    "subheadline": "DocsBot lets patent agents create secure AI support and internal knowledge agents trained on approved filing guides, templates, office action playbooks, client FAQs, invention disclosure forms, and practice procedures—so routine questions, document lookups, and handoffs do not slow down prosecution work.",
+    "proofBullets": [
+      {
+        "text": "Answer inventor and client questions from your approved FAQs, filing guides, fee explanations, and engagement materials.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Retrieve clause language, checklist steps, prior correspondence summaries, and prosecution procedures from private firm knowledge.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect structured invention intake details, route missing-information requests, and prepare human-reviewed handoffs.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Escalate sensitive legal strategy, claim-scope, inventorship, and deadline decisions to the responsible practitioner.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a patent workflow agent",
+    "secondaryCta": "Explore legal knowledge automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps patent agents build AI agents trained on their own approved knowledge sources. The agent can answer routine patent process questions, summarize uploaded context, find internal procedures, reveal documentation gaps, and trigger bounded workflows through customer-configured AI Actions, Skills, APIs, connectors, or MCP servers when authorized.",
+    "whoItHelps": [
+      {
+        "role": "Solo patent agents and small IP practices",
+        "roleContext": "Keep client education, intake, and routine filing questions moving without turning every basic process question into a billable interruption.",
+        "bullets": [
+          {
+            "text": "Provide consistent explanations of provisional, nonprovisional, design, PCT, office action, and maintenance-fee process steps from approved firm content.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Collect invention disclosure details before the consultation so the practitioner starts with a cleaner technical record.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Escalate questions that require legal judgment, claim strategy, or deadline calculation review.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Patent prosecution teams",
+        "roleContext": "Give agents, paralegals, docketing staff, and technical specialists a private knowledge assistant for templates, SOPs, client procedures, and filing references.",
+        "bullets": [
+          {
+            "text": "USPTO Patent Center supports electronic filing and application management, including submission receipts and correspondence access for registered users.",
+            "icon": "ComputerDesktopIcon",
+            "sourceIds": [
+              "src-uspto-patent-center"
+            ]
+          },
+          {
+            "text": "Surface internal checklists for IDS submissions, inventor declarations, assignment packages, office action responses, and client reporting letters.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Summarize repeated team questions into analytics that reveal where filing guides, template notes, or client-facing FAQs need improvement.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "IP operations and client service leaders",
+        "roleContext": "Standardize how patent process knowledge is delivered across web intake, private team chat, helpdesk-connected workflows, and client-facing resources.",
+        "bullets": [
+          {
+            "text": "Route website inquiries by technology area, urgency, service type, or consultation readiness using customer-defined qualification rules.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Draft response summaries for routine client-service tickets while keeping final legal advice and strategy with the practitioner.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Support multilingual first-line answers from approved content for international founders, inventors, and in-house teams.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-wipo-2025-patents",
+      "metric": "3.7 million patent applications filed worldwide in 2024",
+      "claim": "WIPO reported that worldwide patent filing reached about 3.7 million applications in 2024, with Asia receiving seven out of every ten applications filed globally.",
+      "sourceTitle": "WIPO World Intellectual Property Indicators 2025: Patents highlights",
+      "sourceUrl": "https://www.wipo.int/web-publications/world-intellectual-property-indicators-2025-highlights/en/patents-highlights.html",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Global patent demand",
+        "Client education volume",
+        "Cross-border filing complexity"
+      ]
+    },
+    {
+      "id": "src-uspto-pendency-dashboard",
+      "metric": "USPTO tracks unexamined patent inventory and first office action pendency",
+      "claim": "The USPTO Patents Dashboard defines unexamined inventory as UPR applications awaiting first written feedback and tracks first office action pendency in months from filing to first office action mailing.",
+      "sourceTitle": "USPTO Patents Dashboard",
+      "sourceUrl": "https://www.uspto.gov/dashboard/patents/",
+      "sourceDate": "Updated regularly",
+      "bestUsedFor": [
+        "Pendency pressure",
+        "Client status questions",
+        "Operations bottlenecks"
+      ]
+    },
+    {
+      "id": "src-uspto-patent-center",
+      "metric": "Patent Center is the USPTO tool for electronic filing and application management",
+      "claim": "USPTO Patent Center lets users file and manage patent applications, upload multiple files, receive submission and payment receipts, and registered users can view submissions and respond to correspondence.",
+      "sourceTitle": "USPTO Patent Center",
+      "sourceUrl": "https://www.uspto.gov/patents/apply/patent-center",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "Filing workflows",
+        "Client status explanations",
+        "Operational process support"
+      ]
+    },
+    {
+      "id": "src-uspto-pro-se",
+      "metric": "USPTO maintains resources for applicants filing without a registered practitioner",
+      "claim": "The USPTO Pro Se Assistance Program provides educational resources for applicants filing without a registered patent attorney or agent, reflecting the need for clear patent-process guidance.",
+      "sourceTitle": "USPTO Filing a patent application on your own",
+      "sourceUrl": "https://www.uspto.gov/patents/basics/using-legal-services/pro-se-assistance-program",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "Client education",
+        "Self-service questions",
+        "Inventor intake"
+      ]
+    },
+    {
+      "id": "src-uspto-oed-ethics",
+      "metric": "USPTO professional responsibility rules govern practitioners",
+      "claim": "The USPTO states that its professional responsibility rules align practitioner obligations with many state bar requirements and that OED assists practitioners with registration and practice issues.",
+      "sourceTitle": "USPTO Ethics rules",
+      "sourceUrl": "https://www.uspto.gov/learning-and-resources/patent-and-trademark-practitioners/current-patent-practitioner/ethics-rules",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "Governance",
+        "Sensitive legal workflows",
+        "Human review boundaries"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Inventor intake and disclosure triage",
+      "problem": "Inventors often arrive with partial technical descriptions, unclear dates, missing drawings, and repeated questions about what information a patent agent needs before drafting begins.",
+      "agentWorkflow": "A DocsBot agent asks structured intake questions, explains each requested field using approved firm guidance, summarizes invention background, flags missing materials, and prepares a practitioner-ready handoff. With customer-configured AI Actions, it can create a task, notify the intake team, or route the matter by technology area.",
+      "liveContextOrTools": "Use a custom form, approved workflow trigger, CRM or matter-intake API, email notification, or task creation Skill when configured.",
+      "exampleQuestionsOrRequests": [
+        "What should I prepare before a provisional patent consultation?",
+        "Summarize this invention disclosure and list what is missing.",
+        "Route this new software invention inquiry to the right technical specialist."
+      ],
+      "businessOutcome": "Better-prepared consultations, fewer back-and-forth emails, and cleaner handoffs while legal judgments stay with the patent professional.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "name": "Client patent-process education agent",
+      "problem": "Clients repeatedly ask about provisional applications, filing receipts, office actions, publication, maintenance fees, and what Patent Center status language means.",
+      "agentWorkflow": "Train DocsBot on firm-approved client guides, USPTO-facing explanations, engagement letters, FAQs, and process timelines. The agent answers in the firm’s voice, cites source content, and escalates questions about claim scope, deadlines, abandonment risk, or legal strategy.",
+      "liveContextOrTools": "Deploy through an embedded website widget, private client portal, helpdesk-connected workflow, or shared intake link.",
+      "exampleQuestionsOrRequests": [
+        "What happens after my nonprovisional application is filed?",
+        "Why did I receive an office action?",
+        "Can you explain what a filing receipt is in plain English?"
+      ],
+      "businessOutcome": "Clients get faster first-line answers while practitioners preserve time for strategy, drafting, and prosecution analysis.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-uspto-pro-se"
+      ]
+    },
+    {
+      "name": "Office action response knowledge assistant",
+      "problem": "Patent teams need quick access to response templates, examiner interview notes, argument playbooks, amendment conventions, and client reporting procedures without searching scattered folders.",
+      "agentWorkflow": "A private DocsBot agent retrieves internal examples, summarizes past correspondence, points staff to approved templates, and drafts internal research notes from the firm’s own sources. Sensitive response strategy and final filings remain under human review.",
+      "liveContextOrTools": "Use private team chat, Google Drive, Notion, Confluence, PDFs, Word documents, or other approved knowledge sources already configured in DocsBot.",
+      "exampleQuestionsOrRequests": [
+        "Find our checklist for a non-final obviousness rejection response.",
+        "Summarize the last client reporting letter template for office actions.",
+        "What internal steps do we follow before sending an amendment for review?"
+      ],
+      "businessOutcome": "Less time searching internal knowledge and more consistent prosecution support across agents, paralegals, and technical staff.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Patent Center filing checklist support",
+      "problem": "Electronic filing requires careful document preparation, receipts, correspondence handling, and role-specific follow-up, and routine questions can distract experienced docketing staff.",
+      "agentWorkflow": "DocsBot answers filing-process questions from approved firm SOPs and public USPTO references, surfaces checklist steps for application packages, and can trigger a bounded workflow to create a filing-prep task or request missing documents.",
+      "liveContextOrTools": "Connect to task systems, document repositories, docketing workflows, or a remote Model Context Protocol server through customer-configured Skills, APIs, connectors, or MCP when authorized.",
+      "exampleQuestionsOrRequests": [
+        "Which documents are required before this provisional filing package is ready?",
+        "Create a checklist task for missing inventor declaration materials.",
+        "Where do I find our instructions for saving Patent Center receipts?"
+      ],
+      "businessOutcome": "More consistent filing preparation and fewer routine interruptions for docketing and prosecution operations.",
+      "icon": "ArchiveBoxIcon",
+      "sourceIds": [
+        "src-uspto-patent-center"
+      ]
+    },
+    {
+      "name": "Pendency and status communication assistant",
+      "problem": "Clients want progress updates while applications may wait months for USPTO action, creating recurring status-check emails and explanations.",
+      "agentWorkflow": "Train the agent on approved status-update language, client reporting procedures, and public pendency references. When connected to authorized systems, it can look up allowed matter metadata, summarize current status, draft a response, and route exceptions for practitioner review.",
+      "liveContextOrTools": "Use customer-configured matter-status lookups, metadata bindings, helpdesk workflows, ticket summaries, and human escalation for deadlines or legal risk.",
+      "exampleQuestionsOrRequests": [
+        "Draft a plain-English update for a client whose application is awaiting first office action.",
+        "Why has my application not been examined yet?",
+        "Route this urgent status concern to the responsible practitioner."
+      ],
+      "businessOutcome": "Faster, more consistent status communication while deadline and prosecution-risk decisions remain human-controlled.",
+      "icon": "ClockIcon",
+      "sourceIds": [
+        "src-uspto-pendency-dashboard"
+      ]
+    },
+    {
+      "name": "Prior art and technical reference navigation",
+      "problem": "Patent agents and technical specialists often need to navigate large internal research memos, invention histories, publication lists, and previous search notes before deciding what to review next.",
+      "agentWorkflow": "DocsBot can make internal research files searchable, summarize prior search notes, identify cited source documents, and answer questions from approved archives. It should support research preparation, not replace practitioner-led patentability or freedom-to-operate analysis.",
+      "liveContextOrTools": "Train on approved PDFs, Word files, text exports, research memos, and internal knowledge repositories; use review paths for legal conclusions.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the prior search notes for this invention family.",
+        "Find internal references mentioning neural network compression claims.",
+        "Which documents discuss the closest known references?"
+      ],
+      "businessOutcome": "Faster research orientation with clearer boundaries around legal conclusions and claim strategy.",
+      "icon": "MagnifyingGlassIcon",
+      "sourceIds": [
+        "src-wipo-2025-patents"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give inventors and clients a clear front door for patent questions",
+    "intro": "A DocsBot customer-facing agent can explain your patent process from approved sources, collect structured intake details, qualify consultation requests, and route sensitive legal questions to the right practitioner instead of leaving clients waiting for a manual reply.",
+    "requests": [
+      {
+        "request": "“I have an invention. What should I send before I book a consultation?”",
+        "agentResponseStrategy": "Explain the firm’s intake expectations, request technical description, drawings, dates, contributors, public disclosures, and business goals, then prepare a summary for staff review.",
+        "sourceTypes": [
+          "Client intake forms",
+          "Firm FAQs",
+          "Engagement guidance",
+          "Invention disclosure templates"
+        ],
+        "optionalAction": "Submit a custom intake form or create a consultation-prep task through an approved workflow.",
+        "icon": "PencilIcon"
+      },
+      {
+        "request": "“What is the difference between a provisional and nonprovisional application?”",
+        "agentResponseStrategy": "Answer from the firm’s approved educational content, keep the explanation general, and invite attorney or agent review before the client relies on a filing strategy.",
+        "sourceTypes": [
+          "Client education pages",
+          "USPTO references",
+          "Firm process guides"
+        ],
+        "optionalAction": "Offer to route the question to a practitioner when the client describes a specific filing decision.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“Can someone update me on my application status?”",
+        "agentResponseStrategy": "Collect the matter identifier and client contact details, summarize the request, and route it to the appropriate team. If authorized, the agent can retrieve approved matter metadata before drafting a response.",
+        "sourceTypes": [
+          "Client service SOPs",
+          "Matter status metadata",
+          "Helpdesk tickets",
+          "Docketing notes"
+        ],
+        "optionalAction": "Create or route a status-update ticket with conversation context attached.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Do you work with medical device or software inventions?”",
+        "agentResponseStrategy": "Answer from approved service pages and practitioner profiles, qualify fit by technology area, urgency, and stage, then hand off the lead with a concise summary.",
+        "sourceTypes": [
+          "Service pages",
+          "Practitioner bios",
+          "Qualification rules",
+          "Consultation FAQs"
+        ],
+        "optionalAction": "Forward a qualified consultation request to CRM, email, or scheduling workflow when configured.",
+        "icon": "RocketLaunchIcon"
+      },
+      {
+        "request": "“I’m filing without a practitioner. What resources are available?”",
+        "agentResponseStrategy": "Point to firm-approved educational content and public USPTO self-filing resources, while making clear that the firm can provide professional representation if the inventor wants help.",
+        "sourceTypes": [
+          "Public USPTO resources",
+          "Firm education pages",
+          "Consultation materials"
+        ],
+        "optionalAction": "Offer a consultation-intake path for users who decide they want registered practitioner support.",
+        "icon": "UserCircleIcon",
+        "sourceIds": [
+          "src-uspto-pro-se"
+        ]
+      },
+      {
+        "request": "“Is this email or notice from the USPTO?”",
+        "agentResponseStrategy": "Provide general guidance from approved firm materials about checking official sources and route potentially risky notices to staff for review rather than making a legal determination.",
+        "sourceTypes": [
+          "Firm scam-warning guidance",
+          "USPTO correspondence FAQs",
+          "Client service SOPs"
+        ],
+        "optionalAction": "Collect a redacted copy or description and create a review task for the client service team.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make prosecution knowledge searchable for the whole patent team",
+    "intro": "A private DocsBot internal knowledge agent gives patent agents, docketing staff, paralegals, and client service teams fast answers from approved internal sources while preserving human review for legal strategy, deadlines, and filings.",
+    "workflows": [
+      {
+        "name": "Template and clause retrieval",
+        "problem": "Teams lose time looking for current templates, approved language, and matter-specific checklist instructions.",
+        "agentWorkflow": "The agent searches approved templates, SOPs, and prior internal guidance, then returns source-grounded answers with links or citations to the underlying material.",
+        "sourceTypes": [
+          "Word templates",
+          "PDF checklists",
+          "Internal SOPs",
+          "Knowledge base articles"
+        ],
+        "optionalAction": "Create a task for a knowledge owner when the requested template is missing or outdated.",
+        "outcome": "Faster document preparation and fewer inconsistencies across matters.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Docketing and correspondence handoffs",
+        "problem": "Routine follow-up can fail when filing receipts, correspondence notices, client instructions, and team responsibilities live in separate systems.",
+        "agentWorkflow": "DocsBot can summarize the request, retrieve the relevant SOP, draft a handoff note, and route the issue to the right person through configured ticketing or task workflows.",
+        "sourceTypes": [
+          "Docketing SOPs",
+          "Client service procedures",
+          "Correspondence templates",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Trigger a ticket, task, Slack, Teams, or email handoff through approved customer-configured actions.",
+        "outcome": "Cleaner internal handoffs with better context for the person taking action.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Knowledge-gap reporting",
+        "problem": "Repeated questions from staff and clients reveal missing explanations, outdated filing notes, or unclear client-facing content.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, and conversation review to identify unanswered topics and recurring confusion, then prioritize documentation updates.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support topics",
+          "Internal FAQs",
+          "Client education pages"
+        ],
+        "optionalAction": "Notify a knowledge owner or create a documentation update task for frequently unresolved questions.",
+        "outcome": "A patent knowledge base that improves as clients and staff use it.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Governed legal workflow support",
+        "problem": "Patent work includes sensitive invention disclosures, confidential client materials, and high-impact legal decisions that require boundaries.",
+        "agentWorkflow": "Configure access controls, role-based permissions, approved sources, escalation rules, and review steps so the agent supports research, summaries, and routing without independently giving legal strategy or making filing decisions.",
+        "sourceTypes": [
+          "Access policies",
+          "Engagement rules",
+          "Professional responsibility guidance",
+          "Review workflows"
+        ],
+        "optionalAction": "Escalate claim-scope, inventorship, deadline, abandonment, or legal-opinion questions to the responsible practitioner.",
+        "outcome": "Useful AI assistance with clearer control over confidential and judgment-heavy work.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-uspto-oed-ethics"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on approved knowledge sources",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on company websites, documentation, help centers, internal files, PDFs, Word documents, wikis, and other configured sources.",
+      "industryApplication": "Train a patent agent assistant on firm FAQs, invention disclosure forms, filing checklists, office action playbooks, client service SOPs, and template libraries.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded answers and citations",
+      "mainLandingPageContext": "DocsBot agents answer from configured knowledge and help users find the source behind the response.",
+      "industryApplication": "Give clients and staff process answers that point back to approved firm content instead of relying on unsupported generalizations.",
+      "icon": "LinkIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded live lookups, summaries, routing, record updates, task creation, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Route invention intake, create filing-prep tasks, retrieve authorized matter metadata, notify docketing staff, or forward qualified consultation requests within customer-defined permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive questions",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, or needs a person.",
+      "industryApplication": "Send legal strategy, claim drafting, inventorship, deadline, abandonment, and opinion questions to the responsible patent professional for review.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which patent process questions clients ask most, which internal procedures are hard to find, and where your intake or filing documentation needs updates.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Support confidential invention disclosures, internal prosecution materials, and client communications with controlled access and governance expectations.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "amol-easyrfp-youtube-summaries",
+      "jpa-health-internal-decisioning"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own knowledge library so answers stay aligned with approved patent-process content.",
+      "Summarize complex materials and save time on repeated research, review, and handoff preparation.",
+      "Support private internal decision workflows where source-grounded knowledge access and reduced manual interaction matter."
+    ],
+    "whyTheseReviewsFit": "Patent teams need dependable answers from their own materials, not generic legal guesses. DocsBot proof spans owned-content training, time-saving summaries, and internal decision support—patterns that map directly to intake, filing, prosecution, and client-service knowledge work.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ClockIcon",
+      "ShieldCheckIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agent platform for patent intake, client support, prosecution knowledge retrieval, and workflow automation",
+    "audience": [
+      "Patent agents",
+      "Patent prosecution teams",
+      "IP operations managers",
+      "Small intellectual property practices"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "ScaleIcon"
+  },
+  "relatedIndustrySlugs": [
+    "intellectual-property-law",
+    "attorney-services",
+    "legal-document-drafting",
+    "compliance-consulting",
+    "employment-law"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "patent-agent",
+    "webSearchQueries": [
+      "USPTO patent pendency statistics 2024 unexamined patent applications",
+      "USPTO patent pro se assistance patent process statistics",
+      "WIPO patent filings worldwide 2024 report applications",
+      "USPTO registered patent attorney agent roster number practitioners",
+      "USPTO patent practitioners OED registered patent agents attorneys rules professional responsibility",
+      "USPTO patent center electronic filing patent applications official"
+    ],
+    "sourceUrls": [
+      "https://www.wipo.int/web-publications/world-intellectual-property-indicators-2025-highlights/en/patents-highlights.html",
+      "https://www.uspto.gov/dashboard/patents/",
+      "https://www.uspto.gov/patents/apply/patent-center",
+      "https://www.uspto.gov/patents/basics/using-legal-services/pro-se-assistance-program",
+      "https://www.uspto.gov/learning-and-resources/patent-and-trademark-practitioners/current-patent-practitioner/ethics-rules"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45073,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32529,
+        "outputTokens": 7674,
+        "reasoningOutputTokens": 166,
+        "totalTokens": 52747,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.199569,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.219569
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25749,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18453,
+          "outputTokens": 5124,
+          "reasoningOutputTokens": 166,
+          "totalTokens": 30873,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.124817,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.144817
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19324,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14076,
+          "outputTokens": 2550,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21874,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.074752,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.074752
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1593444285553-28163240e3f1?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxwYXRlbnR8ZW58MHwwfHx8MTcxNDg3ODA3MXww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Patent Agent background image",
+    "source": "legacy-industry",
+    "query": "Patent Agent"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for patent intake without letting it give legal advice?",
+      "answer": "Yes. Configure the agent to collect invention details, explain your approved intake process, flag missing drawings or disclosure dates, and prepare a practitioner-ready summary. Questions about claim scope, filing strategy, inventorship, deadlines, abandonment risk, or legal opinions can be routed to the responsible patent professional instead of answered automatically.",
+      "role": "Solo patent agents and small IP practices",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce interruptions for a solo patent agent or small IP practice?",
+      "answer": "DocsBot can answer repetitive process questions from your own FAQs, engagement materials, fee explanations, and filing guides, then escalate judgment-heavy questions. That means inventors can get first-line help on what to prepare, what happens after filing, or how office actions generally work without every basic question becoming a manual email.",
+      "role": "Solo patent agents and small IP practices",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help clients understand long USPTO waiting periods without creating risk?",
+      "answer": "Yes. You can train it on approved status-update language and public pendency references, then have it draft plain-English explanations or route matter-specific concerns for review. The USPTO Patents Dashboard tracks unexamined inventory and first office action pendency, which makes consistent client communication especially important during waiting periods.",
+      "role": "Patent prosecution teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-uspto-pendency-dashboard"
+      ]
+    },
+    {
+      "question": "Can DocsBot connect to our matter intake, docketing, or ticketing workflows?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, AI Actions, webhooks, or MCP servers for approved lookups and bounded actions. Typical patent workflows include creating intake tasks, routing a status request, forwarding a consultation lead, looking up allowed matter metadata, or notifying docketing staff—within permissions you define.",
+      "role": "IP operations and client service leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot replace our docketing system or patent practice management software?",
+      "answer": "No. DocsBot is best positioned as a knowledge and workflow layer around your existing systems. It can answer from approved SOPs, summarize requests, collect missing information, and trigger configured handoffs, while your docketing, matter management, document management, and filing systems remain the systems of record.",
+      "role": "Patent prosecution teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How do we keep confidential invention disclosures and prosecution materials secure?",
+      "answer": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For patent teams, that supports governed access to invention disclosures, office action notes, templates, and client communications.",
+      "role": "Patent prosecution teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different users see different patent knowledge sources?",
+      "answer": "Yes. Role-based permissions and access controls can help separate client-facing content from internal prosecution playbooks, docketing SOPs, template libraries, or matter-specific materials. That lets a website agent answer general questions while a private team agent retrieves internal procedures only for authorized users.",
+      "role": "IP operations and client service leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we stop the agent from making deadline calculations or abandonment-risk calls?",
+      "answer": "Set explicit escalation rules. The agent can explain your general process, collect context, and route the request, but deadlines, extensions of time, abandonment risk, claim amendments, inventorship, and legal strategy should go to a human reviewer. That boundary aligns the agent with practical patent operations instead of unsupervised legal decision-making.",
+      "role": "Patent prosecution teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-uspto-oed-ethics"
+      ]
+    },
+    {
+      "question": "Can DocsBot help with Patent Center filing preparation?",
+      "answer": "Yes. Train the agent on your filing checklists, document naming rules, receipt-saving procedures, and public USPTO references. It can answer routine preparation questions, identify missing materials, and create a filing-prep task when configured. Patent Center is the USPTO tool for electronic filing and application management.",
+      "role": "Patent prosecution teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-uspto-patent-center"
+      ]
+    },
+    {
+      "question": "Can the agent answer client questions about provisional versus nonprovisional applications?",
+      "answer": "Yes, if you train it on your approved educational content and set boundaries. The agent can provide general explanations in your firm’s voice, cite the underlying source, and invite practitioner review when the client is making a specific filing decision, facing a disclosure deadline, or asking for strategy.",
+      "role": "Solo patent agents and small IP practices",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What content should we prepare before launching a patent workflow agent?",
+      "answer": "Start with client FAQs, intake forms, invention disclosure templates, engagement guidance, filing checklists, office action SOPs, docketing handoff procedures, status-update language, template notes, and escalation rules. The best launch content is already approved, current, and clearly labeled by audience: client-facing, internal team, or restricted practitioner use.",
+      "role": "IP operations and client service leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How much cleanup is needed if our templates and SOPs are scattered across folders?",
+      "answer": "You do not need a perfect knowledge base to start, but you should prioritize the highest-volume and highest-risk materials first. DocsBot can train on approved files such as PDFs, Word documents, Google Drive content, Notion, Confluence, and internal knowledge sources, then analytics can reveal gaps and outdated topics over time.",
+      "role": "Patent prosecution teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot summarize prior correspondence or office action materials for internal use?",
+      "answer": "Yes. A private internal agent can retrieve approved examples, summarize prior correspondence, point staff to templates, and help orient a practitioner or paralegal before review. It should support research and preparation, not independently determine response strategy, amendment language, patentability, or freedom-to-operate conclusions.",
+      "role": "Patent prosecution teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle questions from inventors filing on their own?",
+      "answer": "You can configure the agent to point users to your firm’s approved educational content and public USPTO self-filing resources, while offering a consultation path if they want help from a registered practitioner. The USPTO maintains a Pro Se Assistance Program for applicants filing without a registered patent attorney or agent.",
+      "role": "Solo patent agents and small IP practices",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-uspto-pro-se"
+      ]
+    },
+    {
+      "question": "Can the agent qualify patent leads by technology area or readiness?",
+      "answer": "Yes. DocsBot can collect structured lead details such as technology area, filing urgency, disclosure status, contributor information, target jurisdictions, and consultation readiness. With customer-defined rules and configured workflows, it can route qualified requests to CRM, email, scheduling, or internal task systems while leaving engagement decisions to your team.",
+      "role": "IP operations and client service leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure whether a patent AI agent is worth the investment?",
+      "answer": "Track avoided routine emails, intake completion quality, response time, consultation readiness, internal search time, unresolved topics, and the number of escalations that reached the right person with usable context. For prosecution teams, success often looks like fewer repetitive status questions, cleaner handoffs, and faster access to approved procedures.",
+      "role": "IP operations and client service leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can DocsBot support international inventors or multilingual client questions?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from your approved content. That can help international founders and in-house teams understand your process, intake requirements, and next steps, while sensitive filing strategy, jurisdiction-specific advice, and legal conclusions still route to the responsible practitioner.",
+      "role": "IP operations and client service leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will the agent hallucinate patent law answers if it does not know something?",
+      "answer": "DocsBot is designed for source-grounded answers from configured knowledge. For patent workflows, you should train it on approved materials, require source references where appropriate, define refusal and escalation behavior, and review conversation logs. If the answer is not supported or the question needs judgment, the safer workflow is escalation.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review what clients and staff are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For patent teams, those reports can show where inventors misunderstand intake, where filing procedures are unclear, or which client status explanations need better documentation.",
+      "role": "IP operations and client service leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How would implementation differ for a public website agent versus an internal prosecution assistant?",
+      "answer": "A website agent should use client-approved content, intake rules, and escalation paths. An internal prosecution assistant can access restricted SOPs, templates, prior correspondence, and team procedures for authorized users. Many firms start with one focused use case, validate answers, then expand to more sources and actions.",
+      "role": "IP operations and client service leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help paralegals and docketing staff find the right checklist faster?",
+      "answer": "Yes. Train a private agent on filing SOPs, IDS procedures, inventor declaration instructions, assignment package checklists, office action workflows, and client reporting templates. Staff can ask natural-language questions and get source-grounded answers instead of searching through folder trees or asking senior team members repeatedly.",
+      "role": "Patent prosecution teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a client uploads a notice, scam letter, or USPTO correspondence question?",
+      "answer": "The agent can collect a redacted copy or description, provide general guidance from approved materials, and create a review task. It should not make final determinations about legal effect, authenticity, deadlines, or required action unless your approved workflow routes that review to a qualified human.",
+      "role": "Solo patent agents and small IP practices",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot for prior art search or patentability opinions?",
+      "answer": "DocsBot can help organize internal research files, summarize prior search notes, and point users to cited documents or technical references. It should not be positioned as replacing practitioner-led prior art searching, patentability analysis, claim drafting, or freedom-to-operate opinions. Use it for research orientation and source retrieval.",
+      "role": "Patent prosecution teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-wipo-2025-patents"
+      ]
+    },
+    {
+      "question": "How should we present AI assistance to cautious clients or in-house counsel?",
+      "answer": "Be explicit that the agent answers from approved firm materials, supports intake and workflow routing, and escalates legal judgment to people. For higher-trust deployments, explain access controls, review paths, logging, and that confidential client materials are not used to train public models.",
+      "role": "IP operations and client service leaders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot scale across multiple practice groups or technical specialties?",
+      "answer": "Yes. You can organize sources and instructions by audience, technology area, workflow, or team. For example, software, medical device, mechanical, and design patent content can have different intake prompts, routing rules, and escalation paths while sharing common client education or docketing procedures.",
+      "role": "IP operations and client service leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should procurement or firm leadership ask before approving an AI agent for patent workflows?",
+      "answer": "Ask what data it can access, whether answers are grounded in approved sources, how permissions are enforced, how sensitive questions escalate, what logs are available, how actions are scoped, and which workflows will be measured first. The right pilot should have clear boundaries and operational KPIs.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

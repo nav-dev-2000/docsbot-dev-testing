@@ -1,0 +1,754 @@
+{
+  "slug": "solar-energy-installation",
+  "business": "Solar Energy Installation",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Solar Installation Operations",
+    "description": "DocsBot helps solar installers answer buyer questions, qualify projects, and keep field teams aligned with source-grounded AI agents.",
+    "canonicalPath": "/industry/solar-energy-installation"
+  },
+  "hero": {
+    "eyebrow": "AI agents for solar sales, support, permitting, and field operations",
+    "headline": "Install solar faster with AI agents trained on your company knowledge",
+    "subheadline": "DocsBot helps solar installation companies turn proposals, equipment specs, warranty terms, financing FAQs, permitting notes, service policies, and field SOPs into AI agents that answer instantly, collect project details, route handoffs, and support crews from approved sources.",
+    "proofBullets": [
+      {
+        "text": "Answer homeowner and commercial buyer questions from your service pages, FAQs, proposals, warranties, rebate notes, and installation guides.",
+        "icon": "SunIcon"
+      },
+      {
+        "text": "Qualify leads with structured intake for roof type, address, utility, usage, battery interest, timeline, and preferred follow-up channel.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "text": "Give sales, design, operations, and field teams a private knowledge agent for SOPs, product docs, handoff notes, and troubleshooting.",
+        "icon": "WrenchIcon"
+      },
+      {
+        "text": "Use configured AI Actions to summarize requests, create tasks or tickets, route escalations, and trigger approved follow-up workflows.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a solar installation agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the knowledge your solar business already trusts: website content, proposal templates, product sheets, financing FAQs, warranties, permitting notes, installation SOPs, internal wikis, PDFs, and ticket history when connected. Agents can answer, summarize, collect missing details, qualify leads, identify documentation gaps, and hand off complex work to the right person.",
+    "whoItHelps": [
+      {
+        "role": "Solar sales and lead intake teams",
+        "roleContext": "Turn repetitive presales conversations into consistent, source-grounded answers while collecting the details needed for a real estimate or site review.",
+        "bullets": [
+          {
+            "text": "Explain system options, battery add-ons, financing basics, warranties, timelines, and next steps from approved sales materials.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect project details such as address, roof type, electric bill range, utility, installation goal, and scheduling preference.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Send qualified lead summaries into customer-configured CRM, email, form, ticketing, or scheduling workflows for human follow-up.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Operations, permitting, and project coordinators",
+        "roleContext": "Keep project details and procedural knowledge easier to find across the many handoffs between sale, design, permit, installation, inspection, and activation.",
+        "bullets": [
+          {
+            "text": "Surface permit checklist guidance, inspection prep notes, utility handoff steps, and customer communication templates from internal sources.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Summarize customer conversations, create follow-up tasks, and route missing information requests through approved workflows.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "NREL notes that permitting, inspection, and interconnection soft costs remain stubbornly high for distributed solar projects.",
+            "icon": "ClockIcon",
+            "sourceIds": [
+              "src-nrel-soft-costs"
+            ]
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Installers, service technicians, and field managers",
+        "roleContext": "Give field teams a private assistant for SOPs, equipment manuals, installation checklists, safety reminders, warranty boundaries, and escalation paths.",
+        "bullets": [
+          {
+            "text": "Retrieve installation procedures, product compatibility notes, torque specs, troubleshooting steps, and closeout requirements from approved documents.",
+            "icon": "WrenchIcon"
+          },
+          {
+            "text": "Support multilingual crews and customers with answers in more than 100 languages when source content is available.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "OSHA identifies electrocution as the main solar installation hazard and also notes burn and fall risks while installing panels.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-osha-solar-electrical"
+            ]
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Owners and customer support leaders",
+        "roleContext": "Reduce repeated questions while learning which pages, FAQs, and internal documents need improvement.",
+        "bullets": [
+          {
+            "text": "Review logs, reports, satisfaction signals, and unresolved topics to improve solar buyer education and support content.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Escalate sensitive pricing, contract, financing, roof condition, utility, safety, or legal questions to human experts.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "BLS projects solar photovoltaic installer employment to grow 42% from 2024 to 2034, creating pressure for scalable onboarding and knowledge access.",
+            "icon": "ArrowTrendingUpIcon",
+            "sourceIds": [
+              "src-bls-pv-installers"
+            ]
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-pv-installers",
+      "metric": "42% projected PV installer employment growth",
+      "claim": "The U.S. Bureau of Labor Statistics projects employment of solar photovoltaic installers to grow 42% from 2024 to 2034, much faster than the average for all occupations.",
+      "sourceTitle": "Solar Photovoltaic Installers: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/construction-and-extraction/solar-photovoltaic-installers.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor growth",
+        "onboarding pressure",
+        "field team knowledge access"
+      ]
+    },
+    {
+      "id": "src-seia-5-million",
+      "metric": "More than 5 million U.S. solar installations",
+      "claim": "SEIA states there are over 5 million solar installations in the United States and that 97% of all U.S. solar installations are on residential rooftops.",
+      "sourceTitle": "5 Million Solar Installations: Powering American Communities",
+      "sourceUrl": "https://seia.org/5m/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market scale",
+        "residential buyer volume",
+        "customer education demand"
+      ]
+    },
+    {
+      "id": "src-seia-2024-yir",
+      "metric": "Solar and storage were 84% of new U.S. generating capacity in 2024",
+      "claim": "SEIA reported that solar and storage accounted for 84% of all new electric generating capacity added to the U.S. grid in 2024, while residential solar faced a weaker year.",
+      "sourceTitle": "Solar Adds More New Capacity to the Grid in 2024 Than Any Energy Technology in the Past Two Decades",
+      "sourceUrl": "https://seia.org/news/report-solar-adds-more-new-capacity-to-the-grid-in-2024-than-any-energy-technology-in-the-past-two-decades/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market momentum",
+        "buyer interest",
+        "sales demand volatility"
+      ]
+    },
+    {
+      "id": "src-nrel-soft-costs",
+      "metric": "Permitting, inspection, and interconnection remain high soft costs",
+      "claim": "NREL says distributed solar PV prices have fallen, but nonequipment soft costs such as permitting, inspection, and interconnection remain stubbornly high.",
+      "sourceTitle": "Solar Permitting, Inspection, and Interconnection Timelines",
+      "sourceUrl": "https://www.nrel.gov/solar/market-research-analysis/permitting-inspection-interconnection-timelines",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workflow bottlenecks",
+        "project coordination",
+        "operations efficiency"
+      ]
+    },
+    {
+      "id": "src-osha-solar-electrical",
+      "metric": "Solar installation electrical, burn, and fall hazards",
+      "claim": "OSHA says fatal electrocution is the main hazard in solar energy electrical work and that burns and falls from elevations can occur while installing panels.",
+      "sourceTitle": "Green Job Hazards: Solar Energy — Electrical",
+      "sourceUrl": "https://www.osha.gov/green-jobs/solar/electrical",
+      "sourceDate": "Accessed 2026",
+      "bestUsedFor": [
+        "field safety",
+        "human escalation",
+        "training documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Solar project intake and lead qualification",
+      "problem": "Solar buyers often arrive with partial information: property address, bill size, roof concerns, battery interest, budget, financing questions, and timing all need to be gathered before a useful consultation.",
+      "agentWorkflow": "A DocsBot presales agent answers service-fit questions from approved website, FAQ, proposal, financing, warranty, and equipment sources. It then collects structured intake details, applies customer-defined qualification rules, and prepares a clean project summary for the sales team.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or forms, the agent can forward qualified leads, create a CRM or ticketing record, notify sales, or request a meeting through a configured scheduling workflow.",
+      "exampleQuestionsOrRequests": [
+        "Can you install solar on a metal roof in my zip code?",
+        "What information do you need before giving me an estimate?",
+        "I want solar plus battery backup. Can someone call me this week?"
+      ],
+      "businessOutcome": "More complete lead records, faster first response, fewer back-and-forth emails, and cleaner handoffs from website inquiry to consultation.",
+      "icon": "SunIcon"
+    },
+    {
+      "name": "Permitting, inspection, and utility handoff assistant",
+      "problem": "Project coordinators juggle AHJ requirements, inspection notes, utility interconnection steps, customer communications, and internal checklists across many jurisdictions.",
+      "agentWorkflow": "An internal DocsBot agent retrieves approved permitting notes, inspection prep checklists, closeout requirements, utility handoff templates, and customer status language. It can summarize project questions and point coordinators to the source document used for the answer.",
+      "liveContextOrTools": "When connected through customer-configured Skills or APIs, the agent can look up approved project metadata, create a follow-up task, route missing-document requests, or update approved status fields with logged boundaries.",
+      "exampleQuestionsOrRequests": [
+        "What documents do we need before submitting this permit packet?",
+        "Which inspection prep checklist applies for this roof-mounted system?",
+        "Draft a customer update explaining that utility approval is still pending."
+      ],
+      "businessOutcome": "Fewer stalled handoffs and more consistent communication through the permitting, inspection, and interconnection process, where NREL identifies persistent soft-cost pressure.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-nrel-soft-costs"
+      ]
+    },
+    {
+      "name": "Field crew knowledge and troubleshooting agent",
+      "problem": "Installers and service technicians need quick answers without digging through manuals, shared drives, text threads, or tribal knowledge while they are preparing for work or resolving issues.",
+      "agentWorkflow": "DocsBot trains on installation SOPs, equipment manuals, safety checklists, product notes, warranty procedures, escalation rules, and closeout documentation so field teams can ask natural-language questions and get source-grounded answers.",
+      "liveContextOrTools": "The agent can run in private team chat experiences such as Slack or Microsoft Teams when configured, and AI Actions can create a service task, summarize a site issue, or escalate safety-critical questions to a manager.",
+      "exampleQuestionsOrRequests": [
+        "Which closeout photos are required for this install type?",
+        "Where is the troubleshooting guide for this inverter fault?",
+        "Summarize this site issue for the service manager."
+      ],
+      "businessOutcome": "Faster access to approved procedures, more consistent field documentation, and clearer escalation for issues that should not be decided by AI alone.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Customer support for post-installation questions",
+      "problem": "After installation, customers ask repeated questions about monitoring portals, warranty coverage, production expectations, outage behavior, maintenance, billing, and service scheduling.",
+      "agentWorkflow": "A DocsBot AI support agent answers from support articles, owner guides, warranty documents, monitoring FAQs, service policies, and prior ticket exports when connected. It can draft helpdesk replies or collect details for human support.",
+      "liveContextOrTools": "With customer-approved helpdesk workflows, the agent can summarize a conversation, create or route a ticket, collect photos or error details through a structured flow, and hand off complex cases to staff.",
+      "exampleQuestionsOrRequests": [
+        "Why is my production lower today than last week?",
+        "What does my inverter error code mean?",
+        "How do I request service under warranty?"
+      ],
+      "businessOutcome": "Always-available first-line support that resolves routine questions, captures better issue context, and helps humans focus on complex service work.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Sales enablement for proposals and objections",
+      "problem": "Solar sales teams must respond to detailed questions about equipment, batteries, financing, incentives, warranties, roof work, payback assumptions, and competitor claims without drifting from approved language.",
+      "agentWorkflow": "DocsBot acts as an internal sales enablement agent trained on service catalogs, proposal templates, pricing guidance, product docs, case studies, objection handling, and customer-facing FAQs. Reps can ask for source-backed answers and draft follow-up copy for human review.",
+      "liveContextOrTools": "When configured with web search and approved Skills, the agent can research public account context for commercial prospects, summarize likely needs, draft follow-up emails, or create sales tasks while humans own final pricing and contract terms.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up explaining our battery recommendation in plain language.",
+        "What approved answer should I use for warranty transfer questions?",
+        "Summarize this commercial prospect before my discovery call."
+      ],
+      "businessOutcome": "More consistent proposal communication and faster rep preparation without turning sensitive pricing, legal, or contract commitments over to automation.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Content gap and support trend discovery",
+      "problem": "Solar companies often do not know which buyer, customer, and crew questions are being repeated because those questions live across chat, tickets, calls, emails, and internal messages.",
+      "agentWorkflow": "DocsBot analytics, reports, logs, topic management, conversation review, and knowledge-gap discovery help teams see unanswered questions, repeated topics, and source content that needs improvement.",
+      "liveContextOrTools": "Teams can review reports, update source documents, add missing FAQs, improve SOPs, and adjust routing instructions based on what customers and employees actually ask.",
+      "exampleQuestionsOrRequests": [
+        "Which solar financing questions are customers asking most often?",
+        "What installation topics are missing from our internal SOP library?",
+        "Show unresolved questions that should become help articles."
+      ],
+      "businessOutcome": "Better documentation, fewer repeated support questions, and a clearer roadmap for improving solar buyer education and internal enablement.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give solar buyers and system owners instant answers without losing the human handoff",
+    "intro": "DocsBot can power a website or product support agent trained on your approved solar content. It answers routine questions, collects project or service details, qualifies requests, and escalates sensitive or complex issues to your team.",
+    "requests": [
+      {
+        "request": "“Can you install solar at my property, and what happens next?”",
+        "agentResponseStrategy": "Answer from service area pages and intake rules, ask for structured details, explain the consultation process, and prepare a lead summary for sales.",
+        "sourceTypes": [
+          "Service pages",
+          "Lead forms",
+          "Qualification rules",
+          "Sales FAQs"
+        ],
+        "optionalAction": "Create or forward a qualified lead through a configured CRM, email, form, or scheduling workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What warranties come with the panels, inverter, workmanship, and battery?”",
+        "agentResponseStrategy": "Retrieve the relevant warranty language from approved product and company documents, explain it plainly, and flag questions that require human confirmation.",
+        "sourceTypes": [
+          "Warranty PDFs",
+          "Proposal templates",
+          "Product sheets",
+          "Support articles"
+        ],
+        "optionalAction": "Route unusual warranty or contract questions to a human with the conversation summary attached.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Why is my solar production different from the estimate?”",
+        "agentResponseStrategy": "Answer from monitoring FAQs, owner guides, and service policies, ask for missing context such as screenshots or dates, and avoid making unsupported diagnostic claims.",
+        "sourceTypes": [
+          "Owner guides",
+          "Monitoring FAQs",
+          "Service policies",
+          "Ticket history exports"
+        ],
+        "optionalAction": "Create a service ticket, collect error details, or escalate to support through an approved helpdesk workflow.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "request": "“Do you offer solar plus battery backup?”",
+        "agentResponseStrategy": "Explain available battery options, use cases, limitations, and consultation steps from approved sales and product documents.",
+        "sourceTypes": [
+          "Battery product sheets",
+          "Service catalogs",
+          "FAQs",
+          "Proposal language"
+        ],
+        "optionalAction": "Add battery interest to the lead summary or schedule a consultation through a configured booking workflow.",
+        "icon": "BoltIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish for my family?”",
+        "agentResponseStrategy": "Use DocsBot multilingual response capability to answer in the customer’s preferred language while staying grounded in the same approved sources.",
+        "sourceTypes": [
+          "Website pages",
+          "FAQs",
+          "Proposal content",
+          "Support docs"
+        ],
+        "optionalAction": "Tag the preferred language in the handoff summary for the sales or support team.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What safety steps should I know before a technician visits?”",
+        "agentResponseStrategy": "Share approved customer-facing preparation guidance, avoid unsupported safety decisions, and escalate urgent electrical or roof-related concerns.",
+        "sourceTypes": [
+          "Pre-visit instructions",
+          "Safety notices",
+          "Service policies",
+          "Escalation rules"
+        ],
+        "optionalAction": "Notify the service team when a customer reports a potentially urgent electrical, roof, or access issue.",
+        "icon": "ExclamationCircleIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep sales, permitting, installation, and support teams working from the same source of truth",
+    "intro": "Solar installation work crosses many teams. DocsBot gives employees a private knowledge agent trained on internal documents, SOPs, policies, product docs, wikis, PDFs, and other approved sources so answers stay consistent as projects move from inquiry to activation and service.",
+    "workflows": [
+      {
+        "name": "New hire and crew onboarding",
+        "problem": "Rapid growth in solar installer roles makes it hard to keep training, safety, product, and process knowledge consistent across teams.",
+        "agentWorkflow": "Train DocsBot on onboarding guides, SOPs, product manuals, safety checklists, field standards, and internal policies so new hires can ask questions and get cited answers.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Installation SOPs",
+          "Product manuals",
+          "Safety checklists"
+        ],
+        "optionalAction": "Create a manager review task when a question reveals missing or outdated onboarding content.",
+        "outcome": "Scalable onboarding and less dependence on tribal knowledge as PV installer employment is projected to grow 42% from 2024 to 2034.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-pv-installers"
+        ]
+      },
+      {
+        "name": "Project handoff summaries",
+        "problem": "Sales, design, permitting, install, and service teams often need the same customer context, but handoffs can lose important details.",
+        "agentWorkflow": "DocsBot can summarize conversations, extract project requirements, highlight missing information, and prepare handoff notes from approved sources and connected workflow context.",
+        "sourceTypes": [
+          "Lead notes",
+          "Proposal templates",
+          "Ticket exports",
+          "Project checklists"
+        ],
+        "optionalAction": "Trigger a handoff workflow, create a task, notify a channel, or update approved fields when configured through Skills, APIs, connectors, or MCP Connectors.",
+        "outcome": "Cleaner handoffs and fewer repeated questions between customer-facing and operations teams.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "SOP and policy lookup",
+        "problem": "Coordinators and managers lose time searching for the latest process language, escalation path, or customer communication template.",
+        "agentWorkflow": "The agent retrieves answers from internal wikis, Google Drive, Notion, Confluence, PDFs, Word documents, text files, and other approved knowledge sources.",
+        "sourceTypes": [
+          "Internal wikis",
+          "Shared drives",
+          "Policy documents",
+          "Communication templates"
+        ],
+        "optionalAction": "Route unresolved questions to a documentation owner and include the missing-topic summary.",
+        "outcome": "Faster internal answers and better visibility into documentation gaps.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Service issue triage",
+        "problem": "Support and field teams need to collect the right information before escalating inverter, monitoring, roof, production, or warranty concerns.",
+        "agentWorkflow": "DocsBot asks structured follow-up questions, summarizes the issue, retrieves approved troubleshooting guidance, and identifies when a human technician or manager should take over.",
+        "sourceTypes": [
+          "Troubleshooting guides",
+          "Warranty policies",
+          "Service playbooks",
+          "Helpdesk tickets"
+        ],
+        "optionalAction": "Create or route a service ticket with the customer summary, photos requested, error details, and recommended next step for human review.",
+        "outcome": "Better service context before dispatch and fewer incomplete support escalations.",
+        "icon": "TicketIcon"
+      },
+      {
+        "name": "Sales response drafting",
+        "problem": "Reps need fast, compliant answers to detailed equipment, warranty, financing, incentive, and proposal questions.",
+        "agentWorkflow": "DocsBot retrieves approved language and drafts response options for a human rep to review before sending.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Product sheets",
+          "Approved FAQs"
+        ],
+        "optionalAction": "Draft a follow-up email or create a CRM task through a customer-configured workflow.",
+        "outcome": "Faster follow-up while keeping humans responsible for pricing, legal terms, and final commitments.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded solar support answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the knowledge sources a company chooses and provide answers grounded in those approved materials.",
+      "industryApplication": "Answer solar buyer and owner questions from service pages, proposals, product sheets, monitoring FAQs, warranty documents, and maintenance guides.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Structured lead intake and qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured flows and apply customer-defined qualification instructions.",
+      "industryApplication": "Capture address, roof type, electric bill range, utility, battery interest, timeline, budget range, and follow-up preference before sending the lead to sales.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as live lookups, summaries, record creation, updates, routing, and workflow triggers when configured.",
+      "industryApplication": "Create service tickets, route permitting questions, forward qualified leads, notify teams, update approved project fields, or trigger handoff workflows under customer-defined rules.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees across operations, HR, IT, sales, compliance, finance, legal, and other teams.",
+      "industryApplication": "Help solar sales, design, permitting, installation, and service teams search SOPs, manuals, policies, templates, and troubleshooting guides from one conversational interface.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and documentation gap discovery.",
+      "industryApplication": "Identify repeated solar financing questions, unclear warranty language, missing installation SOPs, and support topics that should become better help content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Governed deployment for sensitive workflows",
+      "mainLandingPageContext": "DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer-defined controls for Skills.",
+      "industryApplication": "Keep permissions, escalation paths, and logs around financial, contract, safety, project status, and customer data workflows while preventing credentials from being exposed in chats.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual customer and crew support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages when trained on the company’s approved knowledge sources.",
+      "industryApplication": "Support multilingual homeowners, commercial stakeholders, and field crews with consistent answers grounded in the same solar documentation.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the manuals, website pages, support articles, and internal documents your solar team already uses.",
+      "Deploy website support and private team assistants without replacing human judgment for complex solar decisions.",
+      "Use analytics and conversation review to see which customer and employee questions need better documentation."
+    ],
+    "whyTheseReviewsFit": "Solar installers need accurate answers from owned content, scalable website support, and practical help for human teams. DocsBot proof spans multilingual manuals, embedded customer assistance, helpdesk-supported workflows, and high-volume inquiry handling, giving solar businesses confidence that agents can support both buyers and employees.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for solar installation sales, support, operations, and internal knowledge",
+    "audience": [
+      "Solar installation company owners",
+      "Residential solar sales teams",
+      "Commercial solar project teams",
+      "Solar operations and permitting managers",
+      "Solar service and support leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SunIcon"
+  },
+  "relatedIndustrySlugs": [
+    "energy-storage-systems",
+    "renewable-energy",
+    "ev-charging-infrastructure",
+    "environmental-consultancy",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "solar-energy-installation",
+    "webSearchQueries": [
+      "SEIA solar market insight residential solar installations United States 2024 2025",
+      "BLS solar photovoltaic installers occupational outlook employment growth",
+      "NREL solar permitting inspection interconnection soft costs residential PV",
+      "OSHA solar energy construction safety hazards photovoltaic installation"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/construction-and-extraction/solar-photovoltaic-installers.htm",
+      "https://seia.org/5m/",
+      "https://seia.org/news/report-solar-adds-more-new-capacity-to-the-grid-in-2024-than-any-energy-technology-in-the-past-two-decades/",
+      "https://www.nrel.gov/solar/market-research-analysis/permitting-inspection-interconnection-timelines",
+      "https://www.osha.gov/green-jobs/solar/electrical"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41207,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28663,
+        "outputTokens": 8297,
+        "reasoningOutputTokens": 117,
+        "totalTokens": 49504,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.199248,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.209248
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20781,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 13485,
+          "outputTokens": 5540,
+          "reasoningOutputTokens": 117,
+          "totalTokens": 26321,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.118636,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.128636
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20426,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15178,
+          "outputTokens": 2757,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23183,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080612,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080612
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1613665813446-82a78c468a1d?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxTb2xhciUyMEVuZXJneSUyMEluc3RhbGxhdGlvbnxlbnwwfDB8fHwxNzc4ODI0NDAyfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "black and white solar panels",
+    "source": "unsplash-search",
+    "query": "Solar Energy Installation"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot qualify a solar lead before our sales team spends time on a consultation?",
+      "answer": "Yes. A DocsBot presales agent can answer from your approved service pages, FAQs, proposal language, financing notes, and product documents, then collect structured intake details such as address, roof type, utility, electric bill range, battery interest, timeline, budget range, and preferred follow-up. With configured workflows, it can send a clean lead summary to your CRM, email, form, ticketing, or scheduling process for human follow-up.",
+      "role": "Solar sales and lead intake teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we keep the AI from giving homeowners unsupported pricing, incentive, or payback promises?",
+      "answer": "DocsBot should be trained on approved proposal templates, financing FAQs, incentive disclaimers, warranty terms, and escalation rules. You can instruct the agent to explain general concepts, collect missing details, and route quote-specific, tax, legal, financing, or contract questions to a person. That lets sales teams move faster without letting AI make final pricing or regulated commitments.",
+      "role": "Solar sales and lead intake teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent answer solar-plus-battery questions without confusing backup, self-consumption, and outage behavior?",
+      "answer": "Yes, if your battery product sheets, service catalog, proposal language, and customer FAQs clearly define those differences. DocsBot can answer from those sources, explain use cases in plain language, capture battery interest in the lead record, and escalate design-specific sizing, load backup, panel upgrade, or critical-load questions to your team.",
+      "role": "Solar sales and lead intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will this help with permitting and interconnection delays, or only website chat?",
+      "answer": "DocsBot can support both customer-facing and internal workflows. For operations teams, an internal agent can retrieve permit checklist guidance, inspection prep notes, utility handoff steps, customer update templates, and AHJ-specific procedures from approved documents. That matters because NREL says permitting, inspection, and interconnection soft costs remain stubbornly high for distributed solar projects.",
+      "role": "Operations, permitting, and project coordinators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nrel-soft-costs"
+      ]
+    },
+    {
+      "question": "Can DocsBot route missing information requests between sales, design, permitting, and install teams?",
+      "answer": "Yes, when configured with the right Skills, APIs, connectors, forms, or workflow automations. The agent can summarize the customer conversation, identify missing items such as photos, bill data, utility account details, roof notes, or signed documents, and create a task, ticket, notification, or handoff summary inside your approved process.",
+      "role": "Operations, permitting, and project coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would field crews actually use this without digging through binders, shared drives, or text threads?",
+      "answer": "DocsBot can act as a private internal knowledge agent trained on installation SOPs, equipment manuals, product compatibility notes, safety checklists, closeout requirements, warranty boundaries, and escalation paths. Crews and managers can ask natural-language questions and get source-grounded answers through configured private team chat experiences such as Slack or Microsoft Teams.",
+      "role": "Installers, service technicians, and field managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for safety questions, or is that too risky for AI?",
+      "answer": "Use DocsBot for approved safety documentation lookup, reminders, and escalation—not as a replacement for supervisor judgment or OSHA-compliant training. The agent can retrieve safety checklists and pre-visit instructions, but urgent electrical, roof, fall-protection, or site-condition concerns should route to a qualified human. OSHA identifies fatal electrocution as the main solar electrical-work hazard and also notes burn and fall risks during panel installation.",
+      "role": "Installers, service technicians, and field managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-osha-solar-electrical"
+      ]
+    },
+    {
+      "question": "Can the agent support Spanish-speaking homeowners or multilingual crews?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when it has approved source content to work from. For solar teams, that can help explain consultation steps, warranty basics, service preparation, monitoring questions, and crew procedures consistently while still tagging the preferred language in the handoff summary for a human follow-up.",
+      "role": "Installers, service technicians, and field managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What systems can DocsBot connect to in a solar operation?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, MCP Connectors, forms, webhooks, and workflow automations. Common solar use cases include forwarding qualified leads, creating service tickets, notifying a team channel, looking up approved project metadata, updating allowed fields, or triggering a handoff. Specific connections depend on what your team authorizes and configures.",
+      "role": "Operations, permitting, and project coordinators",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we train it on our proposals, equipment spec sheets, warranties, and installation SOPs?",
+      "answer": "Yes. DocsBot can train on company-approved sources such as website pages, PDFs, Word documents, internal wikis, Google Drive, Notion, Confluence, proposal templates, product sheets, warranty documents, service policies, troubleshooting guides, and SOPs. The best deployments start with the documents your teams already trust, then improve them using conversation logs and knowledge-gap reports.",
+      "role": "Owners and customer support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent outdated rebate, warranty, or equipment information from being reused?",
+      "answer": "Treat DocsBot as a governed knowledge layer: connect it to approved source locations, assign document owners, remove stale files, and review unresolved or low-confidence topics. DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery can show which solar questions need better or newer source material.",
+      "role": "Owners and customer support leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot answer post-installation support questions about monitoring, production, and warranties?",
+      "answer": "Yes. A customer support agent can answer from owner guides, monitoring FAQs, warranty PDFs, service policies, maintenance content, and ticket history exports when connected. It can explain routine topics, ask for screenshots or error details, summarize the issue, create or route a ticket through an approved helpdesk workflow, and hand off complex service cases to staff.",
+      "role": "Owners and customer support leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI beyond just “fewer chats”?",
+      "answer": "Track metrics that match solar operations: qualified lead completion rate, first-response time, consultation handoff quality, repeated support questions reduced, tickets created with complete context, permit or service questions routed correctly, crew search time reduced, unresolved topics, and documentation gaps closed. DocsBot’s logs, reports, satisfaction and resolution analysis, and topic trends help connect usage to operational outcomes.",
+      "role": "Owners and customer support leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will this help us onboard new installers and coordinators as we grow?",
+      "answer": "Yes. DocsBot can give new hires a source-grounded assistant for onboarding guides, installation SOPs, product manuals, field standards, safety checklists, and internal policies. That is especially relevant because the U.S. Bureau of Labor Statistics projects solar photovoltaic installer employment to grow 42% from 2024 to 2034.",
+      "role": "Owners and customer support leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-pv-installers"
+      ]
+    },
+    {
+      "question": "Is DocsBot secure enough for customer data, project notes, contracts, and internal procedures?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer-defined controls for Skills. It does not use customer data to train public models. Sensitive actions should use scoped permissions, logs, and clear escalation rules so credentials and high-impact decisions stay out of chat.",
+      "role": "Owners and customer support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different knowledge, like sales content versus field SOPs?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so you can separate customer-facing content, sales enablement materials, operations procedures, field SOPs, and management-only policies. That helps prevent a website visitor from seeing internal notes and keeps employees focused on the sources relevant to their role.",
+      "role": "Owners and customer support leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How much work is required before launch?",
+      "answer": "Most teams should begin with a focused use case: lead intake, post-install support, permitting lookup, or internal SOP search. Gather approved source documents, define escalation rules, map the handoff workflow, test realistic solar questions, and review answer quality before going live. After launch, use logs and knowledge-gap reports to improve weak or missing content.",
+      "role": "Operations, permitting, and project coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help commercial solar teams prepare for discovery calls and proposal follow-up?",
+      "answer": "Yes. An internal sales enablement agent can be trained on service catalogs, proposal templates, product sheets, case studies, objection handling, contract language, and approved FAQs. When configured with web search and approved Skills, it can research public account context, summarize likely needs, draft follow-up emails, and create sales tasks while humans own final pricing and contract terms.",
+      "role": "Solar sales and lead intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "DocsBot is better positioned as a source-grounded AI agent, not just a scripted chat widget. It can answer from your approved solar knowledge, collect structured lead or service details, summarize conversations, identify documentation gaps, and take bounded actions through configured Skills, APIs, connectors, or workflows. The key difference is governed knowledge plus operational handoff, not just conversation.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What happens when the AI does not know the answer or the situation is unusual?",
+      "answer": "You can configure DocsBot to acknowledge uncertainty, ask clarifying questions, cite the source it used, and escalate to a human when the topic involves roof condition, electrical safety, financing, contract terms, legal language, utility exceptions, warranty disputes, or custom system design. Conversation summaries help the human avoid starting from scratch.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot to find gaps in our solar content and SOPs?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Solar teams can see repeated financing questions, unclear warranty language, missing monitoring articles, outdated permitting instructions, or SOP topics that crews keep asking about.",
+      "role": "Owners and customer support leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will it scale across multiple branches, service territories, utilities, and AHJs?",
+      "answer": "Yes, if your knowledge base is organized by territory, utility, AHJ, service area, product line, and escalation rule. DocsBot can retrieve from approved sources and use configured instructions to keep answers within the right context. For complex territory-specific actions, use scoped Skills or workflows and route uncertain cases to the correct local team.",
+      "role": "Operations, permitting, and project coordinators",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot support high residential inquiry volume without lowering the quality of our sales process?",
+      "answer": "Yes. DocsBot can answer routine buyer questions instantly, collect project details, qualify leads with your rules, and hand off only the right context to sales. That is valuable in a large residential market: SEIA states there are more than 5 million U.S. solar installations and that 97% of all U.S. solar installations are on residential rooftops.",
+      "role": "Solar sales and lead intake teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-seia-5-million"
+      ]
+    },
+    {
+      "question": "Can we use the agent internally without customers ever seeing it?",
+      "answer": "Yes. DocsBot can be deployed as a private internal knowledge assistant for sales, design, permitting, installation, service, HR, compliance, finance, and management teams. Many solar companies may start internally with SOP lookup, onboarding, service triage, or proposal response drafting before adding a customer-facing website agent.",
+      "role": "Owners and customer support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own DocsBot after implementation: sales, operations, support, or IT?",
+      "answer": "The best owner depends on the first use case, but successful solar deployments usually need shared governance. Sales owns lead intake language, operations owns permitting and handoff content, service owns troubleshooting and warranty content, IT or security owns access controls, and an executive sponsor reviews ROI, risk, and documentation quality.",
+      "role": "Owners and customer support leaders",
+      "category": "Implementation"
+    }
+  ]
+}

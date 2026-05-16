@@ -1,0 +1,739 @@
+{
+  "slug": "farming",
+  "business": "Farming",
+  "industryCategory": "Agriculture & Forestry/Wildlife",
+  "pageMeta": {
+    "title": "AI Agents for Farming Knowledge and Field Support",
+    "description": "DocsBot helps farming teams answer grower questions, retrieve SOPs, qualify inquiries, and surface operational knowledge from trusted farm sources.",
+    "canonicalPath": "/industry/farming"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for farms, agribusinesses, and grower support teams",
+    "headline": "Keep farm knowledge moving from office to field with DocsBot AI agents",
+    "subheadline": "DocsBot helps farming organizations turn agronomy guides, SOPs, product manuals, safety notes, policies, and support history into AI agents that answer routine questions, summarize context, route requests, and hand off complex issues to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer crop, equipment, program, product, and policy questions from approved farm documents and websites.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect lead or grower details, qualify requests with your rules, and route summaries to the right sales, service, or support workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give employees private access to SOPs, onboarding guides, field checklists, and seasonal procedures from Slack, Teams, or private chat.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, connectors, or MCP options for approved live lookups, task creation, notifications, and handoffs.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build a farming AI agent",
+    "secondaryCta": "Explore farm support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on the farming knowledge you already trust: crop guides, farm SOPs, safety checklists, equipment manuals, service pages, PDFs, policies, websites, ticket history, and internal files. Agents provide source-grounded answers, support multilingual conversations, summarize requests, reveal documentation gaps, and take bounded AI Actions when configured through Skills, APIs, connectors, or customer-defined workflows.",
+    "whoItHelps": [
+      {
+        "role": "Farm owners and operations managers",
+        "roleContext": "Keep seasonal procedures, compliance notes, equipment instructions, and labor workflows accessible when crews are spread across fields, barns, shops, and offices.",
+        "bullets": [
+          {
+            "text": "Make SOPs, field checklists, chemical handling notes, and equipment procedures searchable from approved internal sources.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route unresolved questions to managers with a concise summary instead of losing context across texts, calls, and paper notes.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Use analytics to see repeated employee questions and identify where farm documentation needs clearer updates.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "HomeModernIcon"
+      },
+      {
+        "role": "Agronomists, crop advisors, and grower support teams",
+        "roleContext": "Give growers and field staff consistent access to recommendations, product guidance, scouting protocols, and seasonal updates while keeping expert review for high-impact decisions.",
+        "bullets": [
+          {
+            "text": "Answer common grower questions from approved agronomy documents, product labels, FAQs, and extension-style education materials.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Collect field symptoms, location, crop stage, photos or notes when configured, then prepare a handoff for expert review.",
+            "icon": "CameraIcon"
+          },
+          {
+            "text": "Support more than 100 languages so multilingual farm teams and customers can ask questions in the language they use every day.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BeakerIcon"
+      },
+      {
+        "role": "Farm equipment, seed, and input sales teams",
+        "roleContext": "Help prospects compare products, confirm service fit, request quotes, and book follow-up while salespeople stay in control of pricing and commitments.",
+        "bullets": [
+          {
+            "text": "Answer specification, availability, compatibility, financing policy, and service-area questions from approved catalogs and sales materials.",
+            "icon": "ShoppingCartIcon"
+          },
+          {
+            "text": "Qualify inbound inquiries by crop type, acreage, region, timeline, budget range, equipment interest, and preferred follow-up channel.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Draft follow-up summaries for CRM, email, or helpdesk workflows when the customer configures approved actions and connectors.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usda-farm-count",
+      "metric": "U.S. farms fell below 2 million in the 2022 Census of Agriculture.",
+      "claim": "USDA ERS reported that the number of U.S. farms fell below 2 million for the first time since before the Civil War, based on the 2022 Census of Agriculture.",
+      "sourceTitle": "2022 Census of Agriculture: Number of U.S. farms falls below 2 million",
+      "sourceUrl": "https://ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=108629",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "industry consolidation",
+        "need for operational efficiency",
+        "farm management pressure"
+      ]
+    },
+    {
+      "id": "src-usda-producer-age",
+      "metric": "The average U.S. farm producer age was 58.1 in 2022.",
+      "claim": "USDA NASS reported 3,374,044 U.S. farm producers in 2022 and an average producer age of 58.1 years, continuing a long-term aging trend.",
+      "sourceTitle": "2022 Farm Producers: Census of Agriculture Highlights",
+      "sourceUrl": "https://www.nass.usda.gov/Publications/Highlights/2024/Census22_HL_FarmProducers_FINAL.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "knowledge transfer",
+        "succession planning",
+        "onboarding"
+      ]
+    },
+    {
+      "id": "src-usda-internet-access",
+      "metric": "85% of U.S. farms reported internet access in 2023.",
+      "claim": "USDA NASS reported that nationally 85 percent of farms had access to the internet in the 2023 Farm Computer Usage and Ownership report.",
+      "sourceTitle": "Technology Use: Farm Computer Usage and Ownership, August 2023",
+      "sourceUrl": "https://release.nass.usda.gov/reports/fmpc0823.pdf",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "digital adoption",
+        "self-service support",
+        "online knowledge access"
+      ]
+    },
+    {
+      "id": "src-usda-farm-labor",
+      "metric": "USDA tracks hired farmworker employment, hours, and wage rates through the Farm Labor Survey.",
+      "claim": "USDA NASS states the Farm Labor Survey provides the basis for employment and wage estimates for workers directly hired by U.S. farms and ranches.",
+      "sourceTitle": "USDA NASS Farm Labor Survey",
+      "sourceUrl": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Farm_Labor/",
+      "sourceDate": "Current",
+      "bestUsedFor": [
+        "labor pressure",
+        "workforce planning",
+        "seasonal operations"
+      ]
+    },
+    {
+      "id": "src-osha-ag-hazards",
+      "metric": "OSHA identifies grain bins, chemicals, noise, musculoskeletal injuries, heat, respiratory hazards, and machinery-related risks in agriculture.",
+      "claim": "OSHA lists major agricultural hazards and controls, including chemical communication, heat, grain bins, noise, respiratory hazards, and PPE around machinery.",
+      "sourceTitle": "Agricultural Operations: Hazards and Controls",
+      "sourceUrl": "https://www.osha.gov/agricultural-operations/hazards",
+      "sourceDate": "Current",
+      "bestUsedFor": [
+        "safety risk",
+        "PPE reminders",
+        "training documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Grower and customer self-service agent",
+      "problem": "Farm stores, seed dealers, CSA farms, nurseries, and agribusinesses answer repeat questions about products, availability, delivery, programs, services, warranties, and best-use guidance.",
+      "agentWorkflow": "Train DocsBot on product pages, service catalogs, FAQs, guides, policies, labels, and support articles. The agent answers routine questions in the website widget, asks follow-up questions when details are missing, and escalates sensitive or expert-level issues with a summary of the conversation.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up order status, service-area rules, catalog metadata, appointment availability, or ticket context and then route the request to sales or support.",
+      "exampleQuestionsOrRequests": [
+        "Which cover crop mix fits my acreage and planting window?",
+        "Do you deliver seed to my county?",
+        "Can someone call me about a quote for a planter upgrade?"
+      ],
+      "businessOutcome": "Fewer repetitive calls and emails, better-qualified inquiries, and faster handoffs for questions that need a human agronomist, salesperson, or service technician.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "name": "Internal field SOP and safety knowledge agent",
+      "problem": "Crews often need fast access to current procedures, equipment instructions, safety reminders, and seasonal checklists while managers are focused on field operations.",
+      "agentWorkflow": "DocsBot indexes approved SOPs, manuals, onboarding documents, chemical handling notes, harvest procedures, HR policies, and training files. Employees ask questions in a private chat experience and get source-grounded answers with links back to the underlying material.",
+      "liveContextOrTools": "Customer-configured actions can create a task, notify a supervisor, or prepare an incident or maintenance handoff when a crew member reports an issue. Human review should remain in place for safety-critical decisions.",
+      "exampleQuestionsOrRequests": [
+        "What PPE is required before mixing this product?",
+        "What is the shutdown checklist for the grain dryer?",
+        "Who should I notify if a worker reports heat illness symptoms?"
+      ],
+      "businessOutcome": "More consistent field communication and easier onboarding, especially where OSHA highlights agricultural hazards such as grain bins, heat, chemicals, noise, respiratory hazards, and machinery risks.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-osha-ag-hazards"
+      ]
+    },
+    {
+      "name": "Seasonal onboarding and knowledge transfer agent",
+      "problem": "Farms rely on accumulated operator knowledge, but many procedures live in binders, spreadsheets, texts, or the memories of experienced staff.",
+      "agentWorkflow": "Train a private DocsBot agent on onboarding materials, prior-season notes, equipment checklists, irrigation schedules, harvest plans, HR policies, and manager-approved training content. New employees can ask procedural questions and managers can review analytics to find missing or unclear documentation.",
+      "liveContextOrTools": "The agent can summarize repeated onboarding questions, draft documentation updates, and route unresolved topics to the right manager through configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "How do we record spray applications in our system?",
+        "What do new seasonal workers need before their first shift?",
+        "Where is the checklist for moving irrigation pipe?"
+      ],
+      "businessOutcome": "Protect operational knowledge as teams change; USDA reported that the average U.S. farm producer age was 58.1 in 2022, reinforcing the importance of repeatable knowledge transfer.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-usda-producer-age"
+      ]
+    },
+    {
+      "name": "Equipment service and maintenance support agent",
+      "problem": "Farm equipment questions spike during planting, spraying, irrigation, and harvest, when downtime is costly and service teams are stretched.",
+      "agentWorkflow": "DocsBot trains on manuals, troubleshooting guides, warranty policies, maintenance schedules, service bulletins, parts FAQs, and dealer-specific procedures. The agent answers first-line questions, gathers model and symptom details, and prepares a technician handoff when repair guidance exceeds approved documentation.",
+      "liveContextOrTools": "With customer-approved APIs or connectors, the agent can look up asset records, create a service ticket, request photos, notify a technician, or update an approved field in a maintenance workflow.",
+      "exampleQuestionsOrRequests": [
+        "What does this error code mean on my monitor?",
+        "What maintenance should we do before harvest?",
+        "Can you create a service request for tractor serial number 12345?"
+      ],
+      "businessOutcome": "Reduce repetitive service triage and give technicians cleaner context before they call, dispatch, or open a repair case.",
+      "icon": "WrenchIcon"
+    },
+    {
+      "name": "Farm sales enablement and quote preparation agent",
+      "problem": "Sales reps and account managers need quick access to product fit, pricing guidance, service policies, objection handling, and customer context before responding to growers.",
+      "agentWorkflow": "DocsBot can support an internal sales enablement agent trained on catalogs, proposal templates, competitive notes, testimonials, implementation details, service policies, and customer-facing FAQs. Reps ask for product comparisons, proposal language, or follow-up drafts and review before sending.",
+      "liveContextOrTools": "When configured with approved Skills, the agent can retrieve CRM context, summarize account history, create a follow-up task, or draft an email while humans retain responsibility for pricing, contracts, and agronomic commitments.",
+      "exampleQuestionsOrRequests": [
+        "Summarize this grower’s needs before my call.",
+        "Draft a follow-up email about the irrigation package we discussed.",
+        "Which brochure and warranty note should I attach to this quote?"
+      ],
+      "businessOutcome": "More consistent responses, faster quote preparation, and better use of sales knowledge without relying on memory or scattered files.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Policy, program, and documentation assistant",
+      "problem": "Farms and agribusinesses manage grant programs, crop insurance notes, buyer requirements, food safety documents, organic records, audit checklists, and employee policies that change over time.",
+      "agentWorkflow": "DocsBot answers from approved policy documents, PDFs, program pages, audit procedures, and internal compliance notes. The agent can cite source material, clarify what document the answer came from, and hand off uncertain questions to a manager or advisor.",
+      "liveContextOrTools": "Customer-defined workflows can collect missing fields, generate a checklist summary, route a documentation request, or create a review task for compliance staff.",
+      "exampleQuestionsOrRequests": [
+        "Which records do we need before the buyer audit?",
+        "Where is the latest employee housing policy?",
+        "What documents are required for this conservation program application?"
+      ],
+      "businessOutcome": "Reduce time spent hunting through PDFs and folders while keeping humans responsible for final compliance, legal, financial, or regulatory interpretations.",
+      "icon": "FolderIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give growers, buyers, and farm customers faster answers without losing the human handoff",
+    "intro": "A DocsBot customer-facing agent can live on your website or product experience to answer from approved farm knowledge, collect details, qualify inquiries, and prepare clean handoffs for support, sales, agronomy, or service teams.",
+    "requests": [
+      {
+        "request": "“Which seed mix is right for my region and acreage?”",
+        "agentResponseStrategy": "Ask for crop, acreage, location, timing, and goals; answer from approved product guides; then recommend a human review path for agronomic fit if the decision is high-impact.",
+        "sourceTypes": [
+          "Product catalogs",
+          "Agronomy guides",
+          "FAQs",
+          "Service policies"
+        ],
+        "optionalAction": "Forward the qualified inquiry and conversation summary to a sales or agronomy workflow when configured.",
+        "icon": "BeakerIcon"
+      },
+      {
+        "request": "“Can I get a quote or schedule a consultation?”",
+        "agentResponseStrategy": "Collect contact details, farm type, acreage, timeline, product interest, and preferred follow-up channel using a structured intake flow.",
+        "sourceTypes": [
+          "Sales pages",
+          "Service-area rules",
+          "Pricing guidance",
+          "Lead forms"
+        ],
+        "optionalAction": "Use an approved scheduling workflow or CRM handoff to request a meeting, create a lead, or notify the right representative.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Where is my order or service request?”",
+        "agentResponseStrategy": "Answer general policy questions from approved documentation and, when authorized, use live context to look up status or prepare a support handoff.",
+        "sourceTypes": [
+          "Order policies",
+          "Service FAQs",
+          "Support tickets",
+          "Account metadata"
+        ],
+        "optionalAction": "Create or update a ticket, route the request, or send a notification through customer-configured Skills, APIs, or connectors.",
+        "icon": "TruckIcon"
+      },
+      {
+        "request": "“Do you have instructions in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual support to answer from the same approved knowledge base in the customer’s preferred language while preserving source-grounded guidance.",
+        "sourceTypes": [
+          "Manuals",
+          "Safety sheets",
+          "Website content",
+          "Training materials"
+        ],
+        "optionalAction": "Escalate to bilingual staff or route the conversation with a summary when the request needs a person.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What are your pickup, delivery, warranty, or return policies?”",
+        "agentResponseStrategy": "Retrieve the current policy from approved pages and documents, answer clearly, and cite the source material so customers know which policy applies.",
+        "sourceTypes": [
+          "Policy pages",
+          "Warranty documents",
+          "Delivery rules",
+          "Store FAQs"
+        ],
+        "optionalAction": "Collect order details and route exceptions to support for human review.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "request": "“Is your farm open for tours, CSA pickup, or direct sales?”",
+        "agentResponseStrategy": "Answer from public service pages, hours, pickup rules, event information, and customer FAQs, then collect booking or contact intent if the customer wants follow-up.",
+        "sourceTypes": [
+          "Website pages",
+          "Event FAQs",
+          "CSA policies",
+          "Booking rules"
+        ],
+        "optionalAction": "Request a booking or send the inquiry to staff through an approved workflow.",
+        "icon": "MapPinIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put farm procedures, training, and operating knowledge one question away",
+    "intro": "DocsBot can serve as a private internal knowledge agent for farming teams, combining approved documents, SOPs, manuals, policies, and team knowledge into a searchable source-grounded assistant for office, shop, and field workflows.",
+    "workflows": [
+      {
+        "name": "Field crew procedure lookup",
+        "problem": "Crew members may need the latest planting, harvest, irrigation, animal-care, or sanitation procedures without waiting for a manager to answer a message.",
+        "agentWorkflow": "Index SOPs, checklists, training docs, PDFs, and internal files. Employees ask natural-language questions and receive grounded answers with source context.",
+        "sourceTypes": [
+          "SOPs",
+          "Field checklists",
+          "Training PDFs",
+          "Internal policies"
+        ],
+        "optionalAction": "Create a task or notify a supervisor when a procedure is missing or an issue needs follow-up.",
+        "outcome": "Faster access to consistent instructions across seasonal and distributed teams.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Manager reporting and documentation gaps",
+        "problem": "Repeated questions reveal where procedures, manuals, or policies are unclear, but those patterns are hard to see across calls, texts, and support threads.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, conversation review, and knowledge-gap discovery to identify unanswered or repeated questions.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Knowledge base topics",
+          "Support history",
+          "Internal documents"
+        ],
+        "optionalAction": "Draft a documentation update or assign a review task through a customer-configured workflow.",
+        "outcome": "Prioritize updates to the farm knowledge base before busy seasons expose the same gaps again.",
+        "icon": "ChartBarIcon"
+      },
+      {
+        "name": "Safety and training reinforcement",
+        "problem": "Agriculture includes hazards involving grain bins, chemicals, heat, noise, respiratory exposure, and machinery, so crews need easy access to current training materials and PPE reminders.",
+        "agentWorkflow": "Train DocsBot on safety manuals, PPE checklists, onboarding modules, incident procedures, and approved hazard communication materials. The agent retrieves the relevant guidance and routes urgent or uncertain situations to a human supervisor.",
+        "sourceTypes": [
+          "Safety manuals",
+          "PPE checklists",
+          "OSHA-aligned training notes",
+          "Incident procedures"
+        ],
+        "optionalAction": "Trigger a notification, create an incident review task, or prepare a handoff summary when configured.",
+        "outcome": "Make safety knowledge easier to find while preserving human oversight for emergency and high-risk decisions.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-osha-ag-hazards"
+        ]
+      },
+      {
+        "name": "Succession, onboarding, and institutional memory",
+        "problem": "As experienced operators retire or reduce hours, farms need a practical way to preserve procedures, seasonal judgment, vendor notes, and internal policies.",
+        "agentWorkflow": "Centralize approved notes, recordings summarized into text, SOPs, vendor documents, and manager-written playbooks into a private DocsBot agent that new staff can query during onboarding.",
+        "sourceTypes": [
+          "Onboarding guides",
+          "Manager playbooks",
+          "Vendor manuals",
+          "Seasonal notes"
+        ],
+        "optionalAction": "Summarize new training questions and send managers a list of topics that need better documentation.",
+        "outcome": "Strengthen continuity as farm leadership and labor needs change.",
+        "icon": "BookmarkIcon",
+        "sourceIds": [
+          "src-usda-producer-age"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your farm knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents from websites, help centers, internal content, PDFs, Word documents, Google Drive, Notion, Confluence, and other configured knowledge sources.",
+      "industryApplication": "Train agents on crop guides, equipment manuals, SOPs, product catalogs, delivery policies, warranty terms, safety checklists, and seasonal procedures so answers reflect your operation.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Source-grounded customer and employee answers",
+      "mainLandingPageContext": "DocsBot agents deliver instant answers in the company’s voice and can provide consistent information from approved sources.",
+      "industryApplication": "Give growers, crews, sales reps, and support staff consistent answers about products, procedures, service rules, and policies instead of relying on scattered files or memory.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform customer-configured live lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs.",
+      "industryApplication": "Create service tickets, route quote requests, summarize grower conversations, notify a manager, or look up approved order or asset context when your team configures the right APIs, connectors, or workflow permissions.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See what growers and employees keep asking before planting, spraying, harvest, delivery, or audit season, then improve the documents that caused confusion.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support for distributed teams",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the same approved knowledge base.",
+      "industryApplication": "Support multilingual farm crews, dealers, CSA customers, and growers with consistent answers while escalating complex issues to the appropriate human team.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "feature": "Private knowledge governance and controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use DocsBot for private farm procedures, employee policies, customer histories, and internal sales materials with role-based access and customer-defined boundaries around what agents can access or do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "sanchay-indned-ebike-support",
+      "liza-sentry-docs"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the manuals, guides, policies, and knowledge libraries your farming operation already maintains.",
+      "Support customers and distributed teams with 24/7 source-grounded answers in more than 100 languages.",
+      "Use analytics to understand what growers, employees, and buyers are trying to learn from your documentation."
+    ],
+    "whyTheseReviewsFit": "Farming teams need practical AI that can learn from owned manuals, multilingual support content, websites, and documentation libraries. DocsBot proof spans high-volume customer support, knowledge-base assistants, embedded support widgets, and analytics that reveal what people cannot find on their own.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "LanguageIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for farming support, internal knowledge, grower self-service, and farm operations",
+    "audience": [
+      "Farm owners and operators",
+      "Agribusiness support teams",
+      "Crop advisors and agronomists",
+      "Farm equipment, seed, and input sales teams",
+      "CSA and direct-to-consumer farm teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "organic-farming",
+    "crop-consulting",
+    "farm-equipment-sales",
+    "greenhouse-operations",
+    "seed-production",
+    "agriculture-forestry-wildlife"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "farming",
+    "webSearchQueries": [
+      "USDA Census of Agriculture 2022 farms acres United States average age producers",
+      "USDA Economic Research Service farm labor hired farmworkers statistics",
+      "OSHA agriculture hazards farming safety heat chemicals machinery",
+      "USDA NASS farms computer internet access report 2023 agriculture"
+    ],
+    "sourceUrls": [
+      "https://ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=108629",
+      "https://www.nass.usda.gov/Publications/Highlights/2024/Census22_HL_FarmProducers_FINAL.pdf",
+      "https://release.nass.usda.gov/reports/fmpc0823.pdf",
+      "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Farm_Labor/",
+      "https://www.osha.gov/agricultural-operations/hazards"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 63295,
+        "cachedInputTokens": 36224,
+        "billableInputTokens": 27071,
+        "outputTokens": 19979,
+        "reasoningOutputTokens": 234,
+        "totalTokens": 83274,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.37642,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.39642
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21757,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6269,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 129,
+          "totalTokens": 33757,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.199545,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.209545
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21685,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6197,
+          "outputTokens": 5304,
+          "reasoningOutputTokens": 105,
+          "totalTokens": 26989,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.098925,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.108925
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19853,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14605,
+          "outputTokens": 2675,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22528,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07795,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07795
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1603938878151-6c8591eddd40?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDM3NjB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Farming background image",
+    "source": "legacy-industry",
+    "query": "Farming"
+  },
+  "faq": [
+    {
+      "question": "How can we trust an AI agent not to give growers bad agronomic advice?",
+      "answer": "DocsBot should be trained on your approved agronomy guides, labels, product sheets, FAQs, and service policies—not open-ended opinions. For high-impact recommendations, configure the agent to ask clarifying questions, cite the source material, and hand off the conversation summary to an agronomist or crop advisor for review.",
+      "role": "Agronomists, crop advisors, and grower support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help during planting or harvest when everyone is calling at once?",
+      "answer": "Yes. A DocsBot agent can answer repetitive questions about products, delivery rules, service policies, maintenance procedures, hours, pickup instructions, or field SOPs from approved sources. It can also collect missing details and route urgent or complex issues to the right person so staff spend less time re-asking for context.",
+      "role": "Farm owners and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent work for both customer-facing grower support and private employee SOP lookup?",
+      "answer": "Yes. You can use DocsBot for a public website or product chat experience and also for private internal knowledge access. Customer-facing agents can answer product, program, quote, delivery, and service questions, while internal agents can answer from SOPs, safety notes, manuals, onboarding files, policies, and seasonal checklists.",
+      "role": "Farm owners and operations managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can it answer questions in Spanish or other languages for seasonal crews?",
+      "answer": "DocsBot supports answers in more than 100 languages from the same approved knowledge base. That can help multilingual crews ask about procedures, PPE reminders, onboarding steps, or policies in the language they use day to day, while supervisors still review urgent, safety-critical, or unclear situations.",
+      "role": "Farm owners and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does DocsBot handle safety questions without creating liability?",
+      "answer": "Use DocsBot as a source-grounded safety knowledge assistant, not a replacement for supervisors or emergency judgment. Train it on approved safety manuals, PPE checklists, incident procedures, and hazard communication materials, then configure escalation for urgent or uncertain cases. OSHA identifies agriculture hazards including grain bins, chemicals, heat, respiratory hazards, noise, and machinery risks.",
+      "role": "Farm owners and operations managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-osha-ag-hazards"
+      ]
+    },
+    {
+      "question": "Can the agent help preserve knowledge from experienced operators before they retire?",
+      "answer": "Yes. DocsBot can centralize approved SOPs, manager playbooks, prior-season notes, equipment checklists, vendor manuals, and onboarding materials into a private knowledge agent. That matters because USDA NASS reported the average U.S. farm producer age was 58.1 in 2022, making knowledge transfer a real operating concern.",
+      "role": "Farm owners and operations managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-usda-producer-age"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect to if we want more than answers?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, webhooks, or MCP options for approved actions such as looking up order status, creating a ticket, routing a quote request, notifying a supervisor, creating a task, or preparing a handoff summary. The connection and permissions are scoped by your team.",
+      "role": "Farm equipment, seed, and input sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can it qualify seed, input, equipment, or service inquiries before a salesperson calls back?",
+      "answer": "Yes. A customer-facing agent can ask for crop type, acreage, region, timeline, budget range, equipment interest, service area, and preferred follow-up channel. It can then apply your qualification rules and send a structured summary to sales, support, CRM-style workflows, email, forms, or ticketing systems when configured.",
+      "role": "Farm equipment, seed, and input sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from quoting prices or making commitments it should not make?",
+      "answer": "Keep pricing, discounts, financing, agronomic commitments, contracts, and regulated advice behind clear instructions and human review. DocsBot can answer from approved policy language, collect requirements, draft a follow-up, and route the request, while your staff remains responsible for final quotes, commitments, and exceptions.",
+      "role": "Farm equipment, seed, and input sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help equipment service teams triage downtime issues?",
+      "answer": "Yes. Train the agent on manuals, troubleshooting guides, service bulletins, warranty policies, parts FAQs, maintenance schedules, and dealer procedures. It can gather model, serial number, symptoms, error codes, photos or notes when configured, then prepare a clean technician handoff or service ticket through approved workflows.",
+      "role": "Farm equipment, seed, and input sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What kind of ROI should a farm or agribusiness expect from an AI agent?",
+      "answer": "The most realistic ROI comes from reducing repetitive calls and texts, improving lead quality, shortening service triage, speeding employee onboarding, and making procedures easier to find. Farms are under efficiency pressure: USDA ERS reported that U.S. farms fell below 2 million in the 2022 Census of Agriculture.",
+      "role": "Farm owners and operations managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-usda-farm-count"
+      ]
+    },
+    {
+      "question": "Will our crews actually use this if some of them are not desk workers?",
+      "answer": "Adoption depends on putting the agent where people already ask questions, such as a private chat experience, Slack, Microsoft Teams, or a mobile-friendly link. The content also needs to match field reality: short SOPs, current checklists, clear escalation paths, and answers that cite the source instead of giving vague guidance.",
+      "role": "Farm owners and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Is internet access still a barrier for farms using AI agents?",
+      "answer": "Connectivity can still affect field use, but digital access is now common enough for many support and knowledge workflows. USDA NASS reported that 85% of U.S. farms had internet access in 2023. Buyers should still plan for low-signal areas, offline backups, and supervisor escalation when access is unreliable.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation",
+      "sourceIds": [
+        "src-usda-internet-access"
+      ]
+    },
+    {
+      "question": "Can DocsBot answer from product labels, SDS files, manuals, and PDFs?",
+      "answer": "Yes. DocsBot can train on PDFs, Word documents, websites, internal files, manuals, catalogs, policies, safety sheets, SOPs, and other configured knowledge sources. For farming teams, that means the agent can retrieve approved guidance from product labels, equipment manuals, delivery rules, HR policies, training documents, and support articles.",
+      "role": "Agronomists, crop advisors, and grower support teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep outdated seasonal procedures from showing up in answers?",
+      "answer": "Treat the agent like an operating knowledge system: define approved sources, remove old files, label seasonal versions clearly, assign owners for updates, and review analytics before busy periods. DocsBot can surface repeated or unanswered questions so managers know which SOPs, policies, or product pages need attention.",
+      "role": "Farm owners and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent support compliance, audits, organic records, or buyer documentation?",
+      "answer": "DocsBot can help staff find approved policies, audit checklists, food safety documents, organic procedures, conservation program notes, employee policies, and recordkeeping instructions. It should not replace legal, regulatory, financial, or certification advice; use it to retrieve source-grounded information and route uncertain questions to the responsible manager or advisor.",
+      "role": "Farm owners and operations managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How secure is DocsBot for private farm procedures, customer history, and sales materials?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions. It also does not use customer data to train public models. That helps farming teams separate public support content from private SOPs, employee policies, and internal sales knowledge.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can different teams see different information?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions, so a public grower agent can be limited to approved customer content while internal teams access SOPs, manuals, sales playbooks, policies, or support history appropriate to their role. Buyers should map permissions before launch.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How long does implementation take if our documents are scattered across binders, drives, websites, and old PDFs?",
+      "answer": "Implementation usually starts with a focused use case rather than the whole operation. Pick one workflow—such as grower FAQs, equipment service triage, safety SOP lookup, or onboarding—collect the best approved sources, test common questions, fix gaps, and expand once managers trust the answers and handoffs.",
+      "role": "Farm owners and operations managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot work with our existing CRM, ticketing, forms, or scheduling process?",
+      "answer": "DocsBot can support CRM-style, helpdesk, ticketing, form, email, Slack, Microsoft Teams, and scheduling workflows through customer-configured Skills, APIs, connectors, webhooks, or approved automation steps. It should be scoped to specific actions, such as creating a lead, forwarding a summary, requesting a meeting, or opening a service ticket.",
+      "role": "Farm equipment, seed, and input sales teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "What reporting will managers get after the agent goes live?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction or resolution analysis, and knowledge-gap discovery. For farming teams, that helps managers see what growers ask before planting, what crews cannot find during harvest, which policies cause confusion, and where documentation needs updates.",
+      "role": "Farm owners and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot on our website?",
+      "answer": "A generic chatbot often focuses on scripted responses or broad conversation. DocsBot is positioned as a source-grounded AI agent trained on your approved farm knowledge, with options for private internal use, multilingual answers, analytics, human escalation, and bounded workflow actions when configured through Skills, APIs, connectors, or customer-defined workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent help our agronomists without replacing their judgment?",
+      "answer": "Yes. DocsBot can handle first-pass intake, answer routine product or program questions, collect crop stage, location, acreage, symptoms, goals, and timing, then summarize the case for expert review. Agronomists stay responsible for high-impact recommendations, field-specific judgment, and final advice.",
+      "role": "Agronomists, crop advisors, and grower support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What happens when a grower or employee asks something outside the approved knowledge base?",
+      "answer": "You can configure the agent to say it does not have enough approved information, ask for clarifying details, provide a safe next step, or escalate to a person with a conversation summary. DocsBot’s knowledge-gap discovery also helps you identify missing documents or unclear policies after those questions appear.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with farm labor onboarding and seasonal workforce consistency?",
+      "answer": "Yes. A private DocsBot agent can answer onboarding questions about first-shift requirements, timesheets, equipment procedures, safety reminders, housing policies, sanitation rules, and who to contact. USDA NASS notes that the Farm Labor Survey supports employment and wage estimates for directly hired farm and ranch workers, underscoring the need to manage labor workflows carefully.",
+      "role": "Farm owners and operations managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-usda-farm-labor"
+      ]
+    },
+    {
+      "question": "Who should own the agent internally: operations, agronomy, sales, IT, or compliance?",
+      "answer": "Ownership should match the first use case. Operations should own SOP and safety lookup, agronomy should approve crop guidance, sales should own lead qualification and quote preparation, and IT or an admin should govern access and integrations. The strongest deployments usually assign content owners and escalation owners before launch.",
+      "role": "General buyer",
+      "category": "Implementation"
+    }
+  ]
+}

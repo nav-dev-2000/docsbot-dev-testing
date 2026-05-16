@@ -1,0 +1,745 @@
+{
+  "slug": "fundraising",
+  "business": "Fundraising",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Fundraising Agents for Donor Support and Campaigns",
+    "description": "DocsBot helps fundraising teams answer donor questions, qualify inquiries, and route campaign requests with source-grounded AI agents.",
+    "canonicalPath": "/industry/fundraising"
+  },
+  "hero": {
+    "eyebrow": "AI fundraising agents trained on your campaign and donor knowledge",
+    "headline": "Give donors faster answers while your fundraising team stays focused",
+    "subheadline": "DocsBot helps nonprofits, advancement offices, and fundraising agencies create AI agents trained on campaign pages, FAQs, gift policies, event details, sponsorship materials, and internal playbooks. Use them to answer donor questions, support staff, qualify inquiries, summarize conversations, and hand off sensitive requests to the right person.",
+    "proofBullets": [
+      {
+        "text": "Answer donor, sponsor, and volunteer questions from approved campaign pages, FAQs, impact reports, event guides, and giving policies.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured inquiry details, summarize donor intent, and route major gift, corporate giving, or planned giving conversations for human follow-up.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support multilingual donor engagement in more than 100 languages while keeping answers grounded in your organization’s own content.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to spot repeated donor questions, missing campaign content, and opportunities to improve self-service.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a fundraising AI agent",
+    "secondaryCta": "Explore donor support automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your fundraising knowledge into customer-facing and internal AI agents. Train agents on donation FAQs, campaign pages, matching gift instructions, event details, sponsorship decks, grant guidelines, donor stewardship notes, and staff SOPs so donors and employees can get fast, source-grounded answers. With configured AI Actions, agents can collect intake details, trigger handoffs, create tasks, summarize conversations, and route requests inside your approved workflows.",
+    "whoItHelps": [
+      {
+        "role": "Development and donor relations teams",
+        "roleContext": "Fundraisers need to answer recurring donor questions quickly without turning every website visit, email, or event inquiry into manual follow-up.",
+        "bullets": [
+          {
+            "text": "Explain ways to give, recurring donation options, campaign restrictions, tax receipt timing, and matching gift instructions from approved content.",
+            "icon": "GiftIcon"
+          },
+          {
+            "text": "Capture donor intent, preferred contact method, giving area, and urgency before routing qualified conversations to the right fundraiser.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Surface repeated donor questions so campaign pages, stewardship emails, and FAQs can be improved before peak giving periods.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon"
+      },
+      {
+        "role": "Nonprofit operations and finance staff",
+        "roleContext": "Donation operations often involve receipts, acknowledgments, data quality, gift restrictions, event registrations, and internal policy questions.",
+        "bullets": [
+          {
+            "text": "Make gift processing SOPs, acknowledgment templates, receipt policies, and escalation paths searchable for staff.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Summarize donor support conversations or internal requests before a staff member updates the appropriate system of record.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Help staff find current language for tax disclosures, goods-and-services notices, and donation documentation requirements.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-irs-substantiation"
+            ]
+          }
+        ],
+        "roleIcon": "CalculatorIcon"
+      },
+      {
+        "role": "Fundraising agencies and campaign consultants",
+        "roleContext": "Agencies supporting multiple nonprofit clients need consistent access to campaign briefs, audience strategy, brand language, reporting notes, and client-specific rules.",
+        "bullets": [
+          {
+            "text": "Give account teams a private knowledge agent trained on client briefs, campaign calendars, messaging guides, grant notes, and reporting templates.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Draft first-pass donor FAQ responses, sponsor follow-up notes, or internal campaign summaries for human review.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use configured Skills, APIs, connectors, or MCP-enabled tools to route approved tasks and summaries into client workflows.",
+            "icon": "PuzzlePieceIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-giving-usa-2025",
+      "metric": "U.S. charitable giving reached $592.50 billion in 2024.",
+      "claim": "Giving USA reported that total U.S. charitable giving reached $592.50 billion in 2024, a current-dollar record and a 6.3% increase over 2023.",
+      "sourceTitle": "Giving USA 2025: U.S. charitable giving grew to $592.50 billion in 2024",
+      "sourceUrl": "https://givingusa.org/giving-usa-2025-u-s-charitable-giving-grew-to-592-50-billion-in-2024-lifted-by-stock-market-gains/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "fundraising market scale",
+        "donor demand",
+        "campaign volume"
+      ]
+    },
+    {
+      "id": "src-mr-benchmarks-2025",
+      "metric": "Average nonprofit online revenue increased 2% in 2024.",
+      "claim": "M+R Benchmarks reported that online revenue for the average nonprofit increased by 2% in 2024, with monthly giving revenue up 5%.",
+      "sourceTitle": "M+R Benchmarks 2025: Fundraising",
+      "sourceUrl": "https://www.mrbenchmarks.com/charts/devices",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "online fundraising trend",
+        "recurring giving",
+        "digital donor support"
+      ]
+    },
+    {
+      "id": "src-mr-email-2026",
+      "metric": "Email accounted for 11% of online nonprofit revenue in 2025.",
+      "claim": "M+R Benchmarks reported that email accounted for 11% of online revenue in 2025 and that a fundraising email to 100,000 recipients generated about 50 donations on average.",
+      "sourceTitle": "M+R Benchmarks 2026: Email Messaging",
+      "sourceUrl": "https://mrbenchmarks.com/charts/email-messaging",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "email fundraising volume",
+        "donor journey questions",
+        "campaign follow-up"
+      ]
+    },
+    {
+      "id": "src-donor-preferences-2025",
+      "metric": "33% of surveyed online donors said email is most likely to inspire a donation.",
+      "claim": "Nonprofit Tech for Good’s 2024 online donor survey found that 33% of online donors said email was the communication method most likely to inspire them to donate.",
+      "sourceTitle": "The Communication & Giving Preferences of 641 Online Donors",
+      "sourceUrl": "https://www.nptechforgood.com/2025/02/15/the-communication-giving-preferences-of-641-online-donors/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "donor communication preferences",
+        "email engagement",
+        "online donor behavior"
+      ]
+    },
+    {
+      "id": "src-irs-substantiation",
+      "metric": "The IRS sets substantiation and disclosure rules for charitable contributions.",
+      "claim": "The IRS explains that charitable organizations and donors are subject to substantiation and disclosure requirements for certain charitable contributions.",
+      "sourceTitle": "Charitable organizations: substantiation and disclosure requirements",
+      "sourceUrl": "https://www.irs.gov/charities-non-profits/charitable-organizations/charitable-organizations-substantiation-and-disclosure-requirements",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "donation receipt guidance",
+        "compliance pressure",
+        "gift documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Donor FAQ and giving guidance agent",
+      "problem": "Donors often need quick answers about where a gift goes, whether recurring giving is available, how receipts work, or what payment methods are supported before they complete a donation.",
+      "agentWorkflow": "DocsBot answers from campaign pages, donation FAQs, impact reports, financial transparency content, and giving policies. If the question involves a restricted gift, refund, legal tax advice, or sensitive donor record, the agent collects context and escalates to staff with a summary.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or workflows, the agent can look up public campaign details, collect missing donor information, create a support task, or route a handoff to the development team.",
+      "exampleQuestionsOrRequests": [
+        "Can I make this gift monthly instead of one time?",
+        "Will I receive a tax receipt for my donation?",
+        "How much of this campaign supports the program directly?",
+        "Can my employer match this gift?"
+      ],
+      "businessOutcome": "Reduce repetitive donor support work while giving supporters clearer answers at the moment they are deciding whether and how to give.",
+      "icon": "GiftIcon"
+    },
+    {
+      "name": "Matching gift and corporate giving assistant",
+      "problem": "Employer matching gift programs, sponsorship tiers, payroll giving, and corporate grant requirements can be confusing for donors and staff.",
+      "agentWorkflow": "Train a DocsBot agent on matching gift instructions, sponsor packages, corporate partnership FAQs, eligibility notes, and internal routing rules. The agent explains next steps, gathers employer or sponsor details, and prepares a structured handoff for the corporate giving owner.",
+      "liveContextOrTools": "A configured Skill can collect company name, employee status, gift amount, sponsorship interest, and deadline, then trigger a form submission, CRM task, or email handoff where the customer has authorized the workflow.",
+      "exampleQuestionsOrRequests": [
+        "Does my employer match donations to your organization?",
+        "What information do I need to submit a matching gift request?",
+        "Can my company sponsor the gala?",
+        "Who should receive our corporate giving form?"
+      ],
+      "businessOutcome": "Capture more qualified corporate giving interest without requiring fundraisers to manually answer every early-stage question.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Campaign, event, and peer-to-peer support agent",
+      "problem": "Giving days, galas, walks, auctions, and peer-to-peer campaigns create spikes in questions about registration, deadlines, teams, tickets, sponsorships, and donation pages.",
+      "agentWorkflow": "DocsBot can answer from event pages, campaign briefs, registration instructions, participant toolkits, auction rules, and volunteer FAQs. It can summarize unresolved issues and route time-sensitive questions to event staff or support queues.",
+      "liveContextOrTools": "When configured with live context, the agent can check approved event or campaign metadata, collect attendee details, create a ticket, notify staff, or trigger a workflow for registration or donation-page help.",
+      "exampleQuestionsOrRequests": [
+        "Where is the fundraiser and what time should I arrive?",
+        "How do I create a team page?",
+        "Can I change the name on my event ticket?",
+        "What are the sponsorship benefits?"
+      ],
+      "businessOutcome": "Keep campaign momentum high during peak traffic while giving staff a cleaner queue of requests that actually need a person.",
+      "icon": "CalendarIcon",
+      "sourceIds": [
+        "src-giving-usa-2025"
+      ]
+    },
+    {
+      "name": "Stewardship and impact information agent",
+      "problem": "Supporters want to understand impact, reporting, program results, and how their gifts are used, but that information may be spread across annual reports, campaign pages, PDFs, and emails.",
+      "agentWorkflow": "DocsBot retrieves source-grounded answers from impact reports, program pages, annual reports, stewardship language, donor updates, and approved messaging guides. Staff can use the agent internally to draft donor response language and find the right citation or story.",
+      "liveContextOrTools": "The agent can generate a concise conversation summary or draft acknowledgment language for human review, especially for major donors, restricted gifts, or sensitive program details.",
+      "exampleQuestionsOrRequests": [
+        "What did last year’s campaign fund?",
+        "Can you share a short impact summary I can forward to our board?",
+        "Where can I find outcomes from the scholarship program?",
+        "What language should we use for donors who funded this initiative?"
+      ],
+      "businessOutcome": "Make impact communication easier to find and more consistent across donor relations, marketing, leadership, and board-facing work.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Internal grant and campaign knowledge agent",
+      "problem": "Fundraising staff lose time searching across proposals, grant guidelines, award letters, budgets, campaign calendars, and internal SOPs.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on grant documents, internal wikis, Google Drive, PDFs, Word documents, campaign plans, finance policies, and stewardship procedures. Employees ask natural-language questions and receive grounded answers with source context.",
+      "liveContextOrTools": "Configured actions can summarize a grant file, draft an internal brief, create a task, or route a question to finance, legal, or leadership when the answer requires approval.",
+      "exampleQuestionsOrRequests": [
+        "What are the reporting deadlines for this grant?",
+        "Which expenses are allowed under this restricted fund?",
+        "Where is the latest campaign messaging guide?",
+        "What is our acknowledgment process for gifts over $5,000?"
+      ],
+      "businessOutcome": "Help development, finance, and program teams work from the same approved knowledge instead of relying on scattered files and tribal memory.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Digital fundraising content gap analysis",
+      "problem": "Fundraising teams often learn too late that donors are confused by donation pages, appeal emails, or campaign language.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, and conversation review help teams identify repeated questions, unanswered topics, and donor friction. Teams can turn those insights into better FAQs, campaign pages, email copy, and staff playbooks.",
+      "liveContextOrTools": "The agent can classify recurring themes, generate summaries for campaign retrospectives, and help staff prioritize knowledge updates before the next appeal.",
+      "exampleQuestionsOrRequests": [
+        "What donation page questions came up most often this month?",
+        "Which campaign topics did the agent fail to answer?",
+        "What should we add to our giving day FAQ?",
+        "Summarize common donor concerns from last week’s conversations."
+      ],
+      "businessOutcome": "Improve donor self-service and campaign content using the questions supporters are already asking.",
+      "icon": "MagnifyingGlassIcon",
+      "sourceIds": [
+        "src-mr-benchmarks-2025"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A donor-facing AI agent that answers before the giving moment passes",
+    "intro": "DocsBot can power a website or campaign-page agent that helps donors, sponsors, volunteers, and event participants get immediate answers from your approved fundraising content. For high-value, sensitive, or ambiguous requests, the agent can collect details and hand off the conversation to your team.",
+    "requests": [
+      {
+        "request": "“How do I donate by check, stock, or donor-advised fund?”",
+        "agentResponseStrategy": "Retrieve the approved giving instructions, explain the next step in plain language, and route complex asset, tax, or account-specific questions to staff.",
+        "sourceTypes": [
+          "Ways-to-give pages",
+          "Donation FAQs",
+          "Gift acceptance policies",
+          "Finance-approved instructions"
+        ],
+        "optionalAction": "Create a follow-up task or send a structured handoff with the donor’s preferred giving method and contact details.",
+        "icon": "WalletIcon"
+      },
+      {
+        "request": "“Can I get a receipt for last month’s donation?”",
+        "agentResponseStrategy": "Explain general receipt timing and documentation steps from approved policy, then collect the donor’s identifying details without exposing private records in chat.",
+        "sourceTypes": [
+          "Receipt policies",
+          "Donor support FAQs",
+          "Acknowledgment templates"
+        ],
+        "optionalAction": "Trigger a customer-configured support request for staff to verify the gift and respond through the official channel.",
+        "icon": "DocumentTextIcon",
+        "sourceIds": [
+          "src-irs-substantiation"
+        ]
+      },
+      {
+        "request": "“What does my monthly donation support?”",
+        "agentResponseStrategy": "Answer from campaign content, impact reports, program pages, and recurring giving materials, including source-grounded context rather than improvised claims.",
+        "sourceTypes": [
+          "Impact reports",
+          "Campaign pages",
+          "Program descriptions",
+          "Recurring giving FAQs"
+        ],
+        "optionalAction": "Offer to collect the donor’s email or interest area for a staff-approved follow-up or newsletter workflow.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“I want to sponsor your event. What are the options?”",
+        "agentResponseStrategy": "Explain sponsorship levels, benefits, deadlines, and recognition details from the latest sponsor materials, then qualify the inquiry for the right fundraiser.",
+        "sourceTypes": [
+          "Sponsorship decks",
+          "Event pages",
+          "Corporate giving FAQs",
+          "Campaign calendars"
+        ],
+        "optionalAction": "Forward a qualified sponsorship summary to the development team through an approved form, email, CRM, or ticketing workflow.",
+        "icon": "TrophyIcon"
+      },
+      {
+        "request": "“Do you have information in Spanish?”",
+        "agentResponseStrategy": "Respond in the donor’s language using approved source material, while preserving your organization’s policies and campaign facts.",
+        "sourceTypes": [
+          "Translated campaign pages",
+          "Donor FAQs",
+          "Program summaries",
+          "Event guides"
+        ],
+        "optionalAction": "Escalate if the requested language or document has not been approved for that campaign.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“I clicked an email appeal. Is this donation page legitimate?”",
+        "agentResponseStrategy": "Point the donor to approved campaign domains, official contact details, and safe giving instructions from your published materials.",
+        "sourceTypes": [
+          "Official campaign pages",
+          "Security guidance",
+          "Donation FAQs",
+          "Contact pages"
+        ],
+        "optionalAction": "Create a support handoff if the donor reports a suspicious message or possible fraud attempt.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give fundraising staff one place to ask about campaigns, gifts, grants, and policy",
+    "intro": "A private DocsBot internal knowledge agent helps development, operations, finance, marketing, and leadership teams retrieve answers from the documents they already maintain. Staff can ask about campaign rules, donor communications, gift processing, grant requirements, and approved messaging without searching every folder.",
+    "workflows": [
+      {
+        "name": "Gift processing and acknowledgment support",
+        "problem": "Staff need consistent answers about gift coding, acknowledgment timing, receipt language, and escalation paths.",
+        "agentWorkflow": "Train the agent on SOPs, acknowledgment templates, donation processing guides, finance policies, and approved disclosure language so employees can ask process questions in natural language.",
+        "sourceTypes": [
+          "Gift processing SOPs",
+          "Acknowledgment templates",
+          "Finance policies",
+          "IRS reference notes"
+        ],
+        "optionalAction": "Generate a draft internal answer or create a task for finance review when the request involves exceptions or sensitive donor data.",
+        "outcome": "Reduce inconsistent internal answers and help staff follow the same gift processing procedures.",
+        "icon": "CalculatorIcon",
+        "sourceIds": [
+          "src-irs-substantiation"
+        ]
+      },
+      {
+        "name": "Major gift and planned giving preparation",
+        "problem": "Fundraisers preparing for donor conversations need quick access to campaign priorities, giving vehicles, stewardship notes, objections, and approved language.",
+        "agentWorkflow": "DocsBot retrieves relevant internal content, summarizes donor-facing materials, and helps prepare talking points based on your approved playbooks and campaign documents.",
+        "sourceTypes": [
+          "Campaign briefs",
+          "Planned giving FAQs",
+          "Stewardship guides",
+          "Proposal templates"
+        ],
+        "optionalAction": "Draft a meeting brief or follow-up email for fundraiser review before anything is sent to the donor.",
+        "outcome": "Help fundraisers prepare faster while keeping humans responsible for advice, commitments, and relationship management.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "name": "Grant deadline and reporting knowledge",
+        "problem": "Grant information can be scattered across award letters, budgets, reporting calendars, program updates, and finance documents.",
+        "agentWorkflow": "A private agent answers from grant files, reporting templates, award conditions, and internal calendars so staff can locate requirements and next steps faster.",
+        "sourceTypes": [
+          "Grant agreements",
+          "Award letters",
+          "Reporting templates",
+          "Budget notes"
+        ],
+        "optionalAction": "Summarize a grant file, generate a checklist, or route a question to the grant owner through an approved workflow.",
+        "outcome": "Keep development, program, and finance teams aligned on funder obligations and reporting expectations.",
+        "icon": "BookmarkIcon"
+      },
+      {
+        "name": "Campaign launch readiness",
+        "problem": "Before appeals, events, or giving days, teams need to confirm that FAQs, email language, donation instructions, and support paths are ready.",
+        "agentWorkflow": "DocsBot can help staff query launch checklists, campaign calendars, audience segments, email drafts, brand guidelines, and support procedures from approved internal sources.",
+        "sourceTypes": [
+          "Campaign calendars",
+          "Launch checklists",
+          "Email drafts",
+          "Brand guidelines"
+        ],
+        "optionalAction": "Create a checklist summary, flag missing FAQ topics, or notify the campaign owner through a configured workflow.",
+        "outcome": "Launch campaigns with clearer donor-facing content and fewer preventable support questions.",
+        "icon": "RocketLaunchIcon",
+        "sourceIds": [
+          "src-mr-email-2026"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded donor answers",
+      "mainLandingPageContext": "DocsBot agents are trained on your own knowledge sources and deliver instant answers in your organization’s voice.",
+      "industryApplication": "Use campaign pages, donor FAQs, impact reports, event guides, gift policies, and sponsorship materials to answer supporter questions without inventing fundraising claims.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps through customer-defined rules, APIs, connectors, and workflows.",
+      "industryApplication": "Collect donor inquiry details, qualify sponsorship requests, summarize conversations, create tasks, route support issues, or trigger approved follow-up workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can operate as a private assistant trained on internal SOPs, policies, PDFs, documents, wikis, Google Drive, Notion, and Confluence.",
+      "industryApplication": "Help development, finance, program, and operations teams find grant deadlines, gift processing rules, campaign messaging, acknowledgment procedures, and stewardship language.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, analytics, topic management, reports, satisfaction and resolution analysis, and conversation review.",
+      "industryApplication": "See which donor questions repeat across campaign pages, emails, events, and giving days so teams can improve FAQs and appeals before the next fundraising push.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Multilingual website and team access",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages and can be deployed in website widgets, private team chat, Slack, Microsoft Teams, APIs, and configured workflows.",
+      "industryApplication": "Support multilingual donors on campaign pages while giving internal teams fast access to the same approved fundraising knowledge.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no public-model training on customer data.",
+      "industryApplication": "Keep donor, grant, and internal fundraising knowledge behind appropriate permissions while using scoped workflows for sensitive requests.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Proven at high-volume support, including more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Train agents on your own fundraising content library so answers stay aligned with campaign facts and policy.",
+      "Support both public self-service and staff-assisted workflows when teams need a human in the loop."
+    ],
+    "whyTheseReviewsFit": "Fundraising teams need donor trust, fast answers, and reliable internal knowledge during moments of high campaign volume. DocsBot’s customer proof shows source-grounded support, owned-content training, and assisted workflows that map directly to donor questions, staff enablement, and campaign operations.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI fundraising support and internal knowledge agent platform",
+    "audience": [
+      "Nonprofit development teams",
+      "Fundraising agencies",
+      "Advancement offices",
+      "Donor relations teams",
+      "Nonprofit operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "business-information",
+    "ai-automation-agency",
+    "ai-consulting",
+    "colleges-universities",
+    "cloud-computing-services"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "fundraising",
+    "webSearchQueries": [
+      "Giving USA 2025 charitable giving 2024 total donations United States",
+      "Nonprofit Tech for Good 2024 report online donation donor communication statistics",
+      "M+R Benchmarks 2025 nonprofit digital fundraising online revenue email response",
+      "IRS charitable organization substantiation disclosure requirements donations"
+    ],
+    "sourceUrls": [
+      "https://givingusa.org/giving-usa-2025-u-s-charitable-giving-grew-to-592-50-billion-in-2024-lifted-by-stock-market-gains/",
+      "https://www.mrbenchmarks.com/charts/devices",
+      "https://mrbenchmarks.com/charts/email-messaging",
+      "https://www.nptechforgood.com/2025/02/15/the-communication-giving-preferences-of-641-online-donors/",
+      "https://www.irs.gov/charities-non-profits/charitable-organizations/charitable-organizations-substantiation-and-disclosure-requirements"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41351,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20615,
+        "outputTokens": 8088,
+        "reasoningOutputTokens": 118,
+        "totalTokens": 49439,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.178042,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.188042
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21602,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6114,
+          "outputTokens": 5248,
+          "reasoningOutputTokens": 118,
+          "totalTokens": 26850,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.097877,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.107877
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19749,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14501,
+          "outputTokens": 2840,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22589,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080165,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080165
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1514108225820-2b602873ac36?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDU0NDh8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Fundraising background image",
+    "source": "legacy-industry",
+    "query": "Fundraising"
+  },
+  "faq": [
+    {
+      "question": "Can we use an AI agent on campaign pages without risking made-up claims about where donations go?",
+      "answer": "Yes. DocsBot is designed to answer from your approved fundraising sources, such as campaign pages, impact reports, FAQs, gift policies, and sponsorship materials. For questions that are ambiguous, restricted, legal, tax-related, or donor-specific, the agent can be instructed to collect context and route the request to a human instead of improvising.",
+      "role": "Development and donor relations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help during year-end, giving days, galas, or peer-to-peer campaign spikes?",
+      "answer": "DocsBot can handle recurring questions about donation options, deadlines, receipts, event logistics, sponsorships, team pages, and campaign rules while staff focus on exceptions and relationship work. That matters because U.S. charitable giving reached $592.50 billion in 2024, creating significant donor demand across digital and offline channels.",
+      "role": "Development and donor relations teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-giving-usa-2025"
+      ]
+    },
+    {
+      "question": "Can the agent qualify major gift, planned giving, or corporate sponsorship inquiries before routing them?",
+      "answer": "Yes. With configured AI Actions or Skills, DocsBot can collect structured details such as giving interest, company name, gift amount, timing, contact preference, and urgency. It can then summarize the conversation and route the inquiry through an approved workflow so the right fundraiser receives context before follow-up.",
+      "role": "Development and donor relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we keep humans in control of sensitive donor conversations?",
+      "answer": "Yes. DocsBot should be configured to escalate sensitive requests, including donor record questions, refunds, tax advice, restricted gifts, major gift commitments, planned giving, complaints, or anything requiring judgment. The agent can provide approved general information, collect details, and hand off a summary for staff review.",
+      "role": "Development and donor relations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot support donation receipt and acknowledgment questions without creating compliance risk?",
+      "answer": "DocsBot can answer from your approved receipt policies, acknowledgment templates, and finance guidance, then escalate donor-specific verification to staff. The IRS notes that charitable organizations and donors are subject to substantiation and disclosure requirements for certain charitable contributions, so the safest approach is source-grounded guidance plus human review for exceptions.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-irs-substantiation"
+      ]
+    },
+    {
+      "question": "Can staff use the same AI agent internally for gift processing, grant files, and campaign rules?",
+      "answer": "Yes. DocsBot can operate as a private internal knowledge agent trained on SOPs, finance policies, grant documents, award letters, campaign calendars, acknowledgment procedures, PDFs, Google Drive files, wikis, and other approved internal sources. Staff can ask natural-language questions and receive answers grounded in those materials.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot connect with if our donor data lives in a CRM or fundraising platform?",
+      "answer": "DocsBot can work with customer-configured Skills, APIs, connectors, forms, webhooks, and workflows to pass summaries, create tasks, route handoffs, or retrieve approved live context where you authorize it. It should not be given broad access by default; buyers typically start with scoped workflows around intake, routing, and support handoffs.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot replace our CRM, donation platform, email tool, or helpdesk?",
+      "answer": "No. DocsBot is best positioned as an AI support and knowledge layer around the systems you already use. It can answer from approved content, collect missing details, summarize conversations, and trigger configured handoffs, while your CRM, donation processor, email platform, ticketing system, and finance tools remain systems of record.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "How do we measure ROI if donor support is not a traditional call center?",
+      "answer": "Track avoided repetitive questions, completed self-service answers, qualified inquiries routed to fundraisers, response time during campaign spikes, staff hours saved, recurring content gaps, donor satisfaction, and conversion friction on donation pages. Online fundraising continues to matter: M+R reported average nonprofit online revenue increased 2% in 2024, with monthly giving revenue up 5%.",
+      "role": "Development and donor relations teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-mr-benchmarks-2025"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us improve fundraising content, not just answer questions?",
+      "answer": "Yes. DocsBot provides logs, analytics, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Teams can see which donor questions repeat, where the agent lacked approved information, and what should be added to campaign pages, appeal FAQs, stewardship emails, or staff playbooks.",
+      "role": "Development and donor relations teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can a donor-facing agent support multilingual communities without creating separate FAQ sites?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in your approved source material. Many teams still maintain approved translated content for high-risk pages, then configure escalation when a requested language, campaign detail, or legal disclosure has not been reviewed.",
+      "role": "Development and donor relations teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How should we handle donor privacy and access to sensitive internal files?",
+      "answer": "Use separate public and private agents, granular access controls, role-based permissions, scoped Skills, and clear escalation rules. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, and does not use customer data to train public models. Sensitive donor records should remain behind approved workflows and human review.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can a fundraising agency use DocsBot across multiple nonprofit clients without mixing knowledge?",
+      "answer": "Yes, if each client’s agent and knowledge sources are kept separately configured with the right access controls. Agencies can train private agents on client briefs, campaign calendars, messaging guides, sponsor materials, grant notes, and reporting templates, then use structured handoffs or summaries inside each client’s approved workflow.",
+      "role": "Fundraising agencies and campaign consultants",
+      "category": "Scalability"
+    },
+    {
+      "question": "How much content cleanup do we need before launching?",
+      "answer": "You do not need perfect documentation, but you do need approved source material for the questions you want the agent to answer. A practical rollout starts with donation FAQs, ways-to-give pages, receipt policies, campaign pages, event details, and escalation rules. Analytics can then show which gaps to fix next.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help with email appeal follow-up questions after a campaign send?",
+      "answer": "Yes. DocsBot can answer donor questions from the appeal, campaign page, donation FAQ, impact report, and giving policy, then route unresolved issues to staff. This is valuable because M+R reported that email accounted for 11% of online nonprofit revenue in 2025 and that a fundraising email to 100,000 recipients generated about 50 donations on average.",
+      "role": "Development and donor relations teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-mr-email-2026"
+      ]
+    },
+    {
+      "question": "Can the agent help donors confirm that a donation link or appeal is legitimate?",
+      "answer": "Yes. Train DocsBot on your official campaign domains, contact pages, donation security guidance, and approved giving instructions. The agent can point donors to verified channels and create a support handoff if someone reports a suspicious email, possible spoofing, or a donation page that does not match your official materials.",
+      "role": "Development and donor relations teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the AI agent from giving tax, legal, investment, or estate-planning advice?",
+      "answer": "Configure the agent with explicit boundaries. It can explain your approved general giving instructions, receipt timing, gift acceptance process, and escalation path, but it should decline or route questions requiring tax, legal, investment, or estate-planning judgment. Planned gifts, stock gifts, DAFs, and restricted gifts should include human review paths.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support matching gift and corporate giving workflows?",
+      "answer": "Yes. You can train the agent on matching gift instructions, corporate giving FAQs, sponsorship levels, eligibility notes, deadlines, and internal routing rules. With approved Skills or workflows, it can gather employer or sponsor details, summarize interest, and route the lead to the corporate giving owner.",
+      "role": "Development and donor relations teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What does implementation look like for a small development team with limited IT support?",
+      "answer": "Start with one narrow use case, such as donor FAQs or event support. Upload or connect approved content, define escalation topics, test common questions, review logs, and publish the website widget when answers are reliable. More advanced actions, live lookups, CRM handoffs, or MCP connectors can be added later with tighter technical review.",
+      "role": "Development and donor relations teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can leadership or the board see whether the AI agent is helping?",
+      "answer": "Yes. DocsBot’s analytics and reports can support operational reviews by showing common donor questions, unanswered topics, satisfaction or resolution trends, and where documentation needs improvement. For boards or executives, teams can summarize the agent’s impact on donor support capacity, campaign readiness, and content gaps.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or donation platform FAQ widget?",
+      "answer": "DocsBot is better framed as an AI agent trained on your own fundraising knowledge, not a generic scripted bot. It can support source-grounded answers, internal knowledge access, analytics, multilingual responses, human escalation, and scoped AI Actions for intake, summaries, task creation, routing, or workflow triggers.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent draft donor responses or stewardship language for staff review?",
+      "answer": "Yes. Internally, DocsBot can help staff find approved impact stories, campaign language, acknowledgment templates, program summaries, and stewardship notes. It can draft first-pass responses or meeting prep, but fundraisers should review before anything is sent—especially for major donors, restricted gifts, sensitive programs, or personalized commitments.",
+      "role": "Development and donor relations teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Will donors actually use this if many still come from email appeals and personal relationships?",
+      "answer": "The agent does not replace relationship fundraising; it supports moments when donors need quick clarification. Email remains a major inspiration channel: one donor survey found that 33% of surveyed online donors said email was most likely to inspire a donation. DocsBot can answer the follow-up questions those appeals create.",
+      "role": "Development and donor relations teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-donor-preferences-2025"
+      ]
+    },
+    {
+      "question": "What happens when the agent cannot find an approved answer?",
+      "answer": "DocsBot should be configured to say it does not have enough approved information, ask clarifying questions if useful, and route the issue to the right team. Those gaps become useful analytics: repeated unanswered questions can guide updates to donation FAQs, campaign pages, event materials, staff SOPs, or grant documentation.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations for quality, compliance, and fundraiser coaching?",
+      "answer": "Yes. DocsBot includes logs, conversation review, analytics, topic management, reports, and satisfaction or resolution analysis. Teams can review how donor questions were answered, identify risky or confusing topics, refine instructions, improve source content, and coach staff on recurring objections or information gaps.",
+      "role": "Nonprofit operations and finance staff",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Who should own the rollout: development, operations, marketing, finance, or IT?",
+      "answer": "Most successful rollouts have a business owner and a governance owner. Development or donor relations usually owns donor experience; operations or finance reviews gift-processing and receipt guidance; marketing owns campaign language; IT or security reviews access, permissions, and integrations. Start with clear escalation rules and source ownership.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot be used privately by campaign consultants before exposing anything to donors?",
+      "answer": "Yes. Fundraising agencies and consultants can begin with a private internal agent trained on client briefs, campaign calendars, messaging guides, reporting notes, sponsor decks, and grant materials. That lets account teams test source quality, standardize answers, and produce draft summaries before any donor-facing deployment.",
+      "role": "Fundraising agencies and campaign consultants",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How should procurement evaluate risk before approving an AI fundraising agent?",
+      "answer": "Ask how the vendor handles data use, access controls, encryption, auditability, escalation, model boundaries, and source grounding. For DocsBot, relevant controls include SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, granular access controls, and no public-model training on customer data.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    }
+  ]
+}

@@ -1,0 +1,763 @@
+{
+  "slug": "private-equity",
+  "business": "Private Equity",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "Private Equity AI Agents for Faster Fund Operations",
+    "description": "DocsBot helps private equity firms answer LP, deal, and portfolio questions from approved sources while reducing research and reporting bottlenecks.",
+    "canonicalPath": "/industry/private-equity"
+  },
+  "hero": {
+    "eyebrow": "AI agents for private equity knowledge, LP service, and deal operations",
+    "headline": "Private equity AI agents trained on your firm’s knowledge",
+    "subheadline": "DocsBot helps private equity teams turn fund documents, portfolio updates, diligence materials, operating playbooks, and investor FAQs into source-grounded AI agents that answer questions, summarize context, route requests, and trigger bounded workflows with the controls finance teams expect.",
+    "proofBullets": [
+      {
+        "text": "Answer LP, operating partner, and internal team questions from approved fund documents, policies, FAQs, and knowledge bases.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Summarize diligence notes, portfolio updates, meeting context, and support requests before routing them to the right team.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "text": "Use AI Actions and Skills for approved live lookups, task creation, handoffs, and workflow triggers inside customer-defined boundaries.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Support governed deployment with SOC 2 Type II, GDPR-ready governance, encryption, access controls, and role-based permissions.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a private equity AI agent",
+    "secondaryCta": "See knowledge automation in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your firm’s approved knowledge sources, such as data room guides, investment committee templates, portfolio operations playbooks, investor FAQs, compliance notes, onboarding docs, and internal wikis. Teams can use agents in private chat, website widgets, Slack, Microsoft Teams, helpdesk-style workflows, or customer-configured APIs to get source-grounded answers and scoped automation.",
+    "whoItHelps": [
+      {
+        "role": "Investor relations and client service teams",
+        "roleContext": "IR teams field recurring questions about reporting calendars, fund documents, subscription processes, capital calls, distributions, ESG materials, and portal navigation.",
+        "bullets": [
+          {
+            "text": "Give LPs and internal IR staff consistent answers from approved FAQs, letters, policy documents, and reporting guidance.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect missing context for investor requests and prepare a routed handoff when the answer requires a person or regulated judgment.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Spot repeated LP questions and documentation gaps through conversation logs, reports, topic analytics, and review workflows.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Deal, investment, and diligence professionals",
+        "roleContext": "Investment teams work across CIMs, memos, notes, financial models, market research, expert-call summaries, and internal decision records.",
+        "bullets": [
+          {
+            "text": "Retrieve firm-approved precedent language, diligence checklists, IC memo guidance, and portfolio references without searching across folders.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize uploaded context and draft first-pass briefings while keeping humans responsible for investment recommendations and commitments.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Use configured Skills for prospect or account research with public web context, then route summaries into approved deal workflows.",
+            "icon": "GlobeAltIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Portfolio operations and value creation teams",
+        "roleContext": "Operating partners need fast access to playbooks, vendor guidance, KPI definitions, onboarding materials, and repeatable value-creation processes.",
+        "bullets": [
+          {
+            "text": "Make operating playbooks, board templates, functional benchmarks, and SOPs searchable for portfolio company leaders and internal operators.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Draft portfolio support summaries, create tasks, or notify the right specialist when a configured workflow authorizes that action.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Support multilingual portfolio teams with answers in more than 100 languages from the same controlled knowledge base.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "BuildingOffice2Icon"
+      },
+      {
+        "role": "Compliance, finance, and fund operations leaders",
+        "roleContext": "Fund operations teams manage policy questions, controls, reporting processes, audit support, expense guidance, and sensitive information access.",
+        "bullets": [
+          {
+            "text": "Provide source-grounded answers on internal procedures, finance policies, access steps, and reporting checklists using permissioned content.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Keep sensitive workflows bounded with role-based permissions, logs, configured secrets, metadata bindings, and customer-defined controls.",
+            "icon": "FingerPrintIcon"
+          },
+          {
+            "text": "Support review paths for high-impact requests such as valuation, legal, compliance, tax, allocation, or investor-specific determinations.",
+            "icon": "ScaleIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-mckinsey-private-markets-aum",
+      "metric": "Private markets AUM reached $13.1 trillion in 2023",
+      "claim": "McKinsey reported that private markets assets under management grew 12% to $13.1 trillion as of June 30, 2023, even as fundraising and deal activity slowed.",
+      "sourceTitle": "McKinsey Global Private Markets Report 2024",
+      "sourceUrl": "https://www.mckinsey.com/industries/private-capital/our-insights/global-private-markets-report-2024",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market scale",
+        "knowledge volume",
+        "investor operations pressure"
+      ]
+    },
+    {
+      "id": "src-bain-exit-pressure",
+      "metric": "Aging unsold assets reached $3.2 trillion",
+      "claim": "Bain reported that PE firms were sitting on an aging $3.2 trillion of unsold assets across about 28,000 companies, making exits a central industry pressure point.",
+      "sourceTitle": "Bain & Company Global Private Equity Report 2024 press release",
+      "sourceUrl": "https://www.bain.com/about/media-center/press-releases/2024/green-shoots-for-private-equity-emerging-after-sectors-worst-slump-since-the-global-financial-crisisbain--company-global-pe-report/",
+      "sourceDate": "March 11, 2024",
+      "bestUsedFor": [
+        "exit pressure",
+        "portfolio operations urgency",
+        "LP communication demand"
+      ]
+    },
+    {
+      "id": "src-bain-2025-recovery",
+      "metric": "Global exits rose 34% in 2024",
+      "claim": "Bain’s 2025 Global Private Equity Report press release said global exits rose 34% in 2024, while fundraising across private asset classes fell for a third consecutive year.",
+      "sourceTitle": "Bain & Company Global Private Equity Report 2025 press release",
+      "sourceUrl": "https://www.bain.com/about/media-center/press-releases/20252/dealmaking-rebound-sees-private-equity-recovery-taking-shape-bain-global-private-equity-report/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "changing deal environment",
+        "fundraising pressure",
+        "LP update cadence"
+      ]
+    },
+    {
+      "id": "src-sec-private-fund-advisers",
+      "metric": "SEC private fund adviser rule covered quarterly statements, audits, secondaries, and restricted activities before being vacated",
+      "claim": "The SEC summarized private fund adviser rules that addressed quarterly statements, audits, adviser-led secondaries, restricted activities, and preferential treatment before later litigation changed their status.",
+      "sourceTitle": "SEC Private Fund Advisers",
+      "sourceUrl": "https://www.sec.gov/investment/private-fund-advisers",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "compliance complexity",
+        "fund operations documentation",
+        "governance expectations"
+      ]
+    },
+    {
+      "id": "src-fifth-circuit-vacatur",
+      "metric": "Fifth Circuit vacated the SEC Private Fund Adviser Rules on June 5, 2024",
+      "claim": "Legal analyses report that the Fifth Circuit vacated the SEC’s 2023 Private Fund Adviser Rules in full on June 5, 2024, including quarterly statement, audit, secondaries, restricted activities, and preferential treatment provisions.",
+      "sourceTitle": "Kirkland & Ellis: Fifth Circuit Strikes Down Private Fund Adviser Rules",
+      "sourceUrl": "https://www.kirkland.com/publications/kirkland-aim/2024/06/fifth-circuit-strikes-down-private-fund-adviser-rules",
+      "sourceDate": "June 5, 2024",
+      "bestUsedFor": [
+        "regulatory change",
+        "compliance uncertainty",
+        "review workflow need"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "LP self-service and investor request triage",
+      "problem": "Investor relations teams answer recurring questions from side-letter processes, fund documents, quarterly materials, portal instructions, capital activity, and reporting calendars.",
+      "agentWorkflow": "A DocsBot AI support agent answers from approved investor FAQs, fund document excerpts, reporting guidance, portal help, and policy notes. When the request is investor-specific or sensitive, the agent collects the needed details, summarizes the issue, and routes a handoff to IR, finance, legal, or compliance.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, or workflow automations, the agent can create an internal task, notify a team, attach a conversation summary, or look up approved non-sensitive status fields where authorized.",
+      "exampleQuestionsOrRequests": [
+        "Where can I find the latest quarterly letter and capital account statement?",
+        "What is the process for updating wire instructions?",
+        "Can you route this tax document request to the right investor relations contact?"
+      ],
+      "businessOutcome": "Reduce repetitive LP service work while keeping investor-specific decisions, regulated disclosures, and sensitive account changes under human review.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Diligence and investment committee knowledge assistant",
+      "problem": "Deal teams lose time searching across prior memos, checklists, market notes, diligence templates, expert-call summaries, and operating partner feedback.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves approved precedent materials, answers process questions, summarizes diligence context, and points users back to the source documents. It can help draft internal briefings from supplied context without making investment decisions.",
+      "liveContextOrTools": "When configured, a Skill can research public prospect context with web search, summarize findings, and prepare a structured note for a human deal professional to review before outreach or memo inclusion.",
+      "exampleQuestionsOrRequests": [
+        "Show me our standard commercial diligence checklist for vertical SaaS deals.",
+        "Summarize the main risks from these diligence notes and cite the source sections.",
+        "What precedent language do we use for customer concentration risk?"
+      ],
+      "businessOutcome": "Help investment professionals move from information retrieval to judgment faster, with citations and review paths for high-impact decisions.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "name": "Portfolio operations playbook assistant",
+      "problem": "Operating partners and portfolio leaders need repeatable guidance across finance, go-to-market, HR, IT, procurement, security, and value-creation initiatives.",
+      "agentWorkflow": "DocsBot trains on approved operating playbooks, SOPs, templates, board materials, vendor notes, onboarding resources, and functional FAQs. Portfolio users can ask for process steps, template guidance, and internal references without waiting for the operating team.",
+      "liveContextOrTools": "AI Actions can create follow-up tasks, route requests by function, summarize a portfolio company’s issue, or trigger a customer-defined workflow through APIs, connectors, or MCP Connectors for remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "Which template should a new portfolio CFO use for the 13-week cash flow forecast?",
+        "What steps do we recommend for sales pipeline hygiene after acquisition?",
+        "Create a task for the talent team with this hiring-process question and summary."
+      ],
+      "businessOutcome": "Scale operating partner knowledge across portfolio companies without forcing every question through a senior specialist.",
+      "icon": "CogIcon",
+      "sourceIds": [
+        "src-bain-exit-pressure"
+      ]
+    },
+    {
+      "name": "Fund operations and compliance knowledge desk",
+      "problem": "Private equity operations teams manage policy questions, expense allocation guidance, reporting procedures, audit support, and regulatory change communication across multiple funds.",
+      "agentWorkflow": "A DocsBot internal agent answers from approved compliance manuals, finance policies, reporting calendars, audit request lists, operating procedures, and training materials. It can surface exact sources, identify unanswered questions, and route requests that require compliance, legal, tax, or finance review.",
+      "liveContextOrTools": "Configured Skills can collect missing fields, create an audit-support task, route a policy question, or prepare a review packet while access controls limit what each user can see or trigger.",
+      "exampleQuestionsOrRequests": [
+        "What is our process for documenting an annual compliance review?",
+        "Which fund expense policy applies to this vendor invoice category?",
+        "Summarize the current internal guidance on adviser-led secondary review steps."
+      ],
+      "businessOutcome": "Improve consistency in operational answers while preserving review boundaries for legal, tax, compliance, and investor-specific determinations.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-sec-private-fund-advisers",
+        "src-fifth-circuit-vacatur"
+      ]
+    },
+    {
+      "name": "Fundraising and sales enablement agent",
+      "problem": "Fundraising teams need fast access to approved firm messaging, strategy descriptions, track-record explanations, operational due diligence answers, and objection handling.",
+      "agentWorkflow": "DocsBot can train a sales enablement agent on pitch materials, DDQ language, data room guides, case studies, approved FAQs, compliance-reviewed talking points, and meeting notes. It helps prepare responses and summaries for human fundraisers to review before sending.",
+      "liveContextOrTools": "With approved CRM, email, calendar, enrichment, or workflow connections configured by the customer, the agent can draft follow-up notes, prepare next-step tasks, summarize prospect context, or forward qualified inquiries.",
+      "exampleQuestionsOrRequests": [
+        "Draft a follow-up summary from this LP meeting using approved strategy language.",
+        "What is our approved answer for team continuity and key-person risk?",
+        "Create a CRM task for the next follow-up after this fundraising conversation."
+      ],
+      "businessOutcome": "Help fundraising teams respond faster while keeping final outreach, performance claims, legal terms, and commitments under human control.",
+      "icon": "BanknotesIcon",
+      "sourceIds": [
+        "src-bain-2025-recovery"
+      ]
+    },
+    {
+      "name": "Portfolio company helpdesk and onboarding support",
+      "problem": "Newly acquired companies often need guidance on integration steps, reporting expectations, systems access, security processes, and firm operating resources.",
+      "agentWorkflow": "A DocsBot agent answers onboarding and operating questions from approved guides, checklists, policies, and templates. It can escalate exceptions, summarize a portfolio company request, and help the PE team see where onboarding materials need improvement.",
+      "liveContextOrTools": "When connected through customer-configured workflows, the agent can create a ticket, notify an operating partner, draft a response, or route the request to IT, finance, HR, or value creation.",
+      "exampleQuestionsOrRequests": [
+        "What are the first 30-day finance reporting requirements after close?",
+        "Who should receive our monthly KPI package?",
+        "Route this systems-access issue to the portfolio operations team."
+      ],
+      "businessOutcome": "Make onboarding knowledge available on demand while reducing repeated questions to the deal and operations teams.",
+      "icon": "RocketLaunchIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give LPs and portfolio leaders fast answers without exposing uncontrolled information",
+    "intro": "DocsBot can power controlled customer-facing or stakeholder-facing agents for investor relations, portfolio onboarding, and portfolio support. Agents answer from approved sources, ask clarifying questions, collect structured details, and escalate when a request is sensitive, investor-specific, or outside the knowledge base.",
+    "requests": [
+      {
+        "request": "“Where do I find the latest reporting package and what documents are included?”",
+        "agentResponseStrategy": "Answer from approved investor portal instructions, reporting FAQs, and document descriptions, then direct the user to the right next step or human contact when access is required.",
+        "sourceTypes": [
+          "Investor FAQs",
+          "Portal guides",
+          "Reporting calendars",
+          "Approved fund communications"
+        ],
+        "optionalAction": "Create an internal IR task with the question summary if the investor cannot access a document.",
+        "icon": "FolderIcon"
+      },
+      {
+        "request": "“How do we submit our monthly portfolio KPI package?”",
+        "agentResponseStrategy": "Provide the approved submission process, template guidance, definitions, and escalation path for exceptions or entity-specific reporting questions.",
+        "sourceTypes": [
+          "Portfolio onboarding guides",
+          "KPI definitions",
+          "Operating playbooks",
+          "Reporting templates"
+        ],
+        "optionalAction": "Route the request to the operating partner or finance team with a generated summary and missing fields.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "request": "“Can you update our banking details?”",
+        "agentResponseStrategy": "Avoid completing high-risk changes directly. Explain the approved process, collect non-sensitive routing context if configured, and escalate to the authorized finance or IR workflow.",
+        "sourceTypes": [
+          "Security procedures",
+          "Investor service policies",
+          "Finance controls",
+          "Escalation instructions"
+        ],
+        "optionalAction": "Trigger a secure handoff or task for the authorized team without accepting credentials in chat.",
+        "icon": "LockClosedIcon"
+      },
+      {
+        "request": "“Which portfolio operations resources are available for recruiting?”",
+        "agentResponseStrategy": "Answer from approved value-creation resources, talent playbooks, vendor notes, and contact directories visible to that user or audience.",
+        "sourceTypes": [
+          "Talent playbooks",
+          "Vendor notes",
+          "Operating partner guides",
+          "Portfolio resource libraries"
+        ],
+        "optionalAction": "Create a follow-up task or notify the talent specialist when the portfolio company wants support.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“What changed in the private fund regulatory environment?”",
+        "agentResponseStrategy": "Point to the firm’s approved compliance guidance and avoid legal advice, especially because the SEC’s 2023 Private Fund Adviser Rules were vacated by the Fifth Circuit on June 5, 2024.",
+        "sourceTypes": [
+          "Compliance memos",
+          "Legal updates",
+          "Training materials",
+          "Policy summaries"
+        ],
+        "optionalAction": "Route nuanced legal or compliance questions to the firm’s designated reviewer.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-fifth-circuit-vacatur"
+        ]
+      },
+      {
+        "request": "“Can you send me performance or valuation details for my account?”",
+        "agentResponseStrategy": "Explain the approved channel and escalation path rather than disclosing investor-specific data unless the firm has configured authorized lookups, identity checks, and review controls.",
+        "sourceTypes": [
+          "Investor service policy",
+          "Access-control guidance",
+          "Reporting procedures",
+          "Escalation matrix"
+        ],
+        "optionalAction": "Prepare a routed request summary for IR or finance in the approved workflow.",
+        "icon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Turn private equity firm knowledge into an always-available operating layer",
+    "intro": "Private equity teams depend on institutional knowledge scattered across drives, PDFs, data rooms, wikis, emails, playbooks, and policy documents. DocsBot helps authorized employees ask natural-language questions, retrieve source-grounded answers, summarize context, and trigger scoped workflows from approved knowledge.",
+    "workflows": [
+      {
+        "name": "Internal policy and procedure answers",
+        "problem": "Operations, finance, legal, and compliance teams repeatedly answer the same process questions about approvals, reporting, expense categories, data access, and review steps.",
+        "agentWorkflow": "Train DocsBot on internal SOPs, policy manuals, finance guidance, compliance notes, onboarding docs, and wikis. Employees get sourced answers, and unresolved topics become content-gap signals for owners.",
+        "sourceTypes": [
+          "SOPs",
+          "Compliance manuals",
+          "Finance policies",
+          "Internal wikis"
+        ],
+        "optionalAction": "Create a policy-review task when the agent detects missing, conflicting, or outdated guidance.",
+        "outcome": "Fewer repeated process questions and clearer visibility into where internal documentation needs improvement.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Deal-team research preparation",
+        "problem": "Associates and vice presidents need prior deal context, market notes, checklists, and approved templates quickly during active diligence.",
+        "agentWorkflow": "Use a private knowledge agent to retrieve diligence frameworks, memo templates, precedent analysis, expert-call summaries, and market research already approved for internal use.",
+        "sourceTypes": [
+          "IC templates",
+          "Diligence checklists",
+          "Research notes",
+          "Prior deal memos"
+        ],
+        "optionalAction": "Generate a briefing summary from supplied materials for human review before it enters an investment memo.",
+        "outcome": "Deal professionals spend less time hunting for internal precedent and more time evaluating the opportunity.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Portfolio support routing",
+        "problem": "Operating teams receive scattered requests from portfolio companies that need the right specialist, template, or follow-up action.",
+        "agentWorkflow": "DocsBot answers from operating playbooks and collects structured context when escalation is needed. It can summarize the request and route it to the right operating partner, functional lead, or helpdesk-style queue.",
+        "sourceTypes": [
+          "Operating playbooks",
+          "Portfolio company guides",
+          "Functional templates",
+          "Vendor resources"
+        ],
+        "optionalAction": "Create a task, ticket, or team notification through approved customer-configured workflow access.",
+        "outcome": "Portfolio companies get faster guidance while operating partners receive cleaner, better-routed requests.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Fundraising response drafting",
+        "problem": "Fundraisers and IR professionals need approved answers for DDQs, ODD requests, meeting follow-ups, and strategy questions without improvising sensitive language.",
+        "agentWorkflow": "DocsBot retrieves approved language from pitch books, DDQ libraries, data room guides, case studies, and compliance-reviewed FAQs, then drafts a response for human review.",
+        "sourceTypes": [
+          "DDQ libraries",
+          "Pitch materials",
+          "Approved FAQs",
+          "Data room guides"
+        ],
+        "optionalAction": "Prepare CRM notes, follow-up tasks, or email drafts when the customer has configured those workflow actions.",
+        "outcome": "Fundraising teams can respond more consistently while preserving control over final claims and commitments.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Governed finance and audit support",
+        "problem": "Fund finance teams coordinate recurring reporting, audit requests, expense questions, capital activity procedures, and cross-functional approvals.",
+        "agentWorkflow": "Train DocsBot on audit request lists, accounting procedures, internal controls, reporting timelines, and finance policies so staff can retrieve the right process and source document quickly.",
+        "sourceTypes": [
+          "Audit request lists",
+          "Accounting procedures",
+          "Reporting calendars",
+          "Internal control documents"
+        ],
+        "optionalAction": "Create an audit-support task or route an exception to finance leadership, compliance, or external advisers.",
+        "outcome": "Reduce operational friction during high-volume reporting and audit cycles while maintaining review boundaries.",
+        "icon": "CalculatorIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on approved content",
+      "mainLandingPageContext": "DocsBot agents are trained on the company knowledge sources a team configures, including documents, websites, help centers, wikis, PDFs, and other internal materials.",
+      "industryApplication": "Train a private equity agent on LP FAQs, fund operations manuals, portfolio playbooks, DDQ libraries, investment templates, and compliance guidance so answers trace back to firm-approved sources.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant for private teams",
+      "mainLandingPageContext": "DocsBot can act as a private internal knowledge assistant for employees across operations, compliance, sales, finance, HR, IT, and other functions.",
+      "industryApplication": "Give deal teams, IR, finance, compliance, and operating partners a shared assistant for procedures, templates, policies, onboarding, and value-creation resources.",
+      "icon": "BuildingLibraryIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP connectivity",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded actions such as lookups, summaries, routing, task creation, updates, workflow triggers, and handoffs through configured systems.",
+      "industryApplication": "Use scoped actions for LP request triage, portfolio support routing, audit-support task creation, prospect research summaries, and CRM or helpdesk-style handoffs where the firm authorizes access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and insight into unanswered questions.",
+      "industryApplication": "See what LPs, portfolio companies, and employees ask most often, then improve FAQs, portal guidance, onboarding materials, and internal SOPs.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation for sensitive or complex requests",
+      "mainLandingPageContext": "DocsBot supports escalation when a question is complex, sensitive, high-impact, or needs a person.",
+      "industryApplication": "Escalate valuation, performance, tax, legal, compliance, investor-specific, and account-change requests while automating safe intake and summaries.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Security and governance for private knowledge",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy that customer data is not used to train public models.",
+      "industryApplication": "Deploy AI agents against private fund, investor, portfolio, and internal operating knowledge with permissions, access boundaries, and audit-friendly controls.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "musa-40k-traders-self-service",
+      "matt-cromwell-content-library",
+      "geovanny-rag-build-vs-buy"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro",
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own firm content instead of relying on generic AI answers.",
+      "Support high-volume self-service while keeping complex requests on a human path.",
+      "Use DocsBot for internal decision support, knowledge retrieval, and workflow summaries."
+    ],
+    "whyTheseReviewsFit": "Private equity firms need AI that works from controlled knowledge, scales repeated service requests, and helps teams move faster without losing governance. DocsBot proof spans self-service support, owned-content training, internal decision support, and teams choosing DocsBot instead of building retrieval infrastructure from scratch.",
+    "trustClaimIcons": [
+      "DocumentTextIcon",
+      "UserGroupIcon",
+      "CpuChipIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI knowledge agents and workflow automation for private equity firms",
+    "audience": [
+      "Private equity investor relations teams",
+      "Private equity deal teams",
+      "Portfolio operations teams",
+      "Fund finance and compliance leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BanknotesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "investment-advisory",
+    "financial-consulting",
+    "merchant-banking",
+    "finance-insurance",
+    "auditing-finance-insurance"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "private-equity",
+    "webSearchQueries": [
+      "SEC private fund advisers quarterly statements annual audit rule 2024 private fund advisers",
+      "McKinsey Global Private Markets Review 2024 private equity assets under management dry powder",
+      "Bain Global Private Equity Report 2024 deal activity exits fundraising",
+      "Fifth Circuit vacated SEC private fund adviser rules June 2024 quarterly statements annual audits",
+      "SEC Form PF amendments private funds current reporting 2025"
+    ],
+    "sourceUrls": [
+      "https://www.mckinsey.com/industries/private-capital/our-insights/global-private-markets-report-2024",
+      "https://www.bain.com/about/media-center/press-releases/2024/green-shoots-for-private-equity-emerging-after-sectors-worst-slump-since-the-global-financial-crisisbain--company-global-pe-report/",
+      "https://www.bain.com/about/media-center/press-releases/20252/dealmaking-rebound-sees-private-equity-recovery-taking-shape-bain-global-private-equity-report/",
+      "https://www.sec.gov/investment/private-fund-advisers",
+      "https://www.kirkland.com/publications/kirkland-aim/2024/06/fifth-circuit-strikes-down-private-fund-adviser-rules"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 46472,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 25736,
+        "outputTokens": 9056,
+        "reasoningOutputTokens": 197,
+        "totalTokens": 55528,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.205364,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.225364
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25626,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10138,
+          "outputTokens": 5935,
+          "reasoningOutputTokens": 197,
+          "totalTokens": 31561,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.118242,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.138242
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20846,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15598,
+          "outputTokens": 3121,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23967,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.087122,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.087122
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUzMDd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Private Equity background image",
+    "source": "legacy-industry",
+    "query": "Private Equity"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for LP self-service without exposing investor-specific information?",
+      "answer": "Yes. A DocsBot agent can answer general LP questions from approved investor FAQs, portal guides, reporting calendars, policy documents, and fund communications. For investor-specific items such as capital account details, valuation, tax documents, or banking changes, the safer pattern is intake, clarification, and routed handoff to IR, finance, legal, or compliance unless your firm has configured authorized lookups and review controls.",
+      "role": "Investor relations and client service teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this reduce pressure on investor relations during quarterly reporting?",
+      "answer": "IR teams can use DocsBot to answer recurring questions about report availability, document locations, portal navigation, subscription processes, capital calls, distributions, and approved fund FAQs. The agent can also summarize the request and create a routed task when an LP needs human follow-up, so the team spends less time repeating process answers and more time handling relationship-sensitive work.",
+      "role": "Investor relations and client service teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent answer from fund documents, DDQs, side-letter guidance, and portal instructions at the same time?",
+      "answer": "DocsBot is designed to train on the approved knowledge sources your firm configures, including PDFs, internal documents, wikis, websites, data room guides, DDQ libraries, investor FAQs, and policy notes. The important implementation decision is source governance: which documents are approved, which audiences can see them, and which topics require escalation instead of an automated answer.",
+      "role": "Investor relations and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot make investment recommendations or draft IC conclusions?",
+      "answer": "No. The right use case is decision support, not autonomous investment judgment. DocsBot can retrieve prior memo language, summarize supplied diligence notes, surface checklist items, and point deal professionals to source materials. Investment recommendations, valuation judgments, committee conclusions, legal terms, and commitments should remain with the deal team and reviewers.",
+      "role": "Deal, investment, and diligence professionals",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can deal teams use DocsBot across CIMs, expert-call notes, diligence checklists, and prior IC memos?",
+      "answer": "Yes, if those materials are approved for the agent’s knowledge base and permission model. A private internal agent can help associates and VPs find diligence frameworks, precedent language, market notes, operating partner feedback, and memo templates faster. It can also summarize uploaded context for human review, with source-grounded answers rather than generic AI output.",
+      "role": "Deal, investment, and diligence professionals",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep confidential deal materials separated by team, fund, or transaction?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, so firms can design agents and knowledge bases around internal information boundaries. Many PE buyers will separate investor-facing, deal-team, portfolio-operations, and compliance content, then restrict sensitive transaction materials to authorized users. High-impact or uncertain responses should route to a human rather than answer broadly.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help operating partners scale playbooks across portfolio companies?",
+      "answer": "Yes. Portfolio operations teams can train an agent on approved value-creation playbooks, KPI definitions, onboarding guides, board templates, vendor notes, and functional SOPs. Portfolio users can ask for the right template or process, while configured AI Actions can route follow-ups to the correct operating partner or specialist. This matters as firms manage large portfolios and exit pressure; Bain reported aging unsold assets of $3.2 trillion across about 28,000 companies.",
+      "role": "Portfolio operations and value creation teams",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bain-exit-pressure"
+      ]
+    },
+    {
+      "question": "Can portfolio company executives use the agent, or is it only for internal PE staff?",
+      "answer": "DocsBot can support both private internal agents and controlled stakeholder-facing agents. For portfolio leaders, the safer deployment is a permissioned agent trained on onboarding materials, KPI templates, operating playbooks, and resources approved for that audience. Sensitive firm-only materials, other portfolio company information, and investment committee content should stay outside that experience.",
+      "role": "Portfolio operations and value creation teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What happens when an LP or portfolio company asks a question the agent should not answer?",
+      "answer": "DocsBot can be configured to avoid answering outside approved sources and to escalate sensitive or high-impact requests. For example, legal advice, tax determinations, account-specific performance, valuation, wire changes, side-letter interpretation, or compliance exceptions should trigger a human handoff with a conversation summary and collected context rather than an automated final answer.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help with fund finance, audit requests, and recurring operations questions?",
+      "answer": "Yes. Fund operations teams can train an internal agent on audit request lists, accounting procedures, reporting calendars, internal controls, expense policies, and compliance manuals. Staff can ask for the correct process or source document, while configured workflows can create audit-support tasks or route exceptions to finance leadership, compliance, legal, tax, or outside advisers.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot fit into a changing private fund regulatory environment?",
+      "answer": "DocsBot should be used to distribute your firm’s approved compliance guidance, not to provide legal advice. It can answer from compliance memos, training materials, policy summaries, and review procedures, then escalate nuanced questions. That review path is important because the SEC’s 2023 Private Fund Adviser Rules addressed areas such as quarterly statements, audits, adviser-led secondaries, restricted activities, and preferential treatment before later being vacated by the Fifth Circuit on June 5, 2024.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-sec-private-fund-advisers",
+        "src-fifth-circuit-vacatur"
+      ]
+    },
+    {
+      "question": "Can the agent draft fundraising follow-ups or DDQ responses without creating compliance risk?",
+      "answer": "DocsBot can draft from approved pitch materials, DDQ libraries, ODD responses, data room guides, case studies, and compliance-reviewed talking points. The final response should remain with a human fundraiser or reviewer, especially for performance claims, track record explanations, legal terms, fee discussions, strategy commitments, and investor-specific representations.",
+      "role": "Investor relations and client service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Where is the ROI likely to show up first for a private equity firm?",
+      "answer": "The first measurable gains usually come from repeated knowledge work: fewer recurring LP service questions, faster internal policy answers, less time searching for diligence templates, cleaner portfolio support routing, faster DDQ drafting, and fewer interruptions to senior specialists. Analytics and conversation logs can also show which topics drive the most volume and where documentation needs improvement.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How should we measure whether a private equity AI agent is working?",
+      "answer": "Useful KPIs include resolved questions, deflected repetitive requests, escalation rate, time to first answer, response accuracy review results, source coverage, unanswered-topic trends, user adoption by team, portfolio company usage, and IR or operations hours saved. For regulated or sensitive workflows, track whether the agent escalates correctly—not just whether it answers more questions.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we see what LPs, employees, or portfolio companies are asking the agent?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For PE teams, those insights can reveal repeated LP confusion, missing onboarding instructions, outdated SOPs, unclear reporting calendars, or deal-team resources that are hard to find.",
+      "role": "Investor relations and client service teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How hard is implementation if our knowledge is scattered across drives, PDFs, wikis, data rooms, and old templates?",
+      "answer": "The main work is not technical complexity; it is content governance. Start with a focused use case such as LP FAQs, portfolio onboarding, or fund operations procedures. Identify approved sources, remove stale versions, define permissions, write escalation rules, and test answers with the teams who own the content. Broader deal, compliance, and portfolio use cases can follow once the operating model is trusted.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Do we need to connect DocsBot to our CRM, investor portal, data room, or ticketing tools on day one?",
+      "answer": "No. Many firms can start with source-grounded answers from approved documents and knowledge bases before adding live actions. When you are ready, DocsBot AI Actions, Skills, APIs, connectors, webhooks, or MCP Connectors can support approved lookups, task creation, routing, CRM-style updates, helpdesk-style handoffs, or workflow triggers within customer-defined boundaries.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can DocsBot work in Slack, Microsoft Teams, private chat, or a website widget?",
+      "answer": "Yes. DocsBot agents can be used in private chat, website widgets, Slack, Microsoft Teams, helpdesk-style workflows, or customer-configured API experiences. A PE firm might use a private internal agent for deal and operations teams, a stakeholder-facing widget for portfolio onboarding, and a controlled IR support experience for general LP questions.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated answers after a new policy, reporting calendar, or compliance memo is released?",
+      "answer": "Treat the agent like an operational knowledge channel with content owners. Use approved sources, remove superseded documents, review unresolved or low-confidence conversations, and create a process for updating the knowledge base when policies, reporting deadlines, templates, or compliance guidance change. DocsBot analytics can help identify stale or missing content based on what users ask.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot support multilingual portfolio teams or global LP communication?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same controlled knowledge base. For PE firms, this can help portfolio company leaders, operating teams, or global stakeholders understand approved process guidance. Human review is still appropriate for legal, tax, regulatory, investor-specific, or commitment-sensitive communications.",
+      "role": "Portfolio operations and value creation teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How is DocsBot different from letting employees use a general-purpose AI tool?",
+      "answer": "DocsBot is trained on the firm-controlled knowledge sources you approve, supports source-grounded answers, and includes governance features such as access controls, role-based permissions, logs, and bounded actions. A general AI tool may help with drafting, but it is not the same as a permissioned knowledge agent for fund documents, portfolio playbooks, compliance guidance, and internal procedures.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What security controls will our CCO, CTO, or operations team ask about?",
+      "answer": "Expect questions about SOC 2 Type II, encryption in transit and at rest, GDPR-ready governance, role-based permissions, granular access controls, logging, secrets management for Skills, and whether customer data trains public models. DocsBot supports those governance needs and does not use customer data to train public models.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent take actions like creating tasks, routing requests, or updating records?",
+      "answer": "Yes, when configured by the customer. DocsBot AI Actions and Skills can support bounded actions such as collecting missing fields, creating a task or ticket, notifying a team, routing an LP request, preparing a handoff, looking up approved status fields, or updating approved records. Sensitive actions should use scoped permissions, logs, and human review paths.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "What should remain human-owned even after we deploy DocsBot?",
+      "answer": "Humans should own investment decisions, valuation conclusions, legal advice, tax determinations, regulatory interpretations, investor-specific disclosures, performance claims, wire or banking changes, side-letter interpretation, allocation decisions, and contractual commitments. DocsBot is best used to retrieve approved knowledge, summarize context, collect intake details, and route work to the right reviewer.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How can we use DocsBot during fundraising when LPs are asking for faster, more detailed responses?",
+      "answer": "DocsBot can help IR and fundraising teams retrieve approved strategy language, DDQ answers, ODD materials, data room guidance, objection handling, and meeting follow-up context. That matters in a tougher capital-raising environment: Bain reported that global exits rose 34% in 2024, while fundraising across private asset classes fell for a third consecutive year.",
+      "role": "Investor relations and client service teams",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bain-2025-recovery"
+      ]
+    },
+    {
+      "question": "Is this suitable for large multi-fund firms with different strategies, regions, and portfolio teams?",
+      "answer": "Yes, but the deployment should mirror the firm’s operating model. Multi-fund firms can segment knowledge by audience, strategy, geography, function, or permission level. A common pattern is to start with one high-value workflow, prove answer quality and escalation behavior, then expand to additional funds, operating groups, or portfolio company audiences.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What internal stakeholders should be involved before buying an AI agent for a PE firm?",
+      "answer": "Typical stakeholders include IR or fundraising, deal leadership, portfolio operations, fund finance, compliance, legal, IT/security, and operations leadership. The buying committee should agree on the first use case, approved sources, access model, escalation rules, success metrics, and who owns ongoing content updates after launch.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot help us understand where our documentation is weak?",
+      "answer": "Yes. Conversation logs, topic analytics, reports, satisfaction and resolution analysis, and unanswered-question trends can show where LP FAQs, portfolio onboarding guides, internal SOPs, DDQ libraries, or compliance procedures are unclear or incomplete. That turns agent usage into a feedback loop for improving firm knowledge, not just answering one-off questions.",
+      "role": "Compliance, finance, and fund operations leaders",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

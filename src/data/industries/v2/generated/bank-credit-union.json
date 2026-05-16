@@ -1,0 +1,730 @@
+{
+  "slug": "bank-credit-union",
+  "business": "Bank & Credit Union",
+  "industryCategory": "Finance & Insurance",
+  "pageMeta": {
+    "title": "AI Agents for Banks and Credit Unions | DocsBot",
+    "description": "DocsBot helps banks and credit unions automate source-grounded member support, route service requests, and give employees faster policy answers.",
+    "canonicalPath": "/industry/bank-credit-union"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for regulated financial service teams",
+    "headline": "Help members faster with bank-ready AI agents from DocsBot",
+    "subheadline": "Train DocsBot on your approved product pages, fee schedules, digital banking guides, branch policies, loan FAQs, and internal procedures so customers and employees get instant, source-grounded answers with clear escalation for sensitive financial decisions.",
+    "proofBullets": [
+      {
+        "text": "Answer routine questions about accounts, cards, digital banking, rates, branch services, and loan documents from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use AI Actions to collect missing details, summarize requests, create tickets, route handoffs, or trigger approved workflows.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give frontline staff a private knowledge agent for procedures, disclosures, troubleshooting, and escalation paths.",
+        "icon": "BuildingLibraryIcon"
+      },
+      {
+        "text": "Support governance expectations with role-based access, encryption, SOC 2 Type II certification, GDPR-ready controls, and logs.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a banking AI agent",
+    "secondaryCta": "Explore secure automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps banks and credit unions create AI agents trained on their own knowledge. Agents can answer customer questions, support employees, summarize conversations, identify documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or approved workflows while leaving high-impact financial decisions to qualified staff.",
+    "whoItHelps": [
+      {
+        "role": "Member service and contact center leaders",
+        "roleContext": "Teams handling repeated questions across online banking, cards, fees, branches, statements, disputes, and loan servicing need consistent answers without pushing every request to a live agent.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive questions with source-grounded answers in a website or product chat widget.",
+            "icon": "BoltIcon"
+          },
+          {
+            "text": "Route complex, identity-sensitive, or complaint-related conversations to the right human team with conversation context attached.",
+            "icon": "PhoneIcon"
+          },
+          {
+            "text": "Nearly half of banked U.S. households used mobile banking as their primary account access method in 2023, increasing pressure for always-available digital support.",
+            "icon": "DevicePhoneMobileIcon",
+            "sourceIds": [
+              "src-fdic-mobile-banking"
+            ]
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Branch, operations, and compliance teams",
+        "roleContext": "Bank and credit union employees need quick access to policies, procedures, disclosure language, servicing rules, and escalation guidance while staying inside internal permissions.",
+        "bullets": [
+          {
+            "text": "Make SOPs, fee explanations, product eligibility notes, and escalation paths searchable for staff.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use private team chat for internal answers grounded in approved documents, wikis, PDFs, and policy libraries.",
+            "icon": "LockClosedIcon"
+          },
+          {
+            "text": "Review analytics to find recurring staff questions and update training or procedures where guidance is unclear.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Digital banking, lending, and growth teams",
+        "roleContext": "Prospective members and applicants often need product fit answers, document checklists, rate explanations, and next-step guidance before they are ready for a banker.",
+        "bullets": [
+          {
+            "text": "Collect structured lead or application-intent details and forward qualified summaries to sales, lending, or service teams through approved workflows.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Answer product comparison and eligibility questions from approved public pages without giving personalized financial advice.",
+            "icon": "ScaleIcon"
+          },
+          {
+            "text": "Help teams see which product, lending, and onboarding questions are repeated so content can be improved.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fdic-mobile-banking",
+      "metric": "48.3% of banked households used mobile banking as their primary access method in 2023.",
+      "claim": "The FDIC found that nearly half of banked U.S. households primarily accessed their accounts through mobile banking in 2023.",
+      "sourceTitle": "FDIC Survey Finds 96 Percent of U.S. Households Were Banked in 2023",
+      "sourceUrl": "https://www.fdic.gov/news/press-releases/2024/fdic-survey-finds-96-percent-us-households-were-banked-2023",
+      "sourceDate": "November 12, 2024",
+      "bestUsedFor": [
+        "digital banking expectations",
+        "always-available member support",
+        "mobile self-service pressure"
+      ]
+    },
+    {
+      "id": "src-fdic-unbanked",
+      "metric": "4.2% of U.S. households, or 5.6 million households, were unbanked in 2023.",
+      "claim": "The FDIC reported a record-low unbanked rate, while still identifying millions of households without a bank or credit union account.",
+      "sourceTitle": "FDIC Survey Finds 96 Percent of U.S. Households Were Banked in 2023",
+      "sourceUrl": "https://www.fdic.gov/news/press-releases/2024/fdic-survey-finds-96-percent-us-households-were-banked-2023",
+      "sourceDate": "November 12, 2024",
+      "bestUsedFor": [
+        "financial access",
+        "account opening education",
+        "member onboarding"
+      ]
+    },
+    {
+      "id": "src-cfpb-complaints-2024",
+      "metric": "The CFPB analyzed consumer complaints submitted between January and December 2024.",
+      "claim": "The CFPB’s annual Consumer Response report shows the importance of timely, well-documented responses to consumer financial complaints.",
+      "sourceTitle": "2024 Consumer Response Annual Report",
+      "sourceUrl": "https://www.consumerfinance.gov/data-research/research-reports/2024-consumer-response-annual-report/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "complaint handling",
+        "service documentation",
+        "regulated support workflows"
+      ]
+    },
+    {
+      "id": "src-fed-2024-banking-credit",
+      "metric": "Federal Reserve 2024 household survey includes banking and credit conditions.",
+      "claim": "The Federal Reserve’s 2024 household well-being report tracks how consumers experience banking, credit, savings, debt, and financial strain.",
+      "sourceTitle": "Report on the Economic Well-Being of U.S. Households in 2024 - Banking and Credit",
+      "sourceUrl": "https://www.federalreserve.gov/publications/2025-economic-well-being-of-us-households-in-2024-banking-and-credit.htm",
+      "sourceDate": "May 2025",
+      "bestUsedFor": [
+        "consumer financial stress",
+        "credit questions",
+        "member education needs"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Digital banking support agent",
+      "problem": "Members often ask the same questions about login issues, transfers, mobile deposit, debit cards, statements, wire instructions, bill pay, and branch services.",
+      "agentWorkflow": "DocsBot answers from approved digital banking guides, FAQs, help articles, fee schedules, and branch information. If the request involves identity, account-specific details, fraud, or a dispute, the agent collects safe context, summarizes the conversation, and escalates to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can perform scoped lookups such as branch hours, service availability, ticket status, or document requirements without exposing credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "How do I reset online banking without coming into a branch?",
+        "What is the mobile deposit cutoff time?",
+        "Can I replace a lost debit card?",
+        "Which documents do I need for a wire transfer?"
+      ],
+      "businessOutcome": "Reduce repetitive support volume while giving members clear next steps and preserving human review for sensitive account issues.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "name": "Loan and mortgage readiness assistant",
+      "problem": "Applicants abandon or delay applications when document requirements, rates, eligibility language, or next steps are scattered across pages and PDFs.",
+      "agentWorkflow": "DocsBot answers general loan, mortgage, auto, and small-business banking questions from approved product pages, checklists, disclosures, and FAQs. It can collect structured intent, summarize the applicant’s question, and route the handoff to the right lending team.",
+      "liveContextOrTools": "Customer-configured forms, APIs, or scheduling workflows can capture applicant interest, preferred follow-up, loan type, timeline, and missing-document questions for review by a human lender.",
+      "exampleQuestionsOrRequests": [
+        "What documents do I need before applying for a mortgage?",
+        "Do you offer first-time homebuyer programs?",
+        "Can someone call me about an auto loan?",
+        "What happens after I submit my application?"
+      ],
+      "businessOutcome": "Create a clearer path from research to banker follow-up without letting the AI make credit decisions or provide personalized lending advice.",
+      "icon": "HomeModernIcon"
+    },
+    {
+      "name": "Complaint and service recovery triage",
+      "problem": "Complaint handling requires clear documentation, timely routing, and consistent answers; the CFPB’s 2024 report focuses on complaints submitted by consumers during January through December 2024.",
+      "agentWorkflow": "A DocsBot agent can classify the topic, ask for missing non-sensitive details, summarize the issue, identify the relevant policy or procedure, and create or route a ticket through an approved workflow for staff review.",
+      "liveContextOrTools": "Through customer-configured helpdesk connections, Skills, APIs, or workflow triggers, the agent can attach conversation summaries, source references, urgency labels, and routing notes to the service record.",
+      "exampleQuestionsOrRequests": [
+        "I was charged a fee I do not understand.",
+        "My dispute has not been updated.",
+        "I need to file a complaint about a mortgage servicing issue.",
+        "Can someone review my account closure request?"
+      ],
+      "businessOutcome": "Improve consistency and handoff quality while keeping regulated complaint responses under bank or credit union review.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-cfpb-complaints-2024"
+      ]
+    },
+    {
+      "name": "Financial access and onboarding guide",
+      "problem": "The FDIC reported that 4.2% of U.S. households, representing 5.6 million households, lacked a bank or credit union account in 2023.",
+      "agentWorkflow": "DocsBot can guide prospective members through account types, required identification, fee explanations, branch options, digital banking enrollment, and next steps using approved public materials and plain-language FAQs.",
+      "liveContextOrTools": "The agent can collect interest, preferred language, location, and follow-up channel through a structured intake flow, then route the summary to member onboarding staff.",
+      "exampleQuestionsOrRequests": [
+        "What do I need to open a checking account?",
+        "Can I start online and finish in a branch?",
+        "Do you have accounts with no monthly maintenance fee?",
+        "What if I have never had a bank account before?"
+      ],
+      "businessOutcome": "Support inclusion and onboarding by making account-opening information easier to understand before a prospective member speaks with staff.",
+      "icon": "IdentificationIcon",
+      "sourceIds": [
+        "src-fdic-unbanked"
+      ]
+    },
+    {
+      "name": "Internal policy and procedure knowledge agent",
+      "problem": "Employees lose time searching across wikis, PDFs, intranet pages, shared drives, and policy updates when answering member questions or handling operational exceptions.",
+      "agentWorkflow": "DocsBot trains on internal SOPs, compliance guidance, product manuals, onboarding materials, and support playbooks so staff can ask natural-language questions and receive grounded answers with source references.",
+      "liveContextOrTools": "Role-based permissions keep internal content limited to approved users. Analytics reveal repeated staff questions, outdated content, and knowledge gaps that should be reviewed.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for suspected account takeover?",
+        "Where is the current wire transfer procedure?",
+        "How do we explain this fee waiver policy?",
+        "What should a new teller review before opening day?"
+      ],
+      "businessOutcome": "Give frontline and back-office teams faster, more consistent access to approved guidance while reducing interruptions to managers and compliance staff.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Member education and credit question assistant",
+      "problem": "Members facing debt, credit, savings, or housing questions need accessible explanations, but personalized financial advice and high-impact decisions require qualified human review.",
+      "agentWorkflow": "DocsBot answers educational questions from approved articles, calculators, FAQs, and program pages. It explains general concepts, links to bank-approved resources, and escalates when the member asks for personalized recommendations.",
+      "liveContextOrTools": "Approved workflows can route a member to a counselor, banker, branch appointment, or financial wellness program after collecting intent and preferred contact method.",
+      "exampleQuestionsOrRequests": [
+        "How does a secured credit card work?",
+        "What is the difference between APR and APY?",
+        "How can I prepare for a budgeting appointment?",
+        "Where can I learn about rebuilding credit?"
+      ],
+      "businessOutcome": "Expand self-service education while keeping personalized advice, credit approvals, and account decisions in human hands.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-fed-2024-banking-credit"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A member-facing AI agent for everyday banking questions",
+    "intro": "Deploy DocsBot on your site or digital experience to answer from approved public content, collect structured context, and hand off sensitive conversations. It helps members move from confusion to the right next step without asking staff to repeat the same explanations all day.",
+    "requests": [
+      {
+        "request": "“What do I need to open a checking account?”",
+        "agentResponseStrategy": "Answer from account-opening pages, ID requirements, fee schedules, eligibility notes, and branch or digital onboarding instructions. Offer a human handoff for special circumstances.",
+        "sourceTypes": [
+          "Account pages",
+          "Fee schedules",
+          "Onboarding FAQs",
+          "Branch policies"
+        ],
+        "optionalAction": "Collect preferred location, language, and follow-up channel, then route an onboarding summary to staff.",
+        "icon": "IdentificationIcon"
+      },
+      {
+        "request": "“I think a debit card transaction is wrong.”",
+        "agentResponseStrategy": "Provide general next steps from approved dispute and card-support guidance, avoid account-specific decisions, and escalate promptly when the request is sensitive.",
+        "sourceTypes": [
+          "Dispute FAQs",
+          "Card support procedures",
+          "Security guidance"
+        ],
+        "optionalAction": "Create a service ticket or handoff summary through an approved workflow after collecting safe, non-credential details.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Which loan should I apply for?”",
+        "agentResponseStrategy": "Explain general product differences from approved pages and disclosures, then route the member to a qualified lending representative for personalized advice or eligibility review.",
+        "sourceTypes": [
+          "Loan product pages",
+          "Disclosures",
+          "Document checklists",
+          "Lending FAQs"
+        ],
+        "optionalAction": "Collect loan type, timeline, and contact preference for a lender follow-up or scheduling workflow.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“Can I get help in another language?”",
+        "agentResponseStrategy": "Answer common banking questions in the user’s preferred language when the underlying source content and instructions support it, and escalate when nuance or regulated explanation requires staff.",
+        "sourceTypes": [
+          "Public FAQs",
+          "Translated resources",
+          "Approved policy pages"
+        ],
+        "optionalAction": "Route the conversation with a language preference note for follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where is my branch and when is it open?”",
+        "agentResponseStrategy": "Use approved branch information and service pages to answer location, hours, appointment, ATM, and service availability questions.",
+        "sourceTypes": [
+          "Branch pages",
+          "Location data",
+          "Service pages"
+        ],
+        "optionalAction": "Use a configured live lookup or approved scheduling workflow when available.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“How do I use mobile deposit?”",
+        "agentResponseStrategy": "Walk through approved mobile deposit steps, limits language, cutoff explanations, image tips, and troubleshooting articles without requesting credentials.",
+        "sourceTypes": [
+          "Digital banking guides",
+          "Mobile app FAQs",
+          "Troubleshooting docs"
+        ],
+        "optionalAction": "Escalate to digital banking support if the member reports an unresolved app or account-specific issue.",
+        "icon": "DevicePhoneMobileIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for branch, lending, compliance, and operations teams",
+    "intro": "DocsBot gives employees a secure way to ask operational questions and get answers from approved internal sources. Staff can find the current procedure, disclosure explanation, or escalation path without searching across shared drives and old email threads.",
+    "workflows": [
+      {
+        "name": "Frontline procedure lookup",
+        "problem": "Branch and contact center teams need accurate answers while serving members in real time.",
+        "agentWorkflow": "The agent retrieves relevant SOPs, policy snippets, fee guidance, and escalation steps with source references so employees can verify the answer before acting.",
+        "sourceTypes": [
+          "SOPs",
+          "Intranet pages",
+          "PDF policies",
+          "Training manuals"
+        ],
+        "optionalAction": "Log repeated unanswered questions for documentation review.",
+        "outcome": "Faster employee answers and fewer interruptions to supervisors.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Lending team enablement",
+        "problem": "Loan officers and support staff need quick access to product criteria, document checklists, pricing guidance, and approved explanations.",
+        "agentWorkflow": "DocsBot answers from lending playbooks, product pages, disclosures, and internal FAQs, then helps draft follow-up notes or applicant checklists for human review.",
+        "sourceTypes": [
+          "Loan playbooks",
+          "Disclosures",
+          "Applicant checklists",
+          "Rate guidance"
+        ],
+        "optionalAction": "Create a follow-up task or route a summarized question to the right lending queue through configured workflows.",
+        "outcome": "Cleaner handoffs and more consistent borrower communication.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Compliance and audit preparation support",
+        "problem": "Compliance teams often need evidence of which policy applies, where a disclosure lives, and how staff are interpreting procedures.",
+        "agentWorkflow": "A private agent surfaces source-grounded policy answers, summarizes internal questions, and highlights recurring knowledge gaps for policy owners to review.",
+        "sourceTypes": [
+          "Compliance manuals",
+          "Audit prep materials",
+          "Policy libraries",
+          "Training content"
+        ],
+        "optionalAction": "Export summaries or create review tasks through approved workflow automation.",
+        "outcome": "Better visibility into policy confusion before it becomes a training or service problem.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "IT and digital banking troubleshooting",
+        "problem": "Employees need fast answers about common app, login, device, browser, and core-system support procedures.",
+        "agentWorkflow": "DocsBot retrieves troubleshooting steps and known-issue guidance from internal knowledge sources, then helps draft a ticket summary when escalation is needed.",
+        "sourceTypes": [
+          "IT knowledge base",
+          "Digital banking runbooks",
+          "Release notes",
+          "Helpdesk articles"
+        ],
+        "optionalAction": "Create or update a helpdesk ticket through a customer-configured connector, API, or Skill.",
+        "outcome": "Shorter internal support loops and clearer technical escalations.",
+        "icon": "WrenchIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on approved company knowledge so they can deliver instant answers in the organization’s voice.",
+      "industryApplication": "Answer member questions from account pages, digital banking guides, fee schedules, branch policies, loan FAQs, and public education resources.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as lookups, summaries, routing, record updates, ticket creation, and workflow triggers when configured by the customer.",
+      "industryApplication": "Collect safe intake details, summarize member conversations, create service tickets, route lending inquiries, or trigger approved handoffs while keeping sensitive decisions under human review.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can train on internal documents, SOPs, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other private sources.",
+      "industryApplication": "Give branch, contact center, lending, operations, HR, IT, and compliance teams one place to ask about procedures, policies, training, and escalation paths.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which account, card, lending, complaint, and digital banking questions repeat so teams can improve content and training.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Support financial-services review requirements with permissions, boundaries, logs, and private-source handling for customer and employee agents.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Proven at high-volume customer support with more than 30,000 inquiries handled in one month for Sony NURO.",
+      "Train agents on your own content library so answers stay aligned with approved banking knowledge.",
+      "Support both public self-service and human support teams with website and helpdesk-style workflows."
+    ],
+    "whyTheseReviewsFit": "Banks and credit unions need dependable self-service, controlled knowledge sources, and clean handoffs to staff. DocsBot proof spans high-volume customer support, owned-content training, embedded website assistance, and support-team workflows that map directly to modern member service operations.",
+    "trustClaimIcons": [
+      "TrophyIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for banks and credit unions",
+    "audience": [
+      "Bank customer service leaders",
+      "Credit union member experience teams",
+      "Digital banking teams",
+      "Lending operations teams",
+      "Compliance and operations leaders"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingLibraryIcon"
+  },
+  "relatedIndustrySlugs": [
+    "accountant",
+    "auditing-finance-insurance",
+    "bookkeeping",
+    "finance-insurance",
+    "financial-consulting",
+    "insurance",
+    "investment-advisory",
+    "merchant-banking"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "bank-credit-union",
+    "webSearchQueries": [
+      "FDIC National Survey unbanked underbanked 2023 mobile banking primary method banked households",
+      "Federal Reserve economic well-being US households banking online mobile banking 2024",
+      "CFPB consumer complaints banking credit union report 2024 complaints"
+    ],
+    "sourceUrls": [
+      "https://www.fdic.gov/news/press-releases/2024/fdic-survey-finds-96-percent-us-households-were-banked-2023",
+      "https://www.consumerfinance.gov/data-research/research-reports/2024-consumer-response-annual-report/",
+      "https://www.federalreserve.gov/publications/2025-economic-well-being-of-us-households-in-2024-banking-and-credit.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 59769,
+        "cachedInputTokens": 27520,
+        "billableInputTokens": 32249,
+        "outputTokens": 19834,
+        "reasoningOutputTokens": 236,
+        "totalTokens": 79603,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.385013,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.405013
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21594,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6618,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 135,
+          "totalTokens": 33594,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.200289,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.210289
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19311,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 12015,
+          "outputTokens": 4830,
+          "reasoningOutputTokens": 101,
+          "totalTokens": 24141,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.104312,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.114312
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 18864,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13616,
+          "outputTokens": 3004,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21868,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080412,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080412
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1494797710133-75ad43b1cd95?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzUxODd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Bank & Credit Union background image",
+    "source": "legacy-industry",
+    "query": "Bank & Credit Union"
+  },
+  "faq": [
+    {
+      "question": "Can we use DocsBot for member support without letting it make account decisions or financial recommendations?",
+      "answer": "Yes. DocsBot is best positioned as a source-grounded support and routing layer, not a replacement for bankers, lenders, fraud teams, or complaint owners. It can answer from approved pages, fee schedules, digital banking guides, and education content, then escalate identity-sensitive, account-specific, lending, fraud, dispute, or complaint situations to staff with a conversation summary.",
+      "role": "Member service and contact center leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this reduce contact center volume if many of our calls are about mobile banking and card issues?",
+      "answer": "DocsBot can handle repetitive questions about login help, mobile deposit, debit cards, statements, branch services, wire requirements, bill pay, and general troubleshooting from approved guides. That matters because 48.3% of banked U.S. households used mobile banking as their primary access method in 2023, raising expectations for always-available digital support.",
+      "role": "Member service and contact center leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-fdic-mobile-banking"
+      ]
+    },
+    {
+      "question": "Can the AI agent support both public member questions and private employee procedure lookup?",
+      "answer": "Yes. A public-facing DocsBot agent can answer from approved website and help content, while a private internal knowledge agent can be trained on SOPs, procedures, wikis, PDFs, Word documents, policy libraries, and training materials. Role-based access helps keep internal content available only to approved employees.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when a member asks about fraud, disputes, complaints, or account-specific information?",
+      "answer": "DocsBot can be configured to avoid collecting credentials or making sensitive determinations. It can provide approved general guidance, ask for safe non-credential context, summarize the situation, label the topic, and route the handoff to the correct team. Complaint, fraud, dispute, and account-specific workflows should remain under staff review.",
+      "role": "Member service and contact center leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot help with complaint intake without creating regulatory risk?",
+      "answer": "DocsBot can support complaint triage by classifying the issue, collecting missing non-sensitive details, summarizing the conversation, and creating or routing a ticket through an approved workflow. The CFPB’s 2024 Consumer Response Annual Report analyzed complaints submitted from January through December 2024, reinforcing the need for timely, well-documented complaint handling.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-cfpb-complaints-2024"
+      ]
+    },
+    {
+      "question": "Will answers be based on our approved banking content or on general internet knowledge?",
+      "answer": "DocsBot agents are trained on the sources you approve, such as account pages, fee schedules, loan FAQs, digital banking guides, branch policies, disclosures, SOPs, and internal procedures. For regulated topics, teams typically use instructions, source controls, and escalation rules so the agent answers from bank-approved knowledge rather than improvising.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use this for loan and mortgage questions without the AI giving personalized lending advice?",
+      "answer": "Yes. DocsBot can explain general loan product differences, document checklists, application steps, and approved disclosure language. It should not decide eligibility, recommend a specific loan for a person’s circumstances, quote personalized terms, or make credit decisions. Instead, it can collect intent and route the summary to a qualified lending representative.",
+      "role": "Digital banking, lending, and growth teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What systems can DocsBot connect to for tickets, handoffs, or status lookups?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, MCP servers, webhooks, or approved workflows to take bounded actions such as creating tickets, routing requests, looking up approved statuses, updating allowed fields, or notifying a team. You should scope each connection around least-privilege access, logging, and clear rules for when human review is required.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we prevent staff from seeing procedures or content they are not authorized to access?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, so internal knowledge agents can be configured around approved user groups and content boundaries. For a bank or credit union, that typically means separating public content, branch procedures, lending guidance, compliance materials, IT runbooks, and management-only documentation.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What security posture can we show our risk, compliance, and vendor management teams?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, logs, and no use of customer data to train public models. For connected actions, customers manage secrets, environment values, network policy, metadata bindings, logging, and the boundaries of what the agent can access or do.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot support credit union member onboarding and financial access initiatives?",
+      "answer": "Yes. DocsBot can guide prospective members through account types, ID requirements, fee explanations, digital enrollment, branch options, and next steps using approved public materials. That can help make onboarding clearer for first-time or underserved users; the FDIC reported that 4.2% of U.S. households, or 5.6 million households, were unbanked in 2023.",
+      "role": "Digital banking, lending, and growth teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-fdic-unbanked"
+      ]
+    },
+    {
+      "question": "How would we measure ROI beyond “the chatbot answered questions”?",
+      "answer": "Useful measures include reduction in repetitive live-agent contacts, after-hours resolutions, deflected digital banking questions, faster first response, shorter handle time after AI summaries, cleaner lending handoffs, fewer internal policy-search interruptions, and content gaps discovered. DocsBot analytics, logs, reports, satisfaction and resolution analysis, and topic trends help teams track those outcomes.",
+      "role": "Member service and contact center leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can supervisors review what the AI said before we expand usage?",
+      "answer": "Yes. DocsBot provides logs, conversation review, reports, analytics, topic management, satisfaction and resolution analysis, and knowledge-gap discovery. Many financial institutions start with a constrained pilot, review conversations with service, compliance, and operations leaders, tune instructions and sources, then expand to more topics once escalation paths are working.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How hard is implementation if our policies are spread across PDFs, intranet pages, shared drives, and wikis?",
+      "answer": "DocsBot can train on websites, PDFs, Word documents, text files, Google Drive, Notion, Confluence, wikis, SOPs, and other approved knowledge sources. The bigger implementation task is usually content governance: deciding source ownership, removing outdated documents, setting permissions, defining escalation rules, and assigning someone to review analytics for gaps.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can this help branch and contact center employees answer procedure questions faster?",
+      "answer": "Yes. A private DocsBot knowledge agent can let employees ask natural-language questions about SOPs, fee explanations, wire procedures, card servicing, digital banking troubleshooting, escalation paths, and training materials. Answers can include source references so staff can verify the current procedure before acting.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot work for multilingual member questions?",
+      "answer": "DocsBot can answer in more than 100 languages, but banks and credit unions should define which languages and topics are appropriate for self-service. For regulated explanations, complaint language, lending nuance, or cases where translated source content is not approved, the safer workflow is to provide general help and route to qualified staff with the language preference attached.",
+      "role": "Member service and contact center leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can the AI agent collect lead or application intent for lending teams?",
+      "answer": "Yes. DocsBot can collect structured details such as loan type, timeline, preferred contact method, missing-document questions, and follow-up intent through a form or guided intake flow. With approved Skills, APIs, connectors, or workflows, it can forward a summary to lending, sales, service, CRM-style, helpdesk-style, or scheduling workflows configured by your team.",
+      "role": "Digital banking, lending, and growth teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep the AI from giving outdated answers when rates, fees, branch hours, or disclosures change?",
+      "answer": "Treat DocsBot like a governed knowledge layer. Train it on approved current sources, assign owners for rate pages, fee schedules, branch data, disclosures, and digital banking guides, and use analytics to identify outdated or missing answers. Where live data is needed, approved Skills or APIs can provide scoped lookups instead of relying on static text.",
+      "role": "Digital banking, lending, and growth teams",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What kinds of member questions should we exclude from self-service automation at first?",
+      "answer": "Start by excluding or escalating requests involving identity verification, credentials, fraud claims, disputes, complaints, account closures, credit decisions, personalized financial advice, legal threats, vulnerability concerns, and anything requiring a banker’s judgment. Many teams launch first with branch information, digital banking how-tos, account-opening guidance, fee explanations, and general loan readiness questions.",
+      "role": "Member service and contact center leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us understand which member education content is missing or confusing?",
+      "answer": "Yes. DocsBot analytics and conversation review can show repeated questions, unresolved topics, low-confidence areas, and gaps in approved content. That is useful for financial education, credit, savings, debt, and housing topics; the Federal Reserve’s 2024 household well-being report tracks consumer experiences with banking, credit, savings, debt, and financial strain.",
+      "role": "Digital banking, lending, and growth teams",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-fed-2024-banking-credit"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic chatbot we could add to the website?",
+      "answer": "DocsBot is designed around AI agents trained on your approved knowledge, with source-grounded answers, internal knowledge support, analytics, logs, role-based access, and bounded actions through configured Skills, APIs, connectors, MCP servers, or workflows. For regulated financial services, those controls matter more than simply adding a chat window to the site.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we pilot this in one department before involving the whole institution?",
+      "answer": "Yes. A practical pilot could start with digital banking FAQs, account-opening questions, internal procedure lookup, or lending document checklists. Define approved sources, escalation triggers, success metrics, and review owners up front. Once service, compliance, operations, and IT are comfortable with the results, you can expand topics and connected workflows.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "What does compliance need to review before launch?",
+      "answer": "Compliance teams usually review approved source content, prohibited topics, escalation rules, disclosure language, logging, access permissions, retention expectations, connected-action boundaries, and how staff will monitor conversations. DocsBot can support that review with source-grounded answers, role-based access, logs, conversation review, and human handoff paths for sensitive issues.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot create tickets or handoff summaries for our support teams?",
+      "answer": "Yes. With customer-configured helpdesk connections, Skills, APIs, or workflow triggers, DocsBot can summarize a conversation, attach source context, classify the topic, collect missing safe details, and create or route a ticket. It should not include credentials in chat, and sensitive decisions should remain with authorized staff.",
+      "role": "Member service and contact center leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much training will employees need to use an internal knowledge agent?",
+      "answer": "Most training focuses less on the interface and more on safe usage: what sources the agent can answer from, how to verify source references, which topics require escalation, what not to paste into chat, and how to report missing or outdated content. Branch, lending, operations, IT, and compliance teams should each get examples tied to their workflows.",
+      "role": "Branch, operations, and compliance teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will this scale across branches, products, and departments without creating separate knowledge silos?",
+      "answer": "DocsBot can support multiple agents or knowledge scopes for different audiences, such as public members, frontline employees, lending, IT, and compliance. Role-based permissions, approved sources, and analytics help each group get relevant answers while giving administrators visibility into repeated questions and documentation gaps across the institution.",
+      "role": "General buyer",
+      "category": "Scalability"
+    },
+    {
+      "question": "What budget owner usually cares most about this purchase?",
+      "answer": "The strongest business case often spans member service, digital banking, operations, lending, IT, and compliance. Contact center leaders may focus on deflection and handle time, digital teams on self-service adoption, operations on procedure consistency, lending on cleaner handoffs, and compliance or risk on governance, logs, and human review.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can DocsBot support after-hours service without overpromising resolution?",
+      "answer": "Yes. DocsBot can answer approved general questions 24/7, explain next steps, collect safe intake details, and create or route a handoff for staff follow-up. For account-specific, complaint, dispute, fraud, or lending matters, it should set expectations clearly and escalate rather than implying that the issue has been resolved automatically.",
+      "role": "Member service and contact center leaders",
+      "category": "Workflow fit"
+    }
+  ]
+}

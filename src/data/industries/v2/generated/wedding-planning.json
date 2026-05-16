@@ -1,0 +1,726 @@
+{
+  "slug": "wedding-planning",
+  "business": "Wedding Planning",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Wedding Planning Teams",
+    "description": "DocsBot helps wedding planning firms answer couple questions, qualify inquiries, and surface timeline details from your own planning knowledge.",
+    "canonicalPath": "/industry/wedding-planning"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for wedding planners and coordinators",
+    "headline": "Keep every couple informed from inquiry to send-off",
+    "subheadline": "DocsBot helps wedding planning businesses create AI agents trained on your packages, timelines, vendor guidance, questionnaires, venue notes, FAQs, and internal SOPs so couples and team members can get clear answers without waiting for your next planning call.",
+    "proofBullets": [
+      {
+        "text": "Answer package, process, budget, timeline, rehearsal, vendor, and day-of logistics questions from your approved planning content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect inquiry details, qualify fit, summarize preferences, and route consult-ready leads to your team through configured workflows.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "text": "Give planners quick access to client playbooks, checklists, timelines, policies, templates, and handoff notes in private team chat.",
+        "icon": "FolderIcon"
+      },
+      {
+        "text": "Use AI Actions to create tasks, prepare summaries, trigger follow-ups, or hand off sensitive questions to a coordinator when configured.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ],
+    "primaryCta": "Build a wedding planning agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your wedding planning knowledge into customer-facing and internal AI agents. Train an agent on service pages, FAQs, intake forms, proposal language, planning guides, vendor notes, PDFs, SOPs, and past support content, then deploy it in a website widget, private team chat, Slack, Microsoft Teams, API, or configured workflow with source-grounded answers and human escalation.",
+    "whoItHelps": [
+      {
+        "role": "Owners and lead planners",
+        "roleContext": "Protect your planning style while reducing repetitive questions across new inquiries, booked couples, vendor coordination, and day-of team communication.",
+        "bullets": [
+          {
+            "text": "Explain planning packages, consultation steps, inclusions, add-ons, and booking requirements in your brand voice.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Collect wedding date, location, guest count, budget range, planning stage, style, and service needs before a human consult.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to spot missing FAQ pages, unclear package copy, or repeated questions from couples.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Associate planners and coordinators",
+        "roleContext": "Give team members one place to retrieve approved answers, timeline rules, vendor instructions, floor-plan notes, and escalation guidance during busy planning weeks.",
+        "bullets": [
+          {
+            "text": "Search SOPs, wedding-day checklists, rehearsal scripts, client preferences, and vendor handoff notes without digging through folders.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize client conversations, prep meeting agendas, and draft follow-up notes for planner review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Keep complex, emotional, contractual, or pricing decisions routed to the responsible planner instead of leaving them to automation.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Couples and prospective clients",
+        "roleContext": "Couples expect planning information online: The Knot reported that 90% of wedding planning took place online for couples married in 2024.",
+        "bullets": [
+          {
+            "text": "Give couples instant answers about your process, availability intake, planning milestones, vendor communication, and what to prepare next.",
+            "icon": "DevicePhoneMobileIcon",
+            "sourceIds": [
+              "src-knot-2025-real-weddings"
+            ]
+          },
+          {
+            "text": "Help prospects understand whether full planning, partial planning, design, or month-of coordination fits their situation.",
+            "icon": "LightBulbIcon"
+          },
+          {
+            "text": "Escalate nuanced etiquette, family dynamics, contract, budget, or availability questions to your team with conversation context.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "HeartIcon",
+        "sourceIds": [
+          "src-knot-2025-real-weddings"
+        ]
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-knot-2025-real-weddings",
+      "metric": "90% of 2024 wedding planning took place online",
+      "claim": "The Knot 2025 Real Weddings Study reported that couples married in 2024 spent an average of six hours per week planning and that 90% of planning happened online.",
+      "sourceTitle": "The Knot 2025 Real Weddings Study",
+      "sourceUrl": "https://www.theknot.com/content/real-weddings-study",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Digital planning expectations",
+        "Couple self-service demand",
+        "Online support workflows"
+      ]
+    },
+    {
+      "id": "src-knot-2023-vendors",
+      "metric": "Average wedding included 14 hired vendors",
+      "claim": "The Knot Worldwide said its 2023 Real Weddings Study found an average of 115 guests, 14 hired vendors, and a 15-month engagement length.",
+      "sourceTitle": "The Knot 2023 Real Weddings Study press release",
+      "sourceUrl": "https://www.theknotww.com/press-releases/wedding-guests-take-center-stage-the-knot-2023-real-weddings-study-reveals-75-of-couples-prioritize-the-guest-experience-when-planning-their-weddings",
+      "sourceDate": "February 14, 2024",
+      "bestUsedFor": [
+        "Vendor coordination complexity",
+        "Guest experience planning",
+        "Long planning cycles"
+      ]
+    },
+    {
+      "id": "src-bls-event-planners",
+      "metric": "Event planner employment projected to grow 5% from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics includes weddings under event planning work and projects 5% employment growth for meeting, convention, and event planners from 2024 to 2034.",
+      "sourceTitle": "BLS Occupational Outlook Handbook: Meeting, Convention, and Event Planners",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Planner workload",
+        "Industry labor context",
+        "Operations scaling"
+      ]
+    },
+    {
+      "id": "src-ibisworld-wedding-planners",
+      "metric": "21,714 U.S. wedding planning businesses",
+      "claim": "IBISWorld reported 21,714 wedding planner businesses in the United States and 4.3% CAGR in business count between 2020 and 2025.",
+      "sourceTitle": "IBISWorld: Wedding Planners in the US",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/wedding-planners/4412/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "Market fragmentation",
+        "Competitive differentiation",
+        "Small business operations"
+      ]
+    },
+    {
+      "id": "src-knot-2026-ai",
+      "metric": "More than one-third of engaged couples use AI in planning",
+      "claim": "Axios reported The Knot data showing that more than one-third of engaged couples were using AI in wedding planning, nearly doubling in one year, while still seeking human trust and execution.",
+      "sourceTitle": "Axios: Weddings turn to AI but miss human touch",
+      "sourceUrl": "https://www.axios.com/2026/03/29/wedding-planning-ai",
+      "sourceDate": "March 29, 2026",
+      "bestUsedFor": [
+        "AI adoption by couples",
+        "Human-in-the-loop positioning",
+        "Trust and personalization"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Inquiry qualification and consult preparation",
+      "problem": "Wedding planners often receive inquiries that arrive with missing dates, unclear budgets, venue status, guest counts, or service expectations.",
+      "agentWorkflow": "A DocsBot presales agent answers package and process questions from your service pages, then collects structured intake details such as wedding date, location, guest count, budget range, style, planning stage, venue status, and preferred follow-up channel. It can summarize the lead and route consult-ready inquiries to the right planner through a customer-configured workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, forms, webhooks, or scheduling workflows, the agent can submit a lead form, create a task, request a meeting, or forward the summary to CRM, email, Slack, Microsoft Teams, or helpdesk software.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer month-of coordination for a 150-person wedding next June?",
+        "What information do you need before a consultation?",
+        "Can you help us decide between full planning and partial planning?"
+      ],
+      "businessOutcome": "Spend fewer discovery calls gathering basics and more time speaking with couples who understand your services and are ready for a human consultation.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Couple self-service during the planning journey",
+      "problem": "Couples repeatedly ask about payment milestones, vendor timelines, planning meetings, design deliverables, rehearsal expectations, and what they should do next.",
+      "agentWorkflow": "Train DocsBot on your welcome guide, planning timeline, FAQs, questionnaires, checklists, contract-safe policy summaries, and client portal instructions. The agent gives source-grounded answers, points couples to the right next step, and escalates emotional, contractual, budget-sensitive, or availability-specific issues to the planner.",
+      "liveContextOrTools": "With scoped AI Actions, the agent can prepare a handoff summary, notify the planning team, generate a meeting-prep checklist, or create a follow-up task when the couple needs human attention.",
+      "exampleQuestionsOrRequests": [
+        "When should we finalize our guest list and hotel block?",
+        "What do we need to bring to the design meeting?",
+        "Who contacts the florist about ceremony setup changes?"
+      ],
+      "businessOutcome": "Create a calmer client experience while reducing repetitive messages that interrupt planning work.",
+      "icon": "HeartIcon",
+      "sourceIds": [
+        "src-knot-2025-real-weddings"
+      ]
+    },
+    {
+      "name": "Vendor and venue knowledge assistant",
+      "problem": "A single wedding may involve many vendors, and planners need fast access to preferred vendor notes, venue rules, load-in details, insurance requirements, timeline dependencies, and contact instructions. The Knot reported that 2023 weddings averaged 14 hired vendors.",
+      "agentWorkflow": "DocsBot can act as a private internal knowledge agent trained on vendor profiles, venue PDFs, planning notes, approved vendor lists, catering timelines, floor-plan references, rental checklists, and production schedules. Team members can ask questions and get source-grounded answers before contacting vendors or updating a run of show.",
+      "liveContextOrTools": "When configured, Skills can look up approved vendor or event records, summarize notes, create internal tasks, or trigger a planner review workflow. MCP Connectors can also expose tools from systems the team already uses through remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "What are the load-in rules for this venue?",
+        "Which preferred photographers work well for candlelit receptions?",
+        "What rental items are still undecided for the ceremony layout?"
+      ],
+      "businessOutcome": "Reduce dependency on one planner’s memory and keep vendor coordination consistent across assistants, coordinators, and day-of staff.",
+      "icon": "BuildingStorefrontIcon",
+      "sourceIds": [
+        "src-knot-2023-vendors"
+      ]
+    },
+    {
+      "name": "Day-of timeline and team briefing support",
+      "problem": "Wedding days move quickly, and coordinators need concise access to timelines, contact lists, ceremony scripts, meal counts, setup details, and contingency plans.",
+      "agentWorkflow": "A private DocsBot team agent can answer from your day-of packet, production schedule, emergency plan, vendor contacts, floor plans, packing lists, and staff assignments. It can summarize the current event plan and help newer coordinators understand approved procedures.",
+      "liveContextOrTools": "With approved workflow access, the agent can draft a team brief, create reminder tasks, route urgent questions, or prepare a human handoff summary for the lead planner.",
+      "exampleQuestionsOrRequests": [
+        "What is the rain-plan trigger time?",
+        "Who is responsible for cueing the processional?",
+        "Summarize the family photo list and VIP notes for the assistant coordinator."
+      ],
+      "businessOutcome": "Keep the team aligned when details change and reduce last-minute searching through long PDFs, spreadsheets, and message threads.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Content gap and FAQ improvement analytics",
+      "problem": "Planning teams often answer the same questions across email, calls, web forms, and social messages without knowing which content is missing or unclear.",
+      "agentWorkflow": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Review repeated wedding-planning questions and update your FAQs, onboarding guides, planning templates, or proposal copy where couples need clearer guidance.",
+      "liveContextOrTools": "Use reports and conversation review to identify common topics, then refresh your knowledge sources so the agent improves from approved business content.",
+      "exampleQuestionsOrRequests": [
+        "Which questions are couples asking most before booking?",
+        "What package details are causing confusion?",
+        "Which planning guide pages should we update before engagement season?"
+      ],
+      "businessOutcome": "Turn everyday questions into better sales copy, onboarding content, and client education materials.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual guest and couple information support",
+      "problem": "Wedding parties may include guests, families, and vendors who need information in different languages, especially for destination, multicultural, or travel-heavy celebrations.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages from approved wedding information, guest FAQs, travel notes, schedule pages, venue guidance, and planner-provided instructions. The agent can keep responses grounded in your content instead of inventing event details.",
+      "liveContextOrTools": "For public guest-facing pages, the agent can be limited to approved sources and escalation routes so private couple details stay out of public answers.",
+      "exampleQuestionsOrRequests": [
+        "What time should family arrive for photos?",
+        "Where do guests park at the venue?",
+        "Can you explain the welcome party schedule in Spanish?"
+      ],
+      "businessOutcome": "Support more guests and families without turning the planner into the help desk for every logistics question.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give couples an always-available planning guide without losing the human touch",
+    "intro": "Wedding planning is personal, but many questions are repeatable. A DocsBot customer-facing agent can answer from your approved service content, planning guides, policies, timelines, and FAQs, then escalate sensitive or high-value decisions to your team with context.",
+    "requests": [
+      {
+        "request": "“Are you available for our date, and which package should we choose?”",
+        "agentResponseStrategy": "Explain service options from approved package content, collect key details, clarify fit, and route the lead for human follow-up instead of making final availability or pricing commitments.",
+        "sourceTypes": [
+          "Service pages",
+          "Package PDFs",
+          "Inquiry forms",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Submit a structured lead form or send a consult summary through a customer-configured workflow.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What should we do this month in our planning timeline?”",
+        "agentResponseStrategy": "Use your planning roadmap, client guide, and checklist content to explain upcoming tasks, dependencies, and preparation steps in your brand voice.",
+        "sourceTypes": [
+          "Planning timelines",
+          "Welcome guides",
+          "Client checklists",
+          "FAQ articles"
+        ],
+        "optionalAction": "Create a follow-up task or notify the planner if the couple is behind on a milestone.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "request": "“Can you explain the vendor communication process?”",
+        "agentResponseStrategy": "Answer from your vendor coordination policy, role definitions, and planning workflow so couples know who contacts each vendor and when.",
+        "sourceTypes": [
+          "Vendor process docs",
+          "Client handbook",
+          "Email templates",
+          "SOPs"
+        ],
+        "optionalAction": "Prepare a handoff summary for the planning team when a vendor question requires direct review.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "request": "“What happens if weather changes our ceremony plan?”",
+        "agentResponseStrategy": "Surface approved contingency-plan language and next-step expectations while routing final go/no-go decisions to the lead planner or venue contact.",
+        "sourceTypes": [
+          "Rain plans",
+          "Venue rules",
+          "Event timeline",
+          "Emergency procedures"
+        ],
+        "optionalAction": "Notify the internal team and attach the conversation summary for quick review.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“Can my parents ask questions in another language?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answers to explain approved guest or family-facing information in the requester’s language while avoiding private details unless the source content allows it.",
+        "sourceTypes": [
+          "Guest FAQs",
+          "Travel notes",
+          "Schedule pages",
+          "Family guides"
+        ],
+        "optionalAction": "Escalate private, sensitive, or couple-specific requests to the planning team.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“How are other couples using AI while still relying on planners?”",
+        "agentResponseStrategy": "Position the agent as an information and workflow assistant, not a replacement for creative judgment, family nuance, or on-site execution; more than one-third of engaged couples now use AI in planning, but human trust remains central.",
+        "sourceTypes": [
+          "Planning FAQs",
+          "Service philosophy",
+          "Consultation content",
+          "Human escalation rules"
+        ],
+        "optionalAction": "Offer to schedule a consult so a planner can explain how your team combines efficient communication with personalized planning.",
+        "icon": "SparklesIcon",
+        "sourceIds": [
+          "src-knot-2026-ai"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give every planner and assistant the same source of truth",
+    "intro": "DocsBot can power a private internal knowledge agent for owners, lead planners, associate planners, coordinators, sales staff, and admin teams. Train it on the files your team already depends on so answers stay grounded in approved procedures.",
+    "workflows": [
+      {
+        "name": "SOP and planning-template retrieval",
+        "problem": "Planners waste time searching across documents, drives, spreadsheets, and message threads for the latest template or procedure.",
+        "agentWorkflow": "Ask the internal agent for ceremony scripts, packing lists, client email templates, venue walkthrough checklists, budget worksheets, or team procedures and receive source-grounded answers from approved content.",
+        "sourceTypes": [
+          "SOPs",
+          "Google Drive files",
+          "PDFs",
+          "Word documents",
+          "Planning templates"
+        ],
+        "optionalAction": "Generate a summary or draft based on the approved source, then leave final edits to the planner.",
+        "outcome": "Make internal knowledge easier to find and keep planning work consistent across the team.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Sales and proposal enablement",
+        "problem": "Owners and sales coordinators need fast, consistent answers when responding to inquiries, preparing proposals, or explaining service boundaries.",
+        "agentWorkflow": "Train DocsBot on service catalogs, proposal templates, objection handling, case studies, testimonials, FAQs, pricing guidance, and implementation notes. The agent can help draft consult follow-ups, summarize the couple’s needs, and prepare proposal language for human review.",
+        "sourceTypes": [
+          "Proposal templates",
+          "Service catalogs",
+          "Testimonials",
+          "Sales FAQs"
+        ],
+        "optionalAction": "With configured workflows, create CRM tasks, draft follow-up emails, or route proposal requests for approval.",
+        "outcome": "Respond faster while keeping pricing, availability, and contractual commitments under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Coordinator onboarding and training",
+        "problem": "Seasonal assistants and newer coordinators need to learn the firm’s language, planning standards, vendor procedures, and day-of expectations quickly.",
+        "agentWorkflow": "Use DocsBot as an onboarding assistant trained on training materials, checklists, brand guidelines, planning playbooks, and example client scenarios. Team members can ask practical questions and get answers tied to the source material.",
+        "sourceTypes": [
+          "Training manuals",
+          "Brand guidelines",
+          "Example timelines",
+          "Checklist libraries"
+        ],
+        "optionalAction": "Use analytics to see which internal questions repeat and improve training documentation.",
+        "outcome": "Bring new team members up to speed without relying on constant interruptions to senior planners.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-event-planners"
+        ]
+      },
+      {
+        "name": "Helpdesk-style inbox triage",
+        "problem": "A planning inbox may mix new leads, booked-couple questions, vendor updates, guest logistics, invoices, and urgent day-of changes.",
+        "agentWorkflow": "When connected through approved Skills, APIs, connectors, exports, or workflows, DocsBot can learn from, summarize, route, answer, or draft responses for ticket-like inquiries while preserving escalation for high-touch situations.",
+        "sourceTypes": [
+          "Email exports",
+          "Helpdesk records",
+          "FAQ content",
+          "Client policies"
+        ],
+        "optionalAction": "Draft a response, classify urgency, create a task, or route the message to the responsible planner.",
+        "outcome": "Keep the inbox organized while letting humans handle nuanced client relationships and final approvals.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on your content",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved business knowledge so answers are grounded in your own sources and written in your company voice.",
+      "industryApplication": "Train on wedding packages, planning timelines, vendor instructions, venue rules, questionnaires, FAQs, and client guides so couples and team members get consistent planning answers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot agents can appear in an embeddable website widget, private team chat, Slack, Microsoft Teams, API, and configured workflows.",
+      "industryApplication": "Use the widget for prospective couples and booked-client FAQs while giving planners a private assistant for SOPs, timelines, vendor notes, and day-of packets.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, task creation, routing, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Collect intake details, summarize consult requests, create planning tasks, notify the team, request scheduling, or route urgent wedding-week questions through approved workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Presales and lead qualification",
+      "mainLandingPageContext": "DocsBot can collect lead details through custom forms or structured intake flows and qualify leads using customer-defined rules.",
+      "industryApplication": "Qualify couples by date, venue status, guest count, planning stage, budget range, location, and service fit before a planner spends time on the discovery call.",
+      "icon": "UserCircleIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Identify repeated questions about packages, timelines, vendor rules, payment milestones, and planning responsibilities so your client education improves over time.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use permissioned sources and review paths for client files, contract-adjacent language, sensitive family notes, payment questions, and private event details.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the planning content your team already owns, from FAQs to training materials.",
+      "Support self-service questions while keeping high-touch planning decisions with your human team.",
+      "Use proven support automation patterns for busy inquiry seasons and growing client communication volume."
+    ],
+    "whyTheseReviewsFit": "Wedding planning teams need dependable answers from their own content, not generic AI guesses. DocsBot proof spans owned knowledge libraries, common-query handling, self-service support, and high-volume inquiry automation, giving planners confidence that AI can assist communication while people remain responsible for the relationship.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "HandRaisedIcon",
+      "ArrowTrendingUpIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents, internal knowledge agents, and workflow automation for wedding planning businesses",
+    "audience": [
+      "Wedding planning firms",
+      "Lead planners and coordinators",
+      "Event planning teams",
+      "Wedding sales and operations teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "event-planning",
+    "entertainment-party-rentals",
+    "florist",
+    "beauty-salon"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "wedding-planning",
+    "webSearchQueries": [
+      "wedding industry statistics couples use online resources planning The Knot Real Weddings Study 2024",
+      "BLS wedding planners event planners employment outlook meetings conventions events planners",
+      "WeddingWire Newlywed Report couples planning statistics vendor communication budget 2024",
+      "IBISWorld wedding planners in the US market size 2024"
+    ],
+    "sourceUrls": [
+      "https://www.theknot.com/content/real-weddings-study",
+      "https://www.theknotww.com/press-releases/wedding-guests-take-center-stage-the-knot-2023-real-weddings-study-reveals-75-of-couples-prioritize-the-guest-experience-when-planning-their-weddings",
+      "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "https://www.ibisworld.com/united-states/industry/wedding-planners/4412/",
+      "https://www.axios.com/2026/03/29/wedding-planning-ai"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41281,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28737,
+        "outputTokens": 8129,
+        "reasoningOutputTokens": 123,
+        "totalTokens": 49410,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.196914,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.206914
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21350,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14054,
+          "outputTokens": 5347,
+          "reasoningOutputTokens": 123,
+          "totalTokens": 26697,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.117164,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.127164
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19931,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14683,
+          "outputTokens": 2782,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22713,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07975,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07975
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nfGVufDB8MHx8fDE3MTQ4NzgwNjd8MA&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Wedding Planning background image",
+    "source": "legacy-industry",
+    "query": "Wedding Planning"
+  },
+  "faq": [
+    {
+      "question": "Will an AI agent make our planning firm feel less personal to couples?",
+      "answer": "It should do the opposite when scoped correctly. DocsBot can handle repeatable questions about packages, timelines, policies, vendor communication, and next steps, while escalating emotional, contractual, budget-sensitive, or family-dynamics issues to a planner. More than one-third of engaged couples are already using AI in wedding planning, but human trust and execution still matter, so the agent should support—not replace—the relationship.",
+      "role": "Owners and lead planners",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-knot-2026-ai"
+      ]
+    },
+    {
+      "question": "Can DocsBot qualify inquiries before we spend time on a discovery call?",
+      "answer": "Yes. A DocsBot presales agent can answer from your service pages and collect structured details such as wedding date, venue status, guest count, location, planning stage, budget range, preferred package, and follow-up channel. With customer-configured workflows, it can summarize the lead and route consult-ready inquiries to your CRM, inbox, Slack, Microsoft Teams, or another approved system.",
+      "role": "Owners and lead planners",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we stop the agent from promising availability, discounts, or custom package terms?",
+      "answer": "Train the agent on approved service language and set instructions that keep final availability, pricing exceptions, contract terms, and concessions with a human. DocsBot supports source-grounded answers, escalation paths, logs, and scoped AI Actions, so it can collect context and prepare a handoff instead of making high-impact commitments on your behalf.",
+      "role": "Owners and lead planners",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support booked couples without exposing private client notes to everyone?",
+      "answer": "Yes. DocsBot can be configured with permissioned sources, granular access controls, and role-based permissions. You can separate public website content, booked-client guidance, and private internal notes so the agent only answers from sources the audience is allowed to use. Sensitive family details, payment issues, and contract-adjacent questions can be routed to the planner.",
+      "role": "Owners and lead planners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What kind of content do we need before launching a wedding planning agent?",
+      "answer": "Start with the material your team already repeats: package pages, inquiry forms, planning timelines, welcome guides, FAQs, vendor communication policies, venue notes, rehearsal instructions, payment milestone summaries, templates, and SOPs. DocsBot can train on websites, PDFs, Word documents, Google Drive files, Notion, Confluence, text files, and other approved knowledge sources.",
+      "role": "Associate planners and coordinators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help our coordinators find venue rules and vendor instructions during wedding week?",
+      "answer": "Yes. A private internal DocsBot agent can answer from venue PDFs, production schedules, vendor profiles, floor-plan notes, load-in rules, insurance requirements, contact lists, packing lists, and day-of packets. That matters because The Knot’s 2023 Real Weddings Study reported that weddings averaged 14 hired vendors, creating a lot of coordination detail to track.",
+      "role": "Associate planners and coordinators",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-knot-2023-vendors"
+      ]
+    },
+    {
+      "question": "How quickly can a small planning firm implement this without a dedicated IT team?",
+      "answer": "Most firms can begin with a focused pilot: upload or connect a small set of approved sources, define what the agent may answer, add escalation rules, test common inquiry and client questions, then embed the website widget or use private team chat. More advanced workflows—like CRM updates, task creation, or scheduling requests—can be added later through Skills, APIs, connectors, forms, or webhooks.",
+      "role": "Owners and lead planners",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent work with the systems we already use for forms, scheduling, email, or CRM?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, and approved live context. It can collect intake details, create tasks, forward summaries, request meetings, or route questions when you authorize the connection. Avoid assuming a native integration; evaluate the specific workflow and permissions you want to automate.",
+      "role": "Owners and lead planners",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot answer from our actual planning style instead of giving generic wedding advice?",
+      "answer": "Yes. DocsBot is designed to answer from your approved business knowledge—your packages, planning philosophy, client guides, SOPs, templates, policies, and vendor guidance. That makes it useful for preserving your brand voice and decision rules, while avoiding generic advice that may not match how your firm plans weddings.",
+      "role": "Owners and lead planners",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can couples ask the agent what they should be doing next in the planning timeline?",
+      "answer": "Yes. If trained on your planning roadmap, client checklist, meeting schedule, questionnaire deadlines, and vendor timeline, DocsBot can explain the next milestone and what the couple should prepare. Couples married in 2024 spent an average of six hours per week planning, and The Knot reported that 90% of that planning happened online, so self-service timeline support fits how many couples already work.",
+      "role": "Couples and prospective clients",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-knot-2025-real-weddings"
+      ]
+    },
+    {
+      "question": "How do we measure whether the agent is actually reducing planner workload?",
+      "answer": "Track inquiry completion rates, qualified consult volume, repeated question topics, escalation reasons, response times, satisfaction or resolution signals, and the number of questions answered without planner interruption. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery so you can see where the agent is helping or where content needs improvement.",
+      "role": "Owners and lead planners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can it help us improve our FAQs and onboarding materials over time?",
+      "answer": "Yes. DocsBot conversation review and knowledge-gap discovery can show which package details, payment milestones, vendor responsibilities, timeline steps, or day-of policies couples keep asking about. Use those insights to update your service pages, proposal language, welcome guide, planning templates, and internal SOPs before the next busy booking season.",
+      "role": "Owners and lead planners",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What happens when a couple asks something emotional or nuanced, like family conflict or etiquette?",
+      "answer": "You can instruct the agent to give only general, source-grounded guidance and escalate nuanced situations to a planner. For example, it can summarize the concern, attach the conversation context, and notify the responsible coordinator instead of trying to resolve family dynamics, guest-list conflict, budget tension, or etiquette decisions on its own.",
+      "role": "Associate planners and coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support guests or family members in other languages?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from approved guest FAQs, travel notes, schedule pages, venue guidance, and family-facing instructions. For public or guest-facing use, keep the agent limited to approved sources and route private couple-specific questions to the planning team.",
+      "role": "Couples and prospective clients",
+      "category": "Scalability"
+    },
+    {
+      "question": "Is this useful for associate planner onboarding and seasonal event staff?",
+      "answer": "Yes. DocsBot can act as a private training assistant trained on your brand guidelines, SOPs, ceremony scripts, packing lists, vendor procedures, client scenarios, and example timelines. That helps newer coordinators get consistent answers without interrupting senior planners, especially in an industry where BLS projects event planner employment to grow 5% from 2024 to 2034.",
+      "role": "Associate planners and coordinators",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-event-planners"
+      ]
+    },
+    {
+      "question": "How do we keep the agent from using outdated timelines or old proposal language?",
+      "answer": "Make DocsBot part of your content governance process. Connect or upload only approved sources, remove retired documents, review conversation logs, and assign someone to update package language, timeline templates, and policies when your process changes. Because answers are source-grounded, content hygiene directly improves answer quality.",
+      "role": "Owners and lead planners",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent help during day-of execution, or is it only for sales and FAQs?",
+      "answer": "It can support day-of operations as a private internal agent. Coordinators can ask about the rain-plan trigger time, family photo list, vendor arrival windows, ceremony cues, meal counts, staff assignments, and emergency procedures from the approved day-of packet. Urgent or judgment-heavy decisions should still route to the lead planner.",
+      "role": "Associate planners and coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What security protections matter if we upload contracts, client notes, or payment-related guidance?",
+      "answer": "Use permissioned sources and avoid exposing sensitive materials to public agents. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. For contract or payment questions, configure escalation instead of letting the agent make binding decisions.",
+      "role": "Owners and lead planners",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot draft follow-up emails after consults or client meetings?",
+      "answer": "Yes, when trained on your templates, service language, meeting notes, and client guidance, DocsBot can draft follow-ups, summarize preferences, prepare agenda items, or create handoff notes for human review. The planner should approve final wording for pricing, availability, contract terms, and any sensitive relationship details.",
+      "role": "Associate planners and coordinators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does this compare with putting a generic AI chat tool on our website?",
+      "answer": "A generic chat tool may answer broadly, but wedding planning buyers need answers grounded in your packages, policies, timelines, service boundaries, vendor process, and brand voice. DocsBot is built for source-grounded agents, analytics, escalation, private team access, and scoped workflow actions, which makes it better suited for operational use than a general-purpose website chat box.",
+      "role": "Owners and lead planners",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use one agent for prospects, booked couples, and internal staff?",
+      "answer": "You can use DocsBot across those audiences, but most firms should separate access and knowledge sources. A prospect-facing widget might answer service and inquiry questions, a booked-client agent can cover timeline and onboarding guidance, and an internal team agent can access SOPs, vendor notes, venue rules, and private client details.",
+      "role": "Owners and lead planners",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will this help us compete in a fragmented wedding planning market?",
+      "answer": "It can help your firm respond faster, educate prospects more consistently, and make your planning process feel organized before the first consult. IBISWorld reported 21,714 wedding planning businesses in the U.S. and 4.3% CAGR in business count from 2020 to 2025, so responsiveness and operational polish can matter in a crowded market.",
+      "role": "Owners and lead planners",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-ibisworld-wedding-planners"
+      ]
+    },
+    {
+      "question": "Can DocsBot handle sudden spikes during engagement season or wedding week?",
+      "answer": "Yes. DocsBot can provide always-available answers for repeatable questions across your website widget, private team chat, Slack, Microsoft Teams, API, or configured workflows. It is especially useful when inquiries, client emails, vendor questions, and guest logistics rise faster than your team can manually respond.",
+      "role": "Owners and lead planners",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should we include in an internal business case for buying DocsBot?",
+      "answer": "Frame the case around fewer repetitive interruptions, faster lead qualification, more consistent client communication, better coordinator onboarding, improved documentation, and reduced dependence on one senior planner’s memory. Include the workflows you will pilot first, the content sources required, the escalation rules, and the metrics you will review after launch.",
+      "role": "Owners and lead planners",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent answer guest logistics without revealing private wedding details?",
+      "answer": "Yes, if you create a guest-safe knowledge set. Train it only on approved public information such as ceremony time, shuttle instructions, parking, dress code, welcome event details, hotel block guidance, and venue rules. Keep budget, family notes, vendor contracts, and private timeline details in restricted internal sources.",
+      "role": "Couples and prospective clients",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What are the biggest implementation risks for a wedding planning team?",
+      "answer": "The main risks are messy source content, unclear escalation rules, outdated PDFs, and trying to automate too much too soon. Start with a narrow use case—such as inquiry qualification or booked-couple FAQs—then expand after reviewing logs, unresolved questions, and planner feedback. Keep human review for emotional, contractual, pricing, and day-of judgment calls.",
+      "role": "Owners and lead planners",
+      "category": "Implementation"
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+{
+  "slug": "tanning-salon",
+  "business": "Tanning Salon",
+  "industryCategory": "Personal Services",
+  "pageMeta": {
+    "title": "AI Agents for Tanning Salon Support and Operations",
+    "description": "DocsBot helps tanning salons answer service, membership, prep, and safety questions faster while routing bookings and staff workflows from approved sources.",
+    "canonicalPath": "/industry/tanning-salon"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for indoor tanning businesses",
+    "headline": "Give tanning clients fast answers without pulling staff from the salon floor",
+    "subheadline": "DocsBot helps tanning salons create AI support agents trained on your service menu, memberships, waiver language, prep guides, aftercare content, equipment FAQs, and internal SOPs. Customers get instant answers, while staff can focus on safe, attentive in-person service.",
+    "proofBullets": [
+      {
+        "text": "Answer questions about session types, memberships, packages, spray tan prep, aftercare, and salon policies from your approved content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking intent, route high-fit leads, and hand off complex or safety-sensitive questions to your team when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give employees quick access to cleaning checklists, equipment procedures, opening tasks, product notes, and policy updates.",
+        "icon": "BookOpenIcon"
+      }
+    ],
+    "primaryCta": "Build your tanning salon AI agent",
+    "secondaryCta": "Explore AI workflows for salons"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your tanning salon’s existing knowledge into customer-facing and internal AI agents. Train it on your website, FAQs, service descriptions, membership rules, consent language, product guides, staff SOPs, PDFs, and other approved sources so customers and employees receive consistent, source-grounded answers with escalation paths when a person should take over.",
+    "whoItHelps": [
+      {
+        "role": "Salon owners and managers",
+        "roleContext": "Owners need consistent client communication without adding more front-desk work, especially when questions repeat across memberships, packages, appointments, and safety disclosures.",
+        "bullets": [
+          {
+            "text": "Standardize answers about pricing pages, package rules, cancellation policies, age requirements, and salon expectations.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Review conversation logs and reports to find repeated questions, missing web content, and staff training gaps.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Route qualified appointment or membership interest to your team with a summary of the customer’s needs when configured.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Front-desk and client service teams",
+        "roleContext": "Front-desk staff juggle check-ins, phones, walk-ins, cleaning rotations, product questions, and membership issues. A DocsBot agent can handle repetitive answers and prepare cleaner handoffs.",
+        "bullets": [
+          {
+            "text": "Answer common questions from your own service menu, FAQ, prep guides, product sheets, and policy documents.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect missing details before a handoff, such as service interest, preferred location, appointment window, and contact channel.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support multilingual visitors with answers in more than 100 languages using the same approved salon knowledge.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Training, compliance, and operations leads",
+        "roleContext": "Because tanning involves UV exposure, eyewear, consent, cleaning, and equipment procedures, internal consistency matters. DocsBot can make approved SOPs easier for employees to find.",
+        "bullets": [
+          {
+            "text": "Make staff procedures searchable, from opening checklists and cleaning steps to equipment notes and escalation rules.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Surface approved language for UV risk, protective eyewear, and policy questions without asking employees to hunt through binders.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use analytics to see where staff questions reveal unclear SOPs, missing training material, or policy drift.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-fda-tanning-risks",
+      "metric": "FDA says tanning can greatly increase skin cancer risk.",
+      "claim": "The FDA warns that indoor tanning and other UV exposure can damage skin and eyes and can increase the risk of developing skin cancer.",
+      "sourceTitle": "The Risks of Tanning",
+      "sourceUrl": "https://www.fda.gov/radiation-emitting-products/tanning/risks-tanning",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "safety risk",
+        "customer education",
+        "escalation boundaries"
+      ]
+    },
+    {
+      "id": "src-fda-tanning-products",
+      "metric": "FDA proposed stronger controls for sunlamp products and under-18 users.",
+      "claim": "The FDA’s tanning information notes proposed restrictions for people under 18 and risk acknowledgement certification for adult users of sunlamp products.",
+      "sourceTitle": "Tanning",
+      "sourceUrl": "https://www.fda.gov/tanning",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "age restrictions",
+        "risk acknowledgement",
+        "policy communication"
+      ]
+    },
+    {
+      "id": "src-aad-indoor-tanning",
+      "metric": "AAD cites increased nonmelanoma skin cancer risk from indoor tanning.",
+      "claim": "The American Academy of Dermatology reports that indoor tanning is associated with increased skin cancer risk, including squamous cell carcinoma and basal cell carcinoma.",
+      "sourceTitle": "Dangers of indoor tanning",
+      "sourceUrl": "https://www.aad.org/spot-skin-cancer/understanding-skin-cancer/dangers-of-indoor-tanning",
+      "sourceDate": "Accessed May 2026",
+      "bestUsedFor": [
+        "health risk context",
+        "client education",
+        "staff answer consistency"
+      ]
+    },
+    {
+      "id": "src-epa-uv-tanning-equipment",
+      "metric": "EPA says states oversee tanning equipment use and safety rules.",
+      "claim": "The EPA notes that too much UV exposure can cause skin and eye injury and that individual states oversee use and safety of tanning equipment.",
+      "sourceTitle": "Ultraviolet (UV) Radiation Tanning Equipment",
+      "sourceUrl": "https://www.epa.gov/radtown/ultraviolet-uv-radiation-tanning-equipment",
+      "sourceDate": "Updated 2026",
+      "bestUsedFor": [
+        "state-level rules",
+        "UV exposure risk",
+        "operational compliance"
+      ]
+    },
+    {
+      "id": "src-ibisworld-tanning-market",
+      "metric": "IBISWorld tracks the U.S. tanning salon market size.",
+      "claim": "IBISWorld publishes market-size research for the Tanning Salons industry in the United States, reflecting a defined and measurable salon segment.",
+      "sourceTitle": "Tanning Salons in the US Market Size Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/market-size/tanning-salons/1721/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market category",
+        "industry scale",
+        "business planning"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Service and membership answer agent",
+      "problem": "Clients often ask the same questions about packages, session length, spray tan preparation, cancellation rules, EFT memberships, guest policies, and upgrade options before they book or renew.",
+      "agentWorkflow": "Train DocsBot on your service pages, membership terms, pricing sheets, FAQs, and policy documents. The agent answers in your salon’s voice, cites approved knowledge, collects follow-up details when needed, and prepares a human handoff for unusual billing, refund, or account issues.",
+      "liveContextOrTools": "With customer-configured Skills, APIs, connectors, or forms, the agent can collect booking interest, send a lead summary, create a task, or route a membership question to the right inbox.",
+      "exampleQuestionsOrRequests": [
+        "What is the difference between your Level 2 and Level 4 beds?",
+        "Can I pause my membership while I’m traveling?",
+        "What should I do before a spray tan appointment?",
+        "Do you offer packages for new customers?"
+      ],
+      "businessOutcome": "Reduce repetitive front-desk questions while giving prospects clearer paths to book, buy a package, or ask a staff member for help.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "name": "Safety, consent, and prep guidance agent",
+      "problem": "Tanning salons need consistent, careful answers about UV exposure, eyewear, skin sensitivity, medications, age policies, consent forms, and when a customer should speak with a professional.",
+      "agentWorkflow": "DocsBot can answer from approved salon safety pages, waiver language, manufacturer guidance, staff scripts, and public-facing policies. It can explain what the salon requires, avoid medical diagnosis, and escalate sensitive health, medication, burn, or adverse-reaction questions to a person.",
+      "liveContextOrTools": "An AI Action can route a concern to staff, create a review task, or deliver the salon’s approved risk acknowledgement workflow when configured. Humans remain responsible for safety-critical judgments.",
+      "exampleQuestionsOrRequests": [
+        "Do I need protective eyewear every time?",
+        "Can I tan if I’m taking a medication that makes me sensitive to light?",
+        "What should I do if my skin feels burned after a session?",
+        "What is your age policy for UV tanning?"
+      ],
+      "businessOutcome": "Improve consistency around safety-related communication in an industry where the FDA warns that tanning can greatly increase skin cancer risk.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-tanning-risks"
+      ]
+    },
+    {
+      "name": "Booking intent and lead qualification agent",
+      "problem": "Potential customers may visit after hours, compare packages, or ask whether they should book UV tanning, spray tanning, red-light-style services, or a consultation, then leave if they cannot get a quick next step.",
+      "agentWorkflow": "DocsBot can ask structured intake questions, identify the requested service, capture contact details, summarize preferences, and qualify the inquiry using your rules for location, service interest, availability, package type, and preferred follow-up channel.",
+      "liveContextOrTools": "When connected through approved scheduling workflows such as Calendly, Cal.com, TidyCal, or similar tools, the agent can collect scheduling intent or trigger a booking request. MCP Connectors can also support approved tool access through remote Model Context Protocol servers.",
+      "exampleQuestionsOrRequests": [
+        "I need a spray tan before Saturday. What should I book?",
+        "Can someone call me about a bridal tanning package?",
+        "I’m new. Which service should I ask your team about?",
+        "Do you have appointments after 6 p.m.?"
+      ],
+      "businessOutcome": "Capture more high-intent inquiries from website visitors and route them with context instead of relying on voicemail or generic contact forms.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Internal SOP and training assistant",
+      "problem": "New and seasonal employees need quick answers about cleaning cycles, opening and closing duties, eyewear procedures, equipment notes, product recommendations, incident escalation, and membership scripts.",
+      "agentWorkflow": "Create a private DocsBot internal knowledge agent trained on SOPs, training manuals, equipment notes, HR policies, product sheets, and manager-approved scripts. Employees can ask questions in private chat, Slack, Microsoft Teams, or another configured team experience.",
+      "liveContextOrTools": "With approved workflows, the agent can summarize an incident note, create a manager review task, or route a maintenance concern to the correct team without exposing private credentials in chat.",
+      "exampleQuestionsOrRequests": [
+        "Where is the closing checklist for Room 3?",
+        "What do I say when a customer asks about eyewear?",
+        "How do we document a client complaint?",
+        "What is the cleaning procedure after each session?"
+      ],
+      "businessOutcome": "Shorten onboarding time and keep operating procedures consistent across shifts, locations, and managers.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Knowledge-gap and customer question analytics",
+      "problem": "Salon owners may not know which website pages, policy documents, or staff scripts are unclear until the same questions start taking over the phones and front desk.",
+      "agentWorkflow": "DocsBot provides logs, analytics, reports, topic management, conversation review, and knowledge-gap discovery. Managers can review unresolved or repeated questions, then improve FAQs, prep guides, membership language, and staff training content.",
+      "liveContextOrTools": "The agent can summarize recurring themes for a weekly operations review or create content-improvement tasks through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Which membership questions came up most this month?",
+        "What questions did the agent escalate?",
+        "Are customers confused about spray tan prep?",
+        "Which answers need better source material?"
+      ],
+      "businessOutcome": "Turn real customer conversations into a practical improvement loop for website content, training, and service communication.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "State and local policy information assistant",
+      "problem": "Tanning rules vary by state and can include age, consent, signage, eyewear, facility, and operator requirements, making it risky for staff to rely on memory alone.",
+      "agentWorkflow": "Train DocsBot on your state-specific policies, local operating rules, inspection checklists, signed consent templates, and manager-approved compliance notes. The agent answers operational questions from those sources and escalates anything that requires legal or regulatory interpretation.",
+      "liveContextOrTools": "With approved actions, staff can request a manager review, create a compliance task, or attach a conversation summary to a private operations workflow.",
+      "exampleQuestionsOrRequests": [
+        "What consent form do we use for this customer?",
+        "Where is our state-required warning language stored?",
+        "What signage do we check before opening?",
+        "Who reviews a question about a minor customer?"
+      ],
+      "businessOutcome": "Make approved policy material easier to retrieve while acknowledging that the EPA says individual states oversee use and safety of tanning equipment.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-epa-uv-tanning-equipment"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing AI agent that answers before the phone rings",
+    "intro": "Embed a DocsBot agent on your tanning salon website so prospects and members can ask practical questions about services, memberships, prep, aftercare, policies, and next steps. The agent uses your approved content, can collect details, and escalates when a human should respond.",
+    "requests": [
+      {
+        "request": "“How should I prepare for my spray tan appointment?”",
+        "agentResponseStrategy": "Answer step by step from your prep guide, mention timing, skin care, clothing, and aftercare only if those points exist in your approved content, then offer to collect booking intent.",
+        "sourceTypes": [
+          "Spray tan prep guide",
+          "Aftercare FAQ",
+          "Service page"
+        ],
+        "optionalAction": "Collect preferred appointment window and send a structured booking request to staff when configured.",
+        "icon": "SunIcon"
+      },
+      {
+        "request": "“Can I use a tanning bed if I’m under 18?”",
+        "agentResponseStrategy": "Provide the salon’s age and consent policy from approved sources, avoid legal advice, and route unclear or sensitive cases to a manager.",
+        "sourceTypes": [
+          "Age policy",
+          "Consent forms",
+          "State policy notes"
+        ],
+        "optionalAction": "Create a staff review task with the customer’s question and contact details through an approved workflow.",
+        "icon": "IdentificationIcon",
+        "sourceIds": [
+          "src-fda-tanning-products"
+        ]
+      },
+      {
+        "request": "“What membership is best if I tan twice a week?”",
+        "agentResponseStrategy": "Compare eligible packages from your service catalog, explain terms from approved membership documents, and invite a staff handoff for billing or commitment questions.",
+        "sourceTypes": [
+          "Membership terms",
+          "Pricing sheet",
+          "Service catalog"
+        ],
+        "optionalAction": "Forward a lead summary to sales or front desk staff with the customer’s preferred package and follow-up channel.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Is indoor tanning safe?”",
+        "agentResponseStrategy": "Use your approved risk language, reference salon requirements such as eyewear and exposure limits where documented, and encourage the customer to consult a healthcare professional for personal medical concerns.",
+        "sourceTypes": [
+          "Safety FAQ",
+          "Risk acknowledgement language",
+          "Manufacturer guidance"
+        ],
+        "optionalAction": "Escalate health, medication, burn, or adverse-reaction questions to a trained staff member instead of giving medical advice.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-aad-indoor-tanning"
+        ]
+      },
+      {
+        "request": "“Do you sell lotion or aftercare products?”",
+        "agentResponseStrategy": "Answer from your product catalog, explain product categories in plain language, and avoid claims that are not in your approved product materials.",
+        "sourceTypes": [
+          "Product sheets",
+          "Retail catalog",
+          "Staff sales notes"
+        ],
+        "optionalAction": "Create a product inquiry task or route the visitor to the front desk for availability and pricing confirmation.",
+        "icon": "ShoppingBagIcon"
+      },
+      {
+        "request": "“Can I cancel or freeze my membership?”",
+        "agentResponseStrategy": "Summarize your membership policy, deadlines, forms, and contact steps from approved documents, then escalate account-specific issues.",
+        "sourceTypes": [
+          "Membership agreement",
+          "Cancellation policy",
+          "Billing FAQ"
+        ],
+        "optionalAction": "Collect member name, contact method, and request type for staff review through a secure intake flow.",
+        "icon": "DocumentTextIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give salon staff one place to ask operational questions",
+    "intro": "DocsBot can also run as a private internal knowledge agent for managers, front-desk teams, trainers, and multi-location operators. Staff can retrieve approved procedures without searching binders, shared drives, or old messages.",
+    "workflows": [
+      {
+        "name": "Opening, cleaning, and closing procedures",
+        "problem": "Shift teams may need fast reminders about room setup, eyewear checks, cleaning steps, laundry, equipment status, and closing duties.",
+        "agentWorkflow": "Train the agent on SOPs, checklists, equipment notes, and manager updates. Staff ask natural-language questions and receive source-grounded steps from the latest approved documents.",
+        "sourceTypes": [
+          "Opening checklist",
+          "Cleaning SOP",
+          "Equipment notes",
+          "Manager updates"
+        ],
+        "optionalAction": "Create a maintenance or follow-up task when staff report a broken fixture, unclear checklist item, or room issue.",
+        "outcome": "Reduce inconsistent procedures across shifts and help new employees follow the same playbook as experienced staff.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Policy and escalation support",
+        "problem": "Questions about age rules, consent, medication concerns, burns, billing disputes, and complaints should not be answered from memory or casual judgment.",
+        "agentWorkflow": "DocsBot can retrieve approved policy language, show staff where the answer came from, and recommend escalation when the topic is sensitive, account-specific, or outside the documented process.",
+        "sourceTypes": [
+          "Policy manual",
+          "Consent forms",
+          "Incident process",
+          "Escalation scripts"
+        ],
+        "optionalAction": "Summarize the situation for a manager, create a review task, or route the issue to the proper team through a configured workflow.",
+        "outcome": "Help employees respond consistently while keeping high-impact decisions with trained humans.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "name": "Product and service knowledge for staff",
+        "problem": "Employees need to explain packages, lotions, upgrades, session types, and promotions accurately without overpromising or giving unsupported claims.",
+        "agentWorkflow": "Train DocsBot on your product sheets, service catalog, promotion rules, sales enablement notes, and objection-handling guidance. Staff can ask how to explain an option, compare services, or prepare a follow-up response.",
+        "sourceTypes": [
+          "Product catalog",
+          "Service menu",
+          "Promotion rules",
+          "Sales playbook"
+        ],
+        "optionalAction": "Draft a staff-reviewed response for email, SMS, or helpdesk software when a customer asks for details after leaving the salon.",
+        "outcome": "Improve consistency in sales conversations and reduce time spent searching for the latest package or product details.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "name": "Manager reporting and content improvement",
+        "problem": "Repeated customer and staff questions often reveal unclear signage, outdated website copy, missing prep instructions, or policies that are hard to understand.",
+        "agentWorkflow": "Use DocsBot analytics, logs, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery to review what people ask and where the agent needs better sources.",
+        "sourceTypes": [
+          "Conversation logs",
+          "FAQ content",
+          "Website pages",
+          "Training docs"
+        ],
+        "optionalAction": "Generate a weekly summary of unresolved topics and create documentation tasks for a manager or marketing owner.",
+        "outcome": "Keep your salon knowledge base current as services, promotions, and policies change.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your salon knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on help centers, documentation, websites, PDFs, internal files, and other configured knowledge sources.",
+      "industryApplication": "Train the agent on service pages, package rules, consent language, prep and aftercare guides, equipment FAQs, staff scripts, and internal SOPs for consistent salon answers.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents provide instant answers grounded in the company’s approved sources and can run in an embeddable website widget.",
+      "industryApplication": "Website visitors can ask about tanning beds, spray tans, memberships, hours, prep, aftercare, and policies before calling or walking in.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded, customer-configured lookups, record updates, workflow triggers, summaries, and handoffs.",
+      "industryApplication": "Use approved actions to collect appointment intent, forward a membership lead, create a staff task, route a sensitive question, or summarize a customer inquiry.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Private internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can serve as a private assistant for employees using internal documents, SOPs, policies, wikis, PDFs, and other company knowledge.",
+      "industryApplication": "Give front-desk staff and managers fast answers about cleaning procedures, opening tasks, consent workflows, product notes, and escalation steps.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See whether customers are confused about prep, memberships, age policies, package terms, or aftercare, then improve your website and training materials.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Governance for private salon data",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions.",
+      "industryApplication": "Protect private SOPs, internal policy documents, and customer workflow boundaries while keeping credentials out of chats and generated copy.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "gareth-it-marketing",
+      "gobinda-training-materials",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [],
+    "trustClaims": [
+      "Train agents on your own content so salon answers reflect your policies, not generic web advice.",
+      "Support customer-facing and internal use cases, from website FAQs to staff procedure lookup.",
+      "Use analytics to keep service pages, prep guides, and training materials aligned with real questions."
+    ],
+    "whyTheseReviewsFit": "Tanning salon buyers need practical AI that is easy to maintain, grounded in their own materials, and useful for both client questions and staff training. DocsBot’s customer proof highlights owned-content training, common-query support, and approachable deployment for service businesses.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "UserGroupIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for tanning salons",
+    "audience": [
+      "Tanning salon owners",
+      "Salon managers",
+      "Front-desk teams",
+      "Multi-location personal services operators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SunIcon"
+  },
+  "relatedIndustrySlugs": [
+    "beauty-salon",
+    "nail-salon",
+    "barber-shop",
+    "fitness-center",
+    "diet-center",
+    "dry-cleaning-laundry"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "tanning-salon",
+    "webSearchQueries": [
+      "FDA indoor tanning risks skin cancer minors warning tanning beds",
+      "American Academy Dermatology indoor tanning statistics melanoma risk",
+      "IBISWorld tanning salons industry US market size 2024",
+      "FDA tanning lamps sunlamps performance standard user instructions eyewear"
+    ],
+    "sourceUrls": [
+      "https://www.fda.gov/radiation-emitting-products/tanning/risks-tanning",
+      "https://www.fda.gov/tanning",
+      "https://www.aad.org/spot-skin-cancer/understanding-skin-cancer/dangers-of-indoor-tanning",
+      "https://www.epa.gov/radtown/ultraviolet-uv-radiation-tanning-equipment",
+      "https://www.ibisworld.com/united-states/market-size/tanning-salons/1721/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41148,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 20412,
+        "outputTokens": 7855,
+        "reasoningOutputTokens": 107,
+        "totalTokens": 49003,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.174039,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.184039
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21651,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6163,
+          "outputTokens": 5196,
+          "reasoningOutputTokens": 107,
+          "totalTokens": 26847,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.097219,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.107219
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19497,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14249,
+          "outputTokens": 2659,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22156,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.07682,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.07682
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1542719069-e41dc4429159?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDE5NDB8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Tanning Salon background image",
+    "source": "legacy-industry",
+    "query": "Tanning Salon"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer package, membership, and spray tan prep questions without giving generic tanning advice?",
+      "answer": "Yes. DocsBot is trained on your approved salon content, such as service pages, pricing sheets, membership terms, prep guides, aftercare FAQs, and policies. That lets the agent answer in your salon’s voice and avoid unsupported claims. If the answer is not in your sources, you can configure it to say so and hand off to staff.",
+      "role": "Salon owners and managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from giving medical advice about UV exposure, medications, burns, or skin sensitivity?",
+      "answer": "Use DocsBot to answer only from approved safety language, waiver text, manufacturer guidance, and salon policies, with clear escalation rules for health-sensitive questions. That matters because the FDA warns that indoor tanning and other UV exposure can damage skin and eyes and increase skin cancer risk.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-tanning-risks"
+      ]
+    },
+    {
+      "question": "Can DocsBot help reduce phone calls during busy check-in periods?",
+      "answer": "DocsBot can handle repetitive website questions about hours, session types, packages, guest policies, spray tan preparation, aftercare, age policies, and membership steps before a customer calls. It can also collect service interest, preferred location, appointment window, and contact details so staff receive a cleaner handoff instead of another vague voicemail.",
+      "role": "Front-desk and client service teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent know the difference between UV tanning, spray tanning, red-light-style services, and our specific bed levels?",
+      "answer": "It can if your source material explains those services. Train DocsBot on your service catalog, equipment descriptions, room or bed level notes, pricing pages, FAQs, and staff-approved comparison language. The agent should describe only what your materials support and route unclear fit questions to your team.",
+      "role": "Salon owners and managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the AI book appointments directly in our scheduling system?",
+      "answer": "DocsBot can collect booking intent and trigger approved scheduling workflows when you configure the right Skills, APIs, connectors, forms, or scheduling tools. Many salons start with a safer workflow: the agent captures the service, preferred time, location, and contact method, then sends staff a structured booking request for review.",
+      "role": "Salon owners and managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How would this work if we use separate tools for booking, memberships, texting, and waivers?",
+      "answer": "DocsBot can sit above your knowledge sources and use customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors for approved actions where access is authorized. It should not require every system to be replaced. Start by answering from static policies, then add scoped workflows for lead capture, routing, task creation, or approved record lookups.",
+      "role": "Salon owners and managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use one agent for customers and another private agent for staff procedures?",
+      "answer": "Yes. A customer-facing agent can answer public questions about services, prep, memberships, and policies, while a private internal knowledge agent can answer staff questions about opening tasks, cleaning procedures, eyewear steps, escalation scripts, product notes, and equipment procedures. Access controls help keep internal SOPs separate from public answers.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we keep answers compliant when tanning rules vary by state?",
+      "answer": "Train DocsBot on your state-specific policies, consent forms, warning language, inspection checklists, and manager-approved operating rules. The agent can retrieve those sources for staff and escalate anything that requires legal or regulatory interpretation. The EPA notes that individual states oversee tanning equipment use and safety rules.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-uv-tanning-equipment"
+      ]
+    },
+    {
+      "question": "Can the agent answer questions from minors or parents about age restrictions?",
+      "answer": "Yes, if you provide the salon’s approved age policy, consent workflow, and state-specific rules. The agent should explain your documented process, avoid legal advice, and route edge cases to a manager. FDA tanning information notes proposed restrictions for people under 18 and risk acknowledgement certification for adult sunlamp users.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-tanning-products"
+      ]
+    },
+    {
+      "question": "What happens when a customer asks, ‘Is indoor tanning safe?’",
+      "answer": "DocsBot should answer with your approved risk language, cite salon requirements such as protective eyewear or exposure rules where documented, and encourage customers to consult a healthcare professional for personal medical concerns. The American Academy of Dermatology reports that indoor tanning is associated with increased skin cancer risk, including squamous cell carcinoma and basal cell carcinoma.",
+      "role": "Front-desk and client service teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-aad-indoor-tanning"
+      ]
+    },
+    {
+      "question": "Can it handle membership cancellation, freeze, billing, or refund questions without creating account problems?",
+      "answer": "DocsBot can summarize your membership agreement, cancellation deadlines, freeze rules, required forms, and contact steps from approved documents. For account-specific billing, refunds, disputes, or identity-sensitive requests, configure the agent to collect minimal details and route the case to staff rather than making a final decision.",
+      "role": "Salon owners and managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How much content do we need before launching a tanning salon AI agent?",
+      "answer": "A practical first launch usually needs your service menu, membership terms, pricing or package rules, prep and aftercare guides, age and consent policy, safety FAQ, cancellation policy, hours and locations, and escalation rules. Internal agents also need SOPs, cleaning checklists, equipment notes, incident procedures, and staff scripts.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will staff have to maintain another knowledge base?",
+      "answer": "Not necessarily. DocsBot can train on existing websites, PDFs, internal files, SOPs, wikis, and other configured sources. The main work is deciding which documents are authoritative, removing outdated versions, and creating an owner for ongoing updates when policies, promotions, pricing, or equipment procedures change.",
+      "role": "Salon owners and managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can managers see what customers are asking so we can improve our website and training?",
+      "answer": "Yes. DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can review repeated or unresolved questions, then update prep guides, membership pages, policy language, staff scripts, or signage based on real customer and employee confusion.",
+      "role": "Salon owners and managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How can we measure ROI if the salon already has front-desk staff?",
+      "answer": "Track avoidable calls, after-hours inquiries captured, booking requests routed, membership questions answered, staff time spent searching for policies, escalation volume, and repeated topics removed from phone traffic. For tanning salons, ROI is often less about replacing staff and more about freeing them to handle check-ins, cleaning cycles, consultations, and in-person sales.",
+      "role": "Salon owners and managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help new employees learn our closing checklist, cleaning cycle, and equipment procedures?",
+      "answer": "Yes. A private DocsBot internal knowledge agent can be trained on your SOPs, room checklists, equipment notes, cleaning procedures, opening and closing tasks, incident steps, and manager updates. Employees can ask natural-language questions and receive source-grounded answers instead of searching binders, drives, or old team messages.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How do we stop employees from getting different answers from different managers or old documents?",
+      "answer": "Make one approved set of policies, scripts, SOPs, and product notes the agent’s source of truth. DocsBot can return answers grounded in those sources, while analytics reveal where staff still ask ambiguous questions. A named document owner should retire outdated files and update the agent when rules or promotions change.",
+      "role": "Training, compliance, and operations leads",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support multiple salon locations with different hours, prices, rooms, or rules?",
+      "answer": "Yes, if the source structure is clear. You can organize content by location, service, policy, equipment type, and escalation path so the agent asks clarifying questions before answering. For multi-location operators, define which answers are brand-wide and which depend on a specific salon.",
+      "role": "Salon owners and managers",
+      "category": "Scalability"
+    },
+    {
+      "question": "What should still go to a human instead of the AI agent?",
+      "answer": "Route medical concerns, medication or photosensitivity questions, burns or adverse reactions, minor consent edge cases, legal or regulatory interpretation, billing disputes, refunds, complaints, equipment incidents, and anything not covered by approved sources. DocsBot is strongest when it standardizes routine answers and prepares structured handoffs for sensitive decisions.",
+      "role": "Front-desk and client service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can it answer in Spanish or other languages for customers who do not want to call?",
+      "answer": "Yes. DocsBot can support answers in more than 100 languages using the same approved salon knowledge. That can help customers understand prep instructions, membership steps, policies, and next actions. For legal, safety, or consent-sensitive language, keep the approved source content clear and review important translations operationally.",
+      "role": "Front-desk and client service teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How is DocsBot different from a generic website chatbot or FAQ widget?",
+      "answer": "A static FAQ widget only shows preset answers. DocsBot creates source-grounded AI agents trained on your salon knowledge, can support both public and private staff use cases, surfaces knowledge gaps, and can take bounded actions such as collecting lead details, routing requests, creating tasks, or preparing handoffs when configured.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What security controls matter if we train it on SOPs, policies, and customer handoff workflows?",
+      "answer": "Use role-based access, granular permissions, encryption, and scoped Skills so staff SOPs, credentials, and private workflow data are not exposed in public chat. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and does not use customer data to train public models.",
+      "role": "Salon owners and managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. Many buyers start with answer-only mode for high-volume questions, review logs and escalations, then add controlled workflows later. DocsBot’s conversation review, reports, analytics, and knowledge-gap discovery help managers see where the agent performs well, where source content is missing, and where human review should remain required.",
+      "role": "Salon owners and managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will this replace front-desk sales conversations about lotions, upgrades, and packages?",
+      "answer": "It should support them, not replace them. DocsBot can explain product categories, package rules, upgrade options, and promotions from approved materials, then route customers to staff for personalized recommendations, inventory confirmation, or account-specific pricing. Internally, it can also help employees use consistent sales language.",
+      "role": "Front-desk and client service teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What would procurement or ownership need to approve before rollout?",
+      "answer": "They should approve the use cases, source documents, escalation rules, privacy boundaries, staff access levels, workflow permissions, and success metrics. For a tanning salon, the most important review areas are safety language, age and consent policy, membership terms, customer data handling, and who owns ongoing content updates.",
+      "role": "Salon owners and managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can the agent help us identify confusing membership terms or policies that create complaints?",
+      "answer": "Yes. DocsBot can show repeated questions, unresolved topics, low-satisfaction conversations, and knowledge gaps around cancellation windows, freezes, EFT billing, package expiration, guest privileges, prep instructions, or age policy. That gives managers a practical list of pages, forms, scripts, or signage to clarify.",
+      "role": "Salon owners and managers",
+      "category": "Reporting and analytics"
+    }
+  ]
+}

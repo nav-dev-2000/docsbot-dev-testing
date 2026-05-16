@@ -1,0 +1,728 @@
+{
+  "slug": "going-out-of-business-sales",
+  "business": "Going out of Business Sales",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Going Out of Business Sale Operations",
+    "description": "DocsBot helps going out of business sales answer shopper questions, route leads, and keep final-sale policies consistent during closure rushes.",
+    "canonicalPath": "/industry/going-out-of-business-sales"
+  },
+  "hero": {
+    "eyebrow": "AI support and knowledge agents for closure sale teams",
+    "headline": "Keep every final-sale question moving with DocsBot AI agents",
+    "subheadline": "Going out of business sales move fast: discounts change, inventory disappears, return policies tighten, and shoppers want answers before they visit. DocsBot lets you train an AI agent on approved sale terms, FAQs, product sheets, store notices, and internal playbooks so customers and staff get source-grounded guidance during the busiest closing weeks.",
+    "proofBullets": [
+      {
+        "text": "Answer shopper questions about sale dates, final-sale rules, store hours, product details, pickup options, and escalation paths from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Use customer-configured Skills, APIs, and connectors to look up live context such as inventory status, order notes, or store-specific sale stages when authorized.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "text": "Collect buyer details, summarize high-intent requests, and route qualified inquiries to liquidation managers, store teams, or customer support.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "text": "Surface repeated unanswered questions so closure teams can update FAQs, signage, policies, and staff scripts before confusion spreads.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your closure sale agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps liquidation operators, retailers, and support teams create AI agents trained on their own sale documentation. Agents can provide source-grounded customer answers, support private staff lookup, summarize conversations, identify documentation gaps, and trigger bounded workflows through customer-configured AI Actions, Skills, APIs, connectors, or MCP-connected tools.",
+    "whoItHelps": [
+      {
+        "role": "Liquidation and store-closing operators",
+        "roleContext": "Teams coordinating fast-changing discounts, store hours, pickup rules, final-sale language, and customer routing across one or many closing locations.",
+        "bullets": [
+          {
+            "text": "Keep shoppers aligned on current sale terms without relying on every associate to memorize every policy change.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Route complex requests, bulk-buying inquiries, or exception cases with a conversation summary for faster human review.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "Use analytics to see which policies, products, or locations are creating the most confusion during the sale.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Customer support and ecommerce teams",
+        "roleContext": "Support teams handling spikes in questions about final-sale items, returns, order status, product availability, shipping, pickup, warranties, and store closures.",
+        "bullets": [
+          {
+            "text": "NRF projected 2024 retail returns at $890 billion, making clear final-sale and return-policy communication especially important during liquidation events.",
+            "icon": "CreditCardIcon",
+            "sourceIds": [
+              "src-nrf-returns-2024"
+            ]
+          },
+          {
+            "text": "Draft or answer recurring tickets from approved FAQs, policies, product pages, manuals, and prior support content when configured.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Escalate sensitive refunds, chargebacks, accessibility requests, or legal complaints instead of letting the agent make high-impact decisions.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Owners, finance teams, and administrators",
+        "roleContext": "Business owners and back-office teams who need consistent records, fewer interruptions, and clear internal access to sale rules, permits, vendor details, and closeout procedures.",
+        "bullets": [
+          {
+            "text": "Several states and local jurisdictions regulate going out of business advertising or permits, so teams need easy access to approved local guidance.",
+            "icon": "ScaleIcon",
+            "sourceIds": [
+              "src-georgia-gob-sales",
+              "src-virginia-gob-permit"
+            ]
+          },
+          {
+            "text": "Make internal SOPs, closeout checklists, lease notes, finance policies, and customer-facing messages searchable for temporary staff.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Create handoff summaries for accounting, legal, landlord, vendor, or customer-service follow-up without exposing credentials in chat.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-coresight-closures-2025",
+      "metric": "Coresight projected elevated U.S. store closures for 2025.",
+      "claim": "Coresight Research predicted roughly 15,000 U.S. store closures in 2025, more than double 2024 closures cited in retail coverage.",
+      "sourceTitle": "Coresight Research Predicts 2025 Store Opening, Closure Numbers",
+      "sourceUrl": "https://www.businesswire.com/news/home/20250123760119/en/Coresight-Research-Predicts-2025-Store-Opening-Closure-Numbers",
+      "sourceDate": "January 2025",
+      "bestUsedFor": [
+        "Market pressure",
+        "Closure-sale volume",
+        "Urgency of shopper communication"
+      ]
+    },
+    {
+      "id": "src-nrf-returns-2024",
+      "metric": "NRF projected $890 billion in 2024 retail returns.",
+      "claim": "The National Retail Federation and Happy Returns projected that U.S. retail returns would total $890 billion in 2024.",
+      "sourceTitle": "NRF and Happy Returns Report: 2024 Retail Returns to Total $890 Billion",
+      "sourceUrl": "https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion",
+      "sourceDate": "December 2024",
+      "bestUsedFor": [
+        "Return-policy pressure",
+        "Final-sale communication",
+        "Customer expectation management"
+      ]
+    },
+    {
+      "id": "src-ftc-advertising-faq",
+      "metric": "FTC directs bogus going-out-of-business sale concerns to state attorneys general.",
+      "claim": "The FTC’s small-business advertising guidance tells consumers to contact their state Attorney General if a local store appears to advertise a bogus going out of business sale.",
+      "sourceTitle": "Advertising FAQ's: A Guide for Small Business",
+      "sourceUrl": "https://www.ftc.gov/business-guidance/resources/advertising-faqs-guide-small-business",
+      "sourceDate": "FTC business guidance",
+      "bestUsedFor": [
+        "Advertising compliance pressure",
+        "Consumer trust",
+        "Clear sale claims"
+      ]
+    },
+    {
+      "id": "src-georgia-gob-sales",
+      "metric": "Georgia limits going-out-of-business sales to 90 days.",
+      "claim": "Georgia’s consumer protection guidance says state law prohibits conducting a going-out-of-business sale for more than 90 days and notes that some local jurisdictions may require permits.",
+      "sourceTitle": "Going Out of Business Sales | Georgia Attorney General's Consumer Protection Division",
+      "sourceUrl": "https://consumer.georgia.gov/consumer-topics/going-out-business-sales",
+      "sourceDate": "State consumer guidance",
+      "bestUsedFor": [
+        "Sale-duration rules",
+        "Local permit awareness",
+        "Compliance workflows"
+      ]
+    },
+    {
+      "id": "src-virginia-gob-permit",
+      "metric": "Virginia requires permits before advertising or conducting many discontinuation sales.",
+      "claim": "Virginia law says it is unlawful to advertise or conduct a sale suggesting a retail business is discontinuing unless the seller obtains a required local permit.",
+      "sourceTitle": "§ 18.2-223. “Going out of business” sales; permit required",
+      "sourceUrl": "https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-223/",
+      "sourceDate": "Virginia Code",
+      "bestUsedFor": [
+        "Permit requirements",
+        "Advertising controls",
+        "State-by-state policy access"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Final-sale policy and shopper FAQ agent",
+      "problem": "Closure sales create repetitive questions about what is discounted, whether returns are accepted, which warranties apply, and when the last day of business is.",
+      "agentWorkflow": "Train a DocsBot support agent on sale terms, posted notices, return and exchange rules, product pages, FAQs, store hours, warranty guidance, and escalation language. The agent answers in the company’s voice, cites approved sources, and hands off exceptions to a person.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can check store-specific sale stage, order notes, pickup status, or current policy metadata before answering.",
+      "exampleQuestionsOrRequests": [
+        "Is this item final sale if I bought it before the liquidation started?",
+        "Are returns still accepted for online orders?",
+        "What time does the Main Street location close this week?"
+      ],
+      "businessOutcome": "Fewer repeated frontline questions, more consistent policy communication, and faster escalation for refund, legal, or exception requests.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-nrf-returns-2024"
+      ]
+    },
+    {
+      "name": "Inventory and product availability lookup",
+      "problem": "Shoppers may travel to a closing store for items that sell out quickly, while staff are busy handling in-store traffic and markdown changes.",
+      "agentWorkflow": "DocsBot can answer product-detail questions from catalogs, manuals, PDFs, and item pages. When the business configures live access, the agent can look up approved inventory or availability fields, explain uncertainty, and route high-value or bulk inquiries to staff.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, or MCP servers can expose approved inventory, location, or SKU status without giving the agent unrestricted system access.",
+      "exampleQuestionsOrRequests": [
+        "Do you still have queen mattresses at the warehouse location?",
+        "Can I buy all remaining fixtures from one store?",
+        "Is this appliance new, open-box, or display-only?"
+      ],
+      "businessOutcome": "Better-qualified shoppers, fewer unnecessary calls, and clearer handoffs for bulk buyers or high-value items.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "name": "Advertising and sale-terms consistency assistant",
+      "problem": "Going out of business promotions can be scrutinized by shoppers, regulators, and local authorities, especially when sale duration, claims, and permit language vary by location.",
+      "agentWorkflow": "Use a private DocsBot internal agent trained on approved ad copy, legal review notes, local permit requirements, sale calendars, signage templates, and manager FAQs. Staff can ask before posting a promotion or answering customer questions, while sensitive legal judgments stay with humans.",
+      "liveContextOrTools": "The agent can create review tasks, summarize proposed copy, or route questionable claims to legal or management through customer-configured workflows.",
+      "exampleQuestionsOrRequests": [
+        "Can this location advertise “final week” yet?",
+        "Which disclaimer belongs on today’s email campaign?",
+        "Where is the permit number for the downtown store?"
+      ],
+      "businessOutcome": "More consistent advertising language and faster internal access to approved location-specific guidance.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-ftc-advertising-faq",
+        "src-georgia-gob-sales",
+        "src-virginia-gob-permit"
+      ]
+    },
+    {
+      "name": "Customer inquiry routing and handoff summaries",
+      "problem": "During a closure, inquiries can span customer support, warehouse pickup, store managers, landlords, vendors, asset buyers, and finance teams.",
+      "agentWorkflow": "DocsBot can collect required details, classify the request, summarize the conversation, and route it to the right team via configured forms, ticketing workflows, email, Slack, Microsoft Teams, or other approved systems.",
+      "liveContextOrTools": "AI Actions can create a ticket or task, notify a channel, attach a conversation summary, and apply customer-defined routing rules.",
+      "exampleQuestionsOrRequests": [
+        "I want to buy 200 remaining units for resale.",
+        "My pickup window passed and the store is closed.",
+        "I’m a vendor trying to reach accounts payable."
+      ],
+      "businessOutcome": "Cleaner intake, fewer lost opportunities, and better continuity when temporary staff or third-party liquidators are involved.",
+      "icon": "PaperAirplaneIcon"
+    },
+    {
+      "name": "Knowledge-gap reporting for the final weeks",
+      "problem": "New questions appear as discounts deepen, inventory shifts, and policies change, but closure teams may not know which answers are missing until volume spikes.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery help teams identify unanswered questions and update source content.",
+      "liveContextOrTools": "Managers can review high-frequency topics, add approved answers, and retrain or refresh the agent’s knowledge sources as sale conditions change.",
+      "exampleQuestionsOrRequests": [
+        "What are customers asking most about this location?",
+        "Which answer generated the most escalations yesterday?",
+        "What policy page should we update before the weekend rush?"
+      ],
+      "businessOutcome": "A tighter FAQ, clearer signage, and more reliable support content during a short, high-pressure sales window.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-coresight-closures-2025"
+      ]
+    },
+    {
+      "name": "Temporary staff onboarding assistant",
+      "problem": "Closure events often rely on temporary or reassigned workers who need quick access to markdown schedules, customer scripts, safety basics, and closeout procedures.",
+      "agentWorkflow": "A private DocsBot knowledge agent can train on SOPs, manager memos, store policies, product notes, liquidation procedures, and escalation paths so staff can get fast answers without searching folders or interrupting managers.",
+      "liveContextOrTools": "The agent can work in private team chat or approved Slack and Microsoft Teams-style workflows, depending on the customer’s configuration.",
+      "exampleQuestionsOrRequests": [
+        "What do I say if a customer asks for a return exception?",
+        "Where is the fixture-sale price sheet?",
+        "How do I document a damaged display item?"
+      ],
+      "businessOutcome": "Faster ramp-up for short-term staff and more consistent execution across the sale floor.",
+      "icon": "UserGroupIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A customer-facing agent for the questions that decide whether shoppers visit or leave",
+    "intro": "Embed a DocsBot website widget or product support experience so shoppers can ask about sale terms, item details, pickup, hours, and final-sale rules before they call, email, or drive to a closing location. Answers stay grounded in your approved content, with human escalation for sensitive or unresolved cases.",
+    "requests": [
+      {
+        "request": "“Is everything really final sale?”",
+        "agentResponseStrategy": "Answer from approved return, exchange, warranty, and final-sale policies; clarify effective dates; and escalate refund exceptions or disputed orders to a person.",
+        "sourceTypes": [
+          "Return policies",
+          "Final-sale notices",
+          "Warranty FAQs",
+          "Order support rules"
+        ],
+        "optionalAction": "Create a support ticket with the customer’s order details and the policy section referenced in the answer.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do you still have this product at my nearest store?”",
+        "agentResponseStrategy": "Use approved product content for specs and, when configured, look up live availability or store metadata before explaining whether staff confirmation is needed.",
+        "sourceTypes": [
+          "Product catalog",
+          "Store pages",
+          "Inventory fields",
+          "SKU notes"
+        ],
+        "optionalAction": "Route a high-intent or bulk-buy request to the store manager with a conversation summary.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "request": "“When is the last day and what are today’s discounts?”",
+        "agentResponseStrategy": "Respond from the current sale calendar, location FAQ, and approved markdown schedule so shoppers get consistent store-specific information.",
+        "sourceTypes": [
+          "Sale calendar",
+          "Location pages",
+          "Markdown schedule",
+          "Campaign copy"
+        ],
+        "optionalAction": "Collect a preferred location and notify the appropriate store team if the shopper asks for a hold, callback, or bulk purchase.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“I saw an ad that says final liquidation. What does that include?”",
+        "agentResponseStrategy": "Explain inclusions and exclusions from approved advertising, disclaimers, and sale-term documentation while avoiding unapproved guarantees.",
+        "sourceTypes": [
+          "Ad disclaimers",
+          "Promotion rules",
+          "Sale terms",
+          "Legal-reviewed copy"
+        ],
+        "optionalAction": "Escalate complaints or deceptive-advertising concerns to a human review queue.",
+        "icon": "MegaphoneIcon",
+        "sourceIds": [
+          "src-ftc-advertising-faq"
+        ]
+      },
+      {
+        "request": "“Can I speak with someone about buying fixtures or remaining inventory?”",
+        "agentResponseStrategy": "Collect structured details such as item category, quantity, location, budget range, timeline, and contact information for a qualified handoff.",
+        "sourceTypes": [
+          "Fixture lists",
+          "Asset-sale rules",
+          "Lead forms",
+          "Manager contacts"
+        ],
+        "optionalAction": "Forward the summary through an approved CRM, helpdesk, form, email, or team-notification workflow.",
+        "icon": "BanknotesIcon"
+      },
+      {
+        "request": "“Can you explain the manual before I buy this display model?”",
+        "agentResponseStrategy": "Answer from product manuals, spec sheets, installation notes, and care guides so shoppers can evaluate open-box or display merchandise more confidently.",
+        "sourceTypes": [
+          "PDF manuals",
+          "Spec sheets",
+          "Care guides",
+          "Product pages"
+        ],
+        "optionalAction": "Offer a source-linked summary and route unresolved technical questions to staff.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private operations agent for managers, staff, and closeout teams",
+    "intro": "DocsBot can also serve as a private internal knowledge agent for the people running the sale. Train it on closeout playbooks, SOPs, legal-reviewed policies, sale calendars, product notes, vendor documents, and manager instructions so every shift can find the right answer quickly.",
+    "workflows": [
+      {
+        "name": "Store playbook lookup",
+        "problem": "Managers and temporary staff need quick answers to daily markdowns, fixture rules, customer scripts, pickup procedures, and end-of-day tasks.",
+        "agentWorkflow": "The internal agent retrieves source-grounded answers from SOPs, sale calendars, checklists, and staff guides, then points employees to the relevant source.",
+        "sourceTypes": [
+          "SOPs",
+          "Markdown calendars",
+          "Staff scripts",
+          "Closeout checklists"
+        ],
+        "optionalAction": "Create a task for missing or outdated instructions discovered during staff questions.",
+        "outcome": "Less time searching documents and fewer inconsistent answers across shifts.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Compliance and permit reference",
+        "problem": "Going out of business sale rules can vary by state and locality, and staff may not know which approved language applies to each location.",
+        "agentWorkflow": "Train DocsBot on counsel-approved summaries, local permit records, store-specific disclaimers, and escalation rules. The agent can retrieve the applicable source while routing legal interpretation to humans.",
+        "sourceTypes": [
+          "Permit records",
+          "Legal-reviewed FAQs",
+          "State summaries",
+          "Ad copy approvals"
+        ],
+        "optionalAction": "Route a proposed ad or signage question to a review workflow with the relevant location and source references attached.",
+        "outcome": "Faster access to approved guidance without asking the agent to make legal determinations.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-georgia-gob-sales",
+          "src-virginia-gob-permit"
+        ]
+      },
+      {
+        "name": "Support-ticket triage",
+        "problem": "Support inboxes can fill with similar questions about returns, damaged goods, missing pickups, store closure dates, and billing issues.",
+        "agentWorkflow": "With customer-configured helpdesk access, DocsBot can summarize tickets, draft source-grounded replies, classify topics, and route complex issues to the right queue.",
+        "sourceTypes": [
+          "Helpdesk exports",
+          "Policies",
+          "Order-support FAQs",
+          "Prior approved replies"
+        ],
+        "optionalAction": "Create or update a ticket field, add a summary, and hand off sensitive disputes to human support.",
+        "outcome": "Faster first responses and better queue visibility during the final sale period.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Vendor and back-office handoffs",
+        "problem": "Accounts payable, landlords, vendors, asset buyers, and service providers may all contact the business while store teams are focused on clearance activity.",
+        "agentWorkflow": "The agent can collect requester details, identify the request type, retrieve internal instructions, and send a structured summary to the right back-office owner.",
+        "sourceTypes": [
+          "Vendor lists",
+          "Finance policies",
+          "Lease notes",
+          "Contact directories"
+        ],
+        "optionalAction": "Trigger a customer-configured notification or task for finance, operations, or management.",
+        "outcome": "Fewer missed administrative requests during a high-distraction closure window.",
+        "icon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from the company’s approved knowledge sources, such as websites, help centers, documents, policies, and internal content.",
+      "industryApplication": "Use approved sale terms, return rules, discount schedules, product pages, manuals, and store notices to answer shopper questions consistently.",
+      "icon": "SparklesIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can support customer-facing chat widgets as well as private team chat experiences for employees.",
+      "industryApplication": "Put sale answers on the closure sale website while giving managers and temporary staff a private assistant for SOPs, scripts, and escalation paths.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions through customer-configured tools, APIs, connectors, workflows, or remote Model Context Protocol servers.",
+      "industryApplication": "Look up approved inventory context, create a support ticket, forward a bulk-buyer lead, update an allowed field, or trigger a store-team notification when the customer authorizes it.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which final-sale policies, locations, products, or pickup rules are causing the most questions and update source content before peak weekend traffic.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and workflow boundaries",
+      "mainLandingPageContext": "DocsBot supports escalation when questions are complex, sensitive, or need a person, with customer-defined controls around actions.",
+      "industryApplication": "Send refunds, legal complaints, chargebacks, accessibility requests, and high-value asset-sale negotiations to humans with a clear conversation summary.",
+      "icon": "HandRaisedIcon"
+    },
+    {
+      "feature": "Security and governance for private sources",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no training of public models on customer data.",
+      "industryApplication": "Keep internal closeout playbooks, finance notes, vendor records, and location-specific guidance available to authorized users without placing credentials in chats.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume customer questions when timing, accuracy, and consistency matter.",
+      "Train agents on your own content library so answers reflect your approved sale terms and documentation.",
+      "Support customer-facing self-service and human-assisted support workflows from the same knowledge foundation."
+    ],
+    "whyTheseReviewsFit": "Going out of business sales need fast, dependable answers under unusual volume and pressure. DocsBot proof spans high-volume inquiry handling, intuitive training on owned content, and support-team assistance, which maps directly to closure sale needs such as policy consistency, source-grounded answers, and smoother escalation.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for going out of business sale operations",
+    "audience": [
+      "Liquidation operators",
+      "Retail store-closing teams",
+      "Customer support leaders",
+      "Business owners",
+      "Operations managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "retail-sales",
+    "business-information",
+    "online-business-saas",
+    "ai-automation-agency",
+    "ai-consulting"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "going-out-of-business-sales",
+    "webSearchQueries": [
+      "going out of business sale FTC state laws going out of business sale permit",
+      "National Retail Federation retail returns percentage 2024",
+      "Coresight Research US store closures 2024 2025 retail",
+      "FTC Guides Against Bait Advertising going out of business sale"
+    ],
+    "sourceUrls": [
+      "https://www.businesswire.com/news/home/20250123760119/en/Coresight-Research-Predicts-2025-Store-Opening-Closure-Numbers",
+      "https://nrf.com/media-center/press-releases/nrf-and-happy-returns-report-2024-retail-returns-total-890-billion",
+      "https://www.ftc.gov/business-guidance/resources/advertising-faqs-guide-small-business",
+      "https://consumer.georgia.gov/consumer-topics/going-out-business-sales",
+      "https://law.lis.virginia.gov/vacode/title18.2/chapter6/section18.2-223/"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41400,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28856,
+        "outputTokens": 7894,
+        "reasoningOutputTokens": 146,
+        "totalTokens": 49294,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.193687,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.203687
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21709,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14413,
+          "outputTokens": 5271,
+          "reasoningOutputTokens": 146,
+          "totalTokens": 26980,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.116922,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.126922
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19691,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14443,
+          "outputTokens": 2623,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22314,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.076765,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.076765
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1483181957632-8bda974cbc91?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MDU2MjF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Going out of Business Sales background image",
+    "source": "legacy-industry",
+    "query": "Going out of Business Sales"
+  },
+  "faq": [
+    {
+      "question": "How quickly can we stand up an AI agent if the store closing announcement is already public?",
+      "answer": "A practical rollout can start with the content you already have: sale terms, return rules, location pages, hours, markdown calendars, product sheets, staff scripts, and escalation contacts. DocsBot is strongest when you launch a focused agent first, then use unanswered-question reporting to update the knowledge base as customers ask new closure-specific questions.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent keep answers consistent when discounts and final-sale rules change every few days?",
+      "answer": "Yes, if the sale team treats the approved markdown schedule, final-sale policy, and location FAQ as controlled source content. DocsBot answers from those sources, and managers can refresh the content as sale stages change. For sensitive exceptions, the agent should explain the current published rule and hand off refund, chargeback, or legal disputes to a person.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot answer shoppers before they drive to a closing location?",
+      "answer": "Yes. A customer-facing DocsBot agent can sit on your closure sale website or support experience and answer from approved store hours, sale calendars, product pages, pickup instructions, final-sale notices, and warranty FAQs. When configured with live context, it can also check approved availability or location metadata before routing high-intent shoppers to staff.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the AI from promising inventory that sold out five minutes ago?",
+      "answer": "Use the agent for source-grounded product information and configure live lookups only against approved inventory or SKU fields where the data is reliable. The answer can be written to show uncertainty, such as “availability changes quickly,” and route bulk buyers or high-value items to a manager instead of making an unconditional promise.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent handle “all sales final” questions without creating more return disputes?",
+      "answer": "DocsBot can answer from your approved return, exchange, warranty, and final-sale language, including effective dates and exclusions. That matters because NRF and Happy Returns projected U.S. retail returns would total $890 billion in 2024, so closure teams need especially clear final-sale communication. Disputes, chargebacks, and exceptions should still route to human support.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-nrf-returns-2024"
+      ]
+    },
+    {
+      "question": "Will this help store associates, or is it only for shoppers?",
+      "answer": "It can support both. A public agent can answer shopper questions, while a private internal DocsBot agent can help associates find markdown rules, fixture pricing, pickup procedures, customer scripts, closeout checklists, and escalation paths. That is useful when temporary or reassigned staff need fast answers without interrupting managers during peak traffic.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can we use it across multiple closing stores with different sale stages and local rules?",
+      "answer": "Yes, but the knowledge structure matters. Separate content by location, sale stage, policy version, and approval status so the agent can give store-specific answers. With customer-configured Skills, APIs, or metadata, DocsBot can reference approved location context before answering and escalate when a customer’s question spans multiple stores or jurisdictions.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Scalability"
+    },
+    {
+      "question": "How does DocsBot help with compliance around going out of business advertising?",
+      "answer": "DocsBot can serve as a private reference agent trained on counsel-approved ad copy, permit records, signage templates, disclaimers, and escalation rules. That is important because the FTC directs concerns about bogus local going-out-of-business sales to state attorneys general, and some states or localities regulate sale duration, permits, or advertising language.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-ftc-advertising-faq",
+        "src-georgia-gob-sales",
+        "src-virginia-gob-permit"
+      ]
+    },
+    {
+      "question": "Can the agent tell a manager whether we are legally allowed to advertise “final week”?",
+      "answer": "It should not make legal determinations on its own. A better workflow is to train DocsBot on approved legal guidance, permit records, sale calendars, and ad-review notes so it can retrieve the relevant source and route the proposed wording to legal or management for approval.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What happens when shoppers ask angry or sensitive questions about refunds, chargebacks, accessibility, or deceptive advertising?",
+      "answer": "Configure the agent to avoid high-impact decisions, acknowledge the issue, collect the right details, summarize the conversation, and escalate to the correct human queue. DocsBot can help preserve context for support, legal, or management review while keeping the agent inside approved policy boundaries.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot route bulk buyers, fixture buyers, and resellers differently from normal shoppers?",
+      "answer": "Yes. The agent can collect structured information such as item category, store location, quantity, budget range, pickup timeline, resale intent, and contact details. With customer-configured workflows, it can forward a qualified summary to liquidation managers, CRM, helpdesk software, email, Slack, Microsoft Teams, or another approved system.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will it integrate with our inventory, ticketing, CRM, or store systems?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, workflow automations, or MCP-connected tools to retrieve approved live context or trigger bounded actions. The safest implementation is to expose only the fields the agent needs, such as SKU status, order notes, pickup status, lead fields, or ticket routing rules.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep credentials and private closeout documents out of shopper conversations?",
+      "answer": "Separate public and private agents, restrict sources by audience, and use role-based permissions for internal content. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and no training of public models on customer data. Credentials should stay in configured secrets or systems, not in chats.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What content should we prepare before launch?",
+      "answer": "Start with the documents that drive the most repetitive questions: sale terms, final-sale policy, warranty rules, store hours, location pages, markdown calendars, pickup instructions, product sheets, fixture-sale rules, manager contacts, escalation scripts, permit references, and approved ad disclaimers. The cleaner the source content, the more reliable the agent will be.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent support online orders and ecommerce customers affected by the closure?",
+      "answer": "Yes, when trained on ecommerce FAQs, order-support rules, shipping and pickup policies, return windows, warranty language, and approved prior responses. With authorized helpdesk or order-system context, DocsBot can summarize tickets, draft replies, check approved order notes, and route exceptions to human support.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How will we know whether the agent is actually reducing pressure on our team?",
+      "answer": "Track repeated question volume, resolution rate, escalations by topic, unanswered questions, customer satisfaction signals, ticket deflection, response time, and location-level confusion. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery to show where the sale content needs improvement.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can managers see which policies or locations are causing the most confusion?",
+      "answer": "Yes. DocsBot analytics and conversation review can surface recurring topics, unresolved questions, and knowledge gaps. During a short closure window, that can help managers update signage, FAQs, staff scripts, and markdown explanations before a weekend traffic spike or before misinformation spreads across locations.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is this worth implementing for a sale that may only last a few weeks?",
+      "answer": "It can be, especially when closure traffic, phone calls, emails, and staff questions spike at the same time. The ROI usually comes from fewer repetitive interruptions, faster shopper answers, better-qualified bulk leads, cleaner support handoffs, and less manager time spent repeating policy details to temporary staff.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How does DocsBot compare with just updating our FAQ page every night?",
+      "answer": "A static FAQ helps, but shoppers and staff rarely read every page during a fast-moving sale. DocsBot turns those same approved sources into a conversational, source-grounded agent that can answer specific questions, collect context, route handoffs, and show managers which questions the FAQ still does not cover.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we control the tone so the agent does not sound insensitive during a closure?",
+      "answer": "Yes. You can define instructions for voice, empathy, escalation wording, and what the agent should avoid saying. For going out of business sales, buyers often want concise answers that are helpful to shoppers while still respecting the seriousness of store closures, employee transitions, and final-sale policies.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if our documents contradict each other during the sale?",
+      "answer": "That is a common closure-sale risk. DocsBot can only be as reliable as the approved sources it is trained on, so designate one source of truth for each policy, remove outdated versions, and use analytics to find confusing answers. Sensitive or conflicting cases should escalate instead of forcing the agent to guess.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent answer in multiple languages for local shoppers?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help closing stores serve shoppers who ask about hours, pickup, product details, and final-sale terms in their preferred language. For regulated policy wording, keep approved translations or escalation rules available so the agent stays aligned with your reviewed language.",
+      "role": "Customer support and ecommerce teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can finance and administrators use the same system for vendor, landlord, and accounts payable questions?",
+      "answer": "Yes, as a private internal knowledge agent. DocsBot can train on vendor lists, finance policies, lease notes, closeout checklists, contact directories, and approved back-office instructions. It can collect requester details, classify the issue, summarize the handoff, and notify the right internal owner through configured workflows.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we handle state-by-state rule differences in the agent?",
+      "answer": "Keep jurisdiction-specific guidance separated by state, locality, store, and approval date, then instruct the agent to retrieve the applicable source and escalate legal interpretation. For example, Georgia consumer guidance says going-out-of-business sales may not run more than 90 days, while Virginia law requires a permit before advertising or conducting many discontinuation sales.",
+      "role": "Owners, finance teams, and administrators",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-georgia-gob-sales",
+        "src-virginia-gob-permit"
+      ]
+    },
+    {
+      "question": "Can DocsBot help us during a large wave of store closures, not just one location?",
+      "answer": "Yes. The same knowledge foundation can support multiple customer-facing and internal workflows if content is organized by store, region, sale stage, and policy version. Coresight Research projected roughly 15,000 U.S. store closures in 2025, which shows why scalable, consistent closure communication is becoming more important for retail teams.",
+      "role": "Liquidation and store-closing operators",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-coresight-closures-2025"
+      ]
+    }
+  ]
+}

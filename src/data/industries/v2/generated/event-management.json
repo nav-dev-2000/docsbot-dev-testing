@@ -1,0 +1,730 @@
+{
+  "slug": "event-management",
+  "business": "Event Management",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Event Management Teams",
+    "description": "DocsBot helps event management teams answer attendee questions, qualify leads, and coordinate staff with AI agents trained on event knowledge.",
+    "canonicalPath": "/industry/event-management"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for high-pressure event teams",
+    "headline": "Run smoother events with DocsBot AI agents",
+    "subheadline": "Train DocsBot on your agendas, venue guides, registration policies, sponsor packages, run-of-show documents, SOPs, and FAQs so attendees, prospects, staff, and vendors get fast, source-grounded answers before, during, and after every event.",
+    "proofBullets": [
+      {
+        "text": "Answer attendee questions about schedules, check-in, travel, session access, accessibility, refunds, and event policies from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect lead details, qualify sponsor or exhibitor interest, and route structured handoffs through customer-configured workflows.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Give onsite teams a private knowledge agent for run-of-show details, vendor instructions, escalation paths, and last-minute changes.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Use AI Actions to summarize requests, create tasks or tickets, trigger notifications, and look up live event context when configured.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build an event AI agent",
+    "secondaryCta": "Explore event support workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps event management companies and in-house event teams create AI agents trained on their own event content. The agent can answer attendee and stakeholder questions, help staff find operational details, identify repeated knowledge gaps, summarize conversations, qualify inquiries, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Event operations leaders",
+        "roleContext": "Coordinate timelines, staffing, venues, vendors, and attendee experience without making every question depend on one overloaded planner.",
+        "bullets": [
+          {
+            "text": "Make run-of-show documents, BEO notes, venue rules, load-in details, and escalation paths searchable for staff.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Give temporary and onsite teams consistent answers from current event materials instead of scattered email threads.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see which operational questions keep slowing the team down.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "CalendarIcon"
+      },
+      {
+        "role": "Registration and attendee support teams",
+        "roleContext": "Handle repetitive pre-event and live-event questions while keeping complex, sensitive, or exception-based requests routed to people.",
+        "bullets": [
+          {
+            "text": "Answer common questions about badges, substitutions, refunds, session access, dietary needs, and arrival instructions.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Collect missing details from attendees and prepare a clean handoff for helpdesk, ticketing, or email workflows.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Support attendees in more than 100 languages when your event audience is global.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserCircleIcon"
+      },
+      {
+        "role": "Sales, sponsorship, and exhibitor teams",
+        "roleContext": "Turn event interest into qualified opportunities with faster answers and better follow-up context for human sellers.",
+        "bullets": [
+          {
+            "text": "Answer package, booth, audience, deadline, deliverable, and fit questions from approved sales and sponsor materials.",
+            "icon": "ShoppingBagIcon"
+          },
+          {
+            "text": "Qualify sponsor, exhibitor, group registration, or hosted-buyer inquiries using your own rules and intake fields.",
+            "icon": "FlagIcon"
+          },
+          {
+            "text": "Forward summaries, lead details, and conversation context to customer-configured CRM, email, or team workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Client services and account teams",
+        "roleContext": "Keep clients, speakers, vendors, and internal stakeholders aligned across many moving parts and changing documents.",
+        "bullets": [
+          {
+            "text": "Retrieve speaker instructions, asset deadlines, venue constraints, sponsor deliverables, and client-specific notes from approved sources.",
+            "icon": "FolderIcon"
+          },
+          {
+            "text": "Draft response summaries for repetitive stakeholder questions while humans approve commitments and exceptions.",
+            "icon": "PencilIcon"
+          },
+          {
+            "text": "Preserve knowledge between events so lessons learned, policies, and templates remain accessible to the next team.",
+            "icon": "ArchiveBoxIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-outlook",
+      "metric": "155,800 U.S. meeting, convention, and event planner jobs in 2024",
+      "claim": "The U.S. Bureau of Labor Statistics reports 155,800 meeting, convention, and event planner jobs in 2024 and projects 5% employment growth from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Meeting, Convention, and Event Planners",
+      "sourceUrl": "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "staffing pressure",
+        "industry growth"
+      ]
+    },
+    {
+      "id": "src-bls-requirements",
+      "metric": "86.6% required on-the-job training in 2025",
+      "claim": "BLS Occupational Requirements Survey data says on-the-job training was required for 86.6% of meeting, convention, and event planners in 2025.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Requirements Survey: Meeting, Convention, and Event Planners",
+      "sourceUrl": "https://www.bls.gov/ors/factsheet/meeting-convention-and-event-planners.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "training burden",
+        "knowledge transfer",
+        "operational complexity"
+      ]
+    },
+    {
+      "id": "src-gvr-market",
+      "metric": "$285.18 billion estimated U.S. event management market in 2024",
+      "claim": "Grand View Research estimated the U.S. event management market at $285.18 billion in 2024 and projected it to reach $471.44 billion by 2033.",
+      "sourceTitle": "Grand View Research: U.S. Event Management Market Size, Share & Trends Analysis Report",
+      "sourceUrl": "https://www.grandviewresearch.com/industry-analysis/us-event-management-market-report",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "growth pressure",
+        "competitive demand"
+      ]
+    },
+    {
+      "id": "src-cvent-day-life",
+      "metric": "Collaboration challenges across stakeholders and onsite logistics",
+      "claim": "Cvent’s Day in the Life of an Event Planner study reported that most planners agreed internal and external collaboration is challenging, especially while overseeing onsite experiences and logistics.",
+      "sourceTitle": "Cvent: Day in the Life of an Event Planner Study",
+      "sourceUrl": "https://www.cvent.com/en/press-release/cvent-unveils-results-new-day-life-event-planner-study",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "collaboration bottlenecks",
+        "onsite logistics",
+        "stakeholder coordination"
+      ]
+    },
+    {
+      "id": "src-cvent-pulse-ai",
+      "metric": "Less than one in four planners used generative AI for meetings in May 2024",
+      "claim": "The Northstar/Cvent Meetings Industry PULSE Report found less than one in four planners were using generative AI tools to support their meetings in May 2024.",
+      "sourceTitle": "Northstar/Cvent Meetings Industry PULSE Report, May 2024",
+      "sourceUrl": "https://plannerpulse.cvent.com/wp-content/uploads/2024/06/May-2024-PULSE-final.pdf",
+      "sourceDate": "May 2024",
+      "bestUsedFor": [
+        "AI adoption",
+        "technology opportunity",
+        "planner workflow modernization"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Attendee question answering before and during the event",
+      "problem": "Attendees ask the same questions across email, chat, registration pages, mobile apps, and onsite desks, often when staff are managing urgent logistics.",
+      "agentWorkflow": "DocsBot trains on the event website, FAQ, agenda, travel notes, venue guide, registration policies, accessibility information, refund rules, and sponsor pages. The agent answers with source-grounded responses and escalates exceptions such as refunds, VIP requests, or accessibility concerns that need a person.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up attendee-specific status, collect missing details, summarize the issue, and create or route a support ticket in the team’s configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "Where do I pick up my badge if I arrive after 6 p.m.?",
+        "Can I transfer my registration to a colleague?",
+        "Which sessions are included in my pass type?",
+        "Who should I contact about dietary restrictions?"
+      ],
+      "businessOutcome": "Reduce repetitive attendee support volume while keeping complex service decisions with the event team.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Onsite staff knowledge assistant",
+      "problem": "Temporary staff, volunteers, contractors, and client teams need fast answers, but event knowledge is spread across run-of-show files, vendor notes, floorplans, and last-minute updates.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on run-of-show documents, staff briefings, venue rules, vendor contacts, emergency procedures, session scripts, exhibitor instructions, and escalation paths. Teams can ask questions in a private chat experience instead of searching folders during show time.",
+      "liveContextOrTools": "Configured Skills can retrieve current event metadata, create tasks, notify the right channel, or trigger a handoff when an issue needs operations review.",
+      "exampleQuestionsOrRequests": [
+        "Where should the keynote speaker check in?",
+        "What is the escalation path for a badge printer outage?",
+        "Which vendor owns signage outside Hall B?",
+        "What is the backup room for the 2 p.m. workshop?"
+      ],
+      "businessOutcome": "Give onsite teams consistent operational answers and reduce dependency on senior planners for every detail.",
+      "icon": "MapPinIcon",
+      "sourceIds": [
+        "src-cvent-day-life"
+      ]
+    },
+    {
+      "name": "Sponsor and exhibitor lead qualification",
+      "problem": "Sales and sponsorship teams field repeated questions about packages, audience fit, deliverables, deadlines, and pricing context before they can identify the best opportunities.",
+      "agentWorkflow": "DocsBot answers from sponsorship decks, exhibitor manuals, audience profiles, package descriptions, logistics guides, and approved sales enablement material. It can collect company, role, budget range, timeline, booth interest, audience goals, and follow-up preference through a structured intake flow.",
+      "liveContextOrTools": "Using customer-configured AI Actions, the agent can qualify the inquiry against your rules, prepare a summary, and forward the lead to CRM, email, Slack, Microsoft Teams, or another approved workflow. Humans remain responsible for final pricing, contract terms, and commitments.",
+      "exampleQuestionsOrRequests": [
+        "Which sponsorship package includes a speaking slot?",
+        "Do you have options for a startup exhibitor?",
+        "Can someone send booth pricing for a 20x20 space?",
+        "What audience segments attended last year?"
+      ],
+      "businessOutcome": "Capture more complete sponsor and exhibitor context before human follow-up, improving handoffs without forcing sales teams to answer every first-touch question manually.",
+      "icon": "BanknotesIcon"
+    },
+    {
+      "name": "Speaker, vendor, and stakeholder coordination",
+      "problem": "Event teams manage many external stakeholders who need accurate instructions, dates, assets, contacts, and change updates from different documents.",
+      "agentWorkflow": "DocsBot trains on speaker kits, vendor packets, AV requirements, shipping instructions, sponsor deliverables, venue policies, asset deadlines, and client playbooks. The agent retrieves answers, drafts concise replies, and prepares summaries for account managers or producers.",
+      "liveContextOrTools": "Approved Skills, APIs, connectors, or MCP Connectors can support live lookups or workflow triggers from systems the team already uses, such as checking a submitted-asset status or creating a follow-up task.",
+      "exampleQuestionsOrRequests": [
+        "What slide format should speakers use?",
+        "When can exhibitors begin booth setup?",
+        "Which sponsor assets are still missing?",
+        "What are the venue’s freight elevator rules?"
+      ],
+      "businessOutcome": "Reduce coordination lag and help account teams keep stakeholder communication consistent across every event phase.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Post-event insight and knowledge-gap analysis",
+      "problem": "After an event, teams need to understand what attendees asked, what staff could not answer, and which documentation needs improvement before the next program.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams identify repeated questions, unclear policies, and missing content. Staff can review conversation summaries and update source materials for future events.",
+      "liveContextOrTools": "The agent can summarize conversation themes and create internal follow-up tasks through configured workflows when a gap requires owner review.",
+      "exampleQuestionsOrRequests": [
+        "What were the top attendee questions during check-in?",
+        "Which answers needed escalation most often?",
+        "What content should we add to next year’s FAQ?",
+        "Which sponsor questions repeated across the sales cycle?"
+      ],
+      "businessOutcome": "Turn support conversations into improvements for event documentation, staffing plans, attendee communication, and sponsor enablement.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "name": "Planner onboarding and repeatable event playbooks",
+      "problem": "Event planning relies on experienced judgment, and new staff must learn a large amount of process knowledge before they can operate independently.",
+      "agentWorkflow": "DocsBot trains on SOPs, templates, budget guidance, venue-selection checklists, registration procedures, staffing plans, debriefs, client playbooks, and brand guidelines. Employees ask natural-language questions and receive source-grounded answers that preserve institutional knowledge between events.",
+      "liveContextOrTools": "Team leaders can review questions and knowledge gaps to see where onboarding material needs clarification or updates.",
+      "exampleQuestionsOrRequests": [
+        "What is our standard timeline for a 1,000-person conference?",
+        "Which approvals are required before a venue contract goes out?",
+        "Where is the template for speaker confirmation emails?",
+        "What should be included in a post-event debrief?"
+      ],
+      "businessOutcome": "Support faster onboarding and repeatable delivery in a role where BLS data shows on-the-job training is common.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-requirements"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give attendees, sponsors, exhibitors, and speakers a reliable event answer desk",
+    "intro": "A DocsBot customer-facing agent can live on your event website or product experience and answer from current, approved event materials. It helps people self-serve routine questions while gathering the details your team needs for follow-up or escalation.",
+    "requests": [
+      {
+        "request": "“I registered but never received my confirmation email.”",
+        "agentResponseStrategy": "Explain standard resend or support steps from your registration FAQ, collect the attendee’s email and event name, and route a structured handoff if the account requires staff review.",
+        "sourceTypes": [
+          "Registration FAQ",
+          "Support policy",
+          "Helpdesk workflow"
+        ],
+        "optionalAction": "Create or route a support ticket with the attendee’s details through a customer-configured workflow.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "request": "“Which ticket should I buy if I only want the workshops?”",
+        "agentResponseStrategy": "Compare pass types from approved pricing and registration content, cite the relevant source, and recommend contacting sales or support for edge cases or discounts.",
+        "sourceTypes": [
+          "Ticketing page",
+          "Pricing policy",
+          "Program guide"
+        ],
+        "optionalAction": "Collect purchase intent and forward the inquiry to sales or registration staff when configured.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Can my company sponsor the networking reception?”",
+        "agentResponseStrategy": "Answer from sponsor packages and inventory guidance, ask qualifying questions, and summarize the opportunity for the sponsorship team.",
+        "sourceTypes": [
+          "Sponsorship deck",
+          "Audience profile",
+          "Sales enablement notes"
+        ],
+        "optionalAction": "Submit a sponsor lead form or forward the summary to CRM, email, or team chat through approved actions.",
+        "icon": "StarIcon"
+      },
+      {
+        "request": "“Where do I go when I arrive at the venue?”",
+        "agentResponseStrategy": "Retrieve arrival instructions, badge pickup times, venue maps, parking notes, and accessibility information from event sources.",
+        "sourceTypes": [
+          "Venue guide",
+          "Know-before-you-go email",
+          "Attendee FAQ"
+        ],
+        "optionalAction": "Escalate to onsite support if the attendee reports an urgent access, safety, or accommodation issue.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What changed in today’s schedule?”",
+        "agentResponseStrategy": "Answer from the current agenda and approved update notes so attendees do not rely on outdated PDFs or social posts.",
+        "sourceTypes": [
+          "Agenda",
+          "Update log",
+          "Event website"
+        ],
+        "optionalAction": "Trigger a configured notification or route the request to staff if the change affects a VIP, speaker, or sponsor obligation.",
+        "icon": "BellIcon"
+      },
+      {
+        "request": "“Do you offer group rates for our association?”",
+        "agentResponseStrategy": "Explain approved group registration criteria, collect organization size and timing, and hand off nonstandard pricing decisions to a human.",
+        "sourceTypes": [
+          "Group sales policy",
+          "Registration FAQ",
+          "Sales playbook"
+        ],
+        "optionalAction": "Create a qualified group-sales inquiry with the conversation summary and preferred follow-up channel.",
+        "icon": "UserGroupIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep event teams aligned when details are changing fast",
+    "intro": "DocsBot can also act as a private internal knowledge agent for planners, producers, registration teams, sales, support, and onsite staff. Teams ask questions from approved internal sources and use analytics to improve the next event’s documentation.",
+    "workflows": [
+      {
+        "name": "Run-of-show retrieval",
+        "problem": "During live production, staff need exact timing, owner, location, and escalation details without paging through long documents.",
+        "agentWorkflow": "Train the agent on run-of-show files, call sheets, contact lists, room schedules, scripts, vendor notes, and escalation procedures. Staff ask operational questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "Run-of-show",
+          "Call sheet",
+          "Venue and vendor notes"
+        ],
+        "optionalAction": "Create a task, notify a channel, or summarize an issue for operations review through configured AI Actions.",
+        "outcome": "Faster internal answers during high-pressure onsite moments.",
+        "icon": "ClockIcon"
+      },
+      {
+        "name": "Event sales enablement",
+        "problem": "Sales teams need quick access to package details, audience data, objection handling, deadlines, and proposal language.",
+        "agentWorkflow": "Train DocsBot on sponsor decks, exhibitor manuals, case studies, proposal templates, pricing guidance, and approved messaging. Reps can ask for fit guidance, draft responses, or summarize prospect context for human follow-up.",
+        "sourceTypes": [
+          "Sponsorship material",
+          "Proposal templates",
+          "Sales playbooks"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or forward a lead summary through customer-configured workflows.",
+        "outcome": "More consistent sponsor and exhibitor follow-up with less manual searching.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Knowledge-gap review after each event",
+        "problem": "Support questions, onsite escalations, and stakeholder confusion often reveal missing or unclear documentation.",
+        "agentWorkflow": "Use DocsBot conversation logs, topic reports, satisfaction and resolution analysis, and knowledge-gap discovery to identify repeated unanswered questions. Assign owners to update FAQs, policies, staff guides, or sponsor documents.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Event FAQ",
+          "Internal SOPs"
+        ],
+        "optionalAction": "Generate a post-event gap summary and create follow-up tasks in an approved workflow.",
+        "outcome": "Each event improves the knowledge base for the next one.",
+        "icon": "MagnifyingGlassIcon"
+      },
+      {
+        "name": "Planner onboarding assistant",
+        "problem": "New coordinators and seasonal staff need to learn event procedures, templates, and client standards quickly.",
+        "agentWorkflow": "Train DocsBot on SOPs, onboarding documents, event templates, brand guidelines, debriefs, and client playbooks so employees can ask questions in plain language.",
+        "sourceTypes": [
+          "SOPs",
+          "Onboarding guides",
+          "Client playbooks"
+        ],
+        "optionalAction": "Surface repeated onboarding questions for managers to improve training material.",
+        "outcome": "Preserve event knowledge and reduce repeated questions to senior planners.",
+        "icon": "BookOpenIcon",
+        "sourceIds": [
+          "src-bls-requirements"
+        ]
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded event answers",
+      "mainLandingPageContext": "DocsBot agents are trained on your approved knowledge sources and return answers grounded in your content.",
+      "industryApplication": "Answer attendee, sponsor, speaker, vendor, and staff questions from agendas, FAQs, venue guides, sponsor packages, run-of-show files, and SOPs.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Embeddable customer support widget",
+      "mainLandingPageContext": "DocsBot can power a website or product chat widget for instant customer support.",
+      "industryApplication": "Put an event answer agent on registration pages, attendee portals, sponsor pages, or event microsites so people can self-serve common questions.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agent",
+      "mainLandingPageContext": "DocsBot can serve as a private assistant for employees trained on internal documents, policies, wikis, PDFs, and other team sources.",
+      "industryApplication": "Give planners, producers, registration teams, sales reps, and onsite staff quick access to approved operational knowledge.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills allow agents to take bounded actions such as lookups, summaries, record updates, task creation, workflow triggers, and handoffs.",
+      "industryApplication": "Collect attendee details, qualify sponsor leads, create tickets or tasks, route urgent issues, summarize stakeholder requests, and trigger approved event workflows.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery.",
+      "industryApplication": "See what attendees and staff ask most often, which answers need better documentation, and where next year’s event materials should improve.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages.",
+      "industryApplication": "Support international attendees, exhibitors, and speakers with source-grounded answers in their preferred language when your source content supports the response.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Governed deployment",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private client, staff, contract, and event operations knowledge within controlled access boundaries while still making it searchable for approved users.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "matt-cromwell-content-library",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume question answering when audiences need fast, consistent support.",
+      "Train agents on your own content library so answers reflect the event materials your team approves.",
+      "Support customer-facing and human-assist workflows across website, email, and helpdesk-style operations."
+    ],
+    "whyTheseReviewsFit": "Event teams need dependable answers at scale, grounded in current materials, with clean handoffs to people when the request goes beyond self-service. DocsBot proof spans high-volume support, owned-content training, embedded website assistance, and human support workflows that match the realities of attendee, sponsor, and stakeholder operations.",
+    "trustClaimIcons": [
+      "RocketLaunchIcon",
+      "BookOpenIcon",
+      "ArrowPathRoundedSquareIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for event management teams",
+    "audience": [
+      "Event management companies",
+      "Corporate event teams",
+      "Conference organizers",
+      "Registration and attendee support teams",
+      "Sponsorship and exhibitor sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CalendarIcon"
+  },
+  "relatedIndustrySlugs": [
+    "business-information",
+    "ai-automation-agency",
+    "ai-consulting",
+    "cloud-computing-services",
+    "it-infrastructure-management"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "event-management",
+    "webSearchQueries": [
+      "event management industry market size attendee expectations statistics 2024 report",
+      "U.S. Bureau of Labor Statistics meeting convention event planners employment outlook",
+      "EventMB event planning challenges survey attendee communication registration logistics",
+      "Cvent report event planners challenges attendee engagement data"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/business-and-financial/meeting-convention-and-event-planners.htm",
+      "https://www.bls.gov/ors/factsheet/meeting-convention-and-event-planners.htm",
+      "https://www.grandviewresearch.com/industry-analysis/us-event-management-market-report",
+      "https://www.cvent.com/en/press-release/cvent-unveils-results-new-day-life-event-planner-study",
+      "https://plannerpulse.cvent.com/wp-content/uploads/2024/06/May-2024-PULSE-final.pdf"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41278,
+        "cachedInputTokens": 19200,
+        "billableInputTokens": 22078,
+        "outputTokens": 7917,
+        "reasoningOutputTokens": 110,
+        "totalTokens": 49195,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.178751,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.188751
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21567,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 6079,
+          "outputTokens": 5253,
+          "reasoningOutputTokens": 110,
+          "totalTokens": 26820,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.097865,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.107865
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19711,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 15999,
+          "outputTokens": 2664,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22375,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080886,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080886
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1520242739010-44e95bde329e?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzQ0MTd8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Event Management background image",
+    "source": "legacy-industry",
+    "query": "Event Management"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot handle the surge of attendee questions in the final week before an event?",
+      "answer": "Yes. DocsBot is designed for high-volume question answering from approved event content such as agendas, registration policies, venue guides, travel notes, accessibility details, and FAQs. It can answer routine questions instantly and route exceptions—like refund disputes, VIP requests, or accommodation issues—to your team for human review.",
+      "role": "Registration and attendee support teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we keep the agent from giving outdated answers when agendas, rooms, or speaker details change?",
+      "answer": "DocsBot should be trained on the current source of truth for each event, such as the live agenda, update log, event website, or approved internal briefing. Teams can use source-grounded answers, review conversations, and update source materials as changes occur so attendees and staff are not relying on stale PDFs or old email threads.",
+      "role": "Event operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we use DocsBot internally for run-of-show and onsite staff questions, not just attendee support?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on run-of-show files, call sheets, venue rules, vendor notes, staff briefings, emergency procedures, and escalation paths. This is useful in an industry where Cvent reported that collaboration across internal and external stakeholders is a major planner challenge, especially around onsite logistics.",
+      "role": "Event operations leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-cvent-day-life"
+      ]
+    },
+    {
+      "question": "Will DocsBot replace our registration desk or attendee support team?",
+      "answer": "No. The best fit is to reduce repetitive questions and prepare cleaner handoffs, not remove human judgment. DocsBot can answer policy-based questions, collect missing details, summarize the issue, and create or route a ticket through configured workflows. Your team should still handle exceptions, sensitive requests, refunds, accessibility decisions, and service recovery.",
+      "role": "Registration and attendee support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent qualify sponsor, exhibitor, or group registration inquiries before sales follows up?",
+      "answer": "Yes. DocsBot can answer from sponsorship decks, exhibitor manuals, audience profiles, package descriptions, and sales enablement material. It can collect company, role, budget range, timeline, booth interest, audience goals, and follow-up preference, then use customer-defined rules to prepare a qualified handoff for CRM, email, Slack, Microsoft Teams, or another configured workflow.",
+      "role": "Sales, sponsorship, and exhibitor teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would we measure ROI for an event AI agent?",
+      "answer": "Common ROI measures include fewer repetitive attendee emails, faster first response times, reduced escalation volume, more complete sponsor lead intake, fewer staff interruptions during live production, and fewer unanswered knowledge gaps after the event. For larger programs, compare support volume, resolution rate, onsite escalations, and staff hours spent searching before and after launch.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is this useful for small event teams, or only for large conferences?",
+      "answer": "It can help both. Large conferences benefit from scale across thousands of attendees, sponsors, exhibitors, and staff. Smaller teams benefit because one planner is often the bottleneck for registration, venue, vendor, and stakeholder questions. BLS reported 155,800 U.S. meeting, convention, and event planner jobs in 2024, showing a sizable workforce where repeatable support and knowledge access matter.",
+      "role": "Event operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-bls-outlook"
+      ]
+    },
+    {
+      "question": "Can DocsBot support temporary staff, volunteers, or contractors who only work the event for a few days?",
+      "answer": "Yes. A private DocsBot agent can give seasonal or temporary teams quick access to current SOPs, venue rules, scripts, escalation paths, and staff instructions. This directly supports onboarding-heavy event work: BLS Occupational Requirements Survey data says on-the-job training was required for 86.6% of meeting, convention, and event planners in 2025.",
+      "role": "Event operations leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-requirements"
+      ]
+    },
+    {
+      "question": "What systems can DocsBot connect with for event workflows?",
+      "answer": "DocsBot can support approved actions through customer-configured Skills, APIs, connectors, MCP Connectors, webhooks, or workflow automations. Typical event uses include looking up registration status, creating a support ticket, routing a sponsor lead, notifying an operations channel, creating a task, or summarizing a stakeholder request. Specific integrations depend on what your team authorizes and configures.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we deploy one agent for attendees and another private agent for staff?",
+      "answer": "Yes. Many event teams should separate customer-facing and internal use cases. The attendee agent can answer from public event materials and collect support details, while the private staff agent can access run-of-show documents, vendor contacts, escalation paths, client notes, and internal SOPs with role-based permissions.",
+      "role": "Event operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent attendees from seeing internal notes, vendor contacts, or client-sensitive information?",
+      "answer": "Use separate agents, approved source collections, granular access controls, and role-based permissions. DocsBot also supports encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models. Sensitive operational content should remain in private staff-facing agents, not public attendee experiences.",
+      "role": "Client services and account teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot answer in multiple languages for international attendees or exhibitors?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages, which can help global audiences ask about arrival instructions, badges, session access, sponsor logistics, or venue policies in their preferred language. For best results, keep source materials clear, current, and approved, and route complex or sensitive requests to a human.",
+      "role": "Registration and attendee support teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What happens when someone asks about a refund, legal term, medical need, or safety issue?",
+      "answer": "Those should be treated as escalation scenarios. DocsBot can provide approved policy information, collect the right details, summarize the request, and route it to the correct person or ticketing workflow. Humans should remain responsible for exceptions, legal commitments, medical or accessibility decisions, safety incidents, and anything that requires judgment beyond the written policy.",
+      "role": "Registration and attendee support teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help our account team coordinate speakers, sponsors, vendors, and clients?",
+      "answer": "Yes. DocsBot can train on speaker kits, vendor packets, AV requirements, shipping instructions, sponsor deliverables, asset deadlines, venue policies, and client playbooks. Account teams can retrieve answers, draft concise replies, summarize open questions, and create follow-up tasks through approved workflows while keeping commitments and exceptions under human control.",
+      "role": "Client services and account teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How quickly can we get an event agent live for an upcoming program?",
+      "answer": "Implementation depends less on the event size and more on source readiness. Teams usually move fastest when they already have clean FAQs, agendas, venue guides, registration rules, sponsor materials, and staff documents. Start with a narrow use case—such as attendee FAQs or internal run-of-show retrieval—test common questions, then expand to actions and additional audiences.",
+      "role": "Event operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us learn what information was missing after an event?",
+      "answer": "Yes. DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. After the event, teams can identify repeated attendee questions, unclear policies, escalation patterns, and staff knowledge gaps, then update FAQs, run-of-show templates, sponsor materials, and onboarding documents for the next program.",
+      "role": "Event operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot fit with platforms like registration systems, event apps, CRMs, and helpdesks?",
+      "answer": "DocsBot is usually best positioned as an AI knowledge and workflow layer around the systems your team already uses. It can answer from approved materials and, when configured, use Skills, APIs, connectors, or workflows to look up context, route requests, create tickets or tasks, and forward lead summaries. It should not replace your registration platform or event app.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for recurring events with different agendas, sponsors, venues, and policies?",
+      "answer": "Yes. Recurring events are a strong fit because each program can have its own approved sources while shared SOPs, templates, debriefs, and playbooks remain reusable. Teams can preserve institutional knowledge between events and review knowledge gaps after each program to improve the next event’s documentation and staffing plan.",
+      "role": "Client services and account teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What content should we prepare before training an event AI agent?",
+      "answer": "Start with the materials people already ask about: event website, attendee FAQ, agenda, pass types, venue guide, hotel and travel notes, accessibility information, refund and substitution policies, sponsor packages, exhibitor manual, speaker kit, run-of-show, contact lists, escalation paths, and internal SOPs. Remove obsolete versions and identify which sources are public versus staff-only.",
+      "role": "Event operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Will the agent cite where its answers came from?",
+      "answer": "DocsBot is built for source-grounded answers from your approved knowledge sources. For event teams, that means answers can be grounded in the agenda, registration policy, venue guide, sponsor deck, exhibitor manual, staff SOP, or run-of-show source instead of unsupported improvisation. This helps teams review, trust, and correct the knowledge base over time.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help sales reps answer sponsor questions without giving away unapproved pricing or commitments?",
+      "answer": "Yes, if you configure the source material and instructions carefully. DocsBot can answer from approved sponsor packages, audience profiles, deadlines, and sales playbooks, while routing custom pricing, inventory exceptions, legal terms, and final commitments to a human seller. It can also draft follow-up summaries without automatically binding your team to a deal.",
+      "role": "Sales, sponsorship, and exhibitor teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we evaluate whether DocsBot is better than building our own event Q&A bot?",
+      "answer": "Compare time to launch, source management, analytics, access controls, escalation support, action configuration, multilingual coverage, and maintenance burden. Event teams rarely struggle because they lack one more chat interface; they struggle because content changes fast, stakeholders need different answers, and staff need reliable handoffs. DocsBot focuses on governed, source-grounded agents over one-off bot scripts.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What reporting will leadership want to see after launch?",
+      "answer": "Leadership typically wants volume of conversations, common question topics, deflection or resolution trends, escalation categories, satisfaction or resolution signals, unanswered questions, and knowledge gaps by event phase. For sponsor and exhibitor workflows, track qualified inquiries, missing intake fields, response speed, and handoff quality. Those reports help justify expansion beyond the first event.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Is AI adoption mature enough in events for our stakeholders to accept this?",
+      "answer": "Adoption is still developing, which makes a practical, low-risk first use case important. The Northstar/Cvent Meetings Industry PULSE Report found less than one in four planners were using generative AI tools to support meetings in May 2024. A grounded attendee FAQ or internal staff assistant is easier to approve than automating high-impact decisions immediately.",
+      "role": "General buyer",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-cvent-pulse-ai"
+      ]
+    },
+    {
+      "question": "How should procurement think about pricing and rollout?",
+      "answer": "Procurement should evaluate expected usage, number of events, customer-facing versus internal agents, required workflows, security review needs, and who will own content updates. A phased rollout often works best: launch one event or one audience first, measure support reduction and handoff quality, then expand to sponsors, staff, vendors, or recurring event portfolios.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

@@ -1,0 +1,717 @@
+{
+  "slug": "watershed-management",
+  "business": "Watershed Management",
+  "industryCategory": "Natural Resources/Environmental",
+  "pageMeta": {
+    "title": "AI Agents for Watershed Management Teams",
+    "description": "DocsBot helps watershed management teams answer public questions, retrieve plans and monitoring data, and route field or permit requests faster.",
+    "canonicalPath": "/industry/watershed-management"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for watershed programs and partnerships",
+    "headline": "Keep watershed knowledge, field context, and public answers flowing",
+    "subheadline": "DocsBot lets watershed districts, conservation nonprofits, utilities, consultants, and public agencies create AI agents trained on approved plans, reports, SOPs, outreach materials, and monitoring references—so staff and stakeholders can find trusted answers without digging through scattered files.",
+    "proofBullets": [
+      {
+        "text": "Answer resident, landowner, partner, and board questions from approved watershed plans, FAQs, reports, and program documents.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give field staff instant access to SOPs, sampling protocols, inspection checklists, grant requirements, and restoration guidance.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Use configured Skills, APIs, connectors, or MCP options to look up live records, summarize context, route requests, or trigger bounded workflows.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Surface repeated questions and knowledge gaps so teams can improve public education, partner onboarding, and internal documentation.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a watershed AI agent",
+    "secondaryCta": "Explore DocsBot workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your watershed organization’s own knowledge sources. Agents can answer questions, cite approved content, summarize long reports, support multilingual outreach, help employees retrieve procedures, and take customer-configured actions such as creating a task, routing a request, or preparing a human handoff when a decision needs expert review.",
+    "whoItHelps": [
+      {
+        "role": "Watershed program managers",
+        "roleContext": "Coordinate grants, monitoring, partner commitments, restoration projects, and public communications without becoming the single source of every answer.",
+        "bullets": [
+          {
+            "text": "Make watershed plans, meeting packets, technical memos, and annual reports searchable for staff and partners.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Use analytics to see which policies, projects, or water-quality topics people ask about most often.",
+            "icon": "ChartPieIcon"
+          },
+          {
+            "text": "Route sensitive regulatory, funding, or landowner commitments to the right human reviewer instead of letting an agent decide.",
+            "icon": "ShieldCheckIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Field, monitoring, and restoration teams",
+        "roleContext": "Give crews a private knowledge assistant for protocols, site notes, equipment guidance, and documentation standards while keeping official judgments with qualified staff.",
+        "bullets": [
+          {
+            "text": "Retrieve sampling SOPs, inspection checklists, photo documentation rules, and restoration maintenance instructions in private team chat.",
+            "icon": "DevicePhoneMobileIcon"
+          },
+          {
+            "text": "Summarize recent site context before a visit using approved reports, prior notes, and configured live lookups.",
+            "icon": "MapPinIcon"
+          },
+          {
+            "text": "Create a follow-up task or handoff summary when a field observation needs engineering, compliance, or landowner review.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "WrenchIcon"
+      },
+      {
+        "role": "Public outreach and stakeholder engagement teams",
+        "roleContext": "Support residents, landowners, educators, volunteers, and municipal partners with consistent answers grounded in current program materials.",
+        "bullets": [
+          {
+            "text": "EPA says How’s My Waterway helps the public answer questions about swimming, fish consumption, drinking-water protection, aquatic life, and restoration status.",
+            "icon": "InformationCircleIcon",
+            "sourceIds": [
+              "src-epa-hows-my-waterway"
+            ]
+          },
+          {
+            "text": "Answer routine questions about rain gardens, buffers, volunteer events, cost-share eligibility, and project timelines from approved materials.",
+            "icon": "GlobeAltIcon"
+          },
+          {
+            "text": "Collect missing details from a landowner or resident and forward a structured summary to staff through an approved workflow.",
+            "icon": "EnvelopeIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-usgs-water-data",
+      "metric": "USGS provides real-time or near-real-time water data across the U.S.",
+      "claim": "USGS Water Data for the Nation includes monitoring pages, interactive maps, alerts, and APIs for current and historical water data.",
+      "sourceTitle": "Water Data for the Nation (WDFN) | U.S. Geological Survey",
+      "sourceUrl": "https://www.usgs.gov/tools/nwis-current-water-data-real-time-data",
+      "sourceDate": "January 29, 2026",
+      "bestUsedFor": [
+        "live water-data context",
+        "field operations",
+        "public data access"
+      ]
+    },
+    {
+      "id": "src-epa-attains",
+      "metric": "Clean Water Act water-quality reporting occurs every two years.",
+      "claim": "EPA explains that states, territories, and authorized tribes monitor water pollution and report evaluated waters every two years; impaired waters require future pollution-reduction action.",
+      "sourceTitle": "ATTAINS | US EPA",
+      "sourceUrl": "https://www.epa.gov/waterdata/attains",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "impaired waters",
+        "regulatory reporting"
+      ]
+    },
+    {
+      "id": "src-epa-nrsa",
+      "metric": "EPA’s 2018–19 NRSA assessed national river and stream condition.",
+      "claim": "EPA’s National Rivers and Streams Assessment is a federal, state, and tribal partnership assessing U.S. river and stream condition at national scale.",
+      "sourceTitle": "National Rivers and Streams Assessment Report | US EPA",
+      "sourceUrl": "https://riverstreamassessment.epa.gov/webreport/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "water-quality condition",
+        "watershed education",
+        "monitoring priorities"
+      ]
+    },
+    {
+      "id": "src-epa-hows-my-waterway",
+      "metric": "EPA public waterway information covers local use and protection questions.",
+      "claim": "EPA’s How’s My Waterway answers public questions about swimming, fish consumption, drinking-water protection and delivery, aquatic communities, and restoration or protection of waterways.",
+      "sourceTitle": "Data & Data Products: How’s My Waterway Widget | US EPA",
+      "sourceUrl": "https://www.epa.gov/developers/data-data-products-hows-my-waterway-widget",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "public outreach",
+        "resident questions",
+        "local waterway education"
+      ]
+    },
+    {
+      "id": "src-epa-tmdl-tools",
+      "metric": "EPA maintains tools for impaired waters, TMDLs, models, and watershed assessment.",
+      "claim": "EPA lists How’s My Waterway, impaired-waters resources, TMDL tools, and watershed assessment modeling resources for evaluating physical, chemical, and biological conditions.",
+      "sourceTitle": "Resources, Tools and Databases about Impaired Waters and TMDLs | US EPA",
+      "sourceUrl": "https://www.epa.gov/tmdl/resources-tools-and-databases-about-impaired-waters-and-tmdls",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "technical references",
+        "TMDL workflows",
+        "assessment documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Public waterway and program question answering",
+      "problem": "Residents and partners ask recurring questions about local water conditions, project status, grants, events, and best practices, but answers are spread across plans, PDFs, web pages, and meeting materials.",
+      "agentWorkflow": "Train a DocsBot support agent on approved public pages, watershed plans, FAQs, outreach PDFs, cost-share rules, and project summaries. The agent answers in the organization’s voice, cites source content, asks clarifying questions, and escalates sensitive or site-specific commitments to staff.",
+      "liveContextOrTools": "A configured Skill can collect contact details, route a question by topic or subwatershed, create a follow-up ticket, or send a summary to staff through approved workflow automation.",
+      "exampleQuestionsOrRequests": [
+        "Is my property eligible for a buffer or rain garden cost-share program?",
+        "What projects are planned in this subwatershed this year?",
+        "Who should I contact about erosion near a streambank?"
+      ],
+      "businessOutcome": "Reduce repetitive inbox traffic while giving stakeholders clearer, more consistent access to approved watershed information.",
+      "icon": "GlobeAltIcon"
+    },
+    {
+      "name": "Field protocol and site-visit knowledge assistant",
+      "problem": "Sampling crews, restoration contractors, and inspectors need fast access to procedures, forms, site history, safety notes, and documentation requirements without searching shared drives from the field.",
+      "agentWorkflow": "Deploy a private internal knowledge agent trained on SOPs, inspection templates, equipment instructions, monitoring plans, permit conditions, and field documentation standards. Staff can ask practical questions before or during site visits and receive source-grounded answers.",
+      "liveContextOrTools": "With customer-configured APIs or connectors, the agent can look up a site record, summarize prior visit notes, create a follow-up task, or prepare a handoff for technical review.",
+      "exampleQuestionsOrRequests": [
+        "What photos are required for a post-installation buffer inspection?",
+        "Summarize the last three maintenance notes for this restoration site.",
+        "Which sampling protocol applies after a high-flow event?"
+      ],
+      "businessOutcome": "Help crews complete consistent documentation and reduce time lost searching for procedures or historical context.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Monitoring data explanation and public education",
+      "problem": "Water-quality and streamflow data can be difficult for nontechnical audiences to interpret, especially when residents want clear explanations of terms, trends, and responsible next steps.",
+      "agentWorkflow": "Train DocsBot on approved education pages, monitoring glossaries, watershed reports, program FAQs, and public data interpretation guidance. The agent can explain terms, summarize report sections, and direct people to official dashboards or staff when needed.",
+      "liveContextOrTools": "USGS Water Data for the Nation provides real-time or near-real-time water data, monitoring pages, alerts, maps, and APIs that a configured workflow can reference where authorized.",
+      "exampleQuestionsOrRequests": [
+        "What does turbidity mean in this monitoring report?",
+        "Where can I find the latest gage data for this creek?",
+        "Why do nutrients matter for stream health?"
+      ],
+      "businessOutcome": "Make technical watershed information more understandable while preserving source-grounded boundaries for official interpretations.",
+      "icon": "BeakerIcon",
+      "sourceIds": [
+        "src-usgs-water-data"
+      ]
+    },
+    {
+      "name": "Grant, plan, and reporting document retrieval",
+      "problem": "Watershed organizations manage long plans, grant agreements, pollutant-reduction narratives, board packets, consultant deliverables, and annual reports that are hard to search under deadline.",
+      "agentWorkflow": "Create an internal documentation assistant trained on plans, workplans, grant requirements, deliverables, board materials, and reporting templates. Staff can ask for relevant sections, summarize obligations, compare approved language, and identify missing documentation.",
+      "liveContextOrTools": "A DocsBot Skill can generate a draft summary, create a checklist, notify a project manager, or route a reporting question to finance or compliance reviewers.",
+      "exampleQuestionsOrRequests": [
+        "Which deliverables are due this quarter under the restoration grant?",
+        "Summarize the approved goals for the north tributary project.",
+        "Find the plan language about phosphorus reduction priorities."
+      ],
+      "businessOutcome": "Speed up staff research and reduce duplicated effort when preparing reports, board updates, and partner communications.",
+      "icon": "FolderIcon"
+    },
+    {
+      "name": "Impaired waters and TMDL resource navigator",
+      "problem": "Teams and partners need to understand impaired waters, TMDLs, assessment data, and planning resources, but the relevant regulatory and technical references are complex.",
+      "agentWorkflow": "Train an agent on your approved compliance guidance, TMDL documents, watershed assessment notes, and public-facing explanations. It can answer common questions, link to source sections, and hand off legal or regulatory interpretations to qualified staff.",
+      "liveContextOrTools": "EPA states that impaired waters are polluted enough to require action and are placed on state lists for future pollution-reduction actions under Clean Water Act reporting cycles.",
+      "exampleQuestionsOrRequests": [
+        "What does impaired mean for this stream segment?",
+        "Where do we explain TMDL responsibilities to municipal partners?",
+        "Which approved materials describe pollutant-reduction targets?"
+      ],
+      "businessOutcome": "Improve partner understanding of technical obligations without letting the AI make official regulatory determinations.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-epa-attains",
+        "src-epa-tmdl-tools"
+      ]
+    },
+    {
+      "name": "Stakeholder intake, triage, and handoff",
+      "problem": "Landowners, residents, volunteers, consultants, and municipalities submit requests with incomplete context, forcing staff to chase details before work can begin.",
+      "agentWorkflow": "Use a DocsBot customer-facing agent to gather structured details such as location, concern type, photos, contact information, urgency, and preferred follow-up. The agent summarizes the request and routes it according to customer-defined rules.",
+      "liveContextOrTools": "AI Actions can create a task or ticket, update approved fields, notify the right team, or prepare a human handoff while keeping final commitments with staff.",
+      "exampleQuestionsOrRequests": [
+        "I want help with drainage on my property.",
+        "Report a possible illicit discharge near a storm drain.",
+        "Sign me up for a volunteer planting event."
+      ],
+      "businessOutcome": "Turn unstructured requests into actionable summaries so staff can respond faster and prioritize work more consistently.",
+      "icon": "PaperAirplaneIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give residents and partners a clearer front door to watershed information",
+    "intro": "A DocsBot customer-facing agent can live on your website or program portal, answer from approved public materials, collect structured details, and escalate issues that require staff judgment. It is especially useful for outreach-heavy programs that balance education, service requests, and public accountability.",
+    "requests": [
+      {
+        "request": "“Can I get help installing a rain garden or buffer?”",
+        "agentResponseStrategy": "Answer from approved eligibility rules, explain the next step, ask for location and contact details, and prepare a structured intake summary if the visitor wants follow-up.",
+        "sourceTypes": [
+          "Cost-share rules",
+          "Program FAQs",
+          "Outreach pages",
+          "Approved forms"
+        ],
+        "optionalAction": "Create a follow-up task or forward the request to the watershed program inbox through a configured workflow.",
+        "icon": "HomeIcon"
+      },
+      {
+        "request": "“Is this creek safe for swimming or fishing?”",
+        "agentResponseStrategy": "Explain where official waterway, advisory, or monitoring information can be found, summarize approved public guidance, and avoid making safety guarantees beyond the sources.",
+        "sourceTypes": [
+          "Public waterway guidance",
+          "Monitoring summaries",
+          "EPA or agency references",
+          "Local FAQs"
+        ],
+        "optionalAction": "Route complex health, advisory, or emergency questions to the appropriate public agency contact.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "request": "“Where can I see current river levels?”",
+        "agentResponseStrategy": "Point users to approved dashboards or agency data sources and explain common terms in plain language from your educational content.",
+        "sourceTypes": [
+          "USGS references",
+          "Monitoring pages",
+          "Education glossaries",
+          "Local dashboard instructions"
+        ],
+        "optionalAction": "Use an authorized Skill to look up a configured site record or provide a link to the relevant official data page.",
+        "icon": "CloudIcon"
+      },
+      {
+        "request": "“I saw erosion, dumping, or unusual water color.”",
+        "agentResponseStrategy": "Collect location, time, photos if applicable, description, and contact preference, then summarize the report for staff review rather than diagnosing the incident.",
+        "sourceTypes": [
+          "Issue reporting SOPs",
+          "Public contact guidance",
+          "Field triage rules",
+          "Escalation instructions"
+        ],
+        "optionalAction": "Create a ticket, notify the correct team, or route urgent issues according to customer-defined rules.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Do you have materials for my class, HOA, or volunteer group?”",
+        "agentResponseStrategy": "Recommend approved education materials, event pages, volunteer instructions, and staff contact options based on the audience and topic.",
+        "sourceTypes": [
+          "Education PDFs",
+          "Event pages",
+          "Volunteer manuals",
+          "Speaker request forms"
+        ],
+        "optionalAction": "Collect request details and send a summary to outreach staff for scheduling or follow-up.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "request": "“What does the watershed plan say about my neighborhood?”",
+        "agentResponseStrategy": "Search approved plans and project summaries, explain relevant sections in plain language, and cite the source content so visitors can verify the answer.",
+        "sourceTypes": [
+          "Watershed plans",
+          "Subwatershed reports",
+          "Project maps",
+          "Board materials"
+        ],
+        "optionalAction": "Offer to collect a follow-up question for staff if the answer involves property-specific commitments.",
+        "icon": "MapPinIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for watershed operations, monitoring, and reporting",
+    "intro": "DocsBot can also support employees, consultants, board members, and partner staff with private access to internal knowledge. Train it on SOPs, workplans, grant files, reports, policies, and project records so teams can find answers without interrupting program leads.",
+    "workflows": [
+      {
+        "name": "Sampling and monitoring support",
+        "problem": "Monitoring protocols, QA/QC instructions, calibration notes, and reporting formats are often stored in separate PDFs and folders.",
+        "agentWorkflow": "Staff ask the internal agent for the correct protocol, required fields, equipment reminders, or documentation standard. The agent answers from approved SOPs and cites the source material.",
+        "sourceTypes": [
+          "Monitoring SOPs",
+          "QA/QC plans",
+          "Equipment manuals",
+          "Lab submission instructions"
+        ],
+        "optionalAction": "Generate a checklist or create a task for missing documentation through a configured Skill.",
+        "outcome": "More consistent field preparation and fewer repeated questions to technical leads.",
+        "icon": "BeakerIcon"
+      },
+      {
+        "name": "Grant and deliverable tracking",
+        "problem": "Project managers need fast answers about deliverables, reporting language, budget rules, and partner obligations across multiple grants.",
+        "agentWorkflow": "The agent retrieves relevant grant clauses, workplan milestones, approved narratives, and reporting templates, then summarizes the obligation with source references.",
+        "sourceTypes": [
+          "Grant agreements",
+          "Workplans",
+          "Reporting templates",
+          "Board approvals"
+        ],
+        "optionalAction": "Create a reminder, draft a deliverable checklist, or route a finance question for human review.",
+        "outcome": "Reduce deadline friction and make institutional knowledge easier to preserve.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "name": "Partner and board briefing prep",
+        "problem": "Preparing updates for boards, municipalities, funders, and advisory groups requires pulling context from reports, maps, minutes, and project files.",
+        "agentWorkflow": "Ask DocsBot to summarize approved project status, extract prior decisions, find source language, or draft a briefing outline for staff review.",
+        "sourceTypes": [
+          "Meeting minutes",
+          "Project reports",
+          "Plans",
+          "Partner memos"
+        ],
+        "optionalAction": "Generate a draft summary or handoff document for a program manager to review before sharing.",
+        "outcome": "Faster briefing prep with clearer traceability to approved source documents.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Policy and procedure retrieval",
+        "problem": "Staff and partners need consistent answers on procurement, data handling, communication approvals, safety procedures, and document retention.",
+        "agentWorkflow": "DocsBot answers from internal policies and flags when a question needs an authorized reviewer rather than a self-service answer.",
+        "sourceTypes": [
+          "Internal policies",
+          "SOPs",
+          "Staff handbooks",
+          "Data governance notes"
+        ],
+        "optionalAction": "Route a policy exception request or create a review task through approved workflow automation.",
+        "outcome": "Better consistency across distributed watershed teams and partner organizations.",
+        "icon": "BookOpenIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on your knowledge sources",
+      "mainLandingPageContext": "DocsBot agents learn from configured websites, documents, internal content, help materials, PDFs, wikis, and other approved sources.",
+      "industryApplication": "Train an agent on watershed plans, monitoring reports, grant documents, outreach materials, SOPs, meeting minutes, and partner FAQs.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "Source-grounded answers and citations",
+      "mainLandingPageContext": "DocsBot provides answers grounded in the sources you approve, helping users verify where information came from.",
+      "industryApplication": "Give staff and stakeholders traceable answers from the correct plan section, SOP, public FAQ, or report instead of relying on memory.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support bounded lookups, summaries, routing, record updates, workflow triggers, and handoffs when configured by the customer.",
+      "industryApplication": "Use approved workflows to look up site context, create a field task, route a resident concern, notify outreach staff, or connect to tools exposed through a Model Context Protocol server.",
+      "icon": "PuzzlePieceIcon"
+    },
+    {
+      "feature": "Private internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can serve employees in private team chat experiences with instant answers from company procedures, policies, and documents.",
+      "industryApplication": "Help field staff, program managers, consultants, and board support teams retrieve operational knowledge without searching shared drives.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See recurring watershed questions, confusing program rules, missing public explanations, and internal SOP gaps that deserve better documentation.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from approved knowledge sources.",
+      "industryApplication": "Support multilingual outreach for residents, volunteers, landowners, and community partners while keeping answers grounded in your approved materials.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal plans, personnel procedures, partner files, and draft documents behind the right permissions while still making approved knowledge accessible.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "liza-sentry-docs",
+      "anders-boligsiden-communication"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Train agents on your own watershed content library instead of generic web answers.",
+      "Use engagement analytics to understand what stakeholders and staff are trying to learn.",
+      "Improve communication with customers, partners, and stakeholders using consistent source-grounded responses."
+    ],
+    "whyTheseReviewsFit": "Watershed teams need the same fundamentals DocsBot customers already value: fast access to owned knowledge, clearer stakeholder communication, and visibility into what people cannot find in existing documentation. DocsBot brings those strengths to plans, reports, SOPs, public FAQs, and partner workflows.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ChartBarIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for watershed management organizations",
+    "audience": [
+      "Watershed districts",
+      "Conservation nonprofits",
+      "Environmental consultants",
+      "Public works and stormwater teams",
+      "Utilities and water-resource agencies"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "CloudIcon"
+  },
+  "relatedIndustrySlugs": [
+    "environmental-monitoring",
+    "environmental-consultancy",
+    "conservation-organizations",
+    "environmental-health",
+    "carbon-accounting",
+    "natural-resources-environmental"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "watershed-management",
+    "webSearchQueries": [
+      "EPA How's My Waterway watershed water quality data impaired waters",
+      "US EPA National Rivers and Streams Assessment 2018 2019 report percent poor condition nutrients",
+      "USGS Water Data for the Nation real time water data sites",
+      "EPA Watershed Academy watershed management plans nine elements"
+    ],
+    "sourceUrls": [
+      "https://www.usgs.gov/tools/nwis-current-water-data-real-time-data",
+      "https://www.epa.gov/waterdata/attains",
+      "https://riverstreamassessment.epa.gov/webreport/",
+      "https://www.epa.gov/developers/data-data-products-hows-my-waterway-widget",
+      "https://www.epa.gov/tmdl/resources-tools-and-databases-about-impaired-waters-and-tmdls"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 40737,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 28193,
+        "outputTokens": 7624,
+        "reasoningOutputTokens": 109,
+        "totalTokens": 48361,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.187979,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.197979
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21380,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14084,
+          "outputTokens": 5046,
+          "reasoningOutputTokens": 109,
+          "totalTokens": 26426,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.112724,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.122724
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19357,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14109,
+          "outputTokens": 2578,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 21935,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.075255,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.075255
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1435782944608-71c88cf57a17?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHx3YXRlcnNoZWR8ZW58MHwwfHx8MTcxNDg3ODA2NHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Watershed Management background image",
+    "source": "legacy-industry",
+    "query": "Watershed Management"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer resident questions without making unsafe promises about swimming, fishing, flooding, or drinking-water safety?",
+      "answer": "Yes. Train the public agent on approved guidance, local FAQs, monitoring summaries, and escalation rules. It can explain where official information is found, cite the source it used, and avoid guarantees beyond your published materials. For health, emergency, or site-specific safety questions, configure it to route the request to the right agency or staff reviewer.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would an AI agent handle questions about impaired waters or TMDLs without acting like a regulator?",
+      "answer": "DocsBot can answer from your approved compliance explanations, watershed plans, TMDL documents, and public education materials, then cite the relevant section. It should be configured to explain terms and point to official resources, not issue determinations. EPA notes that evaluated waters are reported every two years and impaired waters require future pollution-reduction action.",
+      "role": "Watershed program managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-attains"
+      ]
+    },
+    {
+      "question": "Can field crews use DocsBot from the field to find sampling protocols, checklists, and site history?",
+      "answer": "Yes. A private internal knowledge agent can be trained on SOPs, QA/QC plans, inspection forms, equipment instructions, monitoring plans, and approved site notes. Crews can ask practical questions before or during a visit and get source-grounded answers. With configured Skills or APIs, the agent can also summarize a site record or create a follow-up task.",
+      "role": "Field, monitoring, and restoration teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will DocsBot connect to live water data, or does it only answer from static PDFs?",
+      "answer": "DocsBot can answer from uploaded and connected knowledge sources, and it can reference live context when you configure an authorized Skill, API, connector, or MCP connection. For example, USGS Water Data for the Nation includes current and historical water data, monitoring pages, interactive maps, alerts, and APIs that an approved workflow could reference.",
+      "role": "Field, monitoring, and restoration teams",
+      "category": "Integrations",
+      "sourceIds": [
+        "src-usgs-water-data"
+      ]
+    },
+    {
+      "question": "How do we keep public answers consistent when our plans, board packets, grants, and project pages all say things slightly differently?",
+      "answer": "Most teams start by defining approved source sets: public website pages, current watershed plans, active program rules, board-approved language, and selected FAQs. DocsBot then answers from those sources and cites them, making conflicts easier to spot. Analytics can also reveal repeated confusing topics so staff can update the underlying content.",
+      "role": "Watershed program managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help reduce routine email and phone traffic from landowners asking about cost-share programs?",
+      "answer": "Yes. A customer-facing agent can answer eligibility and next-step questions from approved program rules, ask for missing details such as location and project type, and prepare a structured handoff. Staff still review commitments, but the agent can reduce back-and-forth by collecting the information needed before a program manager responds.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "What if a resident reports erosion, dumping, an illicit discharge, or unusual water color?",
+      "answer": "DocsBot should not diagnose the incident. It can collect the location, time, description, photos if applicable, urgency, and contact preference, then route a structured summary through your approved workflow. Escalation rules can distinguish routine service requests from urgent issues that require a human or agency response.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can the agent support municipal partners, consultants, board members, and staff without exposing internal files to the public?",
+      "answer": "Yes. You can separate public-facing agents from private internal agents and control which sources each agent can access. DocsBot supports granular access controls and role-based permissions, so internal SOPs, draft documents, personnel procedures, or partner files can remain restricted while public materials stay available to residents.",
+      "role": "Watershed program managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot handle sensitive landowner, permit, grant, or compliance questions?",
+      "answer": "Configure the agent to answer only from approved sources, ask clarifying questions when needed, and escalate sensitive decisions to a qualified reviewer. It can prepare a handoff summary, but humans should retain control over regulatory interpretations, legal commitments, funding eligibility, property-specific recommendations, and official approvals.",
+      "role": "Watershed program managers",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us prepare board updates, funder reports, or partner briefings faster?",
+      "answer": "Yes. An internal agent can retrieve plan language, summarize project status, find prior meeting decisions, compare approved narratives, and draft a briefing outline for staff review. This is especially useful when information is scattered across grants, workplans, annual reports, meeting packets, consultant memos, and monitoring documents.",
+      "role": "Watershed program managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What systems can DocsBot integrate with for intake, routing, and follow-up tasks?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, webhooks, workflow automation, and MCP Connectors to support approved lookups and actions. Typical watershed workflows include creating a ticket or task, notifying a program inbox, routing by subwatershed or topic, updating approved fields, or generating a handoff summary for staff.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use DocsBot to explain monitoring data to nontechnical audiences?",
+      "answer": "Yes. Train the agent on your monitoring glossary, public reports, education pages, dashboard instructions, and approved interpretation guidance. It can explain terms like turbidity, nutrients, streamflow, and bacteria in plain language, while pointing people to official dashboards or staff when a question requires professional interpretation.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How can we measure whether the watershed AI agent is actually helping?",
+      "answer": "Track repeated question volume, resolution rate, escalation quality, staff time saved, unanswered topics, satisfaction signals, intake completeness, and reductions in duplicate email requests. DocsBot analytics, logs, topic reporting, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery help teams see what people ask and where content needs improvement.",
+      "role": "Watershed program managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will DocsBot give citations so staff and partners can verify the answer?",
+      "answer": "Yes. DocsBot is designed for source-grounded answers from approved knowledge sources. For watershed teams, that means answers can point back to the relevant plan section, SOP, grant clause, public FAQ, monitoring report, or board-approved document instead of relying on memory or an unsupported AI response.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "How much cleanup do our documents need before implementation?",
+      "answer": "You do not need perfect documentation to start, but source quality matters. A practical pilot usually begins with high-value, current materials: public FAQs, active watershed plans, cost-share rules, SOPs, forms, monitoring guidance, and recent reports. During testing, conversation logs reveal outdated language, missing answers, and documents that need revision.",
+      "role": "Watershed program managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot support multilingual outreach for residents, volunteers, and landowners?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages while staying grounded in your approved sources. That can help outreach teams make program information more accessible, but staff should still review critical public-health, legal, funding, or emergency communications according to your organization’s language-access and approval policies.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How do we prevent the agent from using draft plans or outdated program rules?",
+      "answer": "Governance starts with source selection and permissions. Train the agent on approved repositories, remove outdated files, separate draft and public collections, and use review workflows before publishing sensitive content. DocsBot’s access controls, role-based permissions, logs, and source-grounded answers help administrators manage what the agent can use.",
+      "role": "Watershed program managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help new staff, seasonal crews, interns, or partner organizations get productive faster?",
+      "answer": "Yes. A private knowledge agent can answer onboarding questions from SOPs, safety procedures, field protocols, reporting templates, grant requirements, and internal policies. Instead of interrupting program leads for routine questions, new team members can find source-cited guidance and escalate exceptions when they need expert judgment.",
+      "role": "Field, monitoring, and restoration teams",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "What should be included in a first pilot for a watershed organization?",
+      "answer": "A strong pilot usually targets one painful workflow: public cost-share questions, field SOP retrieval, monitoring-data education, grant deliverable lookup, or issue intake. Limit the source set, define escalation rules, test real questions from staff and residents, review answers, then expand once the team trusts the agent’s citations and boundaries.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot answer questions about EPA or public waterway resources we already reference on our site?",
+      "answer": "Yes, if those resources are included in the approved source set or referenced through a configured workflow. EPA says How’s My Waterway helps answer public questions about swimming, fish consumption, drinking-water protection and delivery, aquatic communities, and restoration or protection of waterways.",
+      "role": "Public outreach and stakeholder engagement teams",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-epa-hows-my-waterway"
+      ]
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or search box?",
+      "answer": "DocsBot is better suited when buyers need source-grounded answers, private internal knowledge, analytics, and scoped actions—not just keyword search or scripted chat. It can summarize long documents, cite approved sources, collect structured intake, route requests, and support internal workflows while keeping humans in control of sensitive decisions.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we use DocsBot for grant and deliverable tracking without replacing our project management system?",
+      "answer": "Yes. DocsBot can act as a retrieval and workflow layer over approved grant files, workplans, deliverable templates, and board approvals. It can summarize obligations, draft checklists, and create reminders or tasks through configured workflows, while your existing project management or financial system remains the system of record.",
+      "role": "Watershed program managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What happens when the AI does not know the answer or the source material is incomplete?",
+      "answer": "DocsBot should be configured to say when it cannot answer from approved sources, ask for clarifying details, or escalate to staff. Those gaps are also valuable: analytics and conversation review can show which topics need better FAQs, updated plan language, clearer public guidance, or new internal SOPs.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is DocsBot appropriate for Clean Water Act, assessment, or impaired-waters education workflows?",
+      "answer": "Yes, as a source-grounded navigator and education layer—not as a substitute for official determinations. EPA maintains resources for impaired waters, TMDLs, models, and watershed assessment, and DocsBot can help staff or partners find and understand your approved explanations while routing legal or regulatory interpretation to qualified reviewers.",
+      "role": "Watershed program managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-epa-tmdl-tools"
+      ]
+    },
+    {
+      "question": "How do we handle security reviews from a public agency, utility, or consulting firm?",
+      "answer": "DocsBot provides SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and a policy that customer data is not used to train public models. For workflow actions, Skills can be scoped with secrets, metadata bindings, logging, and customer-defined controls.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    }
+  ]
+}

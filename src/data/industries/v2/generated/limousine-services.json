@@ -1,0 +1,779 @@
+{
+  "slug": "limousine-services",
+  "business": "Limousine Services",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Limousine Dispatch and Client Service",
+    "description": "DocsBot helps limousine services answer trip questions, qualify bookings, and route client requests with AI agents trained on your policies.",
+    "canonicalPath": "/industry/limousine-services"
+  },
+  "hero": {
+    "eyebrow": "AI automation for premium ground transportation teams",
+    "headline": "Run a more responsive limousine service with DocsBot AI agents",
+    "subheadline": "DocsBot helps limousine operators create AI agents trained on service areas, fleet details, booking policies, airport procedures, event packages, driver SOPs, and customer FAQs. Give clients fast, source-grounded answers while helping dispatch, sales, and operations teams find the right internal information sooner.",
+    "proofBullets": [
+      {
+        "text": "Answer ride, airport transfer, event, vehicle, luggage, pricing-policy, and cancellation questions from approved company sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect booking details, qualify trip intent, summarize requests, and route high-value or complex trips to your team.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Help dispatchers and office staff retrieve SOPs, service rules, vehicle notes, and escalation guidance in private team chat.",
+        "icon": "TruckIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions for approved live lookups, handoffs, ticket creation, notifications, and workflow triggers.",
+        "icon": "BoltIcon"
+      }
+    ],
+    "primaryCta": "Build your limousine AI agent",
+    "secondaryCta": "See DocsBot in action"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI support and internal knowledge agents for limousine companies by training on the sources you approve: website pages, service catalogs, airport pickup instructions, fleet descriptions, rate policies, PDFs, SOPs, FAQs, and internal documents. Agents can answer in your voice, summarize requests, surface documentation gaps, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep service quality consistent while your team handles airport transfers, corporate accounts, weddings, proms, roadshows, and late-night inquiries.",
+        "bullets": [
+          {
+            "text": "Give prospects fast answers about service areas, vehicle options, packages, booking requirements, and policy details.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Use analytics and conversation review to see repeated client questions and improve pages, FAQs, and booking instructions.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "The U.S. limousine and town car services industry is listed by IBISWorld at $4.5 billion in 2025 revenue, with many small operators competing for premium clients.",
+            "icon": "BuildingOffice2Icon",
+            "sourceIds": [
+              "src-ibisworld-limo-market"
+            ]
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Reservation and sales teams",
+        "roleContext": "Respond to quote requests with better context before a human confirms pricing, vehicle availability, contract terms, or special arrangements.",
+        "bullets": [
+          {
+            "text": "Collect trip date, pickup location, drop-off, passenger count, luggage needs, event type, and preferred follow-up channel.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Apply customer-defined qualification rules for corporate accounts, airport transfers, weddings, hourly charters, and multi-stop itineraries.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Forward lead summaries and conversation context to the CRM, inbox, helpdesk, or scheduling workflow your team configures.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "EnvelopeIcon"
+      },
+      {
+        "role": "Dispatch and operations leaders",
+        "roleContext": "Make internal procedures easier to find when office staff, dispatchers, and managers need consistent answers during busy travel windows.",
+        "bullets": [
+          {
+            "text": "Retrieve approved SOPs for airport meet-and-greet instructions, chauffeur arrival standards, incident escalation, and client communication.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize client conversations for cleaner handoffs between sales, reservations, dispatch, and management.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          },
+          {
+            "text": "FMCSA states that for-hire bus companies must obtain operating authority for interstate passenger transportation, so operators need clear internal compliance references where applicable.",
+            "icon": "ShieldCheckIcon",
+            "sourceIds": [
+              "src-fmcsa-charter-guidance"
+            ]
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Customer service managers",
+        "roleContext": "Offer premium self-service without losing the option for a human handoff when questions involve safety, pricing exceptions, complaints, or VIP accounts.",
+        "bullets": [
+          {
+            "text": "Answer recurring questions about deposits, wait time, car seats, gratuity, airport pickup zones, hourly minimums, and change policies.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Escalate sensitive, unusual, or high-value requests with a summary so staff can respond with full context.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Support travelers in more than 100 languages when your approved source content contains the answer.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ibisworld-limo-market",
+      "metric": "$4.5 billion U.S. limousine and town car services revenue in 2025",
+      "claim": "IBISWorld lists U.S. Limousine & Town Car Services revenue at $4.5 billion in 2025, with 245,000 employees and 182,000 businesses.",
+      "sourceTitle": "IBISWorld: Limousine & Town Car Services in the US - Market Research Report",
+      "sourceUrl": "https://www.ibisworld.com/united-states/industry/limousine-town-car-services/5622/",
+      "sourceDate": "April 2025",
+      "bestUsedFor": [
+        "market size",
+        "competitive pressure",
+        "fragmented operator landscape"
+      ]
+    },
+    {
+      "id": "src-faa-airport-enplanements",
+      "metric": "FAA publishes annual U.S. airport passenger boarding data",
+      "claim": "The FAA collects full-calendar-year passenger boarding data for U.S. airports and uses it for airport categories and funding calculations.",
+      "sourceTitle": "FAA: Passenger Boarding (Enplanement) and All-Cargo Data for U.S. Airports",
+      "sourceUrl": "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "airport transfer demand",
+        "travel volume context",
+        "airport pickup planning"
+      ]
+    },
+    {
+      "id": "src-fmcsa-passenger-safety",
+      "metric": "FMCSA passenger carrier program and regulations",
+      "claim": "FMCSA provides passenger carrier safety information for carriers and the traveling public, including regulatory and safety resources.",
+      "sourceTitle": "FMCSA: Passenger Carrier Safety",
+      "sourceUrl": "https://www.fmcsa.dot.gov/safety/passenger-carrier-safety",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "compliance pressure",
+        "passenger safety",
+        "internal SOP references"
+      ]
+    },
+    {
+      "id": "src-fmcsa-charter-guidance",
+      "metric": "For-hire interstate passenger carriers may need FMCSA operating authority",
+      "claim": "FMCSA tells consumers that for-hire bus companies must obtain operating authority from FMCSA to provide interstate passenger transportation.",
+      "sourceTitle": "FMCSA: Tips for Chartering a Bus",
+      "sourceUrl": "https://www.fmcsa.dot.gov/safety/passenger-safety/tips-chartering-bus",
+      "sourceDate": "2013",
+      "bestUsedFor": [
+        "interstate passenger transportation",
+        "compliance references",
+        "operator due diligence"
+      ]
+    },
+    {
+      "id": "src-bls-drivers-ooh",
+      "metric": "BLS covers taxi drivers, shuttle drivers, and chauffeurs as passenger transportation workers",
+      "claim": "BLS describes taxi drivers, shuttle drivers, and chauffeurs as workers who transport people to and from destinations and publishes job outlook information for the occupation.",
+      "sourceTitle": "BLS Occupational Outlook Handbook: Taxi Drivers, Shuttle Drivers, and Chauffeurs",
+      "sourceUrl": "https://www.bls.gov/ooh/transportation-and-material-moving/taxi-drivers-and-chauffeurs.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "driver workforce context",
+        "training and onboarding",
+        "operations staffing"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Premium booking and quote intake agent",
+      "problem": "Prospects often ask similar questions before a reservation team can confirm price, vehicle fit, timing, and special requirements.",
+      "agentWorkflow": "A DocsBot agent answers from your approved service pages, rate-policy notes, fleet descriptions, FAQs, and event-package documents. It collects trip details, applies your qualification instructions, summarizes the request, and routes the lead to the right inbox, CRM, helpdesk, or scheduling flow when configured.",
+      "liveContextOrTools": "AI Actions can collect structured form data, trigger a quote-request workflow, create a task, notify sales, or request a meeting through a customer-approved scheduling tool.",
+      "exampleQuestionsOrRequests": [
+        "Can I book a black SUV for six passengers from LAX to Beverly Hills tomorrow night?",
+        "What details do you need for a wedding transportation quote?",
+        "Do you offer hourly service for a corporate roadshow with multiple stops?"
+      ],
+      "businessOutcome": "Reservation staff receive cleaner requests with fewer back-and-forth questions, while prospects get immediate answers before a human confirms final price and availability.",
+      "icon": "CalendarIcon"
+    },
+    {
+      "name": "Airport transfer support agent",
+      "problem": "Airport clients need quick answers about pickup locations, flight delays, meet-and-greet procedures, luggage, and after-hours contact options.",
+      "agentWorkflow": "Train DocsBot on airport pickup instructions, service-area pages, transfer FAQs, client communication templates, and exception policies. The agent can explain the normal process, gather flight and passenger details, and prepare a handoff when staff action is required.",
+      "liveContextOrTools": "With approved live context, a Skill or API workflow can look up a booking status, attach flight details supplied by the customer, create a support ticket, or send a dispatch notification.",
+      "exampleQuestionsOrRequests": [
+        "Where will my chauffeur meet me at Terminal 4?",
+        "My flight is delayed two hours. What should I do?",
+        "Can the driver help with three large suitcases and a golf bag?"
+      ],
+      "businessOutcome": "Travelers get consistent guidance during time-sensitive airport pickups, and dispatch receives better summaries for exceptions or urgent updates.",
+      "icon": "PaperAirplaneIcon",
+      "sourceIds": [
+        "src-faa-airport-enplanements"
+      ]
+    },
+    {
+      "name": "Corporate account knowledge agent",
+      "problem": "Corporate clients expect consistent answers about billing, booking rules, preferred vehicles, executive travel standards, and account-specific procedures.",
+      "agentWorkflow": "DocsBot can act as a private internal knowledge assistant trained on account playbooks, contract summaries, service-level notes, invoicing procedures, and approved sales materials. Staff can ask natural-language questions instead of searching through folders or asking a manager.",
+      "liveContextOrTools": "Customer-configured connectors can retrieve approved account context, draft follow-up emails, create internal tasks, or update permitted fields while keeping humans responsible for pricing, contract, and account commitments.",
+      "exampleQuestionsOrRequests": [
+        "What pickup protocol does this corporate account require for executives?",
+        "Which billing notes should we check before confirming this trip?",
+        "Draft a follow-up asking for missing passenger names and flight numbers."
+      ],
+      "businessOutcome": "Sales, reservations, and dispatch teams can serve account clients with more consistent information and clearer internal handoffs.",
+      "icon": "BuildingOffice2Icon"
+    },
+    {
+      "name": "Driver SOP and incident guidance assistant",
+      "problem": "Drivers and operations teams need fast access to current procedures, but SOPs can be scattered across PDFs, wikis, messages, and internal documents.",
+      "agentWorkflow": "DocsBot trains on your driver handbook, dress-code standards, vehicle presentation rules, escalation trees, lost-item procedures, complaint policies, and safety references. Staff ask questions in private chat and receive source-grounded answers from approved materials.",
+      "liveContextOrTools": "AI Actions can generate an incident summary, create a review task, notify an operations channel, or route sensitive cases to a manager under customer-defined permissions.",
+      "exampleQuestionsOrRequests": [
+        "What is our procedure when a client leaves a laptop in the vehicle?",
+        "How should we document a late pickup complaint?",
+        "What should a chauffeur do if a passenger requests an unscheduled stop?"
+      ],
+      "businessOutcome": "Operations leaders reduce repeated internal questions and help staff follow the latest approved procedure during busy service periods.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fmcsa-passenger-safety"
+      ]
+    },
+    {
+      "name": "Review, FAQ, and knowledge-gap intelligence",
+      "problem": "Limousine companies often do not know which questions are causing friction until staff see the same issues repeatedly in calls, emails, and chats.",
+      "agentWorkflow": "DocsBot logs conversations, supports review workflows, reports topics, and helps identify unanswered or repeated questions. Teams can use those insights to update website pages, policies, booking instructions, event FAQs, and internal SOPs.",
+      "liveContextOrTools": "The agent can summarize trends for managers, draft new FAQ entries from approved source material, or create content-update tasks in a customer-configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "What are clients asking most often before booking airport transfers?",
+        "Which questions did the agent escalate this week?",
+        "Summarize unresolved wedding transportation questions for our sales meeting."
+      ],
+      "businessOutcome": "Managers can improve self-service content and reduce preventable support volume without guessing which topics matter most.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Multilingual client service agent",
+      "problem": "Airport, hotel, event, and international business travelers may need clear answers in their preferred language before or after a ride.",
+      "agentWorkflow": "DocsBot can answer in more than 100 languages using your approved knowledge sources, helping clients understand service policies, pickup procedures, luggage guidance, and contact options while preserving your brand voice.",
+      "liveContextOrTools": "When configured, the agent can collect the client’s preferred language, summarize the conversation in English for staff, and route follow-up to the right team.",
+      "exampleQuestionsOrRequests": [
+        "Explain the airport pickup process in Spanish.",
+        "Can you summarize this passenger’s request for our dispatcher in English?",
+        "What is your cancellation policy in French?"
+      ],
+      "businessOutcome": "Teams can support a wider range of travelers while keeping staff handoffs readable and consistent.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give limousine clients instant answers before a reservation specialist steps in",
+    "intro": "A DocsBot customer-facing agent can live in your website or app chat widget and answer from your service pages, fleet information, airport instructions, event packages, FAQs, and policies. For complex quotes, VIP clients, complaints, or unusual itineraries, it can collect context and escalate to your team.",
+    "requests": [
+      {
+        "request": "“Do you have a stretch limousine for a wedding party of 10?”",
+        "agentResponseStrategy": "Answer from fleet and wedding-package sources, clarify passenger count, date, hours, pickup area, and special requirements, then route the qualified request for human pricing confirmation.",
+        "sourceTypes": [
+          "Fleet pages",
+          "Wedding package PDFs",
+          "Booking policy FAQs"
+        ],
+        "optionalAction": "Submit a structured quote request or create a sales task through a customer-configured workflow.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Where do I meet my chauffeur at the airport?”",
+        "agentResponseStrategy": "Use approved airport pickup instructions to explain the normal meet-and-greet or curbside process, ask for missing terminal or flight details, and escalate urgent changes.",
+        "sourceTypes": [
+          "Airport pickup guides",
+          "Transfer FAQs",
+          "Client communication templates"
+        ],
+        "optionalAction": "Create a dispatch notification or support ticket when the traveler reports a delay or missed connection.",
+        "icon": "MapPinIcon",
+        "sourceIds": [
+          "src-faa-airport-enplanements"
+        ]
+      },
+      {
+        "request": "“Can I change the pickup time for tonight?”",
+        "agentResponseStrategy": "Explain change-policy rules from your approved sources, collect reservation identifiers and the requested time, and hand off to staff when availability or pricing must be confirmed.",
+        "sourceTypes": [
+          "Change policies",
+          "Reservation FAQs",
+          "Support scripts"
+        ],
+        "optionalAction": "Look up permitted booking context through an approved Skill, then route the change request to reservations or dispatch.",
+        "icon": "ClockIcon"
+      },
+      {
+        "request": "“What is included in your prom package?”",
+        "agentResponseStrategy": "Answer from event package content, clarify service area and group size, and keep safety, payment, and contract terms aligned with approved company language.",
+        "sourceTypes": [
+          "Event service pages",
+          "Prom package FAQs",
+          "Terms and conditions"
+        ],
+        "optionalAction": "Collect parent or organizer contact details and forward a summary for human follow-up.",
+        "icon": "TicketIcon"
+      },
+      {
+        "request": "“I left my phone in the car.”",
+        "agentResponseStrategy": "Use lost-item procedures to gather ride details, passenger contact information, vehicle or driver notes if known, and escalate with a concise handoff.",
+        "sourceTypes": [
+          "Lost-item SOPs",
+          "Support workflows",
+          "Escalation policies"
+        ],
+        "optionalAction": "Create an internal task or notify the operations channel configured by the customer.",
+        "icon": "DevicePhoneMobileIcon"
+      },
+      {
+        "request": "“Can you explain your cancellation policy in Portuguese?”",
+        "agentResponseStrategy": "Answer in the client’s language from the approved policy source and summarize the request for staff if follow-up is needed.",
+        "sourceTypes": [
+          "Cancellation policy",
+          "FAQs",
+          "Multilingual source content"
+        ],
+        "optionalAction": "Route the conversation summary to support in the team’s working language.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Make limousine operations knowledge easier for staff to find and apply",
+    "intro": "DocsBot can run as a private internal knowledge agent for reservations, dispatch, sales, management, and customer service teams. Train it on SOPs, policy documents, driver manuals, account notes, training files, and service playbooks so employees can ask questions and get source-grounded answers.",
+    "workflows": [
+      {
+        "name": "Reservation desk answer assistant",
+        "problem": "Staff lose time searching through rate notes, policies, vehicle details, and event package documents while prospects wait.",
+        "agentWorkflow": "The internal agent retrieves approved answers, compares policy references, drafts client-facing replies, and highlights when a human must confirm availability, price, or contract details.",
+        "sourceTypes": [
+          "Rate policy notes",
+          "Fleet documents",
+          "Event package pages",
+          "FAQs"
+        ],
+        "optionalAction": "Draft an email response or create a follow-up task in the customer-configured sales workflow.",
+        "outcome": "Faster, more consistent responses without letting the agent make final pricing or contractual commitments.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Dispatcher handoff summaries",
+        "problem": "Important client details can be lost when requests move from web chat to reservations, dispatch, and chauffeur coordination.",
+        "agentWorkflow": "DocsBot can summarize the conversation, extract pickup details, passenger needs, timing notes, and open questions, then route the handoff through approved workflows.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Dispatch SOPs",
+          "Client communication templates"
+        ],
+        "optionalAction": "Send a summary to Slack, Microsoft Teams, helpdesk software, or another approved destination configured by the customer.",
+        "outcome": "Cleaner handoffs reduce repeated questions and help staff respond with the right context.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Driver onboarding and policy search",
+        "problem": "New chauffeurs and office staff need repeated answers about service standards, vehicle presentation, communication rules, and escalation procedures.",
+        "agentWorkflow": "Train DocsBot on onboarding materials, driver manuals, dress standards, incident procedures, and internal policies. Employees can ask questions privately and receive answers tied to source material.",
+        "sourceTypes": [
+          "Driver handbook",
+          "Onboarding PDFs",
+          "SOPs",
+          "Policy documents"
+        ],
+        "optionalAction": "Generate training summaries or route documentation gaps to an operations manager for review.",
+        "outcome": "Employees learn procedures faster and managers see which policies need clearer documentation.",
+        "icon": "AcademicCapIcon",
+        "sourceIds": [
+          "src-bls-drivers-ooh"
+        ]
+      },
+      {
+        "name": "Compliance reference assistant",
+        "problem": "Passenger transportation rules vary by operation type, vehicle type, jurisdiction, and trip context, so teams need a reliable way to find internal guidance and know when to ask a manager.",
+        "agentWorkflow": "DocsBot can retrieve approved compliance notes, insurance checklists, licensing references, and escalation rules from your internal knowledge base. It should guide staff to company procedures and human review for regulated or uncertain cases.",
+        "sourceTypes": [
+          "Compliance notes",
+          "Insurance checklists",
+          "Licensing references",
+          "Manager escalation rules"
+        ],
+        "optionalAction": "Create a review task for operations or compliance when a question involves interstate service, unusual vehicle use, or policy uncertainty.",
+        "outcome": "Staff find the right internal reference faster while regulated decisions remain under human control.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-fmcsa-passenger-safety"
+        ]
+      },
+      {
+        "name": "Sales enablement for premium accounts",
+        "problem": "Corporate and event sales teams need quick access to service differentiators, proposal language, account requirements, and objection-handling notes.",
+        "agentWorkflow": "DocsBot can answer sales questions from approved playbooks, service catalogs, testimonials, proposal templates, and account notes. When configured with web search and approved Skills, it can also summarize public prospect context for human sellers.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Proposal templates",
+          "Service catalogs",
+          "Account notes"
+        ],
+        "optionalAction": "Draft a follow-up email, create a CRM task, or prepare a meeting brief through customer-approved connectors and workflow rules, including MCP Connectors when your systems expose Model Context Protocol tools.",
+        "outcome": "Sales reps prepare better responses while humans retain control over commitments, pricing, and contract terms.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI support agents",
+      "mainLandingPageContext": "DocsBot agents answer from the knowledge sources a business approves, including websites, documents, help articles, PDFs, and internal content.",
+      "industryApplication": "Train an agent on limousine service areas, vehicle pages, airport pickup rules, event packages, cancellation policies, and FAQs so clients receive consistent answers.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, routing, task creation, record updates, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect trip details, submit quote forms, create reservation follow-up tasks, notify dispatch, or route VIP and urgent requests to the right person under your workflow rules.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant trained on SOPs, policies, wikis, PDFs, Google Drive, Notion, Confluence, Word documents, and other approved company sources.",
+      "industryApplication": "Give dispatch, reservations, managers, and customer service teams a searchable assistant for driver SOPs, client account notes, airport procedures, and incident escalation rules.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access.",
+      "industryApplication": "Summarize client issues, draft responses, route lost-item reports, escalate complaints, and help staff answer recurring service questions from ticket history when connected.",
+      "icon": "FolderIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, analytics, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which limousine service questions recur most often, which answers need better documentation, and where clients are getting stuck before booking.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages while using the company’s approved knowledge sources.",
+      "industryApplication": "Support international travelers, hotel guests, event planners, and executive assistants who need airport transfer or booking information in another language.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private account documents, chauffeur SOPs, client communication templates, and internal policies while controlling what each agent can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "russell-hablo-travel-training",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for 24/7 customer support experiences that can scale beyond office hours.",
+      "Trains on owned content such as manuals, websites, knowledge bases, and internal documents.",
+      "Supports both customer-facing self-service and staff-assisted support workflows."
+    ],
+    "whyTheseReviewsFit": "Limousine operators need dependable answers, smooth booking handoffs, and staff access to accurate service knowledge. DocsBot proof spans scalable customer support, travel-industry booking education, multilingual owned-content training, and support-team assistance, all aligned with premium transportation service demands.",
+    "trustClaimIcons": [
+      "ClockIcon",
+      "BookOpenIcon",
+      "UserGroupIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for limousine services",
+    "audience": [
+      "Limousine service owners",
+      "Black car operators",
+      "Chauffeured transportation managers",
+      "Reservation and dispatch teams",
+      "Corporate transportation providers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "taxi-services",
+    "air-transportation",
+    "fleet-telematics",
+    "courier-services",
+    "boat-services",
+    "third-party-logistics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "limousine-services",
+    "webSearchQueries": [
+      "limousine taxi service industry statistics airport transportation business travel customer expectations source",
+      "Bureau of Transportation Statistics airport passenger trips US 2024 2025",
+      "FMCSA passenger carrier safety regulations limousine charter bus",
+      "IBISWorld limousine town car services industry revenue United States",
+      "BLS taxi drivers chauffeurs employment limousine services May 2024",
+      "BLS Occupational Outlook taxi drivers ride-hailing chauffeurs job openings"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/industry/limousine-town-car-services/5622/",
+      "https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger",
+      "https://www.fmcsa.dot.gov/safety/passenger-carrier-safety",
+      "https://www.fmcsa.dot.gov/safety/passenger-safety/tips-chartering-bus",
+      "https://www.bls.gov/ooh/transportation-and-material-moving/taxi-drivers-and-chauffeurs.htm"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 67467,
+        "cachedInputTokens": 19840,
+        "billableInputTokens": 47627,
+        "outputTokens": 20500,
+        "reasoningOutputTokens": 301,
+        "totalTokens": 87967,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.431529,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.461529
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21485,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14189,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 126,
+          "totalTokens": 33485,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217297,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227297
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25537,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18241,
+          "outputTokens": 5656,
+          "reasoningOutputTokens": 175,
+          "totalTokens": 31193,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.132267,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.152267
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20445,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15197,
+          "outputTokens": 2844,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23289,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.081965,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.081965
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1606400142640-69e81d222bcb?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDM2MDF8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Limousine Services background image",
+    "source": "legacy-industry",
+    "query": "Limousine Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer quote questions without promising a final price or vehicle availability?",
+      "answer": "Yes. DocsBot can answer from your approved rate-policy notes, package descriptions, fleet pages, and FAQs, then collect the details your reservation team needs: date, pickup and drop-off, passenger count, luggage, hours, event type, and follow-up preference. You can instruct it to route the request for human confirmation before price, availability, contract terms, or exceptions are committed.",
+      "role": "Reservation and sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this fit into a limousine company that already uses dispatch or reservation software?",
+      "answer": "DocsBot does not need to replace your dispatch stack. Many operators would use it as the front-end intake and knowledge layer: answering common questions, collecting structured trip details, summarizing requests, and handing them to staff. With customer-configured Skills, APIs, connectors, webhooks, or MCP Connectors, approved workflows can send summaries, create tasks, or perform scoped lookups where your systems allow it.",
+      "role": "Dispatch and operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can we use it for airport pickup questions after office hours?",
+      "answer": "Yes. A DocsBot agent can be trained on your airport pickup guides, terminal instructions, flight-delay policy, meet-and-greet process, luggage guidance, and after-hours contact procedures. For urgent changes, it can collect the reservation details and route a summary to dispatch through an approved workflow instead of trying to make operational decisions on its own.",
+      "role": "Customer service managers",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-faa-airport-enplanements"
+      ]
+    },
+    {
+      "question": "Will it understand different trip types like weddings, proms, corporate roadshows, hourly charters, and airport transfers?",
+      "answer": "Yes, if those trip types are documented in your approved sources. You can train DocsBot on service pages, event package PDFs, terms, fleet notes, sales playbooks, and internal SOPs. The agent can ask different follow-up questions by trip type, such as number of stops for a roadshow, parent contact for a prom, or timing and photo-stop details for a wedding.",
+      "role": "Reservation and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we expect to prepare before launching an AI agent for our limo business?",
+      "answer": "Start with the content your team already uses: service-area pages, fleet descriptions, airport instructions, quote-intake rules, cancellation and change policies, driver SOPs, lost-item procedures, account notes, and escalation rules. The highest-value prep work is deciding what the agent may answer directly, what it should collect, and what must always be handed to a person.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help our dispatchers find internal policies faster during busy travel windows?",
+      "answer": "Yes. DocsBot can run as a private internal knowledge agent trained on SOPs, driver manuals, airport procedures, incident escalation trees, lost-item policies, and client account playbooks. Dispatchers and office staff can ask natural-language questions and receive source-grounded answers instead of searching across PDFs, folders, and message threads.",
+      "role": "Dispatch and operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep the agent from giving the wrong answer on regulated or safety-sensitive issues?",
+      "answer": "Use approved source material, role-based access, clear instructions, and escalation rules. DocsBot can retrieve your internal compliance references and SOPs, but questions involving licensing, insurance, interstate service, passenger safety, unusual vehicle use, or legal interpretation should be routed to a manager or compliance owner. FMCSA provides passenger carrier safety and regulatory resources, so many operators keep those references available internally where applicable.",
+      "role": "Dispatch and operations leaders",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fmcsa-passenger-safety"
+      ]
+    },
+    {
+      "question": "Can the agent support corporate accounts with special billing, pickup, or executive travel rules?",
+      "answer": "Yes. You can create an internal agent trained on account playbooks, contract summaries, billing notes, preferred vehicle rules, executive pickup protocols, and approved response templates. Access controls matter here: customer-facing agents should only see public or approved client-facing content, while private account instructions can stay limited to authorized staff.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What ROI should we measure if we are not trying to reduce headcount?",
+      "answer": "Measure faster response time, more complete quote requests, fewer repeated questions, fewer missed after-hours inquiries, shorter dispatcher handoffs, reduced time searching for SOPs, and improved website FAQ coverage. For premium transportation, success is often about protecting service quality and capturing more qualified demand, not just deflecting conversations.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can it qualify leads before my reservation team spends time on them?",
+      "answer": "Yes. DocsBot can apply your qualification rules for service area, trip type, date, passenger count, vehicle preference, budget range, corporate account status, urgency, and complexity. It can then summarize the request and route it to the right inbox, CRM, helpdesk, or scheduling workflow configured by your team, while leaving final pricing and availability to staff.",
+      "role": "Reservation and sales teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How would this help with lost-and-found requests or complaints?",
+      "answer": "Train the agent on your lost-item SOPs, complaint handling rules, escalation paths, and customer communication templates. It can collect ride date, passenger contact information, pickup and drop-off details, item description, vehicle or chauffeur notes if known, and then create a clean handoff for operations. Sensitive complaints can be routed directly to a manager.",
+      "role": "Customer service managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review conversations before trusting the agent with more workflows?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Many operators start with answering and intake, review what clients ask, improve source content, and only then add more AI Actions such as task creation, notifications, approved lookups, or workflow triggers.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Will it work for multilingual travelers, hotel guests, and international executive assistants?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using your approved knowledge sources. For example, it can explain cancellation rules or airport pickup instructions in the traveler’s preferred language, then summarize the conversation in English for your reservations or dispatch team when follow-up is needed.",
+      "role": "Customer service managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can different staff see different knowledge, such as public FAQs versus private chauffeur SOPs?",
+      "answer": "Yes. DocsBot supports granular access controls and role-based permissions. That lets you separate public customer answers from private internal material such as chauffeur procedures, corporate account notes, incident workflows, contract summaries, and operations playbooks. This is especially important when the same company wants both a website agent and a staff-only knowledge agent.",
+      "role": "Dispatch and operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we prevent the agent from exposing client names, account notes, or internal procedures?",
+      "answer": "Use separate agents or permission scopes for customer-facing and internal use cases, connect only approved sources, and avoid placing credentials or sensitive secrets in chats. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and does not use customer data to train public models.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help train new reservation agents or chauffeurs?",
+      "answer": "Yes. A private internal agent can be trained on onboarding documents, driver handbooks, dress standards, vehicle presentation rules, airport procedures, customer communication expectations, and escalation policies. New employees can ask questions privately and managers can review repeated topics to see where training materials need improvement. BLS classifies chauffeurs with passenger transportation workers, making clear onboarding important for service consistency.",
+      "role": "Dispatch and operations leaders",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-bls-drivers-ooh"
+      ]
+    },
+    {
+      "question": "What happens when a client asks for something unusual, like an unscheduled stop, intoxicated passenger issue, or child seat question?",
+      "answer": "DocsBot should be configured to answer only from your approved policy and escalate uncertain or safety-sensitive cases. For unusual requests, it can collect facts, summarize the situation, show staff the relevant SOP, and route the issue to dispatch or management. It should not independently approve exceptions that affect safety, compliance, pricing, or chauffeur instructions.",
+      "role": "Dispatch and operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent support both small operators and multi-location transportation companies?",
+      "answer": "Yes. Smaller operators can start with website FAQs, quote intake, and after-hours handoffs. Larger teams can separate knowledge by region, service area, airport, account type, department, or role. The U.S. limousine and town car services industry includes many small businesses in a $4.5 billion 2025 market, so scalability and consistency matter across very different operating models.",
+      "role": "Owners and general managers",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-ibisworld-limo-market"
+      ]
+    },
+    {
+      "question": "Can it reduce back-and-forth on wedding and event quotes?",
+      "answer": "Yes. DocsBot can ask for the details event sales teams typically need before quoting: date, venue locations, passenger count, vehicle type, service duration, number of stops, timing constraints, special requests, and preferred contact method. The agent can answer package questions from approved sources and pass a complete summary to sales for pricing and contract review.",
+      "role": "Reservation and sales teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will customers feel like they are getting a low-end chatbot instead of premium service?",
+      "answer": "That depends on configuration and content quality. DocsBot can use your approved brand voice, answer from your service standards, and escalate VIP, complex, complaint, or high-value requests to a person. For limousine operators, the goal is not to replace white-glove service; it is to give immediate, accurate guidance while preserving human attention for moments that need it.",
+      "role": "Customer service managers",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can we connect it to our helpdesk, inbox, or team notification workflow?",
+      "answer": "Yes, through customer-configured Skills, APIs, connectors, exports, webhooks, or approved workflow access. DocsBot can summarize conversations, draft responses, create tickets or tasks, notify sales or dispatch, and route handoffs to helpdesk-style, inbox, Slack, Microsoft Teams, CRM, or scheduling workflows when your team authorizes and configures the connection.",
+      "role": "Customer service managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we compare DocsBot with a generic website chatbot or booking form?",
+      "answer": "A booking form collects fields, and a generic chatbot often relies on scripted flows. DocsBot is better suited when you want source-grounded answers from your actual policies, fleet pages, airport instructions, SOPs, and internal documents, plus structured intake, summaries, escalation, analytics, and bounded AI Actions. It can support both customer-facing self-service and private staff knowledge workflows.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent tell us which questions are costing our team the most time?",
+      "answer": "Yes. DocsBot analytics, logs, topic reporting, conversation review, and knowledge-gap discovery can show repeated questions, unresolved topics, and escalation patterns. Owners can use that information to improve website pages, airport instructions, event FAQs, internal SOPs, and booking policies instead of guessing where clients or staff are getting stuck.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we handle pricing information if our rates change by date, vehicle, distance, event, and availability?",
+      "answer": "Use the agent to explain pricing factors, minimums, deposits, gratuity policy, cancellation terms, and package rules from approved sources, then collect trip details for a human quote. If you connect live systems through approved Skills or APIs, keep the workflow scoped and logged. For dynamic or exception-based pricing, humans should remain responsible for the final quote.",
+      "role": "Reservation and sales teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot help us maintain consistent answers across phone, email, website chat, and dispatch handoffs?",
+      "answer": "Yes. DocsBot can centralize answers around approved source material, then help staff draft replies, summarize client conversations, and retrieve the same policy or SOP references. That consistency is useful when requests move from website chat to reservations, then to dispatch, then to a chauffeur or manager.",
+      "role": "Customer service managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What procurement or IT concerns should we address before buying?",
+      "answer": "Clarify which sources will be connected, who owns each policy, which roles can access private content, what actions the agent may take, how escalations work, and how logs will be reviewed. For IT and procurement, DocsBot’s SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and no public-model training on customer data are key review points.",
+      "role": "Owners and general managers",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

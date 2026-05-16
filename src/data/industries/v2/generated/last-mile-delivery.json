@@ -1,0 +1,754 @@
+{
+  "slug": "last-mile-delivery",
+  "business": "Last-Mile Delivery",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Last-Mile Delivery Operations",
+    "description": "DocsBot helps last-mile delivery teams answer tracking questions, guide drivers, route exceptions, and surface knowledge gaps from approved sources.",
+    "canonicalPath": "/industry/last-mile-delivery"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for final-mile teams",
+    "headline": "Keep deliveries moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps last-mile delivery companies build AI agents trained on SOPs, policies, customer FAQs, service zones, exception playbooks, and internal knowledge so customers, dispatchers, drivers, and support teams can get fast, source-grounded answers and take bounded next steps.",
+    "proofBullets": [
+      {
+        "text": "Answer delivery-window, tracking, proof-of-delivery, claims, surcharge, and service-area questions from approved company sources.",
+        "icon": "TruckIcon"
+      },
+      {
+        "text": "Use AI Actions to look up approved shipment context, collect missing details, create a ticket, route an exception, or prepare a handoff.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give dispatch, support, and contractor teams private access to SOPs, escalation rules, onboarding guides, and customer communication playbooks.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Review conversations, discover recurring failed-delivery questions, and improve help content with analytics and knowledge-gap reporting.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a delivery support agent",
+    "secondaryCta": "Explore AI Actions for dispatch workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your last-mile delivery knowledge into customer-facing and internal AI agents. Train agents on help articles, delivery policies, SOPs, PDFs, websites, ticket exports, and internal documents, then deploy them in a website widget, private team chat, Slack, Microsoft Teams, helpdesk-connected workflow, or customer-configured API experience.",
+    "whoItHelps": [
+      {
+        "role": "Customer support leaders",
+        "roleContext": "For teams handling repetitive WISMO, missed-delivery, address-change, proof-of-delivery, and returns questions across consumer, merchant, and shipper audiences.",
+        "bullets": [
+          {
+            "text": "Deflect common questions with source-grounded answers before customers open a ticket.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Draft or route helpdesk responses when configured with approved ticketing workflows and human escalation rules.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Use analytics to identify repeated delivery exceptions, confusing policy language, and missing help-center topics.",
+            "icon": "MagnifyingGlassIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Dispatch and operations managers",
+        "roleContext": "For supervisors coordinating high-volume routes, exception queues, driver questions, customer notifications, and shipper commitments in fast-moving delivery environments.",
+        "bullets": [
+          {
+            "text": "Make route-start checklists, scan procedures, locker instructions, service-level rules, and exception playbooks searchable for the team.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Trigger bounded workflows such as ticket creation, handoff summaries, approved record updates, or team notifications through configured Skills and APIs.",
+            "icon": "BoltIcon"
+          },
+          {
+            "text": "Support a sector where BLS reported 1.096 million courier and messenger employees in April 2026.",
+            "icon": "BriefcaseIcon",
+            "sourceIds": [
+              "src-bls-couriers"
+            ]
+          }
+        ],
+        "roleIcon": "TruckIcon"
+      },
+      {
+        "role": "Sales, account, and carrier partnership teams",
+        "roleContext": "For teams answering shipper questions about coverage, onboarding, service levels, documentation, pricing rules, and implementation fit before a human finalizes commitments.",
+        "bullets": [
+          {
+            "text": "Answer presales questions from service catalogs, onboarding docs, coverage notes, FAQs, and approved pricing guidance.",
+            "icon": "PresentationChartBarIcon"
+          },
+          {
+            "text": "Collect structured lead details such as volume, delivery zones, package profile, timeline, and preferred follow-up channel.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Forward qualified shipper conversations and summaries to CRM, email, helpdesk, or sales workflows when configured by the customer.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-couriers",
+      "metric": "1.096 million courier and messenger employees in April 2026",
+      "claim": "The U.S. Bureau of Labor Statistics reported 1.096 million seasonally adjusted employees in couriers and messengers in April 2026, plus 401,460 light or delivery service truck drivers in the subsector in 2024.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Couriers and Messengers, NAICS 492",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag492.htm",
+      "sourceDate": "Data extracted May 14, 2026",
+      "bestUsedFor": [
+        "labor scale",
+        "driver and dispatcher knowledge access",
+        "support operations scale"
+      ]
+    },
+    {
+      "id": "src-bls-safety",
+      "metric": "8.0 recordable injury and illness cases per 100 full-time workers in 2024",
+      "claim": "BLS reported an 8.0 total recordable injury and illness case rate per 100 full-time workers for couriers and messengers in 2024, along with 56 fatalities in 2024.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics: Couriers and Messengers, Work-related Fatalities, Injuries, and Illnesses",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag492.htm",
+      "sourceDate": "Data extracted May 14, 2026",
+      "bestUsedFor": [
+        "safety risk",
+        "driver SOP access",
+        "training and escalation reminders"
+      ]
+    },
+    {
+      "id": "src-pitney-parcels",
+      "metric": "22.4 billion U.S. parcel shipments in 2024",
+      "claim": "Pitney Bowes reported that U.S. parcel volume reached 22.4 billion shipments in 2024, up 3.4% from the prior year, and forecast a most likely 30.5 billion parcels by 2030.",
+      "sourceTitle": "Pitney Bowes Parcel Shipping Index: U.S. Carrier Disruption Is Increasing—And That’s Good News for Shippers",
+      "sourceUrl": "https://www.investorrelations.pitneybowes.com/news-releases/news-release-details/pitney-bowes-parcel-shipping-index-us-carrier-disruption",
+      "sourceDate": "June 30, 2025",
+      "bestUsedFor": [
+        "parcel volume",
+        "carrier complexity",
+        "support demand"
+      ]
+    },
+    {
+      "id": "src-nhtsa-distraction",
+      "metric": "3,208 deaths in distraction-affected crashes in 2024",
+      "claim": "NHTSA reported that 8% of fatal crashes and 12% of police-reported motor vehicle traffic crashes in 2024 were distraction-affected, with 3,208 people killed.",
+      "sourceTitle": "NHTSA Research Note: Distracted Driving in 2024",
+      "sourceUrl": "https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813790",
+      "sourceDate": "May 2026",
+      "bestUsedFor": [
+        "driver safety context",
+        "mobile workflow boundaries",
+        "safe communication policies"
+      ]
+    },
+    {
+      "id": "src-cnbc-last-mile",
+      "metric": "92% of surveyed consumers said a delayed order would affect future purchase decisions",
+      "claim": "CNBC reported AlixPartners survey findings that 92% of consumers said a delayed order would affect future purchase decisions and 82% expected compensation for late delivery.",
+      "sourceTitle": "CNBC: Retailers shift their thinking on costly last-mile delivery",
+      "sourceUrl": "https://www.cnbc.com/2024/07/24/retailers-shift-their-thinking-on-costly-last-mile-delivery.html",
+      "sourceDate": "July 24, 2024",
+      "bestUsedFor": [
+        "customer expectations",
+        "late delivery complaints",
+        "proactive communication"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Delivery status and exception support agent",
+      "problem": "Customers ask repetitive questions about tracking gaps, delivery windows, missed attempts, address changes, proof of delivery, and claims while support teams chase context across systems.",
+      "agentWorkflow": "A DocsBot support agent answers policy and process questions from approved help-center pages, shipper FAQs, SOPs, and ticket history. When configured with AI Actions, it can collect shipment identifiers, look up approved delivery context, summarize the issue, create or route a ticket, and escalate sensitive disputes to a person.",
+      "liveContextOrTools": "Customer-configured Skills, APIs, connectors, metadata, or MCP Connectors can support approved tracking lookups, exception routing, ticket creation, and handoff summaries.",
+      "exampleQuestionsOrRequests": [
+        "Where is my package and why has tracking not updated?",
+        "Can I change the delivery address or time window?",
+        "What should I do if the photo proof of delivery is wrong?",
+        "Please summarize this failed-delivery case for a supervisor."
+      ],
+      "businessOutcome": "Reduce repetitive support load while giving customers clearer next steps and giving agents better summaries when a human review is needed.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Dispatcher knowledge and SOP assistant",
+      "problem": "Dispatchers and driver-support teams need fast answers about scan rules, customer-contact scripts, depot procedures, safety reminders, locker access, exception codes, and escalation paths.",
+      "agentWorkflow": "A private DocsBot internal knowledge agent retrieves answers from SOPs, onboarding manuals, customer-specific handling notes, policy PDFs, and internal wikis. It can summarize procedures, compare exception paths, and surface source links so supervisors can keep decisions consistent across shifts.",
+      "liveContextOrTools": "Deploy in private chat, Slack, Microsoft Teams, or an internal tool through configured workflows, with access controls that keep internal documents private.",
+      "exampleQuestionsOrRequests": [
+        "What is the escalation path for a high-value package with no delivery photo?",
+        "Which script should drivers use when the customer is unavailable?",
+        "Summarize the depot opening checklist for a new shift lead.",
+        "What are the steps for a damaged package discovered during loadout?"
+      ],
+      "businessOutcome": "Give frontline teams faster access to current procedures and reduce inconsistent answers during peak delivery windows.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Merchant and shipper onboarding agent",
+      "problem": "New merchants and enterprise shippers ask coverage, integration, label, claims, cutoff, SLA, pickup, and billing questions before they are ready for a sales or operations call.",
+      "agentWorkflow": "A DocsBot presales agent answers from service catalogs, onboarding guides, FAQs, implementation notes, and approved commercial guidance. It can collect lead details such as zones, parcel volume, package profile, timeline, and required service levels, then qualify and forward the summary through customer-configured CRM, email, helpdesk, or sales workflows.",
+      "liveContextOrTools": "Approved Skills can submit a lead form, request a meeting through a configured scheduling workflow, or create a sales task while keeping humans responsible for final pricing, legal terms, and service commitments.",
+      "exampleQuestionsOrRequests": [
+        "Do you cover these ZIP codes for same-day delivery?",
+        "What package sizes and weights can your drivers handle?",
+        "What information do you need to quote a multi-location delivery program?",
+        "Book a follow-up with our carrier partnership team."
+      ],
+      "businessOutcome": "Answer shipper questions faster, capture cleaner intake details, and route qualified opportunities without asking sales teams to repeat basic discovery.",
+      "icon": "BriefcaseIcon"
+    },
+    {
+      "name": "Knowledge-gap and support trend analysis",
+      "problem": "Delivery teams often know they are getting repeated complaints, but the exact topics are scattered across chats, tickets, calls, and internal questions.",
+      "agentWorkflow": "DocsBot analytics, logs, topic management, reports, conversation review, and satisfaction or resolution analysis help teams see what people are asking and where source content is missing. Managers can turn repeated questions into clearer FAQs, driver SOP updates, onboarding notes, or escalation templates.",
+      "liveContextOrTools": "Configured helpdesk exports, approved ticket sources, website conversations, internal chats, and documentation sources can feed review workflows and reporting.",
+      "exampleQuestionsOrRequests": [
+        "Which delivery exception questions increased this week?",
+        "What topics are customers asking that our help center does not answer?",
+        "Show unanswered driver questions about locker deliveries.",
+        "Summarize repeated complaints about proof-of-delivery photos."
+      ],
+      "businessOutcome": "Improve documentation, reduce avoidable tickets, and give operations teams a clearer view of recurring delivery friction.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Safety and policy access for mobile teams",
+      "problem": "Drivers and contractors need reminders about safe communication, vehicle checks, weather procedures, hazardous conditions, and customer-contact boundaries without digging through long manuals.",
+      "agentWorkflow": "A DocsBot internal agent can answer from approved safety policies, training materials, driver handbooks, HR guidance, and escalation procedures. It should be positioned as a searchable policy assistant, not a replacement for dispatch judgment, emergency response, or real-time driving decisions.",
+      "liveContextOrTools": "Use permissions, logs, and customer-defined boundaries for sensitive policies; teams can configure notifications or review workflows for incidents that require a supervisor.",
+      "exampleQuestionsOrRequests": [
+        "What is our policy on contacting customers while driving?",
+        "What should I do after a minor vehicle incident?",
+        "Where is the pre-trip inspection checklist?",
+        "What are the steps for reporting an aggressive customer interaction?"
+      ],
+      "businessOutcome": "Make safety and conduct guidance easier to find while keeping high-impact or emergency situations in human-controlled channels.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-bls-safety",
+        "src-nhtsa-distraction"
+      ]
+    },
+    {
+      "name": "High-volume parcel communication at scale",
+      "problem": "Parcel volumes create pressure for instant answers across consumers, merchants, drivers, and internal operations teams, especially when delays or carrier disruptions change expectations.",
+      "agentWorkflow": "DocsBot agents can provide always-available answers from approved policy and operations content, draft responses for support teams, and summarize complex cases for escalation. They can also help managers identify which content should be updated when recurring questions spike.",
+      "liveContextOrTools": "Website widgets, helpdesk-connected workflows, private team chat, APIs, and customer-configured connectors can place the agent where support and operations teams already work.",
+      "exampleQuestionsOrRequests": [
+        "Why was my delivery rescheduled?",
+        "What compensation policy applies to this late package?",
+        "Summarize all customer contacts on this order.",
+        "Which FAQ should we update for peak-season cutoff questions?"
+      ],
+      "businessOutcome": "Support high-volume delivery communication with consistent answers and better escalation context as parcel demand grows.",
+      "icon": "CubeIcon",
+      "sourceIds": [
+        "src-pitney-parcels"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give customers answers before a missed delivery becomes a ticket",
+    "intro": "A DocsBot customer-facing agent can live on your website, tracking page, merchant portal, or product experience. It answers from approved delivery policies and can collect the details your team needs before routing complex, sensitive, or account-specific cases to a human.",
+    "requests": [
+      {
+        "request": "“My package says delivered, but I do not have it.”",
+        "agentResponseStrategy": "Explain the approved missing-package process, ask for order or tracking details, suggest safe first steps from policy, and create or route a ticket when configured.",
+        "sourceTypes": [
+          "Help-center articles",
+          "Claims policies",
+          "Proof-of-delivery SOPs",
+          "Ticket workflows"
+        ],
+        "optionalAction": "Look up approved shipment context, collect missing details, and prepare a handoff summary for the support team.",
+        "icon": "ExclamationCircleIcon"
+      },
+      {
+        "request": "“Can I change the address or delivery window?”",
+        "agentResponseStrategy": "Answer from address-change, cutoff, service-window, and reattempt policies, then clarify whether the request is eligible or needs staff review.",
+        "sourceTypes": [
+          "Delivery policies",
+          "Service-level rules",
+          "Customer FAQs",
+          "Carrier playbooks"
+        ],
+        "optionalAction": "Trigger a configured workflow to create a change request or notify the appropriate dispatch queue.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you offer same-day delivery in my area?”",
+        "agentResponseStrategy": "Use approved service-area and sales enablement content to explain coverage, package constraints, cutoff times, and next steps for a merchant or consumer inquiry.",
+        "sourceTypes": [
+          "Service catalogs",
+          "Coverage notes",
+          "Pricing guidance",
+          "Presales FAQs"
+        ],
+        "optionalAction": "Collect location, volume, package profile, and timeline, then forward a qualified lead or support request through configured workflows.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Why is my package delayed?”",
+        "agentResponseStrategy": "Explain common delay reasons from policy, avoid unsupported promises, summarize visible context when available, and route urgent or high-value cases to a human.",
+        "sourceTypes": [
+          "Delay policies",
+          "Customer communication scripts",
+          "Tracking FAQs",
+          "Escalation rules"
+        ],
+        "optionalAction": "Create a ticket, route the case by exception type, or notify support with a concise case summary.",
+        "icon": "ClockIcon",
+        "sourceIds": [
+          "src-cnbc-last-mile"
+        ]
+      },
+      {
+        "request": "“What languages can you support?”",
+        "agentResponseStrategy": "DocsBot can answer in more than 100 languages when the agent is trained and configured with the right approved knowledge sources and instructions.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Website content",
+          "Support FAQs",
+          "Company policies"
+        ],
+        "optionalAction": "Route language-specific exceptions to the right human queue when configured.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can I talk to a person?”",
+        "agentResponseStrategy": "Recognize when a case is complex, sensitive, high-impact, or outside the knowledge base, then prepare context for a human handoff.",
+        "sourceTypes": [
+          "Escalation rules",
+          "Support playbooks",
+          "Customer policies",
+          "Ticket history"
+        ],
+        "optionalAction": "Open a helpdesk ticket or notify the appropriate team through a customer-configured workflow.",
+        "icon": "HandRaisedIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put dispatch, support, and driver knowledge in one searchable agent",
+    "intro": "DocsBot can serve as a private internal knowledge agent for last-mile teams that need SOPs, policies, onboarding, customer-specific rules, and operational playbooks at their fingertips without searching through folders or interrupting supervisors.",
+    "workflows": [
+      {
+        "name": "Shift-start and route-readiness support",
+        "problem": "New shift leads and contractors need quick access to daily procedures, vehicle checks, scanning rules, pickup notes, and customer-contact boundaries.",
+        "agentWorkflow": "Train DocsBot on driver handbooks, SOPs, onboarding docs, route-start checklists, and policy PDFs so team members can ask natural-language questions and receive source-grounded answers.",
+        "sourceTypes": [
+          "Driver handbooks",
+          "SOPs",
+          "Onboarding docs",
+          "Checklist PDFs"
+        ],
+        "optionalAction": "Generate a route-readiness checklist summary or create a task in an approved workflow when a step needs follow-up.",
+        "outcome": "Reduce supervisor interruptions and keep operating procedures consistent across locations and shifts.",
+        "icon": "CheckCircleIcon"
+      },
+      {
+        "name": "Exception triage for support supervisors",
+        "problem": "Supervisors review late delivery, missing package, damaged item, restricted access, and angry-customer cases that require context from multiple sources.",
+        "agentWorkflow": "DocsBot can summarize case details, retrieve the relevant policy, draft a response for review, and route the case based on customer-defined rules when connected through approved Skills or APIs.",
+        "sourceTypes": [
+          "Ticket exports",
+          "Escalation playbooks",
+          "Claims policies",
+          "Customer communication scripts"
+        ],
+        "optionalAction": "Create a supervisor review task, attach a summary, or update approved fields inside a configured workflow.",
+        "outcome": "Give supervisors cleaner context and reduce time spent reconstructing what happened.",
+        "icon": "ArchiveBoxIcon"
+      },
+      {
+        "name": "Shipper account enablement",
+        "problem": "Account managers need accurate answers about implementation, package rules, pickup windows, proof-of-delivery standards, billing policies, and exception handling for each shipper.",
+        "agentWorkflow": "A DocsBot sales enablement agent can answer from service catalogs, proposals, onboarding docs, case studies, approved pricing notes, FAQs, and customer-specific account materials.",
+        "sourceTypes": [
+          "Sales playbooks",
+          "Service catalogs",
+          "Proposal templates",
+          "Account notes"
+        ],
+        "optionalAction": "Draft a follow-up email, prepare a call brief, or create a task in sales software when configured by the customer.",
+        "outcome": "Help account teams respond faster while keeping final commitments, pricing, and contracts under human control.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "Documentation improvement loop",
+        "problem": "When dispatchers, customers, and drivers ask the same questions, teams need a repeatable way to see content gaps and update the knowledge base.",
+        "agentWorkflow": "Use DocsBot logs, topic management, reports, conversation review, and knowledge-gap discovery to identify unanswered or repeated questions, then prioritize updates to FAQs, SOPs, and training materials.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Help-center articles",
+          "Internal wikis",
+          "Support tickets"
+        ],
+        "optionalAction": "Export a topic summary or create documentation tasks for content owners through approved workflows.",
+        "outcome": "Turn real support and operations questions into better self-service content.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Security-conscious internal access",
+        "problem": "Delivery operations often involve customer addresses, shipment identifiers, account notes, and private procedures that require access boundaries.",
+        "agentWorkflow": "DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, GDPR-ready governance, SOC 2 Type II certification, and a policy that customer data is not used to train public models.",
+        "sourceTypes": [
+          "Internal policies",
+          "Private documents",
+          "Role-based knowledge sources",
+          "Governance settings"
+        ],
+        "optionalAction": "Use customer-defined Skills with secrets, metadata bindings, logging, and network policies so agents access only what they are allowed to use.",
+        "outcome": "Give teams useful AI assistance while maintaining controlled access to operational knowledge and customer-sensitive context.",
+        "icon": "LockClosedIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded delivery answers",
+      "mainLandingPageContext": "DocsBot agents are trained on the company knowledge sources you approve, including help centers, websites, documents, PDFs, wikis, and internal content.",
+      "industryApplication": "Answer customer and team questions about delivery windows, reattempts, proof of delivery, claims, address changes, restricted access, and service areas from your own materials.",
+      "icon": "DocumentTextIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded steps such as live lookups, record updates, task creation, routing, summaries, workflow triggers, and handoffs when configured.",
+      "industryApplication": "Collect tracking details, look up approved shipment context, create exception tickets, route high-priority cases, notify dispatch, or prepare handoff summaries for supervisors.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk-connected workflows",
+      "mainLandingPageContext": "DocsBot can connect to helpdesk-style workflows through customer-configured Skills, APIs, connectors, exports, or approved workflow access.",
+      "industryApplication": "Draft ticket responses, summarize support history, categorize failed-delivery issues, and escalate complex claims without claiming unsupported native integrations.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private team assistant trained on SOPs, policies, onboarding docs, wikis, Google Drive, Notion, Confluence, PDFs, Word documents, and other internal knowledge.",
+      "industryApplication": "Give dispatchers, support teams, account managers, and shift leads instant answers about procedures, customer-specific rules, training, and escalation paths.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Analytics and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "Find repeated tracking, claims, cutoff, missed-delivery, and driver-procedure questions so managers can improve FAQs, SOPs, and training materials.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Multilingual customer and driver support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages when configured with the right knowledge and instructions.",
+      "industryApplication": "Support multilingual recipients, merchants, drivers, and contractors with consistent answers from approved delivery content.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and no use of customer data to train public models.",
+      "industryApplication": "Protect private operational content, customer-sensitive delivery context, internal SOPs, and configured action permissions.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sanchay-indned-ebike-support",
+      "sony-nuro-resolution-rate",
+      "simon-gaggle-mail-help-scout"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where customers expect fast, consistent answers.",
+      "Trains on your owned manuals, website, help content, and internal delivery knowledge.",
+      "Supports first-line self-service while preserving human handoff for complex or sensitive delivery cases."
+    ],
+    "whyTheseReviewsFit": "Last-mile delivery teams need scalable self-service, clear documentation answers, and support workflows that do not leave humans without context. DocsBot proof spans high inquiry volume, multilingual manuals, embedded website support, and helpdesk-assisted human teams—practical patterns for delivery operations.",
+    "trustClaimIcons": [
+      "ArrowTrendingUpIcon",
+      "BookOpenIcon",
+      "HandRaisedIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for last-mile delivery operations",
+    "audience": [
+      "Last-mile delivery companies",
+      "Courier and messenger operations",
+      "E-commerce delivery support teams",
+      "Dispatch and driver support managers",
+      "Carrier partnership and sales teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "courier-services",
+    "bicycle-courier",
+    "cold-chain-logistics",
+    "fleet-telematics",
+    "third-party-logistics",
+    "freight-forwarding"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "last-mile-delivery",
+    "webSearchQueries": [
+      "last mile delivery statistics failed delivery cost customer expectations source 2024",
+      "Bureau of Labor Statistics couriers and messengers employment 2024",
+      "National Highway Traffic Safety Administration speeding distracted driving delivery drivers crashes 2023",
+      "Pitney Bowes parcel shipping index United States parcel volume 2024 last mile delivery"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/iag/tgs/iag492.htm",
+      "https://www.investorrelations.pitneybowes.com/news-releases/news-release-details/pitney-bowes-parcel-shipping-index-us-carrier-disruption",
+      "https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813790",
+      "https://www.cnbc.com/2024/07/24/retailers-shift-their-thinking-on-costly-last-mile-delivery.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47444,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 34900,
+        "outputTokens": 8736,
+        "reasoningOutputTokens": 193,
+        "totalTokens": 56180,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.221426,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.241426
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 26888,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 19592,
+          "outputTokens": 5743,
+          "reasoningOutputTokens": 193,
+          "totalTokens": 32631,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.136949,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.156949
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20556,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 15308,
+          "outputTokens": 2993,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23549,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.084477,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.084477
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1526367790999-0150786686a2?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxMYXN0LU1pbGUlMjBEZWxpdmVyeXxlbnwwfDB8fHwxNzc4ODI2OTMxfDA&ixlib=rb-4.1.0&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "man riding a bicycle",
+    "source": "unsplash-search",
+    "query": "Last-Mile Delivery"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot reduce WISMO tickets without giving customers unsupported delivery promises?",
+      "answer": "Yes. Train the agent on approved tracking FAQs, delivery-window policies, claims rules, and escalation playbooks so it answers only from your sources. For shipment-specific cases, AI Actions can collect identifiers, look up approved context when configured, and hand off unclear or sensitive exceptions to a human instead of guessing.",
+      "role": "Customer support leaders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How would an AI agent handle “delivered but not received” or disputed proof-of-delivery cases?",
+      "answer": "DocsBot can explain your missing-package process, ask for order or tracking details, reference proof-of-delivery and claims policies, and create or route a ticket when configured. It should not decide liability on its own; disputed photos, high-value orders, fraud flags, or angry-customer cases can be escalated with a concise handoff summary.",
+      "role": "Customer support leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can we connect DocsBot to our tracking, TMS, dispatch, or helpdesk systems?",
+      "answer": "DocsBot can use customer-configured Skills, APIs, connectors, metadata, webhooks, or MCP Connectors to perform approved lookups and workflow actions. Typical last-mile uses include retrieving shipment context, creating exception tickets, notifying dispatch, updating approved fields, or drafting helpdesk responses for review. Native support for a named system should be validated during implementation.",
+      "role": "Dispatch and operations managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot work for both customer-facing support and internal dispatcher SOPs?",
+      "answer": "Yes. You can build customer-facing agents for tracking, delivery windows, claims, address changes, and service-area questions, and private internal agents for dispatch SOPs, scan rules, locker instructions, safety policies, onboarding, and escalation paths. Access controls help keep internal procedures separate from public customer answers.",
+      "role": "Dispatch and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent the agent from exposing customer addresses, shipment identifiers, or internal account notes?",
+      "answer": "DocsBot supports granular access controls, role-based permissions, encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and a policy that customer data is not used to train public models. Skills can be scoped with secrets, metadata bindings, network policies, logging, and customer-defined rules so the agent only accesses approved information.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent support drivers and contractors without creating a safety risk on the road?",
+      "answer": "DocsBot is best positioned as a searchable policy and SOP assistant, not a real-time driving or emergency decision tool. Teams can train it on safe communication policies, incident procedures, and checklists, then define boundaries that route urgent, safety-critical, or supervisor-required situations to human channels. That matters in a sector where BLS reported an 8.0 recordable injury and illness case rate per 100 full-time courier and messenger workers in 2024.",
+      "role": "Dispatch and operations managers",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-bls-safety"
+      ]
+    },
+    {
+      "question": "What kinds of questions should we automate first to get a measurable support win?",
+      "answer": "Start with high-volume, policy-bound topics: tracking gaps, delivery windows, missed attempts, reattempt rules, address-change eligibility, proof-of-delivery next steps, claims intake, compensation policy explanations, and service-area questions. These are repetitive enough for deflection but still benefit from human escalation when account context, high value, or customer emotion changes the risk.",
+      "role": "Customer support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "How does DocsBot help during peak season or carrier disruption spikes?",
+      "answer": "DocsBot can provide always-available answers from approved delay, cutoff, claims, surcharge, and customer communication policies while summarizing complex cases for support teams. It can also show repeated questions and knowledge gaps so managers know which FAQ or SOP needs updating. U.S. parcel volume reached 22.4 billion shipments in 2024, illustrating the scale of communication pressure last-mile teams face.",
+      "role": "Customer support leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-pitney-parcels"
+      ]
+    },
+    {
+      "question": "Can dispatchers use DocsBot for exception triage during a live route?",
+      "answer": "Yes, within defined boundaries. Dispatchers can ask about exception codes, failed delivery steps, restricted access, damaged packages, customer-contact scripts, and escalation paths. With configured Skills, the agent can create a supervisor task, notify a queue, or summarize a case, while final operational judgment stays with dispatch and management.",
+      "role": "Dispatch and operations managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we measure ROI beyond “the bot answered questions”?",
+      "answer": "Useful metrics include ticket deflection, first-contact resolution, reduced repetitive WISMO volume, faster handle time, fewer supervisor interruptions, shorter onboarding time for dispatchers or contractors, improved escalation summaries, and lower rates of unanswered questions. DocsBot analytics, logs, topic reports, satisfaction and resolution analysis, and knowledge-gap discovery help connect agent usage to those operational outcomes.",
+      "role": "Customer support leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support multilingual recipients, drivers, and merchant teams?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when the agent is trained and configured with the right approved knowledge sources and instructions. For last-mile teams, that can support multilingual recipients, contractors, merchants, and depot staff while still routing language-specific or sensitive exceptions to the right human queue.",
+      "role": "Customer support leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will the agent learn from tickets and conversations automatically, or do we control the knowledge base?",
+      "answer": "You control the approved knowledge sources. DocsBot can be trained on help articles, SOPs, websites, PDFs, ticket exports, internal documents, and other configured sources. Conversation review and knowledge-gap reporting show what people ask and where content is missing, but teams should use that insight to update the source material rather than letting unreviewed answers become policy.",
+      "role": "General buyer",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can our shipper sales team use DocsBot without letting AI quote rates or promise service levels?",
+      "answer": "Yes. A presales agent can answer from service catalogs, coverage notes, onboarding guides, approved pricing guidance, and FAQs; collect volume, zones, package profile, timeline, and SLA needs; then forward a summary to sales or carrier partnerships. Humans should remain responsible for final pricing, contracts, capacity commitments, and legal terms.",
+      "role": "Sales, account, and carrier partnership teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would DocsBot fit into a merchant onboarding workflow?",
+      "answer": "DocsBot can answer common onboarding questions about coverage, cutoffs, labels, package constraints, claims, pickup windows, proof-of-delivery standards, billing policies, and implementation steps. With approved workflows, it can collect structured intake details, submit a lead or onboarding form, create a task, or request a meeting through a configured scheduling flow.",
+      "role": "Sales, account, and carrier partnership teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What if our policies vary by shipper, city, depot, service tier, or delivery partner?",
+      "answer": "DocsBot can be trained on role-specific, account-specific, or location-specific knowledge sources and governed with access controls. Buyers should design the knowledge model carefully: separate public customer guidance from internal SOPs, label customer-specific playbooks, define priority rules, and test edge cases such as same-day, high-value, cold-chain, locker, and restricted-access deliveries.",
+      "role": "Dispatch and operations managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can DocsBot create tickets or update records, or is it limited to answering questions?",
+      "answer": "DocsBot can go beyond answers when AI Actions and Skills are configured. In last-mile workflows, that may include collecting missing details, creating an exception ticket, routing a claim, notifying dispatch, preparing a handoff summary, updating approved fields, or triggering a workflow. These actions should be scoped, logged, and limited to rules your team defines.",
+      "role": "Customer support leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How long does implementation usually take for a first delivery support agent?",
+      "answer": "The fastest path is to start with a bounded use case and clean source set: customer FAQs, tracking policy pages, claims rules, reattempt policies, service-area content, and escalation scripts. More complex implementations—live shipment lookups, helpdesk workflows, multi-depot permissions, or account-specific playbooks—require API access, security review, testing, and owner approval for each action.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we test the agent before letting customers use it on a tracking page?",
+      "answer": "Use a staged rollout. Start internally with real historical questions, failed-delivery scenarios, multilingual prompts, policy conflicts, refund or compensation questions, angry-customer language, and shipment-specific edge cases. Review citations, handoff behavior, refusal boundaries, and action logs before exposing the agent to a small customer segment or limited set of topics.",
+      "role": "Customer support leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us improve our help center and SOPs over time?",
+      "answer": "Yes. DocsBot analytics, conversation logs, topic management, reports, satisfaction and resolution analysis, and knowledge-gap discovery can show repeated questions, failed answers, unclear policy language, and missing content. Last-mile teams can turn those findings into updated FAQs, dispatcher SOPs, driver onboarding notes, escalation templates, and customer communication scripts.",
+      "role": "Dispatch and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should IT and security review before approving an AI agent for delivery operations?",
+      "answer": "They should review data sources, access controls, role permissions, encryption, SOC 2 Type II status, GDPR-ready governance, retention expectations, logging, secret handling, network policy, and whether customer data is used to train public models. For action-enabled agents, they should also approve each API scope, workflow permission, and escalation boundary.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot compare with a generic website chatbot or IVR deflection tool?",
+      "answer": "DocsBot is designed around source-grounded agents trained on your approved knowledge, plus internal knowledge access, analytics, and bounded AI Actions when configured. For last-mile teams, the difference is that the same platform can support customer self-service, dispatcher SOP lookup, shipper onboarding, helpdesk summaries, and documentation improvement—not just a front-end chat widget.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle compensation, refunds, or late-delivery complaints?",
+      "answer": "It can explain approved compensation or claims policies, collect the required details, and route the case to the right queue. It should not invent exceptions or issue discretionary credits unless you configure a bounded, approved workflow. This is important because 92% of surveyed consumers said a delayed order would affect future purchase decisions, and 82% expected compensation for late delivery.",
+      "role": "Customer support leaders",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-cnbc-last-mile"
+      ]
+    },
+    {
+      "question": "How do we keep answers consistent across support, dispatch, sales, and contractors?",
+      "answer": "Centralize the approved source materials, assign content owners, separate customer-facing from internal guidance, and use DocsBot analytics to identify outdated or conflicting answers. Teams can deploy different agents or permissioned experiences for support, dispatch, sales, and contractors while drawing from maintained knowledge sources instead of tribal knowledge in chats and spreadsheets.",
+      "role": "Dispatch and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Will DocsBot help with contractor onboarding and seasonal staffing?",
+      "answer": "Yes. A private internal agent can answer from driver handbooks, route-start checklists, depot procedures, scan rules, customer-contact scripts, safety policies, and escalation paths. That can reduce repetitive supervisor questions and help new or seasonal staff find current procedures faster during high-volume periods.",
+      "role": "Dispatch and operations managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot support both enterprise shippers and consumer recipients without mixing policies?",
+      "answer": "Yes, if the knowledge architecture is designed correctly. Public recipient answers can rely on customer FAQs and general delivery policies, while merchant or enterprise shipper agents can use onboarding docs, account enablement material, service catalogs, and approved commercial guidance. Role-based permissions and separate source sets help prevent the wrong audience from seeing the wrong answer.",
+      "role": "Sales, account, and carrier partnership teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What internal owner should manage the AI agent after launch?",
+      "answer": "Most last-mile teams need shared ownership: support owns customer-facing answers and escalation quality; operations owns SOPs and exception rules; IT or security owns access and integrations; sales or account teams own shipper onboarding content. The best operating model includes a regular review of analytics, failed answers, new policies, and peak-season changes.",
+      "role": "General buyer",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help us understand why delivery exceptions are increasing?",
+      "answer": "DocsBot can show what customers, dispatchers, drivers, and shippers are asking through logs, topic reporting, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. It will not replace operational analytics from your routing or TMS systems, but it can reveal communication patterns such as repeated locker issues, photo proof disputes, cutoff confusion, or missed-delivery policy gaps.",
+      "role": "Dispatch and operations managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "What should procurement ask before buying an AI agent for last-mile delivery?",
+      "answer": "Ask which knowledge sources are supported, how permissions work, what actions can be scoped and logged, how human escalation is handled, whether customer data trains public models, how integrations are configured, what analytics are available, and who maintains content after launch. Also ask for a pilot plan tied to support volume, handle time, escalation quality, or onboarding goals.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

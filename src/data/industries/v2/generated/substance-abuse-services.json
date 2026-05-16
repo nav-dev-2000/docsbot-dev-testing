@@ -1,0 +1,735 @@
+{
+  "slug": "substance-abuse-services",
+  "business": "Substance Abuse Services",
+  "industryCategory": "Health Services",
+  "pageMeta": {
+    "title": "AI Agents for Substance Abuse Service Access",
+    "description": "DocsBot helps substance abuse services answer intake, program, and resource questions with source-grounded AI agents that route people to the right next step.",
+    "canonicalPath": "/industry/substance-abuse-services"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI agents for recovery-focused service teams",
+    "headline": "Guide people to substance abuse services with safer AI automation",
+    "subheadline": "DocsBot helps treatment centers, outpatient programs, recovery organizations, and referral teams create AI agents trained on approved program information, FAQs, policies, forms, and internal SOPs—so people get clear answers, staff get better handoffs, and sensitive questions can escalate to a human.",
+    "proofBullets": [
+      {
+        "text": "Answer program, eligibility, insurance, admissions, visiting, telehealth, and aftercare questions from approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect structured intake details, summarize context, and route requests to the right admissions, clinical, or support workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Support multilingual access in more than 100 languages while keeping answers grounded in your own service content.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "text": "Use permissions, logs, escalation paths, and customer-defined AI Actions for sensitive behavioral health workflows.",
+        "icon": "ShieldCheckIcon"
+      }
+    ],
+    "primaryCta": "Build a recovery service AI agent",
+    "secondaryCta": "Explore secure support automation"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot lets substance abuse service providers create AI support and internal knowledge agents trained on their own websites, PDFs, help articles, policies, program guides, intake instructions, and operational documents. Agents can answer source-grounded questions, surface knowledge gaps, summarize conversations, collect details through configured flows, and trigger scoped handoffs or workflows when approved by the organization.",
+    "whoItHelps": [
+      {
+        "role": "Admissions and intake teams",
+        "roleContext": "People looking for help often have urgent, specific questions before they are ready to call. DocsBot can answer from approved admissions content and help staff receive cleaner context for follow-up.",
+        "bullets": [
+          {
+            "text": "Explain program types, hours, location options, documentation needs, and what to expect before an assessment.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Collect contact preferences, service interest, insurance questions, urgency, and consent language through configured intake flows.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Route complex, crisis-related, or clinically sensitive requests to staff instead of attempting diagnosis or medical advice.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "PhoneIcon"
+      },
+      {
+        "role": "Clinical operations leaders",
+        "roleContext": "Programs need consistent answers across front desk, care coordination, discharge planning, and alumni support. DocsBot can make approved SOPs, policies, and care navigation resources searchable for staff.",
+        "bullets": [
+          {
+            "text": "Give employees quick access to internal SOPs, referral criteria, program rules, and escalation instructions.",
+            "icon": "BookOpenIcon"
+          },
+          {
+            "text": "Summarize recurring questions and knowledge gaps so leaders can improve web content, FAQs, and staff training.",
+            "icon": "ChartBarIcon"
+          },
+          {
+            "text": "Keep sensitive workflows bounded with role-based permissions, conversation review, and human handoff paths.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Outreach, referral, and community partnership teams",
+        "roleContext": "Referral partners, family members, and prospective clients often need fast, accurate information about service fit and next steps. DocsBot can support education and lead capture without replacing professional review.",
+        "bullets": [
+          {
+            "text": "Answer partner questions about accepted populations, levels of care, documentation, and referral procedures.",
+            "icon": "LinkIcon"
+          },
+          {
+            "text": "Prepare summarized handoffs for human outreach when a request meets customer-defined qualification rules.",
+            "icon": "PaperAirplaneIcon"
+          },
+          {
+            "text": "Support multilingual public education and resource navigation from approved program and recovery materials.",
+            "icon": "GlobeAltIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-samhsa-2024-treatment-need",
+      "metric": "52.6 million people needed substance use treatment in 2024",
+      "claim": "SAMHSA estimated that 18.2% of people aged 12 or older, or 52.6 million people, needed substance use treatment in the past year in 2024.",
+      "sourceTitle": "Key Substance Use and Mental Health Indicators in the United States: Results from the 2024 National Survey on Drug Use and Health",
+      "sourceUrl": "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "treatment demand",
+        "access pressure",
+        "service navigation"
+      ]
+    },
+    {
+      "id": "src-bls-counselor-growth",
+      "metric": "17% projected employment growth for counselors from 2024 to 2034",
+      "claim": "The Bureau of Labor Statistics projects employment of substance abuse, behavioral disorder, and mental health counselors to grow 17% from 2024 to 2034, much faster than the average for all occupations.",
+      "sourceTitle": "Substance Abuse, Behavioral Disorder, and Mental Health Counselors: Occupational Outlook Handbook",
+      "sourceUrl": "https://www.bls.gov/ooh/community-and-social-service/substance-abuse-behavioral-disorder-and-mental-health-counselors.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "workforce demand",
+        "staff capacity",
+        "labor pressure"
+      ]
+    },
+    {
+      "id": "src-hrsa-workforce-2024",
+      "metric": "122 million people lived in a Mental Health HPSA as of August 2024",
+      "claim": "HRSA reported that, as of August 2024, more than one third of the U.S. population lived in a Mental Health Professional Shortage Area.",
+      "sourceTitle": "State of the Behavioral Health Workforce, 2024",
+      "sourceUrl": "https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/state-of-behavioral-health-workforce-report-2024.pdf",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "provider shortages",
+        "access barriers",
+        "operational efficiency"
+      ]
+    },
+    {
+      "id": "src-samhsa-988",
+      "metric": "988 offers 24/7 support for mental health and substance use needs",
+      "claim": "SAMHSA describes the 988 Suicide & Crisis Lifeline as 24/7 judgment-free support for mental health, substance use, and more.",
+      "sourceTitle": "988 Suicide & Crisis Lifeline",
+      "sourceUrl": "https://www.samhsa.gov/find-help/988",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "crisis escalation",
+        "safety boundaries",
+        "resource routing"
+      ]
+    },
+    {
+      "id": "src-hhs-988-contacts-2025",
+      "metric": "More than 8 million 988 contacts in 2025",
+      "claim": "HHS reported that the SAMHSA-funded 988 Suicide & Crisis Lifeline received more than 8 million contacts from help seekers in 2025.",
+      "sourceTitle": "SAMHSA Announces $231M Funding Opportunity to Administer 988 Lifeline",
+      "sourceUrl": "https://www.hhs.gov/press-room/samhsa-announces-231m-funding-opportunity-administer-988-lifeline.html",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "crisis demand",
+        "after-hours support pressure",
+        "routing urgency"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Admissions question answering and handoff preparation",
+      "problem": "Prospective clients and family members ask repeated questions about program fit, cost, insurance, what to bring, confidentiality, telehealth, and next steps before they are ready to speak with staff.",
+      "agentWorkflow": "A DocsBot AI support agent answers from approved admissions pages, policy PDFs, payer FAQs, and program descriptions. When the person wants follow-up, the agent can collect structured details, summarize the conversation, and route it to admissions through a customer-configured workflow.",
+      "liveContextOrTools": "With approved Skills, APIs, connectors, or forms, the agent can create a task, forward a summary to helpdesk or CRM-style software, or request a scheduling workflow while leaving eligibility and clinical decisions to staff.",
+      "exampleQuestionsOrRequests": [
+        "Do you offer outpatient treatment for alcohol use?",
+        "What information do I need before an intake appointment?",
+        "Can someone call me tomorrow about available programs?"
+      ],
+      "businessOutcome": "Fewer repetitive admissions calls, faster first responses, and more complete handoffs for the team handling sensitive service inquiries.",
+      "icon": "PhoneIcon"
+    },
+    {
+      "name": "Crisis-aware resource routing with human escalation",
+      "problem": "People may ask urgent questions outside business hours, and an AI agent must not pretend to provide emergency care, diagnosis, or crisis counseling.",
+      "agentWorkflow": "DocsBot can be instructed to answer general service questions from approved resources, recognize sensitive or urgent phrasing, provide organization-approved escalation language, and route the conversation to a human workflow when appropriate.",
+      "liveContextOrTools": "AI Actions can trigger a notification, create a ticket, or hand off the transcript to an on-call or triage process if the organization has configured that pathway. Public crisis guidance can point people to approved resources such as 988, which SAMHSA describes as 24/7 support for mental health and substance use needs.",
+      "exampleQuestionsOrRequests": [
+        "I need help now and don’t know who to call.",
+        "Is your office open tonight?",
+        "Can I speak with someone about a relapse concern?"
+      ],
+      "businessOutcome": "Clearer safety boundaries for AI responses, more consistent escalation, and better after-hours guidance for people seeking help.",
+      "icon": "ExclamationCircleIcon",
+      "sourceIds": [
+        "src-samhsa-988"
+      ]
+    },
+    {
+      "name": "Referral partner and community resource navigation",
+      "problem": "Hospitals, shelters, employers, courts, schools, and community partners need quick answers about referral criteria and available services, but staff often repeat the same explanations.",
+      "agentWorkflow": "Train a DocsBot agent on referral packets, service directories, eligibility rules, location guides, and partner FAQs. The agent can answer source-grounded questions and collect missing referral details for a human coordinator to review.",
+      "liveContextOrTools": "Through customer-configured Skills and connectors, the agent can submit a referral summary, create a review task, or update approved non-clinical fields in a connected system. MCP Connectors can also expose tools from systems the provider already uses when authorized.",
+      "exampleQuestionsOrRequests": [
+        "What referral information do you need from a hospital discharge planner?",
+        "Do you accept walk-ins for assessments?",
+        "Which programs serve adolescents or families?"
+      ],
+      "businessOutcome": "Referral partners get consistent information while coordinators spend less time clarifying incomplete requests.",
+      "icon": "LinkIcon"
+    },
+    {
+      "name": "Internal policy, SOP, and staff training assistant",
+      "problem": "Behavioral health teams must keep procedures consistent across admissions, front desk, case management, billing, alumni support, and leadership while documents change over time.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, staff manuals, onboarding materials, compliance notes, consent language, program rules, and approved scripts. Employees can ask questions and receive source-grounded answers with citations to internal material.",
+      "liveContextOrTools": "When configured, the agent can summarize a policy question, route it to compliance for review, or log repeated unanswered topics for content updates.",
+      "exampleQuestionsOrRequests": [
+        "Where is the current no-show policy?",
+        "What should front desk staff say when a family member asks for client information?",
+        "Which document explains alumni group participation rules?"
+      ],
+      "businessOutcome": "Faster staff onboarding, more consistent operational answers, and better visibility into documentation gaps.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Knowledge-gap analytics for service access content",
+      "problem": "High demand for treatment information makes unclear web pages, outdated FAQs, and incomplete program guides costly for both staff and people seeking care. SAMHSA estimated 52.6 million people needed substance use treatment in 2024.",
+      "agentWorkflow": "DocsBot conversation logs, analytics, topic management, reports, satisfaction signals, and knowledge-gap discovery help leaders see what people ask, where answers are missing, and which content needs revision.",
+      "liveContextOrTools": "Teams can review unanswered topics, update approved source documents, and retrain the agent so future answers reflect current service information.",
+      "exampleQuestionsOrRequests": [
+        "What questions are prospective clients asking most often?",
+        "Which admissions topics are not covered in our public FAQ?",
+        "Are people confused about insurance, telehealth, or program levels?"
+      ],
+      "businessOutcome": "Better self-service content, fewer avoidable calls, and clearer access pathways for people comparing treatment options.",
+      "icon": "ChartBarIcon",
+      "sourceIds": [
+        "src-samhsa-2024-treatment-need"
+      ]
+    },
+    {
+      "name": "Workforce relief for repetitive non-clinical questions",
+      "problem": "Counselor and behavioral health staff demand is rising; BLS projects 17% employment growth for substance abuse, behavioral disorder, and mental health counselors from 2024 to 2034.",
+      "agentWorkflow": "DocsBot handles repeatable, non-clinical questions about hours, locations, forms, program descriptions, preparation steps, and policies while escalating care-specific questions to qualified staff.",
+      "liveContextOrTools": "Approved Skills can route tickets, generate summaries, or notify the right queue when a person needs human follow-up.",
+      "exampleQuestionsOrRequests": [
+        "Where do I upload forms?",
+        "What happens at the first appointment?",
+        "Can staff call me about insurance verification?"
+      ],
+      "businessOutcome": "Staff can spend more time on human-centered intake, coordination, and care while routine information is available instantly.",
+      "icon": "UserGroupIcon",
+      "sourceIds": [
+        "src-bls-counselor-growth"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give people seeking help clear answers without replacing human care",
+    "intro": "A DocsBot customer-facing agent can sit on your website or service portal to answer approved questions about programs, admissions, forms, and resources. For sensitive or crisis-related topics, the agent can use your instructions to provide safe boundaries, collect context, and escalate to people or approved resources.",
+    "requests": [
+      {
+        "request": "“Do you accept my insurance and what should I do before calling?”",
+        "agentResponseStrategy": "Answer from approved insurance and admissions FAQs, explain what information the organization asks for, and collect contact details if the person wants follow-up.",
+        "sourceTypes": [
+          "Admissions FAQs",
+          "Insurance pages",
+          "Program guides",
+          "Intake forms"
+        ],
+        "optionalAction": "Create a follow-up task or forward a structured intake summary through an approved workflow.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“I’m worried about someone and need to know your family support options.”",
+        "agentResponseStrategy": "Provide source-grounded information about family programs, education resources, confidentiality boundaries, and next steps without disclosing protected information or giving clinical advice.",
+        "sourceTypes": [
+          "Family program pages",
+          "Confidentiality policies",
+          "Resource guides",
+          "Approved scripts"
+        ],
+        "optionalAction": "Route the conversation to a family services or admissions queue when configured.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Is this an emergency, or should I call your program?”",
+        "agentResponseStrategy": "Follow organization-approved escalation instructions, avoid crisis counseling, and point to urgent resources when appropriate. SAMHSA states 988 offers 24/7 support for mental health, substance use, and more.",
+        "sourceTypes": [
+          "Escalation policy",
+          "Crisis resource page",
+          "After-hours instructions"
+        ],
+        "optionalAction": "Notify an on-call or triage workflow only if the organization has configured that action and review path.",
+        "icon": "BellIcon",
+        "sourceIds": [
+          "src-samhsa-988"
+        ]
+      },
+      {
+        "request": "“Can you send my referral to your admissions team?”",
+        "agentResponseStrategy": "Ask for the configured referral fields, summarize the request, and make clear that staff will review service fit and any clinical or eligibility questions.",
+        "sourceTypes": [
+          "Referral packet",
+          "Eligibility guidance",
+          "Partner FAQs",
+          "Consent language"
+        ],
+        "optionalAction": "Submit a referral form, create a task, or send a secure summary through a customer-configured connector.",
+        "icon": "PaperAirplaneIcon"
+      },
+      {
+        "request": "“Do you have information in Spanish?”",
+        "agentResponseStrategy": "Use DocsBot multilingual answering to respond from the same approved source materials, preserving consistent program information across languages.",
+        "sourceTypes": [
+          "Website content",
+          "Translated resources",
+          "Program FAQs",
+          "Policy documents"
+        ],
+        "optionalAction": "Offer a configured handoff to bilingual staff or a preferred contact workflow when available.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What happens after discharge or completion?”",
+        "agentResponseStrategy": "Explain approved aftercare, alumni, relapse prevention education, and follow-up resources without creating a treatment plan or making clinical recommendations.",
+        "sourceTypes": [
+          "Aftercare guides",
+          "Alumni program pages",
+          "Recovery resources",
+          "Discharge education materials"
+        ],
+        "optionalAction": "Collect interest in alumni resources and route it to the appropriate staff workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Help staff find the right policy, script, or workflow before the next call",
+    "intro": "A private DocsBot internal knowledge agent gives admissions, operations, outreach, billing, and leadership teams instant access to approved internal documents. It can answer with source-grounded references, summarize knowledge gaps, and support scoped actions without exposing credentials in chat.",
+    "workflows": [
+      {
+        "name": "Front-desk and admissions SOP lookup",
+        "problem": "Staff need consistent answers about hours, walk-ins, intake forms, consent boundaries, program rules, and referral processes while calls and messages are waiting.",
+        "agentWorkflow": "Train the internal agent on SOPs, staff scripts, policy documents, program manuals, and onboarding materials. Employees ask natural-language questions and receive answers grounded in the latest approved sources.",
+        "sourceTypes": [
+          "SOPs",
+          "Staff scripts",
+          "Program manuals",
+          "Onboarding docs"
+        ],
+        "optionalAction": "Escalate policy ambiguity to a supervisor or compliance reviewer through a configured workflow.",
+        "outcome": "More consistent service navigation and less time searching folders during live interactions.",
+        "icon": "FolderIcon"
+      },
+      {
+        "name": "Compliance and confidentiality guidance retrieval",
+        "problem": "Substance abuse service teams must be careful with confidentiality, consent, and role-based access, especially when family members, partners, or employers ask for information.",
+        "agentWorkflow": "DocsBot can retrieve approved internal guidance and scripts, show the source, and remind staff to follow human review paths for sensitive decisions.",
+        "sourceTypes": [
+          "Confidentiality policies",
+          "Consent forms",
+          "Compliance notes",
+          "Approved response scripts"
+        ],
+        "optionalAction": "Create a review task for compliance or leadership when a question falls outside documented guidance.",
+        "outcome": "Staff get faster access to approved language while sensitive judgment remains with qualified people.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Care coordination resource library",
+        "problem": "Teams often maintain long lists of community resources, transport options, housing supports, labs, pharmacies, crisis contacts, and aftercare materials that become difficult to search.",
+        "agentWorkflow": "A DocsBot agent can answer from curated resource directories, PDFs, spreadsheets exported as documents, and internal wikis, helping staff find the right resource faster.",
+        "sourceTypes": [
+          "Resource directories",
+          "Community partner lists",
+          "Aftercare guides",
+          "Internal wikis"
+        ],
+        "optionalAction": "Draft a resource summary for human review or route a request to a care coordinator queue.",
+        "outcome": "Care teams spend less time hunting for information and more time supporting the person in front of them.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "name": "Content improvement and leadership reporting",
+        "problem": "Service leaders need to know which questions are confusing clients, families, staff, and referral partners.",
+        "agentWorkflow": "DocsBot analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery reveal repeated unanswered questions and content that needs improvement.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Topic reports",
+          "Knowledge base articles",
+          "Website FAQs"
+        ],
+        "optionalAction": "Create a content update task or route a documentation gap to the responsible owner.",
+        "outcome": "Better FAQs, clearer admissions information, and ongoing improvement based on real questions.",
+        "icon": "PresentationChartBarIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded agents trained on your own content",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on approved websites, help centers, documents, PDFs, internal content, and other configured knowledge sources.",
+      "industryApplication": "Train an agent on program pages, admissions FAQs, consent language, service directories, aftercare materials, and SOPs so answers reflect your actual substance abuse services.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can work in public-facing widgets and private team experiences for customers or employees.",
+      "industryApplication": "Offer self-service program navigation on your website while giving admissions, outreach, and operations staff a private knowledge assistant for internal procedures.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, and connectors",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as lookups, summaries, task creation, routing, record updates, and workflow triggers when configured.",
+      "industryApplication": "Collect referral details, summarize intake context, notify staff, create follow-up tasks, or trigger approved handoff workflows without letting the agent make clinical determinations.",
+      "icon": "CogIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See where people get stuck when asking about treatment options, admissions, insurance, family support, telehealth, and aftercare, then improve the source content.",
+      "icon": "ChartPieIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Use role-based access, scoped Skills, logs, and human escalation paths for sensitive behavioral health operations and internal documents.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual answers from approved sources",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages while using configured knowledge sources.",
+      "industryApplication": "Help clients, families, and referral partners understand program basics and next steps in their preferred language while keeping answers tied to the same approved information.",
+      "icon": "GlobeAltIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "jpa-health-internal-decisioning",
+      "brian-avery-education",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "jpa-health"
+    ],
+    "trustClaims": [
+      "Healthcare teams use DocsBot to reduce direct human interaction while supporting internal decision-making.",
+      "DocsBot can reinforce complex concepts from approved materials for people who need clear, guided explanations.",
+      "Organizations value the ability to train agents on their own content library instead of generic web answers."
+    ],
+    "whyTheseReviewsFit": "Substance abuse service teams need trusted knowledge access, careful handoffs, and consistent education across sensitive workflows. DocsBot proof from healthcare communications, education, and content-library use shows how teams apply source-grounded AI to support people and staff without replacing expert human judgment.",
+    "trustClaimIcons": [
+      "HeartIcon",
+      "AcademicCapIcon",
+      "BookOpenIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for substance abuse services",
+    "audience": [
+      "Substance abuse treatment centers",
+      "Outpatient and recovery programs",
+      "Admissions and intake teams",
+      "Behavioral health operations leaders",
+      "Community referral coordinators"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "HeartIcon"
+  },
+  "relatedIndustrySlugs": [
+    "telehealth-services",
+    "home-health-services",
+    "emergency-medical-services",
+    "child-youth-services",
+    "emergency-medical-transportation"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "substance-abuse-services",
+    "webSearchQueries": [
+      "SAMHSA 2024 NSDUH substance use treatment needed received 2024",
+      "Bureau Labor Statistics substance abuse behavioral disorder mental health counselors employment projections 2024 2034",
+      "SAMHSA 988 Lifeline crisis care substance use mental health 24/7",
+      "State of the Behavioral Health Workforce 2024 HRSA Mental Health Professional Shortage Area"
+    ],
+    "sourceUrls": [
+      "https://www.samhsa.gov/data/sites/default/files/reports/rpt56287/2024-nsduh-annual-national/2024-nsduh-annual-national-html-071425-edited/2024-nsduh-annual-national.htm",
+      "https://www.bls.gov/ooh/community-and-social-service/substance-abuse-behavioral-disorder-and-mental-health-counselors.htm",
+      "https://bhw.hrsa.gov/sites/default/files/bureau-health-workforce/state-of-behavioral-health-workforce-report-2024.pdf",
+      "https://www.samhsa.gov/find-help/988",
+      "https://www.hhs.gov/press-room/samhsa-announces-231m-funding-opportunity-administer-988-lifeline.html"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45434,
+        "cachedInputTokens": 12544,
+        "billableInputTokens": 32890,
+        "outputTokens": 8479,
+        "reasoningOutputTokens": 177,
+        "totalTokens": 53913,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.212546,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.232546
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25590,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18294,
+          "outputTokens": 5439,
+          "reasoningOutputTokens": 177,
+          "totalTokens": 31029,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.129144,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.149144
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19844,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14596,
+          "outputTokens": 3040,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22884,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.083402,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.083402
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1634639121634-c2d378816bca?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4Mzg4NzN8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Substance Abuse Services background image",
+    "source": "legacy-industry",
+    "query": "Substance Abuse Services"
+  },
+  "faq": [
+    {
+      "question": "Can the agent answer admissions questions without accidentally giving clinical advice?",
+      "answer": "Yes. DocsBot can be trained on your approved admissions pages, program guides, FAQs, policies, and scripts so it answers service-access questions such as program types, hours, forms, insurance basics, and next steps. For diagnosis, treatment recommendations, crisis language, or eligibility decisions, you can configure boundaries and escalation paths so the agent routes the person to qualified staff instead of trying to decide.",
+      "role": "Admissions and intake teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help our intake team if people still need a human assessment?",
+      "answer": "DocsBot is best used before and around the human assessment: answering repetitive pre-intake questions, collecting contact preferences and basic service-interest details, summarizing the conversation, and routing the request to the right queue. Staff still handle clinical review, eligibility, consent, and care decisions, but they receive cleaner context and spend less time repeating the same access information.",
+      "role": "Admissions and intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it after hours for people who may be in crisis?",
+      "answer": "Yes, with careful guardrails. The agent can provide your approved after-hours instructions, avoid crisis counseling, and direct urgent situations to approved resources or human escalation workflows. SAMHSA describes 988 as 24/7 support for mental health, substance use, and more, so many providers include 988 language in crisis-aware routing instructions.",
+      "role": "Clinical operations leaders",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-samhsa-988"
+      ]
+    },
+    {
+      "question": "What happens if someone says they are relapsing, using right now, or unsafe?",
+      "answer": "You can configure DocsBot to recognize urgent or sensitive phrasing and respond with approved escalation language rather than improvising. Depending on your workflow, it can display emergency or crisis instructions, collect only appropriate context, notify a team, create a ticket, or hand off the transcript. The key is to define what the agent must not answer and which scenarios require human review.",
+      "role": "Clinical operations leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent help with insurance and payment questions without creating compliance risk?",
+      "answer": "DocsBot can answer from approved insurance FAQs, payer guidance, self-pay pages, and admissions scripts, while making clear that verification and final coverage decisions require staff or payer review. It can collect the information your team asks for before follow-up, but it should not promise coverage, guarantee authorization, or make medical-necessity determinations.",
+      "role": "Admissions and intake teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we keep answers consistent across admissions, outreach, front desk, and alumni support?",
+      "answer": "DocsBot can use the same approved source library across public and private agent experiences: website content, program PDFs, SOPs, referral packets, staff scripts, consent language, and aftercare resources. Teams can update the underlying sources, review logs, and use knowledge-gap reports to identify where policies or public pages need clarification.",
+      "role": "Clinical operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can referral partners use the agent without seeing internal notes or protected information?",
+      "answer": "Yes. You can create a public or partner-facing agent trained only on approved referral information, eligibility guidance, program descriptions, and submission instructions. Internal SOPs, staff-only policies, and sensitive documents can be kept in a private knowledge agent with role-based access, so referral partners receive consistent information without exposure to internal material.",
+      "role": "Outreach, referral, and community partnership teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can the agent collect referral details and send them to our team?",
+      "answer": "DocsBot can collect structured fields you define, such as referral source, requested program, contact details, preferred follow-up, and missing documentation. With approved Skills, APIs, connectors, forms, or workflows, it can create a task, submit a summary, notify staff, or route the request to a helpdesk, CRM-style, or referral review process. Staff should still review service fit and clinical questions.",
+      "role": "Outreach, referral, and community partnership teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will this integrate with our EHR, CRM, scheduling, or ticketing process?",
+      "answer": "DocsBot can support customer-configured connections through Skills, APIs, connectors, webhooks, forms, and MCP Connectors when your team authorizes the workflow. Common patterns include creating a follow-up task, forwarding a transcript, requesting a scheduling workflow, or updating approved non-clinical fields. You should scope any live system action carefully and keep clinical decisions with staff.",
+      "role": "Clinical operations leaders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How much source content do we need before launch?",
+      "answer": "Most teams start with high-value, already approved content: admissions FAQs, program pages, location details, accepted populations, insurance guidance, referral packets, intake instructions, after-hours guidance, confidentiality scripts, and key SOPs. You do not need a perfect knowledge base on day one; DocsBot analytics can show unanswered questions and gaps so the content library improves over time.",
+      "role": "Clinical operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can staff use it internally for policy and confidentiality questions?",
+      "answer": "Yes. A private DocsBot internal knowledge agent can be trained on SOPs, staff manuals, consent forms, confidentiality policies, compliance notes, program rules, and approved scripts. Employees can ask natural-language questions and receive source-grounded answers, while ambiguous or sensitive situations can be routed to a supervisor or compliance reviewer.",
+      "role": "Clinical operations leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle HIPAA, 42 CFR Part 2, and other confidentiality concerns?",
+      "answer": "DocsBot provides governance features such as SOC 2 Type II certification, GDPR-ready controls, encryption in transit and at rest, granular access controls, role-based permissions, logs, and customer-defined boundaries. For substance abuse services, buyers should configure what content the agent can access, what data it may collect, which actions are allowed, and when a human must review the conversation.",
+      "role": "Clinical operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Does DocsBot use our client, referral, or policy data to train public AI models?",
+      "answer": "No. DocsBot’s product context states that customer data is not used to train public models. For sensitive behavioral health operations, teams can also use permissions, access controls, logging, and scoped Skills so agents only retrieve approved knowledge and perform customer-authorized actions.",
+      "role": "Clinical operations leaders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can we review what the agent said if there is a complaint, incident, or audit question?",
+      "answer": "Yes. DocsBot includes logs, conversation review, analytics, topic management, reports, and satisfaction or resolution analysis. That helps leaders see what users asked, how the agent responded, which sources were used, where escalation happened, and which documentation gaps may need operational follow-up.",
+      "role": "Clinical operations leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we measure ROI beyond just fewer phone calls?",
+      "answer": "Useful measures include repetitive question deflection, faster first response, more complete referral handoffs, fewer avoidable clarification calls, staff time saved, after-hours guidance usage, unanswered-topic reduction, and improvements to admissions content. Workforce pressure is a real context: BLS projects 17% employment growth for substance abuse, behavioral disorder, and mental health counselors from 2024 to 2034.",
+      "role": "Clinical operations leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-counselor-growth"
+      ]
+    },
+    {
+      "question": "Will an AI agent feel inappropriate or impersonal for people seeking recovery help?",
+      "answer": "It can if implemented poorly. DocsBot should be positioned as a service-navigation and handoff assistant, not a replacement for human care. The agent can use warm, approved language, explain when a person should contact staff, offer follow-up pathways, and escalate sensitive questions. The goal is faster access to clear information while preserving human support for judgment, empathy, and care.",
+      "role": "Admissions and intake teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support families without violating client confidentiality?",
+      "answer": "Yes, if it is trained on approved family education materials and confidentiality scripts. It can explain general family support options, program policies, contact pathways, and consent boundaries without confirming whether someone is a client or disclosing protected information. Questions about a specific person should follow your documented human review and consent process.",
+      "role": "Admissions and intake teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can it answer in Spanish or other languages while staying consistent with our English materials?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the same approved knowledge sources. That lets clients, families, and referral partners get program basics, next steps, and resource information in their preferred language while keeping answers grounded in the organization’s approved content.",
+      "role": "Outreach, referral, and community partnership teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What if our programs, availability, or accepted populations change frequently?",
+      "answer": "DocsBot should be connected to your current approved sources and governed by a content owner. When program details change, your team updates the source material and retrains or refreshes the agent according to your process. For volatile information such as bed availability or appointment openings, use a scoped live lookup only if your team has configured an authorized system connection and review rules.",
+      "role": "Clinical operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can the agent tell someone which level of care they need?",
+      "answer": "No—at least not as an autonomous decision. DocsBot can explain the levels of care your organization describes in approved materials and encourage a professional assessment, but it should not diagnose, triage clinically, or determine placement. You can configure the agent to route level-of-care questions to admissions or clinical staff.",
+      "role": "Admissions and intake teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this support community outreach and referral relationships?",
+      "answer": "Referral partners often need quick, consistent answers about populations served, referral forms, documentation, walk-in rules, contact channels, and what happens next. DocsBot can answer those questions from approved referral packets and partner FAQs, collect missing referral details, and prepare a structured summary for a coordinator to review.",
+      "role": "Outreach, referral, and community partnership teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What reporting would leadership get from the agent?",
+      "answer": "DocsBot can show conversation trends, unanswered questions, satisfaction or resolution signals, topic reports, knowledge gaps, and logs. Leaders can use those insights to improve public FAQs, staff scripts, referral packets, and training. That matters in a high-demand environment: SAMHSA estimated that 52.6 million people needed substance use treatment in 2024.",
+      "role": "Clinical operations leaders",
+      "category": "Reporting and analytics",
+      "sourceIds": [
+        "src-samhsa-2024-treatment-need"
+      ]
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated policy or program information?",
+      "answer": "Start by limiting the agent to approved sources and assigning content owners for admissions, clinical operations, compliance, and outreach materials. Use conversation review and knowledge-gap reports to spot stale or missing answers. For internal policies, keep old versions out of the active source set or label them clearly so the agent retrieves current guidance.",
+      "role": "Clinical operations leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is this more for public website questions or internal staff support?",
+      "answer": "It can support both, but the design should be different. A public agent can answer program, admissions, referral, family, and resource questions from approved public content. A private internal agent can retrieve SOPs, scripts, policies, care coordination resources, and training materials for staff. Permissions and source libraries should be separated by audience.",
+      "role": "General buyer",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What internal stakeholders usually need to approve this?",
+      "answer": "Most substance abuse service buyers involve admissions, clinical operations, compliance or privacy leadership, IT/security, outreach, and sometimes billing or finance. Admissions cares about response speed and handoff quality; clinical and compliance teams care about boundaries; IT reviews security and integrations; leadership evaluates staffing relief, reporting, and service-access impact.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "How should we pilot DocsBot without taking on too much risk?",
+      "answer": "Start with a narrow, non-clinical use case such as admissions FAQs, referral partner questions, or internal SOP lookup. Use approved sources only, disable or tightly scope live actions, define escalation rules, review conversations, and measure repetitive question reduction, handoff completeness, and unanswered topics before expanding to more workflows.",
+      "role": "Clinical operations leaders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help if our team is short-staffed but demand keeps rising?",
+      "answer": "DocsBot can reduce repetitive non-clinical work by answering routine questions, preparing handoffs, and making policies easier for staff to find. It does not replace counselors or qualified reviewers, but it can protect staff time for higher-value human interactions. HRSA reported that 122 million people lived in a Mental Health Professional Shortage Area as of August 2024.",
+      "role": "Clinical operations leaders",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-hrsa-workforce-2024"
+      ]
+    },
+    {
+      "question": "How is DocsBot different from adding a generic chatbot to our website?",
+      "answer": "DocsBot is designed around source-grounded AI agents trained on your approved content, not generic web answers. It can support public service navigation, private staff knowledge, analytics, knowledge-gap discovery, multilingual answers, human escalation, and bounded actions through configured Skills, APIs, connectors, or workflows. That makes it better suited to sensitive, policy-heavy behavioral health operations.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What should we not automate in substance abuse service workflows?",
+      "answer": "Do not automate diagnosis, clinical placement, emergency intervention, consent determinations, insurance guarantees, legal advice, or final eligibility decisions. Use DocsBot for approved education, navigation, structured information collection, summaries, routing, and internal knowledge retrieval. The safest deployments define clear “answer,” “collect,” “route,” and “escalate” boundaries before launch.",
+      "role": "Clinical operations leaders",
+      "category": "Human oversight"
+    }
+  ]
+}

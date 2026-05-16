@@ -1,0 +1,736 @@
+{
+  "slug": "truck-transportation",
+  "business": "Truck Transportation",
+  "industryCategory": "Transportation",
+  "pageMeta": {
+    "title": "AI Agents for Truck Transportation Operations",
+    "description": "DocsBot helps truck transportation teams answer shipment questions, surface SOPs, and route work with AI agents trained on approved fleet knowledge.",
+    "canonicalPath": "/industry/truck-transportation"
+  },
+  "hero": {
+    "eyebrow": "AI support and operations agents for trucking teams",
+    "headline": "Keep freight conversations moving with DocsBot AI agents",
+    "subheadline": "DocsBot helps truck transportation companies create AI agents trained on dispatch procedures, customer FAQs, lane guides, safety notes, billing policies, onboarding materials, and service documentation so customers and teams get source-grounded answers without waiting on the right person to be available.",
+    "proofBullets": [
+      {
+        "text": "Answer shipment, billing, accessorial, service-area, and documentation questions from approved trucking knowledge sources.",
+        "icon": "TruckIcon"
+      },
+      {
+        "text": "Use customer-configured AI Actions to look up approved load context, collect missing details, create tickets, route handoffs, or notify the right team.",
+        "icon": "BoltIcon"
+      },
+      {
+        "text": "Give dispatch, safety, sales, and support teams a private internal knowledge agent for SOPs, policies, onboarding, and exception handling.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Review logs, analytics, repeated questions, and knowledge gaps so operations leaders can improve documentation and support flows.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a trucking AI agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your trucking company’s own knowledge into AI agents for customer support, employee answers, documentation assistance, and bounded workflow automation. Agents can be deployed in a website widget, private team chat, Slack, Microsoft Teams, API-powered experiences, and helpdesk-style workflows, with source-grounded answers, human escalation, analytics, permissions, and customer-configured Skills for approved live lookups or actions.",
+    "whoItHelps": [
+      {
+        "role": "Customer service and track-and-trace teams",
+        "roleContext": "Support teams field recurring questions about shipment status, delivery windows, billing documents, claims steps, appointment requirements, and service policies. DocsBot can answer from approved FAQs and documents, then escalate when an exception needs human review.",
+        "bullets": [
+          {
+            "text": "Deflect repetitive customer questions while keeping answers grounded in your current policies and service documentation.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Collect load numbers, PO numbers, delivery locations, or contact details before creating a ticket or handoff through configured workflows.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Answer customers in more than 100 languages when your documentation supports the request.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Dispatch, operations, and driver support leaders",
+        "roleContext": "Trucking operations depend on fast access to procedures for detention, lumper fees, failed deliveries, after-hours contacts, trailer pools, customer-specific instructions, and exception playbooks.",
+        "bullets": [
+          {
+            "text": "Make SOPs, lane notes, escalation paths, and customer rules searchable from one internal agent.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize exception context for a dispatcher before a handoff, call, or ticket update.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use analytics to see where employees repeatedly ask for missing or outdated operating guidance.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "CogIcon"
+      },
+      {
+        "role": "Safety, compliance, and training managers",
+        "roleContext": "Motor carriers manage regulated operating procedures, driver onboarding, hours-of-service questions, inspection readiness, and safety documentation. DocsBot can retrieve approved guidance, but teams should keep humans responsible for safety-critical decisions.",
+        "bullets": [
+          {
+            "text": "FMCSA’s property-carrying HOS summary includes the 11-hour driving limit, 14-hour driving window, 30-minute break, and 60/70-hour limits.",
+            "icon": "ClockIcon",
+            "sourceIds": [
+              "src-fmcsa-hos"
+            ]
+          },
+          {
+            "text": "Help drivers and office staff find company policy, training, inspection, and reporting procedures from approved internal sources.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Use role-based access, encryption, SOC 2 Type II controls, and GDPR-ready governance for private operational knowledge.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fmcsa-hos"
+        ]
+      },
+      {
+        "role": "Sales and account management teams",
+        "roleContext": "Freight sales and account teams need quick answers about coverage, onboarding requirements, pricing rules, service capabilities, claims processes, and customer-specific operating commitments.",
+        "bullets": [
+          {
+            "text": "Equip reps with source-grounded answers from service catalogs, lane guides, proposal templates, pricing guidance, and onboarding documents.",
+            "icon": "BriefcaseIcon"
+          },
+          {
+            "text": "Qualify prospects with structured intake flows for region, freight type, equipment needs, timeline, and follow-up preferences.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Forward qualified lead summaries to approved sales or support systems using customer-configured Skills, APIs, connectors, or workflows.",
+            "icon": "PaperAirplaneIcon"
+          }
+        ],
+        "roleIcon": "ArrowTrendingUpIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-ata-freight-share",
+      "metric": "72.7% of U.S. freight tonnage by weight",
+      "claim": "American Trucking Associations reports that trucks moved roughly 72.7% of the nation’s freight by weight in 2024 and transported an estimated 11.27 billion tons of freight.",
+      "sourceTitle": "Economics and Industry Data | American Trucking Associations",
+      "sourceUrl": "https://www.trucking.org/economics-and-industry-data",
+      "sourceDate": "Crawled 2026",
+      "bestUsedFor": [
+        "Industry scale",
+        "Customer communication volume",
+        "Operational complexity"
+      ]
+    },
+    {
+      "id": "src-bls-truck-employment",
+      "metric": "About 1.5 million truck transportation employees",
+      "claim": "BLS industry data for NAICS 484 shows seasonally adjusted U.S. truck transportation employment around 1.5 million employees in 2025 monthly data.",
+      "sourceTitle": "Truck Transportation: NAICS 484 | U.S. Bureau of Labor Statistics",
+      "sourceUrl": "https://www.bls.gov/iag/tgs/iag484.htm",
+      "sourceDate": "2025 data table",
+      "bestUsedFor": [
+        "Labor scale",
+        "Internal knowledge access",
+        "Employee onboarding"
+      ]
+    },
+    {
+      "id": "src-fmcsa-hos",
+      "metric": "Federal HOS limits for property-carrying drivers",
+      "claim": "FMCSA summarizes property-carrying hours-of-service rules including the 11-hour driving limit, 14-hour driving window, 30-minute break requirement, and 60/70-hour limits.",
+      "sourceTitle": "Summary of Hours of Service Regulations | FMCSA",
+      "sourceUrl": "https://www.fmcsa.dot.gov/regulations/hours-service/summary-hours-service-regulations",
+      "sourceDate": "FMCSA page crawled 2026",
+      "bestUsedFor": [
+        "Compliance pressure",
+        "Driver support",
+        "Safety documentation"
+      ]
+    },
+    {
+      "id": "src-fmcsa-crash-facts",
+      "metric": "FMCSA large truck and bus crash reporting",
+      "claim": "FMCSA’s Large Truck and Bus Crash Facts program compiles truck and bus crash data from major federal safety data sources for safety analysis and reporting.",
+      "sourceTitle": "Large Truck and Bus Crash Facts | FMCSA",
+      "sourceUrl": "https://www.fmcsa.dot.gov/safety/data-and-statistics/large-truck-and-bus-crash-facts",
+      "sourceDate": "Published 2025",
+      "bestUsedFor": [
+        "Safety risk",
+        "Compliance workflows",
+        "Operational accountability"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Shipment support and exception intake agent",
+      "problem": "Customers ask the same shipment, ETA, pickup, POD, accessorial, claim, and billing questions across email, web forms, calls, and portals. Repetitive requests slow down support teams and leave customers waiting.",
+      "agentWorkflow": "A DocsBot support agent answers from approved FAQs, service policies, customer onboarding materials, and documentation. When configured with Skills, APIs, connectors, or workflow automations, it can collect a shipment identifier, summarize the request, look up approved live context, create a ticket, and route exceptions to customer service or dispatch.",
+      "liveContextOrTools": "Approved load-status lookups, ticket creation, customer-configured helpdesk connections, CRM or email handoffs, and notification workflows.",
+      "exampleQuestionsOrRequests": [
+        "Where do I send the signed BOL for this shipment?",
+        "What information do you need to check a delivery appointment?",
+        "Can you summarize this delayed delivery request for support?"
+      ],
+      "businessOutcome": "Reduce repetitive support handling while giving customers faster, more consistent answers and cleaner handoffs for exceptions.",
+      "icon": "TruckIcon"
+    },
+    {
+      "name": "Dispatcher SOP and customer-rule assistant",
+      "problem": "Dispatchers often need customer-specific rules, facility notes, detention steps, after-hours contacts, lumper instructions, and exception playbooks while freight is already moving.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, customer guides, lane notes, onboarding documents, PDFs, wikis, and team knowledge. Dispatchers can ask natural-language questions and receive source-grounded answers with links back to approved internal material.",
+      "liveContextOrTools": "Private chat, Slack, Microsoft Teams, API-powered internal tools, document sources, permissions, and analytics for repeated operational questions.",
+      "exampleQuestionsOrRequests": [
+        "What is the detention process for this customer account?",
+        "What do we do when a consignee refuses a delivery?",
+        "Which after-hours escalation path applies to refrigerated freight?"
+      ],
+      "businessOutcome": "Help dispatch teams find procedures faster and reduce inconsistent answers across shifts, terminals, and account teams.",
+      "icon": "CogIcon"
+    },
+    {
+      "name": "Safety and compliance knowledge agent",
+      "problem": "Drivers, recruiters, and office staff need quick access to safety procedures, onboarding steps, inspection guidance, accident reporting, and company interpretations of regulated workflows. FMCSA HOS rules include detailed limits that teams must understand and apply carefully.",
+      "agentWorkflow": "A DocsBot internal agent retrieves approved safety manuals, training content, compliance notes, driver handbooks, and policy documents. For sensitive or safety-critical questions, the agent can provide documented guidance, preserve source links, and route the employee to a safety manager for review.",
+      "liveContextOrTools": "Approved safety documents, HR and training knowledge bases, ticket or task creation, human escalation, access controls, logs, and review workflows.",
+      "exampleQuestionsOrRequests": [
+        "Where is our accident reporting checklist?",
+        "What documents are needed before a driver returns to service?",
+        "Show the company policy for hours-of-service questions."
+      ],
+      "businessOutcome": "Make compliance knowledge easier to find while keeping humans accountable for safety judgments and regulated decisions.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fmcsa-hos",
+        "src-fmcsa-crash-facts"
+      ]
+    },
+    {
+      "name": "Driver onboarding and training assistant",
+      "problem": "Truck transportation employs a large workforce, and onboarding new drivers, dispatchers, and customer service staff requires consistent access to policies, tools, customer rules, and operating procedures.",
+      "agentWorkflow": "DocsBot can train on onboarding guides, training decks, handbooks, recorded content summaries, HR policies, equipment instructions, and internal FAQs. New hires ask questions in plain language and get source-grounded answers instead of waiting for a manager or searching scattered files.",
+      "liveContextOrTools": "Google Drive, Notion, Confluence, PDFs, Word documents, text files, private team chat, analytics, and knowledge-gap reports.",
+      "exampleQuestionsOrRequests": [
+        "How do I submit fuel receipts?",
+        "Where is the new dispatcher checklist?",
+        "What should a driver do if a customer asks for an unplanned accessorial?"
+      ],
+      "businessOutcome": "Improve onboarding consistency and reduce repetitive questions to managers, trainers, and experienced dispatchers.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-bls-truck-employment"
+      ]
+    },
+    {
+      "name": "Freight sales qualification and account enablement agent",
+      "problem": "Sales teams need fast answers about service coverage, equipment fit, onboarding requirements, claims policies, and customer commitments while qualifying shippers and brokers.",
+      "agentWorkflow": "A DocsBot presales or sales enablement agent answers from service catalogs, lane guides, pricing guidance, proposal templates, case studies, policies, and customer-facing FAQs. It can collect structured lead details, apply customer-defined qualification rules, summarize fit, and forward context to approved sales systems.",
+      "liveContextOrTools": "Custom forms, AI qualification instructions, CRM or inbox handoffs through approved workflows, scheduling intent collection, and customer-configured Skills.",
+      "exampleQuestionsOrRequests": [
+        "Do we support dry van freight in this region?",
+        "What details do you need to quote a recurring lane?",
+        "Summarize this prospect’s equipment needs for sales follow-up."
+      ],
+      "businessOutcome": "Help reps respond faster and hand off better-qualified shipper opportunities without making the agent responsible for final pricing or contract commitments.",
+      "icon": "ArrowTrendingUpIcon"
+    },
+    {
+      "name": "Claims, billing, and document assistance",
+      "problem": "POD requests, invoice questions, short-pay explanations, accessorial documentation, and claims steps can create repetitive back-and-forth between customers, carriers, and back-office teams.",
+      "agentWorkflow": "DocsBot answers from billing policies, claims procedures, document checklists, customer FAQs, and internal templates. With configured actions, the agent can collect required fields, summarize the issue, create a task or ticket, and route the request to the right back-office queue.",
+      "liveContextOrTools": "Document checklists, ticketing workflows, approved field collection, summaries, email handoffs, and permissioned live lookups where authorized.",
+      "exampleQuestionsOrRequests": [
+        "What documents are required to dispute an accessorial?",
+        "How do I request a POD copy?",
+        "Create a billing support summary from this customer message."
+      ],
+      "businessOutcome": "Reduce avoidable back-and-forth and help back-office teams receive cleaner, more complete requests.",
+      "icon": "DocumentTextIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give shippers and brokers fast answers without overloading your team",
+    "intro": "A DocsBot customer-facing agent can sit on your website, portal, or help center and answer from your approved freight policies, service pages, FAQs, onboarding guides, billing instructions, and support documentation. When a request needs action, it can collect the right details and hand off through configured workflows.",
+    "requests": [
+      {
+        "request": "“Can you check the status of my shipment?”",
+        "agentResponseStrategy": "Ask for the required shipment identifier, explain what information is needed, and, when authorized live context is configured, look up approved status details or route a prepared handoff to support.",
+        "sourceTypes": [
+          "Customer FAQ",
+          "Track-and-trace policy",
+          "Support workflow instructions"
+        ],
+        "optionalAction": "Create a support ticket, notify customer service, or pass a summarized request to a helpdesk-style workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“What information do you need for a freight quote?”",
+        "agentResponseStrategy": "Guide the visitor through required shipment details such as origin, destination, equipment type, commodity, timing, volume, and preferred follow-up channel, then summarize the opportunity.",
+        "sourceTypes": [
+          "Service catalog",
+          "Sales intake form",
+          "Pricing guidance"
+        ],
+        "optionalAction": "Forward qualified lead details to approved sales systems or request a meeting through a configured scheduling workflow.",
+        "icon": "CalculatorIcon"
+      },
+      {
+        "request": "“How do I file a claim or dispute an invoice?”",
+        "agentResponseStrategy": "Answer from claims and billing documentation, list the required documents, clarify deadlines or internal policy language when included in approved sources, and escalate complex disputes.",
+        "sourceTypes": [
+          "Claims policy",
+          "Billing FAQ",
+          "Document checklist"
+        ],
+        "optionalAction": "Create a claims or billing ticket with the customer’s summary and attached context when configured.",
+        "icon": "CreditCardIcon"
+      },
+      {
+        "request": "“Do you serve this lane or freight type?”",
+        "agentResponseStrategy": "Use approved service-area pages, equipment descriptions, customer-facing FAQs, and sales guidance to answer fit questions without inventing commitments outside your documentation.",
+        "sourceTypes": [
+          "Lane guide",
+          "Service page",
+          "Equipment FAQ"
+        ],
+        "optionalAction": "Collect lead details and route the request to the correct regional or account team.",
+        "icon": "GlobeAltIcon"
+      },
+      {
+        "request": "“I need help in another language.”",
+        "agentResponseStrategy": "Respond in the customer’s language where your sources support the answer, keep terminology consistent, and escalate unclear or high-impact requests to a human.",
+        "sourceTypes": [
+          "Multilingual manuals",
+          "Customer FAQs",
+          "Support policies"
+        ],
+        "optionalAction": "Route the conversation transcript to a human support queue for follow-up.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Where should the driver send paperwork?”",
+        "agentResponseStrategy": "Answer from approved receiving, POD, BOL, and document-submission instructions, then provide the next step or escalation path if the customer’s account has special rules.",
+        "sourceTypes": [
+          "Document submission policy",
+          "Customer onboarding guide",
+          "Support FAQ"
+        ],
+        "optionalAction": "Generate a summarized handoff for customer service or billing.",
+        "icon": "PrinterIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Put dispatch, safety, sales, and back-office knowledge in one governed AI agent",
+    "intro": "DocsBot helps trucking teams create private internal agents trained on SOPs, policies, training material, wikis, PDFs, customer rules, sales guidance, and support history. Employees get fast, source-grounded answers while leaders review analytics and update the documents behind repeated questions.",
+    "workflows": [
+      {
+        "name": "Dispatch exception playbooks",
+        "problem": "Exceptions such as missed appointments, detention, facility delays, refusals, and after-hours issues often depend on account-specific rules that are hard to find quickly.",
+        "agentWorkflow": "The agent retrieves customer-specific instructions, SOPs, escalation paths, and facility notes. It can summarize the situation and prepare a task, ticket, or team notification when configured.",
+        "sourceTypes": [
+          "SOPs",
+          "Customer rules",
+          "Lane notes",
+          "Escalation matrices"
+        ],
+        "optionalAction": "Create a task, route a summary, or notify the responsible dispatcher or account team.",
+        "outcome": "Faster, more consistent exception handling across shifts and operating locations.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "name": "Safety and training answers",
+        "problem": "Safety managers repeat answers about reporting, inspections, training, onboarding, and company policy. FMCSA safety data programs reinforce the importance of structured safety reporting and analysis in trucking.",
+        "agentWorkflow": "DocsBot answers from approved safety manuals, training documents, inspection checklists, and compliance notes, then routes sensitive or unclear questions to a safety leader.",
+        "sourceTypes": [
+          "Safety manual",
+          "Training materials",
+          "Driver handbook",
+          "Inspection checklist"
+        ],
+        "optionalAction": "Create a reviewed handoff for safety-critical questions rather than allowing the agent to make a final decision.",
+        "outcome": "Better access to safety documentation without removing human review for regulated decisions.",
+        "icon": "ShieldCheckIcon",
+        "sourceIds": [
+          "src-fmcsa-crash-facts"
+        ]
+      },
+      {
+        "name": "Back-office billing and claims support",
+        "problem": "Billing, collections, and claims teams lose time finding policy language, document requirements, customer-specific rules, and message templates.",
+        "agentWorkflow": "The agent retrieves procedures, templates, document checklists, and customer instructions, then drafts a response or summarizes the case for human review.",
+        "sourceTypes": [
+          "Billing policy",
+          "Claims SOP",
+          "Email templates",
+          "Customer contract notes"
+        ],
+        "optionalAction": "Draft a response, create a queue item, or update approved fields through customer-configured workflows.",
+        "outcome": "Cleaner internal handoffs and less repetitive document lookup for back-office teams.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Sales enablement and account research",
+        "problem": "Freight sales reps need quick access to service capabilities, objection handling, onboarding requirements, and prospect context before outreach.",
+        "agentWorkflow": "DocsBot answers from sales playbooks, service documents, pricing guidance, FAQs, proposal templates, and customer-facing materials. When configured with web search and approved Skills, it can summarize public prospect context for a human seller.",
+        "sourceTypes": [
+          "Sales playbook",
+          "Service catalog",
+          "Proposal templates",
+          "Approved public research"
+        ],
+        "optionalAction": "Draft follow-up emails, prepare account summaries, or forward lead context to a configured sales workflow.",
+        "outcome": "More informed sales conversations while humans retain control over pricing, commitments, and contracts.",
+        "icon": "PresentationChartBarIcon"
+      },
+      {
+        "name": "IT, HR, and operations helpdesk",
+        "problem": "Employees ask recurring questions about tools, permissions, equipment, time-off policies, onboarding, and internal processes.",
+        "agentWorkflow": "A private DocsBot agent answers from HR policies, IT guides, onboarding docs, and operations procedures, then escalates issues that require a human or system change.",
+        "sourceTypes": [
+          "HR policies",
+          "IT knowledge base",
+          "Onboarding guides",
+          "Operations wiki"
+        ],
+        "optionalAction": "Create an internal ticket, summarize the employee’s issue, or route it to the right team.",
+        "outcome": "Reduce repetitive internal questions and help employees find reliable answers faster.",
+        "icon": "ComputerDesktopIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded support agents",
+      "mainLandingPageContext": "DocsBot agents are trained on a company’s approved sources and provide instant answers in the company’s voice with source grounding and escalation paths.",
+      "industryApplication": "Answer shipper, broker, consignee, and driver questions from freight policies, service pages, FAQs, claim instructions, billing docs, and onboarding material.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Internal knowledge agents",
+      "mainLandingPageContext": "DocsBot can act as a private assistant for employees, retrieving procedures, policies, training, troubleshooting steps, and operational knowledge from approved internal sources.",
+      "industryApplication": "Give dispatch, safety, recruiting, sales, billing, and terminal teams one place to ask about SOPs, customer rules, driver onboarding, equipment procedures, and exception playbooks.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents take bounded actions such as live lookups, summaries, record updates, routing, ticket creation, workflow triggers, and handoffs through customer-configured systems.",
+      "industryApplication": "Configure approved actions for load-status lookups, support tickets, claims intake, sales lead routing, task creation, team notifications, or remote Model Context Protocol server tools where your team authorizes access.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Helpdesk and ticket intelligence",
+      "mainLandingPageContext": "DocsBot agents can learn from, summarize, route, answer, or draft responses for support tickets when connected through customer-configured Skills, APIs, connectors, exports, or approved workflows.",
+      "industryApplication": "Summarize repeated ETA, POD, invoice, detention, and claims questions so support teams can respond faster and improve customer-facing documentation.",
+      "icon": "EnvelopeIcon"
+    },
+    {
+      "feature": "Analytics, reports, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which shipment, billing, policy, onboarding, and exception topics cause the most confusion, then improve the underlying docs and SOPs.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Protect private customer rules, pricing guidance, shipment procedures, internal SOPs, and employee knowledge while limiting what each agent can access and do.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "sony-nuro-resolution-rate",
+      "sanchay-indned-ebike-support",
+      "matt-cromwell-content-library"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Built for high-volume support environments where repetitive customer questions need fast, consistent answers.",
+      "Trains on owned content libraries, manuals, websites, and documentation so answers reflect the business’s real knowledge.",
+      "Supports scalable 24/7 self-service with multilingual documentation when trucking customers, drivers, or partners need help after hours."
+    ],
+    "whyTheseReviewsFit": "Truck transportation teams need dependable answers across customer service, operations, and field support. DocsBot proof spans high-volume inquiry handling, owned-content training, multilingual manuals, embedded support experiences, analytics, and source-grounded self-service—the same patterns trucking teams use to reduce repetitive questions and improve handoffs.",
+    "trustClaimIcons": [
+      "SignalIcon",
+      "ArchiveBoxIcon",
+      "ClockIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for truck transportation companies",
+    "audience": [
+      "Motor carriers",
+      "Freight brokers with trucking operations",
+      "Fleet operators",
+      "Dispatch and safety teams",
+      "Freight customer support teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "transportation",
+    "freight-forwarding",
+    "intermodal-transport",
+    "fleet-telematics",
+    "last-mile-delivery",
+    "cold-chain-logistics"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "truck-transportation",
+    "webSearchQueries": [
+      "American Trucking Associations trucks move percentage of freight tonnage United States 2024",
+      "FMCSA large truck and bus crash facts 2022 2023 truck crashes",
+      "BLS truck transportation employment NAICS 484 May 2024",
+      "FMCSA hours of service regulations property carrying drivers 11 hours 14 hours"
+    ],
+    "sourceUrls": [
+      "https://www.trucking.org/economics-and-industry-data",
+      "https://www.bls.gov/iag/tgs/iag484.htm",
+      "https://www.fmcsa.dot.gov/regulations/hours-service/summary-hours-service-regulations",
+      "https://www.fmcsa.dot.gov/safety/data-and-statistics/large-truck-and-bus-crash-facts"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 41706,
+        "cachedInputTokens": 20224,
+        "billableInputTokens": 21482,
+        "outputTokens": 8361,
+        "reasoningOutputTokens": 122,
+        "totalTokens": 50067,
+        "webSearchCalls": 1,
+        "estimatedTokenCostUsd": 0.184177,
+        "estimatedWebSearchCostUsd": 0.01,
+        "estimatedTotalCostUsd": 0.194177
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21597,
+          "cachedInputTokens": 14976,
+          "billableInputTokens": 6621,
+          "outputTokens": 5442,
+          "reasoningOutputTokens": 122,
+          "totalTokens": 27039,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.101927,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.111927
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20109,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14861,
+          "outputTokens": 2919,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 23028,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.08225,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.08225
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1560021009-5b351959146b?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NDM3MjV8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Truck Transportation background image",
+    "source": "legacy-industry",
+    "query": "Truck Transportation"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer shipment-status questions without letting the AI make operational promises?",
+      "answer": "Yes. A DocsBot agent can first ask for the load number, PO, PRO, or other required identifier, then answer from approved track-and-trace instructions or use a customer-configured Skill/API to look up authorized status context. You can keep promises such as revised ETAs, detention approval, claims decisions, or service recovery commitments routed to a human dispatcher or support rep.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this fit with our TMS, customer portal, email queue, or helpdesk instead of becoming another inbox?",
+      "answer": "DocsBot can sit in a website widget, private team chat, Slack, Microsoft Teams, API-powered experience, or helpdesk-style workflow. With customer-configured Skills, APIs, connectors, webhooks, or MCP server tools, the agent can collect missing fields, summarize the request, create a ticket, notify a team, or look up approved live context rather than forcing staff to retype information.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "Can dispatchers use it for customer-specific SOPs like detention, lumper fees, refusals, and after-hours escalation?",
+      "answer": "Yes. DocsBot can act as a private internal knowledge agent trained on SOPs, customer rules, lane notes, facility instructions, escalation matrices, onboarding docs, PDFs, wikis, and team knowledge. Dispatchers can ask natural-language questions and receive source-grounded answers with links back to the approved material, helping reduce inconsistent answers across shifts and terminals.",
+      "role": "Dispatch, operations, and driver support leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What should we automate first if our team is buried in ETA, POD, billing, and appointment questions?",
+      "answer": "Start with repetitive, low-risk intake and answer flows: POD request instructions, invoice-dispute document checklists, quote-intake requirements, appointment-information requests, claim steps, and shipment-status intake. Keep exception handling, service commitments, pricing, and safety decisions in human review until the workflows, permissions, and escalation rules are proven.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we prevent the agent from giving outdated lane, accessorial, or customer-rule information?",
+      "answer": "DocsBot answers from your approved sources, so the strongest implementation pattern is to assign owners for SOPs, customer guides, lane notes, billing policies, and service pages. Conversation logs, reports, repeated questions, and knowledge-gap analytics can show where documentation is missing, stale, or confusing so operations leaders know what to update.",
+      "role": "Dispatch, operations, and driver support leaders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can we use this for hours-of-service and safety questions without creating compliance risk?",
+      "answer": "DocsBot can retrieve approved safety manuals, driver handbooks, training content, and company policy, but safety-critical or regulated decisions should route to a qualified safety leader. That matters because FMCSA’s property-carrying HOS summary includes limits such as the 11-hour driving limit, 14-hour driving window, 30-minute break requirement, and 60/70-hour limits.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fmcsa-hos"
+      ]
+    },
+    {
+      "question": "Will the agent support drivers and customers after hours or in multiple languages?",
+      "answer": "DocsBot can provide always-available answers through configured customer-facing or internal experiences, and it can answer in more than 100 languages when your documentation supports the request. For unclear, sensitive, or account-specific issues, it can collect context and route a summarized handoff to the correct support, dispatch, billing, or safety queue.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can we expose one agent to customers and a different one to internal operations teams?",
+      "answer": "Yes. Many trucking teams would separate external and internal use cases. A customer-facing agent can answer from service pages, billing FAQs, claims steps, and shipment-support instructions, while a private internal agent can access SOPs, customer rules, training material, pricing guidance, escalation paths, and other permissioned knowledge.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How do we measure ROI beyond saying we added an AI chat widget?",
+      "answer": "Track operational metrics buyers already care about: repetitive contacts deflected, time-to-first-response, complete intake rate, ticket volume by topic, after-hours resolution, handoff quality, agent satisfaction, and documentation gaps closed. For internal agents, measure reduced manager interruptions, faster SOP lookup, onboarding consistency, and fewer repeated questions across dispatch, safety, billing, and sales.",
+      "role": "General buyer",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Is this useful for a carrier with multiple terminals, business units, or customer-specific operating rules?",
+      "answer": "Yes, if you structure sources and permissions carefully. DocsBot supports granular access controls and role-based permissions, so teams can limit which knowledge an agent can access. That helps when dispatch, safety, sales, billing, and regional teams need different answers or when customer-specific rules should not be visible to every user.",
+      "role": "Dispatch, operations, and driver support leaders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Can DocsBot help with driver onboarding and dispatcher training?",
+      "answer": "Yes. DocsBot can train on driver handbooks, onboarding checklists, HR policies, equipment instructions, training decks, recorded-content summaries, customer rules, and dispatcher SOPs. New hires can ask practical questions like how to submit receipts, where to find accident-reporting steps, or what to do with an unplanned accessorial, and receive answers grounded in approved materials.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Why is internal knowledge access such a big issue in trucking operations?",
+      "answer": "Truck transportation has a large, distributed workforce: BLS industry data for NAICS 484 shows U.S. truck transportation employment around 1.5 million employees in 2025 monthly data. That scale makes consistent access to SOPs, onboarding materials, safety procedures, and customer-specific instructions difficult when knowledge lives across terminals, shared drives, emails, and experienced employees.",
+      "role": "Dispatch, operations, and driver support leaders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-bls-truck-employment"
+      ]
+    },
+    {
+      "question": "Can the agent handle claims, accessorial disputes, and invoice questions without creating legal or billing exposure?",
+      "answer": "DocsBot can answer from approved billing policies, claims procedures, document checklists, customer FAQs, and internal templates. For exposure-sensitive situations, configure it to collect required fields, summarize the dispute, create a ticket, and route the case to billing, claims, or account management instead of making final liability, credit, or settlement decisions.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot protect customer rules, pricing guidance, shipment procedures, and internal SOPs?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models. Skills can also be configured with secrets, metadata bindings, logging, network policy, and customer-defined boundaries for what agents can access or do.",
+      "role": "General buyer",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can sales and account teams use DocsBot for freight quote qualification?",
+      "answer": "Yes. A DocsBot presales or sales enablement agent can answer from service catalogs, lane guides, equipment descriptions, onboarding requirements, proposal templates, pricing guidance, and customer-facing FAQs. It can collect structured details such as origin, destination, freight type, equipment, timeline, volume, and follow-up preference, then route a qualified summary through approved workflows.",
+      "role": "Sales and account management teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the AI quote rates, approve accessorials, or commit capacity on its own?",
+      "answer": "Only if your team deliberately configures a bounded action, and most trucking buyers should keep final pricing, capacity commitments, contractual terms, and accessorial approvals under human control. DocsBot is well suited for collecting quote details, answering policy questions, retrieving approved guidance, drafting summaries, and routing handoffs to the responsible person.",
+      "role": "Sales and account management teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What does implementation look like if our knowledge is spread across PDFs, Google Drive, Confluence, Notion, and tribal knowledge?",
+      "answer": "A practical rollout starts by choosing one or two workflows, then organizing the approved source material behind them. DocsBot can train on sources such as websites, PDFs, Word documents, text files, Google Drive, Notion, Confluence, wikis, and internal documents. Conversation analytics then help identify missing SOPs, unclear policies, and tribal knowledge that should be documented.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can we review what the agent said if a customer complains or a safety manager needs an audit trail?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For trucking teams, those records can help review customer-facing shipment conversations, internal SOP questions, driver-support requests, and safety-policy handoffs, while keeping sensitive decisions escalated to humans.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we avoid hallucinated answers about facilities, appointments, claims deadlines, or customer commitments?",
+      "answer": "Use source-grounded answers, keep the agent trained on approved documents, and design fallback behavior for missing or conflicting information. For high-impact topics, configure the agent to say it does not have enough approved information, collect the needed context, and escalate to dispatch, customer service, billing, safety, or account management.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Is DocsBot replacing our dispatchers or customer service reps?",
+      "answer": "No. The best fit is reducing repetitive lookup, intake, and handoff work so staff can focus on exceptions, customer relationships, service recovery, pricing, safety, and judgment-heavy decisions. DocsBot can answer common questions, summarize context, route requests, and surface SOPs, while humans remain accountable for operational commitments and regulated decisions.",
+      "role": "Dispatch, operations, and driver support leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent support both shipper and broker customers without exposing one customer’s rules to another?",
+      "answer": "Yes, but it requires careful source design and permissions. Customer-facing agents should use approved public or customer-appropriate content, while private customer rules, contract notes, pricing guidance, and operating exceptions should stay in internal agents or permissioned workflows. Role-based access controls help separate what each audience can retrieve.",
+      "role": "Customer service and track-and-trace teams",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What trucking KPIs can analytics from DocsBot help us improve?",
+      "answer": "DocsBot analytics can show repeated questions, unresolved topics, satisfaction signals, resolution patterns, and documentation gaps. Trucking teams can use that to improve first-contact resolution, reduce repetitive ETA/POD/billing contacts, speed up complete intake, shorten onboarding question loops, and identify SOPs or customer rules that need clearer documentation.",
+      "role": "General buyer",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How should we compare DocsBot with a generic chatbot or a TMS portal assistant?",
+      "answer": "Compare whether the system can train on your approved knowledge, provide source-grounded answers, support internal and external agents, preserve human escalation, expose analytics, and take bounded actions through customer-configured Skills, APIs, connectors, or workflows. A TMS portal may show transactions; DocsBot is better positioned as a knowledge and workflow layer around policies, SOPs, intake, and handoffs.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can DocsBot help safety teams standardize reporting and training access across the fleet?",
+      "answer": "Yes. DocsBot can retrieve approved accident-reporting checklists, inspection guidance, training materials, driver handbooks, and company policy, then route sensitive questions to a safety manager. Structured access matters because FMCSA’s Large Truck and Bus Crash Facts program compiles truck and bus crash data from major federal safety data sources for safety analysis and reporting.",
+      "role": "Safety, compliance, and training managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fmcsa-crash-facts"
+      ]
+    },
+    {
+      "question": "What level of internal effort should we expect from operations, IT, and compliance during rollout?",
+      "answer": "Operations should identify high-volume questions and approve SOP sources. IT should help with access controls, deployment locations, and any API, connector, webhook, or MCP options. Compliance and safety should define escalation rules for regulated or safety-critical topics. A focused pilot usually works better than trying to automate every dispatch, billing, sales, and driver-support workflow at once.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot scale with seasonal freight surges, new customer onboarding, or network expansion?",
+      "answer": "Yes. DocsBot can support 24/7 self-service, multilingual answers, internal knowledge access, and customer-configured workflows across teams. That is valuable in a large freight market: American Trucking Associations reports that trucks moved roughly 72.7% of U.S. freight tonnage by weight in 2024 and transported an estimated 11.27 billion tons of freight.",
+      "role": "General buyer",
+      "category": "Scalability",
+      "sourceIds": [
+        "src-ata-freight-share"
+      ]
+    }
+  ]
+}

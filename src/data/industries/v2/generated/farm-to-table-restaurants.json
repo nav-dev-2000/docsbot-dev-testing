@@ -1,0 +1,759 @@
+{
+  "slug": "farm-to-table-restaurants",
+  "business": "Farm-to-Table Restaurant",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents for Farm-to-Table Restaurant Operations",
+    "description": "DocsBot helps farm-to-table restaurants answer sourcing, menu, allergen, and private SOP questions while routing guests and staff faster.",
+    "canonicalPath": "/industry/farm-to-table-restaurants"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI automation for seasonal restaurants",
+    "headline": "Keep farm-to-table service informed as menus change daily",
+    "subheadline": "DocsBot helps farm-to-table restaurants create AI agents trained on menus, supplier notes, prep guides, policies, FAQs, and private team knowledge so guests and staff get fast, source-grounded answers without pulling managers away from service.",
+    "proofBullets": [
+      {
+        "text": "Answer guest questions about seasonal dishes, ingredients, sourcing notes, hours, events, and policies from approved restaurant content.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Give servers and hosts a private knowledge agent for menu changes, prep notes, allergens, pairings, and service standards.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Collect catering, private dining, farm dinner, or reservation inquiries and route summaries to the right human workflow when configured.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Use analytics and conversation logs to spot repeated guest questions, missing menu details, and staff training gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your restaurant AI agent",
+    "secondaryCta": "Explore farm-to-table workflows"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your restaurant’s owned knowledge into customer-facing and internal AI agents. Train it on website pages, PDFs, menus, supplier descriptions, SOPs, onboarding docs, policies, and private files, then deploy it through a website widget, private team chat, API, or customer-configured workflow. With approved AI Actions and Skills, agents can also collect details, summarize requests, route handoffs, and trigger bounded workflows.",
+    "whoItHelps": [
+      {
+        "role": "Owners and general managers",
+        "roleContext": "Keep hospitality consistent when staffing is tight, menus shift with farm availability, and guests expect quick answers before they book or visit.",
+        "bullets": [
+          {
+            "text": "The U.S. restaurant and foodservice industry employs about 15.7 million people, making faster onboarding and operational knowledge access a high-leverage priority.",
+            "icon": "UserGroupIcon",
+            "sourceIds": [
+              "src-restaurant-workforce"
+            ]
+          },
+          {
+            "text": "Make house policies, reservation rules, private dining details, and seasonal promotions easier for guests and staff to find.",
+            "icon": "InformationCircleIcon"
+          },
+          {
+            "text": "Review analytics to see which menu, event, or policy questions guests ask most often.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Chefs and kitchen leaders",
+        "roleContext": "Support a changing seasonal menu without relying on verbal updates that get lost during pre-shift, turnover, or a busy service.",
+        "bullets": [
+          {
+            "text": "Make prep notes, dish descriptions, supplier blurbs, and approved ingredient details searchable for front-of-house teams.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Help staff explain rotating local ingredients while keeping answers grounded in the latest approved menu and kitchen notes.",
+            "icon": "SparklesIcon"
+          },
+          {
+            "text": "Capture repeated questions that suggest a menu description, allergen note, or staff guide needs improvement.",
+            "icon": "PencilIcon"
+          }
+        ],
+        "roleIcon": "CakeIcon"
+      },
+      {
+        "role": "Hosts, servers, and guest experience teams",
+        "roleContext": "Give front-line teams quick, consistent guidance for common questions while preserving human judgment for sensitive dietary, safety, or service decisions.",
+        "bullets": [
+          {
+            "text": "Answer in more than 100 languages from approved restaurant knowledge for travelers, tourists, and multilingual neighborhoods.",
+            "icon": "LanguageIcon"
+          },
+          {
+            "text": "The FDA identifies the 2022 Food Code as the most recent full edition and includes sesame as the ninth major food allergen, increasing the need for careful allergen communication.",
+            "icon": "ExclamationCircleIcon",
+            "sourceIds": [
+              "src-fda-food-code",
+              "src-fda-sesame-allergen"
+            ]
+          },
+          {
+            "text": "Prepare clean handoffs for reservation changes, private dining requests, complaints, or allergy-sensitive questions that need a person.",
+            "icon": "HandRaisedIcon"
+          }
+        ],
+        "roleIcon": "FaceSmileIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-restaurant-workforce",
+      "metric": "15.7 million restaurant and foodservice employees",
+      "claim": "The National Restaurant Association says the restaurant and foodservice industry includes more than 1 million outlets and a workforce of 15.7 million employees.",
+      "sourceTitle": "From Want Ad to Workforce: How Tech is Serving Up Faster Hiring and Longer Retention in Restaurants",
+      "sourceUrl": "https://restaurant.org/research-and-media/media/press-releases/from-want-ad-to-workforce-how-tech-is-serving-up-faster-hiring-and-longer-retention-in-restaurants/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "labor scale",
+        "onboarding pressure",
+        "manager time constraints"
+      ]
+    },
+    {
+      "id": "src-local-food-sales",
+      "metric": "$17.5 billion in direct-marketed food sales",
+      "claim": "USDA ERS reports that 2022 Census of Agriculture data showed producers sold $17.5 billion in food through direct marketing channels.",
+      "sourceTitle": "2022 Census of Agriculture: Agricultural Census shows strong growth in direct sales from farms and ranches",
+      "sourceUrl": "https://www.ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=108821",
+      "sourceDate": "March 21, 2024",
+      "bestUsedFor": [
+        "local sourcing demand",
+        "farm supplier ecosystem",
+        "farm-to-table market context"
+      ]
+    },
+    {
+      "id": "src-local-sourcing-trend",
+      "metric": "Local sourcing remains a highlighted restaurant trend",
+      "claim": "The National Restaurant Association’s 2026 culinary forecast describes local sourcing as restaurants deepening community ties by featuring ingredients from nearby farms and producers.",
+      "sourceTitle": "National Restaurant Association Unveils 2026 Culinary Forecast",
+      "sourceUrl": "https://www.restaurant.org/research-and-media/media/press-releases/national-restaurant-association-unveils-2026-culinary-forecast-smash-burgers-global-comfort/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "consumer expectations",
+        "menu storytelling",
+        "local ingredient positioning"
+      ]
+    },
+    {
+      "id": "src-fda-food-code",
+      "metric": "2022 Food Code is FDA’s most recent full edition",
+      "claim": "The FDA states that the 2022 Food Code is the most recent full edition published by the agency for retail food protection.",
+      "sourceTitle": "FDA Food Code",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "sourceDate": "Current FDA page",
+      "bestUsedFor": [
+        "food safety context",
+        "restaurant compliance pressure",
+        "allergen communication"
+      ]
+    },
+    {
+      "id": "src-fda-sesame-allergen",
+      "metric": "Sesame is the ninth major food allergen",
+      "claim": "FDA guidance notes that sesame was added as the ninth major food allergen beginning January 1, 2023 and is reflected in the 2022 Food Code.",
+      "sourceTitle": "Addition to the 2022 Food Code - Sesame added as a Major Food Allergen",
+      "sourceUrl": "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen",
+      "sourceDate": "Current FDA page",
+      "bestUsedFor": [
+        "allergen communication",
+        "menu updates",
+        "staff training"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Seasonal menu and sourcing answer agent",
+      "problem": "Farm-to-table menus change with harvests, substitutions, and supplier availability, but guests still expect clear answers before they reserve or order.",
+      "agentWorkflow": "Train DocsBot on current menus, farm descriptions, dish notes, beverage lists, FAQs, and approved brand language. The agent answers guest questions with source-grounded responses, explains what is seasonal or subject to change, and escalates sensitive dietary questions to staff.",
+      "liveContextOrTools": "With a customer-configured Skill or API, the agent can check an approved current-menu source, retrieve today’s featured items, collect follow-up details, and route a summary to the host stand or manager.",
+      "exampleQuestionsOrRequests": [
+        "Which dishes use produce from local farms this week?",
+        "Do you have vegetarian options on tonight’s menu?",
+        "Can you explain the difference between the tasting menu and à la carte menu?"
+      ],
+      "businessOutcome": "Reduce repetitive pre-visit questions while making seasonal sourcing easier to communicate consistently.",
+      "icon": "SunIcon",
+      "sourceIds": [
+        "src-local-sourcing-trend"
+      ]
+    },
+    {
+      "name": "Allergen and dietary inquiry triage",
+      "problem": "Ingredient transparency matters, but allergy-sensitive questions require controlled information, current kitchen context, and human review when risk is high.",
+      "agentWorkflow": "DocsBot can answer from approved allergen notes, menu descriptions, policies, and staff guidance, then ask clarifying questions and prepare a handoff when the guest mentions an allergy, cross-contact concern, or medical requirement.",
+      "liveContextOrTools": "AI Actions can collect the guest’s party date, dish of interest, dietary concern, and contact information, then create a task or notify the designated manager through a customer-configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "Which dishes can be made without dairy?",
+        "I have a sesame allergy. Who should I speak with before booking?",
+        "Can your kitchen accommodate gluten-free requests?"
+      ],
+      "businessOutcome": "Give guests a fast first response while keeping humans responsible for sensitive dietary commitments.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-fda-sesame-allergen"
+      ]
+    },
+    {
+      "name": "Private dining, catering, and farm dinner qualification",
+      "problem": "Special events require details about date, party size, menu format, budget, dietary needs, and space before a manager can respond effectively.",
+      "agentWorkflow": "A DocsBot presales agent can answer from event packets, sample menus, room details, minimums, farm dinner descriptions, and policies. It can collect structured lead details, summarize the request, and route it to the right person for follow-up.",
+      "liveContextOrTools": "With approved scheduling or CRM-style workflows, the agent can request a consultation, create a lead record, forward a summary by email or team channel, or trigger a booking handoff without making final pricing commitments.",
+      "exampleQuestionsOrRequests": [
+        "Can I host a 40-person rehearsal dinner with a seasonal menu?",
+        "Do you offer chef’s table events with local wine pairings?",
+        "What information do you need for a farm dinner proposal?"
+      ],
+      "businessOutcome": "Convert high-intent event inquiries into complete handoffs instead of scattered emails and missed callbacks.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Staff pre-shift and onboarding knowledge agent",
+      "problem": "Servers, hosts, and new hires need quick access to dish stories, service standards, opening checklists, comp policies, and reservation rules during a fast-moving service day.",
+      "agentWorkflow": "Create a private DocsBot agent trained on SOPs, onboarding documents, menu notes, staff handbooks, service scripts, and manager-approved updates. Employees can ask natural-language questions and get consistent answers with source context.",
+      "liveContextOrTools": "A configured Skill can retrieve current shift notes, summarize updates for pre-shift, or create a follow-up task when staff discover a missing SOP or outdated answer.",
+      "exampleQuestionsOrRequests": [
+        "What should I say about the heirloom tomato salad tonight?",
+        "What is the service recovery policy for a delayed entrée?",
+        "Where is the closing checklist for the patio station?"
+      ],
+      "businessOutcome": "Speed onboarding, reduce manager interruptions, and keep service standards consistent across shifts.",
+      "icon": "AcademicCapIcon",
+      "sourceIds": [
+        "src-restaurant-workforce"
+      ]
+    },
+    {
+      "name": "Guest feedback and knowledge-gap reporting",
+      "problem": "Managers often hear the same questions across phone calls, website chats, emails, and service, but it is hard to turn those patterns into better content.",
+      "agentWorkflow": "DocsBot conversation review, analytics, logs, topic management, reports, satisfaction analysis, and knowledge-gap discovery help operators see what guests and employees could not find. Teams can update menus, FAQs, event packets, or SOPs based on repeated gaps.",
+      "liveContextOrTools": "AI Actions can summarize recurring questions, draft an internal improvement note, or route a documentation task to the responsible manager through a configured workflow.",
+      "exampleQuestionsOrRequests": [
+        "What menu questions appeared most this week?",
+        "Which private dining questions did the agent have to escalate?",
+        "What staff topics are missing from our training guide?"
+      ],
+      "businessOutcome": "Turn everyday questions into clearer guest content, stronger training materials, and fewer repeated interruptions.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "name": "Supplier story and provenance assistant",
+      "problem": "Farm-to-table restaurants differentiate through provenance, but staff may not remember every farm, growing practice, seasonal substitution, or producer story.",
+      "agentWorkflow": "Train DocsBot on supplier profiles, approved farm descriptions, delivery notes, menu copy, and brand guidelines. The agent helps staff and guests understand ingredient origins using approved language, without inventing sourcing claims.",
+      "liveContextOrTools": "When connected to approved records, DocsBot can retrieve current supplier notes or summarize a new farm profile for manager review before publishing it in guest-facing content.",
+      "exampleQuestionsOrRequests": [
+        "Where do your greens come from this week?",
+        "Can you draft a short menu note about our local mushroom supplier?",
+        "Which farms are featured in tonight’s tasting menu?"
+      ],
+      "businessOutcome": "Make provenance storytelling more accurate and consistent while protecting the restaurant from unsupported sourcing claims.",
+      "icon": "MapPinIcon",
+      "sourceIds": [
+        "src-local-food-sales"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A guest-facing AI agent for menus, sourcing, events, and reservations",
+    "intro": "Place a DocsBot agent in your website or guest support flow so diners can ask about current menus, local sourcing, dietary policies, hours, gift cards, private dining, and farm events. The agent answers from your approved sources, gathers missing details, and escalates when a person should decide.",
+    "requests": [
+      {
+        "request": "“What is on the menu tonight, and is it locally sourced?”",
+        "agentResponseStrategy": "Answer from current menu pages, seasonal notes, and approved supplier descriptions, while making clear that availability can change and staff can confirm at service.",
+        "sourceTypes": [
+          "Menus",
+          "Supplier notes",
+          "Website FAQs",
+          "Seasonal updates"
+        ],
+        "optionalAction": "Look up today’s approved menu source or route a confirmation request to the host team when configured.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "request": "“I have a serious allergy. Can I eat here safely?”",
+        "agentResponseStrategy": "Provide the restaurant’s approved allergy communication policy, ask for relevant details, and escalate to a manager or trained staff member instead of making a safety guarantee.",
+        "sourceTypes": [
+          "Allergen policy",
+          "Menu notes",
+          "Kitchen guidance",
+          "Escalation rules"
+        ],
+        "optionalAction": "Collect party date, allergy details, contact information, and preferred dishes, then create a human review task.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Can you host a 25-person local harvest dinner?”",
+        "agentResponseStrategy": "Explain available event formats from approved private dining content, collect date, headcount, budget range, dietary needs, and desired experience, then summarize for staff.",
+        "sourceTypes": [
+          "Private dining packet",
+          "Sample menus",
+          "Event FAQs",
+          "Policies"
+        ],
+        "optionalAction": "Forward a complete inquiry to email, CRM-style records, helpdesk software, or a scheduling workflow through customer-configured Skills.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you have vegetarian, vegan, or gluten-free options?”",
+        "agentResponseStrategy": "Answer from approved menu and dietary notes, distinguish preference from allergy-sensitive requests, and invite staff confirmation for substitutions.",
+        "sourceTypes": [
+          "Menu pages",
+          "Dietary FAQ",
+          "Chef notes",
+          "Reservation policy"
+        ],
+        "optionalAction": "Route complex dietary requests to the restaurant team before the guest books.",
+        "icon": "HeartIcon"
+      },
+      {
+        "request": "“Can I buy a gift card or learn about upcoming farm dinners?”",
+        "agentResponseStrategy": "Answer from approved promotions, gift card pages, and event calendars, then guide the guest to the next step without inventing availability.",
+        "sourceTypes": [
+          "Event calendar",
+          "Gift card page",
+          "Promotion notes",
+          "FAQ"
+        ],
+        "optionalAction": "Trigger a configured workflow to send the guest to the right form, ticket, or staff follow-up path.",
+        "icon": "GiftIcon"
+      },
+      {
+        "request": "“Can you answer in Spanish for my family?”",
+        "agentResponseStrategy": "Use DocsBot multilingual response capabilities to answer from the same approved restaurant knowledge in the guest’s preferred language.",
+        "sourceTypes": [
+          "Website FAQs",
+          "Menus",
+          "Policies",
+          "Guest guidance"
+        ],
+        "optionalAction": "Escalate to a bilingual staff workflow when a nuanced or sensitive conversation needs human support.",
+        "icon": "LanguageIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "A private knowledge agent for the service floor and back office",
+    "intro": "DocsBot can serve as a staff-only assistant trained on your internal SOPs, shift notes, onboarding guides, menus, policies, checklists, and supplier information. Teams get faster answers while managers get visibility into the questions that slow service down.",
+    "workflows": [
+      {
+        "name": "Pre-shift menu briefing",
+        "problem": "Daily specials, substitutions, farm deliveries, and 86’d items can change faster than printed notes or staff memory.",
+        "agentWorkflow": "Staff ask the internal agent for tonight’s dish notes, sourcing stories, pairings, substitutions, and items to watch. Answers come from approved menu updates and internal notes.",
+        "sourceTypes": [
+          "Shift notes",
+          "Menu updates",
+          "Supplier profiles",
+          "Beverage pairings"
+        ],
+        "optionalAction": "Summarize the day’s changes into a pre-shift briefing when the source notes are available.",
+        "outcome": "Fewer inconsistent answers at the table and less time spent repeating the same update.",
+        "icon": "NewspaperIcon"
+      },
+      {
+        "name": "SOP and policy lookup",
+        "problem": "Hosts and servers need quick guidance on deposits, late arrivals, comping, weather changes, patio seating, corkage, and service recovery.",
+        "agentWorkflow": "DocsBot retrieves relevant policy answers from internal documents and cites the source so staff can follow the current standard rather than guessing.",
+        "sourceTypes": [
+          "SOPs",
+          "Staff handbook",
+          "Reservation policy",
+          "Manager notes"
+        ],
+        "optionalAction": "Create a follow-up task when staff flag a policy that is missing, unclear, or outdated.",
+        "outcome": "More consistent guest handling without pulling a manager into every routine question.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "name": "Onboarding and training support",
+        "problem": "New hires must absorb menu vocabulary, service tone, farm relationships, food safety basics, and operating procedures quickly.",
+        "agentWorkflow": "Train DocsBot on onboarding manuals, training decks, service scripts, product notes, and house standards so employees can ask questions between formal training sessions.",
+        "sourceTypes": [
+          "Training materials",
+          "Service scripts",
+          "Menu guides",
+          "Internal FAQs"
+        ],
+        "optionalAction": "Summarize common new-hire questions for managers to improve the next training cycle.",
+        "outcome": "Shorten the path from orientation to confident service while preserving consistent brand language.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Operations reporting and content improvement",
+        "problem": "Restaurant leaders often know content is outdated only after guests complain or staff keep asking the same question.",
+        "agentWorkflow": "Use DocsBot analytics, logs, reports, topic management, conversation review, and knowledge-gap discovery to identify missing answers and recurring operational friction.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Reports",
+          "Knowledge sources",
+          "Topic analytics"
+        ],
+        "optionalAction": "Draft a content update request or notify the right owner through a customer-configured workflow.",
+        "outcome": "Keep public and internal knowledge fresher as menus, suppliers, hours, and policies change.",
+        "icon": "ChartPieIcon"
+      },
+      {
+        "name": "Connected workflow assistant",
+        "problem": "Restaurant information is scattered across documents, forms, calendars, inboxes, and operational tools.",
+        "agentWorkflow": "With approved Skills, APIs, connectors, or MCP Connectors for remote Model Context Protocol servers, DocsBot can retrieve live context, summarize it, and trigger bounded actions inside customer-defined rules.",
+        "sourceTypes": [
+          "APIs",
+          "Connectors",
+          "Forms",
+          "Approved operational systems"
+        ],
+        "optionalAction": "Look up a record, create a task, update approved fields, notify a team, or prepare a human handoff.",
+        "outcome": "Move routine information work out of manager memory and into auditable, scoped workflows.",
+        "icon": "PuzzlePieceIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Agents trained on restaurant knowledge",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on a business’s own knowledge sources, including websites, documents, internal content, and configured sources.",
+      "industryApplication": "Train an agent on menus, farm profiles, seasonal updates, private dining packets, FAQs, policies, and SOPs so guests and staff get answers grounded in approved restaurant content.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can be deployed in customer-facing chat widgets, private team chat, APIs, and configured support or workflow experiences.",
+      "industryApplication": "Use a public agent for guest menu and event questions, and a private internal agent for pre-shift notes, onboarding, policy lookup, and manager-approved procedures.",
+      "icon": "ComputerDesktopIcon"
+    },
+    {
+      "feature": "AI Actions and Skills",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills let agents perform bounded customer-configured actions such as live lookups, summaries, routing, record creation, updates, notifications, and workflow triggers.",
+      "industryApplication": "Collect event details, summarize allergy-sensitive requests, route reservation questions, create internal tasks, or notify a manager when a configured workflow requires human follow-up.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, and knowledge gaps",
+      "mainLandingPageContext": "DocsBot provides analytics, reports, logs, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which menu items, sourcing claims, dietary questions, hours, event details, or policies confuse guests and staff, then update content before the next busy service.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual answers",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from configured knowledge sources.",
+      "industryApplication": "Help travelers and multilingual communities ask about menus, farm events, hours, policies, and private dining in their preferred language while using the same approved knowledge base.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Security and governance",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep internal SOPs, supplier notes, staff policies, and operational documents private while controlling which sources a guest-facing or staff-only agent can use.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "russell-hablo-travel-training",
+      "matt-cromwell-content-library",
+      "gobinda-training-materials"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your own restaurant content instead of generic web answers.",
+      "Support high-volume guest questions with source-grounded automation and human escalation paths.",
+      "Give staff fast access to approved training, service, and policy materials."
+    ],
+    "whyTheseReviewsFit": "Farm-to-table hospitality depends on trusted knowledge: what is in season, what staff should say, and how guests get confident answers. DocsBot proof spans owned-content training, customer-facing support, and internal knowledge access, giving restaurants a practical foundation for seasonal service automation.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "RocketLaunchIcon",
+      "AcademicCapIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for farm-to-table restaurants",
+    "audience": [
+      "Restaurant owners",
+      "General managers",
+      "Chefs and kitchen leaders",
+      "Guest experience teams",
+      "Event and private dining managers"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "BuildingStorefrontIcon"
+  },
+  "relatedIndustrySlugs": [
+    "restaurant-bar",
+    "fine-dining",
+    "caterer",
+    "food-hospitality",
+    "bakery",
+    "coffee-roastery"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "farm-to-table-restaurants",
+    "webSearchQueries": [
+      "National Restaurant Association 2024 2025 restaurant technology staffing statistics",
+      "USDA local food restaurants consumer demand local ingredients statistics",
+      "FDA Food Code allergen restaurants consumer advisory 2022",
+      "National Restaurant Association What's Hot 2025 local sourcing sustainability restaurant trends",
+      "USDA ERS local food sales farms direct to consumer restaurants institutions 2022 census"
+    ],
+    "sourceUrls": [
+      "https://restaurant.org/research-and-media/media/press-releases/from-want-ad-to-workforce-how-tech-is-serving-up-faster-hiring-and-longer-retention-in-restaurants/",
+      "https://www.ers.usda.gov/data-products/chart-gallery/gallery/chart-detail/?chartId=108821",
+      "https://www.restaurant.org/research-and-media/media/press-releases/national-restaurant-association-unveils-2026-culinary-forecast-smash-burgers-global-comfort/",
+      "https://www.fda.gov/food/retail-food-protection/fda-food-code",
+      "https://www.fda.gov/food/retail-food-industryregulatory-assistance-training/addition-2022-food-code-sesame-added-major-food-allergen"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 67214,
+        "cachedInputTokens": 19840,
+        "billableInputTokens": 47374,
+        "outputTokens": 20256,
+        "reasoningOutputTokens": 275,
+        "totalTokens": 87470,
+        "webSearchCalls": 3,
+        "estimatedTokenCostUsd": 0.427235,
+        "estimatedWebSearchCostUsd": 0.03,
+        "estimatedTotalCostUsd": 0.457235
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 21707,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 14411,
+          "outputTokens": 12000,
+          "reasoningOutputTokens": 118,
+          "totalTokens": 33707,
+          "webSearchCalls": 1,
+          "estimatedTokenCostUsd": 0.217851,
+          "estimatedWebSearchCostUsd": 0.01,
+          "estimatedTotalCostUsd": 0.227851
+        },
+        {
+          "step": "main-content",
+          "attempt": 2,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25543,
+          "cachedInputTokens": 7296,
+          "billableInputTokens": 18247,
+          "outputTokens": 5376,
+          "reasoningOutputTokens": 157,
+          "totalTokens": 30919,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.128082,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.148082
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19964,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14716,
+          "outputTokens": 2880,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22844,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.081302,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.081302
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1474898856510-884a2c0be546?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzU1Mjl8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Farm-to-Table Restaurant background image",
+    "source": "legacy-industry",
+    "query": "Farm-to-Table Restaurant"
+  },
+  "faq": [
+    {
+      "question": "How would DocsBot keep up with a menu that changes daily based on farm deliveries and 86’d items?",
+      "answer": "Train the agent on your approved menu pages, shift notes, supplier updates, chef notes, and internal documents. If you maintain a current-menu source, a customer-configured Skill or API can retrieve that live context before answering. For uncertain availability, the agent can say the item is subject to change and route a confirmation request to the host, manager, or kitchen workflow.",
+      "role": "Chefs and kitchen leaders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use one AI agent for guests and another private one for staff?",
+      "answer": "Yes. A public DocsBot agent can answer guest questions about hours, menus, sourcing, events, gift cards, and policies from approved guest-facing content. A separate private internal agent can be trained on SOPs, staff handbooks, prep notes, service standards, training materials, and manager-only policies, with access controls to keep internal content out of the guest experience.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How should the agent handle allergy questions without creating liability for the restaurant?",
+      "answer": "Use DocsBot as a triage and handoff layer, not as the final safety authority. It can provide your approved allergy policy, ask clarifying questions, collect the party date, dish interests, allergen concern, and contact details, then escalate to a trained human. This is especially important because FDA guidance identifies sesame as the ninth major food allergen beginning January 1, 2023.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Human oversight",
+      "sourceIds": [
+        "src-fda-sesame-allergen"
+      ]
+    },
+    {
+      "question": "Can DocsBot help servers explain local sourcing without inventing farm claims?",
+      "answer": "Yes. Train the agent on approved supplier profiles, delivery notes, menu descriptions, farm blurbs, and brand language. Staff can ask how to describe a dish or ingredient, and the agent responds from those sources instead of generic web knowledge. If a farm, practice, or certification is not in the approved knowledge base, the agent can avoid making unsupported claims or route the question for manager review.",
+      "role": "Chefs and kitchen leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What kind of ROI should a small farm-to-table restaurant expect from an AI agent?",
+      "answer": "The most realistic ROI usually comes from reducing repetitive manager interruptions, answering pre-visit questions faster, improving private dining lead capture, and shortening staff ramp time. Restaurants can track deflected menu questions, completed event inquiries, staff questions answered, escalation rates, and content gaps. The U.S. restaurant and foodservice workforce includes about 15.7 million employees, so even small onboarding and knowledge-access gains can matter operationally.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-restaurant-workforce"
+      ]
+    },
+    {
+      "question": "Will this replace hosts or servers, or does it just reduce repetitive questions?",
+      "answer": "DocsBot is best positioned as support for staff, not a replacement for hospitality. It can answer routine questions, summarize requests, and surface approved policy guidance, while hosts, servers, chefs, and managers remain responsible for judgment calls, service recovery, allergy-sensitive conversations, pricing commitments, and guest relationship moments.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can the agent qualify private dining, catering, or farm dinner inquiries before a manager calls back?",
+      "answer": "Yes. DocsBot can answer from event packets, sample menus, room details, minimums, farm dinner descriptions, and policies. It can collect date, headcount, budget range, dietary needs, event format, contact details, and timing, then summarize the inquiry and route it through a customer-configured email, form, CRM-style, helpdesk, or scheduling workflow without making final pricing or availability commitments.",
+      "role": "Owners and general managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much work is required to launch this if our menus, SOPs, and event packets are scattered across PDFs, website pages, and Google Drive?",
+      "answer": "A practical rollout starts by choosing the highest-value knowledge sources: current menus, allergy policy, private dining packet, hours and reservation rules, supplier notes, and top SOPs. DocsBot can train on websites, PDFs, documents, private files, and internal knowledge sources. Many restaurants should begin with a guest-facing menu and event agent, then add staff SOPs and shift-note workflows after the first content gaps are visible.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot answer in other languages for tourists or multilingual neighborhoods?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages from the same approved restaurant knowledge. That helps guests ask about menus, hours, dietary preferences, farm dinners, or private dining in their preferred language. For nuanced hospitality, allergy, or complaint situations, the agent can still escalate to a bilingual staff workflow or manager review.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we prevent outdated menu items or old supplier notes from being shown to guests?",
+      "answer": "Treat the knowledge base like an operational source of truth. Archive stale PDFs, label current menu sources clearly, define who owns updates, and use different sources for guest-facing and internal agents. When configured with a live lookup Skill or approved API, DocsBot can retrieve current menu context. Its logs and knowledge-gap reports can also show where guests are still asking about confusing or outdated items.",
+      "role": "Chefs and kitchen leaders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What does the general manager see in reporting that helps improve operations?",
+      "answer": "DocsBot provides analytics, logs, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. Managers can review repeated guest questions, unresolved event inquiries, common allergy handoffs, staff SOP confusion, and missing menu details. Those patterns can guide updates to FAQs, training materials, private dining packets, menu copy, and pre-shift notes.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the agent connect with our reservation, event, or staff workflow tools?",
+      "answer": "DocsBot can support customer-configured Skills, APIs, connectors, webhooks, and MCP Connectors for approved live lookups and bounded actions. That can include collecting details, creating a task, sending a notification, preparing a handoff, updating approved fields, or routing a request. Avoid assuming a native integration; the safest implementation is to scope exactly which systems the agent may access and what it may do.",
+      "role": "Owners and general managers",
+      "category": "Integrations"
+    },
+    {
+      "question": "What information should we keep out of the public guest-facing agent?",
+      "answer": "Keep internal prep methods, supplier pricing, labor notes, staff policies, comp rules, private guest complaints, margin data, and manager-only procedures out of the public agent. Use a separate private staff agent for SOPs, shift notes, service recovery rules, and training content. DocsBot supports granular access controls and role-based permissions so public and internal knowledge can be governed separately.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot protect our internal SOPs, supplier notes, and staff documents?",
+      "answer": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and it does not use customer data to train public models. For workflow actions, credentials should stay out of chat, and Skills can be configured with customer-defined controls, logging, secrets, metadata bindings, and scoped access.",
+      "role": "Owners and general managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can chefs control what the front-of-house team says about dishes and substitutions?",
+      "answer": "Yes. Chefs and managers can make approved dish notes, supplier blurbs, preparation guidance, pairings, substitutions, and allergen escalation rules part of the internal knowledge base. Servers can ask the staff agent for suggested explanations during pre-shift or service, while the content owner updates the source material when a dish, farm, or preparation changes.",
+      "role": "Chefs and kitchen leaders",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How would this help with onboarding seasonal hires or new servers?",
+      "answer": "A private DocsBot agent can answer questions from onboarding manuals, service scripts, training decks, menu guides, farm profiles, reservation rules, and SOPs. New hires can ask natural-language questions between formal training sessions, while managers review common questions to improve the next training cycle. This is relevant in a restaurant industry with about 15.7 million foodservice employees.",
+      "role": "Owners and general managers",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-restaurant-workforce"
+      ]
+    },
+    {
+      "question": "Can DocsBot handle guest complaints or service recovery questions?",
+      "answer": "DocsBot can provide approved policy guidance, collect details, summarize the issue, and route the complaint to the right person. For refunds, comping, sensitive guest experiences, health concerns, or public-review risks, the agent should escalate rather than decide. Internally, staff can use a private agent to look up service recovery standards while managers keep final judgment.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we compare DocsBot with a reservation-system chatbot or generic website chat widget?",
+      "answer": "A reservation-system widget may be useful for booking-specific flows, while generic chat tools often depend on scripted answers. DocsBot is strongest when the buyer needs source-grounded answers from restaurant-owned knowledge: menus, supplier notes, policies, SOPs, training docs, event packets, and private files. It can also support bounded actions and reporting when configured, instead of only displaying static replies.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Will the agent understand the difference between dietary preferences and serious allergies?",
+      "answer": "DocsBot can be instructed to distinguish preference questions from allergy-sensitive or medical-risk questions. It can answer preference questions from approved menu notes, while allergy, cross-contact, or severe reaction language triggers clarifying questions and human escalation. FDA’s 2022 Food Code is the agency’s most recent full edition and includes sesame as a major allergen, reinforcing the need for careful allergen communication.",
+      "role": "Hosts, servers, and guest experience teams",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-fda-food-code",
+        "src-fda-sesame-allergen"
+      ]
+    },
+    {
+      "question": "Can we use conversation logs to decide what menu copy or FAQs need to be rewritten?",
+      "answer": "Yes. DocsBot’s analytics, logs, topic management, reports, conversation review, satisfaction analysis, and knowledge-gap discovery can show which questions repeat, where answers are missing, and which topics require escalation. For a farm-to-table restaurant, that often means clarifying menu availability, sourcing language, private dining minimums, allergy policy, reservation rules, and seasonal event details.",
+      "role": "Owners and general managers",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot support the restaurant’s local sourcing story?",
+      "answer": "DocsBot can help staff and guests find approved information about farms, producers, seasonal ingredients, and menu provenance. That matters because USDA ERS reported $17.5 billion in direct-marketed food sales in the 2022 Census of Agriculture, showing a sizable farm-to-consumer and local food ecosystem. The agent should still rely on your approved supplier notes rather than making claims from memory.",
+      "role": "Chefs and kitchen leaders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-local-food-sales"
+      ]
+    },
+    {
+      "question": "Can the agent help us capture more value from local sourcing as a brand differentiator?",
+      "answer": "Yes. It can make approved farm stories, seasonal ingredient notes, and event descriptions easier for guests and staff to access. The National Restaurant Association’s 2026 culinary forecast highlights local sourcing as a way restaurants deepen community ties by featuring nearby farms and producers, so consistent provenance storytelling can support both hospitality and positioning.",
+      "role": "Owners and general managers",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-local-sourcing-trend"
+      ]
+    },
+    {
+      "question": "What should procurement or ownership ask before approving DocsBot?",
+      "answer": "Ask which sources will be trained first, who owns updates, what content is public versus private, which workflows require human approval, what data the agent can access, how access is controlled, how success will be measured, and which systems may be connected through Skills, APIs, connectors, or webhooks. Also confirm security requirements, budget owner, rollout timeline, and reporting cadence.",
+      "role": "Owners and general managers",
+      "category": "Pricing and procurement"
+    },
+    {
+      "question": "Can a small independent restaurant start without a large IT team?",
+      "answer": "Yes. A small team can start with a focused knowledge base: website pages, current menu, private dining PDF, allergy policy, reservation rules, and a few staff SOPs. More advanced actions, live lookups, MCP Connectors, or workflow automations can be added later when the restaurant has clearer requirements and a trusted owner for source updates and permissions.",
+      "role": "Owners and general managers",
+      "category": "Implementation"
+    },
+    {
+      "question": "What happens when the agent cannot find a confident answer?",
+      "answer": "It should be configured to say it does not have enough approved information, ask a clarifying question if useful, and escalate to the right human workflow. That is important for seasonal availability, special requests, allergies, complaints, private dining commitments, and unsupported sourcing claims. Conversation logs then show where the knowledge base needs an update.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    }
+  ]
+}

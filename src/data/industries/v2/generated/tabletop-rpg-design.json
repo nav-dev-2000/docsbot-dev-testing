@@ -1,0 +1,705 @@
+{
+  "slug": "tabletop-rpg-design",
+  "business": "Tabletop RPG Design",
+  "industryCategory": "Gaming",
+  "pageMeta": {
+    "title": "AI Agents for Tabletop RPG Design Teams",
+    "description": "DocsBot helps tabletop RPG studios support players, search rules and lore, and route playtest feedback with source-grounded AI agents.",
+    "canonicalPath": "/industry/tabletop-rpg-design"
+  },
+  "hero": {
+    "eyebrow": "Source-grounded AI support for rulebooks, lore, playtests, and launches",
+    "headline": "DocsBot AI agents for tabletop RPG design workflows",
+    "subheadline": "Train DocsBot on your rulebooks, SRDs, setting bibles, FAQs, errata, campaign modules, support tickets, and internal notes so players get fast answers and your design team can find, summarize, route, and act on the knowledge behind every game line.",
+    "proofBullets": [
+      {
+        "text": "Answer player questions from approved rules, lore, errata, and product pages instead of unsourced forum guesses.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Summarize recurring playtest notes, rules confusion, and support threads so designers see where documentation needs work.",
+        "icon": "DocumentTextIcon"
+      },
+      {
+        "text": "Collect missing order, download, convention, or beta-access details and route requests to the right support workflow.",
+        "icon": "ArrowPathRoundedSquareIcon"
+      },
+      {
+        "text": "Give editors, writers, community teams, and support staff one internal assistant for canon, style, procedures, and launch plans.",
+        "icon": "UserGroupIcon"
+      }
+    ],
+    "primaryCta": "Build your RPG knowledge agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot creates AI agents trained on your tabletop RPG studio’s own knowledge. Agents can answer customer and employee questions, retrieve citations from approved sources, summarize feedback, identify gaps in your documentation, and take bounded actions through customer-configured Skills, APIs, connectors, MCP servers, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "RPG publishers and studio founders",
+        "roleContext": "Small studios often juggle crowdfunding, fulfillment, community support, retail communication, licensing, and ongoing line development at the same time.",
+        "bullets": [
+          {
+            "text": "Help backers and buyers find answers about editions, PDFs, print status, stretch goals, errata, and compatibility from approved sources.",
+            "icon": "ShoppingBagIcon"
+          },
+          {
+            "text": "Qualify distributor, retailer, reviewer, or licensing inquiries by collecting structured details before a human follows up.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Use analytics to see which rules, fulfillment topics, or product pages create the most repeated questions.",
+            "icon": "ChartBarIcon"
+          }
+        ],
+        "roleIcon": "BriefcaseIcon"
+      },
+      {
+        "role": "Game designers, developers, and editors",
+        "roleContext": "Rules-heavy games accumulate edge cases across core books, supplements, adventures, designer notes, and playtest packets.",
+        "bullets": [
+          {
+            "text": "Search internal design notes, setting bibles, style guides, and prior rulings without digging through folders or long PDFs.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize playtest feedback by rule subsystem, adventure chapter, archetype, or frequently misunderstood mechanic.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Surface knowledge gaps when users ask questions that the current rules text or FAQ does not clearly answer.",
+            "icon": "LightBulbIcon"
+          }
+        ],
+        "roleIcon": "PencilIcon"
+      },
+      {
+        "role": "Community, support, and convention teams",
+        "roleContext": "Players expect quick answers across websites, Discord-style communities, crowdfunding updates, virtual tabletops, and live events.",
+        "bullets": [
+          {
+            "text": "Give players 24/7 help with character creation, rules clarification, setting terminology, product differences, and starter resources.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Escalate sensitive, ambiguous, or high-impact questions to a human with the conversation context already summarized.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Support international communities with answers in more than 100 languages when trained on the right source material.",
+            "icon": "LanguageIcon"
+          }
+        ],
+        "roleIcon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-hobby-games-market",
+      "metric": "U.S. and Canada hobby game sales were estimated at about $2.84 billion in 2024.",
+      "claim": "ICv2 reported that the North American hobby games market stabilized in 2024 after pandemic-era shifts, with estimated sales nearly identical to 2023.",
+      "sourceTitle": "2024 a Year of Stabilization",
+      "sourceUrl": "https://icv2.com/print/article/59119",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "market scale",
+        "commercial pressure",
+        "launch planning"
+      ]
+    },
+    {
+      "id": "src-kickstarter-games-2024",
+      "metric": "Kickstarter reported $270 million pledged to Games projects in 2024.",
+      "claim": "Kickstarter described 2024 as a record-setting year for its Games community, with tabletop and video game creators continuing to use crowdfunding heavily.",
+      "sourceTitle": "2024 Was a Big Year for Games on Kickstarter",
+      "sourceUrl": "https://updates.kickstarter.com/kickstarter-biggest-platform-for-games/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "crowdfunding operations",
+        "backer support volume",
+        "launch communication"
+      ]
+    },
+    {
+      "id": "src-kickstarter-tabletop-2024",
+      "metric": "A Kickstarter 2024 recap cited $220 million invested in tabletop games across 5,314 successful campaigns.",
+      "claim": "Coverage of Kickstarter’s 2024 creator report highlighted the scale of tabletop crowdfunding relative to video games.",
+      "sourceTitle": "441 Successful Video Game Kickstarter Campaigns Raised $26 Million in 2024",
+      "sourceUrl": "https://www.gamesmarket.global/the-creative-by-kickstarter-441-successful-video-game-kickstarter-campaigns-raised-dollar26-million-in-2024-7408bb999bd4538ef18ca1c62bbf0778/",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "tabletop crowdfunding scale",
+        "publisher workload",
+        "backer communication"
+      ]
+    },
+    {
+      "id": "src-dnd-50-million-fans",
+      "metric": "Dungeons & Dragons celebrated its 50th anniversary in 2024 with more than 50 million fans.",
+      "claim": "Hasbro and Wizards of the Coast positioned Dungeons & Dragons as a long-running, global roleplaying franchise with a large fan base.",
+      "sourceTitle": "Dungeons & Dragons Celebrates 50th Anniversary in 2024 with More than 50 Million Fans",
+      "sourceUrl": "https://hasbro.gcs-web.com/news-releases/news-release-details/dungeons-dragons-celebrates-50th-anniversary-2024-more-50",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "player demand",
+        "mainstream RPG audience",
+        "community scale"
+      ]
+    },
+    {
+      "id": "src-rpg-complexity",
+      "metric": "Academic researchers describe Dungeons & Dragons as involving complex natural-language interaction and hidden game state.",
+      "claim": "Research on D&D actual-play data underscores why tabletop RPG rules, rulings, and narrative context can be hard to search and summarize manually.",
+      "sourceTitle": "FIREBALL: A Dataset of Dungeons and Dragons Actual-Play with Structured Game State Information",
+      "sourceUrl": "https://arxiv.org/abs/2305.01528",
+      "sourceDate": "2023",
+      "bestUsedFor": [
+        "rules complexity",
+        "knowledge retrieval challenge",
+        "playtest analysis"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Player rules and lore support agent",
+      "problem": "Players ask the same questions about character creation, edge-case rules, setting facts, errata, and which book contains the answer.",
+      "agentWorkflow": "DocsBot trains on approved rulebooks, SRDs, FAQs, errata, starter guides, product pages, and lore references. The agent answers in the studio’s voice, cites the source material, asks clarifying questions when needed, and escalates unclear rulings to a human support or design queue.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can look up edition metadata, download availability, known errata status, or open a support handoff with the user’s question and sources attached.",
+      "exampleQuestionsOrRequests": [
+        "How does grappling interact with forced movement in this edition?",
+        "Which sourcebook has the artificer-style class options?",
+        "Is this adventure compatible with the revised core rules?"
+      ],
+      "businessOutcome": "Reduce repetitive support load while giving players consistent, source-grounded answers that keep them engaged with the game line.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Crowdfunding and preorder backer concierge",
+      "problem": "Tabletop creators running campaigns face bursts of questions about pledge tiers, PDFs, shipping regions, stretch goals, add-ons, late pledges, and fulfillment timelines. Kickstarter reported $270 million pledged to Games projects in 2024.",
+      "agentWorkflow": "A DocsBot agent answers from campaign pages, updates, pledge FAQs, fulfillment policies, product specs, and support macros. It can collect missing backer details, summarize the issue, and route it to the right fulfillment or customer support workflow.",
+      "liveContextOrTools": "Configured AI Actions can check approved order or pledge status, create a ticket, update allowed fields, notify a team, or hand off complex billing and fulfillment issues for human review.",
+      "exampleQuestionsOrRequests": [
+        "Which pledge tier includes the hardcover and VTT tokens?",
+        "I changed addresses after the pledge manager closed. What should I do?",
+        "Can retailers request a preorder bundle for this campaign?"
+      ],
+      "businessOutcome": "Keep launch momentum high by resolving routine backer questions quickly and routing exceptions with complete context.",
+      "icon": "RocketLaunchIcon",
+      "sourceIds": [
+        "src-kickstarter-games-2024"
+      ]
+    },
+    {
+      "name": "Playtest feedback summarization and routing",
+      "problem": "Open betas and private playtests create long comments, survey responses, session notes, and support threads that are difficult to convert into design decisions.",
+      "agentWorkflow": "DocsBot can summarize playtest feedback by rule chapter, class, encounter, adventure scene, accessibility issue, or recurring confusion. It helps designers compare comments against source documents and identify where rules text, examples, or FAQs need clarification.",
+      "liveContextOrTools": "Using customer-configured workflows, the agent can create tasks, label feedback, route summaries to writers or developers, and log knowledge gaps for documentation updates.",
+      "exampleQuestionsOrRequests": [
+        "Summarize the top issues playtesters reported with vehicle combat.",
+        "Which comments mention confusion about stress, harm, or recovery?",
+        "Create a handoff note for the editor covering repeated terminology problems."
+      ],
+      "businessOutcome": "Turn noisy community feedback into organized design signals without asking staff to reread every thread manually.",
+      "icon": "ListBulletIcon"
+    },
+    {
+      "name": "Canon, style, and continuity assistant",
+      "problem": "Long-running RPG lines have setting canon, terminology, tone, NPC histories, mechanics, art notes, and license constraints spread across many books and files.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on setting bibles, previous books, editorial guidelines, glossaries, art briefs, design notes, and release plans. Writers and editors can ask for source-grounded answers before drafting or reviewing new content.",
+      "liveContextOrTools": "The agent can summarize relevant canon, draft an internal note, identify the source document used, and route unresolved continuity questions to the lore owner or line developer.",
+      "exampleQuestionsOrRequests": [
+        "Where has this city been described before, and what tone should we preserve?",
+        "What terms are forbidden by the license style guide?",
+        "Summarize all prior rulings about this spell-like mechanic."
+      ],
+      "businessOutcome": "Protect continuity across supplements and freelancers while reducing time lost searching old manuscripts and shared drives.",
+      "icon": "BookmarkIcon"
+    },
+    {
+      "name": "Retailer, reviewer, and licensing inquiry qualification",
+      "problem": "Publishers need to separate customer questions from retailer orders, actual-play review requests, translation pitches, convention demos, and licensing conversations.",
+      "agentWorkflow": "DocsBot answers from press kits, product catalogs, sell sheets, brand guidelines, demo policies, and FAQ pages. It collects structured details such as company, region, audience, timeline, product interest, and requested follow-up channel before forwarding qualified inquiries.",
+      "liveContextOrTools": "Customer-configured Skills, forms, webhooks, APIs, or CRM-style workflows can create a lead record, send a summary to sales, or request a meeting through an approved scheduling flow.",
+      "exampleQuestionsOrRequests": [
+        "Can our store get a retailer bundle for launch month?",
+        "We run an actual-play channel. Who handles review copies?",
+        "Are translation or third-party licensing inquiries open for this setting?"
+      ],
+      "businessOutcome": "Give business-development opportunities a faster first response while keeping humans in control of pricing, contracts, and rights decisions.",
+      "icon": "IdentificationIcon"
+    },
+    {
+      "name": "Documentation gap and FAQ improvement agent",
+      "problem": "RPG support teams often discover unclear text only after the same rules, download, or compatibility question appears repeatedly.",
+      "agentWorkflow": "DocsBot reviews conversations, topic trends, logs, and unresolved questions to identify what players are trying to learn. Teams can use these insights to update FAQs, errata, starter pages, and help articles.",
+      "liveContextOrTools": "Reports and conversation review can guide documentation updates, while configured workflows can create tasks for editors or support owners when repeated gaps appear.",
+      "exampleQuestionsOrRequests": [
+        "What are players asking that our current FAQ does not answer?",
+        "Which core rules page causes the most follow-up questions?",
+        "Summarize unresolved support themes from the last launch week."
+      ],
+      "businessOutcome": "Improve public documentation and reduce avoidable support requests over the life of a game line.",
+      "icon": "ChartBarIcon"
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give players a rules-savvy support agent on your website or product pages",
+    "intro": "DocsBot can power a website or product chat widget trained on your public knowledge base, rule references, campaign updates, and support policies. The agent keeps answers grounded in your published sources and escalates questions that need a human ruling or account-specific help.",
+    "requests": [
+      {
+        "request": "“Can I use this supplement with the revised core book?”",
+        "agentResponseStrategy": "Answer from compatibility notes, product pages, errata, and release announcements, then point to the exact source that supports the answer.",
+        "sourceTypes": [
+          "Product pages",
+          "Edition notes",
+          "Errata",
+          "FAQs"
+        ],
+        "optionalAction": "If compatibility is unclear, create a routed support handoff with the player’s edition, product, and question.",
+        "icon": "PuzzlePieceIcon"
+      },
+      {
+        "request": "“Where is my PDF or preorder reward?”",
+        "agentResponseStrategy": "Explain the standard fulfillment policy from approved help content and collect the details needed to check the issue.",
+        "sourceTypes": [
+          "Fulfillment FAQs",
+          "Campaign updates",
+          "Support macros",
+          "Order policies"
+        ],
+        "optionalAction": "With an approved Skill or API, look up allowed order status or create a ticket for fulfillment staff.",
+        "icon": "ShoppingCartIcon"
+      },
+      {
+        "request": "“How do I build a first character for tonight’s game?”",
+        "agentResponseStrategy": "Guide the player through beginner-friendly steps using the quickstart, character creation chapter, and starter adventure materials.",
+        "sourceTypes": [
+          "Quickstarts",
+          "Rulebooks",
+          "Starter guides",
+          "Character sheets"
+        ],
+        "optionalAction": "Offer links to official downloads or collect the player’s preferred archetype before suggesting the right page to read next.",
+        "icon": "UserCircleIcon"
+      },
+      {
+        "request": "“Is this lore detail canon?”",
+        "agentResponseStrategy": "Answer from setting guides, public lore pages, and published books, while avoiding unsupported claims when the source material is silent.",
+        "sourceTypes": [
+          "Setting bibles",
+          "Published lore",
+          "Adventure modules",
+          "FAQs"
+        ],
+        "optionalAction": "Escalate disputed canon questions to community or editorial staff with a concise source summary.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“Do you have materials in my language?”",
+        "agentResponseStrategy": "Respond in the player’s language when possible and answer from approved localization pages, product listings, and download policies.",
+        "sourceTypes": [
+          "Localization notes",
+          "Product catalog",
+          "Download pages",
+          "Support policies"
+        ],
+        "optionalAction": "Route missing-language requests to the community or publishing team for demand tracking.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“Can my store, podcast, or convention request support?”",
+        "agentResponseStrategy": "Collect structured details and answer basic eligibility questions from press, retailer, demo, and event policies.",
+        "sourceTypes": [
+          "Press kit",
+          "Retailer FAQ",
+          "Convention policy",
+          "Demo guidelines"
+        ],
+        "optionalAction": "Forward qualified inquiries to a configured sales, partnerships, or community workflow with a summary.",
+        "icon": "MegaphoneIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give your studio one private assistant for rules, canon, support, and launch operations",
+    "intro": "DocsBot can also run as an internal knowledge agent for writers, editors, support reps, community managers, sales staff, and operations teams. Train it on private documents and approved tools so staff can get consistent answers without searching scattered files.",
+    "workflows": [
+      {
+        "name": "Rules reference for support and community teams",
+        "problem": "Support staff may not know every subsystem, prior ruling, or exception across a growing RPG catalog.",
+        "agentWorkflow": "The agent retrieves source-grounded answers from rulebooks, errata, FAQs, internal rulings, and support playbooks, then drafts a response a human can send or revise.",
+        "sourceTypes": [
+          "Rulebooks",
+          "Errata",
+          "Support playbooks",
+          "Internal rulings"
+        ],
+        "optionalAction": "Draft a ticket response or escalate the edge case to a rules owner with a short summary.",
+        "outcome": "Faster, more consistent answers without turning every edge case into an interrupt for designers.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Freelancer onboarding and editorial guidance",
+        "problem": "Freelance writers and editors need canon, tone, formatting, inclusivity guidance, and process details before they can contribute clean drafts.",
+        "agentWorkflow": "DocsBot answers from onboarding docs, style guides, glossaries, contracts guidance, briefs, and approved examples, helping contributors find the right reference quickly.",
+        "sourceTypes": [
+          "Style guides",
+          "Onboarding docs",
+          "Glossaries",
+          "Creative briefs"
+        ],
+        "optionalAction": "Create a task or notify an editor when a contributor’s question reveals missing onboarding documentation.",
+        "outcome": "Reduce repetitive onboarding questions and help contributors align with the game line sooner.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "name": "Launch readiness knowledge hub",
+        "problem": "A major campaign or book launch spreads details across marketing, fulfillment, product, support, community, and retail plans.",
+        "agentWorkflow": "The internal agent lets teams ask about dates, messaging, pledge tier rules, support macros, review-copy policy, retailer terms, and escalation paths from approved launch documents.",
+        "sourceTypes": [
+          "Launch plans",
+          "Campaign FAQs",
+          "Support macros",
+          "Retailer sell sheets"
+        ],
+        "optionalAction": "Trigger a configured notification, create a launch task, or route a question to the right owner when details are missing.",
+        "outcome": "Keep teams aligned during high-volume launches and reduce last-minute confusion.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "name": "Knowledge gap analysis for live game lines",
+        "problem": "When a product line is active, repeated player questions can reveal unclear rules, missing examples, or confusing product packaging.",
+        "agentWorkflow": "DocsBot analytics, logs, topic management, reports, and conversation review help teams spot repeated unanswered questions and prioritize FAQ, errata, or documentation improvements.",
+        "sourceTypes": [
+          "Conversation logs",
+          "Support tickets",
+          "Help articles",
+          "Product docs"
+        ],
+        "optionalAction": "Create documentation tasks for repeated gaps and attach example questions for the writer or editor.",
+        "outcome": "Improve the next FAQ, errata release, starter guide, or revised printing with evidence from real user questions.",
+        "icon": "ChartPieIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Training on owned RPG knowledge sources",
+      "mainLandingPageContext": "DocsBot agents can be trained on help centers, websites, PDFs, Word documents, text files, internal documents, Google Drive, Notion, Confluence, and other configured knowledge sources.",
+      "industryApplication": "Train on rulebooks, SRDs, quickstarts, errata, lore guides, adventure modules, campaign updates, fulfillment FAQs, and internal style notes so answers stay grounded in your game.",
+      "icon": "ArchiveBoxIcon"
+    },
+    {
+      "feature": "Source-grounded answers in your voice",
+      "mainLandingPageContext": "DocsBot support and documentation agents deliver instant answers from approved sources and can cite the material used.",
+      "industryApplication": "Let players, GMs, retailers, and staff ask natural questions while the agent points back to the exact rule, FAQ, lore page, or policy that supports the response.",
+      "icon": "CheckCircleIcon"
+    },
+    {
+      "feature": "AI Actions and Skills for bounded workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support lookups, summaries, routing, ticket or task creation, record updates, workflow triggers, and handoffs through customer-configured APIs, connectors, and permissions.",
+      "industryApplication": "Configure actions to check allowed preorder status, create fulfillment tickets, route playtest feedback, update approved fields, or hand off licensing and retailer inquiries with structured summaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which rules, products, pledge tiers, downloads, or lore topics generate repeated questions, then improve FAQs, errata, quickstarts, and support macros.",
+      "icon": "PresentationChartBarIcon"
+    },
+    {
+      "feature": "Internal knowledge assistant",
+      "mainLandingPageContext": "DocsBot can act as a private internal assistant for employees and teams, answering from internal procedures, policies, wikis, documents, and playbooks.",
+      "industryApplication": "Give designers, editors, support reps, and community managers one place to ask about canon, style guidance, product details, launch procedures, and support escalation paths.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "feature": "Security and governance controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private manuscripts, unreleased lore, partner plans, and internal support processes protected while giving the right teams controlled access to approved knowledge.",
+      "icon": "LockClosedIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "liza-sentry-docs",
+      "bowe-dollie-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on your owned content library so answers reflect your rules, lore, policies, and documentation.",
+      "Use documentation engagement and reports to understand what players, GMs, and buyers are trying to learn.",
+      "Deploy an embedded support experience that helps customers get started faster from your knowledge base and site."
+    ],
+    "whyTheseReviewsFit": "Tabletop RPG teams need trusted answers from their own published and private knowledge, not generic AI guesses. DocsBot proof across content libraries, documentation sites, and embedded first-line support shows how source-grounded agents can support complex products and reveal what users need next.",
+    "trustClaimIcons": [
+      "ArchiveBoxIcon",
+      "ChartBarIcon",
+      "ChatBubbleLeftIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI agents and workflow automation for tabletop RPG publishers, designers, and community support teams",
+    "audience": [
+      "Tabletop RPG publishers",
+      "Game designers and editors",
+      "Community and support teams",
+      "Crowdfunding and fulfillment teams"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "SparklesIcon"
+  },
+  "relatedIndustrySlugs": [
+    "board-game-publishing",
+    "game-development",
+    "gaming",
+    "online-gaming",
+    "toy-development"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "tabletop-rpg-design",
+    "webSearchQueries": [
+      "Tabletop games market report RPG publishing Kickstarter statistics tabletop roleplaying games",
+      "ICv2 hobby games market tabletop RPG sales 2024",
+      "Kickstarter tabletop games funding 2024 report",
+      "Dungeons and Dragons 50 million fans official"
+    ],
+    "sourceUrls": [
+      "https://icv2.com/print/article/59119",
+      "https://updates.kickstarter.com/kickstarter-biggest-platform-for-games/",
+      "https://www.gamesmarket.global/the-creative-by-kickstarter-441-successful-video-game-kickstarter-campaigns-raised-dollar26-million-in-2024-7408bb999bd4538ef18ca1c62bbf0778/",
+      "https://hasbro.gcs-web.com/news-releases/news-release-details/dungeons-dragons-celebrates-50th-anniversary-2024-more-50",
+      "https://arxiv.org/abs/2305.01528"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 45323,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24587,
+        "outputTokens": 8022,
+        "reasoningOutputTokens": 193,
+        "totalTokens": 53345,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.186982,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.206982
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25761,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10273,
+          "outputTokens": 5296,
+          "reasoningOutputTokens": 193,
+          "totalTokens": 31057,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.108995,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.128995
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19562,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14314,
+          "outputTokens": 2726,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22288,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.077987,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.077987
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1605142859862-978be7eba909?ixid=M3w1OTc2MjN8MHwxfHNlYXJjaHwxfHxycGd8ZW58MHwwfHx8MTcxNDg3ODA1NHww&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Tabletop RPG Design background image",
+    "source": "legacy-industry",
+    "query": "Tabletop RPG Design"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer rules questions without inventing unofficial rulings?",
+      "answer": "Yes. DocsBot is designed to answer from the rulebooks, SRDs, errata, FAQs, product pages, and internal rulings you approve. It can cite the source used, ask clarifying questions when edition or product context is missing, and escalate ambiguous edge cases to a human designer or support owner instead of presenting a guess as canon.",
+      "role": "Game designers, developers, and editors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How would this help during a Kickstarter or preorder launch when support volume spikes?",
+      "answer": "A DocsBot agent can answer from campaign pages, pledge FAQs, updates, fulfillment policies, and support macros, then collect missing backer details and route exceptions to your team. That matters in a channel where Kickstarter reported $270 million pledged to Games projects in 2024, creating concentrated launch and fulfillment communication pressure.",
+      "role": "RPG publishers and studio founders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-kickstarter-games-2024"
+      ]
+    },
+    {
+      "question": "Can we use DocsBot for both public player support and private studio knowledge?",
+      "answer": "Yes. You can configure customer-facing agents for player questions and separate internal agents for staff, freelancers, support reps, community managers, and editors. Public agents can stay limited to published or approved support content, while private agents can use internal notes, setting bibles, launch plans, style guides, and support procedures with role-based access controls.",
+      "role": "RPG publishers and studio founders",
+      "category": "Scalability"
+    },
+    {
+      "question": "Will the agent understand editions, errata, compatibility notes, and supplement-specific exceptions?",
+      "answer": "DocsBot can be trained on edition notes, product pages, errata, FAQs, SRDs, and sourcebooks so answers are grounded in the right materials. For best results, teams should label sources clearly by edition, product line, release date, and audience so the agent can ask follow-up questions instead of mixing legacy and revised rules.",
+      "role": "Game designers, developers, and editors",
+      "category": "Implementation"
+    },
+    {
+      "question": "How do we keep unreleased manuscripts, secret lore, and partner plans out of public answers?",
+      "answer": "Use separate knowledge sources, granular access controls, and role-based permissions. DocsBot supports encryption in transit and at rest, SOC 2 Type II certification, GDPR-ready governance, and does not use customer data to train public models. Public agents should be trained only on approved public content, while internal agents can be restricted to authorized users.",
+      "role": "RPG publishers and studio founders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot summarize playtest feedback without replacing designer judgment?",
+      "answer": "Yes. DocsBot can summarize comments by subsystem, class, chapter, adventure scene, accessibility issue, or recurring confusion, then route summaries or tasks through configured workflows. Designers still decide what to change; the agent helps reduce the manual work of rereading long threads, surveys, and session notes to find repeated themes.",
+      "role": "Game designers, developers, and editors",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What kind of ROI should a small RPG studio expect from an AI support agent?",
+      "answer": "Most studios should measure ROI in reduced repetitive support, faster backer responses, fewer designer interruptions, quicker onboarding for freelancers, and better documentation priorities. The market is large enough for support efficiency to matter: ICv2 estimated U.S. and Canada hobby game sales at about $2.84 billion in 2024.",
+      "role": "RPG publishers and studio founders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-hobby-games-market"
+      ]
+    },
+    {
+      "question": "Can the agent help players build characters or learn a game without reading the whole rulebook?",
+      "answer": "Yes, if you train it on quickstarts, character creation chapters, starter adventures, downloadable sheets, and beginner FAQs. It can guide players through official steps, cite the relevant pages, and avoid advice that is not supported by your published materials. For nuanced build optimization, you can define when it should escalate or offer conservative guidance.",
+      "role": "Community, support, and convention teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How does DocsBot handle canon questions where the source material is contradictory or silent?",
+      "answer": "DocsBot can cite what the approved sources say and state when the available material does not resolve the question. For contradictions, it can surface the relevant passages and escalate to a lore owner, line developer, or community manager. That keeps the agent useful without letting it create new canon by accident.",
+      "role": "Game designers, developers, and editors",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we connect DocsBot to our fulfillment, ticketing, or pledge-management workflow?",
+      "answer": "DocsBot can support approved lookups, ticket creation, routing, summaries, notifications, and field updates through customer-configured Skills, APIs, connectors, MCP servers, webhooks, or workflow automations. The safest approach is to scope actions tightly: collect details, check allowed status fields, create a handoff, and leave billing, refunds, and exceptions to humans.",
+      "role": "RPG publishers and studio founders",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot work with scattered studio knowledge in PDFs, Google Drive, Notion, Confluence, and old manuscripts?",
+      "answer": "DocsBot can train on PDFs, Word documents, text files, websites, help centers, internal documents, Google Drive, Notion, Confluence, and other configured knowledge sources. The implementation work is usually less about format and more about deciding which files are authoritative, which are obsolete, and which should be public versus internal.",
+      "role": "Game designers, developers, and editors",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can community managers use it without giving players automated answers to sensitive questions?",
+      "answer": "Yes. You can define escalation rules for sensitive, ambiguous, account-specific, licensing, moderation, billing, or reputational issues. DocsBot can still collect context, summarize the conversation, cite relevant policies, and route the issue to a human so the community team starts with a complete handoff instead of a blank ticket.",
+      "role": "Community, support, and convention teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How do we know which rules or products are causing the most confusion?",
+      "answer": "DocsBot provides analytics, logs, topic management, reports, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. RPG teams can use those signals to identify repeated questions about rules text, pledge tiers, downloads, compatibility, errata, or lore, then prioritize FAQ updates, revised examples, or support macros.",
+      "role": "RPG publishers and studio founders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can DocsBot support international players and localization questions?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when trained on the right source material. For localization, you can train it on approved language availability pages, product listings, download policies, and regional support notes, then route missing-language demand to publishing or community teams for tracking.",
+      "role": "Community, support, and convention teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "How would an internal agent help freelancers and editors during supplement development?",
+      "answer": "An internal DocsBot agent can answer from setting bibles, glossaries, editorial guidelines, art briefs, license notes, onboarding docs, and prior books. Freelancers can ask about tone, forbidden terms, formatting, canon, and process before drafting, while editors can use the agent to find source references and spot missing guidance.",
+      "role": "Game designers, developers, and editors",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "Can DocsBot qualify retailer, reviewer, convention, or licensing inquiries?",
+      "answer": "Yes. A DocsBot agent can answer from press kits, sell sheets, demo policies, retailer FAQs, and brand guidelines, then collect structured details such as company, region, audience, timeline, product interest, and requested follow-up channel. With configured workflows, it can forward qualified inquiries while leaving pricing, rights, and contracts to humans.",
+      "role": "RPG publishers and studio founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What prevents the agent from exposing private rulings or internal commentary to players?",
+      "answer": "You can separate public and internal agents, limit which sources each agent can access, and use role-based permissions for private content. Teams should avoid mixing draft manuscripts, internal rulings, and public FAQs in the same public knowledge base unless the material is explicitly approved for release.",
+      "role": "RPG publishers and studio founders",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot help us improve errata and FAQs after launch?",
+      "answer": "Yes. DocsBot can review conversation trends, unresolved questions, topic patterns, and support logs to surface gaps in your documentation. Teams can use that evidence to decide which rules need examples, which products need clearer compatibility notes, and which support macros or FAQ entries should be updated before the next printing.",
+      "role": "Game designers, developers, and editors",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How does DocsBot compare with simply telling players to search Discord, forums, or a PDF?",
+      "answer": "Discord and forums are useful communities, but they can mix official answers with guesses, house rules, and outdated edition advice. DocsBot gives players a source-grounded answer from your approved materials, with citations and escalation paths. It also gives your team analytics on what people asked, which a static PDF search usually cannot provide.",
+      "role": "Community, support, and convention teams",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can the agent handle complex tabletop RPG questions with natural language and hidden context?",
+      "answer": "DocsBot can help by retrieving source-grounded answers and asking clarifying questions, but complex play situations may still need human judgment. Academic work on D&D actual-play data describes the game as involving complex natural-language interaction and hidden game state, which is why escalation paths and source citations are important for RPG support.",
+      "role": "Game designers, developers, and editors",
+      "category": "Edge cases and reliability",
+      "sourceIds": [
+        "src-rpg-complexity"
+      ]
+    },
+    {
+      "question": "What should we prepare before implementing DocsBot for a game line?",
+      "answer": "Start by gathering authoritative sources: current rulebooks, SRDs, errata, quickstarts, product pages, fulfillment FAQs, campaign updates, support macros, style guides, and internal rulings. Mark obsolete files, separate public from private knowledge, identify escalation owners, and decide which actions are allowed before connecting live systems.",
+      "role": "RPG publishers and studio founders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot be used during conventions or live events?",
+      "answer": "Yes. Community and convention teams can use a DocsBot agent trained on event schedules, demo policies, product catalogs, retail information, support escalation paths, and launch messaging. It can answer routine questions, collect qualified demo or retailer details, and route urgent issues to staff with the conversation context summarized.",
+      "role": "Community, support, and convention teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How do we evaluate whether DocsBot is safe enough for a licensed RPG property?",
+      "answer": "Evaluate source separation, access controls, auditability of conversations, human escalation, permission scoping for actions, and whether private license guidance is restricted to authorized internal users. DocsBot supports SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, role-based permissions, and no training of public models on customer data.",
+      "role": "RPG publishers and studio founders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "Can DocsBot help a small team look more responsive without hiring a full support department?",
+      "answer": "Yes. It can provide always-available answers for routine player, backer, download, rules, and product questions while routing exceptions to the right person. This is especially useful for lean publishers handling crowdfunding, fulfillment, community, retail, and development work at the same time.",
+      "role": "RPG publishers and studio founders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Will the agent preserve our studio voice, or will answers sound generic?",
+      "answer": "DocsBot agents can answer from your approved content in your company’s voice. Teams can train on player-facing FAQs, support macros, style guidance, and product copy so responses reflect the tone of the game line. For sensitive rulings, you can require concise source-based answers or human review before final response.",
+      "role": "Community, support, and convention teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we price or budget for this compared with building our own RAG tool?",
+      "answer": "Buying usually makes sense when your team wants faster deployment, source management, analytics, governance, support workflows, and bounded actions without maintaining retrieval infrastructure. Building may appeal if you have dedicated AI engineering resources and unusual requirements, but most RPG studios should include staff time, maintenance, security review, and launch support in the comparison.",
+      "role": "RPG publishers and studio founders",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

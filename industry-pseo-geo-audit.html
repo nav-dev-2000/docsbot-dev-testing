@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DocsBot Industry PSEO GEO Audit</title>
+    <style>
+      :root {
+        --primary: #0e7490;
+        --primary-bright: #0891b2;
+        --primary-hover: #155e75;
+        --primary-soft: #ecfeff;
+        --secondary: #14b8a6;
+        --tertiary: #2563eb;
+        --background: #f9fafb;
+        --surface: #ffffff;
+        --surface-muted: #f3f4f6;
+        --surface-dark: #111827;
+        --surface-dark-muted: #1f2937;
+        --border: #e5e7eb;
+        --border-strong: #d1d5db;
+        --text-primary: #111827;
+        --text-secondary: #374151;
+        --text-muted: #6b7280;
+        --text-subtle: #9ca3af;
+        --text-inverse: #ffffff;
+        --text-inverse-muted: #d1d5db;
+        --success: #059669;
+        --success-soft: #d1fae5;
+        --warning: #d97706;
+        --warning-soft: #fef3c7;
+        --error: #dc2626;
+        --error-soft: #fee2e2;
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--text-primary);
+        font-family: Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+
+      a {
+        color: var(--primary);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      .hero {
+        background:
+          linear-gradient(135deg, rgb(20 184 166 / 0.12), transparent 38%),
+          radial-gradient(circle at 75% 12%, rgb(6 182 212 / 0.22), transparent 30%),
+          var(--surface-dark);
+        color: var(--text-inverse);
+        padding: 80px 32px 72px;
+        border-bottom: 1px solid var(--surface-dark-muted);
+      }
+
+      .wrap {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 20px;
+        padding: 6px 10px;
+        border: 1px solid rgb(103 232 249 / 0.32);
+        border-radius: 9999px;
+        color: #a5f3fc;
+        background: rgb(8 47 73 / 0.5);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 900px;
+        margin: 0;
+        font-size: clamp(42px, 6vw, 76px);
+        font-weight: 600;
+        line-height: 1;
+      }
+
+      .hero p {
+        max-width: 820px;
+        margin: 24px 0 0;
+        color: var(--text-inverse-muted);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 32px;
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 40px;
+      }
+
+      .meta {
+        border: 1px solid rgb(209 213 219 / 0.16);
+        border-radius: 8px;
+        background: rgb(31 41 55 / 0.7);
+        padding: 18px;
+      }
+
+      .meta strong {
+        display: block;
+        color: var(--text-inverse);
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .meta span {
+        color: var(--text-inverse-muted);
+        font-size: 13px;
+      }
+
+      main {
+        padding: 56px 0 80px;
+      }
+
+      .section {
+        margin-top: 48px;
+      }
+
+      .section:first-child {
+        margin-top: 0;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 600;
+        line-height: 1.2;
+      }
+
+      .section-head p {
+        max-width: 520px;
+        margin: 0;
+        color: var(--text-muted);
+      }
+
+      .panel {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      .panel-dark {
+        border-color: var(--surface-dark-muted);
+        background: var(--surface-dark);
+        color: var(--text-inverse);
+      }
+
+      .panel-dark p,
+      .panel-dark li {
+        color: var(--text-inverse-muted);
+      }
+
+      .summary {
+        padding: 28px;
+      }
+
+      .summary p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .audit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .audit-item {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 22px;
+      }
+
+      .audit-item h3 {
+        margin: 0 0 10px;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+      }
+
+      .audit-item p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .label-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 9999px;
+        padding: 4px 9px;
+        background: var(--primary-soft);
+        color: var(--primary-hover);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+      }
+
+      .chip.warning {
+        background: var(--warning-soft);
+        color: #92400e;
+      }
+
+      .chip.error {
+        background: var(--error-soft);
+        color: #991b1b;
+      }
+
+      .chip.success {
+        background: var(--success-soft);
+        color: #065f46;
+      }
+
+      .matrix {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .matrix th,
+      .matrix td {
+        border-bottom: 1px solid var(--border);
+        padding: 18px;
+        vertical-align: top;
+        text-align: left;
+      }
+
+      .matrix th {
+        background: var(--surface-muted);
+        color: var(--text-secondary);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 16px;
+        text-transform: uppercase;
+      }
+
+      .matrix tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .matrix td:first-child {
+        width: 210px;
+        font-weight: 700;
+      }
+
+      .score {
+        display: inline-flex;
+        min-width: 92px;
+        justify-content: center;
+        border-radius: 9999px;
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+      }
+
+      .score.low {
+        background: var(--error-soft);
+        color: #991b1b;
+      }
+
+      .score.medium {
+        background: var(--warning-soft);
+        color: #92400e;
+      }
+
+      .score.high {
+        background: var(--success-soft);
+        color: #065f46;
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 20px;
+      }
+
+      .callout {
+        border-left: 4px solid var(--primary-bright);
+        border-radius: 8px;
+        background: var(--primary-soft);
+        padding: 22px;
+      }
+
+      .callout h3 {
+        margin: 0 0 8px;
+        color: var(--primary-hover);
+        font-size: 18px;
+      }
+
+      .callout p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      ol,
+      ul {
+        margin: 0;
+        padding-left: 22px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .priority-list {
+        display: grid;
+        gap: 14px;
+        counter-reset: priorities;
+      }
+
+      .priority {
+        position: relative;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 20px 20px 20px 68px;
+        counter-increment: priorities;
+      }
+
+      .priority::before {
+        content: counter(priorities);
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        display: grid;
+        width: 32px;
+        height: 32px;
+        place-items: center;
+        border-radius: 9999px;
+        background: var(--primary);
+        color: var(--text-inverse);
+        font-weight: 700;
+      }
+
+      .priority h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+      }
+
+      .priority p {
+        margin: 0;
+        color: var(--text-secondary);
+      }
+
+      .copy-block {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 28px;
+      }
+
+      .copy-block h3 {
+        margin: 0 0 14px;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 36px;
+      }
+
+      .copy-block .subhead {
+        margin: 0 0 18px;
+        color: var(--text-secondary);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 30px;
+      }
+
+      .evidence {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .evidence a,
+      .evidence span {
+        display: block;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        padding: 16px;
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+
+      .evidence strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--text-primary);
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 24px 0 40px;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          padding: 56px 20px 48px;
+        }
+
+        .wrap {
+          width: min(100% - 32px, 1180px);
+        }
+
+        .meta-grid,
+        .audit-grid,
+        .two-col,
+        .evidence {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head {
+          display: block;
+        }
+
+        .section-head p {
+          margin-top: 12px;
+        }
+
+        .matrix {
+          display: block;
+          overflow-x: auto;
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="wrap">
+        <p class="eyebrow">DocsBot industry PSEO audit</p>
+        <h1>Template-level GEO and SEO report for industry landing pages</h1>
+        <p>
+          Combined analysis of the general industry page template and content model across all
+          industries, based on the codebase first and confirmed against live docsbot.ai pages.
+        </p>
+        <div class="meta-grid" aria-label="Audit summary">
+          <div class="meta">
+            <strong>287</strong>
+            <span>industry URLs generated from the constants dataset</span>
+          </div>
+          <div class="meta">
+            <strong>219-412</strong>
+            <span>approximate core words per industry page before shared sections</span>
+          </div>
+          <div class="meta">
+            <strong>2</strong>
+            <span>live pages spot-checked: Landscaping Services and SaaS Solutions</span>
+          </div>
+          <div class="meta">
+            <strong>High</strong>
+            <span>opportunity to improve AI answer inclusion with richer niche content</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="section">
+          <div class="section-head">
+            <h2>Executive Summary</h2>
+            <p>
+              The pages are indexable and crawlable, but they read like a broad PSEO template
+              rather than authoritative niche resources.
+            </p>
+          </div>
+          <div class="panel summary">
+            <p>
+              DocsBot's industry pages clearly communicate a baseline offer: AI chatbots for a
+              named industry. The problem is that most pages stop there. The template has a short
+              hero, one support section, one use-case section, a shared trust logo row, repeated
+              calls to action, and a very large repeated internal-link block. That structure gives
+              search engines enough to index the page, but not enough for AI search systems to cite
+              DocsBot as a valuable source for each niche. The refactor should move the pages from
+              "AI chatbot for [industry]" pages to "how AI agents solve specific support,
+              operations, and knowledge workflows in [industry]" resources.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Section-by-Section Template Audit</h2>
+            <p>
+              This evaluates the reusable page sections, not individual URLs. Priority reflects
+              likely SEO and GEO impact.
+            </p>
+          </div>
+          <div class="panel">
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Template Section</th>
+                  <th>Current Pattern</th>
+                  <th>SEO / GEO Issue</th>
+                  <th>Recommended Refactor</th>
+                  <th>Priority</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Metadata</td>
+                  <td>
+                    Title is "AI Chatbots for [business] - DocsBot." Meta description repeats the
+                    page intro. Canonical and robots tags are present.
+                  </td>
+                  <td>
+                    Metadata is indexable but generic. It often misses buyer role, primary use
+                    case, and concrete source types such as websites, docs, help centers, files,
+                    SOPs, and knowledge bases.
+                  </td>
+                  <td>
+                    Use a structured meta pattern: "AI chatbot and AI agent for [industry] support,
+                    operations, and internal knowledge." Keep descriptions under control and include
+                    the niche, buyer, content sources, and outcome.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>Hero</td>
+                  <td>
+                    H1 names the niche. Intro usually says DocsBot transforms customer interaction
+                    and internal knowledge management.
+                  </td>
+                  <td>
+                    The offer is understandable, but often vague. Above the fold does not explain
+                    what DocsBot ingests, where the bot appears, how answers are grounded, or which
+                    roles use it.
+                  </td>
+                  <td>
+                    Add a concrete one-sentence definition below the H1: "DocsBot trains on your
+                    [industry] website, docs, policies, service content, and files to answer
+                    customer and team questions instantly." Add 3 proof bullets in the hero.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>Navigation Anchors</td>
+                  <td>
+                    Two jump links: "For Customer Support" and "[Business] Uses."
+                  </td>
+                  <td>
+                    Helpful but too narrow. Pages imply broader agent workflows, but the structure
+                    only frames support and generic uses.
+                  </td>
+                  <td>
+                    Use anchors that map to search intent: "Customer questions," "Internal
+                    workflows," "Training sources," "Implementation," and "FAQ."
+                  </td>
+                  <td><span class="score medium">Medium</span></td>
+                </tr>
+                <tr>
+                  <td>Trust Logos</td>
+                  <td>
+                    Shared "Trusted by" logo row appears near the top. Logo alt text is readable.
+                  </td>
+                  <td>
+                    Trust is present but not contextual. AI systems see brand names, but not why
+                    those logos prove suitability for the current industry or use case.
+                  </td>
+                  <td>
+                    Add a short textual proof line next to the logos: "Trusted by 3,000+ businesses
+                    and 75k+ users for AI support and knowledge automation." Link to case studies
+                    where relevant.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>Customer Support Section</td>
+                  <td>
+                    One heading, one paragraph, and four feature blurbs. Common claims include 24/7
+                    support, faster answers, multilingual support, and routine inquiry automation.
+                  </td>
+                  <td>
+                    This is the strongest commercial section, but it is often too generic. It does
+                    not name real niche question types, escalation paths, CRM/helpdesk handoff, lead
+                    capture, or service-specific constraints.
+                  </td>
+                  <td>
+                    Turn this into a "questions DocsBot can answer" section with 8-12 concrete
+                    examples per niche. For SaaS: pricing, setup, troubleshooting, release notes,
+                    docs, API usage. For landscaping: service areas, estimates, scheduling,
+                    seasonal care, warranties, plant care, crew policies.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>Social Proof Strip</td>
+                  <td>
+                    Shared social proof component appears after support. Live pages include "Loved
+                    by 75k+ users."
+                  </td>
+                  <td>
+                    The signal is useful but separated from the explanation of product value. It
+                    also does not provide niche-specific customer proof or quote text.
+                  </td>
+                  <td>
+                    Pair broad proof with a short quote, case-study card, or use-case proof module.
+                    If no niche testimonial exists, use a generalized product proof statement that
+                    is still textual and crawlable.
+                  </td>
+                  <td><span class="score medium">Medium</span></td>
+                </tr>
+                <tr>
+                  <td>Use Cases Section</td>
+                  <td>
+                    One dark section with three to six use cases. Use cases are short noun phrases
+                    with one-sentence descriptions.
+                  </td>
+                  <td>
+                    Search and AI systems can classify the topic, but the section lacks enough
+                    detail to treat the page as a source. Many use cases could apply to almost any
+                    business.
+                  </td>
+                  <td>
+                    Expand each use case into problem, training sources, example questions,
+                    connected tools, expected outcome, and guardrails. Add industry terminology
+                    naturally in body copy.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>CTA Blocks</td>
+                  <td>
+                    CTAs use repeated language: automate support, transform the business, get
+                    started for free.
+                  </td>
+                  <td>
+                    Good conversion baseline, but weak for informational value. Repeated CTA text
+                    contributes to template similarity across 287 pages.
+                  </td>
+                  <td>
+                    Make CTA copy match the page intent. Example: "Build a SaaS support bot trained
+                    on your docs" or "Create a landscaping assistant for estimates, scheduling, and
+                    plant care questions."
+                  </td>
+                  <td><span class="score medium">Medium</span></td>
+                </tr>
+                <tr>
+                  <td>Related Industries</td>
+                  <td>
+                    The bottom of every page lists most or all other industries grouped by broad
+                    category.
+                  </td>
+                  <td>
+                    This creates crawl paths, but it dilutes topical focus and creates a large
+                    repeated block that can dominate unique page text on shallow pages.
+                  </td>
+                  <td>
+                    Replace the all-industries list with 6-10 contextually related links plus a link
+                    to a full industry directory. Use descriptive anchor groups such as "Related
+                    field service industries" or "Related SaaS and software pages."
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+                <tr>
+                  <td>Schema</td>
+                  <td>
+                    No page-specific Product, SoftwareApplication, FAQPage, BreadcrumbList, or use
+                    case schema was found in the live industry pages reviewed.
+                  </td>
+                  <td>
+                    This is a major GEO miss. AI search systems and rich-result parsers benefit
+                    from explicit entity relationships, FAQs, product category, use cases, and
+                    audience.
+                  </td>
+                  <td>
+                    Add JSON-LD for SoftwareApplication/Product, FAQPage, BreadcrumbList, and
+                    possibly ItemList for use cases. Include industry, audience, use cases, trust
+                    claims, and canonical URL.
+                  </td>
+                  <td><span class="score high">High</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Business Clarity</h2>
+            <p>
+              The pages should make DocsBot's identity, product mechanics, and niche fit obvious
+              without relying on prior homepage context.
+            </p>
+          </div>
+          <div class="audit-grid">
+            <article class="audit-item">
+              <div class="label-row">
+                <span class="chip warning">Current clarity: medium</span>
+              </div>
+              <h3>What the template does well</h3>
+              <p>
+                Every page has a clear H1 naming the niche and a visible DocsBot brand marker. Most
+                intros state that DocsBot provides AI chatbots for customer interaction, support, or
+                internal knowledge.
+              </p>
+            </article>
+            <article class="audit-item">
+              <div class="label-row">
+                <span class="chip error">Primary gap</span>
+              </div>
+              <h3>The offer is under-explained</h3>
+              <p>
+                The pages rarely explain the product in concrete terms: train on your website,
+                help center, PDFs, docs, SOPs, tickets, and internal files; embed on your website;
+                answer from sources; escalate to humans; connect to tools.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Target Audience</h2>
+            <p>
+              The template names industries but usually does not name the people who would buy or
+              operate DocsBot.
+            </p>
+          </div>
+          <div class="two-col">
+            <div class="callout">
+              <h3>Audience signal today</h3>
+              <p>
+                Buyer persona is implied by the industry name. SaaS pages imply support and
+                customer success teams. Service-business pages imply owners, staff, and customers.
+                The intended customer is understandable, but not explicit.
+              </p>
+            </div>
+            <div class="panel summary">
+              <p>
+                Add a reusable "Built for" section with role-specific copy. Example roles:
+                founders, support leaders, customer success managers, documentation teams,
+                operations managers, office managers, field coordinators, training leads, and
+                compliance owners. This improves clarity for human readers and gives AI systems
+                explicit audience entities to classify.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Products, Services, and Use Cases</h2>
+            <p>
+              Current use cases are crawlable, but they need depth and product specificity to become
+              valuable source material.
+            </p>
+          </div>
+          <div class="panel">
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Need</th>
+                  <th>Current State</th>
+                  <th>Better Template Content</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Product category</td>
+                  <td>AI chatbot is stated. AI agent capabilities are not consistently surfaced.</td>
+                  <td>
+                    Name both: AI chatbot for answers and AI agent for approved actions across
+                    support, knowledge, and workflows.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Training sources</td>
+                  <td>Occasionally mentions documentation or knowledge base.</td>
+                  <td>
+                    List sources in plain text: website, sitemap, help center, PDFs, docs,
+                    knowledge base, tickets, videos, cloud files, and internal SOPs.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Deployment surfaces</td>
+                  <td>Usually not clear on industry pages.</td>
+                  <td>
+                    State where it works: website widget, internal assistant, API, shared bot,
+                    support workflow, and connected tools.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Niche workflows</td>
+                  <td>Short generic use cases.</td>
+                  <td>
+                    Add workflow examples with before/after framing and sample questions. These are
+                    the most useful blocks for GEO answer extraction.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Outcomes and Value Proposition</h2>
+            <p>
+              The template promises speed and efficiency, but credibility depends on specificity.
+            </p>
+          </div>
+          <div class="audit-grid">
+            <article class="audit-item">
+              <div class="label-row">
+                <span class="chip success">Crawlable</span>
+                <span class="chip warning">Not specific enough</span>
+              </div>
+              <h3>Current outcomes</h3>
+              <p>
+                Common outcomes include reducing wait times, improving satisfaction, freeing human
+                resources, improving productivity, and enabling 24/7 multilingual support.
+              </p>
+            </article>
+            <article class="audit-item">
+              <div class="label-row">
+                <span class="chip">Recommended</span>
+              </div>
+              <h3>Outcome framing to add</h3>
+              <p>
+                Tie outcomes to the niche: fewer repeated support tickets, faster onboarding,
+                fewer missed lead questions, better self-service, faster employee training, lower
+                support load, clearer policy guidance, and better handoffs to humans.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>AI Discoverability and Indexing</h2>
+            <p>
+              Technical indexing is mostly fine. The bigger issue is entity clarity, schema, and
+              uniqueness.
+            </p>
+          </div>
+          <div class="panel">
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Finding</th>
+                  <th>Impact</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Indexability</td>
+                  <td>Industry pages return index/follow, have canonicals, and are emitted in the industry sitemap.</td>
+                  <td><span class="score high">Good</span></td>
+                </tr>
+                <tr>
+                  <td>Crawlable text</td>
+                  <td>Headings, intros, feature names, feature descriptions, logos, and CTAs are rendered as text or image alt.</td>
+                  <td><span class="score high">Good</span></td>
+                </tr>
+                <tr>
+                  <td>Structured data</td>
+                  <td>Reviewed live pages do not expose page-specific FAQ, Product, SoftwareApplication, or Breadcrumb schema.</td>
+                  <td><span class="score low">Weak</span></td>
+                </tr>
+                <tr>
+                  <td>Topical depth</td>
+                  <td>Core industry-specific content is often short. The shallowest reviewed dataset entries are close to 219 words before shared sections.</td>
+                  <td><span class="score low">Weak</span></td>
+                </tr>
+                <tr>
+                  <td>Repetition</td>
+                  <td>Most pages share the same structure, CTA copy, logo row, social proof, and large related-industry block.</td>
+                  <td><span class="score low">Weak</span></td>
+                </tr>
+                <tr>
+                  <td>Image information</td>
+                  <td>Hero images are decorative with empty alt. That is acceptable for accessibility, but they do not add topical evidence.</td>
+                  <td><span class="score medium">Neutral</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Top 5 Refactor Priorities</h2>
+            <p>
+              These changes should most improve business identity clarity, topical authority, and
+              AI search visibility.
+            </p>
+          </div>
+          <div class="priority-list">
+            <article class="priority">
+              <h3>Add a niche knowledge layer to every page</h3>
+              <p>
+                Include common customer questions, internal workflows, source examples, and
+                terminology for the specific industry. This is the core fix for shallow PSEO.
+              </p>
+            </article>
+            <article class="priority">
+              <h3>Add FAQ and SoftwareApplication schema</h3>
+              <p>
+                Generate page-specific JSON-LD from the same content fields used on-page. Include
+                audience, use cases, application category, offers, trust claims, and breadcrumbs.
+              </p>
+            </article>
+            <article class="priority">
+              <h3>Make audience and buyer roles explicit</h3>
+              <p>
+                Add "Built for" sections with roles and responsibilities. AI systems need explicit
+                persona text, not just industry labels.
+              </p>
+            </article>
+            <article class="priority">
+              <h3>Replace broad internal-link dumps with contextual links</h3>
+              <p>
+                Keep crawlability but reduce boilerplate. Link to closely related industries and a
+                full directory rather than placing every industry on every page.
+              </p>
+            </article>
+            <article class="priority">
+              <h3>Turn trust signals into readable claims</h3>
+              <p>
+                Put proof in text near the top: 3,000+ businesses, 75k+ users, SOC 2 Type II, GDPR,
+                and relevant customer categories. Logos and badges should support, not replace,
+                proof copy.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Recommended Template Structure</h2>
+            <p>
+              A stronger industry page should read like a useful niche guide and a product landing
+              page at the same time.
+            </p>
+          </div>
+          <div class="panel">
+            <table class="matrix">
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Section</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Hero with concrete definition</td>
+                  <td>Name the industry, product category, training sources, and primary outcome.</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Proof row</td>
+                  <td>Readable proof claims plus logos and trust badges.</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Built for</td>
+                  <td>Buyer personas and operators by role.</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Questions DocsBot can answer</td>
+                  <td>Niche-specific customer and employee questions.</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Workflow use cases</td>
+                  <td>Problem, sources, answer/action, handoff, and outcome.</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Training sources</td>
+                  <td>Explain what content powers the bot and how updates stay current.</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>Implementation path</td>
+                  <td>Connect sources, configure bot, embed, test, launch, monitor.</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>FAQ</td>
+                  <td>Answer high-intent questions and power FAQ schema.</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Contextual related pages</td>
+                  <td>Support crawl paths without weakening topical focus.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Suggested Positioning Copy</h2>
+            <p>
+              This can be adapted for the homepage or as the top-level positioning pattern reused
+              across industry pages.
+            </p>
+          </div>
+          <div class="copy-block">
+            <h3>AI agents trained on your business knowledge</h3>
+            <p class="subhead">
+              DocsBot turns your documentation, website, help center, files, and internal processes
+              into AI agents that answer questions, support customers, assist teams, and take
+              approved actions across your tools.
+            </p>
+            <ul>
+              <li>
+                Helps support, success, operations, and product teams give customers instant
+                answers from trusted company content.
+              </li>
+              <li>
+                Builds AI chatbots and agents for customer support, internal knowledge, onboarding,
+                documentation, lead capture, and workflow automation.
+              </li>
+              <li>
+                Connects to websites, docs, files, knowledge bases, support platforms, and business
+                tools so answers stay grounded in your sources.
+              </li>
+              <li>
+                Reduces repetitive support work, improves response speed, and gives teams more time
+                for complex customer and operational issues.
+              </li>
+              <li>
+                Provides business-ready controls including escalation, analytics, multilingual
+                support, SOC 2 Type II, and GDPR-aligned trust signals.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>Evidence Reviewed</h2>
+            <p>
+              Codebase was the primary source. Live docsbot.ai pages were used to confirm rendered
+              production content and indexing signals.
+            </p>
+          </div>
+          <div class="evidence">
+            <span>
+              <strong>Template source</strong>
+              src/pages/industry/[index].jsx
+            </span>
+            <span>
+              <strong>Content source</strong>
+              src/constants/industries.constants.js
+            </span>
+            <span>
+              <strong>Sitemap source</strong>
+              scripts/generate-sitemap.js
+            </span>
+            <a href="https://docsbot.ai/industry/landscaping-services">
+              <strong>Live page</strong>
+              Landscaping Services
+            </a>
+            <a href="https://docsbot.ai/industry/saas-solutions">
+              <strong>Live page</strong>
+              SaaS Solutions
+            </a>
+            <a href="https://docsbot.ai/sitemap-industries.xml">
+              <strong>Live sitemap</strong>
+              sitemap-industries.xml
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        Generated as a standalone HTML audit for DocsBot industry PSEO landing-page refactoring.
+      </div>
+    </footer>
+  </body>
+</html>

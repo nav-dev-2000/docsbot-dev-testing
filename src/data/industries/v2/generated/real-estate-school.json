@@ -1,0 +1,721 @@
+{
+  "slug": "real-estate-school",
+  "business": "Real Estate School",
+  "industryCategory": "Business & Information",
+  "pageMeta": {
+    "title": "AI Agents for Real Estate School Support",
+    "description": "DocsBot helps real estate schools answer licensing, course, and exam prep questions faster with source-grounded AI agents for students and staff.",
+    "canonicalPath": "/industry/real-estate-school"
+  },
+  "hero": {
+    "eyebrow": "AI automation for real estate education and student support",
+    "headline": "DocsBot AI agents keep real estate students moving from enrollment to exam day",
+    "subheadline": "Train DocsBot on your course catalog, student handbook, licensing guidance, FAQs, study resources, policies, and staff procedures so students get instant, source-grounded answers while your team focuses on advising, curriculum, and compliance-sensitive decisions.",
+    "proofBullets": [
+      {
+        "text": "Answer enrollment, tuition, schedule, course-access, continuing education, and exam-prep questions from approved school content.",
+        "icon": "AcademicCapIcon"
+      },
+      {
+        "text": "Collect lead details, qualify prospective students, and route admissions follow-up through customer-configured forms, APIs, connectors, or workflows.",
+        "icon": "UserGroupIcon"
+      },
+      {
+        "text": "Give instructors and support staff a private knowledge agent for policies, approved scripts, course updates, and student handoff notes.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics, logs, and conversation review to spot repeated student questions, missing documentation, and curriculum support gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build a real estate school AI agent",
+    "secondaryCta": "See how DocsBot supports students"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot helps real estate schools create AI agents trained on their own approved knowledge: course pages, licensing requirement summaries, syllabi, study guides, refund policies, onboarding instructions, instructor notes, and internal SOPs. Agents can answer in a website widget or private team chat, escalate sensitive questions, and take bounded actions when configured through AI Actions, Skills, APIs, connectors, or review workflows.",
+    "whoItHelps": [
+      {
+        "role": "Admissions and enrollment teams",
+        "roleContext": "Prospective students often compare state eligibility, course formats, tuition, exam timelines, and career paths before they talk to a person. DocsBot can provide consistent first answers and collect context for a human follow-up.",
+        "bullets": [
+          {
+            "text": "Answer common pre-licensing, CE, broker course, payment, refund, and schedule questions from approved school materials.",
+            "icon": "ChatBubbleLeftIcon"
+          },
+          {
+            "text": "Qualify leads by state, license goal, timeline, course preference, and follow-up channel using customer-defined intake rules.",
+            "icon": "IdentificationIcon"
+          },
+          {
+            "text": "Route complex admissions, transfer-credit, disability accommodation, or regulatory questions to staff with a conversation summary.",
+            "icon": "ArrowPathRoundedSquareIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Student support and success teams",
+        "roleContext": "Real estate students need fast answers while juggling coursework, proctoring, exam prep, renewal deadlines, and state-specific requirements. DocsBot can reduce repetitive support while preserving escalation paths.",
+        "bullets": [
+          {
+            "text": "Help students find LMS login steps, completion certificates, exam prep links, attendance rules, and make-up policies.",
+            "icon": "MagnifyingGlassIcon"
+          },
+          {
+            "text": "Summarize support tickets or chat histories for staff when a student needs manual help or policy review.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use conversation analytics to identify confusing lessons, missing FAQ answers, or topics that need clearer orientation materials.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "FaceSmileIcon"
+      },
+      {
+        "role": "School owners, directors, and compliance leads",
+        "roleContext": "Licensing education is state-specific and changes over time, so leaders need consistent answers, controlled sources, and visibility into what students ask most.",
+        "bullets": [
+          {
+            "text": "Keep answers grounded in approved internal content instead of letting staff rewrite policy guidance from memory.",
+            "icon": "ShieldCheckIcon"
+          },
+          {
+            "text": "Support human review for licensing, legal, refund, accommodation, or eligibility questions that should not be decided by automation.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Give staff a private knowledge assistant for SOPs, instructor onboarding, state course approvals, and operational playbooks.",
+            "icon": "LockClosedIcon"
+          }
+        ],
+        "roleIcon": "BuildingLibraryIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-bls-real-estate-outlook",
+      "metric": "3% projected employment growth for real estate brokers and sales agents from 2024 to 2034",
+      "claim": "The U.S. Bureau of Labor Statistics projects overall employment of real estate brokers and sales agents to grow 3 percent from 2024 to 2034.",
+      "sourceTitle": "U.S. Bureau of Labor Statistics Occupational Outlook Handbook: Real Estate Brokers and Sales Agents",
+      "sourceUrl": "https://www.bls.gov/ooh/sales/real-estate-brokers-and-sales-agents.htm",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "career demand",
+        "student career outcomes",
+        "program positioning"
+      ]
+    },
+    {
+      "id": "src-nar-2024-buyer-search",
+      "metric": "43% of buyers started by looking online, and all buyers used the internet in the home search",
+      "claim": "NAR’s 2024 Profile highlights reported that 43 percent of buyers started by looking for properties online and all home buyers used the internet to search for a home.",
+      "sourceTitle": "National Association of REALTORS®: Highlights From the Profile of Home Buyers and Sellers",
+      "sourceUrl": "https://www.nar.realtor/infographics/infographic-a-snapshot-of-todays-home-buyers",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "digital-first real estate practice",
+        "student expectations",
+        "curriculum relevance"
+      ]
+    },
+    {
+      "id": "src-fed-commission-settlement",
+      "metric": "2024 settlement changed buyer-agent compensation practices",
+      "claim": "A Federal Reserve FEDS Notes article explains that the NAR settlement banned advertising buyer-agent compensation in home listings and required buyers and agents to explicitly set compensation terms.",
+      "sourceTitle": "Federal Reserve FEDS Notes: Commissions and Omissions: Trends in Real Estate Broker Compensation",
+      "sourceUrl": "https://www.federalreserve.gov/econres/notes/feds-notes/commissions-and-omissions-trends-in-real-estate-broker-compensation-20250512.html",
+      "sourceDate": "2025-05-12",
+      "bestUsedFor": [
+        "regulatory change",
+        "curriculum updates",
+        "practice-change education"
+      ]
+    },
+    {
+      "id": "src-nar-settlement-faq",
+      "metric": "Written buyer agreements required by NAR practice changes beginning August 17, 2024",
+      "claim": "NAR’s settlement FAQ states that written buyer agreements required by its practice changes were to be implemented on August 17, 2024.",
+      "sourceTitle": "National Association of REALTORS®: NAR Settlement FAQs",
+      "sourceUrl": "https://www.nar.realtor/sites/default/files/documents/nar-settlement-faq-2024-05-31.pdf",
+      "sourceDate": "2024-05-31",
+      "bestUsedFor": [
+        "student questions about buyer agreements",
+        "course updates",
+        "practice-change FAQs"
+      ]
+    },
+    {
+      "id": "src-louisiana-distance-education-arello",
+      "metric": "Distance education delivery can require ARELLO certification in state rules",
+      "claim": "Louisiana regulations state that approved distance education courses must be submitted to ARELLO for delivery-method certification before offering, with specified exceptions for college and university credit courses.",
+      "sourceTitle": "Cornell Legal Information Institute: Louisiana Administrative Code, Methods of Instruction; Classroom Training, Distance Education",
+      "sourceUrl": "https://www.law.cornell.edu/regulations/louisiana/La-Admin-Code-tit-46-SS-LXVII-5333",
+      "sourceDate": "Current regulation page",
+      "bestUsedFor": [
+        "state-specific education regulation",
+        "distance education compliance pressure",
+        "approved-course documentation"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Prospective student admissions agent",
+      "problem": "Prospects often ask the same eligibility, cost, schedule, course-format, and exam-readiness questions before submitting a lead form or calling the school.",
+      "agentWorkflow": "DocsBot answers from approved course pages, FAQs, tuition policies, state requirement summaries, and career materials. It can collect name, email, state, desired license path, timeline, and preferred course format, then qualify the inquiry using school-defined rules and forward a summary to admissions through a configured workflow.",
+      "liveContextOrTools": "Use DocsBot AI Actions with customer-configured forms, APIs, CRM or helpdesk workflows, email, Slack, Microsoft Teams, or scheduling tools to route qualified leads and meeting requests.",
+      "exampleQuestionsOrRequests": [
+        "Which course do I need if I want to become a salesperson in Texas?",
+        "Do you offer weekend or self-paced pre-licensing classes?",
+        "Can someone contact me about payment options and exam timelines?"
+      ],
+      "businessOutcome": "Admissions teams get cleaner lead context and fewer repetitive first-touch questions without removing the human from enrollment decisions.",
+      "icon": "UserGroupIcon"
+    },
+    {
+      "name": "Student course and exam support agent",
+      "problem": "Students need quick help with course access, completion certificates, proctoring steps, practice exams, lesson concepts, and deadline questions outside office hours.",
+      "agentWorkflow": "DocsBot retrieves answers from syllabi, LMS help pages, student handbooks, lesson notes, exam-prep resources, and school FAQs. It can explain where to find materials, summarize relevant policies, ask clarifying questions, and escalate sensitive or account-specific issues to staff.",
+      "liveContextOrTools": "With approved Skills or APIs, the agent can look up allowed course-status fields, create a support ticket, summarize the student’s issue, or notify the right support queue.",
+      "exampleQuestionsOrRequests": [
+        "Where do I find my completion certificate?",
+        "What topics should I review before the national portion of the exam?",
+        "My course timer looks wrong. Can you help me contact support?"
+      ],
+      "businessOutcome": "Students get faster self-service answers while support staff receive organized, context-rich handoffs for issues that need manual review.",
+      "icon": "AcademicCapIcon"
+    },
+    {
+      "name": "Curriculum update and policy-change assistant",
+      "problem": "Real estate schools must keep students and instructors aligned when industry practices and state rules change, such as buyer-agreement and compensation guidance after the 2024 NAR settlement.",
+      "agentWorkflow": "DocsBot can be trained on approved update memos, course addenda, instructor guidance, FAQs, and state-specific policy notes. Staff can ask the internal agent what changed, where the approved language lives, and which student-facing pages need updates.",
+      "liveContextOrTools": "Configured workflows can create documentation tasks, route review requests to compliance staff, or draft update summaries for human approval before publication.",
+      "exampleQuestionsOrRequests": [
+        "Which course pages mention buyer-broker compensation?",
+        "Summarize our approved talking points about written buyer agreements.",
+        "Create a review task for the post-settlement FAQ update."
+      ],
+      "businessOutcome": "Teams reduce inconsistent explanations and move faster when practice changes need to be reflected in lessons, FAQs, and staff scripts.",
+      "icon": "ScaleIcon",
+      "sourceIds": [
+        "src-fed-commission-settlement",
+        "src-nar-settlement-faq"
+      ]
+    },
+    {
+      "name": "Instructor and staff knowledge agent",
+      "problem": "Instructors, enrollment reps, and support staff need consistent internal answers about school policy, refund rules, make-up sessions, course approvals, and escalation paths.",
+      "agentWorkflow": "DocsBot acts as a private internal knowledge agent trained on SOPs, staff manuals, instructor onboarding, policy documents, approved response templates, and operational checklists. It answers with source grounding and can identify when a policy is missing or outdated.",
+      "liveContextOrTools": "Teams can access the agent in private chat experiences, Slack, Microsoft Teams, or configured internal workflows. MCP Connectors can extend approved access to tools exposed through remote Model Context Protocol servers when the school authorizes them.",
+      "exampleQuestionsOrRequests": [
+        "What is our approved script for a refund request after course access starts?",
+        "How do instructors report a content correction?",
+        "Which staff queue handles accommodation requests?"
+      ],
+      "businessOutcome": "Staff spend less time searching internal drives and give students more consistent answers across locations, programs, and course formats.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "name": "Career readiness and digital-practice guidance agent",
+      "problem": "Students want to understand how licensing connects to real-world practice, including online buyer behavior, agent value, referrals, contracts, and client communication.",
+      "agentWorkflow": "DocsBot answers from school-approved career modules, practice scenarios, ethics guidance, broker interview resources, and continuing education content. It can point students to lessons about online search behavior, buyer consultations, agency relationships, and professional communication.",
+      "liveContextOrTools": "The agent can recommend approved lessons or resources and escalate career-advising requests to staff or instructors when the student needs personalized guidance.",
+      "exampleQuestionsOrRequests": [
+        "Why do agents need strong digital marketing skills?",
+        "Which lesson explains buyer consultations and representation agreements?",
+        "What should I ask a sponsoring broker before joining?"
+      ],
+      "businessOutcome": "Students connect coursework to modern client expectations while the school reinforces its approved curriculum and advising resources.",
+      "icon": "PresentationChartBarIcon",
+      "sourceIds": [
+        "src-nar-2024-buyer-search",
+        "src-bls-real-estate-outlook"
+      ]
+    },
+    {
+      "name": "Distance education documentation assistant",
+      "problem": "Online and hybrid real estate schools manage approved content, delivery-method rules, completion records, and student-facing instructions across multiple states.",
+      "agentWorkflow": "DocsBot can retrieve approved procedures, course-delivery documentation, proctoring guidance, attendance requirements, and state-specific internal notes. It can help staff find the right document before responding to students or preparing review materials.",
+      "liveContextOrTools": "Configured AI Actions can generate review summaries, create documentation tasks, or route compliance questions to the appropriate owner while keeping final regulatory decisions with humans.",
+      "exampleQuestionsOrRequests": [
+        "Where is our approved distance education delivery checklist?",
+        "Which states require extra review before we update this course page?",
+        "Summarize the completion-record process for support staff."
+      ],
+      "businessOutcome": "Operations teams maintain clearer documentation and reduce ad hoc answers when distance education rules or course approvals require careful handling.",
+      "icon": "DocumentTextIcon",
+      "sourceIds": [
+        "src-louisiana-distance-education-arello"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "A student-facing AI support agent that answers from your real estate school’s approved materials",
+    "intro": "Place DocsBot on your admissions pages, student portal, help center, or course support area so prospects and enrolled students can get fast answers while your staff keeps control over licensing-sensitive, account-specific, and policy-heavy situations.",
+    "requests": [
+      {
+        "request": "“Which licensing course should I take in my state?”",
+        "agentResponseStrategy": "Ask clarifying questions about state, license path, and current status, then answer from approved course catalog and requirement summaries while recommending staff review for eligibility edge cases.",
+        "sourceTypes": [
+          "Course catalog",
+          "State requirement summaries",
+          "Admissions FAQs"
+        ],
+        "optionalAction": "Collect lead details and route a qualified inquiry to admissions through a configured form or workflow.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“How do I access my course, certificate, or exam prep materials?”",
+        "agentResponseStrategy": "Retrieve the right steps from LMS instructions, student handbook content, and exam prep documentation, then escalate if the student needs account-specific support.",
+        "sourceTypes": [
+          "Student handbook",
+          "LMS help pages",
+          "Exam prep guides"
+        ],
+        "optionalAction": "Create a support ticket or notify the student success queue with a conversation summary when configured.",
+        "icon": "ComputerDesktopIcon"
+      },
+      {
+        "request": "“What changed about buyer agreements and commissions?”",
+        "agentResponseStrategy": "Point students to the school’s approved post-settlement learning materials and explain the relevant course section without giving legal advice or replacing instructor guidance.",
+        "sourceTypes": [
+          "Course addenda",
+          "Instructor-approved FAQs",
+          "Policy update memos"
+        ],
+        "optionalAction": "Offer to connect the student with an instructor or advisor for deeper discussion.",
+        "icon": "ScaleIcon",
+        "sourceIds": [
+          "src-nar-settlement-faq"
+        ]
+      },
+      {
+        "request": "“Can I schedule a call before I enroll?”",
+        "agentResponseStrategy": "Answer preliminary questions, collect scheduling intent, and gather context such as license goal, state, timeframe, and preferred format.",
+        "sourceTypes": [
+          "Admissions scripts",
+          "Course pages",
+          "Tuition FAQs"
+        ],
+        "optionalAction": "Use a customer-configured scheduling workflow such as Calendly, Cal.com, TidyCal, or a similar tool when approved.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“Do you support students in other languages?”",
+        "agentResponseStrategy": "Answer common school questions in the student’s preferred language when the underlying knowledge source supports the answer, while preserving escalation for nuanced enrollment or regulatory questions.",
+        "sourceTypes": [
+          "Multilingual FAQs",
+          "Course policies",
+          "Support articles"
+        ],
+        "optionalAction": "Route unanswered language-specific questions to staff with the original and translated context.",
+        "icon": "LanguageIcon"
+      },
+      {
+        "request": "“What is a real estate agent’s career outlook?”",
+        "agentResponseStrategy": "Use approved career resources and public labor-market references to explain the profession at a high level, then point students to school advising resources.",
+        "sourceTypes": [
+          "Career resources",
+          "Broker interview guides",
+          "Public labor data"
+        ],
+        "optionalAction": "Collect interest in a career-advising call and send it to the admissions or student success team.",
+        "icon": "BriefcaseIcon",
+        "sourceIds": [
+          "src-bls-real-estate-outlook"
+        ]
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Give admissions, instructors, and operations one place to ask policy and curriculum questions",
+    "intro": "DocsBot can work as a private knowledge agent trained on staff-only materials so your team can retrieve approved answers, summarize policies, find missing documentation, and prepare handoffs without searching across drives, wikis, PDFs, and email threads.",
+    "workflows": [
+      {
+        "name": "Admissions answer desk",
+        "problem": "Enrollment reps need consistent answers about course eligibility, delivery format, payment policies, discounts, transfers, and refund boundaries.",
+        "agentWorkflow": "DocsBot retrieves approved language from admissions playbooks, tuition pages, refund policies, course catalogs, and escalation rules. Staff can ask for a concise answer, a follow-up email draft, or a summary for a human advisor.",
+        "sourceTypes": [
+          "Admissions playbooks",
+          "Refund policies",
+          "Course catalog",
+          "Approved email templates"
+        ],
+        "optionalAction": "Draft a response or create a follow-up task in a customer-configured sales or support workflow.",
+        "outcome": "Prospects receive clearer answers and staff avoid improvising on policy-sensitive topics.",
+        "icon": "EnvelopeIcon"
+      },
+      {
+        "name": "Instructor content support",
+        "problem": "Instructors need quick access to lesson objectives, update notes, approved examples, and student-question trends.",
+        "agentWorkflow": "DocsBot answers from instructor manuals, curriculum notes, course addenda, FAQs, and reviewed student support trends. It can surface repeated questions that suggest a confusing lesson or missing explanation.",
+        "sourceTypes": [
+          "Instructor manuals",
+          "Curriculum notes",
+          "Course addenda",
+          "Conversation analytics"
+        ],
+        "optionalAction": "Create a curriculum review task or summarize repeated questions for an academic lead.",
+        "outcome": "Course teams can improve materials based on real student questions while keeping instructional updates reviewable.",
+        "icon": "PencilIcon"
+      },
+      {
+        "name": "Compliance and course-approval lookup",
+        "problem": "Operations teams must find the right approval records, delivery procedures, completion rules, and state-specific notes before answering students or updating pages.",
+        "agentWorkflow": "DocsBot retrieves internal compliance documents, state notes, checklists, course approval files, and completion procedures. It can explain where the source document is and flag when a human compliance owner should review the question.",
+        "sourceTypes": [
+          "Compliance checklists",
+          "Approval records",
+          "State notes",
+          "Completion procedures"
+        ],
+        "optionalAction": "Route a question to a compliance lead, create a review task, or generate a summary for audit preparation when configured.",
+        "outcome": "Teams reduce fragmented documentation searches and keep high-impact regulatory answers inside human-controlled workflows.",
+        "icon": "ShieldCheckIcon"
+      },
+      {
+        "name": "Support ticket triage",
+        "problem": "Student support queues can fill with repetitive questions and incomplete requests that require back-and-forth before staff can help.",
+        "agentWorkflow": "DocsBot can summarize incoming issues, ask for missing details, identify likely topic categories, draft source-grounded replies, and route unresolved issues to the correct queue through configured helpdesk workflows.",
+        "sourceTypes": [
+          "Help articles",
+          "Ticket history exports",
+          "Student policies",
+          "Support macros"
+        ],
+        "optionalAction": "Create, update, route, or summarize tickets through customer-configured Skills, APIs, connectors, or workflows.",
+        "outcome": "Support staff get cleaner context and can focus on exceptions, account issues, and sensitive cases.",
+        "icon": "TicketIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded AI agents trained on school content",
+      "mainLandingPageContext": "DocsBot creates AI agents trained on websites, documents, help centers, internal content, PDFs, and other configured knowledge sources.",
+      "industryApplication": "Train an agent on course catalogs, licensing summaries, syllabi, student handbooks, exam prep guides, admissions FAQs, refund policies, and staff SOPs so answers reflect your school’s approved language.",
+      "icon": "BookOpenIcon"
+    },
+    {
+      "feature": "Website widget and private team chat",
+      "mainLandingPageContext": "DocsBot agents can work in an embeddable website or product chat widget and as private internal knowledge assistants for employees.",
+      "industryApplication": "Use a public agent for admissions and student support, and a private agent for instructors, enrollment reps, compliance leads, and support staff who need internal procedures.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and workflows",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can support approved lookups, routing, summaries, record creation, updates, workflow triggers, and handoffs inside customer-defined rules.",
+      "industryApplication": "Let the agent collect lead details, create a support ticket, route a course-access issue, notify admissions, draft a staff response, or summarize a student escalation when the school configures the right permissions and systems.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics, logs, reports, and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides analytics, logs, reports, conversation review, topic management, satisfaction and resolution analysis, and knowledge-gap discovery.",
+      "industryApplication": "See which licensing questions, exam topics, course pages, refund policies, or onboarding steps confuse students most, then improve FAQs, lessons, and staff scripts.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Human escalation and governance controls",
+      "mainLandingPageContext": "DocsBot supports human escalation, SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and customer-defined action boundaries.",
+      "industryApplication": "Escalate legal, eligibility, accommodation, refund, identity, account-specific, or regulatory questions to staff while keeping private school materials access-controlled.",
+      "icon": "LockClosedIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot agents can answer in more than 100 languages when configured with the right knowledge sources.",
+      "industryApplication": "Support prospective and enrolled students who prefer another language, while still grounding answers in the school’s approved course and policy content.",
+      "icon": "LanguageIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "brian-avery-education",
+      "gobinda-training-materials",
+      "russell-hablo-travel-training"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Education teams use DocsBot to reinforce course concepts, assignment support, exam preparation, and project guidance.",
+      "DocsBot can be trained on owned training materials so common student and staff questions receive source-grounded answers.",
+      "Training platforms use DocsBot to help learners access information they need and convert inquiries into next steps.",
+      "DocsBot has handled high-volume customer inquiry environments, including over 30,000 inquiries in one month in the Sony NURO case study."
+    ],
+    "whyTheseReviewsFit": "Real estate schools need reliable answers for learners, prospects, and staff without turning every question into a phone call or ticket. DocsBot proof spans education, training materials, learner self-service, and high-volume support, giving school leaders confidence that AI agents can support both student experience and operations.",
+    "trustClaimIcons": [
+      "AcademicCapIcon",
+      "DocumentTextIcon",
+      "RocketLaunchIcon",
+      "TrophyIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support agents and internal knowledge automation for real estate schools",
+    "audience": [
+      "Real estate school owners",
+      "Admissions directors",
+      "Student support teams",
+      "Real estate instructors",
+      "Compliance and operations leads"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "AcademicCapIcon"
+  },
+  "relatedIndustrySlugs": [
+    "technical-school",
+    "trade-school",
+    "vocational-school",
+    "private-school",
+    "cosmetology-school",
+    "building-inspection"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15",
+    "sourceIndustrySlug": "real-estate-school",
+    "webSearchQueries": [
+      "ARELLO real estate license exam pass rates education report",
+      "NAR 2024 profile of home buyers and sellers first time buyers internet search",
+      "BLS real estate brokers and sales agents occupational outlook employment 2024",
+      "Department of Justice real estate commissions settlement buyer broker agreements 2024"
+    ],
+    "sourceUrls": [
+      "https://www.bls.gov/ooh/sales/real-estate-brokers-and-sales-agents.htm",
+      "https://www.nar.realtor/infographics/infographic-a-snapshot-of-todays-home-buyers",
+      "https://www.federalreserve.gov/econres/notes/feds-notes/commissions-and-omissions-trends-in-real-estate-broker-compensation-20250512.html",
+      "https://www.nar.realtor/sites/default/files/documents/nar-settlement-faq-2024-05-31.pdf",
+      "https://www.law.cornell.edu/regulations/louisiana/La-Admin-Code-tit-46-SS-LXVII-5333"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 47639,
+        "cachedInputTokens": 8960,
+        "billableInputTokens": 38679,
+        "outputTokens": 8352,
+        "reasoningOutputTokens": 220,
+        "totalTokens": 55991,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.224218,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.244218
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 27589,
+          "cachedInputTokens": 3712,
+          "billableInputTokens": 23877,
+          "outputTokens": 5557,
+          "reasoningOutputTokens": 220,
+          "totalTokens": 33146,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.143976,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.163976
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 20050,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 14802,
+          "outputTokens": 2795,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22845,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080242,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080242
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1510070112810-d4e9a46d9e91?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4MzQzNTR8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Real Estate School background image",
+    "source": "legacy-industry",
+    "query": "Real Estate School"
+  },
+  "faq": [
+    {
+      "question": "Can DocsBot answer state-specific licensing questions without creating compliance risk for our school?",
+      "answer": "Yes—DocsBot can answer from your approved course catalog, state requirement summaries, licensing FAQs, and policy notes, then escalate eligibility edge cases, legal questions, accommodations, or regulatory interpretations to staff. The key is to train the agent on controlled sources and define clear boundaries for when it should stop and hand off.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How would this help admissions if prospects still need to talk to a person before enrolling?",
+      "answer": "DocsBot can handle the repetitive first layer: course options, tuition, schedule, format, exam timeline, refund basics, and career-path questions. It can collect state, license goal, timeline, preferred format, and contact details, then route a qualified summary to admissions so human reps spend more time advising and less time repeating the same intake questions.",
+      "role": "Admissions and enrollment teams",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent help students after hours with LMS access, certificates, and exam prep questions?",
+      "answer": "Yes. A student-facing DocsBot agent can retrieve answers from LMS help pages, student handbooks, syllabi, certificate instructions, proctoring guidance, and exam-prep resources. For account-specific issues, missing completion records, timer disputes, or refund questions, it can gather details and create a structured handoff for support staff when configured.",
+      "role": "Student support and success teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "What prevents the AI from giving outdated answers when state rules or course approvals change?",
+      "answer": "DocsBot should be connected to your maintained, approved knowledge sources—not random web content. Your team can update source documents, review conversation logs, and use analytics to spot confusing or stale answers. For high-risk topics like course approval, eligibility, or state-specific requirements, the agent can be instructed to cite internal sources and escalate when confidence or coverage is insufficient.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Could DocsBot support curriculum updates around buyer agreements, commissions, and post-settlement practice changes?",
+      "answer": "Yes. You can train an internal agent on approved course addenda, instructor memos, FAQs, and staff talking points so instructors and support teams use consistent language. That matters because 2024 NAR settlement-related practice changes included written buyer agreement requirements beginning August 17, 2024, and changed how buyer-agent compensation is handled in listings and agreements.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-nar-settlement-faq",
+        "src-fed-commission-settlement"
+      ]
+    },
+    {
+      "question": "Can DocsBot qualify real estate school leads before they reach our admissions team?",
+      "answer": "Yes. The agent can ask structured intake questions such as state, license path, current license status, desired start date, course format, payment questions, and preferred contact method. With customer-configured forms, APIs, connectors, or workflows, it can forward qualified leads and conversation summaries to your admissions process without making final enrollment decisions on its own.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use one AI agent for prospects and another for staff-only policies?",
+      "answer": "Yes. Many schools would use a public-facing agent for admissions and student support, plus a private internal knowledge agent for staff. The internal version can be trained on SOPs, refund scripts, instructor procedures, compliance checklists, course approval notes, and escalation rules while keeping those staff-only sources access-controlled.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "How does DocsBot fit with the systems we already use for CRM, ticketing, scheduling, or LMS support?",
+      "answer": "DocsBot can work through customer-configured AI Actions, Skills, APIs, connectors, forms, webhooks, and workflows. That can support tasks like lead capture, ticket creation, support routing, meeting requests, approved record lookups, and staff notifications. For sensitive systems, you define the permissions, action boundaries, logging, and human review points.",
+      "role": "General buyer",
+      "category": "Integrations"
+    },
+    {
+      "question": "Will DocsBot integrate directly with our LMS to show each student’s course status?",
+      "answer": "DocsBot can use live system context only when your team configures the right Skill, API, connector, metadata binding, or approved workflow. If permitted, the agent could look up allowed course-status fields or route an account issue. If not, it can still answer general LMS, certificate, and exam-prep questions from help articles and escalate student-specific cases.",
+      "role": "Student support and success teams",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we measure whether an AI agent is actually reducing support workload?",
+      "answer": "Track deflected repetitive questions, resolution rate, escalation volume, after-hours usage, lead form completion, ticket quality, response time, and repeated topics by course or policy area. DocsBot provides analytics, logs, reports, topic management, satisfaction and resolution analysis, conversation review, and knowledge-gap discovery so teams can see where students still get stuck.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can conversation analytics show us which lessons or policies are confusing students?",
+      "answer": "Yes. DocsBot can surface repeated student questions, unresolved topics, and missing documentation patterns. For a real estate school, that can reveal confusing exam-prep concepts, unclear certificate instructions, refund-policy friction, proctoring confusion, or course pages that need better state-specific explanations.",
+      "role": "Student support and success teams",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How much content do we need before launching a useful real estate school AI agent?",
+      "answer": "You do not need a perfect knowledge base to start, but you do need reliable source material for the first use case. A practical launch set might include course pages, tuition FAQs, admissions scripts, refund policies, student handbook sections, LMS access instructions, certificate steps, exam-prep links, and escalation rules. Analytics can then show what content is missing.",
+      "role": "General buyer",
+      "category": "Implementation"
+    },
+    {
+      "question": "Who should own implementation—admissions, student support, compliance, or IT?",
+      "answer": "Usually implementation works best with one business owner and a cross-functional review group. Admissions defines lead intake, support defines student workflows, compliance reviews licensing-sensitive boundaries, instructors validate academic language, and IT helps with access, connectors, security, and approved actions. DocsBot should reflect shared operating rules, not one department’s assumptions.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can the agent help continuing education and renewal students, not just pre-licensing prospects?",
+      "answer": "Yes. DocsBot can answer from your CE catalog, renewal FAQs, course-completion instructions, certificate policies, state-specific notes, and support articles. It can also ask clarifying questions about the student’s license type, state, renewal deadline, and course need, then escalate if the question involves eligibility or regulatory interpretation.",
+      "role": "Admissions and enrollment teams",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How should we handle refund, transfer, accommodation, or disability-related questions?",
+      "answer": "Those should be treated as escalation-sensitive workflows. DocsBot can explain general published policies from approved sources, collect relevant context, and route the request to the right staff queue. It should not make discretionary refund decisions, approve accommodations, interpret legal obligations, or override your school’s human review process.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support distance education documentation and course approval workflows?",
+      "answer": "Yes. A private internal agent can retrieve delivery checklists, completion procedures, course approval records, state notes, proctoring guidance, and documentation requirements. This is useful because distance education rules can be state-specific; for example, Louisiana regulations state that approved distance education courses must be submitted to ARELLO for delivery-method certification before offering, with specified exceptions.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-louisiana-distance-education-arello"
+      ]
+    },
+    {
+      "question": "Will students trust an AI answer about licensing, exams, or career outlook?",
+      "answer": "Trust depends on how the agent is positioned and governed. DocsBot can provide source-grounded answers from your approved materials, avoid unsupported claims, and escalate sensitive questions. For career context, your school can include approved public references, such as the BLS projection that employment for real estate brokers and sales agents will grow 3% from 2024 to 2034.",
+      "role": "Student support and success teams",
+      "category": "Vendor trust",
+      "sourceIds": [
+        "src-bls-real-estate-outlook"
+      ]
+    },
+    {
+      "question": "Can the agent explain why digital marketing and online client behavior matter in modern real estate practice?",
+      "answer": "Yes, if your curriculum and career resources cover it. DocsBot can point students to approved lessons on online search behavior, buyer consultations, representation agreements, and client communication. NAR’s 2024 buyer profile highlights reported that 43% of buyers started by looking online and that all buyers used the internet in the home search.",
+      "role": "Student support and success teams",
+      "category": "Training and onboarding",
+      "sourceIds": [
+        "src-nar-2024-buyer-search"
+      ]
+    },
+    {
+      "question": "How do we keep instructors from getting different answers than admissions or support?",
+      "answer": "Use the same approved policy sources and separate audiences where needed. DocsBot can support a private staff agent trained on instructor manuals, admissions playbooks, refund policies, curriculum notes, and approved scripts. Role-based access helps keep internal content private while giving teams a consistent place to retrieve the current answer.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can DocsBot draft staff replies to student questions without sending them automatically?",
+      "answer": "Yes. DocsBot can draft source-grounded responses, summarize the student’s issue, identify missing information, and suggest the right escalation path. Your team can keep humans responsible for final replies, especially for eligibility, refunds, accommodations, complaints, regulatory questions, or account-specific issues.",
+      "role": "Student support and success teams",
+      "category": "Human oversight"
+    },
+    {
+      "question": "What security controls matter if we train the agent on staff SOPs or student support history?",
+      "answer": "For internal and support use cases, buyers should look for access controls, permissions, encryption, auditability, and clear data-use boundaries. DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can DocsBot answer in Spanish or other languages for prospective students?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages when configured with the right knowledge sources. For real estate schools, it should still ground answers in approved course and policy content, and it should route nuanced enrollment, licensing, or regulatory questions to staff with the original and translated context when needed.",
+      "role": "Admissions and enrollment teams",
+      "category": "Scalability"
+    },
+    {
+      "question": "What happens when the agent cannot find an approved answer?",
+      "answer": "It should say so, ask for clarifying details if useful, and escalate rather than improvise. DocsBot conversation review and knowledge-gap discovery can also show which unanswered questions recur, helping your team decide whether to update a course page, student handbook, FAQ, support macro, or staff policy.",
+      "role": "General buyer",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "How is DocsBot different from adding a generic AI chatbot to our website?",
+      "answer": "DocsBot is designed around agents trained on your approved knowledge, with source-grounded answers, analytics, human escalation, private internal use cases, and scoped actions through customer-configured Skills, APIs, connectors, and workflows. For a real estate school, that means the agent can reflect your policies, course catalog, licensing notes, and escalation rules—not generic internet advice.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "Can we start with admissions support and expand later to student support or internal staff use?",
+      "answer": "Yes. A common rollout is to start with a narrow, high-volume workflow such as admissions FAQs or course-access support, review logs, improve sources, then expand into ticket triage, exam-prep guidance, instructor support, compliance lookup, or internal SOP search. This reduces launch risk and gives stakeholders evidence before broader automation.",
+      "role": "School owners, directors, and compliance leads",
+      "category": "Implementation"
+    },
+    {
+      "question": "What should procurement or leadership ask before approving an AI agent for a real estate school?",
+      "answer": "Ask which sources the agent will use, who owns source updates, what topics require escalation, what systems it can access, how actions are permissioned, what logs are retained for review, how success will be measured, and how staff will test answers before launch. The buying decision should cover governance and operations, not just chat performance.",
+      "role": "General buyer",
+      "category": "Pricing and procurement"
+    }
+  ]
+}

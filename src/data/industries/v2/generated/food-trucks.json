@@ -1,0 +1,719 @@
+{
+  "slug": "food-trucks",
+  "business": "Food Truck",
+  "industryCategory": "Food & Hospitality",
+  "pageMeta": {
+    "title": "AI Agents Keep Food Truck Guests and Crews Moving",
+    "description": "DocsBot helps food trucks answer menu, location, catering, and allergen questions faster while routing leads and reducing repetitive service interruptions.",
+    "canonicalPath": "/industry/food-trucks"
+  },
+  "hero": {
+    "eyebrow": "AI automation for mobile food service teams",
+    "headline": "DocsBot AI agents for food trucks that move as fast as lunch rush",
+    "subheadline": "Train a DocsBot agent on your menu, prep notes, catering policies, location schedule, FAQs, and operating procedures so guests get instant answers and your crew can stay focused on cooking, payments, and service.",
+    "proofBullets": [
+      {
+        "text": "Answer menu, ingredient, allergen, pricing, hours, and location questions from your approved sources.",
+        "icon": "ChatBubbleLeftIcon"
+      },
+      {
+        "text": "Collect catering and event details, qualify requests, and hand off summaries through customer-configured workflows.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "text": "Give crew members quick access to prep guides, opening checklists, food safety notes, and truck procedures.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "text": "Use analytics and conversation review to find repeated questions, missing menu details, and documentation gaps.",
+        "icon": "ChartBarIcon"
+      }
+    ],
+    "primaryCta": "Build your food truck agent",
+    "secondaryCta": "See how DocsBot works"
+  },
+  "businessClarity": {
+    "whatDocsBotDoes": "DocsBot turns your food truck’s own content into AI support and internal knowledge agents. Add menus, FAQs, catering forms, allergen notes, staff SOPs, policies, website pages, PDFs, and other approved sources, then deploy the agent in a website widget, private team chat, or customer-configured workflow with source-grounded answers and bounded actions.",
+    "whoItHelps": [
+      {
+        "role": "Owner-operators and founders",
+        "roleContext": "Keep up with questions while managing permits, prep, staffing, events, vendors, and the truck’s daily location.",
+        "bullets": [
+          {
+            "text": "Answer recurring guest questions without pulling the owner away from the grill or register.",
+            "icon": "ClockIcon"
+          },
+          {
+            "text": "Capture catering leads with event date, headcount, location, budget range, dietary needs, and preferred follow-up channel.",
+            "icon": "EnvelopeIcon"
+          },
+          {
+            "text": "Review analytics to see which menu items, locations, and policies customers ask about most.",
+            "icon": "ChartPieIcon"
+          }
+        ],
+        "roleIcon": "BuildingStorefrontIcon"
+      },
+      {
+        "role": "Crew leads and shift managers",
+        "roleContext": "Make operational knowledge searchable for opening, service, closing, prep, equipment, and customer handoffs.",
+        "bullets": [
+          {
+            "text": "Find prep steps, batch quantities, cleaning notes, and closing procedures from approved internal documents.",
+            "icon": "ListBulletIcon"
+          },
+          {
+            "text": "Route sensitive, unusual, or high-value requests to a human with conversation context attached.",
+            "icon": "HandRaisedIcon"
+          },
+          {
+            "text": "Keep location, hours, sellout, and event answers consistent across the website and team knowledge base.",
+            "icon": "MapPinIcon"
+          }
+        ],
+        "roleIcon": "UserGroupIcon"
+      },
+      {
+        "role": "Event and catering coordinators",
+        "roleContext": "Respond faster to private parties, office lunches, breweries, markets, weddings, and community events.",
+        "bullets": [
+          {
+            "text": "Qualify event requests with your own rules for service area, minimums, menu fit, lead time, and staffing needs.",
+            "icon": "CheckCircleIcon"
+          },
+          {
+            "text": "Draft a handoff summary for the owner or sales lead, including menu preferences and open questions.",
+            "icon": "DocumentTextIcon"
+          },
+          {
+            "text": "Use approved scheduling or form workflows to move qualified inquiries toward a quote request or follow-up call.",
+            "icon": "CalendarIcon"
+          }
+        ],
+        "roleIcon": "TicketIcon"
+      }
+    ]
+  },
+  "evidenceSources": [
+    {
+      "id": "src-food-truck-business-growth",
+      "metric": "Food truck business count grew 17.0% per year on average from 2019 to 2024.",
+      "claim": "IBISWorld reports strong growth in the number of U.S. food truck businesses, showing why operators need repeatable customer communication and lean workflows.",
+      "sourceTitle": "Food Trucks in the US Number of Businesses Statistics",
+      "sourceUrl": "https://www.ibisworld.com/united-states/number-of-businesses/food-trucks/4322/",
+      "sourceDate": "2024",
+      "bestUsedFor": [
+        "market growth",
+        "competition",
+        "operator workload"
+      ]
+    },
+    {
+      "id": "src-off-premises-mobile-ordering",
+      "metric": "Nearly 75% of restaurant traffic is off-premises, and 57% of adults recently used mobile ordering.",
+      "claim": "National Restaurant Association research shows takeout, delivery, drive-thru, and mobile ordering are central to how guests interact with foodservice brands.",
+      "sourceTitle": "From Trend to Transformation: Off-Premises Dining Now Essential for Restaurant Consumers, Operators",
+      "sourceUrl": "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/",
+      "sourceDate": "April 16, 2025",
+      "bestUsedFor": [
+        "mobile guest expectations",
+        "off-premises demand",
+        "digital ordering behavior"
+      ]
+    },
+    {
+      "id": "src-fda-sesame-allergen",
+      "metric": "Sesame became the 9th major food allergen under FDA requirements effective January 1, 2023.",
+      "claim": "FDA allergen guidance underscores why food businesses need accurate, current ingredient and allergen information available to staff and customers.",
+      "sourceTitle": "Food Allergies",
+      "sourceUrl": "https://www.fda.gov/food/food-labeling-nutrition/food-allergies",
+      "sourceDate": "2025",
+      "bestUsedFor": [
+        "allergen communication",
+        "ingredient transparency",
+        "food safety expectations"
+      ]
+    },
+    {
+      "id": "src-nfpa-food-truck-safety",
+      "metric": "NFPA food truck guidance references requirements for propane, cooking equipment, ventilation, extinguishers, spacing, and training.",
+      "claim": "NFPA food truck safety materials show the range of operating procedures mobile food teams must keep accessible and consistently followed.",
+      "sourceTitle": "Food Truck Fact Sheet",
+      "sourceUrl": "https://content.nfpa.org/-/media/Project/Storefront/Catalog/Files/Code-or-topic-fact-sheets/FoodTruckFactSheet.pdf?rev=5cac27242cf445638f80ba05b78fa9c7",
+      "sourceDate": "2026",
+      "bestUsedFor": [
+        "safety procedures",
+        "crew checklists",
+        "equipment operations"
+      ]
+    }
+  ],
+  "agentUseCases": [
+    {
+      "name": "Menu, ingredient, and allergen answer agent",
+      "problem": "Guests often ask the same questions about ingredients, spice levels, substitutions, vegan options, gluten-sensitive items, and allergens while the crew is busy serving.",
+      "agentWorkflow": "Train the DocsBot support agent on your menu, ingredient notes, substitution rules, allergen statements, prep documentation, and FAQ pages. The agent answers from approved sources, flags uncertainty, and escalates sensitive or unresolved questions to a person.",
+      "liveContextOrTools": "With customer-configured Skills or APIs, the agent can check live menu availability, daily specials, sellout status, or location metadata before answering.",
+      "exampleQuestionsOrRequests": [
+        "Does the birria taco contain dairy or sesame?",
+        "Are you still serving the vegan bowl today?",
+        "Can I substitute corn tortillas for flour?",
+        "Which sauces are gluten-sensitive?"
+      ],
+      "businessOutcome": "Reduce repetitive interruptions during rushes while giving guests more consistent menu and ingredient information.",
+      "icon": "InformationCircleIcon",
+      "sourceIds": [
+        "src-fda-sesame-allergen"
+      ]
+    },
+    {
+      "name": "Location, hours, and event schedule assistant",
+      "problem": "Food trucks move between markets, breweries, offices, festivals, and private events, so outdated location answers quickly create missed sales and frustrated guests.",
+      "agentWorkflow": "Connect the agent to approved pages, schedule documents, calendar exports, or structured location content. It answers where the truck will be, when service starts, whether the stop is public, and how guests can check for updates.",
+      "liveContextOrTools": "A configured Skill can retrieve the current stop, trigger a notification workflow, or route location corrections to the owner for review.",
+      "exampleQuestionsOrRequests": [
+        "Where are you parked today?",
+        "Will you be at the farmers market on Saturday?",
+        "Are you open during the rain?",
+        "Is tonight’s brewery stop open to the public?"
+      ],
+      "businessOutcome": "Help guests find the truck faster and keep staff from repeatedly answering the same location questions by phone or direct message.",
+      "icon": "MapPinIcon"
+    },
+    {
+      "name": "Catering and private event qualification",
+      "problem": "Event inquiries arrive through forms, social DMs, email, and the website, often missing the details needed to decide whether the opportunity is a fit.",
+      "agentWorkflow": "DocsBot can collect event date, venue, guest count, service window, menu preferences, dietary needs, budget range, power access, and contact details. AI instructions can qualify the lead against your service area, minimum spend, lead time, and staffing rules.",
+      "liveContextOrTools": "Through customer-configured AI Actions, Skills, APIs, connectors, or MCP-enabled tools, the agent can create a lead record, send a summary to email or CRM-style systems, or request a scheduling handoff.",
+      "exampleQuestionsOrRequests": [
+        "Can you cater a 150-person office lunch next Friday?",
+        "What information do you need for a wedding quote?",
+        "Do you serve events outside the city?",
+        "Can I book the truck for a brewery anniversary party?"
+      ],
+      "businessOutcome": "Move serious catering leads forward with complete context while letting owners review pricing, contracts, and final commitments.",
+      "icon": "TicketIcon"
+    },
+    {
+      "name": "Crew SOP and safety knowledge agent",
+      "problem": "Mobile food teams rely on many small procedures: commissary prep, generator checks, propane handling, fry oil, cleaning, inventory, opening, closing, and emergency steps.",
+      "agentWorkflow": "Train an internal DocsBot agent on SOPs, checklists, training docs, equipment manuals, safety notes, and shift policies. Crew members can ask for step-by-step guidance in private chat and see answers grounded in the latest approved documents.",
+      "liveContextOrTools": "Customer-configured workflows can create maintenance tasks, summarize a shift issue, or route equipment concerns to the owner or operations lead.",
+      "exampleQuestionsOrRequests": [
+        "What is the closing checklist for the fryer?",
+        "Where is the propane leak procedure?",
+        "How do we log a generator issue?",
+        "What do we restock before a brewery event?"
+      ],
+      "businessOutcome": "Make operating knowledge easier to find and keep new or seasonal crew members aligned with current procedures.",
+      "icon": "ShieldCheckIcon",
+      "sourceIds": [
+        "src-nfpa-food-truck-safety"
+      ]
+    },
+    {
+      "name": "Feedback, FAQs, and knowledge-gap reporting",
+      "problem": "Food truck teams hear repeated questions and complaints across many channels, but patterns are hard to see when everyone is busy.",
+      "agentWorkflow": "DocsBot conversation logs, analytics, topic management, reports, and review workflows help identify unanswered questions, confusing menu language, recurring catering objections, and missing policy content.",
+      "liveContextOrTools": "When connected to approved ticketing, form, or helpdesk-style workflows, the agent can summarize customer issues, draft responses, and route topics to the right person.",
+      "exampleQuestionsOrRequests": [
+        "What are customers asking before visiting us?",
+        "Which menu questions are not answered well?",
+        "Summarize this week’s catering inquiries.",
+        "What should we add to the FAQ?"
+      ],
+      "businessOutcome": "Improve menus, FAQs, staff docs, and website content based on the questions guests and crew members actually ask.",
+      "icon": "MagnifyingGlassIcon"
+    },
+    {
+      "name": "Digital ordering and off-premises support",
+      "problem": "Mobile-first guests expect fast answers before pickup, delivery, or walk-up ordering, and restaurant research shows nearly 75% of traffic is now off-premises.",
+      "agentWorkflow": "Deploy a DocsBot agent on your website to answer ordering instructions, pickup timing, packaging notes, heat-and-eat guidance, refund policies, and loyalty or promotion FAQs from approved sources.",
+      "liveContextOrTools": "With configured live context, the agent can look up order-status metadata, route missing-order issues, or create a support task for a human to resolve.",
+      "exampleQuestionsOrRequests": [
+        "How long will pickup take today?",
+        "Can I order ahead for the market stop?",
+        "What should I do if an item is missing?",
+        "Do your tacos travel well for a 20-minute drive?"
+      ],
+      "businessOutcome": "Support mobile and off-premises guests without adding another staff member to monitor routine questions.",
+      "icon": "DevicePhoneMobileIcon",
+      "sourceIds": [
+        "src-off-premises-mobile-ordering"
+      ]
+    }
+  ],
+  "customerFacingAgent": {
+    "headline": "Give guests answers before they walk up, order, or book the truck",
+    "intro": "A DocsBot customer-facing agent can live on your website or booking page and answer from your approved food truck knowledge: menus, locations, hours, event policies, allergen notes, catering FAQs, and service boundaries.",
+    "requests": [
+      {
+        "request": "“Where are you parked today, and what time do you sell out?”",
+        "agentResponseStrategy": "Answer from the current published schedule and approved service notes, then explain how guests can confirm changes if the owner has configured live updates.",
+        "sourceTypes": [
+          "Website schedule",
+          "Location calendar",
+          "Daily service notes"
+        ],
+        "optionalAction": "Use a configured Skill to retrieve current location metadata or send the question to the owner if the schedule is unclear.",
+        "icon": "MapPinIcon"
+      },
+      {
+        "request": "“Can you cater our company lunch for 80 people?”",
+        "agentResponseStrategy": "Collect event details, apply customer-defined qualification rules, and prepare a summary for human follow-up instead of committing to price or availability automatically.",
+        "sourceTypes": [
+          "Catering FAQ",
+          "Service area policy",
+          "Lead intake form"
+        ],
+        "optionalAction": "Forward the qualified inquiry through an approved form, email, CRM-style workflow, or scheduling handoff.",
+        "icon": "CalendarIcon"
+      },
+      {
+        "request": "“What can I eat if I avoid sesame, dairy, or shellfish?”",
+        "agentResponseStrategy": "Answer only from approved ingredient and allergen documents, explain limitations, and escalate if the question needs staff confirmation.",
+        "sourceTypes": [
+          "Ingredient sheets",
+          "Allergen notes",
+          "Menu documentation"
+        ],
+        "optionalAction": "Route the conversation to a human for sensitive ingredient confirmation or special preparation requests.",
+        "icon": "ExclamationCircleIcon",
+        "sourceIds": [
+          "src-fda-sesame-allergen"
+        ]
+      },
+      {
+        "request": "“Do you have a special today?”",
+        "agentResponseStrategy": "Use approved menu and daily-special content to provide the latest available answer, including sellout caveats when configured.",
+        "sourceTypes": [
+          "Daily specials sheet",
+          "Menu page",
+          "Inventory note"
+        ],
+        "optionalAction": "Look up live availability or trigger a staff notification when the item status is unknown.",
+        "icon": "SparklesIcon"
+      },
+      {
+        "request": "“What should I do about a wrong or missing order?”",
+        "agentResponseStrategy": "Guide the guest through your refund, remake, and contact process, then collect the details needed for a staff handoff.",
+        "sourceTypes": [
+          "Support FAQ",
+          "Order issue policy",
+          "Contact workflow"
+        ],
+        "optionalAction": "Create a ticket or task with the order details using a customer-configured workflow.",
+        "icon": "HandRaisedIcon"
+      },
+      {
+        "request": "“Are you at private events only this weekend?”",
+        "agentResponseStrategy": "Clarify which stops are public and which are private based on the published event schedule and location policies.",
+        "sourceTypes": [
+          "Event calendar",
+          "Website FAQ",
+          "Social schedule archive"
+        ],
+        "optionalAction": "Send guests to the next public stop or collect interest for booking a private event.",
+        "icon": "GlobeAltIcon"
+      }
+    ]
+  },
+  "internalAgent": {
+    "headline": "Keep truck operations searchable for owners, managers, and crew",
+    "intro": "A private DocsBot internal knowledge agent helps food truck teams retrieve procedures, policies, prep notes, safety reminders, and customer handoff guidance without digging through shared drives or old messages.",
+    "workflows": [
+      {
+        "name": "Opening, prep, and closing guidance",
+        "problem": "Small crews need consistent answers during high-pressure service windows, especially when new or seasonal workers join.",
+        "agentWorkflow": "Train the agent on checklists, prep sheets, commissary notes, truck setup steps, cleaning procedures, and closing documentation so crew can ask direct questions and get source-grounded answers.",
+        "sourceTypes": [
+          "SOPs",
+          "Prep sheets",
+          "Closing checklists",
+          "Training documents"
+        ],
+        "optionalAction": "Generate a shift summary or create a task for missing supplies through a configured workflow.",
+        "outcome": "Reduce guesswork and help each shift follow the same operating playbook.",
+        "icon": "ListBulletIcon"
+      },
+      {
+        "name": "Equipment and safety reference",
+        "problem": "Food trucks combine cooking equipment, propane, electrical systems, ventilation, fire suppression, and vehicle operations in a small space.",
+        "agentWorkflow": "Make equipment manuals, inspection notes, cleaning schedules, and emergency procedures searchable in private chat while preserving human responsibility for safety-critical decisions.",
+        "sourceTypes": [
+          "Equipment manuals",
+          "Safety policies",
+          "Inspection checklists",
+          "Maintenance logs"
+        ],
+        "optionalAction": "Route maintenance concerns to the owner or create an approved repair task with the issue summary.",
+        "outcome": "Help crew find documented procedures faster and keep safety-related questions from being buried in group chats.",
+        "icon": "WrenchIcon",
+        "sourceIds": [
+          "src-nfpa-food-truck-safety"
+        ]
+      },
+      {
+        "name": "Menu training and guest handoffs",
+        "problem": "Crew members need quick answers on ingredients, substitutions, limited-time items, and how to handle uncertain allergen or dietary questions.",
+        "agentWorkflow": "Use approved menu docs, ingredient sheets, prep notes, and customer-service policies to provide consistent internal guidance and escalation paths.",
+        "sourceTypes": [
+          "Menu documentation",
+          "Ingredient sheets",
+          "Service policies",
+          "Training notes"
+        ],
+        "optionalAction": "Flag missing ingredient details as a documentation gap for the owner to review.",
+        "outcome": "Give staff a faster way to answer confidently while escalating sensitive guest questions when needed.",
+        "icon": "BookOpenIcon"
+      },
+      {
+        "name": "Catering follow-up support",
+        "problem": "Owners often need to respond to leads after service, when details may be scattered across forms, emails, and conversations.",
+        "agentWorkflow": "An internal DocsBot agent can summarize event inquiries, retrieve catering policies, draft follow-up responses, and help prepare quote context from approved materials.",
+        "sourceTypes": [
+          "Catering policies",
+          "Proposal templates",
+          "Lead forms",
+          "Email notes"
+        ],
+        "optionalAction": "Draft a response or create a follow-up task through an approved workflow for human review.",
+        "outcome": "Turn incomplete event conversations into organized follow-up without letting the agent finalize commitments.",
+        "icon": "EnvelopeIcon"
+      }
+    ]
+  },
+  "docsbotFeatureMapping": [
+    {
+      "feature": "Source-grounded customer answers",
+      "mainLandingPageContext": "DocsBot agents are trained on your own approved knowledge sources and answer in your company voice with grounding in that content.",
+      "industryApplication": "Use menus, ingredient lists, location pages, catering FAQs, refund policies, and event rules to answer guest questions consistently.",
+      "icon": "ChatBubbleLeftIcon"
+    },
+    {
+      "feature": "Website widget and private team access",
+      "mainLandingPageContext": "DocsBot can appear in customer-facing chat experiences and private internal chat for teams that need instant knowledge access.",
+      "industryApplication": "Let guests ask about hours and menus on your website while crew members search SOPs, prep notes, and equipment procedures privately.",
+      "icon": "DevicePhoneMobileIcon"
+    },
+    {
+      "feature": "AI Actions, Skills, APIs, connectors, and MCP options",
+      "mainLandingPageContext": "DocsBot AI Actions and Skills can perform bounded lookups, summaries, routing, record creation, updates, workflow triggers, and handoffs when customers configure approved access.",
+      "industryApplication": "Look up daily specials, collect catering details, create a follow-up task, route order issues, or hand off a qualified event inquiry through your own workflow boundaries.",
+      "icon": "BoltIcon"
+    },
+    {
+      "feature": "Analytics and knowledge-gap discovery",
+      "mainLandingPageContext": "DocsBot provides logs, analytics, reports, conversation review, topic management, and knowledge-gap discovery.",
+      "industryApplication": "See which menu, allergen, location, ordering, or event questions repeat so you can improve FAQs, signage, staff docs, and website content.",
+      "icon": "ChartBarIcon"
+    },
+    {
+      "feature": "Multilingual support",
+      "mainLandingPageContext": "DocsBot can answer in more than 100 languages from the knowledge sources you provide.",
+      "industryApplication": "Serve tourists, festival guests, market visitors, and multilingual communities with faster answers about your menu, location, and ordering process.",
+      "icon": "LanguageIcon"
+    },
+    {
+      "feature": "Governance and access controls",
+      "mainLandingPageContext": "DocsBot offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, role-based permissions, and does not use customer data to train public models.",
+      "industryApplication": "Keep private SOPs, vendor notes, pricing guidance, and staff policies separated from public guest answers while controlling what the agent can access or do.",
+      "icon": "ShieldCheckIcon"
+    }
+  ],
+  "trustAndProof": {
+    "selectedReviewIds": [
+      "matt-cromwell-content-library",
+      "russell-hablo-travel-training",
+      "jack-arturo-wordpress-support"
+    ],
+    "selectedCaseStudyIds": [
+      "sony-nuro"
+    ],
+    "trustClaims": [
+      "Train agents on the knowledge your food truck already runs on: menus, FAQs, SOPs, policies, and training materials.",
+      "Support busy service windows with instant self-service answers and human handoff for complex issues.",
+      "Use analytics to understand what guests and staff keep asking so your documentation improves over time."
+    ],
+    "whyTheseReviewsFit": "Food truck operators need fast setup, dependable self-service, and knowledge that stays grounded in their own content. DocsBot proof from support, training, and owned-content use cases shows how teams can give customers and staff quicker access to answers without building a custom AI system.",
+    "trustClaimIcons": [
+      "BookOpenIcon",
+      "ClockIcon",
+      "ChartBarIcon"
+    ]
+  },
+  "schemaHints": {
+    "serviceType": "AI support and internal knowledge agents for food trucks",
+    "audience": [
+      "Food truck owners",
+      "Mobile food service operators",
+      "Catering coordinators",
+      "Food truck crew leads"
+    ],
+    "applicationCategory": "BusinessApplication",
+    "icon": "TruckIcon"
+  },
+  "relatedIndustrySlugs": [
+    "mobile-food-services",
+    "food-hospitality",
+    "caterer",
+    "bakery",
+    "farm-to-table-restaurants",
+    "food-beverage-manufacturing"
+  ],
+  "generationMeta": {
+    "model": "gpt-5.5",
+    "generatedAt": "2026-05-15T00:00:00Z",
+    "sourceIndustrySlug": "food-trucks",
+    "webSearchQueries": [
+      "IBISWorld food trucks US market size 2024 2025",
+      "FDA Food Code allergen major food allergens sesame 2022",
+      "NFPA food truck safety fact sheet propane cooking equipment",
+      "National Restaurant Association State of the Restaurant Industry 2025 takeout delivery mobile ordering consumers"
+    ],
+    "sourceUrls": [
+      "https://www.ibisworld.com/united-states/number-of-businesses/food-trucks/4322/",
+      "https://restaurant.org/research-and-media/media/press-releases/from-trend-to-transformation-off-premises-dining-now-essential-for-restaurant-consumers%2C-operators/",
+      "https://www.fda.gov/food/food-labeling-nutrition/food-allergies",
+      "https://content.nfpa.org/-/media/Project/Storefront/Catalog/Files/Code-or-topic-fact-sheets/FoodTruckFactSheet.pdf?rev=5cac27242cf445638f80ba05b78fa9c7"
+    ],
+    "apiUsage": {
+      "total": {
+        "inputTokens": 44775,
+        "cachedInputTokens": 20736,
+        "billableInputTokens": 24039,
+        "outputTokens": 8018,
+        "reasoningOutputTokens": 215,
+        "totalTokens": 52793,
+        "webSearchCalls": 2,
+        "estimatedTokenCostUsd": 0.185552,
+        "estimatedWebSearchCostUsd": 0.02,
+        "estimatedTotalCostUsd": 0.205552
+      },
+      "attempts": [
+        {
+          "step": "main-content",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 25747,
+          "cachedInputTokens": 15488,
+          "billableInputTokens": 10259,
+          "outputTokens": 5025,
+          "reasoningOutputTokens": 215,
+          "totalTokens": 30772,
+          "webSearchCalls": 2,
+          "estimatedTokenCostUsd": 0.104895,
+          "estimatedWebSearchCostUsd": 0.02,
+          "estimatedTotalCostUsd": 0.124895
+        },
+        {
+          "step": "faq",
+          "attempt": 1,
+          "model": "gpt-5.5",
+          "serviceTier": "flex",
+          "reasoningEffort": "low",
+          "inputTokens": 19028,
+          "cachedInputTokens": 5248,
+          "billableInputTokens": 13780,
+          "outputTokens": 2993,
+          "reasoningOutputTokens": 0,
+          "totalTokens": 22021,
+          "webSearchCalls": 0,
+          "estimatedTokenCostUsd": 0.080657,
+          "estimatedWebSearchCostUsd": 0,
+          "estimatedTotalCostUsd": 0.080657
+        }
+      ]
+    }
+  },
+  "backgroundImage": {
+    "url": "https://images.unsplash.com/photo-1517601278517-456741619dad?ixid=M3w1OTc2MjN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MTQ4NzUzNjJ8&ixlib=rb-4.0.3&auto=format&fit=crop&w=2830&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply",
+    "alt": "Food Truck background image",
+    "source": "legacy-industry",
+    "query": "Food Truck"
+  },
+  "faq": [
+    {
+      "question": "How would this actually help during a lunch rush when nobody has time to answer messages?",
+      "answer": "DocsBot can answer routine menu, hours, location, ordering, substitution, and catering questions from your approved sources before a guest calls, texts, or walks up to the window. The goal is not to replace crew judgment during service; it is to reduce repeated interruptions so the team can focus on cooking, payments, handoff, and line speed.",
+      "role": "Owner-operators and founders",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "Can the agent answer where the truck is today without giving guests stale information?",
+      "answer": "Yes, if you connect it to the source you trust for schedule updates: your website schedule, calendar export, location page, or structured stop list. With a configured Skill or API, DocsBot can use approved live context such as current stop, public/private event status, or sellout notes; if the schedule is unclear, it can route the question to a human instead of guessing.",
+      "role": "Owner-operators and founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Can we use it for catering leads without letting AI quote prices or promise availability?",
+      "answer": "Yes. DocsBot can collect the details you need—date, location, headcount, service window, budget range, menu preferences, dietary needs, power access, and contact information—then qualify the request against your rules. It can prepare a handoff summary for the owner or catering lead while leaving pricing, contracts, staffing, and final availability to a person.",
+      "role": "Event and catering coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "How does DocsBot handle allergen questions without creating food safety risk?",
+      "answer": "DocsBot should be trained on your approved ingredient sheets, allergen notes, prep documentation, and escalation policy. It can answer only from those sources, state limitations, and route sensitive or uncertain questions to staff. Accurate allergen communication matters because sesame became the 9th major food allergen under FDA requirements effective January 1, 2023.",
+      "role": "Crew leads and shift managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-fda-sesame-allergen"
+      ]
+    },
+    {
+      "question": "What content do we need before launching a food truck AI agent?",
+      "answer": "Most teams start with the materials they already use: current menu, pricing, location schedule, catering FAQ, service-area rules, ingredient and allergen notes, order issue policy, refund or remake process, opening and closing checklists, prep sheets, and equipment procedures. DocsBot works best when the source content is specific, current, and separated by public guest content versus private crew content.",
+      "role": "Owner-operators and founders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can guests ask in Spanish or another language at markets, festivals, or tourist-heavy stops?",
+      "answer": "Yes. DocsBot can answer in more than 100 languages using the knowledge sources you provide. For a food truck, that can help guests understand menu items, ordering steps, location details, and basic catering information without requiring every crew member to handle every language in real time.",
+      "role": "Owner-operators and founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Will the agent work with our online ordering, POS, or scheduling tools?",
+      "answer": "DocsBot can support customer-configured workflows through AI Actions, Skills, APIs, connectors, webhooks, or MCP-enabled tools where you authorize access. That can include approved lookups, task creation, lead handoffs, order issue routing, or schedule metadata retrieval. You should scope actions carefully and avoid giving the agent authority to change high-impact records without review.",
+      "role": "Owner-operators and founders",
+      "category": "Integrations"
+    },
+    {
+      "question": "How do we keep private SOPs and pricing notes away from public guests?",
+      "answer": "DocsBot supports granular access controls and role-based permissions, so you can separate customer-facing content from internal crew knowledge. Public agents can answer from menus, schedules, event policies, and FAQs, while private team agents can access SOPs, vendor notes, prep guides, maintenance procedures, and internal pricing guidance.",
+      "role": "Crew leads and shift managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "Can crew use DocsBot for opening, closing, prep, and equipment questions?",
+      "answer": "Yes. A private internal DocsBot agent can be trained on checklists, prep sheets, equipment manuals, cleaning procedures, safety notes, and shift policies. Crew members can ask direct questions in private chat and get source-grounded answers instead of searching through old messages, PDFs, or shared folders during a shift.",
+      "role": "Crew leads and shift managers",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "Is this useful for a single truck, or only for multi-truck operators?",
+      "answer": "A single truck can use DocsBot to reduce repetitive guest questions, capture catering inquiries, and make crew procedures searchable. Multi-truck operators can also use it to standardize answers across locations, shifts, and event teams. The implementation can start small with public FAQs and expand into internal SOPs, live schedule lookups, and lead workflows over time.",
+      "role": "Owner-operators and founders",
+      "category": "Scalability"
+    },
+    {
+      "question": "What ROI should a food truck owner look for?",
+      "answer": "Look for fewer repeated calls and DMs, faster catering intake, more complete lead details, fewer missed location questions, less time spent training crew on basic procedures, and better visibility into what guests ask before ordering. Food truck competition has grown: IBISWorld reports the number of U.S. food truck businesses grew 17.0% per year on average from 2019 to 2024.",
+      "role": "Owner-operators and founders",
+      "category": "ROI and business impact",
+      "sourceIds": [
+        "src-food-truck-business-growth"
+      ]
+    },
+    {
+      "question": "How does DocsBot help with off-premises and mobile-first guests?",
+      "answer": "DocsBot can answer pickup timing, order-ahead instructions, missing-item steps, packaging notes, reheating guidance, promotions, and refund policies from your approved sources. That matters because National Restaurant Association research reported nearly 75% of restaurant traffic is off-premises and 57% of adults recently used mobile ordering.",
+      "role": "Owner-operators and founders",
+      "category": "Workflow fit",
+      "sourceIds": [
+        "src-off-premises-mobile-ordering"
+      ]
+    },
+    {
+      "question": "Can the agent tell guests whether an item is sold out or a special is available today?",
+      "answer": "Yes, if you provide a reliable source for that information. DocsBot can answer from an updated specials sheet, menu page, inventory note, or configured live lookup. If today’s availability is not available in the approved source, the agent should say it cannot confirm and route the question to a person or provide the best next step.",
+      "role": "Crew leads and shift managers",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "What happens if the agent does not know the answer or the source content is outdated?",
+      "answer": "DocsBot is designed to answer from approved sources and can be configured to flag uncertainty, avoid guessing, and escalate to a human. Conversation review and knowledge-gap reporting also help you see which questions failed, which menu details are missing, and which policies need to be clarified before the next service window.",
+      "role": "Owner-operators and founders",
+      "category": "Edge cases and reliability"
+    },
+    {
+      "question": "Can we review what guests and crew are asking after launch?",
+      "answer": "Yes. DocsBot provides logs, analytics, reports, topic management, conversation review, satisfaction and resolution analysis, and knowledge-gap discovery. For a food truck, that can reveal repeated questions about ingredients, spice levels, sellouts, public versus private stops, catering minimums, and order issue policies.",
+      "role": "Owner-operators and founders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How long does implementation usually take if our information is scattered across menus, Google Docs, PDFs, and our website?",
+      "answer": "A practical rollout usually starts by choosing a narrow first use case, such as menu and location questions or catering intake. DocsBot can train on websites, PDFs, Word documents, text files, Google Drive, Notion, Confluence, and other approved sources, but the most important work is cleaning up conflicting information and deciding which sources are authoritative.",
+      "role": "Owner-operators and founders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us stop losing catering inquiries that arrive after hours?",
+      "answer": "Yes. A website or booking-page agent can collect structured event details 24/7 and forward a qualified summary through your configured form, email, CRM-style workflow, helpdesk-style system, or scheduling handoff. It can help you respond with context after service instead of piecing together details from DMs, missed calls, and incomplete forms.",
+      "role": "Event and catering coordinators",
+      "category": "ROI and business impact"
+    },
+    {
+      "question": "How do we prevent the agent from making the wrong promise to a wedding, brewery, or office lunch client?",
+      "answer": "Set clear instructions and boundaries. The agent can collect requirements, explain published catering policies, qualify against minimums and service-area rules, and summarize the request. It should not finalize price, staffing, menu exceptions, contract terms, or guaranteed availability unless you have explicitly designed and approved that workflow for human review.",
+      "role": "Event and catering coordinators",
+      "category": "Human oversight"
+    },
+    {
+      "question": "Can DocsBot support seasonal staff who do not know every prep step or policy yet?",
+      "answer": "Yes. A private internal knowledge agent can make onboarding materials, prep guides, batch quantities, cleaning notes, guest handoff scripts, and escalation policies searchable. New or seasonal workers can ask practical questions during training or before a shift while managers use analytics to see which procedures need clearer documentation.",
+      "role": "Crew leads and shift managers",
+      "category": "Training and onboarding"
+    },
+    {
+      "question": "How does this compare with just updating our website FAQ or using a basic chatbot?",
+      "answer": "A static FAQ helps, but it forces guests and crew to search manually and does not reveal as much about what people are trying to ask. DocsBot creates source-grounded AI agents that can answer conversationally, support private team knowledge, collect structured details, route handoffs, use approved live context, and surface knowledge gaps over time.",
+      "role": "General buyer",
+      "category": "Competitive comparisons"
+    },
+    {
+      "question": "What safety-related information can we put in an internal agent?",
+      "answer": "You can train an internal agent on equipment manuals, inspection notes, cleaning schedules, propane procedures, emergency steps, maintenance logs, and opening or closing checklists. Human responsibility remains essential, but fast access matters because NFPA food truck guidance references requirements for propane, cooking equipment, ventilation, extinguishers, spacing, and training.",
+      "role": "Crew leads and shift managers",
+      "category": "Security and compliance",
+      "sourceIds": [
+        "src-nfpa-food-truck-safety"
+      ]
+    },
+    {
+      "question": "Will DocsBot use our recipes, SOPs, or customer data to train public AI models?",
+      "answer": "No. DocsBot does not use customer data to train public models. It also offers SOC 2 Type II certification, GDPR-ready governance, encryption in transit and at rest, granular access controls, and role-based permissions, which helps protect private recipes, SOPs, vendor notes, lead details, and internal operating policies.",
+      "role": "Owner-operators and founders",
+      "category": "Vendor trust"
+    },
+    {
+      "question": "What should we measure in the first 30 to 60 days after launch?",
+      "answer": "Track repeated question volume, conversation resolution, handoffs to staff, unanswered questions, catering leads captured, lead completeness, top menu and allergen topics, location questions, and order-issue requests. Also review whether the agent is exposing documentation problems, such as outdated specials, unclear substitutions, missing allergen notes, or conflicting schedules.",
+      "role": "Owner-operators and founders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "Can the same agent answer both customer questions and staff questions?",
+      "answer": "It is usually better to separate public and private experiences. A customer-facing agent can answer menus, hours, location, ordering, allergen caveats, and catering intake. A private team agent can access SOPs, pricing guidance, equipment procedures, shift notes, and internal policies. That separation helps avoid exposing private operational content to guests.",
+      "role": "Crew leads and shift managers",
+      "category": "Security and compliance"
+    },
+    {
+      "question": "What if most of our guest questions come through Instagram DMs, texts, or phone calls instead of our website?",
+      "answer": "DocsBot can still help by making your website or booking page a reliable self-service destination and by giving staff an internal source for consistent answers. For additional channels, teams can use customer-configured APIs, connectors, forms, or workflow automations where approved, but the key first step is centralizing the answers the team wants repeated everywhere.",
+      "role": "Owner-operators and founders",
+      "category": "Workflow fit"
+    },
+    {
+      "question": "How much technical work should we expect from our side?",
+      "answer": "For a simple launch, the main work is gathering source content, deciding public versus private access, writing escalation rules, and testing real guest questions. More advanced workflows—such as live availability lookup, order-status routing, CRM-style lead creation, or scheduling handoffs—require customer-configured Skills, APIs, connectors, or workflow access.",
+      "role": "Owner-operators and founders",
+      "category": "Implementation"
+    },
+    {
+      "question": "Can DocsBot help us improve our menu, signage, and FAQ over time?",
+      "answer": "Yes. DocsBot’s analytics, conversation review, topic management, and knowledge-gap discovery can show which questions repeat and where answers are weak. Food truck teams can use those patterns to update menu descriptions, allergen notes, catering pages, event signage, ordering instructions, and staff training materials.",
+      "role": "Owner-operators and founders",
+      "category": "Reporting and analytics"
+    },
+    {
+      "question": "How do we budget for this if we are a lean mobile food business?",
+      "answer": "Frame the purchase around high-friction moments: missed catering leads, owner time lost to repetitive DMs, crew interruptions during service, inconsistent allergen answers, and training gaps. Start with the use case most likely to save time or revenue quickly, then expand once you can see the questions answered, handoffs created, and documentation gaps resolved.",
+      "role": "Owner-operators and founders",
+      "category": "Pricing and procurement"
+    }
+  ]
+}
