@@ -11,14 +11,23 @@ export default function VideoPlayer({
   isVideoFullScreen = false,
   isVideoPlaying = false,
   onClose,
+  trackingLabel = 'Homepage Video',
 }) {
-  const smallVideoSrc = videoSrc.replace('.mp4', '-720p.mp4');
+  const getResponsiveVideoSrc = (quality) => {
+    if (videoSrc.endsWith('-1080p.mp4')) {
+      return videoSrc.replace('-1080p.mp4', `-${quality}.mp4`);
+    }
+
+    return videoSrc.replace('.mp4', `-${quality}.mp4`);
+  };
+
+  const smallVideoSrc = getResponsiveVideoSrc('720p');
   const videoSources = [
     // Order matters - browsers will use the first source they can play
     // Higher quality sources should be listed first for devices that can handle them
     { src: videoSrc, type: "video/mp4", media: "(min-width: 1200px)" }, // Original 1080p for large screens
-    { src: videoSrc.replace('.mp4', '-720p.mp4'), type: "video/mp4", media: "(min-width: 768px)" }, // 720p for medium screens
-    { src: videoSrc.replace('.mp4', '-480p.mp4'), type: "video/mp4" } // 480p as default/fallback
+    { src: getResponsiveVideoSrc('720p'), type: "video/mp4", media: "(min-width: 768px)" }, // 720p for medium screens
+    { src: getResponsiveVideoSrc('480p'), type: "video/mp4" } // 480p as default/fallback
   ];
   
   const [isFullscreen, setIsFullscreen] = useState(isVideoFullScreen);
@@ -54,7 +63,7 @@ export default function VideoPlayer({
       setIsPlaying(true);
       
       // Track video play event
-      posthog?.capture('Homepage Video Play', { 
+      posthog?.capture(`${trackingLabel} Play`, {
         video_src: videoSrc,
         fullscreen: true
       });
@@ -96,7 +105,7 @@ export default function VideoPlayer({
       watchTimeRef.current.totalWatchTime += watchDuration;
       
       // Track watch time event
-      posthog?.capture('Homepage Video Watch Time', {
+      posthog?.capture(`${trackingLabel} Watch Time`, {
         video_src: videoSrc,
         duration_seconds: Math.round(watchTimeRef.current.totalWatchTime),
         session_duration_seconds: Math.round(watchDuration)
@@ -118,28 +127,28 @@ export default function VideoPlayer({
     // Track progress at 25%, 50%, 75%, and 100%
     if (progress >= 25 && !checkpoints['25%']) {
       checkpoints['25%'] = true;
-      posthog?.capture('Homepage Video Progress', { 
+      posthog?.capture(`${trackingLabel} Progress`, {
         video_src: videoSrc,
         percentage: 25 
       });
     }
     if (progress >= 50 && !checkpoints['50%']) {
       checkpoints['50%'] = true;
-      posthog?.capture('Homepage Video Progress', { 
+      posthog?.capture(`${trackingLabel} Progress`, {
         video_src: videoSrc,
         percentage: 50 
       });
     }
     if (progress >= 75 && !checkpoints['75%']) {
       checkpoints['75%'] = true;
-      posthog?.capture('Homepage Video Progress', { 
+      posthog?.capture(`${trackingLabel} Progress`, {
         video_src: videoSrc,
         percentage: 75 
       });
     }
     if (progress >= 95 && !checkpoints['100%']) {
       checkpoints['100%'] = true;
-      posthog?.capture('Homepage Video Progress', { 
+      posthog?.capture(`${trackingLabel} Progress`, {
         video_src: videoSrc,
         percentage: 100,
         completed: true
@@ -308,4 +317,4 @@ export default function VideoPlayer({
       )}
     </>
   );
-} 
+}

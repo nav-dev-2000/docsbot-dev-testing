@@ -42,6 +42,7 @@ import {
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Tooltip from '@/components/Tooltip'
+import VideoPlayer from '@/components/VideoPlayer'
 import JsonLd from '@/components/seo/JsonLd'
 import { Brands } from '@/components/customer-support/Brands'
 import { Security } from '@/components/customer-support/Security'
@@ -855,7 +856,7 @@ function HeroResolutionPanel() {
 
 function HeroActionAnimation() {
   return (
-    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur sm:p-6">
+    <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl border border-gray-900/80 bg-gray-900 p-4 shadow-2xl shadow-cyan-950/30 sm:p-6">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(20,184,166,.14),transparent_30%)]" />
       <div className="relative grid gap-5 lg:grid-cols-[1fr_1.05fr] lg:items-center">
         <HeroConversationWidget />
@@ -1434,81 +1435,16 @@ function ActionCategoryGrid() {
 }
 
 function ActionOpportunitySection() {
-  const proofStats = [
-    {
-      value: '76',
-      label: 'Average support resolution',
-      description: 'DocsBot already resolves most support requests before a human needs to step in.',
-    },
-    {
-      value: '89',
-      label: 'Escalation deflection',
-      description: 'Accurate answers and the right next step prevent most escalations.',
-    },
-  ]
-  const remainingWork = [
-    { label: 'Book demos and onboarding sessions', icon: CalendarDaysIcon },
-    { label: 'Look up invoices, orders, or subscriptions', icon: CircleStackIcon },
-    { label: 'Process requests like refunds or cancellations', icon: ArrowPathIcon },
-    { label: 'Create tasks, handoffs, and internal records', icon: ClipboardDocumentCheckIcon },
-  ]
-
   return (
     <Section>
       <SectionContent title="The next frontier is the remaining work">
         <Description
-          className="w-full"
+          className="mx-auto w-full max-w-5xl"
           content={`${aiActionsDefinition} Documentation answers most questions on its own. Actions cover what is left: your agent runs approved Skills and connectors to read live data from your systems, perform a task in another tool, or trigger the next step—so people leave with work done, not homework.`}
         />
-        <div className="grid gap-6 lg:grid-cols-[.9fr_1.1fr]">
-          <div className="rounded-2xl bg-gray-900 p-6 text-white shadow-xl lg:p-8">
-            <p className="text-sm font-semibold uppercase tracking-wide text-cyan-200">Already handled by answers</p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              {proofStats.map((stat) => (
-                <div key={stat.label} className="rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
-                  <p className="inline-flex items-baseline gap-0.5 text-4xl font-semibold tracking-tight text-cyan-100">
-                    <span>{stat.value}</span>
-                    <span className="text-xl font-semibold tracking-tight text-cyan-100/90">%</span>
-                  </p>
-                  <p className="mt-4 text-base font-semibold text-white">{stat.label}</p>
-                  <p className="mt-2 text-sm/6 text-gray-300">{stat.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-cyan-50 p-6 shadow-sm ring-1 ring-cyan-900/10 lg:p-8">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wide text-cyan-700">Expanded by Actions</p>
-                <h3 className="mt-3 text-3xl font-semibold tracking-tight text-gray-900">
-                  Resolve more of the remaining work
-                </h3>
-                <p className="mt-4 text-base/7 text-gray-600">
-                  Actions let DocsBot follow your SOPs, integrate with your own systems, take action, and resolve tickets instantly.
-                </p>
-              </div>
-              <div className="flex size-24 shrink-0 items-center justify-center gap-0.5 rounded-3xl bg-white font-semibold text-cyan-700 shadow-sm ring-1 ring-cyan-900/10">
-                <span className="text-3xl leading-none">24</span>
-                <span className="text-lg leading-none text-cyan-700/95">%</span>
-              </div>
-            </div>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              {remainingWork.map((item) => {
-                const Icon = item.icon
-                return (
-                <div key={item.label} className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-cyan-900/5">
-                  <span className="mt-0.5 flex size-6 flex-none items-center justify-center rounded-lg bg-cyan-600 text-white">
-                    <Icon className="size-4" />
-                  </span>
-                  <p className="text-sm font-semibold text-gray-800">{item.label}</p>
-                </div>
-                )
-              })}
-            </div>
-          </div>
+        <div>
+          <HeroActionAnimation />
         </div>
-
         <div className="mt-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div>
@@ -1780,8 +1716,13 @@ function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="mx-auto mt-14">
-            <HeroActionAnimation />
+          <div className="mx-auto mt-12 max-w-6xl sm:mt-16 lg:mt-12">
+            <VideoPlayer
+              videoSrc="https://cdn.docsbot.com/docsbot-actions-1080p.mp4"
+              posterSrc="/video/docsbot-actions.webp"
+              className="mx-auto w-full"
+              trackingLabel="AI Actions Video"
+            />
           </div>
         </div>
         <div className="mx-auto max-w-7xl px-6 pb-14 lg:px-8">
