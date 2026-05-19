@@ -1498,6 +1498,7 @@ function Feature({ feature, isActive, onClick }) {
       </div>
       <h3 className="text-base font-semibold">{feature.name}</h3>
       <p className={`mt-2 text-sm/6 ${isActive ? 'text-gray-300' : 'text-gray-600'}`}>{feature.summary}</p>
+      <p className="sr-only">{feature.description}</p>
       {platforms && <InlinePlatformIcons platforms={platforms} />}
     </button>
   )
@@ -1651,6 +1652,21 @@ function UseCaseTabsSection() {
             </div>
           </div>
           <EcosystemMapAnimation />
+        </div>
+        <div className="sr-only">
+          {useCases
+            .filter((_, index) => index !== active)
+            .map((useCase) => (
+              <article key={`semantic-${useCase.name}`}>
+                <h3>{useCase.title}</h3>
+                <p>{useCase.description}</p>
+                <ul>
+                  {useCase.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
         </div>
       </SectionContent>
     </Section>

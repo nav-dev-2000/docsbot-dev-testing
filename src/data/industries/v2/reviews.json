@@ -116,7 +116,7 @@
       "quote": "We've integrated DocsBot into our travel industry training platform since September 2023 and it has helped our community access the information they need to help convert enquiries into bookings. It's a great tool, very easy to integrate and maintain.",
       "author": "Russell",
       "role": "Managing Director",
-      "company": "Hablo Ltd",
+      "company": "Hablo",
       "themes": ["internal-knowledge", "customer-support", "no-code"],
       "bestForIndustryCategories": ["Travel & Hospitality", "Education & Training", "Sales & Marketing"],
       "sourceComponent": "testimonials-in-docsbot.csv"

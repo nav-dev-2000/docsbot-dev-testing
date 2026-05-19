@@ -41,6 +41,9 @@ import lizaMockAvatar from '@/images/avatars/liza-mock.jpg'
 import boweAvatar from '@/images/avatars/testimony3.jpeg'
 import zachKatzAvatar from '@/images/avatars/zach-katz.jpg'
 import steveBurgeAvatar from '@/images/avatars/steve-burge.jpg'
+import musaSitholeAvatar from '@/images/avatars/musa-sithole.jpg'
+import sanchayRoyAvatar from '@/images/avatars/sanchay-roy.jpg'
+import habloAvatar from '@/images/avatars/hablo-logo.jpg'
 import sonyAvatar from '@/images/avatars/sony-logo.jpg'
 import wingarcAvatar from '@/images/avatars/wingarc.png'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
@@ -103,17 +106,20 @@ const SourceRefs = ({ ids = [], sourceNumbers = {}, dark = false }) => {
 
 const SectionHeader = ({ eyebrow, title, children, align = 'left', dark = false, maxWidth = 'max-w-3xl' }) => (
   <div className={`${align === 'center' ? 'mx-auto text-center' : ''} ${maxWidth}`}>
-    {eyebrow && (
-      <p className={`text-md/5 font-mono font-semibold uppercase tracking-widest ${dark ? 'text-cyan-300' : 'text-cyan-600'}`}>
-        {eyebrow}
-      </p>
-    )}
     <h2
-      className={`mt-2 text-3xl font-bold tracking-tight sm:text-4xl ${
+      className={`font-bold tracking-tight ${
         dark ? 'text-white' : 'text-gray-950'
       }`}
     >
-      {title}
+      {eyebrow && (
+        <span className={`block text-md/5 font-mono font-semibold uppercase tracking-widest ${
+          dark ? 'text-cyan-300' : 'text-cyan-600'
+        }`}>
+          {eyebrow}
+        </span>
+      )}
+      {eyebrow && <span className="sr-only">: </span>}
+      <span className={`${eyebrow ? 'mt-2 block' : 'block'} text-3xl sm:text-4xl`}>{title}</span>
     </h2>
     {children && (
       <div className={`mt-5 text-base leading-7 ${dark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -270,6 +276,9 @@ const reviewAvatarById = {
   'brian-avery-education': averyAvatar,
   'matt-cromwell-content-library': cromwellAvatar,
   'gareth-it-marketing': defaultAvatar,
+  'musa-40k-traders-self-service': musaSitholeAvatar,
+  'sanchay-indned-ebike-support': sanchayRoyAvatar,
+  'russell-hablo-travel-training': habloAvatar,
   'geovanny-rag-build-vs-buy': tejedaAvatar,
   'gobinda-training-materials': gobindaAvatar,
   'david-sacks-frontline-support': davidSacksAvatar,
@@ -596,6 +605,45 @@ const UseCaseWorkflows = ({ useCases = [], sourceNumbers }) => {
           })}
         </div>
       )}
+
+      <div className="sr-only">
+        {hydratedUseCases.map((useCase) => {
+          const steps = [
+            { label: 'Agent workflow', body: useCase.agentWorkflow },
+            { label: 'Takes action', body: useCase.liveContextOrTools },
+            { label: 'Outcome', body: useCase.businessOutcome },
+          ].filter((step) => step.body)
+          const examples = useCase.exampleQuestionsOrRequests || []
+
+          return (
+            <article key={`semantic-${useCase.name}`}>
+              <h3>{useCase.name}</h3>
+              <p>
+                {useCase.problem}
+                <SourceRefs ids={useCase.sourceIds} sourceNumbers={useCase.sourceNumbers} />
+              </p>
+              <ol>
+                {steps.map((step) => (
+                  <li key={step.label}>
+                    <h4>{step.label}</h4>
+                    <p>{step.body}</p>
+                  </li>
+                ))}
+              </ol>
+              {!!examples.length && (
+                <>
+                  <h4>Example requests</h4>
+                  <ul>
+                    {examples.map((example) => (
+                      <li key={example}>{example}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </article>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -1102,6 +1150,36 @@ const CustomerAgentRequests = ({ requests = [], sourceNumbers }) => {
           </AnimatePresence>
         </div>
       </TabGroup>
+
+      <div className="sr-only">
+        {requests.map((request) => {
+          const sourceTypes = request.sourceTypes || []
+          const action = request.optionalAction || 'Route the conversation to the right team with context attached.'
+
+          return (
+            <article key={`semantic-${request.request}`}>
+              <h3>{request.request}</h3>
+              <h4>Answer strategy</h4>
+              <p>
+                {request.agentResponseStrategy}
+                <SourceRefs ids={request.sourceIds} sourceNumbers={sourceNumbers} dark />
+              </p>
+              {!!sourceTypes.length && (
+                <>
+                  <h4>Sources used</h4>
+                  <ul>
+                    {sourceTypes.map((sourceType) => (
+                      <li key={sourceType}>{sourceType}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              <h4>Actions</h4>
+              <p>{action}</p>
+            </article>
+          )
+        })}
+      </div>
     </>
   )
 }
@@ -1443,33 +1521,34 @@ const IndustryFAQSection = ({ business, faqGroups = {}, faqCategoryLinks = [], s
                 onMouseEnter={() => setActiveCategory(category)}
                 onFocus={() => setActiveCategory(category)}
               >
-                <h3 className="border-b border-cyan-200 pb-4 text-2xl font-semibold leading-8 text-cyan-800">{category}</h3>
+                <h3 className="border-b border-cyan-700 pb-4 text-2xl font-semibold leading-8 text-cyan-800">{category}</h3>
                 <div className="divide-y divide-gray-200">
                   {faqs.map((faq) => {
                     const faqId = getFaqId(category, faq.question)
 
                     return (
                     <div key={faqId} className="group">
-                      <button
-                        id={faqId}
-                        type="button"
-                        aria-expanded={expandedFaqId === faqId}
-                        aria-controls={`${faqId}-answer`}
-                        className="flex w-full scroll-mt-32 items-start justify-between gap-8 py-5 text-left"
-                        onClick={() => setExpandedFaqId(expandedFaqId === faqId ? '' : faqId)}
-                      >
-                        <span className="text-lg font-semibold leading-8 text-gray-900 group-hover:text-cyan-900">{faq.question}</span>
-                        <span className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ring-1 transition ${
-                          expandedFaqId === faqId
-                            ? 'bg-cyan-50 text-cyan-700 ring-cyan-100'
-                            : 'bg-gray-50 text-gray-500 ring-gray-200 group-hover:bg-white group-hover:text-cyan-700'
-                        }`} aria-hidden="true">
-                          <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${expandedFaqId === faqId ? 'rotate-180' : ''}`} />
-                        </span>
-                      </button>
+                      <h4 id={faqId} className="scroll-mt-32">
+                        <button
+                          type="button"
+                          aria-expanded={expandedFaqId === faqId}
+                          aria-controls={`${faqId}-answer`}
+                          className="flex w-full items-start justify-between gap-8 py-5 text-left"
+                          onClick={() => setExpandedFaqId(expandedFaqId === faqId ? '' : faqId)}
+                        >
+                          <span className="text-lg font-semibold leading-8 text-gray-900 group-hover:text-cyan-900">{faq.question}</span>
+                          <span className={`mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full ring-1 transition ${
+                            expandedFaqId === faqId
+                              ? 'bg-transparent text-cyan-700 ring-cyan-700'
+                              : 'bg-gray-50 text-gray-500 ring-gray-200 group-hover:bg-white group-hover:text-cyan-700'
+                          }`} aria-hidden="true">
+                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${expandedFaqId === faqId ? 'rotate-180' : ''}`} />
+                          </span>
+                        </button>
+                      </h4>
                       <div
                         id={`${faqId}-answer`}
-                        className={`mb-5 border-l-2 border-cyan-600 pl-5 text-base leading-7 text-gray-700 ${
+                        className={`mb-5 border-l-2 border-cyan-800 pl-5 text-base leading-7 text-gray-700 ${
                           expandedFaqId === faqId ? '' : 'hidden'
                         }`}
                       >
@@ -1824,6 +1903,26 @@ export default function IndustryPage({ business, industry, backgroundImage, data
                       <span>{review.author}</span>
                     </figcaption>
                   </figure>
+                )
+              })}
+            </div>
+            <div className="sr-only">
+              {proofReviewItems.map((item) => {
+                if (item.type === 'proof') {
+                  return (
+                    <article key={`semantic-${item.id}`}>
+                      <h3>Proof point</h3>
+                      <p>{item.text}</p>
+                    </article>
+                  )
+                }
+
+                const review = item.review
+                return (
+                  <article key={`semantic-${item.id}`}>
+                    <h3>{review.author ? `Customer review from ${review.author}` : 'Customer review'}</h3>
+                    <blockquote>{review.quote}</blockquote>
+                  </article>
                 )
               })}
             </div>
