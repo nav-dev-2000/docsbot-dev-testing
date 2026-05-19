@@ -20,7 +20,6 @@ import { routePaths } from '@/constants/routePaths.constants'
 import { NextSeo } from 'next-seo'
 import { getUserRole } from '@/utils/function.utils'
 import { isSuperAdmin } from '@/utils/helpers'
-import { usePostHog } from 'posthog-js/react'
 import Tooltip from '@/components/Tooltip'
 import AnnualSaleBanner from '@/components/AnnualSaleBanner'
 import DashboardWizard from '@/components/DashboardWizard'
@@ -49,7 +48,6 @@ export default function DashboardWrap({
   const [currentPageLink, setCurrentPageLink] = useState('')
   const [newDashboardState, setNewDashboardState] = useState(false)
   const newDashboard = newDashboardProp !== undefined ? newDashboardProp : newDashboardState
-  const posthog = usePostHog()
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -57,15 +55,6 @@ export default function DashboardWrap({
     const storedPreference = localStorage.getItem('docsbot-new-dashboard')
     setNewDashboardState(storedPreference === 'true')
   }, [])
-
-  useEffect(() => {
-    if (posthog && team && router.asPath === '/app') {
-      posthog?.group('team', team.id, {
-        name: team.name,
-        plan: stripePlan(team).name,
-      })
-    }
-  }, [posthog, team, router])
 
   useEffect(() => {
     if (

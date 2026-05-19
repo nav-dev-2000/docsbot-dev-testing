@@ -2,7 +2,7 @@ import 'focus-visible'
 import '@/styles/tailwind.css'
 import '@/styles/overrides.css'
 import Script from 'next/script'
-import { useEffect, useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useRouter, Router } from 'next/router'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -91,6 +91,24 @@ export default function App({ Component, pageProps }) {
   // eslint-disable-next-line react/prop-types, no-unused-vars
   const { fallback = {}, themeJson = {}, ...props } = pageProps
   const currentTeam = pageProps?.team
+  const currentTeamId =
+    currentTeam?.id ||
+    (typeof pageProps?.teamId === 'string' ? pageProps.teamId : null)
+  const currentTeamGroupProperties = useMemo(() => {
+    if (!currentTeam) {
+      return { team_id: currentTeamId }
+    }
+
+    const plan = stripePlan(currentTeam)
+    return {
+      name: currentTeam.name,
+      team_id: currentTeam.id,
+      plan: plan.name,
+      plan_id: plan.id,
+      plan_status: getPlanStatusLabel(currentTeam, plan),
+    }
+  }, [currentTeam, currentTeamId])
+  const lastPostHogGroupSignature = useRef(null)
 
   const docsBotIdentify = useMemo(() => {
     if (!user) {
@@ -185,6 +203,20 @@ export default function App({ Component, pageProps }) {
       }
     }
   }, [posthog, user])
+
+  useEffect(() => {
+    if (!user || !posthog || !currentTeamId) return
+
+    const groupSignature = JSON.stringify({
+      key: currentTeamId,
+      properties: currentTeamGroupProperties,
+    })
+
+    if (lastPostHogGroupSignature.current === groupSignature) return
+
+    posthog.group('team', currentTeamId, currentTeamGroupProperties)
+    lastPostHogGroupSignature.current = groupSignature
+  }, [currentTeamGroupProperties, currentTeamId, user])
 
   useEffect(() => {
     if (user && 'Beacon' in window && Beacon !== undefined && typeof Beacon === 'function') {
