@@ -1,6 +1,6 @@
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { getBots } from '@/lib/dbQueries'
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Alert from '@/components/Alert'
 import Head from 'next/head'
 import docsbotLogo from '@/images/docsbot-logo.png'
@@ -124,19 +124,12 @@ const appendQueryParams = (redirectUri, params) => {
   }
 }
 
-export default function Authorize({ user, team, bots, queryParams, error }) {
+export default function Authorize({ user, team, bots, queryParams = {}, error }) {
   const [errorText, setErrorText] = useState(error)
   const [loading, setLoading] = useState(false)
   const [selectedBot, setSelectedBot] = useState(null)
+  const [search, setSearch] = useState('')
   
-  if (error) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-gray-50">
-        <Alert type="error" title={error} />
-      </div>
-    )
-  }
-
   const {
     client_id,
     redirect_uri,
@@ -145,7 +138,58 @@ export default function Authorize({ user, team, bots, queryParams, error }) {
     state,
     code_challenge,
     resource,
+    bot_id,
+    bot_ids,
   } = queryParams
+
+  const sortedBots = useMemo(() => {
+    return [...(bots || [])].sort((a, b) => {
+      const aName = String(a?.name || `Bot ${a?.id || ''}`).toLowerCase()
+      const bName = String(b?.name || `Bot ${b?.id || ''}`).toLowerCase()
+      return aName.localeCompare(bName)
+    })
+  }, [bots])
+
+  const filteredBots = useMemo(() => {
+    const q = search.trim().toLowerCase()
+    if (!q) return sortedBots
+    return sortedBots.filter((bot) => {
+      const name = String(bot?.name || '').toLowerCase()
+      const id = String(bot?.id || '').toLowerCase()
+      return name.includes(q) || id.includes(q)
+    })
+  }, [search, sortedBots])
+
+  useEffect(() => {
+    if (!sortedBots.length || selectedBot) return
+
+    const resourceText = typeof resource === 'string' ? resource : ''
+    const match = resourceText.match(/\/bots\/([^/]+)/)
+    const resourceBotId = match ? match[1] : null
+    const explicitBotId = typeof bot_id === 'string' ? bot_id : null
+    const explicitBotIds = typeof bot_ids === 'string' ? bot_ids.split(',')[0]?.trim() : null
+    const preferredBotId = explicitBotId || explicitBotIds || resourceBotId
+
+    if (preferredBotId) {
+      const preferredBot = sortedBots.find((bot) => bot.id === preferredBotId)
+      if (preferredBot) {
+        setSelectedBot(preferredBot)
+        return
+      }
+    }
+
+    if (sortedBots.length === 1) {
+      setSelectedBot(sortedBots[0])
+    }
+  }, [bot_id, bot_ids, resource, selectedBot, sortedBots])
+
+  if (error) {
+    return (
+      <div className="flex h-screen items-center justify-center bg-gray-50">
+        <Alert type="error" title={error} />
+      </div>
+    )
+  }
 
   // Extract domain from redirect_uri safely
   const domain = getDomainFromUri(redirect_uri)
@@ -301,7 +345,17 @@ export default function Authorize({ user, team, bots, queryParams, error }) {
                     transition
                     className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg outline outline-1 outline-black/5 data-[closed]:data-[leave]:opacity-0 data-[leave]:transition data-[leave]:duration-100 data-[leave]:ease-in sm:text-sm"
                   >
-                    {bots.map((bot) => (
+                    <div className="px-2 pb-2">
+                      <input
+                        id="bot-search"
+                        type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search bots..."
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                    {filteredBots.map((bot) => (
                       <ListboxOption
                         key={bot.id}
                         value={bot}
@@ -316,6 +370,11 @@ export default function Authorize({ user, team, bots, queryParams, error }) {
                         </span>
                       </ListboxOption>
                     ))}
+                    {filteredBots.length === 0 && (
+                      <div className="px-3 py-2 text-sm text-gray-500">
+                        No bots match your search.
+                      </div>
+                    )}
                   </ListboxOptions>
                 </div>
               </Listbox>
