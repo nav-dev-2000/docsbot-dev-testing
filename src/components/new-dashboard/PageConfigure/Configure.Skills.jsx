@@ -29,6 +29,7 @@ import {
     ExclamationTriangleIcon,
     EyeIcon,
     EyeSlashIcon,
+    FunnelIcon,
     GlobeAltIcon,
     ListBulletIcon,
     MagnifyingGlassIcon,
@@ -4948,6 +4949,8 @@ function SkillsLibraryModal({
     onImportSkill,
     onDeleteLibrarySkill,
 }) {
+    const [libraryFiltersOpen, setLibraryFiltersOpen] = useState(false)
+
     const filteredSkills = useMemo(
         () =>
             filterSkillsLibrary(skills, {
@@ -4980,12 +4983,73 @@ function SkillsLibraryModal({
         )
     }, [audienceFilter, capabilityFilter, categoryFilter, search])
 
+    const activeLibraryFilterCount = useMemo(() => {
+        let count = 0
+        if (capabilityFilter !== SKILLS_LIBRARY_CAPABILITY_ALL) count += 1
+        if (audienceFilter !== SKILLS_LIBRARY_AUDIENCE_ALL) count += 1
+        if (categoryFilter !== SKILLS_LIBRARY_CATEGORY_ALL) count += 1
+        return count
+    }, [audienceFilter, capabilityFilter, categoryFilter])
+
+    const activeLibraryFilterChips = useMemo(() => {
+        const chips = []
+        const capabilityOption = SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS.find(
+            (option) => option.value === capabilityFilter,
+        )
+        const audienceOption = SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS.find(
+            (option) => option.value === audienceFilter,
+        )
+        const categoryOption = categorySelectOptions.find((option) => option.value === categoryFilter)
+
+        if (capabilityFilter !== SKILLS_LIBRARY_CAPABILITY_ALL && capabilityOption) {
+            chips.push({
+                key: 'capability',
+                label: capabilityOption.label,
+                onRemove: () => setCapabilityFilter(SKILLS_LIBRARY_CAPABILITY_ALL),
+            })
+        }
+        if (audienceFilter !== SKILLS_LIBRARY_AUDIENCE_ALL && audienceOption) {
+            chips.push({
+                key: 'audience',
+                label: audienceOption.label,
+                onRemove: () => setAudienceFilter(SKILLS_LIBRARY_AUDIENCE_ALL),
+            })
+        }
+        if (categoryFilter !== SKILLS_LIBRARY_CATEGORY_ALL && categoryOption) {
+            chips.push({
+                key: 'category',
+                label: categoryOption.label,
+                onRemove: () => setCategoryFilter(SKILLS_LIBRARY_CATEGORY_ALL),
+            })
+        }
+
+        return chips
+    }, [
+        audienceFilter,
+        capabilityFilter,
+        categoryFilter,
+        categorySelectOptions,
+        setAudienceFilter,
+        setCapabilityFilter,
+        setCategoryFilter,
+    ])
+
     const clearLibraryFilters = useCallback(() => {
         setSearch('')
         setCapabilityFilter(SKILLS_LIBRARY_CAPABILITY_ALL)
         setAudienceFilter(SKILLS_LIBRARY_AUDIENCE_ALL)
         setCategoryFilter(SKILLS_LIBRARY_CATEGORY_ALL)
     }, [setAudienceFilter, setCapabilityFilter, setCategoryFilter, setSearch])
+
+    useEffect(() => {
+        if (!open) {
+            setLibraryFiltersOpen(false)
+            return
+        }
+        if (activeLibraryFilterCount > 0) {
+            setLibraryFiltersOpen(true)
+        }
+    }, [activeLibraryFilterCount, open])
 
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -5002,7 +5066,7 @@ function SkillsLibraryModal({
                     <div className="fixed inset-0 bg-gray-900/40" />
                 </Transition.Child>
                 <div className="fixed inset-0 overflow-y-auto">
-                    <div className="flex min-h-full items-center justify-center p-4">
+                    <div className="flex h-full items-center justify-center p-4">
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-150"
@@ -5012,98 +5076,252 @@ function SkillsLibraryModal({
                             leaveFrom="translate-y-0 opacity-100 sm:scale-100"
                             leaveTo="translate-y-2 opacity-0 sm:scale-95"
                         >
-                            <Dialog.Panel className="flex max-h-[85vh] w-full max-w-7xl flex-col overflow-hidden rounded-xl bg-white shadow-xl">
-                                <div className="flex shrink-0 items-start justify-between gap-3 border-b border-gray-200 px-5 py-4">
-                                    <div className="min-w-0">
-                                        <Dialog.Title className="text-base font-semibold text-gray-900">
+                            <Dialog.Panel className="w-full max-w-7xl min-h-0 max-h-full md:max-h-[85vh] flex flex-col rounded-xl bg-white shadow-xl">
+                                {/* START: Header */}
+                                <div className="flex-none px-5 pt-6">
+                                    <div className="relative pr-11">
+                                        <button
+                                            type="button"
+                                            onClick={onClose}
+                                            className={clsx(
+                                                'size-9 absolute top-0 right-0',
+                                                'flex items-center justify-center rounded-lg',
+                                                'hover:bg-gray-100 text-gray-500 hover:text-gray-800',
+                                            )}
+                                        >
+                                            <XMarkIcon className="size-5" aria-hidden />
+                                            <span className="sr-only">Close</span>
+                                        </button>
+
+                                        <Dialog.Title className="text-gray-900 text-base/5 md:text-lg/6 font-semibold">
                                             Add from skills library
                                         </Dialog.Title>
-                                        <p className="mt-1 text-sm text-gray-500">
+                                        <p className="text-gray-500 text-sm/6 md:font-medium md:mt-1">
                                             Import a disconnected copy into this bot.
                                         </p>
                                     </div>
-                                    <button
-                                        type="button"
-                                        onClick={onClose}
-                                        className="inline-flex shrink-0 items-center justify-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                                    >
-                                        <XMarkIcon className="h-5 w-5" aria-hidden />
-                                        <span className="sr-only">Close</span>
-                                    </button>
                                 </div>
-                                <div className="shrink-0 border-b border-gray-100 px-5 py-4">
-                                    <div className="flex flex-col gap-3 md:flex-row md:items-center">
-                                        <label className="relative min-w-0 flex-1">
-                                            <MagnifyingGlassIcon
-                                                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-                                                aria-hidden
-                                            />
-                                            <input
-                                                type="search"
-                                                value={search}
-                                                onChange={(e) => setSearch(e.target.value)}
-                                                placeholder="Search by name or description"
-                                                className="w-full rounded-lg border border-gray-300 bg-white py-2 pl-9 pr-3 text-sm outline-none focus:border-cyan-600 focus:ring-0"
-                                            />
-                                        </label>
-                                        <div className="flex shrink-0 flex-wrap items-end gap-2">
-                                            <Select
-                                                aria-label="Filter by capability"
-                                                className="min-w-[11rem]"
-                                                value={capabilityFilter}
-                                                onChange={setCapabilityFilter}
-                                                options={SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS}
-                                            />
-                                            <Select
-                                                aria-label="Filter by audience"
-                                                className="min-w-[10.5rem]"
-                                                value={audienceFilter}
-                                                onChange={setAudienceFilter}
-                                                options={SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS}
-                                            />
-                                            <Select
-                                                aria-label="Filter by category"
-                                                className="min-w-[10rem]"
-                                                value={categoryFilter}
-                                                onChange={setCategoryFilter}
-                                                options={categorySelectOptions}
-                                            />
-                                            <Tooltip
-                                                content={
-                                                    hasLibraryFiltersActive
-                                                        ? 'Clear filters'
-                                                        : 'No filters applied'
-                                                }
-                                                zIndex={SKILLS_LIBRARY_MODAL_TOOLTIP_Z_INDEX}
-                                            >
-                                                <span className="inline-flex shrink-0">
-                                                    <button
-                                                        type="button"
-                                                        aria-label={
-                                                            hasLibraryFiltersActive
-                                                                ? 'Clear filters'
-                                                                : 'No filters applied'
-                                                        }
-                                                        aria-disabled={!hasLibraryFiltersActive}
-                                                        tabIndex={hasLibraryFiltersActive ? 0 : -1}
-                                                        onClick={() => {
-                                                            if (!hasLibraryFiltersActive) return
-                                                            clearLibraryFilters()
-                                                        }}
+                                {/* END: Header */}
+
+                                {/* START: Search and filters */}
+                                <div className="flex-none px-5 pt-4 pb-4 border-b border-gray-100">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex flex-col gap-2 lg:flex-row lg:items-center">
+                                            <label className="relative min-w-0 lg:flex-1">
+                                                <MagnifyingGlassIcon
+                                                    className="pointer-events-none size-4 absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
+                                                    aria-hidden
+                                                />
+                                                <input
+                                                    type="search"
+                                                    value={search}
+                                                    placeholder="Search skills by name or description"
+                                                    id="skills-library-search"
+                                                    className={clsx(
+                                                        'w-full transition pl-9 pr-3 py-2 border border-gray-200 outline-none rounded-lg bg-white shadow-sm',
+                                                        'focus:border-cyan-600 focus:ring-0',
+                                                        'text-gray-900 text-sm/6 placeholder:text-gray-400',
+                                                    )}
+                                                    onChange={(e) => setSearch(e.target.value)}
+                                                />
+                                            </label>
+
+                                            <div className="flex items-center justify-between gap-3 lg:hidden">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setLibraryFiltersOpen((current) => !current)}
+                                                    className={clsx(
+                                                        'flex flex-none items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg bg-white shadow-sm text-gray-900 text-sm/6 font-medium transition',
+                                                        'hover:border-cyan-200 hover:bg-cyan-50/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2',
+                                                    )}
+                                                    aria-expanded={libraryFiltersOpen}
+                                                    aria-controls="skills-library-filter-panel"
+                                                >
+                                                    <span className="flex items-center gap-2">
+                                                        <FunnelIcon className="size-4 text-gray-500" aria-hidden />
+                                                        <span className="block">Filters</span>
+                                                        {activeLibraryFilterCount > 0 ? (
+                                                            <span className="flex items-center justify-center px-3 py-1 rounded-full bg-cyan-50 text-cyan-700 text-xs font-semibold">
+                                                                {activeLibraryFilterCount}
+                                                            </span>
+                                                        ) : null}
+                                                    </span>
+                                                    <ChevronDownIcon
                                                         className={clsx(
-                                                            'inline-flex size-10 items-center justify-center rounded-lg border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2',
-                                                            hasLibraryFiltersActive
-                                                                ? 'border-cyan-200 text-cyan-800 hover:bg-cyan-50'
-                                                                : 'cursor-not-allowed border-gray-200 text-gray-400',
+                                                            'size-4 text-gray-500 transition-transform',
+                                                            libraryFiltersOpen ? 'rotate-180' : undefined,
                                                         )}
-                                                    >
-                                                        <XMarkIcon className="h-5 w-5 shrink-0" aria-hidden />
-                                                    </button>
-                                                </span>
-                                            </Tooltip>
+                                                        aria-hidden
+                                                    />
+                                                </button>
+
+                                                <button
+                                                    type="button"
+                                                    onClick={clearLibraryFilters}
+                                                    disabled={!hasLibraryFiltersActive}
+                                                    className={clsx(
+                                                        'flex-none text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2',
+                                                        hasLibraryFiltersActive
+                                                            ? 'text-cyan-700 hover:text-cyan-800'
+                                                            : 'cursor-not-allowed text-gray-400',
+                                                    )}
+                                                >
+                                                    Clear all
+                                                </button>
+                                            </div>
+
+                                            <div className="hidden lg:flex lg:items-center lg:gap-3">
+                                                <div className="w-[11rem]">
+                                                    <Select
+                                                        aria-label="Filter by capability"
+                                                        value={capabilityFilter}
+                                                        onChange={setCapabilityFilter}
+                                                        options={SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS}
+                                                    />
+                                                </div>
+                                                <div className="w-[11rem]">
+                                                    <Select
+                                                        aria-label="Filter by audience"
+                                                        value={audienceFilter}
+                                                        onChange={setAudienceFilter}
+                                                        options={SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS}
+                                                    />
+                                                </div>
+                                                <div className="w-[11rem]">
+                                                    <Select
+                                                        aria-label="Filter by category"
+                                                        value={categoryFilter}
+                                                        onChange={setCategoryFilter}
+                                                        options={categorySelectOptions}
+                                                    />
+                                                </div>
+                                                <button
+                                                    type="button"
+                                                    onClick={clearLibraryFilters}
+                                                    disabled={!hasLibraryFiltersActive}
+                                                    className={clsx(
+                                                        'shrink-0 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2',
+                                                        hasLibraryFiltersActive
+                                                            ? 'text-cyan-700 hover:text-cyan-800'
+                                                            : 'cursor-not-allowed text-gray-400',
+                                                    )}
+                                                >
+                                                    Clear all
+                                                </button>
+                                            </div>
                                         </div>
+
+                                        {libraryFiltersOpen ? (
+                                            <div
+                                                id="skills-library-filter-panel"
+                                                className="lg:hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
+                                            >
+                                                {[
+                                                    {
+                                                        id: 'capability',
+                                                        label: 'Capabilities',
+                                                        ariaLabel: 'Filter by capability',
+                                                        options: SKILLS_LIBRARY_CAPABILITY_SELECT_OPTIONS,
+                                                        value: capabilityFilter,
+                                                        action: setCapabilityFilter,
+                                                    },
+                                                    {
+                                                        id: 'audience',
+                                                        label: 'Audience',
+                                                        ariaLabel: 'Filter by audience',
+                                                        options: SKILLS_LIBRARY_AUDIENCE_SELECT_OPTIONS,
+                                                        value: audienceFilter,
+                                                        action: setAudienceFilter,
+                                                    },
+                                                    {
+                                                        id: 'category',
+                                                        label: 'Category',
+                                                        ariaLabel: 'Filter by category',
+                                                        options: categorySelectOptions,
+                                                        value: categoryFilter,
+                                                        action: setCategoryFilter,
+                                                    },
+                                                ].map((option) => {
+                                                    return (
+                                                        <div
+                                                            key={`skills-library-filter-${option.id}`}
+                                                            className="flex flex-col gap-1"
+                                                        >
+                                                            <div className="text-gray-500 text-sm/5 font-semibold">
+                                                                {option.label}
+                                                            </div>
+                                                            <Select
+                                                                aria-label={option.ariaLabel}
+                                                                value={option.value}
+                                                                onChange={option.action}
+                                                                options={option.options}
+                                                            />
+                                                        </div>
+                                                    )
+                                                })}
+
+                                                {activeLibraryFilterChips.length > 0 ? (
+                                                    <div className="mt-4 flex flex-wrap items-center gap-2">
+                                                        <span className="inline-flex items-center">
+                                                            <FunnelIcon
+                                                                className="h-4 w-4 text-gray-500"
+                                                                aria-hidden
+                                                            />
+                                                            <span className="sr-only">
+                                                                Active filters
+                                                            </span>
+                                                        </span>
+                                                        {activeLibraryFilterChips.map((chip) => (
+                                                            <button
+                                                                key={chip.key}
+                                                                type="button"
+                                                                onClick={chip.onRemove}
+                                                                className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-800 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
+                                                            >
+                                                                <span>{chip.label}</span>
+                                                                <XMarkIcon
+                                                                    className="h-4 w-4 shrink-0"
+                                                                    aria-hidden
+                                                                />
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                ) : null}
+                                            </div>
+                                        ) : null}
+
+                                        {activeLibraryFilterChips.length > 0 ? (
+                                            <div
+                                                id="skills-library-active-filters"
+                                                className="hidden flex-wrap items-center gap-2 lg:flex"
+                                            >
+                                                <span className="inline-flex items-center">
+                                                    <FunnelIcon
+                                                        className="h-4 w-4 text-gray-500"
+                                                        aria-hidden
+                                                    />
+                                                    <span className="sr-only">Active filters</span>
+                                                </span>
+                                                {activeLibraryFilterChips.map((chip) => (
+                                                    <button
+                                                        key={chip.key}
+                                                        type="button"
+                                                        onClick={chip.onRemove}
+                                                        className="inline-flex items-center gap-2 rounded-full bg-cyan-50 px-3 py-1.5 text-sm font-medium text-cyan-800 transition hover:bg-cyan-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2"
+                                                    >
+                                                        <span>{chip.label}</span>
+                                                        <XMarkIcon
+                                                            className="h-4 w-4 shrink-0"
+                                                            aria-hidden
+                                                        />
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        ) : null}
                                     </div>
                                 </div>
+                                {/* END: Search and filters */}
+
                                 <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">
                                     {errorText ? <Alert title={alertString(errorText)} type="error" /> : null}
                                     {loading ? (
@@ -5113,7 +5331,7 @@ function SkillsLibraryModal({
                                             No library skills match the current search and filters.
                                         </div>
                                     ) : (
-                                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                                        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                                             {filteredSkills.map((skill) => {
                                                 const isImporting = importingSkillId === skill.id
                                                 const isDeleting = deletingLibrarySkillId === skill.id
@@ -6994,7 +7212,7 @@ const PageConfigureSkills = ({
             <div className="min-h-0 flex-1 overflow-y-auto px-8 pb-8 pt-6">
                 <div className="flex flex-col gap-8">
                     <Alert title={alertString(errorText)} type="error" />
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                         {drafts.map((skill) => {
                             const id = skillRecordId(skill)
                             return (
