@@ -2355,6 +2355,102 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Gemini 3.5 Flash',
+    slug: 'gemini-3-5-flash',
+    provider: 'google',
+    description:
+      "Gemini 3.5 Flash is Google's latest Gemini 3-series Flash model for agentic workflows, coding, multimodal understanding, and sustained long-horizon tasks. Released at Google I/O 2026, it builds on the Gemini 3 Flash reasoning foundation with controllable thinking levels, 1M-token context, 64K output, and faster frontier-level performance for agents and coding.",
+    input_context_window: '1M',
+    maximum_output_tokens: '64K',
+    open_source: false,
+    release_date: '2026-05-19',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Google AI Studio, Gemini API, Vertex AI, Google Antigravity, Android Studio, Gemini app, Google Search AI Mode',
+    input_cost_per_million_tokens: 0.25,
+    output_cost_per_million_tokens: 1.5,
+    modalities: {
+      text: true,
+      image: true,
+      voice: true,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: true,
+      multi_step_workflows: true,
+      vision: true,
+    },
+    benchmarks: {
+      TerminalBench: {
+        score: 76.2,
+        notes: 'Terminal-Bench 2.1, Terminus-2 harness',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      SWEBenchPro: {
+        score: 55.1,
+        notes: 'Public, single attempt',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      MCPAtlas: {
+        score: 83.6,
+        notes: 'Multi-step workflows using MCP',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      Toolathon: {
+        score: 56.5,
+        notes: 'Real-world general tool use',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      OSWorld: {
+        score: 78.4,
+        notes: 'OSWorld-Verified, agentic computer use',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      FinanceAgent: {
+        score: 57.9,
+        notes: 'Finance Agent v2',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      GDPvalAA: {
+        score: 1656,
+        notes: 'Accuracy-adjusted Elo',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      CharXivReasoning: {
+        score: 84.2,
+        notes: 'Information synthesis from complex charts, no tools',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      MMMUPro: {
+        score: 83.6,
+        notes: 'No tools',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      MRCRv2_128k: {
+        score: 77.3,
+        notes: '8-needle, 128k average',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      MRCRv2_1M: {
+        score: 26.6,
+        notes: '1M pointwise',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      HumanitysLastExam: {
+        score: 40.2,
+        notes: 'Full set, text + multimodal',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+      ARCAGI2: {
+        score: 72.1,
+        notes: 'ARC Prize Verified',
+        source: 'https://deepmind.google/models/model-cards/gemini-3-5-flash/',
+      },
+    },
+  },
+  {
     model_name: 'Gemini 3.1 Flash-Lite',
     slug: 'gemini-3-1-flash-lite',
     provider: 'google',

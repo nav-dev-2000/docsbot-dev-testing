@@ -273,6 +273,16 @@ export const LLM_PRICING = {
       cached_input_token_cost_per_million: 0.05,
     },
     {
+      model_name: 'Gemini 3.5 Flash',
+      model_slug: 'gemini-3.5-flash',
+      page_slug: 'gemini-3-5-flash',
+      context: '1M/64K',
+      provider: 'Google',
+      input_token_cost_per_million: 0.25,
+      output_token_cost_per_million: 1.5,
+      cached_input_token_cost_per_million: 0.025,
+    },
+    {
       model_name: 'Gemini 3.1 Flash-Lite',
       model_slug: 'gemini-3.1-flash-lite-preview',
       page_slug: 'gemini-3-1-flash-lite',
