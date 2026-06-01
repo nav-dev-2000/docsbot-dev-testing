@@ -233,7 +233,7 @@ function UserMessage({
                     >
                         <div
                             dir="auto"
-                            className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
+                            className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700 whitespace-pre-wrap [line-break:strict] [overflow-wrap:anywhere]"
                         >
                             {image_urls && image_urls.length > 0 && (
                                 <div className="mb-2 grid grid-cols-4 gap-2">
@@ -260,7 +260,7 @@ function UserMessage({
                 ) : (
                     <div
                         dir="auto"
-                        className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700"
+                        className="text-md rounded-2xl rounded-tl-none border bg-white px-6 py-4 text-start text-gray-700 whitespace-pre-wrap [line-break:strict] [overflow-wrap:anywhere]"
                     >
                         {image_urls && image_urls.length > 0 && (
                             <div className="mb-2 grid grid-cols-4 gap-2">
