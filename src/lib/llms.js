@@ -144,6 +144,10 @@ export const BENCHMARKS = {
     title: 'BrowseComp',
     description: 'Evaluates browsing and web comprehension capabilities',
   },
+  ClawEval: {
+    title: 'Claw-Eval',
+    description: 'Evaluates end-to-end autonomous agent performance on long-running software and tool-use tasks',
+  },
   CursorBench: {
     title: 'CursorBench',
     description: 'Evaluates real-world software engineering and code editing performance on repository tasks',
@@ -488,6 +492,10 @@ export const BENCHMARKS = {
     title: 'OpenAI MRCR2 Needle (256k)',
     description: 'Long context performance benchmark at 256k context length',
   },
+  OnlineMind2Web: {
+    title: 'Online-Mind2Web',
+    description: 'Evaluates browser agents on live web navigation and task completion',
+  },
   OpenAIMRCRv2Needle4K_8K: {
     title: 'OpenAI MRCR2 Needle (4K–8K)',
     description: 'Long context needle-in-haystack benchmark, 4K–8K range',
@@ -565,9 +573,17 @@ export const BENCHMARKS = {
     title: 'SimpleQA',
     description: 'A benchmark that evaluates basic question-answering capabilities across common knowledge domains',
   },
+  SVGBench: {
+    title: 'SVG-Bench',
+    description: 'Evaluates SVG generation quality and visual/code correctness',
+  },
   SWEBench: {
     title: 'SWE-Bench Verified',
     description: 'Evaluates software engineering capabilities through verified code modifications and custom agent setups',
+  },
+  SWEfficiency: {
+    title: 'SWE-fficiency',
+    description: 'Evaluates software engineering agent efficiency and successful task completion under resource constraints',
   },
   SWEBenchRakuten: {
     title: 'SWE-Bench Rakuten',
@@ -616,6 +632,10 @@ export const BENCHMARKS = {
   VisualAcuityXBOW: {
     title: 'Visual Acuity (XBOW)',
     description: 'Evaluates high-resolution visual understanding and perception on the XBOW visual acuity benchmark',
+  },
+  KernelBenchHard: {
+    title: 'KernelBench Hard',
+    description: 'Evaluates CUDA/kernel optimization performance on hard benchmark tasks',
   },
   MultiSWEBench: {
     title: 'Multi-SWE-Bench',
@@ -681,6 +701,10 @@ export const BENCHMARKS = {
   USAMO2025: {
     title: 'USAMO 2025',
     description: 'USA Mathematical Olympiad 2025',
+  },
+  USAMO2026: {
+    title: 'USAMO 2026',
+    description: 'USA Mathematical Olympiad 2026',
   },
   TerminalBench: {
     title: 'Terminal-Bench 2.0',

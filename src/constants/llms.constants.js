@@ -175,25 +175,40 @@ const LLMS = [
       long_context: true,
     },
     benchmarks: {
+      SWEBench: {
+        score: 87.6,
+        notes: 'Verified',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
       SWEBenchPro: {
         score: 64.3,
         notes: 'Public; reported in OpenAI GPT-5.5 comparison table.',
         source: 'https://openai.com/index/introducing-gpt-5-5/',
       },
+      SWEBenchMultilingual: {
+        score: 80.5,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
       TerminalBench: {
-        score: 69.4,
-        notes: 'Terminal-Bench 2.0; Anthropic used Terminus-2 harness with thinking disabled.',
-        source: 'https://openai.com/index/introducing-gpt-5-5/',
+        score: 66.1,
+        notes: 'Terminal-Bench 2.1 using Terminus-2 public harness.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
       },
       GDPvalWinsOrTies: {
         score: 80.3,
         notes: 'wins or ties vs industry professionals across 44 occupations',
         source: 'https://openai.com/index/introducing-gpt-5-5/',
       },
+      GDPvalAA: {
+        score: 1753,
+        notes: 'Elo',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
       OSWorld: {
-        score: 78.0,
-        notes: 'OSWorld-Verified',
-        source: 'https://openai.com/index/introducing-gpt-5-5/',
+        score: 82.3,
+        notes: 'OSWorld-Verified, updated Anthropic methodology',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
       },
       BrowseComp: {
         score: 79.3,
@@ -245,10 +260,20 @@ const LLMS = [
         notes: 'f1',
         source: 'https://openai.com/index/introducing-gpt-5-5/',
       },
+      GraphwalksBFS1M: {
+        score: 40.3,
+        notes: 'BFS 1M',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
       GraphwalksParents256K: {
         score: 93.6,
         notes: 'f1',
         source: 'https://openai.com/index/introducing-gpt-5-5/',
+      },
+      USAMO2026: {
+        score: 69.3,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
       },
       OpenAIMRCRv2Needle128K_256K: {
         score: 59.2,
@@ -304,6 +329,119 @@ const LLMS = [
         score: null,
         notes: '93-task benchmark; resolution lifted by 13% over Opus 4.6.',
         source: 'https://www.anthropic.com/news/claude-opus-4-7',
+      },
+    },
+  },
+  {
+    model_name: 'Claude Opus 4.8',
+    slug: 'claude-opus-4-8',
+    provider: 'anthropic',
+    description:
+      'Claude Opus 4.8 is Anthropic\'s latest Opus model, improving on Opus 4.7 for coding, agentic workflows, tool use, computer-use/browser-agent tasks, and professional knowledge work. It keeps regular Opus pricing unchanged, adds cheaper fast mode, defaults to high effort, and supports higher effort settings for difficult long-running work.',
+    input_context_window: '1M',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2026-05-28',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Claude.ai, Anthropic API, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
+    input_cost_per_million_tokens: 5.0,
+    output_cost_per_million_tokens: 25.0,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+    },
+    benchmarks: {
+      SWEBench: {
+        score: 88.6,
+        notes: 'Verified',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      SWEBenchPro: {
+        score: 69.2,
+        notes: 'SWE-Bench Pro',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      SWEBenchMultilingual: {
+        score: 84.4,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      TerminalBench: {
+        score: 74.6,
+        notes: 'Terminal-Bench 2.1 using Terminus-2 public harness; GPT-5.5 Codex CLI harness score is 83.4%.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      OSWorld: {
+        score: 83.4,
+        notes: 'OSWorld-Verified',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      HumanitysLastExam: {
+        score: 49.8,
+        notes: 'No tools',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      HumanitysLastExamWithTools: {
+        score: 57.9,
+        notes: 'With tools',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      GPQADiamond: {
+        score: 93.6,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      GDPvalAA: {
+        score: 1890,
+        notes: 'Elo',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      MCPAtlas: {
+        score: 82.2,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      GraphwalksBFS1M: {
+        score: 68.1,
+        notes: 'BFS 1M',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      USAMO2026: {
+        score: 96.7,
+        notes: null,
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      OnlineMind2Web: {
+        score: 84.0,
+        notes: 'Reported by early tester in Anthropic launch article.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      FinanceAgent: {
+        score: null,
+        notes: 'Reported in the launch comparison table; Anthropic footnote clarifies 57.9 is Gemini 3.5 Flash, not Opus 4.8.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      CursorBench: {
+        score: null,
+        notes: 'Reported as exceeding prior Opus models across every effort level.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
+      },
+      BigLawBench: {
+        score: null,
+        notes: 'Reported as the highest score recorded on Thomson Reuters Legal Agent Benchmark.',
+        source: 'https://www.anthropic.com/news/claude-opus-4-8',
       },
     },
   },
@@ -7968,6 +8106,7 @@ const LLMS = [
   {
     model_name: 'MiniMax M2.7',
     slug: 'minimax-m2-7',
+    redirect_to: 'minimax-m3',
     provider: 'minimax',
     description:
       "MiniMax M2.7 is MiniMax's latest M2-series flagship text model, focused on agent-centric workflows, recursive self-improvement, real-world software engineering, professional office delivery, and long-running task execution. MiniMax says M2.7 participated in its own model and harness evolution, can build complex agent harnesses, and improves productivity tasks across software engineering, ML workflows, office documents, and multi-agent collaboration. It is available through MiniMax Agent and the MiniMax API Platform, including a highspeed variant with the same model capability.",
@@ -8038,6 +8177,88 @@ const LLMS = [
         score: 66.6,
         notes: 'Average medal rate across three 24-hour runs',
         source: 'https://www.minimax.io/news/minimax-m27-en',
+      },
+    },
+  },
+  {
+    model_name: 'MiniMax M3',
+    slug: 'minimax-m3',
+    provider: 'minimax',
+    description:
+      'MiniMax M3 is MiniMax\'s frontier open-weight multimodal model for coding, agentic workflows, long-context repository and document work, and computer-use tasks. It introduces MiniMax Sparse Attention, supports up to a 1M-token context window, accepts text, image, and video input, and is positioned as the first open-weight model to combine frontier coding, native multimodality, and million-token context.',
+    input_context_window: '1M',
+    maximum_output_tokens: 'Unknown',
+    open_source: true,
+    release_date: '2026-06-01',
+    knowledge_cut_off_date: null,
+    api_providers: 'MiniMax Platform, MiniMax Code, OpenRouter',
+    input_cost_per_million_tokens: 0.6,
+    output_cost_per_million_tokens: 2.4,
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: true,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_context: true,
+      multimodal_understanding: true,
+      multi_step_workflows: true,
+      reasoning_mode: true,
+    },
+    benchmarks: {
+      SWEBenchPro: {
+        score: 59.0,
+        notes: 'SWE-Bench Pro.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      TerminalBench: {
+        score: 66.0,
+        notes: 'Terminal-Bench 2.1.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      SWEfficiency: {
+        score: 34.8,
+        notes: null,
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      KernelBenchHard: {
+        score: 28.8,
+        notes: null,
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      MCPAtlas: {
+        score: 74.2,
+        notes: null,
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      BrowseComp: {
+        score: 83.5,
+        notes: null,
+        source: 'https://www.minimax.io/models/text/m3',
+      },
+      SVGBench: {
+        score: null,
+        notes: 'Reported as surpassing Opus 4.7.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      OmniDocBench15: {
+        score: null,
+        notes: 'Reported as above Gemini 3.1 Pro.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      ClawEval: {
+        score: null,
+        notes: 'Reported as the highest score in MiniMax launch article.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
+      },
+      VideoMME: {
+        score: 84.6,
+        notes: 'Video frame rate 1 FPS; 512 frames under external API limit.',
+        source: 'https://www.minimax.io/blog/minimax-m3',
       },
     },
   },

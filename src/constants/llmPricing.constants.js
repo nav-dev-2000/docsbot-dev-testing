@@ -177,6 +177,16 @@ export const LLM_PRICING = {
       cached_input_token_cost_per_million: 0.5,
     },
     {
+      model_name: 'Claude Opus 4.8',
+      model_slug: 'claude-opus-4-8',
+      page_slug: 'claude-opus-4-8',
+      context: '1M/128K',
+      provider: 'Anthropic',
+      input_token_cost_per_million: 5,
+      output_token_cost_per_million: 25,
+      cached_input_token_cost_per_million: 0.5,
+    },
+    {
       model_name: 'Claude Sonnet 4.6',
       model_slug: 'claude-sonnet-4-6',
       page_slug: 'claude-sonnet-4-6',
@@ -412,6 +422,14 @@ export const LLM_PRICING = {
       provider: 'MiniMax',
       input_token_cost_per_million: 0.3,
       output_token_cost_per_million: 1.2,
+    },
+    {
+      model_name: 'MiniMax M3',
+      model_slug: 'minimax-m3',
+      context: '1M',
+      provider: 'MiniMax',
+      input_token_cost_per_million: 0.6,
+      output_token_cost_per_million: 2.4,
     },
     {
       model_name: 'Kimi K2.6',
