@@ -1,5 +1,236 @@
 const LLMS = [
   {
+    model_name: 'Claude Fable 5',
+    slug: 'claude-fable-5',
+    provider: 'anthropic',
+    description:
+      'Claude Fable 5 is Anthropic\'s most capable widely released Mythos-class model, generally available beginning June 9, 2026. It is designed for demanding reasoning, long-horizon agentic work, software engineering, knowledge work, vision, memory, life sciences research, and multimodal tasks. Fable 5 supports a 1M-token context window, 128K max output, high-resolution image inputs, and adaptive thinking that is always on.',
+    input_context_window: '1M',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2026-06-09',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Claude.ai, Anthropic API, Claude Platform on AWS, Amazon Bedrock, Google Cloud Vertex AI, Microsoft Foundry',
+    input_cost_per_million_tokens: 10.0,
+    output_cost_per_million_tokens: 50.0,
+    modality_discounts: {
+      batch_input: 5.0,
+      batch_output: 25.0,
+      cache_write: 12.5,
+      cache_read: 1.0,
+    },
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+      adaptive_thinking: true,
+    },
+    benchmarks: {
+      SWEBenchPro: {
+        score: 80.3,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table; reported scores are within 1-3 percentage points for the two models.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      FrontierCodeDiamond: {
+        score: 29.3,
+        notes: 'xhigh; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      GDPvalAA: {
+        score: 1932,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      GDPPDF: {
+        score: 29.8,
+        notes: 'No tools; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BlueprintBench2: {
+        score: 38.6,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      AutomationBench: {
+        score: 17.4,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      OSWorld: {
+        score: 85.0,
+        notes: 'OSWorld-Verified; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      LegalAgentBenchmark: {
+        score: 13.3,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HumanitysLastExam: {
+        score: 59.0,
+        notes: 'No tools; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HumanitysLastExamWithTools: {
+        score: 64.5,
+        notes: 'With tools; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BioMysteryBenchHard: {
+        score: 46.1,
+        notes: 'Hard; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BioMysteryBenchHumanSolved: {
+        score: 83.9,
+        notes: 'Human solved; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      TerminalBench: {
+        score: 88.0,
+        notes: 'Terminal-Bench 2.1; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      ExploitBenchCap5: {
+        score: 78.0,
+        notes: 'Starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HealthBench: {
+        score: 66.0,
+        notes: 'HealthBench Professional; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+    },
+  },
+  {
+    model_name: 'Claude Mythos 5',
+    slug: 'claude-mythos-5',
+    provider: 'anthropic',
+    description:
+      'Claude Mythos 5 is Anthropic\'s limited-availability Mythos-class model for approved Project Glasswing customers, launched June 9, 2026 as the successor to Claude Mythos Preview. It is the same underlying model as Claude Fable 5 with safeguards lifted in some areas for trusted cyberdefense and infrastructure work. Mythos 5 supports a 1M-token context window, 128K max output, high-resolution image inputs, and adaptive thinking that is always on.',
+    input_context_window: '1M',
+    maximum_output_tokens: '128K',
+    open_source: false,
+    release_date: '2026-06-09',
+    knowledge_cut_off_date: null,
+    api_providers:
+      'Anthropic API limited availability through Project Glasswing; contact Anthropic, AWS, or Google Cloud account team',
+    input_cost_per_million_tokens: 10.0,
+    output_cost_per_million_tokens: 50.0,
+    modality_discounts: {
+      batch_input: 5.0,
+      batch_output: 25.0,
+      cache_write: 12.5,
+      cache_read: 1.0,
+    },
+    modalities: {
+      text: true,
+      image: true,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      computer_use: true,
+      cybersecurity: true,
+      long_horizon_reasoning: true,
+      document_spreadsheet_automation: true,
+      multi_step_workflows: true,
+      long_context: true,
+      adaptive_thinking: true,
+    },
+    benchmarks: {
+      SWEBenchPro: {
+        score: 80.3,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table; reported scores are within 1-3 percentage points for the two models.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      FrontierCodeDiamond: {
+        score: 29.3,
+        notes: 'xhigh; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      GDPvalAA: {
+        score: 1932,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      GDPPDF: {
+        score: 29.8,
+        notes: 'No tools; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BlueprintBench2: {
+        score: 38.6,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      AutomationBench: {
+        score: 17.4,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      OSWorld: {
+        score: 85.0,
+        notes: 'OSWorld-Verified; shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      LegalAgentBenchmark: {
+        score: 13.3,
+        notes: 'Shared Claude Mythos 5 / Fable 5 column in launch benchmark table.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HumanitysLastExam: {
+        score: 59.0,
+        notes: 'No tools; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HumanitysLastExamWithTools: {
+        score: 64.5,
+        notes: 'With tools; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BioMysteryBenchHard: {
+        score: 46.1,
+        notes: 'Hard; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      BioMysteryBenchHumanSolved: {
+        score: 83.9,
+        notes: 'Human solved; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      TerminalBench: {
+        score: 88.0,
+        notes: 'Terminal-Bench 2.1; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      ExploitBenchCap5: {
+        score: 78.0,
+        notes: 'Starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+      HealthBench: {
+        score: 66.0,
+        notes: 'HealthBench Professional; starred benchmark. The launch table notes starred benchmarks show a larger difference due to blocking safeguards, and Fable 5 performs closer to Opus 4.8 due to fallbacks.',
+        source: 'https://www.anthropic.com/news/claude-fable-5-mythos-5',
+      },
+    },
+  },
+  {
     model_name: "Claude Opus 4.5",
     slug: "claude-opus-4-5",
     provider: "anthropic",

@@ -107,6 +107,10 @@ export const BENCHMARKS = {
     title: 'APEX Agents',
     description: 'Evaluates long-horizon professional agent tasks with real-world objectives and constraints',
   },
+  AutomationBench: {
+    title: 'AutomationBench',
+    description: 'Tool-use benchmark for automation workflows and agentic task execution',
+  },
   AudioMultiChallenge: {
     title: 'Audio MultiChallenge',
     description: 'Evaluates multi-turn spoken-dialogue instruction following, context integration, self-consistency, and handling natural speech corrections',
@@ -135,6 +139,10 @@ export const BENCHMARKS = {
   BigLawBench: {
     title: 'BigLaw Bench',
     description: 'Evaluates legal reasoning and document analysis on large law firm tasks',
+  },
+  BlueprintBench2: {
+    title: 'Blueprint-Bench 2',
+    description: 'Spatial reasoning benchmark focused on blueprint and layout understanding',
   },
   BigBenchAudio: {
     title: 'Big Bench Audio',
@@ -216,6 +224,10 @@ export const BENCHMARKS = {
     title: 'Expert-SWE',
     description: 'Internal frontier software engineering evaluation for long-horizon coding tasks',
   },
+  ExploitBenchCap5: {
+    title: 'ExploitBench (Cap 5%)',
+    description: 'Cybersecurity benchmark measuring capped exploit task performance',
+  },
   FACTSBenchmarkSuite: {
     title: 'FACTS Benchmark Suite',
     description: 'Evaluates held-out internal grounding, parametric knowledge, multimodal understanding, and search retrieval capabilities',
@@ -232,6 +244,14 @@ export const BENCHMARKS = {
     title: 'BixBench',
     description: 'Bioinformatics and scientific data analysis benchmark focused on real-world research workflows',
   },
+  BioMysteryBenchHard: {
+    title: 'BioMysteryBench (hard)',
+    description: 'Biology benchmark on hard BioMysteryBench tasks',
+  },
+  BioMysteryBenchHumanSolved: {
+    title: 'BioMysteryBench (human solved)',
+    description: 'Biology benchmark on human-solved BioMysteryBench tasks',
+  },
   CodingResolution: {
     title: 'Coding Resolution',
     description: 'Tracks production coding task resolution rates on long-horizon software engineering workloads',
@@ -247,6 +267,10 @@ export const BENCHMARKS = {
   FrontierMathTier4: {
     title: 'FrontierMath (Tier 4)',
     description: 'Advanced mathematics benchmark covering FrontierMath Tier 4 tasks with Python assistance',
+  },
+  FrontierCodeDiamond: {
+    title: 'FrontierCode (Diamond)',
+    description: 'Cognition FrontierCode Diamond benchmark for difficult production-quality coding tasks',
   },
   FrontierScienceResearch: {
     title: 'Frontier Science Research',
@@ -280,6 +304,10 @@ export const BENCHMARKS = {
     title: 'GDPval-AA',
     description: 'Economic knowledge work evaluation focused on accuracy-adjusted GDPval results',
     format: 'number',
+  },
+  GDPPDF: {
+    title: 'GDP.pdf',
+    description: 'Knowledge work vision benchmark focused on reasoning over GDP PDF documents',
   },
   GeneBench: {
     title: 'GeneBench',
@@ -376,6 +404,10 @@ export const BENCHMARKS = {
   InvestmentBankingModelingTasks: {
     title: 'Investment Banking Modeling Tasks',
     description: 'Internal benchmark for junior investment banking analyst modeling tasks',
+  },
+  LegalAgentBenchmark: {
+    title: 'Legal Agent Benchmark',
+    description: 'Legal agent benchmark evaluating legal workflow and reasoning task performance',
   },
   KernelBench: {
     title: 'KernelBench',
