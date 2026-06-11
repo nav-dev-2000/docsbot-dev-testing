@@ -24,7 +24,7 @@ For Subscribe, pass `bundle.targetUrl` as `targetUrl`. Use the response `id` in 
 
 - `lead.created`: Fires when lead data is captured.
 - `deep_research.done`: Fires when a deep research job completes.
-- `conversation.escalated`: Fires when a conversation is escalated.
+- `conversation.escalated`: Fires when a confirmed conversation escalation is logged through the [Conversation Support Escalation API](/documentation/developer/answer-rating#conversation-support-escalations).
 - `conversation.rated`: Fires when a conversation answer is rated.
 
 ---
@@ -117,6 +117,8 @@ When a `lead.created` webhook is delivered, DocsBot posts JSON like:
 ```
 
 ### conversation.escalated payload
+
+This webhook is delivered when you call `PUT /teams/:teamId/bots/:botId/conversations/:conversationId/escalate` after a user confirms escalation. A Chat Agent `support_escalation` event by itself only records escalation intent (`escalated: "triggered"`) and does not represent a handled escalation.
 
 ```json
 {

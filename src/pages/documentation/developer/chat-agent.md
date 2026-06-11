@@ -234,6 +234,8 @@ The `is_resolved_question` event is used after a `lookup_answer` to collect user
 
 The `support_escalation` event is triggered when LLM determines that the user requests human support. It provides options for the user to confirm if they want to escalate to human support. This is used to provide a seamless transition from AI to human support. Only used when `human_escalation` argument is set to `true`.
 
+After the user confirms escalation, call the [Conversation Support Escalation API](/documentation/developer/answer-rating#conversation-support-escalations) with the conversation ID. The `support_escalation` event records escalation intent as `escalated: "triggered"`; the Conversation Support Escalation API logs the confirmed escalation as `escalated: "handled"` and triggers the `conversation.escalated` webhook.
+
 ### stream
 
 When streaming response is enabled via the `stream` parameter, the answer is initially sent as a stream of `stream` events so that you can display the progress to the user as it's generated. Each `stream` event is a token to be appended to the latest message, which is commonly parsed as markdown for proper formatting. When the answer streaming is complete it will be followed by a different event type such as `lookup_answer` that contains the final full answer to display. See this [response example](/sse-response.txt) for more details.
@@ -534,5 +536,5 @@ The Chat Agent API also provides additional endpoints for working with conversat
 
 - **[Conversation Summarize](/documentation/developer/conversation-summarize)**: Generate summaries of conversations including title, summary text, and sentiment analysis
 - **[Conversation Ticket](/documentation/developer/conversation-ticket)**: Generate structured support tickets from conversations for help desk integration
-
 - **[Conversation Lead Capture](/documentation/developer/conversation-lead)**: Capture lead information by updating conversation metadata and saving it to a dedicated leads collection
+- **[Conversation Support Escalation](/documentation/developer/answer-rating#conversation-support-escalations)**: Log confirmed human support escalations and trigger `conversation.escalated` webhooks
