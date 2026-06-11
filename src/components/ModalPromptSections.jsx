@@ -91,12 +91,12 @@ export function InstructionHeader({ bot, className }) {
 }
 
 export function InstructionsAlert({ errorText, successText, className }) {
-    if (!errorText || !successText) return null
+    if (!errorText && !successText) return null
 
     return (
         <div className={clsx('flex flex-col gap-4', className)}>
-            <Alert title={errorText} type="error" />
-            <Alert title={successText} type="success" />
+            {errorText && <Alert title={errorText} type="error" />}
+            {successText && <Alert title={successText} type="success" />}
         </div>
     )
 }

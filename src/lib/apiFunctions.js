@@ -29,6 +29,7 @@ import {
 } from '@/lib/botActions'
 import { getBotIdFromChannelMapping, getValidChannelEntries } from '@/lib/slackHelpers'
 import { OBSOLETE_STRIPE_TOOL_METADATA_KEYS } from '@/lib/stripeConnect'
+import { decrementNonNegativeCount } from '@/lib/nonNegativeCounts'
 import {
   DEFAULT_WEB_SEARCH_MODEL,
   WEB_SEARCH_ALLOWED_DOMAINS_MAX,
@@ -73,11 +74,15 @@ export const deleteSource = async (
       sourceDoc.data().status == 'ready' ||
       sourceDoc.data().status == 'failed'
     ) {
-      const newTeamSourceCount = (teamDoc.data().sourceCount || 0) - 1
-      const newTeamChunkCount =
-        (teamDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-      const newTeamPageCount =
-        (teamDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+      const newTeamSourceCount = decrementNonNegativeCount(teamDoc.data().sourceCount)
+      const newTeamChunkCount = decrementNonNegativeCount(
+        teamDoc.data().chunkCount,
+        sourceDoc.data().chunkCount,
+      )
+      const newTeamPageCount = decrementNonNegativeCount(
+        teamDoc.data().pageCount,
+        sourceDoc.data().pageCount,
+      )
       transaction.update(teamRef, {
         sourceCount: newTeamSourceCount,
         chunkCount: newTeamChunkCount,
@@ -86,11 +91,15 @@ export const deleteSource = async (
       })
 
       // decrement bot counts
-      const newBotSourceCount = (botDoc.data().sourceCount || 0) - 1
-      const newBotChunkCount =
-        (botDoc.data().chunkCount || 0) - sourceDoc.data().chunkCount
-      const newBotPageCount =
-        (botDoc.data().pageCount || 0) - sourceDoc.data().pageCount
+      const newBotSourceCount = decrementNonNegativeCount(botDoc.data().sourceCount)
+      const newBotChunkCount = decrementNonNegativeCount(
+        botDoc.data().chunkCount,
+        sourceDoc.data().chunkCount,
+      )
+      const newBotPageCount = decrementNonNegativeCount(
+        botDoc.data().pageCount,
+        sourceDoc.data().pageCount,
+      )
       const newBotStatus = newBotSourceCount == 0 ? 'pending' : 'ready'
       transaction.update(botRef, {
         sourceCount: newBotSourceCount,
@@ -403,19 +412,13 @@ export const deleteBot = async (teamId, botId) => {
       throw 'Team does not exist!'
     }
 
-    const newBotCount = Math.max(0, (sfDoc.data().botCount || 0) - 1)
-    const newSourceCount = Math.max(
-      0,
-      (sfDoc.data().sourceCount || 0) - (bot.sourceCount || 0),
+    const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount)
+    const newSourceCount = decrementNonNegativeCount(
+      sfDoc.data().sourceCount,
+      bot.sourceCount,
     )
-    const newPageCount = Math.max(
-      0,
-      (sfDoc.data().pageCount || 0) - (bot.pageCount || 0),
-    )
-    const newChunkCount = Math.max(
-      0,
-      (sfDoc.data().chunkCount || 0) - (bot.chunkCount || 0),
-    )
+    const newPageCount = decrementNonNegativeCount(sfDoc.data().pageCount, bot.pageCount)
+    const newChunkCount = decrementNonNegativeCount(sfDoc.data().chunkCount, bot.chunkCount)
     transaction.update(teamRef, {
       botCount: newBotCount,
       sourceCount: newSourceCount,

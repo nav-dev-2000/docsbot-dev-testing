@@ -16,6 +16,7 @@ import { teamOwner, bentoTrack } from '@/lib/bento'
 import { sendErrorEmail } from '@/utils/emails'
 import { phTrack } from '@/lib/posthog'
 import { stripePlan } from '@/utils/helpers'
+import { sumNonNegativeCounts, toNonNegativeCount } from '@/lib/nonNegativeCounts'
 
 // Helper function to clean up daily stats objects by removing entries older than 93 days
 function cleanDailyStats(dailyStats) {
@@ -135,8 +136,8 @@ function botCountsFromStoredBotData(botData, currentYear, currentMonth) {
   }
 
   return {
-    pageCount: botData.pageCount || 0,
-    sourceCount: botData.sourceCount || 0,
+    pageCount: toNonNegativeCount(botData.pageCount),
+    sourceCount: toNonNegativeCount(botData.sourceCount),
     monthly,
     daily,
     conversationMonthly,
@@ -245,7 +246,7 @@ export default async function handler(request, response) {
           const sourcesSnapshot = await botDoc.ref.collection('sources').select('pageCount').get()
           const sourceCount = sourcesSnapshot.size
           const sourcePages = sourcesSnapshot.docs.map((sourceDoc) => sourceDoc.data().pageCount)
-          const pageCount = sourcePages.reduce((accumulator, count) => accumulator + count, 0)
+          const pageCount = sumNonNegativeCounts(sourcePages)
 
           // Count research documents for current calendar month (excluding failed)
           let researchCount = 0

@@ -26,6 +26,7 @@ import {
   isBotSourcesFrozen,
   freezeSourcesResponse,
 } from '@/lib/maintenance'
+import { incrementNonNegativeCount } from '@/lib/nonNegativeCounts'
 
 const sanitizeSourceTitle = (value) => {
   if (typeof value !== 'string') return null
@@ -628,7 +629,7 @@ export default async function handler(req, res) {
             throw 'Team does not exist!'
           }
 
-          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
+          const newSourceCount = incrementNonNegativeCount(sfDoc.data().sourceCount)
           transaction.update(teamRef, {
             sourceCount: newSourceCount,
           })
@@ -646,7 +647,7 @@ export default async function handler(req, res) {
             throw 'Bot does not exist!'
           }
 
-          const newSourceCount = (sfDoc.data().sourceCount || 0) + 1
+          const newSourceCount = incrementNonNegativeCount(sfDoc.data().sourceCount)
           transaction.update(botRef, {
             sourceCount: newSourceCount,
           })

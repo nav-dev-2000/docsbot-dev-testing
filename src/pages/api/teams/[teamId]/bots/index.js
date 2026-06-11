@@ -17,6 +17,10 @@ import {
   vectorDbMaintenanceResponse,
 } from '@/lib/maintenance'
 import { copyDemoTemplateStatisticsToBot } from '@/lib/demoBotStatistics'
+import {
+  decrementNonNegativeCount,
+  incrementNonNegativeCount,
+} from '@/lib/nonNegativeCounts'
 
 const router = createRouter()
 
@@ -73,7 +77,7 @@ router.post(async (req, res) => {
         throw 'Team does not exist!'
       }
 
-      const newBotCount = (sfDoc.data().botCount || 0) + 1
+      const newBotCount = incrementNonNegativeCount(sfDoc.data().botCount)
       transaction.update(teamRef, {
         botCount: newBotCount,
       })
@@ -123,8 +127,7 @@ router.post(async (req, res) => {
             throw 'Team does not exist!'
           }
 
-          const currentBotCount = sfDoc.data().botCount || 0
-          const newBotCount = Math.max(currentBotCount - 1, 0) // Ensure count doesn't go below 0
+          const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount)
           transaction.update(teamRef, {
             botCount: newBotCount,
           })

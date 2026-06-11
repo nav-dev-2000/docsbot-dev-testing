@@ -60,6 +60,9 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
   const [addOverrideByMember, setAddOverrideByMember] = useState({})
   const [roles] = useState(teamMembersRoles)
   const [botRoles] = useState(botMembersRoles)
+  const canManageTeamMembers = canUserModifyTeam(currTeam, userId) || isSuperAdmin(userId)
+  const canTransferOwnership =
+    currTeam?.roles?.[userId] === 'owner' || isSuperAdmin(userId)
   const teamRoleInfo = `
     <div class="text-left text-xs leading-5">
       <div><strong>Team roles</strong></div>
@@ -478,6 +481,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
       <TransferOwnership
         {...{
           team: currTeam,
+          userId,
           transferToUser,
           setTransferToUser,
           setErrorText,
@@ -626,12 +630,11 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                                   {role.name}
                                 </option>
                               ))}
-                              {/* Owners can transfer ownership directly to any other team member. */}
-                              {currTeam?.roles?.[userId] === 'owner' && (
+                              {canTransferOwnership && (
                                 <>
                                   <option disabled>──────────</option>
                                   <option value="transfer_ownership">
-                                    ⚠ Transfer Ownership
+                                    Transfer Ownership
                                   </option>
                                 </>
                               )}
@@ -644,7 +647,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                         </div>
                       )}
                       {userId !== user.uid &&
-                        canUserModifyTeam(currTeam, userId) &&
+                        canManageTeamMembers &&
                         user.role !== 'owner' &&
                         !selectedMemberId && (
                           <button
@@ -658,7 +661,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                           </button>
                         )}
                       {userId !== user.uid &&
-                        canUserModifyTeam(currTeam, userId) &&
+                        canManageTeamMembers &&
                         selectedMemberId === user.uid &&
                         selectedMemberId && (
                           <button
@@ -923,7 +926,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                   </td>
                   <td className="px-4 py-4">
                     {userId !== user.uid &&
-                      canUserModifyTeam(currTeam, userId) &&
+                      canManageTeamMembers &&
                       user.role !== 'owner' && (
                         <div className="flex flex-col items-end gap-2">
                           <Tooltip content="Delete member" placement="left">

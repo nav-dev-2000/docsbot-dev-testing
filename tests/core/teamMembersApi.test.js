@@ -239,4 +239,44 @@ describe('team members API ownership transfer', () => {
     })
     expect(mocks.firestoreState.batchUpdate).not.toHaveBeenCalled()
   })
+
+  it('allows super admins to transfer ownership without being the current owner', async () => {
+    mocks.getAuthorizedUser.mockResolvedValue({ uid: 'super-admin-1' })
+    mocks.userTeamCheck.mockResolvedValue({
+      userId: 'super-admin-1',
+      team: {
+        id: 'team-1',
+        name: 'DocsBot',
+        roles: {
+          'owner-1': 'owner',
+          'member-1': 'viewer',
+          'member-2': 'admin',
+        },
+      },
+    })
+    mocks.isSuperAdmin.mockReturnValue(true)
+
+    const req = createMockReq({
+      method: 'PUT',
+      query: { teamId: 'team-1' },
+      body: {
+        memberId: 'member-2',
+        role: 'owner',
+        transferOwnership: true,
+      },
+    })
+    const res = createMockRes()
+
+    await membersHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.firestoreState.batchUpdate).toHaveBeenCalledWith(expect.any(Object), {
+      roles: {
+        'owner-1': 'admin',
+        'member-1': 'viewer',
+        'member-2': 'owner',
+      },
+    })
+    expect(mocks.firestoreState.batchCommit).toHaveBeenCalled()
+  })
 })

@@ -3,6 +3,7 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function TransferOwnership({
   team,
+  userId,
   transferToUser,
   setTransferToUser,
   setErrorText,
@@ -64,6 +65,8 @@ export default function TransferOwnership({
 
   if (!transferToUser) return null
 
+  const currentUserIsOwner = team?.roles?.[userId] === 'owner'
+
   return (
     <div className="mt-8 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
       <div className="px-4 py-5 sm:p-6">
@@ -81,8 +84,14 @@ export default function TransferOwnership({
               </p>
               <ul className="list-disc pl-5 space-y-1">
                 <li>Once ownership is transferred, only the new owner can change it back</li>
-                <li>Your role will be changed to admin</li>
-                <li>The new owner will be able to delete your account membership</li>
+                {currentUserIsOwner ? (
+                  <li>Your role will be changed to admin</li>
+                ) : (
+                  <li>The current owner will be changed to admin</li>
+                )}
+                {currentUserIsOwner && (
+                  <li>The new owner will be able to delete your account membership</li>
+                )}
               </ul>
             </div>
             <div className="mt-5">
