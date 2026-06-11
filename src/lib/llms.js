@@ -292,6 +292,10 @@ export const BENCHMARKS = {
     title: 'GPQA Diamond',
     description: 'GPQA Diamond tier - graduate-level physics assessment',
   },
+  HMTT2025: {
+    title: 'HMTT 2025',
+    description: 'Harvard-MIT Mathematics Tournament 2025 benchmark for contest-level mathematical reasoning',
+  },
   GSM8K: {
     title: 'GSM8K',
     description: 'Grade School Math 8K - mathematical reasoning benchmark',
@@ -425,6 +429,11 @@ export const BENCHMARKS = {
   LiveCodeBenchPro: {
     title: 'LiveCodeBench Pro',
     description: 'A competitive coding benchmark featuring problems from Codeforces, ICPC, and IOI, evaluated using Elo ratings (higher is better)',
+    format: 'number',
+  },
+  LiveCodeBenchProContests: {
+    title: 'LiveCodeBench Pro Contests',
+    description: 'Competitive programming benchmark from contest tasks, reported as Elo rating where higher is better',
     format: 'number',
   },
   MATH: {

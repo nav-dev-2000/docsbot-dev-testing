@@ -4536,6 +4536,103 @@ const LLMS = [
     },
   },
   {
+    model_name: 'Nemotron 3 Ultra 550B A55B',
+    slug: 'nemotron-3-ultra-550b-a55b',
+    provider: 'nvidia',
+    description:
+      "Nemotron 3 Ultra 550B A55B is NVIDIA's open-weights frontier reasoning model for agentic, coding, mathematical, and long-context enterprise workloads. Released on June 4, 2026, it uses a hybrid Mamba-2/attention Mixture-of-Experts architecture with 550B total parameters and 55B active parameters, supports up to a 1M-token context window, and exposes thinking/non-thinking modes plus tool-use-oriented capabilities through NVIDIA NIM and Hugging Face.",
+    input_context_window: '1M',
+    maximum_output_tokens: '1M',
+    open_source: true,
+    release_date: '2026-06-04',
+    knowledge_cut_off_date: '2026-03',
+    api_providers: 'NVIDIA NIM, Hugging Face',
+    input_cost_per_million_tokens: null,
+    output_cost_per_million_tokens: null,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_context: true,
+      reasoning_mode: true,
+      function_calling: true,
+      structured_output: true,
+    },
+    benchmarks: {
+      MMLUPro: {
+        score: 90.1,
+        notes: null,
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      HMTT2025: {
+        score: 68.0,
+        notes: null,
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      AIME2025: {
+        score: 92.08,
+        notes: 'No tools',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      GPQADiamond: {
+        score: 88.78,
+        notes: 'No tools',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      HumanitysLastExam: {
+        score: 22.01,
+        notes: 'No tools',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      LiveCodeBenchProContests: {
+        score: 2527,
+        notes: 'Reasoning mode Elo',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      TerminalBench: {
+        score: 57.06,
+        notes: 'Terminal Bench Core 2.0',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      SWEBench: {
+        score: 70.01,
+        notes: 'OpenHands',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      SWEBenchPro: {
+        score: 41.86,
+        notes: 'OpenHands',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      SWEBenchMultilingual: {
+        score: 50.54,
+        notes: 'OpenHands',
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+      Tau3BenchTelecom: {
+        score: 59.11,
+        notes: null,
+        source:
+          'https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16',
+      },
+    },
+  },
+  {
     model_name: 'Nemotron 3 Super 120B A12B',
     slug: 'nemotron-3-super-120b-a12b',
     provider: 'nvidia',
