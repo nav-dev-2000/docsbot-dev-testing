@@ -5,6 +5,7 @@ import {
   canUserEditBot,
   canUserManageBotSettings,
   canUserViewBot,
+  canUserViewTeamYearlyReport,
   getEffectiveRoleForBot,
   getUserBotRole,
   getUserRole,
@@ -98,5 +99,24 @@ describe('function.utils permissions', () => {
     expect(canUserEditBot(team, 'viewer', bot)).toBe(false)
     expect(canUserViewBot(team, bot, 'viewer')).toBe(true)
     expect(canUserViewBot(team, bot, 'disabled')).toBe(false)
+  })
+
+  it('limits team yearly reports to users with real team access', () => {
+    const team = {
+      roles: {
+        owner: 'owner',
+        admin: 'admin',
+        editor: 'editor',
+        viewer: 'viewer',
+        botScoped: 'none',
+      },
+    }
+
+    expect(canUserViewTeamYearlyReport(team, 'owner')).toBe(true)
+    expect(canUserViewTeamYearlyReport(team, 'admin')).toBe(true)
+    expect(canUserViewTeamYearlyReport(team, 'editor')).toBe(true)
+    expect(canUserViewTeamYearlyReport(team, 'viewer')).toBe(true)
+    expect(canUserViewTeamYearlyReport(team, 'botScoped')).toBe(false)
+    expect(canUserViewTeamYearlyReport(team, 'missing-user')).toBe(false)
   })
 })

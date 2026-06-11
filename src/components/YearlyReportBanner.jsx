@@ -3,9 +3,13 @@ import { useEffect, useState } from 'react'
 import { ArrowTopRightOnSquareIcon, SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import * as cookie from 'cookie'
 import clsx from 'clsx'
+import { canUserViewTeamYearlyReport } from '@/utils/function.utils'
 
 const YEAR_KEY = '2025'
 const DISMISS_KEY = `yearly-report-${YEAR_KEY}`
+// Before re-enabling next December, only render this for users with full team access.
+// Bot-scoped users can be limited to one bot, while yearly reports contain team-wide data.
+const YEARLY_REPORT_BANNER_ENABLED = false
 
 const getPreferences = () => {
   if (typeof window === 'undefined') return {}
@@ -45,7 +49,7 @@ const isNoticeDismissed = (dismissKey) => {
   return prefs[`dismissed-${dismissKey}`] === true
 }
 
-export default function YearlyReportBanner({ team, className }) {
+function YearlyReportBannerContent({ team, className }) {
   const [showNotice, setShowNotice] = useState(true)
   const report = team?.yearlyReports?.[YEAR_KEY]
 
@@ -122,4 +126,12 @@ export default function YearlyReportBanner({ team, className }) {
         </div>
       </div>
   )
+}
+
+export default function YearlyReportBanner({ team, user, className }) {
+  if (!YEARLY_REPORT_BANNER_ENABLED || !canUserViewTeamYearlyReport(team, user?.uid)) {
+    return null
+  }
+
+  return <YearlyReportBannerContent team={team} className={className} />
 }

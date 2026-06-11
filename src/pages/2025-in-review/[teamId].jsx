@@ -9,7 +9,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { usePostHog } from 'posthog-js/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { getAuthorizedUser } from '@/middleware/getAuthorizedUser'
-import { isSuperAdmin } from '@/utils/helpers'
+import { canUserViewTeamYearlyReport } from '@/utils/function.utils'
 import {
   ClipboardDocumentCheckIcon,
   ClipboardDocumentListIcon,
@@ -517,7 +517,7 @@ export const getServerSideProps = async (context) => {
     isAuthenticated = true
     
     // Check permissions using team data we already fetched
-    if (data?.roles?.[uid] || isSuperAdmin(uid)) {
+    if (canUserViewTeamYearlyReport(data, uid)) {
       hasTeamAccess = true
     }
   } catch (error) {

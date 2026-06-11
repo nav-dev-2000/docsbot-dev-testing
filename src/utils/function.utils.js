@@ -48,6 +48,12 @@ export const canUserViewBot = (team, bot, userId) => {
     return role && role !== 'none'
 }
 
+export const canUserViewTeamYearlyReport = (team, userId) => {
+    if (!team || !userId) return false
+    const role = getUserRole(team, userId)
+    return Boolean(role && role !== 'none')
+}
+
 // If bot provided, check against effective role for that bot
 export const canUserEditBot = (team, userId, bot = null) => {
     const role = bot ? getEffectiveRoleForBot(team, bot, userId) : getUserRole(team, userId)

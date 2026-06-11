@@ -237,7 +237,7 @@ export default function DashboardWrap({
                     !router.pathname.includes('/conversations') &&
                     !router.pathname.includes('/questions') &&
                     !router.pathname.includes('/research') && (
-                      <YearlyReportNotice team={team} />
+                      <YearlyReportNotice team={team} user={user} />
                     )}
                   {children}
                 </div>
