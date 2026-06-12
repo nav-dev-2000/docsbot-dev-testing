@@ -219,7 +219,7 @@ export default function QAForm({
                 tabIndex={(index * 2 + 2).toString()}
                 placeholder={getPlaceholder(index).answer}
                 className={
-                  'block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:h-48 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm' +
+                  'overflow-hidden block w-full rounded-md border-gray-300 placeholder-gray-300 shadow-sm focus:h-48 focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm' +
                   (!canChange ? ' cursor-not-allowed' : '')
                 }
               />

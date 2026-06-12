@@ -35,6 +35,8 @@ import { auth } from '@/config/firebase-ui.config'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { canUserModifySources } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
+import IconButton from '@new-dashboard/IconButton'
+import SaveDiskIcon from '@new-dashboard/SaveDiskIcon'
 import React from 'react'
 import FieldToggle from '@/components/FieldToggle'
 import { isSuperAdmin } from '@/utils/helpers'
@@ -358,6 +360,7 @@ export default function ModalSource({
 
       // update source
       setSources((sources) => sources.map((s) => (s.id === data.id ? data : s)))
+      setChanged(false)
       setOpen(false)
     } else {
       try {
@@ -530,6 +533,16 @@ export default function ModalSource({
     setFilteredUrls(filtered)
   }, [searchTerm, source?.indexedUrls])
 
+  const handleCloseModal = () =>{
+    if (changed || hasPendingSourceUpdates) {
+      if (!window.confirm('You have unsaved changes that will be lost if you close. Continue?')) {
+        return false
+      }
+    }
+    setOpen(false)
+    return true
+  }
+
   useEffect(() => {
     if (!Array.isArray(source?.trutoSelected)) return
 
@@ -555,9 +568,7 @@ export default function ModalSource({
         <Dialog
           as="div"
           className="relative z-modal"
-          onClose={() => {
-            setOpen(false)
-          }}
+          onClose={handleCloseModal}
         >
           <Transition.Child
             as={Fragment}
@@ -587,9 +598,7 @@ export default function ModalSource({
                     <button
                       type="button"
                       className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                      onClick={() => {
-                        setOpen(false)
-                      }}
+                      onClick={handleCloseModal}
                     >
                       <span className="sr-only">Close</span>
                       <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -659,14 +668,17 @@ export default function ModalSource({
                     <Alert title={errorText} type="warning" />
                     {source?.faqs && (
                       <>
-                        <div className="my-4">
-                          <label htmlFor="filter-faqs" className="sr-only">
-                            Search
-                          </label>
-                          <div className="relative flex items-center md:max-w-xs">
+                        <div className="my-4 flex items-center justify-between">
+                          {/* Left Side - Search */}
+                          <div className="relative flex items-center md:max-w-xs w-full">
+                            <label htmlFor="filter-faqs" className="sr-only">
+                              Search
+                            </label>
+
                             <div className="absolute inset-y-0 left-0 flex items-center pl-2">
                               <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
                             </div>
+
                             <input
                               id="filter-faqs"
                               name="filter-faqs"
@@ -676,6 +688,7 @@ export default function ModalSource({
                               className="block w-full rounded-md border-0 py-1 pl-8 pr-8 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-cyan-600 sm:text-xs sm:leading-6"
                               placeholder="Filter questions..."
                             />
+
                             {qaSearchTerm && (
                               <button
                                 onClick={() => setQaSearchTerm('')}
@@ -685,6 +698,26 @@ export default function ModalSource({
                               </button>
                             )}
                           </div>
+                          {/* Right Side - Button */}
+                          <Tooltip content="Save Changes">
+                            <IconButton
+                              icon={submitting ? LoadingSpinner : SaveDiskIcon}
+                              label="Save Changes"
+                              theme={
+                                changed && !submitting && canModify
+                                  ? 'blueSolid'
+                                  : undefined
+                              }
+                              className={
+                                changed && !submitting && canModify
+                                  ? 'ml-4 animate-bounce'
+                                  : 'ml-4'
+                              }
+                              size="sm"
+                              onClick={patchSource}
+                              disabled={submitting || !changed || !canModify}
+                            />
+                          </Tooltip>
                         </div>
                         <QAForm
                           questions={questions}
@@ -696,21 +729,6 @@ export default function ModalSource({
                           searchTerm={qaSearchTerm}
                           onClearSearch={() => setQaSearchTerm('')}
                         />
-                        <div className="flex flex-shrink-0 items-end justify-end">
-                          <button
-                            disabled={submitting || !changed || !canModify}
-                            onClick={patchSource}
-                            className={
-                              'ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-sm font-medium text-white shadow-sm' +
-                              (canModify
-                                ? ' bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2'
-                                : ' cursor-not-allowed bg-gray-300')
-                            }
-                          >
-                            {submitting && <LoadingSpinner className="mr-3" />}
-                            Save
-                          </button>
-                        </div>
                       </>
                     )}
                     <Alert title={infoText} type="info" />
