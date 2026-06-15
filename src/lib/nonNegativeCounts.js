@@ -10,7 +10,7 @@ export function incrementNonNegativeCount(currentValue, amount = 1) {
   return toNonNegativeCount(toNonNegativeCount(currentValue) + toNonNegativeCount(amount))
 }
 
-export function decrementNonNegativeCount(currentValue, amount = 1) {
+export function decrementNonNegativeCount(currentValue, amount = 0) {
   return Math.max(0, toNonNegativeCount(currentValue) - toNonNegativeCount(amount))
 }
 

@@ -127,7 +127,7 @@ router.post(async (req, res) => {
             throw 'Team does not exist!'
           }
 
-          const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount)
+          const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount, 1)
           transaction.update(teamRef, {
             botCount: newBotCount,
           })

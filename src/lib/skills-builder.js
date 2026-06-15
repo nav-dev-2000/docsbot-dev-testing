@@ -575,11 +575,11 @@ export function decryptSkillSecretStoredValue(stored) {
   }
 }
 
-/** Encrypt plaintext secrets for storage; leave values that already decrypt with our key unchanged. */
+/** Encrypt plaintext secrets for storage; preserve existing values only for redacted placeholders. */
 function normalizeSecretBindingSecretForStorage(secret, existingSecret = '') {
   const existing = safeSkillString(existingSecret).trim()
-  if (existing) return existing
-  if (secret == null || secret === '' || isRedactedPlaceholder(secret)) return ''
+  if (secret == null || secret === '') return ''
+  if (isRedactedPlaceholder(secret)) return existing
   const s = String(secret)
   try {
     decryptKey(s)

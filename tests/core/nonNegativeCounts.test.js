@@ -19,6 +19,11 @@ describe('non-negative count helpers', () => {
     expect(decrementNonNegativeCount(-3, 1)).toBe(0)
   })
 
+  it('treats missing decrement amounts as zero', () => {
+    expect(decrementNonNegativeCount(5)).toBe(5)
+    expect(decrementNonNegativeCount(5, undefined)).toBe(5)
+  })
+
   it('ignores negative source totals when recomputing counts', () => {
     expect(sumNonNegativeCounts([10, -5, '3', undefined])).toBe(13)
   })

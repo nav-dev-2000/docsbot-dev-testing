@@ -74,7 +74,7 @@ export const deleteSource = async (
       sourceDoc.data().status == 'ready' ||
       sourceDoc.data().status == 'failed'
     ) {
-      const newTeamSourceCount = decrementNonNegativeCount(teamDoc.data().sourceCount)
+      const newTeamSourceCount = decrementNonNegativeCount(teamDoc.data().sourceCount, 1)
       const newTeamChunkCount = decrementNonNegativeCount(
         teamDoc.data().chunkCount,
         sourceDoc.data().chunkCount,
@@ -91,7 +91,7 @@ export const deleteSource = async (
       })
 
       // decrement bot counts
-      const newBotSourceCount = decrementNonNegativeCount(botDoc.data().sourceCount)
+      const newBotSourceCount = decrementNonNegativeCount(botDoc.data().sourceCount, 1)
       const newBotChunkCount = decrementNonNegativeCount(
         botDoc.data().chunkCount,
         sourceDoc.data().chunkCount,
@@ -412,7 +412,7 @@ export const deleteBot = async (teamId, botId) => {
       throw 'Team does not exist!'
     }
 
-    const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount)
+    const newBotCount = decrementNonNegativeCount(sfDoc.data().botCount, 1)
     const newSourceCount = decrementNonNegativeCount(
       sfDoc.data().sourceCount,
       bot.sourceCount,

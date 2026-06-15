@@ -700,6 +700,145 @@ describe('skills-builder helpers', () => {
     ])
   })
 
+  it('updateSkillDraft replaces and clears existing secret values', async () => {
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [
+        {
+          envVar: 'SERVICE_API_KEY',
+          secret: 'encrypted:old-key',
+          description: 'Service API key.',
+        },
+        {
+          envVar: 'WEBHOOK_SECRET',
+          secret: 'encrypted:old-webhook',
+          description: 'Webhook signing secret.',
+        },
+      ],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'old content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          secretBindings: [
+            {
+              envVar: 'SERVICE_API_KEY',
+              secret: 'new-key',
+              description: 'Updated service API key.',
+            },
+            {
+              envVar: 'WEBHOOK_SECRET',
+              secret: '',
+              description: 'Cleared webhook signing secret.',
+            },
+          ],
+        },
+      },
+      firestore,
+    )
+
+    expect(mocks.encryptKey).toHaveBeenCalledWith('new-key')
+    expect(updated.secretBindings).toEqual([
+      {
+        envVar: 'SERVICE_API_KEY',
+        secret: 'encrypted:new-key',
+        description: 'Updated service API key.',
+      },
+      {
+        envVar: 'WEBHOOK_SECRET',
+        secret: '',
+        description: 'Cleared webhook signing secret.',
+      },
+    ])
+  })
+
+  it('updateSkillDraft can replace an existing secret that no longer decrypts', async () => {
+    const firestore = createFirestoreMock({
+      name: 'customer-refunds',
+      description: 'Use when refund workflows need automation.',
+      internal: false,
+      enabled: false,
+      hasFunctions: true,
+      icon: 'LinkIcon',
+      r2Prefix: 'team-1/bot-1/customer-refunds',
+      networkPolicy: { allowedDomains: [], allowedSchemes: ['https'] },
+      envBindings: [],
+      secretBindings: [
+        {
+          envVar: 'SERVICE_API_KEY',
+          secret: 'rotated-key-ciphertext',
+          description: 'Service API key.',
+        },
+      ],
+      metadataBindings: [],
+      mode: 'executable',
+      audience: 'customer',
+      validation: null,
+      liveTest: null,
+      chatMessages: [],
+      lastAuthoringSummary: null,
+      agent: null,
+    })
+
+    mocks.readSkillDraftPackageFromR2.mockResolvedValue({
+      configured: true,
+      files: [{ path: 'SKILL.md', content: 'old content' }],
+    })
+
+    const { updateSkillDraft } = await import('@/lib/skills-builder')
+    const updated = await updateSkillDraft(
+      'team-1',
+      'bot-1',
+      'customer-refunds',
+      {
+        manifest: {
+          secretBindings: [
+            {
+              envVar: 'SERVICE_API_KEY',
+              secret: 'replacement-key',
+              description: 'Service API key.',
+            },
+          ],
+        },
+      },
+      firestore,
+    )
+
+    expect(mocks.encryptKey).toHaveBeenCalledWith('replacement-key')
+    expect(updated.secretBindings).toEqual([
+      {
+        envVar: 'SERVICE_API_KEY',
+        secret: 'encrypted:replacement-key',
+        description: 'Service API key.',
+      },
+    ])
+  })
+
   it('updateSkillDraft rejects multiple-choice env values outside the option keys', async () => {
     const firestore = createFirestoreMock({
       name: 'image-generator',
