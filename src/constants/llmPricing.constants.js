@@ -436,6 +436,14 @@ export const LLM_PRICING = {
       output_token_cost_per_million: 4.4,
     },
     {
+      model_name: 'GLM-5.2',
+      model_slug: 'glm-5-2',
+      context: '1M/131K',
+      provider: 'Zhipu AI',
+      input_token_cost_per_million: 1.4,
+      output_token_cost_per_million: 4.4,
+    },
+    {
       model_name: 'MiniMax M2.7',
       model_slug: 'minimax-m2-7',
       context: '204.8K',

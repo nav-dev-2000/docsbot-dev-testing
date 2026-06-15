@@ -8142,7 +8142,7 @@ const LLMS = [
   {
     model_name: 'GLM-5',
     slug: 'glm-5',
-    redirect_to: 'glm-5-1',
+    redirect_to: 'glm-5-2',
     provider: 'zhipu',
     description:
       "GLM-5 is Zhipu AI's flagship foundation model designed for complex systems engineering and long-horizon agentic tasks. It features 744B total parameters (40B activated) in a Mixture of Experts architecture, trained on 28.5T tokens. GLM-5 integrates DeepSeek Sparse Attention for higher token efficiency while preserving long-context quality. It supports 200K context length and up to 128K output tokens, with capabilities including thinking modes, real-time streaming, function calling, context caching, and structured output. GLM-5 approaches Claude Opus 4.5 in code-logic density and systems-engineering capability. Open-sourced under MIT License.",
@@ -8370,6 +8370,37 @@ const LLMS = [
         source: 'https://docs.z.ai/guides/llm/glm-5.1',
       },
     },
+  },
+  {
+    model_name: 'GLM-5.2',
+    slug: 'glm-5-2',
+    provider: 'zhipu',
+    description:
+      "GLM-5.2 is Z.ai's latest flagship coding model for long-horizon agentic development work. It expands the GLM-5 family to a 1M-token context option through the glm-5.2[1m] variant, supports up to 131,072 output tokens, and adds two thinking-effort levels, High and Max, for complex multi-step coding tasks. Z.ai makes GLM-5.2 available across its GLM Coding Plan tiers and documents drop-in configuration for Claude Code, OpenClaw, Cline, and other coding agents.",
+    input_context_window: '1M',
+    maximum_output_tokens: '131K',
+    open_source: false,
+    release_date: '2026-06-13',
+    knowledge_cut_off_date: null,
+    api_providers: 'Z.ai Coding Plan',
+    input_cost_per_million_tokens: 1.4,
+    output_cost_per_million_tokens: 4.4,
+    modalities: {
+      text: true,
+      image: false,
+      voice: false,
+      video: false,
+    },
+    key_capabilities: {
+      coding: true,
+      agentic_tool_use: true,
+      long_horizon_reasoning: true,
+      multi_step_workflows: true,
+      function_calling: true,
+      structured_output: true,
+      reasoning_mode: true,
+    },
+    benchmarks: {},
   },
   {
     model_name: 'MiniMax M2.5',
