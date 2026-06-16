@@ -112,44 +112,6 @@ export default async function handler(req, res) {
           .json({ message: 'Invalid OpenAI Key. Please check and try again.' })
       }
     } else if (openAIKey === false) {
-      const defaultModel = 'gpt-5.4-mini'
-
-      // walk through each bot, and verify that it's set to default. if not, update it
-      const botsSnapshot = await firestore
-        .collection('teams')
-        .doc(team.id)
-        .collection('bots')
-        .get()
-
-      botsSnapshot.forEach(async (doc) => {
-        const allowedModels = [
-          'gpt-4o-mini',
-          'gpt-4.1-nano',
-          'gpt-4.1-mini',
-          'gpt-4.1',
-          'gpt-5-nano',
-          'gpt-5-mini',
-          'gpt-5',
-          'gpt-5.1',
-          'gpt-5.2',
-          'gpt-5.4-nano',
-          'gpt-5.4-mini',
-          'gpt-5.4',
-          'gpt-5.5',
-        ]
-        if (!allowedModels.includes(doc.get('model'))) {
-          // update bot to default model
-          await firestore
-            .collection('teams')
-            .doc(team.id)
-            .collection('bots')
-            .doc(doc.id)
-            .update({
-              model: defaultModel,
-            })
-        }
-      })
-
       newTeam.openAIKey = null
       newTeam.openAIKeyPreview = null
       newTeam.supportsGPT4 = false

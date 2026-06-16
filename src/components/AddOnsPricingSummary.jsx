@@ -90,16 +90,27 @@ export default function AddOnsPricingSummary({
               <h3 className="font-semibold text-gray-950">{addOn.name}</h3>
               <p className="mt-1 min-h-10 text-sm text-gray-600">{addOn.description}</p>
               <div className="mt-4">
-                <span className="text-2xl font-bold text-gray-950">
-                  {formatPrice(price, currencyCode)}
-                </span>
-                <span className="ml-1 text-sm font-medium text-gray-600">{suffix}</span>
+                {normalizedInterval === 'annually' ? (
+                  <>
+                    <div>
+                      <span className="text-2xl font-bold text-gray-950">
+                        {formatPrice(monthlyEquivalent, currencyCode)}
+                      </span>
+                      <span className="ml-1 text-sm font-medium text-gray-600">/month</span>
+                    </div>
+                    <p className="mt-1 text-xs text-gray-500">
+                      ({formatPrice(price, currencyCode)}/yr)
+                    </p>
+                  </>
+                ) : (
+                  <div>
+                    <span className="text-2xl font-bold text-gray-950">
+                      {formatPrice(price, currencyCode)}
+                    </span>
+                    <span className="ml-1 text-sm font-medium text-gray-600">{suffix}</span>
+                  </div>
+                )}
               </div>
-              {normalizedInterval === 'annually' && (
-                <p className="mt-1 text-xs text-gray-500">
-                  {formatPrice(monthlyEquivalent, currencyCode)}/mo equivalent
-                </p>
-              )}
               <p className="mt-3 text-xs font-medium uppercase tracking-wide text-gray-500">
                 Per {addOn.unitLabel}
               </p>

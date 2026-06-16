@@ -29,7 +29,7 @@ const DEFAULT_ADD_ONS = {
       EUR: 528,
       GBP: 456,
     },
-    unitLabel: '5k credits',
+    unitLabel: '5k extra credits',
     eligiblePlans: ['personal', 'standard', 'business', 'enterprise'],
   },
   [ADD_ON_IDS.BOTS]: {
@@ -52,7 +52,7 @@ const DEFAULT_ADD_ONS = {
       EUR: 204,
       GBP: 180,
     },
-    unitLabel: 'bot',
+    unitLabel: 'extra bot',
     eligiblePlans: ['personal', 'standard', 'business', 'enterprise'],
   },
   [ADD_ON_IDS.SOURCE_PAGES]: {
@@ -75,7 +75,7 @@ const DEFAULT_ADD_ONS = {
       EUR: 312,
       GBP: 276,
     },
-    unitLabel: '10k pages',
+    unitLabel: '10k extra pages',
     eligiblePlans: ['personal', 'standard', 'business', 'enterprise'],
   },
 }

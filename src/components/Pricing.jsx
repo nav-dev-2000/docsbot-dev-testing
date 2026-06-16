@@ -196,7 +196,7 @@ export default function Pricing() {
           ))}
         </div>
         <p className="mx-auto mt-4 text-center text-sm text-gray-600">
-          Lower-cost models are included. Larger models and AI actions may use more AI Credits.
+          AI credit usage starts at 1x per message and may use more for larger models and AI actions.
         </p>
         <div className="mx-auto mt-12 flex max-w-2xl flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:max-w-none lg:flex-row lg:items-center">
           <div className="lg:min-w-0 lg:flex-1">

@@ -101,7 +101,7 @@ const AVAILABLE_MODELS = [
         value: 'gpt-5-nano',
         title: 'GPT-5 nano',
         description:
-            'Included in all plans. Affordable & extremely fast model.',
+            'Affordable and extremely fast at 1x AI credits per message.',
         creditMultiplier: 1,
         capabilities: {
             fast: true,

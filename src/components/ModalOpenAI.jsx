@@ -101,8 +101,9 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-700">
-                        We need to connect your bots to your OpenAI account so you have full control
-                        and ownership of your data.
+                        Use your own OpenAI account for lower AI credit usage. With your own key,
+                        all requests use only 1 AI credit. We encrypt your key and use it only for
+                        API calls.
                       </p>
                       <p className="text-xs text-gray-600">
                         (Creating an account only takes a few minutes, only pay for what you use!)
@@ -174,7 +175,7 @@ export default function ModalOpenAI({ team, open, setOpen, onKey }) {
                           >
                             add at least $5 in credit
                           </Link>{' '}
-                          in your OpenAI account to increase rate limits and unlock advanced models.
+                          in your OpenAI account for OpenAI billing and rate limits.
                         </p>
                       </div>
                     </div>

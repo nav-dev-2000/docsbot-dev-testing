@@ -115,7 +115,6 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
   const [copyMessage, setCopyMessage] = useState(null)
   const [allowApiRemove, setAllowApiRemove] = useState(team.openAIKey ? true : false)
   const [integrations, setIntegrations] = useState(initialIntegrations)
-  const defaultModel = 'GPT-5.4 nano';
   const [copiedApiKey, setCopiedApiKey] = useState(false)
   const [isCopyableApiKey, setIsCopyableApiKey] = useState(false)
   const [mcpClients, setMcpClients] = useState(initialMcpClients)
@@ -267,7 +266,7 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
                     <p>
                       Are you sure you want to remove your OpenAI API key?
                     </p>
-                    <Alert title={`All bots will be moved to the included ${defaultModel} model!`} type="error" />
+                    <Alert title="Removing your key means bots will use DocsBot-hosted API usage again, with model-specific AI credit multipliers instead of 1 credit per request." type="warning" />
                   </div>
                   <div className="mt-6 flex w-full flex-shrink-0 items-end justify-end">
                     <button
@@ -345,7 +344,11 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
           </>
         ) : (
           <p className="text-md mt-2 text-justify text-gray-800">
-            You can add or update your OpenAI API key here. You must have an OpenAI account on at least Tier 1 ($5 credit added) for DocsBot to use more advanced models like GPT-5 & GPT-4o/4.1. <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">Organization verification</Link> is required for GPT-5 and o3/o4. {' '}
+            Use your own OpenAI account for lower AI credit usage. With your own key, all requests use only 1 AI credit. You can add or update your key here; we encrypt and use it only for API calls. Some OpenAI models may require{' '}
+            <Link href="https://help.openai.com/en/articles/10910291-api-organization-verification" target="_blank" className="underline hover:text-gray-800">
+              organization verification
+            </Link>{' '}
+            on your OpenAI account.{' '}
             <Link
               className="text-cyan-800 underline"
               href="https://platform.openai.com/api-keys"
@@ -383,21 +386,14 @@ function Api({ user, team, bots, integrations: initialIntegrations, mcpClients: 
                 </a>
               )}
             </div>
-            {currentTeam.supportsGPT4 && currentTeam.openAIKey ? (
-              <p className="mt-4 text-sm italic">GPT-5 Support Enabled</p>
+            {currentTeam.openAIKey ? (
+              <p className="mt-4 text-sm text-gray-700">
+                Using your OpenAI account — all requests use 1 AI credit each.
+              </p>
             ) : (
-              <>
-                <Link
-                  className="mt-4 block text-sm underline hover:text-gray-500"
-                  href="https://platform.openai.com/docs/guides/rate-limits#usage-tiers"
-                  target="_blank"
-                >
-                  GPT-5 access details
-                </Link>
-                <p className="mt-1 text-xs italic">
-                  Optional - Once you've added at least $5 credit to OpenAI update your OpenAI API key to unlock other models
-                </p>
-              </>
+              <p className="mt-4 text-sm text-gray-600">
+                Optional — connect your OpenAI key to use 1 AI credit per request instead of model-specific multipliers.
+              </p>
             )}
           </div>
         </div>

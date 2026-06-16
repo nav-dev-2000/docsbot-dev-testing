@@ -21,7 +21,7 @@ const faqs = [
     id: 3,
     question: 'Do I need to provide my own OpenAI API key?',
     answer:
-      "GPT-4o, 4.1, and GPT-5 mini models are included, perfect for most use cases. Bring your own OpenAI key to use other models; we encrypt and use it only for API calls.",
+      "No. All supported models are available on every plan through your included AI Credits—usage starts at 1x per message and can cost more with larger models and AI actions. Optionally, connect your own OpenAI key for 1x credit usage on any model; we encrypt and use it only for API calls.",
   },
   {
     id: 4,
@@ -40,13 +40,13 @@ const faqs = [
     anchor: 'ai-credits',
     question: 'How do AI Credits work?',
     answer:
-      "AI Credits are the usage unit counted against your plan. Lower-cost models use about 1 AI Credit per 5k tokens, prorated by actual token usage and rounded to the nearest credit. AI actions, skill builder/tester runs, and larger models use higher multipliers, so they can consume more credits.",
+      "AI Credits are the usage unit counted against your plan. One credit reflects typical usage for a 1x message—actual usage is prorated accordingly and rounded to the nearest credit. AI actions, skill builder/tester runs, and larger models use higher multipliers, so they can consume more credits.",
   },
   {
     id: 7,
     question: 'What happens if I exceed my monthly AI Credit limit?',
     answer:
-      "Your bot keeps running but warns visitors. Upgrade for a higher limit or wait for the monthly limit reset in the next calendar month.",
+      "When you reach your monthly AI Credit limit, your bot stops responding and shows visitors a friendly error message. Upgrade for a higher limit, turn on auto-add AI credits in your account settings to automatically increase your add-on when you hit the limit, or wait for your limit to reset at the start of the next calendar month.",
   },
   {
     id: 8,

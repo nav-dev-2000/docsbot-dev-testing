@@ -761,8 +761,8 @@ export default function PricingPage() {
                       ))}
                     </div>
                     <p className="mx-auto mt-10 text-center text-sm text-gray-200">
-                      Lower-cost models are included. Larger models and AI
-                      actions may use more AI Credits.
+                      AI credit usage starts at 1x per message and may use more
+                      for larger models and AI actions.
                       <AiCreditsFootnoteLink className="text-cyan-300 hover:text-cyan-200" />
                     </p>
                     <AddOnsPricingSummary
