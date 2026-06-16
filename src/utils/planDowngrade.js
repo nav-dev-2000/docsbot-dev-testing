@@ -12,6 +12,7 @@ import {
   getBotPlanFeatureConflicts,
   getExceededPlanLimits,
 } from '@/utils/checkoutValidation'
+import { getEffectiveAddOns } from '@/utils/billingAddOns'
 import { getIncompatibleSourceTypesForPlan } from '@/utils/sourceTypePlanChecks'
 
 export const PLAN_LEVELS = {
@@ -131,9 +132,17 @@ export const getPlanSelectionDisableReasons = ({
 
   const planActionsLimit = Number(planLimits.actionsLimit)
   const maxActionsPerBot = getMaxActionsPerBot(bots)
+  const addOns = getEffectiveAddOns(team)
 
   if (Number.isFinite(planActionsLimit) && maxActionsPerBot > planActionsLimit) {
     reasons.push(`Actions per bot: ${maxActionsPerBot}/${planActionsLimit}`)
+  }
+
+  if (
+    (PLAN_LEVELS[targetPlanId] || 0) < PLAN_LEVELS.business &&
+    (addOns.teamMembers?.quantity || 0) > 0
+  ) {
+    reasons.push('Extra team users require Business or higher')
   }
 
   reasons.push(
@@ -156,6 +165,13 @@ export const getPlanSelectionDisableReasons = ({
     const planPagesLimit = Number(planLimits.pages) || 0
     const planQuestionsLimit = Number(planLimits.questions) || 0
     const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
+    const effectiveBotsLimit = planBotsLimit + (addOns.bots?.quantity || 0)
+    const effectivePagesLimit =
+      planPagesLimit + (addOns.sourcePages?.quantity || 0) * 10000
+    const effectiveQuestionsLimit =
+      planQuestionsLimit + (addOns.aiCredits?.quantity || 0) * 5000
+    const effectiveTeamMembersLimit =
+      planTeamMembersLimit + (addOns.teamMembers?.quantity || 0)
 
     const currentBots = Number(team?.botCount ?? 0)
     const currentPages = Number(team?.pageCount ?? 0)
@@ -163,17 +179,17 @@ export const getPlanSelectionDisableReasons = ({
     const currentTeamMembers =
       Object.keys(team?.roles || {}).length + teamInvites.length
 
-    if (currentBots > planBotsLimit) {
-      reasons.push(`Bots: ${currentBots}/${planBotsLimit}`)
+    if (currentBots > effectiveBotsLimit) {
+      reasons.push(`Bots: ${currentBots}/${effectiveBotsLimit}`)
     }
-    if (currentPages > planPagesLimit) {
-      reasons.push(`Pages: ${currentPages}/${planPagesLimit}`)
+    if (currentPages > effectivePagesLimit) {
+      reasons.push(`Pages: ${currentPages}/${effectivePagesLimit}`)
     }
-    if (currentQuestions > planQuestionsLimit) {
-      reasons.push(`Questions: ${currentQuestions}/${planQuestionsLimit}`)
+    if (currentQuestions > effectiveQuestionsLimit) {
+      reasons.push(`Questions: ${currentQuestions}/${effectiveQuestionsLimit}`)
     }
-    if (currentTeamMembers > planTeamMembersLimit) {
-      reasons.push(`Team members: ${currentTeamMembers}/${planTeamMembersLimit}`)
+    if (currentTeamMembers > effectiveTeamMembersLimit) {
+      reasons.push(`Team members: ${currentTeamMembers}/${effectiveTeamMembersLimit}`)
     }
   }
 

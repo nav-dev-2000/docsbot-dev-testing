@@ -3,6 +3,18 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildFaqEntities, buildFaqPage, buildPageUrl } from '@/lib/structuredData'
+import { getVisibleAiCreditModelMultipliers } from '@/lib/systemModels'
+
+const aiCreditModelMultipliers = getVisibleAiCreditModelMultipliers()
+
+const aiCreditModelMultiplierText = aiCreditModelMultipliers
+  .map((model) => `${model.title}: ${model.creditMultiplier}x`)
+  .join(', ')
+
+const aiCreditsFaqIntro =
+  'AI Credits are your monthly usage allowance. A standard chat message starts at 1 credit for a 1x model, while heavier work uses more. Larger AI models, AI actions, skill builder/tester runs, and longer or more complex requests can cost multiple credits. Usage is rounded to the nearest credit and counts against your plan limit.'
+
+const aiCreditsFaqAnswer = `${aiCreditsFaqIntro} Current chat model multipliers are ${aiCreditModelMultiplierText}.`
 
 const faqs = [
   {
@@ -39,8 +51,9 @@ const faqs = [
     id: 6,
     anchor: 'ai-credits',
     question: 'How do AI Credits work?',
-    answer:
-      "AI Credits are the usage unit counted against your plan. One credit reflects typical usage for a 1x message—actual usage is prorated accordingly and rounded to the nearest credit. AI actions, skill builder/tester runs, and larger models use higher multipliers, so they can consume more credits.",
+    answer: aiCreditsFaqAnswer,
+    displayAnswer: aiCreditsFaqIntro,
+    modelMultipliers: aiCreditModelMultipliers,
   },
   {
     id: 7,
@@ -171,7 +184,37 @@ export default function Faq() {
               {faqs.map((faq) => (
                 <div key={faq.id} id={faq.anchor || `faq-${faq.id}`} className="scroll-mt-24">
                   <h3 className="text-base/7 font-semibold text-gray-900">{faq.question}</h3>
-                  <p className="mt-2 text-base/7 text-gray-600">{faq.answer}</p>
+                  <p className="mt-2 text-base/7 text-gray-600">
+                    {faq.displayAnswer || faq.answer}
+                  </p>
+                  {faq.modelMultipliers?.length > 0 ? (
+                    <div className="group relative mt-3 inline-block">
+                      <button
+                        type="button"
+                        className="rounded-md bg-cyan-50 px-2.5 py-1 text-sm font-semibold text-cyan-700 ring-1 ring-cyan-100 transition hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+                      >
+                        View current model multipliers
+                      </button>
+                      <div className="invisible absolute left-0 top-full z-20 mt-2 w-72 rounded-lg bg-white p-3 text-left opacity-0 shadow-xl ring-1 ring-gray-200 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                        <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                          AI credits per message
+                        </p>
+                        <dl className="grid grid-cols-1 gap-1.5 text-sm/6 text-gray-600">
+                          {faq.modelMultipliers.map((model) => (
+                            <div
+                              key={model.value}
+                              className="flex items-center justify-between gap-3 rounded-md bg-gray-50 px-3 py-1.5"
+                            >
+                              <dt className="font-medium text-gray-800">{model.title}</dt>
+                              <dd className="shrink-0 font-semibold text-cyan-700">
+                                {model.creditMultiplier}x
+                              </dd>
+                            </div>
+                          ))}
+                        </dl>
+                      </div>
+                    </div>
+                  ) : null}
                   {faq.moreInfoHref ? (
                     <Link
                       href={faq.moreInfoHref}

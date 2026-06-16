@@ -196,6 +196,26 @@ describe('stripe webhook success path', () => {
     mocks.slackSend.mockResolvedValue(undefined)
     process.env.STRIPE_WEBHOOK_SECRET = 'stripe-secret'
     process.env.SLACK_WEBHOOK_URL = 'https://hooks.slack.test/services/test'
+    process.env.NEXT_PUBLIC_STRIPE_ADDONS = JSON.stringify({
+      aiCredits: {
+        unit: 5000,
+        prices: {
+          current: {
+            monthly: 'price_ai_credits_monthly',
+            annually: 'price_ai_credits_yearly',
+          },
+        },
+      },
+      teamMembers: {
+        unit: 1,
+        prices: {
+          current: {
+            monthly: 'price_team_members_monthly',
+            annually: 'price_team_members_yearly',
+          },
+        },
+      },
+    })
   })
 
   it('handles a successful checkout.session.completed event', async () => {
@@ -370,6 +390,16 @@ describe('stripe webhook success path', () => {
                   interval: 'year',
                 },
               },
+              {
+                id: 'si_team_members',
+                quantity: 3,
+                price: {
+                  id: 'price_team_members_yearly',
+                  product: 'prod_team_members',
+                  amount: 22800,
+                  interval: 'year',
+                },
+              },
             ],
           },
         },
@@ -404,6 +434,11 @@ describe('stripe webhook success path', () => {
           aiCredits: expect.objectContaining({
             quantity: 2,
             itemId: 'si_ai',
+            subscriptionId: 'sub_123',
+          }),
+          teamMembers: expect.objectContaining({
+            quantity: 3,
+            itemId: 'si_team_members',
             subscriptionId: 'sub_123',
           }),
         }),

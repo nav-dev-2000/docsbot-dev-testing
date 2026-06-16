@@ -276,7 +276,7 @@ export default function PricingPage() {
   const showLegacyPlans = router.query.showLegacy === 'true'
   const activeTiers = showLegacyPlans 
     ? pricingTiers.filter(tier => 
-        tier.legacy || ['hobby', 'personal', 'pro', 'standard', 'business'].includes(tier.id)
+        ['hobby', 'personal', 'standard', 'business'].includes(tier.id)
       )
     : pricingTiers.filter(tier => !tier.legacy)
   const pageUrl = buildPageUrl('/pricing')
@@ -769,7 +769,7 @@ export default function PricingPage() {
                       currency={currency}
                       interval={frequency?.value}
                       dark
-                      className="mx-auto mt-10 max-w-5xl"
+                      className="mt-10 w-full"
                     />
                   </div>
 

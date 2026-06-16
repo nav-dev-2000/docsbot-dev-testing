@@ -14,6 +14,7 @@ export default function ModalCheckout({
   addOnFocusId = ADD_ON_IDS.BOTS,
   addOnTitle = 'Add bot capacity',
   addOnDescription = 'Add another bot without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice.',
+  teamInvites = [],
   onTeamBillingUpdate = null,
   onError = null,
   onSuccess = null,
@@ -69,6 +70,7 @@ export default function ModalCheckout({
                     <AddOnsManager
                       team={team}
                       focusAddOnId={addOnFocusId}
+                      teamInvites={teamInvites}
                       className="mb-8"
                       title={addOnTitle}
                       description={addOnDescription}

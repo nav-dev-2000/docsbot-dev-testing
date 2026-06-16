@@ -317,6 +317,86 @@ describe('stateful team route handlers', () => {
     expect(mocks.sendInviteEmail).toHaveBeenCalled()
   })
 
+  it('rejects invites when current members and pending invites reach the team-user limit', async () => {
+    mocks.userTeamCheck.mockResolvedValue({
+      userId: 'user-1',
+      team: {
+        id: 'team-1',
+        name: 'DocsBot',
+        roles: { 'user-1': 'owner', 'user-2': 'admin' },
+        botCount: 0,
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      bots: 10,
+      teamMembers: 2,
+      name: 'Personal',
+    })
+    mocks.firestoreState.getInviteQuery.mockResolvedValueOnce({ size: 0 })
+
+    const req = createMockReq({
+      method: 'POST',
+      query: { teamId: 'team-1' },
+      body: {
+        inviteEmail: 'invitee@example.com',
+        role: 'viewer',
+        botOverrides: [],
+      },
+    })
+    const res = createMockRes()
+
+    await inviteHandler(req, res)
+
+    expect(res.statusCode).toBe(402)
+    expect(mocks.firestoreState.addInvite).not.toHaveBeenCalled()
+  })
+
+  it('allows invites when team-user add-ons raise the effective limit', async () => {
+    mocks.userTeamCheck.mockResolvedValue({
+      userId: 'user-1',
+      team: {
+        id: 'team-1',
+        name: 'DocsBot',
+        roles: { 'user-1': 'owner', 'user-2': 'admin' },
+        botCount: 0,
+        stripeSubscriptionStatus: 'active',
+        stripeAddOns: {
+          teamMembers: { quantity: 2 },
+        },
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      bots: 10,
+      teamMembers: 4,
+      name: 'Personal',
+    })
+    mocks.firestoreState.getInviteQuery
+      .mockResolvedValueOnce({ size: 1 })
+      .mockResolvedValueOnce({ size: 0 })
+
+    const req = createMockReq({
+      method: 'POST',
+      query: { teamId: 'team-1' },
+      body: {
+        inviteEmail: 'invitee@example.com',
+        role: 'viewer',
+        botOverrides: [],
+      },
+    })
+    const res = createMockRes()
+
+    await inviteHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.firestoreState.addInvite).toHaveBeenCalledWith(
+      expect.objectContaining({
+        email: 'invitee@example.com',
+        teamId: 'team-1',
+        role: 'viewer',
+      }),
+    )
+  })
+
   it('rejects none-role invites that do not specify any bot overrides', async () => {
     const req = createMockReq({
       method: 'POST',

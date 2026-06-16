@@ -2,6 +2,7 @@ export const ADD_ON_IDS = {
   AI_CREDITS: 'aiCredits',
   BOTS: 'bots',
   SOURCE_PAGES: 'sourcePages',
+  TEAM_MEMBERS: 'teamMembers',
 }
 
 export const AI_CREDIT_ADD_ON_BLOCK_SIZE = 5000
@@ -77,6 +78,29 @@ const DEFAULT_ADD_ONS = {
     },
     unitLabel: '10k extra pages',
     eligiblePlans: ['personal', 'standard', 'business', 'enterprise'],
+  },
+  [ADD_ON_IDS.TEAM_MEMBERS]: {
+    id: ADD_ON_IDS.TEAM_MEMBERS,
+    name: 'Extra Team Users',
+    description: 'More seats for teammates to access or edit bots in the dashboard',
+    limitKey: 'teamMembers',
+    unit: 1,
+    monthlyPrice: {
+      USD: 19,
+      JPY: 3200,
+      AUD: 28,
+      EUR: 17,
+      GBP: 15,
+    },
+    annualPrice: {
+      USD: 228,
+      JPY: 38400,
+      AUD: 336,
+      EUR: 204,
+      GBP: 180,
+    },
+    unitLabel: 'extra team user',
+    eligiblePlans: ['business', 'enterprise'],
   },
 }
 

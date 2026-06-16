@@ -254,6 +254,7 @@ function Account({
   const aiCreditAddOn = addOnCatalog[ADD_ON_IDS.AI_CREDITS]
   const botAddOn = addOnCatalog[ADD_ON_IDS.BOTS]
   const sourcePageAddOn = addOnCatalog[ADD_ON_IDS.SOURCE_PAGES]
+  const teamMemberAddOn = addOnCatalog[ADD_ON_IDS.TEAM_MEMBERS]
   const currencyCode = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
   const billingInterval =
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
@@ -261,7 +262,8 @@ function Account({
     new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: currencyCode,
-      maximumFractionDigits: currencyCode === 'JPY' ? 0 : 0,
+      maximumFractionDigits:
+        currencyCode === 'JPY' || Number.isInteger(amount) ? 0 : 2,
     }).format(amount || 0)
   const isPaidSubscription =
     !!team?.stripeCustomerId &&
@@ -321,11 +323,13 @@ function Account({
       [ADD_ON_IDS.AI_CREDITS]: activeAddOns.aiCredits?.quantity || 0,
       [ADD_ON_IDS.BOTS]: activeAddOns.bots?.quantity || 0,
       [ADD_ON_IDS.SOURCE_PAGES]: activeAddOns.sourcePages?.quantity || 0,
+      [ADD_ON_IDS.TEAM_MEMBERS]: activeAddOns.teamMembers?.quantity || 0,
     })
   }, [
     activeAddOns.aiCredits?.quantity,
     activeAddOns.bots?.quantity,
     activeAddOns.sourcePages?.quantity,
+    activeAddOns.teamMembers?.quantity,
   ])
   const currentPlanLimits = parseStripePlans()?.[teamPlan?.id]
   const actionsPerBotLimit = getBotActionSlotLimit(team)
@@ -382,6 +386,10 @@ function Account({
   const botLimitBreakdown = getLimitBreakdown('bots', ADD_ON_IDS.BOTS)
   const pageLimitBreakdown = getLimitBreakdown('pages', ADD_ON_IDS.SOURCE_PAGES)
   const creditLimitBreakdown = getLimitBreakdown('questions', ADD_ON_IDS.AI_CREDITS)
+  const teamMemberLimitBreakdown = getLimitBreakdown(
+    'teamMembers',
+    ADD_ON_IDS.TEAM_MEMBERS,
+  )
 
   const cards = [
     {
@@ -440,7 +448,9 @@ function Account({
     {
       name: 'Team Members',
       tooltip: withGrandfatheredTooltip({
-        tooltip: 'Current team members including pending invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
+        tooltip: teamMemberLimitBreakdown
+          ? `Current team members including invites. Your limit is ${teamPlan.teamMembers.toLocaleString()} members. ${formatLimitBreakdownTooltip('members', teamMemberLimitBreakdown)}`
+          : 'Current team members including invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
         ...grandfatheredLimits.teamMembers,
       }),
       icon: UsersIcon,
@@ -454,6 +464,7 @@ function Account({
     if (addOn?.limitKey === 'questions') return Number(team?.questionCount || 0)
     if (addOn?.limitKey === 'bots') return Number(team?.botCount || 0)
     if (addOn?.limitKey === 'pages') return Number(team?.pageCount || 0)
+    if (addOn?.limitKey === 'teamMembers') return teamMembersCount
     return 0
   }
 
@@ -471,6 +482,9 @@ function Account({
     if (addOn?.limitKey === 'questions') return 'credits'
     if (addOn?.limitKey === 'pages') return 'pages'
     if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
+    if (addOn?.limitKey === 'teamMembers') {
+      return amount === 1 ? 'team user' : 'team users'
+    }
     return addOn?.unitLabel || 'units'
   }
 
@@ -502,6 +516,9 @@ function Account({
     interval === 'annually' ? `${formatPrice(price)}/year` : `${formatPrice(price)}/month`
 
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
+  const addOnIsAvailableForPlan = (addOn) =>
+    !Array.isArray(addOn?.eligiblePlans) ||
+    addOn.eligiblePlans.includes(teamPlan?.id)
 
   async function previewAddOnQuantity(addOnId, quantity) {
     const addOn = getAddOnById(addOnId)
@@ -886,26 +903,37 @@ function Account({
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {[
                   {
                     addOn: aiCreditAddOn,
                     quantity: activeAddOns.aiCredits?.quantity || 0,
                     actionId: ADD_ON_IDS.AI_CREDITS,
+                    Icon: ChatBubbleBottomCenterTextIcon,
                   },
                   {
                     addOn: botAddOn,
                     quantity: activeAddOns.bots?.quantity || 0,
                     actionId: ADD_ON_IDS.BOTS,
+                    Icon: ServerStackIcon,
                   },
                   {
                     addOn: sourcePageAddOn,
                     quantity: activeAddOns.sourcePages?.quantity || 0,
                     actionId: ADD_ON_IDS.SOURCE_PAGES,
+                    Icon: Square3Stack3DIcon,
                   },
-                ].map(({ addOn, quantity, actionId }) => {
+                  {
+                    addOn: teamMemberAddOn,
+                    quantity: activeAddOns.teamMembers?.quantity || 0,
+                    actionId: ADD_ON_IDS.TEAM_MEMBERS,
+                    Icon: UsersIcon,
+                  },
+                ].map(({ addOn, quantity, actionId, Icon }) => {
+                  if (!addOn) return null
                   const minimumQuantity = getMinimumAddOnQuantity(addOn, quantity)
                   const selectedQuantity = addOnQuantities[actionId] ?? quantity
+                  const availableForPlan = addOnIsAvailableForPlan(addOn)
                   const belowMinimum = selectedQuantity < minimumQuantity
                   const unchanged = selectedQuantity === quantity
                   const addOnPrice = getAddOnDisplayPrice(addOn, currencyCode, billingInterval)
@@ -916,7 +944,10 @@ function Account({
                   return (
                     <div key={addOn.id} className="rounded-lg border border-gray-200 p-4">
                       <div>
-                        <h4 className="font-semibold text-gray-950">{addOn.name}</h4>
+                        <h4 className="flex items-center gap-2 font-semibold text-gray-950">
+                          <Icon className="h-5 w-5 shrink-0 text-cyan-600" aria-hidden="true" />
+                          <span>{addOn.name}</span>
+                        </h4>
                         <p className="mt-1 text-sm text-gray-600">{addOn.description}</p>
                       </div>
                       <p className="mt-4 text-sm text-gray-700">
@@ -951,6 +982,7 @@ function Account({
                           <select
                             id={`addon-${actionId}-quantity`}
                             value={selectedQuantity}
+                            disabled={!availableForPlan}
                             onChange={(event) =>
                               updateAddOnBlockQuantity(
                                 actionId,
@@ -987,12 +1019,23 @@ function Account({
                                 addOnQuantities[actionId] ?? quantity,
                               )
                             }
-                            disabled={openingAddOns || belowMinimum || unchanged}
+                            disabled={
+                              openingAddOns ||
+                              belowMinimum ||
+                              unchanged ||
+                              !availableForPlan
+                            }
                             className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
                           >
                             Change
                           </button>
                         </div>
+                        {!availableForPlan && (
+                          <p className="mt-2 text-xs text-gray-500">
+                            Extra team users are available on Business and
+                            Enterprise plans.
+                          </p>
+                        )}
                         {minimumQuantity > 0 && (
                           <p className="mt-2 text-xs text-gray-500">
                             Your current usage needs at least{' '}

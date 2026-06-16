@@ -73,6 +73,19 @@ const getTeamCurrency = (team) =>
 const getTeamBillingInterval = (team) =>
   team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
 
+const ensureAddOnIsAvailableForPlan = (team, addOn) => {
+  if (
+    Array.isArray(addOn?.eligiblePlans) &&
+    !addOn.eligiblePlans.includes(stripePlan(team)?.id)
+  ) {
+    const error = new Error(
+      `${addOn.name} is only available on Business and Enterprise plans.`,
+    )
+    error.statusCode = 400
+    throw error
+  }
+}
+
 const getUsageForLimitKey = (team, limitKey) => {
   if (limitKey === 'questions') return Number(team?.questionCount || 0)
   if (limitKey === 'bots') return Number(team?.botCount || 0)
@@ -80,7 +93,19 @@ const getUsageForLimitKey = (team, limitKey) => {
   return 0
 }
 
-const ensureAddOnQuantitySupportsCurrentUsage = ({ team, addOnId, quantity }) => {
+const getTeamMemberUsage = async (team) => {
+  const inviteSnapshot = await getFirestore()
+    .collection('invites')
+    .where('teamId', '==', team.id)
+    .get()
+  return Object.keys(team?.roles || {}).length + inviteSnapshot.size
+}
+
+const ensureAddOnQuantitySupportsCurrentUsage = async ({
+  team,
+  addOnId,
+  quantity,
+}) => {
   const addOn = getAddOnConfig(addOnId)
   if (!addOn?.limitKey) return
 
@@ -92,7 +117,10 @@ const ensureAddOnQuantitySupportsCurrentUsage = ({ team, addOnId, quantity }) =>
   }
 
   const effectivePlan = stripePlan({ ...team, stripeAddOns })
-  const currentUsage = getUsageForLimitKey(team, addOn.limitKey)
+  const currentUsage =
+    addOn.limitKey === 'teamMembers'
+      ? await getTeamMemberUsage(team)
+      : getUsageForLimitKey(team, addOn.limitKey)
   const nextLimit = Number(effectivePlan?.[addOn.limitKey] || 0)
   if (currentUsage > nextLimit) {
     const resetNote =
@@ -218,7 +246,7 @@ const acquireAutoIncreaseLock = async (teamId) => {
 }
 
 const getAddOnSubscriptionUpdate = async ({ team, subscriptionId, addOnId, quantity }) => {
-  ensureAddOnQuantitySupportsCurrentUsage({ team, addOnId, quantity })
+  await ensureAddOnQuantitySupportsCurrentUsage({ team, addOnId, quantity })
 
   const subscription = await stripe.subscriptions.retrieve(subscriptionId)
   const addOnItem = findSubscriptionAddOnItem(subscription, addOnId)
@@ -392,6 +420,7 @@ export default async function handler(req, res) {
         : req.body?.addOnId || ADD_ON_IDS.AI_CREDITS
     const addOn = getAddOnConfig(addOnId)
     if (!addOn) throw new Error('Invalid add-on selected.')
+    ensureAddOnIsAvailableForPlan(team, addOn)
 
     if (action === 'autoIncreaseAiCredits') {
       const lock = await acquireAutoIncreaseLock(team.id)

@@ -32,6 +32,8 @@ export const getExceededPlanLimits = ({
     planPagesLimit + (addOns.sourcePages?.quantity || 0) * 10000
   const effectiveQuestionsLimit =
     planQuestionsLimit + (addOns.aiCredits?.quantity || 0) * 5000
+  const effectiveTeamMembersLimit =
+    planTeamMembersLimit + (addOns.teamMembers?.quantity || 0)
 
   const currentBots = Number(team?.botCount ?? 0)
   const currentPages = Number(team?.pageCount ?? 0)
@@ -47,9 +49,9 @@ export const getExceededPlanLimits = ({
   if (currentQuestions > effectiveQuestionsLimit) {
     exceededLimits.push(`questions (${currentQuestions} > ${effectiveQuestionsLimit})`)
   }
-  if (currentTeamMembers > planTeamMembersLimit) {
+  if (currentTeamMembers > effectiveTeamMembersLimit) {
     exceededLimits.push(
-      `team members (${currentTeamMembers} > ${planTeamMembersLimit})`,
+      `team members (${currentTeamMembers} > ${effectiveTeamMembersLimit})`,
     )
   }
 

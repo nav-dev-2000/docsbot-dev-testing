@@ -91,6 +91,34 @@ const ADD_ONS = [
       },
     },
   },
+  {
+    key: 'teamMembers',
+    productName: 'Extra Team Users',
+    description: 'Additional team user seat',
+    unit: 1,
+    prices: {
+      monthly: {
+        interval: 'month',
+        unitAmount: 1900,
+        currencyOptions: {
+          jpy: 3200,
+          aud: 2800,
+          eur: 1700,
+          gbp: 1500,
+        },
+      },
+      annually: {
+        interval: 'year',
+        unitAmount: 22800,
+        currencyOptions: {
+          jpy: 38400,
+          aud: 33600,
+          eur: 20400,
+          gbp: 18000,
+        },
+      },
+    },
+  },
 ]
 
 const parseConfiguredAddOns = () => {
@@ -250,11 +278,7 @@ async function main() {
           ? await retrievePrice(existingPriceId)
           : await createPrice(addOn, productId, intervalKey)
 
-        if (
-          existingPriceId &&
-          intervalKey === 'annually' &&
-          !(await priceMatchesConfig(addOn, intervalKey, price))
-        ) {
+        if (existingPriceId && !(await priceMatchesConfig(addOn, intervalKey, price))) {
           const previousPriceId = price.id
           price = await createPrice(addOn, productId, intervalKey)
           createdPriceIds.push(price.id)
