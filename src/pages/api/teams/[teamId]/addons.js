@@ -13,6 +13,7 @@ import {
   getAddOnPriceId,
   getEffectiveAddOns,
   getTeamAddOnsForRequestedQuantity,
+  isAutoIncreaseAiCreditsEnabled,
   mergeStripeAddOns,
   normalizeAddOnQuantity,
 } from '@/utils/billingAddOns'
@@ -171,7 +172,7 @@ const acquireAutoIncreaseLock = async (teamId) => {
     const currentTeam = { id: teamId, ...snapshot.data() }
     ensurePaidBaseSubscription(currentTeam)
 
-    if (currentTeam?.autoIncreaseAiCredits === false) {
+    if (!isAutoIncreaseAiCreditsEnabled(currentTeam)) {
       return { skipped: true, reason: 'disabled' }
     }
 

@@ -366,3 +366,6 @@ export const hasPurchasedAddOns = (team = {}) =>
   Object.values(getEffectiveAddOns(team)).some(
     (addOn) => addOn.quantity > 0,
   )
+
+export const isAutoIncreaseAiCreditsEnabled = (team = {}) =>
+  team?.autoIncreaseAiCredits === true

@@ -1407,6 +1407,7 @@ export async function assignDefaultTeam(userId, name) {
       pageCount: 0,
       chunkCount: 0,
       questionCount: 0,
+      autoIncreaseAiCredits: true,
       openAIKey: null,
       roles: {
         [userId]: 'owner',

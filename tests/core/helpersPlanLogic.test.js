@@ -348,6 +348,19 @@ describe('helpers.js billing and scheduling logic', () => {
     )
   })
 
+  it('requires explicit opt-in for auto-increase AI credits', async () => {
+    const { isAutoIncreaseAiCreditsEnabled } = await import('@/utils/billingAddOns')
+
+    expect(isAutoIncreaseAiCreditsEnabled({ autoIncreaseAiCredits: true })).toBe(
+      true,
+    )
+    expect(isAutoIncreaseAiCreditsEnabled({ autoIncreaseAiCredits: false })).toBe(
+      false,
+    )
+    expect(isAutoIncreaseAiCreditsEnabled({})).toBe(false)
+    expect(isAutoIncreaseAiCreditsEnabled()).toBe(false)
+  })
+
   it('ignores add-on quantities when the base subscription is inactive', async () => {
     const { stripePlan } = await loadHelpers()
 

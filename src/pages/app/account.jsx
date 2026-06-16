@@ -26,6 +26,7 @@ import {
   getAddOnDisplayPrice,
   getEffectiveAddOns,
   getStripeAddOnsFromEnv,
+  isAutoIncreaseAiCreditsEnabled,
 } from '@/utils/billingAddOns'
 import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
@@ -177,7 +178,7 @@ function Account({
   const [addOnQuantities, setAddOnQuantities] = useState({})
   const [addOnPreview, setAddOnPreview] = useState(null)
   const [autoIncreaseAiCredits, setAutoIncreaseAiCredits] = useState(
-    team?.autoIncreaseAiCredits !== false,
+    isAutoIncreaseAiCreditsEnabled(team),
   )
   const isGoogleAccount = user?.providerData?.some((p) => p.providerId === 'google.com')
   const isOwner = team?.roles?.[userId] === 'owner'
@@ -227,7 +228,7 @@ function Account({
   }, [initialTeam?.id])
 
   useEffect(() => {
-    setAutoIncreaseAiCredits(initialTeam?.autoIncreaseAiCredits !== false)
+    setAutoIncreaseAiCredits(isAutoIncreaseAiCreditsEnabled(initialTeam))
   }, [initialTeam?.id, initialTeam?.autoIncreaseAiCredits])
 
   useEffect(() => {
