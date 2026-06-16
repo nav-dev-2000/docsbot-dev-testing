@@ -33,6 +33,7 @@ import { BannerSale } from '@/components/HeaderBanners'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import { useRouter } from 'next/router'
+import AddOnsPricingSummary from '@/components/AddOnsPricingSummary'
 import {
   buildOrganization,
   buildPageUrl,
@@ -70,6 +71,46 @@ const renderFeatureValue = (value, tierName) => {
     )
   }
   return <span className="text-sm/6 text-gray-950">{value}</span>
+}
+
+const AiCreditsFootnoteLink = ({ className = '' }) => (
+  <Link
+    href="#ai-credits"
+    className={clsx('align-super text-xs font-semibold text-cyan-600 hover:text-cyan-500', className)}
+    aria-label="How AI Credits are calculated"
+  >
+    *
+  </Link>
+)
+
+const renderFeatureLabel = (featureKey, label) => {
+  if (featureKey !== 'messagesPerMonth') {
+    return label
+  }
+  return (
+    <>
+      {label}
+      <AiCreditsFootnoteLink />
+    </>
+  )
+}
+
+const renderPlanFeature = (featureKey, label, value) => {
+  if (featureKey === 'messagesPerMonth') {
+    return (
+      <>
+        {value} AI Credits / month
+        <AiCreditsFootnoteLink />
+      </>
+    )
+  }
+  if (typeof value === 'string' && value !== 'true') {
+    return `${label}: ${value}`
+  }
+  if (typeof value === 'number') {
+    return `${value} ${label}`
+  }
+  return label
 }
 
 // Create sections for comparison table
@@ -161,13 +202,14 @@ const createComparisonSections = (activeTiers) => {
       features: buildCategoryFeatures(category, features)
         .filter(feature => category !== 'actions' || feature.key !== 'actionsLimit')
         .map(feature => ({
+          key: feature.key,
           name: feature.label,
           tiers: tierNames.reduce((tierAcc, tierName) => {
             const tier = activeTiers.find(t => t.name === tierName)
             tierAcc[tierName] = tier?.features[feature.key] || false
             return tierAcc
-          }, {})
-        }))
+          }, {}),
+        })),
     }))
 
   return sections
@@ -686,12 +728,7 @@ export default function PricingPage() {
                                     const featureDef = featureDefinitions[key]
                                     if (!featureDef) return null
                                     
-                                    let displayText = featureDef.label
-                                    if (typeof value === 'string' && value !== 'true') {
-                                      displayText = `${featureDef.label}: ${value}`
-                                    } else if (typeof value === 'number') {
-                                      displayText = `${value} ${featureDef.label}`
-                                    }
+                                    const displayText = renderPlanFeature(key, featureDef.label, value)
                                     
                                     return (
                                       <li
@@ -704,7 +741,7 @@ export default function PricingPage() {
                                             className="size-4 fill-gray-400"
                                           />
                                         </span>
-                                        {displayText}
+                                        <span>{displayText}</span>
                                       </li>
                                     )
                                   })}
@@ -724,10 +761,16 @@ export default function PricingPage() {
                       ))}
                     </div>
                     <p className="mx-auto mt-10 text-center text-sm text-gray-200">
-                      Does not include optional OpenAI API costs
-                      (approximately $0.01/message) if using advanced models like
-                      GPT-5.5. Smaller GPT-5 models included.
+                      Lower-cost models are included. Larger models and AI
+                      actions may use more AI Credits.
+                      <AiCreditsFootnoteLink className="text-cyan-300 hover:text-cyan-200" />
                     </p>
+                    <AddOnsPricingSummary
+                      currency={currency}
+                      interval={frequency?.value}
+                      dark
+                      className="mx-auto mt-10 max-w-5xl"
+                    />
                   </div>
 
                   <ScrollFadeIn>
@@ -996,7 +1039,7 @@ export default function PricingPage() {
                               {section.features.map((feature) => (
                                 <tr key={feature.name} className="border-b border-gray-100 last:border-none">
                                   <th scope="row" className="py-4 pl-6 pr-0 text-sm/6 font-normal text-gray-600">
-                                    {feature.name}
+                                    {renderFeatureLabel(feature.key, feature.name)}
                                   </th>
                                   {activeTiers.map((tier) => (
                                     <td key={tier.name} className="p-4 max-sm:text-center">
@@ -1071,7 +1114,9 @@ export default function PricingPage() {
                                           key={feature.name}
                                           className="grid grid-cols-2 border-b border-gray-100 py-4 last:border-none"
                                         >
-                                          <dt className="text-sm/6 font-normal text-gray-600">{feature.name}</dt>
+                                          <dt className="text-sm/6 font-normal text-gray-600">
+                                            {renderFeatureLabel(feature.key, feature.name)}
+                                          </dt>
                                           <dd className="text-center">
                                             {typeof feature.tiers[tier.name] === 'string' || typeof feature.tiers[tier.name] === 'number' ? (
                                               <span className="text-sm/6 text-gray-950">{feature.tiers[tier.name]}</span>

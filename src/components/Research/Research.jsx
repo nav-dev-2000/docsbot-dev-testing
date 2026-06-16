@@ -8,7 +8,7 @@ import {
 } from 'react'
 import Alert from '@/components/Alert'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { stripePlan, isSuperAdmin } from '@/utils/helpers'
+import { isSuperAdmin } from '@/utils/helpers'
 import {
     ChevronLeftIcon,
     ChevronRightIcon,
@@ -69,8 +69,6 @@ import LocaleDateTime from '@/components/LocaleDateTime'
 import Tooltip from '@/components/Tooltip'
 import ResearchActionButtons from '@/components/ResearchActionButtons'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
-import { checkPlanPermission } from '@/utils/helpers'
-import ModalCheckout from '@/components/ModalCheckout'
 import ModalOpenAI from '@/components/ModalOpenAI'
 import { canUserEditBot } from '@/utils/function.utils'
 import { auth } from '@/config/firebase-ui.config'
@@ -79,6 +77,7 @@ import LoadingDots from '@/components/LoadingDots'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import Paginator from '@/components/Paginator'
 import Workspace from '@new-dashboard/Workspace'
+import Chip from '@new-dashboard/Chip'
 import { usePostHog } from 'posthog-js/react'
 import {
     normalizeResearchJobTools,
@@ -88,12 +87,44 @@ import {
     arrayBufferToBase64,
     base64ToUint8Array,
     formatLocalDateTime,
-    recomputeUsageDerived,
-    buildUsageSnapshot,
-    formatResearchUsageDisplay,
     calculateResearchCost,
     RESEARCH_SUGGESTIONS,
 } from '@/components/Research'
+
+const parseUsageNumber = (value) => {
+    const number = Number(value)
+    return Number.isFinite(number) ? number : null
+}
+
+const formatAiCredits = (value) => {
+    const number = parseUsageNumber(value)
+    if (number === null) return null
+
+    return new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: number > 0 && number < 10 ? 1 : 0,
+        maximumFractionDigits: number > 0 && number < 10 ? 1 : 0,
+    }).format(number)
+}
+
+const getResearchUsageSummary = (job) => {
+    const credits = parseUsageNumber(job?.aiCredits)
+
+    if (credits === null || credits <= 0) {
+        return null
+    }
+
+    return { credits }
+}
+
+function ResearchUsageSummary({ usage }) {
+    if (!usage) return null
+
+    return (
+        <div className="mb-4 text-left text-xs text-gray-500">
+            AI credits used: {formatAiCredits(usage.credits)}
+        </div>
+    )
+}
 
 // Internal reusable UserMessage component matching conversations.jsx styling
 // Keeps the bubble on the right while allowing text alignment to follow content direction
@@ -872,9 +903,6 @@ export function ResearchInterface({
     setSelectedJob,
     setResearchJobs,
     selectedJob = null,
-    researchUsage = null,
-    refreshResearchCount,
-    onResearchTaskStarted,
     previousJobStatusesRef,
     newlyCreatedJobIdsRef,
     sendJobNotification,
@@ -892,8 +920,6 @@ export function ResearchInterface({
     const docsSearchRef = useRef(true)
     const [loading, setLoading] = useState(false)
     const [errorText, setErrorText] = useState(null)
-    const [showUpgrade, setShowUpgrade] = useState(false)
-    const [pendingUpgrade, setPendingUpgrade] = useState(false)
     const [showOpenAI, setShowOpenAI] = useState(false)
     const [user] = useAuthState(auth)
     const textareaRef = useRef(null)
@@ -911,29 +937,31 @@ export function ResearchInterface({
         }
     }, [])
 
-    const refreshUsage =
-        typeof refreshResearchCount === 'function'
-            ? refreshResearchCount
-            : async () => null
-    const recordResearchTaskStarted =
-        typeof onResearchTaskStarted === 'function'
-            ? onResearchTaskStarted
-            : async () => {}
-
     const validModels = [
         {
             id: 'o3',
             name: 'o3',
+            creditMultiplier: 23,
             description:
-                'Uses advanced reasoning - Slower & 5x more expensive, requires a OpenAI API key',
+                'Uses advanced reasoning - Slower, requires an OpenAI API key',
         },
         {
             id: 'o4-mini',
             name: 'o4-mini',
+            creditMultiplier: 5,
             description:
                 'Fastest at advanced reasoning - Recommended for most tasks',
         },
     ]
+    const selectedModelItem =
+        validModels.find((model) => model.id === selectedModel) || null
+    const usesTeamOpenAIKey = Boolean(team?.openAIKey)
+    const displayCreditMultiplier = (model) =>
+        usesTeamOpenAIKey ? 1 : model?.creditMultiplier || 1
+    const creditMultiplierTooltip = (model) =>
+        usesTeamOpenAIKey
+            ? '1x AI credits for deep research token usage with your OpenAI key.'
+            : `${displayCreditMultiplier(model)}x AI credits for deep research token usage.`
 
     useEffect(() => {
         const textarea = textareaRef.current
@@ -984,13 +1012,6 @@ export function ResearchInterface({
         docsSearchRef.current = value
         setDocsSearch(value)
     }
-
-    useEffect(() => {
-        if (pendingUpgrade) {
-            setShowUpgrade(true)
-            setPendingUpgrade(false)
-        }
-    }, [pendingUpgrade])
 
     useEffect(() => {
         if (!showOpenAI && !team.openAIKey && selectedModel === 'o3') {
@@ -1096,11 +1117,6 @@ export function ResearchInterface({
         const currentQuestionHistory = questionHistoryRef.current
         const currentDocsSearch = docsSearchRef.current
 
-        // Prevent API calls if upgrade modal is showing
-        if (showUpgrade || pendingUpgrade) {
-            return
-        }
-
         if (!question || question.length < 2) {
             setErrorText('Please enter a full question.')
             return
@@ -1112,98 +1128,6 @@ export function ResearchInterface({
                 'Please enable at least Documentation Search or Question History.',
             )
             return
-        }
-
-        let willConsumeTrial = false
-
-        if (!clarifyingJob) {
-            let usageSnapshot = researchUsage
-
-            try {
-                const fetchedUsage = await refreshUsage()
-                if (fetchedUsage) {
-                    usageSnapshot = fetchedUsage
-                }
-            } catch (usageError) {
-                console.warn(
-                    'Error refreshing research usage before starting task:',
-                    usageError,
-                )
-            }
-
-            if (!usageSnapshot) {
-                setErrorText(
-                    'Unable to verify deep research task allowance. Please refresh and try again.',
-                )
-                return
-            }
-
-            const {
-                monthlyLimit,
-                monthlyUsed = 0,
-                lifetimeLimit,
-                lifetimeUsed = 0,
-                historicalMaxResearch = 0,
-                legacyTrialThreshold = null,
-            } = usageSnapshot
-
-            const normalizedPlanId = (usageSnapshot.planId || '').toLowerCase()
-
-            const trialThreshold =
-                legacyTrialThreshold ??
-                (typeof lifetimeLimit === 'number' && lifetimeLimit > 0
-                    ? lifetimeLimit
-                    : null)
-
-            const fallbackTrialLimit =
-                trialThreshold !== null
-                    ? trialThreshold
-                    : ['pro', 'personal'].includes(normalizedPlanId)
-                      ? 2
-                      : null
-
-            const hasTrialAllowance = (() => {
-                if (typeof fallbackTrialLimit === 'number') {
-                    const trialUsed =
-                        legacyTrialThreshold !== null
-                            ? historicalMaxResearch
-                            : typeof lifetimeLimit === 'number' &&
-                                lifetimeLimit > 0
-                              ? lifetimeUsed
-                              : historicalMaxResearch
-                    return trialUsed < fallbackTrialLimit
-                }
-
-                return false
-            })()
-
-            // Staff localhost testing team - allow unlimited deep research jobs
-            const STAFF_TESTING_TEAM_ID = 'nG4F5A3BFSBzdYc5TZIX'
-            const isStaffTestingTeam = team?.id === STAFF_TESTING_TEAM_ID
-
-            const hasMonthlyAllowance =
-                isStaffTestingTeam || monthlyLimit === null
-                    ? true
-                    : typeof monthlyLimit === 'number'
-                      ? monthlyUsed < monthlyLimit
-                      : false
-
-            if (!hasMonthlyAllowance && !hasTrialAllowance) {
-                const zeroTasks =
-                    (typeof monthlyLimit === 'number' ? monthlyLimit : 0) ===
-                        0 && !hasTrialAllowance
-
-                setErrorText(
-                    zeroTasks
-                        ? 'Your plan does not include deep research tasks. Upgrade to unlock them.'
-                        : "You have reached your plan's deep research task limit for this month. Upgrade to run more tasks.",
-                )
-                setPendingUpgrade(true)
-                setShowUpgrade(true)
-                return
-            }
-
-            willConsumeTrial = !hasMonthlyAllowance && hasTrialAllowance
         }
 
         setLoading(true)
@@ -1392,7 +1316,7 @@ export function ResearchInterface({
                         setSelectedJob && setSelectedJob(newJob)
                     }
 
-                    // Call onJobCreated and recordResearchTaskStarted, but don't fail the entire operation if these fail
+                    // Call onJobCreated, but don't fail the entire operation if it fails.
                     if (data.jobId) {
                         setPreference('dismissed-research-agent-info', true)
                         setResearchAgentAlertDismissed(true)
@@ -1401,17 +1325,6 @@ export function ResearchInterface({
                         } catch (err) {
                             console.error(
                                 'Error in onJobCreated callback:',
-                                err,
-                            )
-                        }
-
-                        try {
-                            await recordResearchTaskStarted({
-                                consumeTrial: willConsumeTrial,
-                            })
-                        } catch (err) {
-                            console.error(
-                                'Error recording research task started:',
                                 err,
                             )
                         }
@@ -1464,7 +1377,7 @@ export function ResearchInterface({
             <Listbox
                 value={selectedModel}
                 onChange={setSelectedModel}
-                disabled={loading || showUpgrade}
+                disabled={loading}
             >
                 <div className="relative">
                     <div className="inline-block">
@@ -1473,7 +1386,7 @@ export function ResearchInterface({
                                 <Listbox.Button
                                     className={clsx(
                                         'flex items-center p-2 text-xs text-gray-600 hover:text-cyan-600',
-                                        loading || showUpgrade
+                                        loading
                                             ? 'pointer-events-none cursor-not-allowed opacity-50'
                                             : 'cursor-pointer',
                                     )}
@@ -1482,9 +1395,7 @@ export function ResearchInterface({
                                         className="mr-1 h-5 w-5"
                                         aria-hidden="true"
                                     />
-                                    {validModels.find(
-                                        (m) => m.id === selectedModel,
-                                    )?.name || selectedModel}
+                                    {selectedModelItem?.name || selectedModel}
                                 </Listbox.Button>
                             </div>
                         </Tooltip>
@@ -1515,7 +1426,7 @@ export function ResearchInterface({
                                 >
                                     {({ selected, active }) => (
                                         <div className="flex flex-col text-left">
-                                            <div className="flex justify-between">
+                                            <div className="flex items-center justify-between gap-3">
                                                 <p
                                                     className={clsx(
                                                         'font-normal',
@@ -1525,20 +1436,40 @@ export function ResearchInterface({
                                                 >
                                                     {model.name}
                                                 </p>
-                                                {selected && (
-                                                    <span
-                                                        className={
-                                                            active
-                                                                ? 'text-white'
-                                                                : 'text-cyan-600'
-                                                        }
+                                                <div className="flex items-center gap-2">
+                                                    <Tooltip
+                                                        content={creditMultiplierTooltip(
+                                                            model,
+                                                        )}
+                                                        placement="top"
                                                     >
-                                                        <CheckIcon
-                                                            className="h-4 w-4"
-                                                            aria-hidden="true"
-                                                        />
-                                                    </span>
-                                                )}
+                                                        <span>
+                                                            <Chip
+                                                                content={`${displayCreditMultiplier(model)}x`}
+                                                                className={clsx(
+                                                                    'px-2 py-0.5',
+                                                                    active
+                                                                        ? 'border-cyan-200 bg-white/10 text-white'
+                                                                        : 'border-slate-300 bg-slate-50 text-slate-700',
+                                                                )}
+                                                            />
+                                                        </span>
+                                                    </Tooltip>
+                                                    {selected && (
+                                                        <span
+                                                            className={
+                                                                active
+                                                                    ? 'text-white'
+                                                                    : 'text-cyan-600'
+                                                            }
+                                                        >
+                                                            <CheckIcon
+                                                                className="h-4 w-4"
+                                                                aria-hidden="true"
+                                                            />
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
                                             <p
                                                 className={clsx(
@@ -1570,11 +1501,6 @@ export function ResearchInterface({
                 onKey={(key) => {
                     team.openAIKey = key
                 }}
-            />
-            <ModalCheckout
-                team={team}
-                open={showUpgrade}
-                setOpen={setShowUpgrade}
             />
             <div className="flex w-full flex-col text-center">
                 <div className="my-auto">
@@ -1610,27 +1536,27 @@ export function ResearchInterface({
                                 Choose a template prompt or write your own.
                             </p>
                             <SuggestionChips
-                            disabled={loading || showUpgrade}
-                            onSelect={(suggestion) => {
-                                setQuestion(suggestion.prompt)
-                                setWebSearchValue(suggestion.webSearch)
-                                setCodeInterpreterValue(
-                                    suggestion.codeInterpreter,
-                                )
-                                setQuestionHistoryValue(
-                                    suggestion.questionHistory,
-                                )
-                                setDocsSearchValue(suggestion.docsSearch)
-                                updateSelectedJobTools(
-                                    suggestion.webSearch,
-                                    suggestion.codeInterpreter,
-                                    suggestion.questionHistory,
-                                    suggestion.docsSearch,
-                                )
-                                setErrorText(null)
-                                textareaRef.current?.focus()
-                            }}
-                        />
+                                disabled={loading}
+                                onSelect={(suggestion) => {
+                                    setQuestion(suggestion.prompt)
+                                    setWebSearchValue(suggestion.webSearch)
+                                    setCodeInterpreterValue(
+                                        suggestion.codeInterpreter,
+                                    )
+                                    setQuestionHistoryValue(
+                                        suggestion.questionHistory,
+                                    )
+                                    setDocsSearchValue(suggestion.docsSearch)
+                                    updateSelectedJobTools(
+                                        suggestion.webSearch,
+                                        suggestion.codeInterpreter,
+                                        suggestion.questionHistory,
+                                        suggestion.docsSearch,
+                                    )
+                                    setErrorText(null)
+                                    textareaRef.current?.focus()
+                                }}
+                            />
                         </>
                     )}
 
@@ -1669,13 +1595,13 @@ export function ResearchInterface({
                     <form
                         className="mt-4 flex flex-col justify-center"
                         onSubmit={startResearch}
-                        disabled={loading || showUpgrade}
+                        disabled={loading}
                     >
                         <fieldset
-                            disabled={loading || showUpgrade}
-                            aria-disabled={loading || showUpgrade}
+                            disabled={loading}
+                            aria-disabled={loading}
                             className={clsx(
-                                (loading || showUpgrade) && 'opacity-75',
+                                loading && 'opacity-75',
                             )}
                         >
                             <div className="mb-1 mt-1 w-full rounded-xl sm:flex sm:shadow-sm">
@@ -1690,7 +1616,6 @@ export function ResearchInterface({
                                                     type="button"
                                                     disabled={
                                                         loading ||
-                                                        showUpgrade ||
                                                         (docsSearch &&
                                                             !questionHistory)
                                                     }
@@ -1745,7 +1670,6 @@ export function ResearchInterface({
                                                     type="button"
                                                     disabled={
                                                         loading ||
-                                                        showUpgrade ||
                                                         (questionHistory &&
                                                             !docsSearch)
                                                     }
@@ -1799,7 +1723,7 @@ export function ResearchInterface({
                                                 <button
                                                     type="button"
                                                     disabled={
-                                                        loading || showUpgrade
+                                                        loading
                                                     }
                                                     className={clsx(
                                                         'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
@@ -1835,7 +1759,7 @@ export function ResearchInterface({
                                                 <button
                                                     type="button"
                                                     disabled={
-                                                        loading || showUpgrade
+                                                        loading
                                                     }
                                                     className={clsx(
                                                         'rounded-md p-2 hover:text-cyan-600 disabled:cursor-not-allowed disabled:opacity-50',
@@ -1873,7 +1797,7 @@ export function ResearchInterface({
                                         name="query"
                                         id="query"
                                         value={question}
-                                        disabled={loading || showUpgrade}
+                                        disabled={loading}
                                         maxLength={2000}
                                         minLength={2}
                                         required
@@ -1895,11 +1819,7 @@ export function ResearchInterface({
                                                         (prevQuestion) =>
                                                             `${prevQuestion}\n`,
                                                     )
-                                                } else if (
-                                                    !e.shiftKey &&
-                                                    !loading &&
-                                                    !showUpgrade
-                                                ) {
+                                                } else if (!e.shiftKey && !loading) {
                                                     startResearch(e)
                                                 }
                                             }
@@ -1919,7 +1839,7 @@ export function ResearchInterface({
                                     <button
                                         type="submit"
                                         tabIndex={2}
-                                        disabled={loading || showUpgrade}
+                                        disabled={loading}
                                         className="absolute bottom-0 right-0 my-3 mr-2 rounded-sm px-1 text-cyan-600 hover:text-cyan-700 hover:ring-cyan-600 focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50"
                                     >
                                         <span className="sr-only">
@@ -1972,6 +1892,7 @@ export function ResearchResults({
     const [footnotes, setFootnotes] = useState([])
     const [user] = useAuthState(auth)
     const scrollToBottomRef = useRef(null)
+    const usageSummary = getResearchUsageSummary(job)
 
     // Expose scroll function to parent component
     useEffect(() => {
@@ -2723,6 +2644,8 @@ export function ResearchResults({
                     </BotMessage>
                 )}
 
+                <ResearchUsageSummary usage={usageSummary} />
+
                 {/* 
         {job.response && (
           <div className="mt-6 text-left">
@@ -2750,17 +2673,10 @@ export function Research({
     setResearchJobs: propsSetResearchJobs,
     selectedJob: propsSelectedJob,
     setSelectedJob: propsSetSelectedJob,
-    researchUsage: propsResearchUsage,
-    setResearchUsage: propsSetResearchUsage,
 }) {
-    const [internalResearchUsage, setInternalResearchUsage] = useState(() =>
-        buildUsageSnapshot(team),
-    )
     const [internalResearchJobs, setInternalResearchJobs] = useState([])
     const [internalSelectedJob, setInternalSelectedJob] = useState(null)
 
-    const researchUsage = propsResearchUsage || internalResearchUsage
-    const setResearchUsage = propsSetResearchUsage || setInternalResearchUsage
     const researchJobs = propsResearchJobs || internalResearchJobs
     const setResearchJobs = propsSetResearchJobs || setInternalResearchJobs
     const selectedJob = propsSelectedJob || internalSelectedJob
@@ -3099,121 +3015,6 @@ export function Research({
         selectedJob?.status,
         selectedJob?.jobId,
     ])
-
-    const trialNoticeInfo = useMemo(() => {
-        if (!researchUsage) return null
-
-        const {
-            monthlyLimit,
-            lifetimeLimit,
-            trialRemaining = 0,
-            legacyTrialThreshold,
-            historicalMaxResearch = 0,
-            planId,
-            planName,
-        } = researchUsage
-
-        const hasMonthlyAllowance =
-            monthlyLimit === null ||
-            (typeof monthlyLimit === 'number' && monthlyLimit > 0)
-
-        if (hasMonthlyAllowance) {
-            return null
-        }
-
-        const normalizedPlanId = (planId || '').toLowerCase()
-        const isLegacyTrialPlan = Boolean(
-            normalizedPlanId === 'pro' || normalizedPlanId === 'personal',
-        )
-
-        const trialTotal =
-            (typeof lifetimeLimit === 'number' && lifetimeLimit > 0
-                ? lifetimeLimit
-                : null) ??
-            (typeof legacyTrialThreshold === 'number' &&
-            legacyTrialThreshold > 0
-                ? legacyTrialThreshold
-                : null) ??
-            (isLegacyTrialPlan ? 2 : null)
-
-        if (typeof trialTotal !== 'number' || trialTotal <= 0) {
-            return null
-        }
-
-        const derivedUsed =
-            typeof lifetimeLimit === 'number' && lifetimeLimit > 0
-                ? Math.max(0, Math.min(trialTotal, trialTotal - trialRemaining))
-                : Math.max(0, Math.min(trialTotal, historicalMaxResearch || 0))
-
-        if (derivedUsed >= trialTotal) {
-            return null
-        }
-
-        return { used: derivedUsed, total: trialTotal }
-    }, [researchUsage])
-
-    const refreshResearchCount = useCallback(async () => {
-        if (!team?.id) return null
-        try {
-            const response = await fetch(`/api/teams/${team.id}/research-count`)
-            if (!response.ok) {
-                console.warn(
-                    'Failed to refresh research count:',
-                    response.status,
-                )
-                return null
-            }
-            const data = await response.json()
-            const latestCount = Number(data?.researchCount ?? 0) || 0
-            const baseUsage = researchUsage || buildUsageSnapshot(team)
-            const nextUsage = recomputeUsageDerived({
-                ...baseUsage,
-                monthlyUsed: latestCount,
-            })
-            setResearchUsage(nextUsage)
-            return nextUsage
-        } catch (error) {
-            console.warn('Error refreshing research count:', error)
-            return null
-        }
-    }, [team, researchUsage, setResearchUsage])
-
-    const handleResearchTaskStarted = useCallback(
-        ({ consumeTrial = false } = {}) => {
-            setResearchUsage((prev) => {
-                if (!prev) return prev
-
-                const nextUsage = {
-                    ...prev,
-                    monthlyUsed: (prev.monthlyUsed ?? 0) + 1,
-                }
-
-                if (consumeTrial) {
-                    const lifetimeLimit = prev.lifetimeLimit
-                    const previousLifetimeUsed = prev.lifetimeUsed ?? 0
-                    nextUsage.lifetimeUsed =
-                        typeof lifetimeLimit === 'number'
-                            ? Math.min(previousLifetimeUsed + 1, lifetimeLimit)
-                            : previousLifetimeUsed + 1
-                }
-
-                const currentHistorical = prev.historicalMaxResearch ?? 0
-                const trialThreshold = prev.legacyTrialThreshold ?? null
-                const inferredHistorical = Math.max(
-                    currentHistorical,
-                    nextUsage.monthlyUsed ?? 0,
-                )
-
-                nextUsage.historicalMaxResearch =
-                    consumeTrial && trialThreshold
-                        ? Math.max(inferredHistorical, trialThreshold)
-                        : inferredHistorical
-
-                return recomputeUsageDerived(nextUsage)
-            })
-        },
-        [setResearchUsage],
-    )
 
     // Determine if current user can modify bot
     useEffect(() => {
@@ -3667,13 +3468,6 @@ export function Research({
     const title = [bot.name, 'Deep Research']
 
     const Header = () => {
-        const usageDisplay = formatResearchUsageDisplay(researchUsage)
-        const usageTooltipContent = usageDisplay
-            ? usageDisplay.tooltip
-                ? `${usageDisplay.label}<br/>${usageDisplay.tooltip}`
-                : usageDisplay.label
-            : 'Start a deep research task'
-
         return (
             <div className={clsx('w-full bg-white p-2 px-2 lg:px-6')}>
                 <div className="flex items-center justify-between">
@@ -3847,12 +3641,7 @@ export function Research({
                         </div>
                     </div>
                     <div className="ml-4 flex items-center space-x-4 lg:mr-2 xl:mr-4">
-                        {usageDisplay?.ratio && (
-                            <span className="whitespace-nowrap text-xs text-gray-500">
-                                {usageDisplay.ratio}
-                            </span>
-                        )}
-                        <Tooltip content={usageTooltipContent}>
+                        <Tooltip content="Start a deep research task">
                             <button
                                 type="button"
                                 onClick={() => setSelectedJob(null)}
@@ -3952,22 +3741,6 @@ export function Research({
         <>
             <main className={clsx('relative')}>
                 <div className="mx-auto max-w-4xl">
-                    {trialNoticeInfo && (
-                        <Alert
-                            type="warning"
-                            title="Deep Research trial access"
-                        >
-                            <p className="mb-1">
-                                Deep Research isn’t included in your plan, but
-                                we’re giving you a few trial tasks so you can
-                                see its powerful capabilities.
-                            </p>
-                            <p className="text-sm font-medium text-slate-700">
-                                Trial research tasks: {trialNoticeInfo.used}/
-                                {trialNoticeInfo.total}
-                            </p>
-                        </Alert>
-                    )}
                     <Alert title={errorText} type="warning" />
                 </div>
                 <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
@@ -3995,11 +3768,6 @@ export function Research({
                                 setSelectedJob={setSelectedJob}
                                 setResearchJobs={setResearchJobs}
                                 selectedJob={selectedJob}
-                                researchUsage={researchUsage}
-                                refreshResearchCount={refreshResearchCount}
-                                onResearchTaskStarted={
-                                    handleResearchTaskStarted
-                                }
                                 previousJobStatusesRef={previousJobStatusesRef}
                                 newlyCreatedJobIdsRef={newlyCreatedJobIdsRef}
                                 sendJobNotification={sendJobNotification}
@@ -4040,9 +3808,6 @@ export function Research({
                             setSelectedJob={setSelectedJob}
                             setResearchJobs={setResearchJobs}
                             selectedJob={selectedJob}
-                            researchUsage={researchUsage}
-                            refreshResearchCount={refreshResearchCount}
-                            onResearchTaskStarted={handleResearchTaskStarted}
                             previousJobStatusesRef={previousJobStatusesRef}
                             newlyCreatedJobIdsRef={newlyCreatedJobIdsRef}
                             sendJobNotification={sendJobNotification}

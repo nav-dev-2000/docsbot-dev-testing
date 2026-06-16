@@ -160,7 +160,7 @@ export default async function handler(req, res) {
         color: initialColor,
         privacy: 'public',
         language: botConfig.language || 'en',
-        model: 'gpt-5.4-nano',
+        model: 'gpt-5.4-mini',
         temperature: 0,
         agentPrompt: supportPrompt
           .replace(/{company_name}/g, botConfig.businessName || botConfig.botName || 'your company')

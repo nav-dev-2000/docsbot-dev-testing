@@ -26,6 +26,7 @@ import {
   vectorDbMaintenanceResponse,
 } from '@/lib/maintenance'
 import { decryptKey, encryptKey } from '@/lib/encryption'
+import { getStats, roundAiCreditsForDisplay } from '@/utils/helpers'
 
 describe('general helper modules', () => {
   const previousEncryptionPassword = process.env.OPENAI_KEY_ENCRYPTION_PASSWORD
@@ -116,6 +117,54 @@ describe('general helper modules', () => {
         C3: 'invalid',
       }),
     ).toEqual([['C1', { botId: 'bot-1' }]])
+  })
+
+  it('rounds stored fractional AI credits for dashboard display', () => {
+    expect(roundAiCreditsForDisplay(12.4)).toBe(12)
+    expect(roundAiCreditsForDisplay(12.5)).toBe(13)
+    expect(roundAiCreditsForDisplay(undefined)).toBe(0)
+    expect(roundAiCreditsForDisplay(Number.NaN)).toBe(0)
+  })
+
+  it('tracks AI credits separately from raw messages in stats', () => {
+    const stats = getStats(
+      {
+        questionHistoryDaily: {
+          '2026-4-25': { questions: 1, messages: 2, aiCredits: 7 },
+          '2026-4-26': { questions: 1, messages: 3 },
+          '2026-4-27': { questions: 0, messages: 1, aiCredits: 0.1 },
+        },
+      },
+      {
+        startDate: '2026-04-25T00:00:00.000Z',
+        endDate: '2026-04-27T23:59:59.000Z',
+      },
+    )
+
+    expect(stats.totalMessages).toBe(6)
+    expect(stats.totalAiCredits).toBe(10)
+    expect(stats.messagesData).toEqual([2, 3, 1])
+    expect(stats.aiCreditsData).toEqual([7, 3, 0])
+  })
+
+  it('preserves credit-only history totals when there are no questions', () => {
+    const stats = getStats(
+      {
+        questionHistoryDaily: {
+          '2026-4-25': { questions: 0, messages: 0, aiCredits: 4 },
+          '2026-4-26': { questions: 0, messages: 2, aiCredits: 1.5 },
+        },
+      },
+      {
+        startDate: '2026-04-25T00:00:00.000Z',
+        endDate: '2026-04-26T23:59:59.000Z',
+      },
+    )
+
+    expect(stats.totalCount).toBe(0)
+    expect(stats.totalMessages).toBe(2)
+    expect(stats.totalAiCredits).toBe(6)
+    expect(stats.aiCreditsData).toEqual([4, 2])
   })
 
   it('returns maintenance responses and frozen-source state', () => {

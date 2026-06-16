@@ -29,7 +29,7 @@ const SYSTEM_OPTIONAL_ARRAY_KEYS = new Set([
     'questions',
     'rateLimitIPAllowlist',
 ])
-const SYSTEM_DEFAULT_MODEL = 'gpt-5.4-nano'
+const SYSTEM_DEFAULT_MODEL = 'gpt-5.4-mini'
 
 /** Stable stringify so label maps compare equal regardless of key insertion order (Firestore / spread vs i18n object). */
 const stableStringify = (value) => {
@@ -163,20 +163,13 @@ const PageConfigureBot = ({ team, bot, setBot }) => {
         if (!showOpenAI && !team.openAIKey) {
             // Only set default model if no model is already set or if the current model requires an API key
             const currentModel = botSettings.model || bot?.model
-            const modelsThatRequireAPIKey = [
-                'gpt-5.4-mini',
-                'gpt-5.1',
-                'gpt-5',
-                'gpt-4.1',
-                'gpt-4o',
-            ]
+            const modelsThatRequireAPIKey = []
 
             if (
                 !currentModel ||
                 modelsThatRequireAPIKey.includes(currentModel)
             ) {
-                const defaultModel = 'gpt-5.4-nano'
-                setBotSettings({ ...botSettings, model: defaultModel })
+                setBotSettings({ ...botSettings, model: SYSTEM_DEFAULT_MODEL })
             }
         }
     }, [showOpenAI, botSettings.model, bot?.model])

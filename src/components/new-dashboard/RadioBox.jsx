@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 
+import Tooltip from '@/components/Tooltip'
 import Link from 'next/link'
 import Chip from '@new-dashboard/Chip'
 import Note from '@new-dashboard/Note'
@@ -82,9 +83,20 @@ const RadioBox = ({
     lifecycle = {},
     hasVerification = false,
     included = false,
+    creditMultiplier = null,
+    creditMultiplierTooltip = null,
 }) => {
     const isChecked = checked !== undefined ? checked : isSelected
     const statusTag = status ? STATUS_TAGS[status] : null
+    const creditTag =
+        typeof creditMultiplier === 'number' && creditMultiplier > 0
+            ? {
+                  key: 'creditMultiplier',
+                  content: `${creditMultiplier}x`,
+                  className: 'border-slate-300 bg-slate-50 text-slate-700',
+                  tooltip: creditMultiplierTooltip,
+              }
+            : null
     const capabilityTags = CAPABILITY_TAGS.filter(
         (tag) =>
             capabilities[tag.key] &&
@@ -93,6 +105,7 @@ const RadioBox = ({
     )
     const lifecycleTags = LIFECYCLE_TAGS.filter((tag) => lifecycle[tag.key])
     const tags = [
+        creditTag,
         statusTag,
         ...(included ? [INCLUDED_TAG] : []),
         ...capabilityTags,
@@ -161,13 +174,27 @@ const RadioBox = ({
                                 {title || 'Untitled'}
                             </span>
                             <span className="inline-flex min-w-0 items-center gap-1">
-                                {tags.map((tag) => (
-                                    <Chip
-                                        key={tag.key}
-                                        content={tag.content}
-                                        className={tag.className}
-                                    />
-                                ))}
+                                {tags.map((tag) => {
+                                    const chip = (
+                                        <span className="inline-flex">
+                                            <Chip
+                                                content={tag.content}
+                                                className={tag.className}
+                                            />
+                                        </span>
+                                    )
+
+                                    return tag.tooltip ? (
+                                        <Tooltip
+                                            key={tag.key}
+                                            content={tag.tooltip}
+                                        >
+                                            {chip}
+                                        </Tooltip>
+                                    ) : (
+                                        <span key={tag.key}>{chip}</span>
+                                    )
+                                })}
                             </span>
                         </>
                     )}

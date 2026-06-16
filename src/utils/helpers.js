@@ -1,4 +1,9 @@
 import random from 'random'
+import { getBotPlanFeatureConflicts } from '@/utils/checkoutValidation'
+import {
+  applyAddOnsToPlan,
+  getEffectiveAddOns,
+} from '@/utils/billingAddOns'
 
 export const getURL = () => {
   const url =
@@ -153,18 +158,20 @@ const hasEnabledLeadCollect = (leadCollect) => {
 /**
  * Max billable widget actions allowed per bot for this team's plan.
  * Human escalation and feedback are intentionally excluded from this quota.
- * @returns {number} `0` (unavailable), `3` (Personal), `8` (Standard), or `12` (Business/Enterprise)
  */
 export function getBotActionSlotLimit(team) {
   const currentPlan = stripePlan(team)
+  const configuredLimit = Number(currentPlan?.actionsLimit)
+  if (Number.isFinite(configuredLimit)) return Math.max(0, configuredLimit)
+
   const currentPlanId = currentPlan?.id
   const currentPlanName = currentPlan?.name || ''
   const isEnterprise =
     currentPlanName === 'Enterprise' ||
     currentPlanName === 'Staff' ||
     currentPlanName.includes('Enterprise') ||
-    currentPlan?.pages > 100000 ||
-    currentPlan?.bots > 100
+    Number(currentPlan?.pages) > 100000 ||
+    Number(currentPlan?.bots) > 100
 
   if (isEnterprise) return 12
   if (currentPlanId === 'business') return 12
@@ -242,29 +249,75 @@ export const postData = async ({ url, data }) => {
   return res.json()
 }
 
-const resolveResearchTasksLimit = (value, fallback = 25) => {
-  if (typeof value === 'number' && !Number.isNaN(value)) {
-    return value
+export const teamCreatedAtDate = (createdAt) => {
+  if (!createdAt) return null
+  if (createdAt instanceof Date) return createdAt
+  if (typeof createdAt?.toDate === 'function') return createdAt.toDate()
+  if (typeof createdAt?.seconds === 'number') {
+    return new Date(createdAt.seconds * 1000)
   }
 
-  if (typeof value === 'string') {
-    const parsed = Number(value)
-    if (!Number.isNaN(parsed)) {
-      return parsed
+  const date = new Date(createdAt)
+  return Number.isNaN(date.getTime()) ? null : date
+}
+
+const collectStripePriceIds = (value) => {
+  if (!value) return []
+  if (typeof value === 'string') return [value]
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => collectStripePriceIds(item))
+  }
+  if (typeof value === 'object') {
+    return Object.values(value).flatMap((item) => collectStripePriceIds(item))
+  }
+  return []
+}
+
+const collectCurrentStripePriceIds = (planPrices = {}) => {
+  const currencyPrices = Object.entries(planPrices)
+    .filter(([key]) => /^[A-Z]{3}$/.test(key))
+    .flatMap(([, value]) => collectStripePriceIds(value))
+
+  return [
+    ...collectStripePriceIds(planPrices.current),
+    ...currencyPrices,
+  ]
+}
+
+const normalizeStripePlan = (planKey, planValue = {}, limitOverrides = {}) => ({
+  ...planValue,
+  ...limitOverrides,
+  id: planKey,
+})
+
+const resolveVersionedStripePlan = (planKey, planValue, subscriptionPlan) => {
+  if (!planValue || typeof planValue !== 'object') return null
+
+  const planPrices = planValue.prices || {}
+  const currentPriceIds = collectCurrentStripePriceIds(planPrices)
+  if (currentPriceIds.includes(subscriptionPlan)) {
+    return normalizeStripePlan(planKey, planValue)
+  }
+
+  const versions = Array.isArray(planPrices.versions) ? planPrices.versions : []
+  for (const version of versions) {
+    const versionPriceIds = collectStripePriceIds(version?.prices)
+    if (versionPriceIds.includes(subscriptionPlan)) {
+      return normalizeStripePlan(planKey, planValue, version?.limits || {})
     }
   }
 
-  return fallback
+  const oldPriceIds = collectStripePriceIds(planPrices.old)
+  if (oldPriceIds.includes(subscriptionPlan)) {
+    return normalizeStripePlan(planKey, planValue)
+  }
+
+  return null
 }
 
 export function stripePlan(team = {}) {
   if (team?.plan && typeof team.plan === 'object') {
-    const normalizedPlan = { ...team.plan }
-    normalizedPlan.researchTasks = resolveResearchTasksLimit(
-      normalizedPlan.researchTasks,
-      normalizedPlan.id === 'free' ? 0 : 25,
-    )
-    return normalizedPlan
+    return applyAddOnsToPlan(normalizeStripePlan(team.plan.id, team.plan), team)
   }
 
   const teamId = team?.id || ''
@@ -272,7 +325,7 @@ export function stripePlan(team = {}) {
     teamId === 'ZrbLG98bbxZ9EFqiPvyl' ||
     teamId === 'FVasEcNLTWpySb5ZNlF3'
   ) {
-    return {
+    return applyAddOnsToPlan({
       id: 'staff',
       name: 'Staff',
       bots: 1000,
@@ -281,8 +334,7 @@ export function stripePlan(team = {}) {
       teamMembers: 100000,
       scheduleInterval: 'daily',
       logLimit: 1000000000,
-      researchTasks: 1000,
-    }
+    }, team)
   }
 
   const plans = getStripePlansFromEnv()
@@ -292,7 +344,7 @@ export function stripePlan(team = {}) {
   // If subscription is canceled, inactive, incomplete, or not active, return Free plan
   const activeStatuses = ['active', 'trialing', 'past_due']
   if (subscriptionStatus && !activeStatuses.includes(subscriptionStatus)) {
-    return {
+    return applyAddOnsToPlan({
       id: 'free',
       name: 'Free',
       bots: 1,
@@ -301,34 +353,21 @@ export function stripePlan(team = {}) {
       teamMembers: 1,
       scheduleInterval: 'none',
       logLimit: 6,
-      researchTasks: resolveResearchTasksLimit(0, 0),
-    }
+    }, team)
   }
 
   if (plans && subscriptionPlan) {
     for (const [planKey, planValue] of Object.entries(plans)) {
-      if (!planValue || typeof planValue !== 'object') continue
-      const planPrices = planValue.prices || {}
-      const currentPrices = planPrices.current || {}
-      const oldPrices = planPrices.old || []
-      const currentMatches = Object.values(currentPrices).includes(
+      const matchedPlan = resolveVersionedStripePlan(
+        planKey,
+        planValue,
         subscriptionPlan,
       )
-      const oldMatches = Array.isArray(oldPrices)
-        ? oldPrices.includes(subscriptionPlan)
-        : false
-
-      if (currentMatches || oldMatches) {
-        return {
-          ...planValue,
-          id: planKey,
-          researchTasks: resolveResearchTasksLimit(planValue.researchTasks),
-        }
-      }
+      if (matchedPlan) return applyAddOnsToPlan(matchedPlan, team)
     }
   }
 
-  return {
+  return applyAddOnsToPlan({
     id: 'free',
     name: 'Free',
     bots: 1,
@@ -337,8 +376,7 @@ export function stripePlan(team = {}) {
     teamMembers: 1,
     scheduleInterval: 'none',
     logLimit: 6,
-    researchTasks: resolveResearchTasksLimit(0, 0),
-  }
+  }, team)
 }
 
 let parsedStripePlansFromEnv
@@ -361,6 +399,37 @@ const getStripePlansFromEnv = () => {
   }
 
   return parsedStripePlansFromEnv
+}
+
+const GRANDFATHERED_LIMIT_KEYS = [
+  'bots',
+  'pages',
+  'questions',
+  'actionsLimit',
+  'teamMembers',
+]
+
+const normalizePlanLimit = (value) => {
+  if (typeof value === 'number' && Number.isFinite(value)) return value
+  if (typeof value === 'string' && value.trim() !== '') {
+    const parsed = Number(value)
+    return Number.isFinite(parsed) ? parsed : null
+  }
+  return null
+}
+
+export const hasGrandfatheredPlanLimits = (team = {}) => {
+  const plans = getStripePlansFromEnv()
+  const resolvedPlan = stripePlan({ ...team, stripeAddOns: {} })
+  const configuredPlan = plans?.[resolvedPlan?.id]
+  if (!configuredPlan || !resolvedPlan?.id) return false
+
+  return GRANDFATHERED_LIMIT_KEYS.some((key) => {
+    const resolvedLimit = normalizePlanLimit(resolvedPlan[key])
+    const configuredLimit = normalizePlanLimit(configuredPlan[key])
+    if (resolvedLimit === null || configuredLimit === null) return false
+    return resolvedLimit !== configuredLimit
+  })
 }
 
 /**
@@ -421,7 +490,7 @@ export const getRequiredPlanLevel = (team, requiredPlan, feature = null) => {
   if (!requiredPlan) return null
   const normalizedPlan = requiredPlan.toLowerCase()
   let requiredPlanLevel = PLAN_LEVELS[normalizedPlan] || 999
-  const createdAt = team?.createdAt ? new Date(team.createdAt) : null
+  const createdAt = teamCreatedAtDate(team?.createdAt)
   const hasValidCreatedAt =
     createdAt && typeof createdAt.getTime === 'function' && !Number.isNaN(createdAt.getTime())
 
@@ -451,6 +520,19 @@ export const getRequiredPlanLevel = (team, requiredPlan, feature = null) => {
   }
 
   return requiredPlanLevel
+}
+
+const roundedAiCreditsFromStats = (data) => {
+  const aiCredits =
+    data?.aiCredits != null ? data.aiCredits : data?.messages || data?.questions
+  const parsed = Number(aiCredits)
+  return Number.isFinite(parsed) ? Math.max(0, Math.round(parsed)) : 0
+}
+
+/** Nearest whole AI credit for dashboard/stat UI (stored totals may be fractional). */
+export function roundAiCreditsForDisplay(value) {
+  const n = Number(value ?? 0)
+  return Number.isFinite(n) ? Math.round(n) : 0
 }
 
 export function getStats(doc, timeDeltaOrRange) {
@@ -490,6 +572,7 @@ export function getStats(doc, timeDeltaOrRange) {
         dateCounts[dateKey] = {
           count: data.questions,
           messages: data.messages || data.questions,
+          aiCredits: roundedAiCreditsFromStats(data),
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
           couldAnswer: data?.couldAnswer || null,
@@ -541,6 +624,7 @@ export function getStats(doc, timeDeltaOrRange) {
         dateCounts[dateKey] = {
           count: data.questions,
           messages: data.messages || data.questions,
+          aiCredits: roundedAiCreditsFromStats(data),
           negative: data?.downVotes || 0,
           positive: data?.upVotes || 0,
           couldAnswer: data?.couldAnswer || null,
@@ -594,6 +678,7 @@ export function getStats(doc, timeDeltaOrRange) {
       dateCounts[dateKey] = {
         count: 0,
         messages: 0,
+        aiCredits: 0,
         negative: 0,
         positive: 0,
         couldAnswer: null,
@@ -642,6 +727,7 @@ export function getStats(doc, timeDeltaOrRange) {
   // split data and labels for questions
   let totalCount = 0,
     totalMessages = 0,
+    totalAiCredits = 0,
     totalNegative = 0,
     totalPositive = 0,
     totalCouldAnswer = 0,
@@ -649,6 +735,7 @@ export function getStats(doc, timeDeltaOrRange) {
     totalEscalated = 0
   let countData = [],
     messagesData = [],
+    aiCreditsData = [],
     negativeData = [],
     positiveData = [],
     couldAnswerData = [],
@@ -695,6 +782,7 @@ export function getStats(doc, timeDeltaOrRange) {
     // Question data
     countData.push(dateCounts[dateKey].count)
     messagesData.push(dateCounts[dateKey].messages)
+    aiCreditsData.push(dateCounts[dateKey].aiCredits)
     negativeData.push(dateCounts[dateKey].negative)
     positiveData.push(dateCounts[dateKey].positive)
     couldAnswerData.push(dateCounts[dateKey].couldAnswer)
@@ -703,6 +791,7 @@ export function getStats(doc, timeDeltaOrRange) {
 
     totalCount += dateCounts[dateKey].count
     totalMessages += dateCounts[dateKey].messages
+    totalAiCredits += dateCounts[dateKey].aiCredits
     totalNegative += dateCounts[dateKey].negative
     totalPositive += dateCounts[dateKey].positive
     totalCouldAnswer += dateCounts[dateKey].couldAnswer || 0
@@ -835,6 +924,7 @@ export function getStats(doc, timeDeltaOrRange) {
       // Question stats
       countData,
       messagesData,
+      aiCreditsData,
       negativeData,
       positiveData,
       couldAnswerData,
@@ -852,7 +942,8 @@ export function getStats(doc, timeDeltaOrRange) {
       answerCounts,
       answerLabels: [`0% Answered`, `0% Unanswered`],
       totalCount: 0,
-      totalMessages: 0,
+      totalMessages,
+      totalAiCredits,
       resolutionRate: '0',
       deflectionRate: '0',
       couldAnswerRate: '0',
@@ -987,6 +1078,7 @@ export function getStats(doc, timeDeltaOrRange) {
     // Question stats (existing)
     countData,
     messagesData,
+    aiCreditsData,
     negativeData,
     positiveData,
     couldAnswerData,
@@ -1001,6 +1093,7 @@ export function getStats(doc, timeDeltaOrRange) {
     answerLabels,
     totalCount,
     totalMessages,
+    totalAiCredits,
     resolutionRate,
     deflectionRate,
     couldAnswerRate: couldAnswer,
@@ -1039,8 +1132,6 @@ export function getStats(doc, timeDeltaOrRange) {
     conversationTopicCounts,
     conversationTopicData,
   }
-
-  console.log(finalStats)
 
   return finalStats
 }
@@ -1149,7 +1240,7 @@ export const fbEvent = (name, options = {}) => {
   window.fbq('track', name, options)
 }
 
-export const getNeededStripeProduct = (team, teamInvites = []) => {
+export const getNeededStripeProduct = (team, teamInvites = [], bots = []) => {
   const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
 
   if (team) {
@@ -1160,80 +1251,67 @@ export const getNeededStripeProduct = (team, teamInvites = []) => {
     const businessPlanLimit = plans['business']
     const plansArray = Object.entries(plans).map(([key, value]) => ({ id: key, ...value }))
     const currentMemberCount = Object.keys(team?.roles || {}).length + teamInvites.length
-
-    // Helper to resolve researchTasks limit
-    const resolveResearchLimit = (planLimit) => {
-      if (typeof planLimit?.researchTasks === 'number') {
-        return planLimit.researchTasks
-      }
-      if (typeof planLimit?.researchTasks === 'object' && planLimit.researchTasks !== null) {
-        return planLimit.researchTasks.monthly || planLimit.researchTasks.lifetime || 0
-      }
-      return 0
-    }
-
-    // Calculate effective research count (excluding trial research up to 2)
-    const currentPlan = stripePlan(team)
-    const currentPlanResearchLimit = typeof currentPlan?.researchTasks === 'number' 
-      ? currentPlan.researchTasks 
+    const effectiveAddOns = getEffectiveAddOns(team)
+    const addOnLimit = (addOnId, unit) =>
+      (effectiveAddOns?.[addOnId]?.quantity || 0) * unit
+    const extraBots = addOnLimit('bots', 1)
+    const extraPages = addOnLimit('sourcePages', 10000)
+    const extraQuestions = addOnLimit('aiCredits', 5000)
+    const supportsLimitWithAddOns = (planLimit, key, currentValue, extra) =>
+      Number(planLimit?.[key] || 0) + extra >= Number(currentValue || 0)
+    const portalPlanPriceGroups = (eligiblePlanIds) => plansArray
+      .filter((item) => eligiblePlanIds.includes(item.id))
+      .map((item) => Object.values(item?.prices?.current || {}))
+      .filter((priceList) => priceList.length > 0)
+    const maxActionsPerBot = Array.isArray(bots)
+      ? bots.reduce((maxCount, bot) => {
+          const actionCount = countBillableBotActions({
+            tools: bot?.tools,
+            leadCollect: bot?.leadCollect,
+            mcpServers: bot?.mcpServers,
+            widgetSkills: bot?.widgetSkills,
+          })
+          return Math.max(maxCount, actionCount)
+        }, 0)
       : 0
-    // If current plan has no monthly research tasks, they may have used trial research (up to 2)
-    const trialResearchAmount = currentPlanResearchLimit === 0 ? Math.min(2, Number(team?.researchCount ?? 0)) : 0
-    const researchCount = Math.max(0, Number(team?.researchCount ?? 0) - trialResearchAmount)
+    const planSupportsActionCount = (planLimit) => {
+      const actionLimit = Number(planLimit?.actionsLimit)
+      if (!Number.isFinite(actionLimit)) return maxActionsPerBot === 0
+      return actionLimit >= maxActionsPerBot
+    }
+    const planSupportsConfiguredBotFeatures = (planId) =>
+      getBotPlanFeatureConflicts({ bots, targetPlanId: planId }).length === 0
 
    if (
-      personalPlanLimit.bots >= team?.botCount &&
-      personalPlanLimit.pages >= team?.pageCount &&
-      personalPlanLimit.questions >= team?.questionCount &&
+      supportsLimitWithAddOns(personalPlanLimit, 'bots', team?.botCount, extraBots) &&
+      supportsLimitWithAddOns(personalPlanLimit, 'pages', team?.pageCount, extraPages) &&
+      supportsLimitWithAddOns(personalPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
       personalPlanLimit.teamMembers >= currentMemberCount &&
-      resolveResearchLimit(personalPlanLimit) >= researchCount
+      planSupportsActionCount(personalPlanLimit) &&
+      planSupportsConfiguredBotFeatures('personal')
     ) {
-      const prices = []
-      plansArray.map((item) => {
-        if (item.id !== 'hobby') {
-          const priceList = Object.values(item?.prices?.current)
-          prices.push(priceList)
-        }
-      })
-      return prices
+      return portalPlanPriceGroups(['personal', 'standard', 'business', 'enterprise'])
     } else if (
-      standardPlanLimit.bots >= team?.botCount &&
-      standardPlanLimit.pages >= team?.pageCount &&
-      standardPlanLimit.questions >= team?.questionCount &&
+      supportsLimitWithAddOns(standardPlanLimit, 'bots', team?.botCount, extraBots) &&
+      supportsLimitWithAddOns(standardPlanLimit, 'pages', team?.pageCount, extraPages) &&
+      supportsLimitWithAddOns(standardPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
       standardPlanLimit.teamMembers >= currentMemberCount &&
-      resolveResearchLimit(standardPlanLimit) >= researchCount
+      planSupportsActionCount(standardPlanLimit) &&
+      planSupportsConfiguredBotFeatures('standard')
     ) {
-      const prices = []
-      plansArray.map((item) => {
-        if (item.id !== 'hobby' && item.id !== 'personal' && item.id !== 'pro') {
-          const priceList = Object.values(item?.prices?.current)
-          prices.push(priceList)
-        }
-      })
-      return prices
+      return portalPlanPriceGroups(['standard', 'business', 'enterprise'])
     } else if (
-      businessPlanLimit.bots >= team?.botCount &&
-      businessPlanLimit.pages >= team?.pageCount &&
-      businessPlanLimit.questions >= team?.questionCount &&
+      supportsLimitWithAddOns(businessPlanLimit, 'bots', team?.botCount, extraBots) &&
+      supportsLimitWithAddOns(businessPlanLimit, 'pages', team?.pageCount, extraPages) &&
+      supportsLimitWithAddOns(businessPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
       businessPlanLimit.teamMembers >= currentMemberCount &&
-      resolveResearchLimit(businessPlanLimit) >= researchCount
+      planSupportsActionCount(businessPlanLimit) &&
+      planSupportsConfiguredBotFeatures('business')
     ) {
-      const prices = []
-      plansArray.map((item) => {
-        if (
-          item.id !== 'hobby' &&
-          item.id !== 'personal' &&
-          item.id !== 'pro' &&
-          item.id !== 'standard'
-        ) {
-          const priceList = Object.values(item?.prices?.current)
-          prices.push(priceList)
-        }
-      })
-      return prices
-    } else return ''
+      return portalPlanPriceGroups(['business', 'enterprise'])
+    } else return []
   }
-  return ''
+  return []
 }
 
 export const preprocessLaTeX = (content) => {

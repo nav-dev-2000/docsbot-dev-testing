@@ -2,6 +2,7 @@ import React from 'react'
 import { i18n } from '@/constants/strings.constants'
 import { getModelLabel } from '@/components/new-dashboard/SystemModelSelector'
 
+import { roundAiCreditsForDisplay } from '@/utils/helpers'
 import Link from 'next/link'
 import Tooltip from '@/components/Tooltip'
 import TipsButton from '@new-dashboard/TipsButton'
@@ -117,22 +118,10 @@ const PageChatOverview = ({ team, bot }) => {
                         shallow
                         className="font-medium text-cyan-600 hover:text-cyan-800"
                     >
-                        Messages
+                        AI Credits
                     </Link>
                     <span className="font-semibold text-gray-700">
-                        {bot?.questionCount}
-                    </span>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                    <Link
-                        href={`/app/bots/${botId}/research`}
-                        shallow
-                        className="font-medium text-cyan-600 hover:text-cyan-800"
-                    >
-                        Research tasks
-                    </Link>
-                    <span className="font-semibold text-gray-700">
-                        {bot?.researchCount || 0}
+                        {roundAiCreditsForDisplay(bot?.questionCount)}
                     </span>
                 </div>
             </div>

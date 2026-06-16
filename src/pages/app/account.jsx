@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useState, useEffect, useCallback } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { updateEmail, sendPasswordResetEmail, updateProfile } from 'firebase/auth'
 import { auth } from '@/config/firebase-ui.config'
@@ -12,25 +13,48 @@ import {
   ChatBubbleBottomCenterTextIcon,
   UsersIcon,
   WrenchScrewdriverIcon,
-  BeakerIcon,
+  InformationCircleIcon,
 } from '@heroicons/react/24/outline'
 import * as cookie from 'cookie'
 import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurrentTeam'
 import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
-import { getBotActionSlotLimit, stripePlan } from '@/utils/helpers'
+import { getBotActionSlotLimit, roundAiCreditsForDisplay, stripePlan } from '@/utils/helpers'
+import {
+  ADD_ON_IDS,
+  getAddOnDisplayPrice,
+  getEffectiveAddOns,
+  getStripeAddOnsFromEnv,
+} from '@/utils/billingAddOns'
 import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
 import ModalDeleteAccount from '@/components/ModalDeleteAccount'
 import LocalStringNum from '@/components/LocalStringNum'
 import { getBots, getInvitesFromTeam, getTeamSourceTypeIds } from '@/lib/dbQueries'
 import { getUserRole, canUserManageBilling } from '@/utils/function.utils'
+import { stripe } from '@/utils/stripe'
 import ModalPasswordReset from '@/components/ModalPasswordReset'
 import Tooltip from '@/components/Tooltip'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
+import {
+  buildTeamBillingUpdate,
+  syncTeamBillingFromStripe,
+} from '@/utils/billingSubscriptionSync'
+import { configureFirebaseApp } from '@/config/firebase-server.config'
+import { getFirestore } from 'firebase-admin/firestore'
 
-const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
+const Card = ({
+  name,
+  stat,
+  href,
+  linkText,
+  tooltip,
+  CardIcon,
+  limit,
+  grandfathered = false,
+}) => {
   const cardContent = (
     <div key={name} className="overflow-hidden rounded-lg bg-white shadow">
       <div className="p-5">
@@ -40,7 +64,14 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
           </div>
           <div className="ml-5 w-0 flex-1">
             <dl>
-              <dt className="truncate text-sm font-medium text-gray-500">{name}</dt>
+              <dt className="truncate text-sm font-medium text-gray-500">
+                {name}
+                {grandfathered && (
+                  <span aria-label="Grandfathered limit" className="ml-0.5 text-cyan-700">
+                    *
+                  </span>
+                )}
+              </dt>
               <dd>
                 <div className="text-lg font-medium text-gray-900">
                   <LocalStringNum value={stat} />
@@ -76,8 +107,53 @@ const Card = ({ name, stat, href, linkText, tooltip, CardIcon, limit }) => {
   ) : cardContent
 }
 
+const parseStripePlans = () => {
+  try {
+    return JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
+  } catch (error) {
+    console.warn('Unable to parse NEXT_PUBLIC_STRIPE_PLANS', error)
+    return {}
+  }
+}
+
+const normalizeLimit = (value, fallback = null) => {
+  if (typeof value === 'number' && Number.isFinite(value)) return value
+  if (typeof value === 'string' && value.trim() !== '') {
+    const parsed = Number(value)
+    return Number.isFinite(parsed) ? parsed : fallback
+  }
+  return fallback
+}
+
+const getPlanLimit = (plan, key) => {
+  return normalizeLimit(plan?.[key])
+}
+
+const getGrandfatheredLimit = ({ currentPlan, resolvedPlan, key }) => {
+  const resolvedLimit = getPlanLimit(resolvedPlan, key)
+  const currentLimit = getPlanLimit(currentPlan, key)
+
+  if (
+    resolvedLimit === null ||
+    currentLimit === null ||
+    resolvedLimit === currentLimit
+  ) {
+    return { isGrandfathered: false, currentLimit }
+  }
+
+  return { isGrandfathered: true, currentLimit }
+}
+
+const withGrandfatheredTooltip = ({ tooltip, isGrandfathered }) => {
+  if (!isGrandfathered) return tooltip
+  return `${tooltip} * This is a grandfathered limit for your current plan. If you downgrade or cancel, new limits will apply if you come back to this plan later.`
+}
+
+const RETAINED_CREDIT_TOOLTIP =
+  'Unused prorated credit will stay on your account and be applied automatically to future invoices.'
+
 function Account({
-  team,
+  team: initialTeam,
   bots,
   checkout,
   teamInvites = [],
@@ -87,6 +163,8 @@ function Account({
   userId,
   hasDemoTrialPromotion = false,
 }) {
+  const [teamOverride, setTeamOverride] = useState(null)
+  const team = teamOverride ? { ...initialTeam, ...teamOverride } : initialTeam
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
   const [successText, setSuccessText] = useState(null)
@@ -95,81 +173,394 @@ function Account({
   const [canModify, setModify] = useState(false)
   const [newDisplayName, setNewDisplayName] = useState('')
   const [isUpdatingName, setIsUpdatingName] = useState(false)
+  const [openingAddOns, setOpeningAddOns] = useState(false)
+  const [addOnQuantities, setAddOnQuantities] = useState({})
+  const [addOnPreview, setAddOnPreview] = useState(null)
+  const [autoIncreaseAiCredits, setAutoIncreaseAiCredits] = useState(
+    team?.autoIncreaseAiCredits !== false,
+  )
   const isGoogleAccount = user?.providerData?.some((p) => p.providerId === 'google.com')
   const isOwner = team?.roles?.[userId] === 'owner'
   const posthog = usePostHog()
+  const router = useRouter()
+  const [billingSynced, setBillingSynced] = useState(false)
+
+  const applyTeamBillingUpdate = useCallback((billingUpdate = {}) => {
+    if (!billingUpdate || Object.keys(billingUpdate).length === 0) return
+    setTeamOverride((current) => ({
+      ...(current || {}),
+      ...billingUpdate,
+    }))
+  }, [])
+
+  const syncTeamBilling = useCallback(async () => {
+    if (!team?.id || !canManageBilling) return null
+    const response = await fetch(`/api/teams/${team.id}/subscription-sync`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    const data = await response.json()
+    if (response.ok && data.teamBilling) {
+      applyTeamBillingUpdate(data.teamBilling)
+      return data.teamBilling
+    }
+    if (response.ok && data.skipped) {
+      return null
+    }
+    throw new Error(data.message || 'Unable to refresh billing details.')
+  }, [team?.id, canManageBilling, applyTeamBillingUpdate])
+
+  const handleBillingChange = useCallback(async ({ successMessage } = {}) => {
+    await syncTeamBilling()
+    setSuccessText(successMessage || 'Plan updated.')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [syncTeamBilling])
 
   useEffect(() => {
     setNewDisplayName(user?.displayName || '')
   }, [user])
 
   useEffect(() => {
+    setTeamOverride(null)
+  }, [initialTeam?.id])
+
+  useEffect(() => {
+    setAutoIncreaseAiCredits(initialTeam?.autoIncreaseAiCredits !== false)
+  }, [initialTeam?.id, initialTeam?.autoIncreaseAiCredits])
+
+  useEffect(() => {
     posthog?.startSessionRecording()
   }, [posthog])
+
+  useEffect(() => {
+    if (!checkout && !router.query.session_id) return
+    if (billingSynced) return
+    setBillingSynced(true)
+    syncTeamBilling().catch((error) => {
+      console.warn('Unable to sync billing state', error)
+    })
+  }, [checkout, router.query.session_id, billingSynced, syncTeamBilling])
 
   // Calculate team members count (current members + invites)
   const teamMembersCount = Object.keys(team?.roles || {}).length + teamInvites.length
 
   const teamPlan = stripePlan(team)
-  const researchLimitRaw = teamPlan?.researchTasks
-  const researchLimit =
-    typeof researchLimitRaw === 'number' && !Number.isNaN(researchLimitRaw)
-      ? researchLimitRaw
-      : 25
-  const researchUsed = Number(team?.researchCount ?? 0) || 0
-  const hasResearchAllowance = researchLimit > 0
+  const baseTeamPlan = stripePlan({ ...team, stripeAddOns: {} })
+  const addOnCatalog = getStripeAddOnsFromEnv()
+  const activeAddOns = getEffectiveAddOns(team)
+  const aiCreditAddOn = addOnCatalog[ADD_ON_IDS.AI_CREDITS]
+  const botAddOn = addOnCatalog[ADD_ON_IDS.BOTS]
+  const sourcePageAddOn = addOnCatalog[ADD_ON_IDS.SOURCE_PAGES]
+  const currencyCode = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
+  const billingInterval =
+    team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
+  const formatPrice = (amount) =>
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currencyCode,
+      maximumFractionDigits: currencyCode === 'JPY' ? 0 : 0,
+    }).format(amount || 0)
+  const isPaidSubscription =
+    !!team?.stripeCustomerId &&
+    ['active', 'trialing', 'past_due'].includes(team?.stripeSubscriptionStatus)
+  const canManageAddOns =
+    isPaidSubscription && !team?.stripeSubscriptionCancelAtPeriodEnd
+
+  useEffect(() => {
+    if (!canManageAddOns) {
+      setAddOnPreview(null)
+    }
+  }, [canManageAddOns])
+
+  useEffect(() => {
+    setAddOnQuantities({
+      [ADD_ON_IDS.AI_CREDITS]: activeAddOns.aiCredits?.quantity || 0,
+      [ADD_ON_IDS.BOTS]: activeAddOns.bots?.quantity || 0,
+      [ADD_ON_IDS.SOURCE_PAGES]: activeAddOns.sourcePages?.quantity || 0,
+    })
+  }, [
+    activeAddOns.aiCredits?.quantity,
+    activeAddOns.bots?.quantity,
+    activeAddOns.sourcePages?.quantity,
+  ])
+  const currentPlanLimits = parseStripePlans()?.[teamPlan?.id]
   const actionsPerBotLimit = getBotActionSlotLimit(team)
-  const researchTooltip = hasResearchAllowance
-    ? `Your ${teamPlan.name} plan includes ${researchLimit} deep research tasks per month.`
-    : 'Your current plan does not include deep research tasks. Upgrade to unlock them.'
+  const grandfatheredLimits = {
+    bots: getGrandfatheredLimit({
+      currentPlan: currentPlanLimits,
+      resolvedPlan: baseTeamPlan,
+      key: 'bots',
+    }),
+    pages: getGrandfatheredLimit({
+      currentPlan: currentPlanLimits,
+      resolvedPlan: baseTeamPlan,
+      key: 'pages',
+    }),
+    questions: getGrandfatheredLimit({
+      currentPlan: currentPlanLimits,
+      resolvedPlan: baseTeamPlan,
+      key: 'questions',
+    }),
+    actionsLimit: getGrandfatheredLimit({
+      currentPlan: currentPlanLimits,
+      resolvedPlan: baseTeamPlan,
+      key: 'actionsLimit',
+    }),
+    teamMembers: getGrandfatheredLimit({
+      currentPlan: currentPlanLimits,
+      resolvedPlan: baseTeamPlan,
+      key: 'teamMembers',
+    }),
+  }
+
+  const getAddOnLimitAmount = (addOnId) => {
+    const addOn = addOnCatalog?.[addOnId]
+    const quantity = activeAddOns?.[addOnId]?.quantity || 0
+    if (!quantity || !addOn) return 0
+    return quantity * addOn.unit
+  }
+
+  const getLimitBreakdown = (limitKey, addOnId) => {
+    const addOnAmount = getAddOnLimitAmount(addOnId)
+    if (!addOnAmount) return null
+    const totalLimit = Number(teamPlan?.[limitKey] || 0)
+    return {
+      planLimit: Math.max(0, totalLimit - addOnAmount),
+      addOnAmount,
+    }
+  }
+
+  const formatLimitBreakdownTooltip = (label, breakdown) => {
+    if (!breakdown) return null
+    return `${breakdown.planLimit.toLocaleString()} ${label} from your plan and ${breakdown.addOnAmount.toLocaleString()} from add-ons.`
+  }
+
+  const botLimitBreakdown = getLimitBreakdown('bots', ADD_ON_IDS.BOTS)
+  const pageLimitBreakdown = getLimitBreakdown('pages', ADD_ON_IDS.SOURCE_PAGES)
+  const creditLimitBreakdown = getLimitBreakdown('questions', ADD_ON_IDS.AI_CREDITS)
 
   const cards = [
     {
       name: 'Bots',
-      tooltip: 'You can create up to ' + teamPlan.bots + ' bots.',
+      tooltip: withGrandfatheredTooltip({
+        tooltip: botLimitBreakdown
+          ? `You can create up to ${teamPlan.bots.toLocaleString()} bots. ${formatLimitBreakdownTooltip('bots', botLimitBreakdown)}`
+          : 'You can create up to ' + teamPlan.bots + ' bots.',
+        ...grandfatheredLimits.bots,
+      }),
       icon: ServerStackIcon,
       stat: team?.botCount || 0,
       limit: teamPlan.bots,
+      grandfathered: grandfatheredLimits.bots.isGrandfathered,
     },
     {
       name: 'Source Pages',
       href: false,
-      tooltip: 'A source page is the greater of 5000 characters of processed text or one document/web page.',
+      tooltip: withGrandfatheredTooltip({
+        tooltip: pageLimitBreakdown
+          ? `A source page is the greater of 5000 characters of processed text or one document/web page. Your limit is ${teamPlan.pages.toLocaleString()} pages. ${formatLimitBreakdownTooltip('pages', pageLimitBreakdown)}`
+          : 'A source page is the greater of 5000 characters of processed text or one document/web page.',
+        ...grandfatheredLimits.pages,
+      }),
       icon: Square3Stack3DIcon,
       stat: team?.pageCount || 0,
       limit: teamPlan.pages,
+      grandfathered: grandfatheredLimits.pages.isGrandfathered,
     },
     {
       name: 'AI Credits',
       href: false,
-      tooltip: 'AI message credits used in the current month.',
+      tooltip: withGrandfatheredTooltip({
+        tooltip: creditLimitBreakdown
+          ? `AI Credits used in the current month, including chat, skills, and deep research. Your limit is ${teamPlan.questions.toLocaleString()} credits. ${formatLimitBreakdownTooltip('credits', creditLimitBreakdown)}`
+          : 'AI Credits used in the current month, including chat, skills, and deep research.',
+        ...grandfatheredLimits.questions,
+      }),
       icon: ChatBubbleBottomCenterTextIcon,
-      stat: team?.questionCount || 0,
+      stat: roundAiCreditsForDisplay(team?.questionCount),
       limit: teamPlan.questions,
-    },
-    {
-      name: 'Research Tasks',
-      tooltip: researchTooltip,
-      icon: BeakerIcon,
-      stat: researchUsed,
-      limit: hasResearchAllowance ? researchLimit : null,
+      grandfathered: grandfatheredLimits.questions.isGrandfathered,
     },
     {
       name: 'Actions per Bot',
-      tooltip: actionsPerBotLimit > 0
-        ? `Your ${teamPlan.name} plan allows up to ${actionsPerBotLimit} actions per bot.`
-        : 'Actions are not available on your current plan.',
+      tooltip: withGrandfatheredTooltip({
+        tooltip: actionsPerBotLimit > 0
+          ? `Your ${teamPlan.name} plan allows up to ${actionsPerBotLimit} actions per bot.`
+          : 'Actions are not available on your current plan.',
+        ...grandfatheredLimits.actionsLimit,
+      }),
       icon: WrenchScrewdriverIcon,
       stat: actionsPerBotLimit,
+      grandfathered: grandfatheredLimits.actionsLimit.isGrandfathered,
     },
     {
       name: 'Team Members',
-      tooltip: 'Current team members including pending invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
+      tooltip: withGrandfatheredTooltip({
+        tooltip: 'Current team members including pending invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
+        ...grandfatheredLimits.teamMembers,
+      }),
       icon: UsersIcon,
       stat: teamMembersCount,
       limit: teamPlan.teamMembers,
+      grandfathered: grandfatheredLimits.teamMembers.isGrandfathered,
     },
   ]
+
+  const getCurrentUsageForAddOn = (addOn) => {
+    if (addOn?.limitKey === 'questions') return Number(team?.questionCount || 0)
+    if (addOn?.limitKey === 'bots') return Number(team?.botCount || 0)
+    if (addOn?.limitKey === 'pages') return Number(team?.pageCount || 0)
+    return 0
+  }
+
+  const getBaseLimitForAddOn = (addOn) =>
+    Number(baseTeamPlan?.[addOn?.limitKey] || 0)
+
+  const getMinimumAddOnQuantity = (addOn, activeQuantity = 0) => {
+    if (!addOn?.limitKey || !addOn?.unit) return 0
+    const currentUsage = getCurrentUsageForAddOn(addOn)
+    const baseLimit = getBaseLimitForAddOn(addOn, activeQuantity)
+    return Math.max(0, Math.ceil((currentUsage - baseLimit) / addOn.unit))
+  }
+
+  const getAddOnUnitName = (addOn, amount = 0) => {
+    if (addOn?.limitKey === 'questions') return 'credits'
+    if (addOn?.limitKey === 'pages') return 'pages'
+    if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
+    return addOn?.unitLabel || 'units'
+  }
+
+  const formatAddOnCapacity = (addOn, quantity = 0) => {
+    const amount = Number(quantity || 0) * Number(addOn?.unit || 1)
+    return `${amount.toLocaleString()} ${getAddOnUnitName(addOn, amount)}`
+  }
+
+  const formatAddOnDropdownOption = (
+    addOn,
+    blockQuantity,
+    { priceLabel = null, isCurrent = false } = {},
+  ) => {
+    if (blockQuantity === 0) return 'None'
+    const capacity = formatAddOnCapacity(addOn, blockQuantity)
+    const suffix = [
+      priceLabel ? `— ${priceLabel}` : null,
+      isCurrent ? '(current)' : null,
+    ]
+      .filter(Boolean)
+      .join(' ')
+    return suffix ? `${capacity} ${suffix}` : capacity
+  }
+
+  const getAddOnBlockOptionLimit = (activeQuantity = 0, minimumQuantity = 0) =>
+    Math.min(50, Math.max(10, activeQuantity + 10, minimumQuantity + 5))
+
+  const getAddOnRecurringLabel = (price, interval = 'monthly') =>
+    interval === 'annually' ? `${formatPrice(price)}/year` : `${formatPrice(price)}/month`
+
+  const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
+
+  async function previewAddOnQuantity(addOnId, quantity) {
+    setOpeningAddOns(true)
+    setErrorText(null)
+    try {
+      const response = await fetch(`/api/teams/${team.id}/addons`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ action: 'previewQuantity', addOnId, quantity }),
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.message || 'Unable to preview add-on change.')
+      }
+      setAddOnPreview({ addOnId, quantity, ...data.preview })
+    } catch (error) {
+      setErrorText(error.message)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } finally {
+      setOpeningAddOns(false)
+    }
+  }
+
+  async function confirmAddOnQuantity() {
+    if (!addOnPreview) return
+    setOpeningAddOns(true)
+    setErrorText(null)
+    try {
+      const response = await fetch(`/api/teams/${team.id}/addons`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          action: 'confirmQuantity',
+          addOnId: addOnPreview.addOnId,
+          quantity: addOnPreview.quantity,
+          prorationDate: addOnPreview.prorationDate,
+        }),
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.message || 'Unable to update add-ons.')
+      }
+      if (data.paymentAction?.requiresAction) {
+        await completeStripePaymentAction(data.paymentAction)
+        applyTeamBillingUpdate({
+          stripeAddOns: data.stripeAddOns,
+          questionLimit: data.questionLimit,
+        })
+        setAddOnPreview(null)
+        setSuccessText('Add-ons updated.')
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+      applyTeamBillingUpdate({
+        stripeAddOns: data.stripeAddOns,
+        questionLimit: data.questionLimit,
+      })
+      setAddOnPreview(null)
+      setSuccessText('Add-ons updated.')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } catch (error) {
+      setErrorText(error.message)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } finally {
+      setOpeningAddOns(false)
+    }
+  }
+
+  const updateAddOnBlockQuantity = (addOnId, value, minQuantity = 0) => {
+    const nextQuantity = Math.max(minQuantity, Number(value) || 0)
+    setAddOnQuantities((current) => ({
+      ...current,
+      [addOnId]: nextQuantity,
+    }))
+  }
+
+  async function updateAutoIncreaseAiCredits(enabled) {
+    setAutoIncreaseAiCredits(enabled)
+    setErrorText(null)
+    try {
+      const response = await fetch(`/api/teams/${team.id}/addons`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ autoIncreaseAiCredits: enabled }),
+      })
+      const data = await response.json()
+      if (!response.ok) {
+        throw new Error(data.message || 'Unable to update AI credit setting.')
+      }
+    } catch (error) {
+      setAutoIncreaseAiCredits(!enabled)
+      setErrorText(error.message)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   return (
     <DashboardWrap page="Account" team={team} bots={bots}>
@@ -197,7 +588,7 @@ function Account({
         </span>
       </div>
 
-      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 2xl:grid-cols-6">
+      <div className="grid grid-cols-2 gap-5 md:grid-cols-3 2xl:grid-cols-5">
         {/* Card */}
         {cards.map((card) => (
           <Card
@@ -209,21 +600,289 @@ function Account({
             CardIcon={card.icon}
             stat={card.stat}
             limit={card.limit}
+            grandfathered={card.grandfathered}
           />
         ))}
       </div>
 
       {canManageBilling && (
-        <div className="mt-6 rounded-lg bg-white p-8 shadow">
-          <Checkout
-            team={team}
-            bots={bots}
-            teamInvites={teamInvites}
-            teamSourceTypes={teamSourceTypes}
-            hasDemoTrialPromotion={hasDemoTrialPromotion}
-          />
-          <Cancel team={team} bots={bots} />
-        </div>
+        <>
+          {addOnPreview && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900/50 px-4">
+              <div className="w-full max-w-lg rounded-lg bg-white p-6 shadow-xl">
+                <h3 className="text-xl font-semibold text-gray-950">
+                  Confirm add-on change
+                </h3>
+                <p className="mt-2 text-sm text-gray-600">
+                  Review the prorated billing impact before updating your subscription.
+                </p>
+                <div className="mt-5 rounded-lg border border-gray-200">
+                  <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
+                    <span className="text-sm font-medium text-gray-700">New add-on capacity</span>
+                    <span className="font-semibold text-gray-950">
+                      {formatAddOnCapacity(
+                        getAddOnById(addOnPreview.addOnId),
+                        addOnPreview.nextQuantity,
+                      )}
+                    </span>
+                  </div>
+                  {addOnPreview.lines?.length > 0 && (
+                    <div className="max-h-56 overflow-y-auto border-b border-gray-200 px-4 py-3">
+                      <ul className="space-y-3">
+                        {addOnPreview.lines.map((line) => (
+                          <li
+                            key={line.id}
+                            className="flex items-start justify-between gap-4 text-sm"
+                          >
+                            <div className="min-w-0">
+                              <div className="text-gray-600">{line.description}</div>
+                              {line.periodLabel && (
+                                <div className="mt-0.5 text-xs text-gray-400">
+                                  {line.periodLabel}
+                                </div>
+                              )}
+                            </div>
+                            <span className="shrink-0 font-medium text-gray-900">
+                              {line.formattedAmount}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                  {addOnPreview.accountCreditApplied > 0 && (
+                    <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3 text-sm">
+                      <span className="text-gray-600">Account credit applied</span>
+                      <span className="font-medium text-gray-900">
+                        -{addOnPreview.formattedAccountCreditApplied}
+                      </span>
+                    </div>
+                  )}
+                  {addOnPreview.creditAmount > 0 && (
+                    <div className="flex items-center justify-between gap-4 border-b border-gray-200 px-4 py-3 text-sm">
+                      <span className="inline-flex items-center gap-1.5 text-gray-600">
+                        Credit kept for future invoices
+                        <Tooltip content={RETAINED_CREDIT_TOOLTIP}>
+                          <span
+                            className="inline-flex cursor-help text-gray-400"
+                            aria-label={RETAINED_CREDIT_TOOLTIP}
+                          >
+                            <InformationCircleIcon className="h-4 w-4" aria-hidden="true" />
+                          </span>
+                        </Tooltip>
+                      </span>
+                      <span className="shrink-0 font-medium text-gray-900">
+                        {addOnPreview.formattedCreditAmount}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex items-center justify-between px-4 py-3">
+                    <span className="text-sm font-medium text-gray-700">Amount due now</span>
+                    <span className="font-semibold text-gray-950">
+                      {addOnPreview.formattedAmountDue}
+                    </span>
+                  </div>
+                </div>
+                <div className="mt-6 flex justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setAddOnPreview(null)}
+                    disabled={openingAddOns}
+                    className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={confirmAddOnQuantity}
+                    disabled={openingAddOns}
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 disabled:cursor-not-allowed disabled:opacity-25"
+                  >
+                    {openingAddOns ? <LoadingSpinner /> : 'Confirm update'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-6 rounded-lg bg-white p-8 shadow">
+            <Checkout
+              team={team}
+              bots={bots}
+              teamInvites={teamInvites}
+              teamSourceTypes={teamSourceTypes}
+              hasDemoTrialPromotion={hasDemoTrialPromotion}
+              onBillingChange={handleBillingChange}
+            />
+            <Cancel
+              team={team}
+              bots={bots}
+              teamInvites={teamInvites}
+              teamSourceTypes={teamSourceTypes}
+              setParentErrorText={setErrorText}
+              onBillingChange={handleBillingChange}
+            />
+          </div>
+
+          {canManageAddOns && (
+            <div className="mt-6 rounded-lg bg-white p-8 shadow">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div className="w-full">
+                  <h3 className="text-2xl font-bold">Add-ons</h3>
+                  <p className="text-md mt-2 w-full text-gray-800">
+                    Scale your plan without upgrading. Add-ons renew on your billing cycle, and
+                    changes are prorated on your next invoice.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {[
+                  {
+                    addOn: aiCreditAddOn,
+                    quantity: activeAddOns.aiCredits?.quantity || 0,
+                    actionId: ADD_ON_IDS.AI_CREDITS,
+                  },
+                  {
+                    addOn: botAddOn,
+                    quantity: activeAddOns.bots?.quantity || 0,
+                    actionId: ADD_ON_IDS.BOTS,
+                  },
+                  {
+                    addOn: sourcePageAddOn,
+                    quantity: activeAddOns.sourcePages?.quantity || 0,
+                    actionId: ADD_ON_IDS.SOURCE_PAGES,
+                  },
+                ].map(({ addOn, quantity, actionId }) => {
+                  const minimumQuantity = getMinimumAddOnQuantity(addOn, quantity)
+                  const selectedQuantity = addOnQuantities[actionId] ?? quantity
+                  const belowMinimum = selectedQuantity < minimumQuantity
+                  const unchanged = selectedQuantity === quantity
+                  const addOnPrice = getAddOnDisplayPrice(addOn, currencyCode, billingInterval)
+                  const monthlyEquivalent =
+                    billingInterval === 'annually' ? addOnPrice / 12 : addOnPrice
+                  const blockOptionLimit = getAddOnBlockOptionLimit(quantity, minimumQuantity)
+                  const recurringIntervalLabel = billingInterval === 'annually' ? 'year' : 'month'
+                  return (
+                    <div key={addOn.id} className="rounded-lg border border-gray-200 p-4">
+                      <div>
+                        <h4 className="font-semibold text-gray-950">{addOn.name}</h4>
+                        <p className="mt-1 text-sm text-gray-600">{addOn.description}</p>
+                      </div>
+                      <p className="mt-4 text-sm text-gray-700">
+                        <span className="text-2xl font-bold text-gray-950">
+                          {formatPrice(monthlyEquivalent)}
+                        </span>
+                        <span className="ml-1 text-sm text-gray-600">
+                          /month per {addOn.unitLabel}
+                        </span>
+                      </p>
+                      {billingInterval === 'annually' && (
+                        <p className="mt-1 text-xs text-gray-500">
+                          {formatPrice(addOnPrice)} billed annually.
+                        </p>
+                      )}
+                      <div className="mt-4">
+                        <p className="text-sm text-gray-600">
+                          Current subscription:{' '}
+                          <span className="font-medium text-gray-900">
+                            {quantity > 0
+                              ? `${formatAddOnCapacity(addOn, quantity)} (${formatPrice(addOnPrice * quantity)}/${recurringIntervalLabel})`
+                              : 'None'}
+                          </span>
+                        </p>
+                        <label
+                          htmlFor={`addon-${actionId}-quantity`}
+                          className="sr-only"
+                        >
+                          Adjust add-on
+                        </label>
+                        <div className="mt-2 flex flex-wrap items-center gap-2">
+                          <select
+                            id={`addon-${actionId}-quantity`}
+                            value={selectedQuantity}
+                            onChange={(event) =>
+                              updateAddOnBlockQuantity(
+                                actionId,
+                                event.target.value,
+                                minimumQuantity,
+                              )
+                            }
+                            className="block min-w-0 flex-1 rounded-md border-gray-300 text-sm shadow-sm focus:border-cyan-500 focus:ring-cyan-500"
+                          >
+                            {Array.from({ length: blockOptionLimit + 1 }, (_, blockQuantity) => (
+                              <option
+                                key={blockQuantity}
+                                value={blockQuantity}
+                                disabled={blockQuantity < minimumQuantity}
+                              >
+                                {formatAddOnDropdownOption(addOn, blockQuantity, {
+                                  priceLabel:
+                                    blockQuantity > 0
+                                      ? getAddOnRecurringLabel(
+                                          addOnPrice * blockQuantity,
+                                          billingInterval,
+                                        )
+                                      : null,
+                                  isCurrent: blockQuantity === quantity,
+                                })}
+                              </option>
+                            ))}
+                          </select>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              previewAddOnQuantity(
+                                actionId,
+                                addOnQuantities[actionId] ?? quantity,
+                              )
+                            }
+                            disabled={openingAddOns || belowMinimum || unchanged}
+                            className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
+                          >
+                            Change
+                          </button>
+                        </div>
+                        {minimumQuantity > 0 && (
+                          <p className="mt-2 text-xs text-gray-500">
+                            Your current usage needs at least{' '}
+                            {formatAddOnCapacity(addOn, minimumQuantity)} from add-ons. You
+                            can&apos;t reduce below this until usage drops
+                            {addOn?.limitKey === 'questions'
+                              ? ', or at the start of the next calendar month when your AI credit usage resets'
+                              : ''}
+                            .
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+
+              <div className="mt-6 flex items-center justify-between rounded-lg border border-gray-200 p-4">
+                <div>
+                  <h4 className="font-semibold text-gray-950">Auto-add AI credits</h4>
+                  <p className="mt-1 text-sm text-gray-600">
+                    When you hit your monthly limit, automatically increase your AI credits add-on
+                    subscription by 5,000 credits so bots keep responding.
+                  </p>
+                </div>
+                <label className="relative inline-flex cursor-pointer items-center">
+                  <input
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={autoIncreaseAiCredits}
+                    onChange={(event) =>
+                      updateAutoIncreaseAiCredits(event.target.checked)
+                    }
+                  />
+                  <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:bg-white after:transition-all peer-checked:bg-cyan-600 peer-checked:after:translate-x-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-cyan-500 peer-focus:ring-offset-2" />
+                </label>
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       <div className="mt-6 gap-6 md:grid md:grid-cols-2">
@@ -398,17 +1057,37 @@ export const getServerSideProps = async (context) => {
   // Check if session_id is present in the query parameters
   if (context.query.session_id) {
     try {
-      // Retrieve the session details from Stripe
-      const session = await stripe.checkout.sessions.retrieve(context.query.session_id)
+      const session = await stripe.checkout.sessions.retrieve(context.query.session_id, {
+        expand: ['subscription', 'subscription.items.data.price'],
+      })
 
       data.props.checkout = {
         id: session.id,
         value: session.amount_total / 100,
         currency: session.currency.toUpperCase(),
       }
-      console.log(data.props.checkout)
+
+      if (data.props.team && session.subscription && typeof session.subscription === 'object') {
+        const billingUpdate = buildTeamBillingUpdate({
+          team: data.props.team,
+          subscription: session.subscription,
+        })
+        if (billingUpdate) {
+          configureFirebaseApp()
+          await getFirestore().collection('teams').doc(data.props.team.id).update(billingUpdate)
+          data.props.team = { ...data.props.team, ...billingUpdate }
+        } else if (data.props.team?.stripeSubscriptionId) {
+          const syncedBilling = await syncTeamBillingFromStripe({
+            team: data.props.team,
+          })
+          if (syncedBilling) {
+            configureFirebaseApp()
+            await getFirestore().collection('teams').doc(data.props.team.id).update(syncedBilling)
+            data.props.team = { ...data.props.team, ...syncedBilling }
+          }
+        }
+      }
     } catch (err) {
-      // Catch any errors and log them to the console
       console.error('Error retrieving checkout session:', err.message)
     }
   }

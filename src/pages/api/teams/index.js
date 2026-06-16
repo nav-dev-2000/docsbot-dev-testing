@@ -50,6 +50,7 @@ export default async function handler(req, res) {
         pageCount: 0,
         chunkCount: 0,
         questionCount: 0,
+        autoIncreaseAiCredits: true,
         openAIKey: null,
         roles: {
           [userId]: 'owner',

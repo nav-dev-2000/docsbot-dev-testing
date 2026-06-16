@@ -5,7 +5,7 @@ import { CreditCardIcon } from '@heroicons/react/24/outline'
 import { Pie, Line } from 'react-chartjs-2'
 import classNames from '@/utils/classNames'
 import Chart from 'chart.js/auto'
-import { checkPlanPermission, getStats } from '@/utils/helpers'
+import { checkPlanPermission, getStats, roundAiCreditsForDisplay } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
 import Link from 'next/link'
 import LocalStringNum from '@/components/LocalStringNum'
@@ -128,6 +128,14 @@ export default function TeamHistory({ team }) {
           backgroundColor: createLineGradient('#EDC948'),
           tension: 0.3,
           fill: true,
+        },
+        {
+          label: 'AI Credits',
+          data: stats.aiCreditsData,
+          borderColor: '#06B6D4',
+          backgroundColor: createLineGradient('#06B6D4'),
+          tension: 0.3,
+          fill: false,
         },
         {
           label: 'Total Messages',
@@ -840,7 +848,17 @@ export default function TeamHistory({ team }) {
           </div>
 
           <dl className="mt-6 grid grid-cols-2 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3 lg:grid-cols-3">
-            <Tooltip content="All messages that count towards your plan limits, including tool calls">
+            <Tooltip content="AI Credits that count toward your plan limit. Older logs count one message as one AI Credit.">
+              <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
+                <dt className="text-sm font-semibold leading-6 text-gray-600">
+                  AI Credits
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900">
+                  <LocalStringNum value={roundAiCreditsForDisplay(stats.totalAiCredits)} />
+                </dd>
+              </div>
+            </Tooltip>
+            <Tooltip content="Raw message logs, separate from AI Credit usage.">
               <div className="flex cursor-help flex-col bg-gray-400/5 p-8 hover:bg-gray-400/10">
                 <dt className="text-sm font-semibold leading-6 text-gray-600">
                   Messages

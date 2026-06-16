@@ -46,6 +46,7 @@ Use `Authorization: Bearer <token>` when you need authenticated behavior (higher
 | **default_language**   | string          | The default language to use if the language of the conversation is unclear. Use locale codes like 'en' or 'en-US'. Optional, defaults to the bot's configured language.                  |
 | **reasoning_effort**   | string          | Reasoning depth for the response. Requires authentication to override default. Options: 'none' (GPT-5.1 and GPT-5.4 default, fastest), 'minimal' (GPT-5 only, least reasoning), 'low' (light reasoning), 'medium' (balanced reasoning), 'high' (most reasoning), 'xhigh' (GPT-5.4 only, extra-high). Defaults: GPT-5.1 → 'none', GPT-5 → 'minimal', GPT-5.4 → 'none', other reasoning models → 'low', non-reasoning models → ignored. Optional, defaults to model-specific default. |
 | **search_limit**      | integer         | Maximum number of times the `search_documentation` tool can be called. Requires authentication to override default. Minimum: 1, Maximum: 4. Optional, defaults to bot's `searchDocumentationLimit` or 2. Note: This is a default limit and does not guarantee that many searches will occur. The AI will only perform additional searches based on your custom instructions and if it determines it still hasn't found the required information and needs to try different search queries. |
+| **web_search**         | boolean/string  | Enable the web search tool for this request when it is enabled on the bot (Standard plan and above, compatible model). Pass `true` or `"live"`. Optional, defaults to `false`. Each completed web search uses **10 AI Credits** with DocsBot-hosted usage, or **1 AI Credit** when your team OpenAI key is attached. OpenAI may bill built-in tools like web search separately on your key. |
 
 ### Trusted private metadata with JWT
 
@@ -144,14 +145,14 @@ Source objects found in the `sources` array (if present) have the following prop
     {
         "event": "lookup_answer",
         "data": {
-            "answer": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k messages/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k messages/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k messages/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
+            "answer": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k AI Credits/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k AI Credits/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k AI Credits/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
             "history": [
                 {
                     "Human": "what is docsbot pricing.",
                     "timestamp": "2024-05-28T16:22:01.451418"
                 },
                 {
-                    "AI": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k messages/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k messages/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k messages/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
+                    "AI": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k AI Credits/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k AI Credits/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k AI Credits/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
                     "timestamp": "2024-05-28T16:22:22.343897",
                     "type": "lookup_answer"
                 }
@@ -171,7 +172,7 @@ Source objects found in the `sources` array (if present) have the following prop
                     "type": "url",
                     "url": "https://docsbot.ai/",
                     "used": false,
-                    "content": "### Business\n\nFor serious traffic, priority support, and AI reports to improve your docs.\n\n$416/month\n\n($4992/annually)\n\n[Get started](https://docsbot.ai/register)* 100 DocsBots\n* 100k Source Pages\n* Unlock all source types\n* Weekly source refresh\n* 100k messages/mo\n* Private bots\n* GPT-4o support\n* 15 team users\n* Advanced Analytics\n* Zapier integration\n* Chat history\n* Unbranded chat widgets\n* AI question reports\n* Prompt customization\n* Priority support\n* Rate limiting\nDoes not include OpenAI API costs (<$0.0008/message)\n\n\n### Personal\n\nTry DocsBot free for personal use. No credit card required. Import document files or urls with up to 50 pages of content and start chatting with your bot.
+                    "content": "### Business\n\nFor serious traffic, priority support, and AI reports to improve your docs.\n\n$416/month\n\n($4992/annually)\n\n[Get started](https://docsbot.ai/register)* 100 DocsBots\n* 100k Source Pages\n* Unlock all source types\n* Weekly source refresh\n* 60k AI Credits/mo\n* Private bots\n* GPT-4o support\n* 15 team users\n* Advanced Analytics\n* Zapier integration\n* Chat history\n* Unbranded chat widgets\n* AI question reports\n* Prompt customization\n* Priority support\n* Rate limiting\nLower-cost models are included. Larger models and AI actions may use more AI Credits.\n\n\n### Personal\n\nTry DocsBot free for personal use. No credit card required. Import document files or urls with up to 50 pages of content and start chatting with your bot.
                 },
             ],
             "id": "yhqSGaKpM6ebkxp6KtDc",
@@ -188,7 +189,7 @@ Source objects found in the `sources` array (if present) have the following prop
                     "timestamp": "2024-05-28T16:22:01.451418"
                 },
                 {
-                    "AI": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k messages/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k messages/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k messages/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
+                    "AI": "DocsBot offers different pricing plans to fit various needs:\n\n1. **Hobby Plan** - $16/month ($192 annually)\n   - 1 DocsBot\n   - 1k Source Pages\n   - 1k AI Credits/mo\n   - Private bot\n   - GPT-4o support\n   - 1 user\n\n2. **Personal Plan** - $41/month ($492 annually)\n   - 3 DocsBots\n   - 5k Source Pages\n   - 5k AI Credits/mo\n   - Monthly source refresh\n   - Private bots\n   - GPT-4o support\n   - 1 user\n   - Basic Analytics\n   - Zapier integration\n   - Chat history\n\n3. **Pro Plan** - $83/month ($996 annually)\n   - 10 DocsBots\n   - 10k Source Pages\n   - 10k AI Credits/mo\n   - Weekly source refresh\n   - Private bots\n   - GPT-4o support\n   - 5 team users\n   - Advanced Analytics\n   - Zapier integration\n   - Chat history\n   - Unbranded chat widgets\n   - Prompt customization\n\nFor more advanced plans like Business and Enterprise, you can [contact DocsBot](mailto:human@docsbot.ai) for customized pricing and features.",
                     "timestamp": "2024-05-28T16:22:22.343897",
                     "type": "lookup_answer"
                 },
@@ -253,7 +254,7 @@ Each SSE message has `event: tool_call`. The **`data`** field is a **JSON-encode
 
 On the client, parse twice when you need structured args: `JSON.parse(event.data)` then `JSON.parse(parsed.params)` (unless your SSE library already parses `data` for you).
 
-There is **no** dedicated SSE event for documentation search: the agent uses the tool name `search_documentation`. The server may **omit** a `tool_call` for `search_documentation` when deduplication decides the call would not retrieve anything new (streaming may filter or drop redundant search args).
+There is **no** dedicated SSE event for documentation search: the agent uses the tool name `search_documentation`. Web search uses `web_search`. The server may **omit** a `tool_call` for `search_documentation` when deduplication decides the call would not retrieve anything new (streaming may filter or drop redundant search args).
 
 Some tools are configured on the bot itself. For example, if `bot.tools.calendly`, `bot.tools.calcom`, or `bot.tools.tidycal` contains `enabled: true`, scheduling `instructions`, and the provider booking path generated from its validated URL, and your request explicitly enables that provider via `calendly: true`, `calcom: true`, or `tidycal: true`, the agent can emit a `tool_call` with `name: "book_calendly"`, `name: "book_calcom"`, or `name: "book_tidycal"` and then stop after returning the tool-provided booking message.
 
@@ -276,6 +277,21 @@ After `JSON.parse` on `params`:
 {
   "query": ["password reset steps", "forgot password"],
   "question": "How do I reset my password if I forgot my email?"
+}
+```
+
+#### Example: `web_search`
+
+When web search is enabled on the bot and you pass `web_search: true` (or `"live"`), the agent can search the public web for fresher context. Tool calls use the same `tool_call` envelope; params often describe the search query or page action.
+
+Each completed web search consumes **10 AI Credits** with DocsBot-hosted OpenAI usage, or **1 AI Credit** when your team OpenAI key is attached. OpenAI may bill built-in tools like web search separately on your key.
+
+After one `JSON.parse` of `data`:
+
+```json
+{
+  "name": "web_search",
+  "params": "{\"type\":\"search\",\"query\":\"DocsBot pricing 2026\"}"
 }
 ```
 

@@ -18,10 +18,19 @@ import {
   getDifferentiatingFeatures,
   getVisibleStripePricingTiers,
 } from '@/utils/pricingStripeTableFeatures'
-import { stripePlan, checkPlanPermission } from '@/utils/helpers'
-import { getIncompatibleSourceTypesForPlan } from '@/utils/sourceTypePlanChecks'
+import {
+  stripePlan,
+} from '@/utils/helpers'
 import Tooltip from '@/components/Tooltip'
 import SocialFaces from '@/components/SocialFaces'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import PlanChangePreviewModal from '@/components/PlanChangePreviewModal'
+import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
+import {
+  PLAN_LEVELS,
+  getIncompatibleSourceTypesByTier,
+  getPlanSelectionDisableReasons,
+} from '@/utils/planDowngrade'
 
 export function StripePricingTable({
   team,
@@ -33,6 +42,7 @@ export function StripePricingTable({
   bots = null,
   teamInvites = [],
   teamSourceTypes = [],
+  onBillingChange = null,
 }) {
   const [enterprise, setEnterprise] = useState(false)
   const [frequency, setFrequency] = useState(() => {
@@ -50,6 +60,8 @@ export function StripePricingTable({
       : 'USD',
   )
   const [opening, setOpening] = useState(false)
+  const [planChangePreview, setPlanChangePreview] = useState(null)
+  const [pendingPlanChange, setPendingPlanChange] = useState(null)
   const [plans] = useState(
     JSON?.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS) || [],
   )
@@ -57,8 +69,7 @@ export function StripePricingTable({
   const currentPlanId = stripePlan(team)?.id || null
   const upgradeInterval =
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
-  const allowUpgradeFrequencyToggle =
-    isUpgrade && saleConfig?.forceAnnualInUpgrade
+  const allowUpgradeFrequencyToggle = isUpgrade
   const forcedUpgradeFrequency = allowUpgradeFrequencyToggle
     ? frequency.value
     : upgradeInterval
@@ -67,32 +78,57 @@ export function StripePricingTable({
       frequencies[0]
     : frequency
   const visibleTiers = getVisibleStripePricingTiers(pricingTiers)
-  const currentTierIndex = visibleTiers.findIndex(
-    (tier) => tier.id === currentPlanId,
-  )
-  const upgradeTiers = isUpgrade ? visibleTiers : visibleTiers
-  const normalizedSourceTypes = Array.isArray(teamSourceTypes)
-    ? teamSourceTypes
-    : []
+  const currentPlanLevel = PLAN_LEVELS[currentPlanId] || 0
+  const upgradeTiers = isUpgrade
+    ? visibleTiers.filter((tier) => (PLAN_LEVELS[tier.id] || 0) >= currentPlanLevel)
+    : visibleTiers
+  const pricingGridColumns = Math.min(Math.max(upgradeTiers.length, 1), 3)
   const incompatibleSourceTypesByTier = useMemo(() => {
-    if (normalizedSourceTypes.length === 0) return {}
-    const result = {}
-    visibleTiers.forEach((tier) => {
-      const incompatible = getIncompatibleSourceTypesForPlan({
-        team,
-        targetPlanId: tier.id,
-        usedSourceTypeIds: normalizedSourceTypes,
-      })
-      if (incompatible.length > 0) {
-        result[tier.id] = incompatible
-      }
+    const normalizedSourceTypes = Array.isArray(teamSourceTypes)
+      ? teamSourceTypes
+      : []
+    return getIncompatibleSourceTypesByTier({
+      team,
+      teamSourceTypes: normalizedSourceTypes,
+      tiers: visibleTiers,
     })
-    return result
-  }, [normalizedSourceTypes, team, visibleTiers])
+  }, [teamSourceTypes, team, visibleTiers])
 
   async function openPortal(tier) {
     setErrorText(null)
     setOpening(true)
+    if (isUpgrade && tier) {
+      const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          action: 'preview',
+          tier,
+          frequency: displayFrequency.value,
+          currency,
+        }),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        setPendingPlanChange({
+          tier,
+          frequency: displayFrequency.value,
+          currency,
+        })
+        setPlanChangePreview(data.preview)
+      } else {
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Something went wrong, please try again.')
+        } catch (e) {
+          setErrorText('Error ' + response.status + ', please try again.')
+        }
+      }
+      setOpening(false)
+      return
+    }
     const shouldApplyAnnualSale =
       shouldShowAnnualSale && displayFrequency.value === 'annually'
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
@@ -127,125 +163,68 @@ export function StripePricingTable({
     setOpening(false)
   }
 
-  const getPlanSelectionDisableReasons = (id) => {
-    const reasons = []
-    const planLimits = plans[id]
-    if (!planLimits) return reasons
-
-    const researchTasksLimit =
-      typeof planLimits.researchTasks === 'number'
-        ? planLimits.researchTasks
-        : typeof planLimits.researchTasks === 'object' &&
-            planLimits.researchTasks !== null
-          ? planLimits.researchTasks.monthly ||
-            planLimits.researchTasks.lifetime ||
-            0
-          : 0
-
-    const currentPlan = stripePlan(team)
-    const currentPlanResearchLimit =
-      typeof currentPlan?.researchTasks === 'number'
-        ? currentPlan.researchTasks
-        : 0
-    const trialResearchAmount =
-      currentPlanResearchLimit === 0
-        ? Math.min(2, Number(team?.researchCount ?? 0))
-        : 0
-    const researchCount = Math.max(
-      0,
-      Number(team?.researchCount ?? 0) - trialResearchAmount,
-    )
-
-    if (!isUpgrade) {
-      const planBotsLimit = Number(planLimits.bots) || 0
-      const planPagesLimit = Number(planLimits.pages) || 0
-      const planQuestionsLimit = Number(planLimits.questions) || 0
-      const planTeamMembersLimit = Number(planLimits.teamMembers) || 0
-
-      const currentBots = Number(team?.botCount ?? 0)
-      const currentPages = Number(team?.pageCount ?? 0)
-      const currentQuestions = Number(team?.questionCount ?? 0)
-      const currentTeamMembers =
-        Object.keys(team?.roles || {}).length + teamInvites.length
-
-      if (currentBots > planBotsLimit) {
-        reasons.push(`Bots: ${currentBots}/${planBotsLimit}`)
-      }
-      if (currentPages > planPagesLimit) {
-        reasons.push(`Pages: ${currentPages}/${planPagesLimit}`)
-      }
-      if (currentQuestions > planQuestionsLimit) {
-        reasons.push(`Questions: ${currentQuestions}/${planQuestionsLimit}`)
-      }
-      if (currentTeamMembers > planTeamMembersLimit) {
-        reasons.push(
-          `Team members: ${currentTeamMembers}/${planTeamMembersLimit}`,
-        )
-      }
-      if (researchCount > researchTasksLimit) {
-        reasons.push(`Research tasks: ${researchCount}/${researchTasksLimit}`)
-      }
-    }
-
-    if (isUpgrade) {
-      const isCurrentlyBusinessOrHigher = checkPlanPermission(
-        team,
-        'business',
-      ).allowed
-      const planLevels = {
-        free: 1,
-        hobby: 2,
-        personal: 3,
-        pro: 4,
-        standard: 5,
-        business: 6,
-        enterprise: 7,
-      }
-      const targetTierLevel = planLevels[id] || 0
-      const businessLevel = planLevels.business
-      const isDowngradingToBelowBusiness = targetTierLevel < businessLevel
-
-      if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-        if (bots && Array.isArray(bots)) {
-          const teamMemberIds = Object.keys(team?.roles || {})
-          const hasPerBotRoles = bots.some((bot) => {
-            if (!bot.roles) return false
-            return Object.keys(bot.roles).some((memberId) => {
-              const botRole = bot.roles[memberId]
-              return (
-                botRole &&
-                botRole !== 'default' &&
-                teamMemberIds.includes(memberId)
-              )
-            })
-          })
-
-          const invitesHaveBotOverrides = teamInvites.some(
-            (invite) =>
-              invite.botOverrides &&
-              Array.isArray(invite.botOverrides) &&
-              invite.botOverrides.length > 0,
-          )
-
-          if (hasPerBotRoles || invitesHaveBotOverrides) {
-            reasons.push('Per-bot roles require Business or higher')
-          }
-        } else {
-          reasons.push('Cannot verify per-bot roles for Business downgrade')
+  async function confirmPlanChange() {
+    if (!pendingPlanChange || !planChangePreview) return
+    setErrorText(null)
+    setOpening(true)
+    const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        action: 'confirm',
+        ...pendingPlanChange,
+        prorationDate: planChangePreview.prorationDate,
+      }),
+    })
+    if (response.ok) {
+      try {
+        const data = await response.json()
+        if (data.paymentAction?.requiresAction) {
+          await completeStripePaymentAction(data.paymentAction)
         }
+      } catch (error) {
+        setErrorText(error.message || 'Payment verification was not completed.')
+        setOpening(false)
+        return
       }
+      setPlanChangePreview(null)
+      setPendingPlanChange(null)
+      if (onBillingChange) {
+        try {
+          await onBillingChange()
+        } catch (error) {
+          setErrorText(
+            error.message || 'Plan updated, but billing details could not be refreshed.',
+          )
+        }
+        setOpening(false)
+        return
+      }
+      window.location.reload()
+      return
     }
-
-    if (incompatibleSourceTypesByTier[id]?.length > 0) {
-      reasons.push(
-        `Unsupported source types: ${incompatibleSourceTypesByTier[id]
-          .map((source) => source.title)
-          .join(', ')}`,
-      )
+    try {
+      const data = await response.json()
+      setErrorText(data.message || 'Something went wrong, please try again.')
+    } catch (e) {
+      setErrorText('Error ' + response.status + ', please try again.')
     }
-
-    return reasons
+    setOpening(false)
   }
+
+  const resolvePlanSelectionDisableReasons = (targetPlanId) =>
+    getPlanSelectionDisableReasons({
+      team,
+      bots,
+      teamInvites,
+      teamSourceTypes,
+      targetPlanId,
+      isUpgrade,
+      configuredPlans: plans,
+      incompatibleSourceTypesByTier,
+    })
 
   const shouldShowAnnualSale = Boolean(saleConfig)
   const personaSaleMessage =
@@ -284,6 +263,15 @@ export function StripePricingTable({
 
   return (
     <div>
+      <PlanChangePreviewModal
+        preview={planChangePreview}
+        opening={opening}
+        onClose={() => {
+          setPlanChangePreview(null)
+          setPendingPlanChange(null)
+        }}
+        onConfirm={confirmPlanChange}
+      />
       <div className="mb-2 text-center">
         {shouldShowAnnualSale && personaSaleMessage && (
           <div className="mb-4 flex justify-center">
@@ -400,8 +388,17 @@ export function StripePricingTable({
             </RadioGroup>
           </div>
         )}
-        <div className="isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
+        <div
+          className={clsx(
+            'isolate mx-auto mt-8 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none',
+            pricingGridColumns >= 2 && 'lg:grid-cols-2',
+            pricingGridColumns >= 3 && 'xl:grid-cols-3',
+          )}
+        >
           {upgradeTiers.map((tier, index) => {
+            const visibleTierIndex = visibleTiers.findIndex(
+              (visibleTier) => visibleTier.id === tier.id,
+            )
             const annualSaleTotal =
               shouldShowAnnualSale && displayFrequency.value === 'annually'
                 ? saleConfig?.annualTotals?.[tier.id]?.[currency]
@@ -409,10 +406,9 @@ export function StripePricingTable({
             const annualTotal =
               annualSaleTotal ?? tier.price[currency][displayFrequency.value]
             const monthlyEquivalent = annualTotal / 12
-            const isCurrentTier =
-              isUpgrade && currentTierIndex >= 0 && index === currentTierIndex
-            const isDowngradeTier =
-              isUpgrade && currentTierIndex >= 0 && index < currentTierIndex
+            const isCurrentTier = isUpgrade && tier.id === currentPlanId
+            const isCurrentSelection =
+              isCurrentTier && displayFrequency.value === upgradeInterval
             return (
               <div
                 key={tier.id}
@@ -502,14 +498,14 @@ export function StripePricingTable({
                   </>
                 )}
                 {(() => {
-                  const disableReasons = getPlanSelectionDisableReasons(tier.id)
+                  const disableReasons = resolvePlanSelectionDisableReasons(tier.id)
                   const hasDisableReasons = disableReasons.length > 0
                   return (
                     <>
                       <button
                         aria-describedby={tier.id}
                         onClick={() => openPortal(tier.id)}
-                        disabled={opening || hasDisableReasons || isCurrentTier}
+                        disabled={opening || hasDisableReasons || isCurrentSelection}
                         className={clsx(
                           tier.mostPopular
                             ? 'bg-cyan-600 text-white shadow-sm hover:bg-cyan-500'
@@ -518,10 +514,10 @@ export function StripePricingTable({
                         )}
                       >
                         {isUpgrade
-                          ? isCurrentTier
+                          ? isCurrentSelection
                             ? 'Current plan'
-                            : isDowngradeTier
-                              ? 'Downgrade'
+                            : isCurrentTier
+                              ? `Switch to ${displayFrequency.label}`
                               : 'Upgrade'
                           : 'Subscribe'}
                       </button>
@@ -545,38 +541,40 @@ export function StripePricingTable({
                   )
                 })()}
                 <h3 className="mt-6 text-sm/6 font-medium text-gray-950">
-                  {index === 0
+                  {visibleTierIndex === 0
                     ? 'Including:'
-                    : `Everything in ${upgradeTiers[index - 1]?.name || 'Free'} plan, and:`}
+                    : `Everything in ${visibleTiers[visibleTierIndex - 1]?.name || 'Free'} plan, and:`}
                 </h3>
                 <ul className="mt-3 space-y-3 text-left">
-                  {getDifferentiatingFeatures(tier, index, upgradeTiers).map(
-                    ([key, value]) => {
-                      const featureDef = featureDefinitions[key]
-                      if (!featureDef) return null
+                  {getDifferentiatingFeatures(
+                    tier,
+                    visibleTierIndex,
+                    visibleTiers,
+                  ).map(([key, value]) => {
+                    const featureDef = featureDefinitions[key]
+                    if (!featureDef) return null
 
-                      let displayText = featureDef.label
-                      if (typeof value === 'string' && value !== 'true') {
-                        displayText = `${featureDef.label}: ${value}`
-                      } else if (typeof value === 'number') {
-                        displayText = `${value} ${featureDef.label}`
-                      }
+                    let displayText = featureDef.label
+                    if (typeof value === 'string' && value !== 'true') {
+                      displayText = `${featureDef.label}: ${value}`
+                    } else if (typeof value === 'number') {
+                      displayText = `${value} ${featureDef.label}`
+                    }
 
-                      return (
-                        <li
-                          key={key}
-                          className="group grid grid-cols-[20px_1fr] items-start gap-3 text-sm/6 text-gray-600"
-                        >
-                          <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center text-gray-400">
-                            <PlusIcon aria-hidden="true" className="size-4" />
-                          </span>
-                          <span className="min-w-0 leading-6">
-                            {displayText}
-                          </span>
-                        </li>
-                      )
-                    },
-                  )}
+                    return (
+                      <li
+                        key={key}
+                        className="group grid grid-cols-[20px_1fr] items-start gap-3 text-sm/6 text-gray-600"
+                      >
+                        <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center text-gray-400">
+                          <PlusIcon aria-hidden="true" className="size-4" />
+                        </span>
+                        <span className="min-w-0 leading-6">
+                          {displayText}
+                        </span>
+                      </li>
+                    )
+                  })}
                 </ul>
                 <div className="mt-6 text-center">
                   <Link

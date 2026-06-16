@@ -21,10 +21,5 @@ export * from './utils/base64ToUint8Array'
 // Date Utility
 export * from './utils/formatLocalDateTime'
 
-// Usage Logic
-export * from './utils/recomputeUsageDerived'
-export * from './utils/buildUsageSnapshot'
-export * from './utils/formatResearchUsageDisplay'
-
 // Cost Calculation Logic
 export * from './utils/calculateResearchCost'

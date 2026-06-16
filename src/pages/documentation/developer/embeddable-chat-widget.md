@@ -157,7 +157,7 @@ options: {
   showAgentActivity: true, // optional: set to false to hide the agent activity row (reasoning + tool status). Omit for default (shown).
   useFeedback: true, //collect user feedback after answers
   useEscalation: true, // Enable the escalation button or agent tool
-  useWebSearch: false, // Enable the web search tool when the bot is in agent mode and an OpenAI key is added to the team.
+  useWebSearch: false, // Enable the web search tool when the bot is in agent mode and web search is enabled on the bot (Standard plan, compatible model).
   useCalendly: false, // Enable the Calendly booking tool for this widget instance when configured on the bot.
   useCalCom: false, // Enable the Cal.com booking tool for this widget instance when configured on the bot.
   useTidyCal: false, // Enable the TidyCal booking tool for this widget instance when configured on the bot.

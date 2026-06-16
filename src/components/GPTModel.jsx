@@ -4,6 +4,8 @@ export default function GPTModel({ bot, isPlain = false }) {
   let label
   if (bot.model === 'gpt-5.4') {
     label = 'GPT-5.4'
+  } else if (bot.model === 'gpt-5.5') {
+    label = 'GPT-5.5'
   } else if (bot.model === 'gpt-5.4-mini') {
     label = 'GPT-5.4 mini'
   } else if (bot.model === 'gpt-5.4-nano') {

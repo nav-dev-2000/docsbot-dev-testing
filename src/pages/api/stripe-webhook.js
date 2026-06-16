@@ -6,6 +6,12 @@ configureFirebaseApp()
 const firestore = getFirestore()
 const auth = getAuth()
 import { stripePlan } from '@/utils/helpers'
+import {
+  collectAddOnsFromSubscription,
+  getBaseSubscriptionItem,
+  isAddOnPriceId,
+  mergeStripeAddOns,
+} from '@/utils/billingAddOns'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
@@ -35,38 +41,82 @@ const relevantEvents = new Set([
   'radar.early_fraud_warning.created',
 ])
 const staffTeamIds = new Set(['ZrbLG98bbxZ9EFqiPvyl', 'FVasEcNLTWpySb5ZNlF3'])
+const publicPlanSlugs = new Set([
+  'free',
+  'hobby',
+  'personal',
+  'standard',
+  'business',
+  'enterprise',
+])
 
-const getQuestionLimit = ({ planId, status, teamId }) => {
-  if (staffTeamIds.has(teamId)) return null
+const normalizePlanSlug = (plan = {}) => {
+  if (publicPlanSlugs.has(plan?.id)) return plan.id
+  if (plan?.id?.startsWith?.('enterprise')) return 'enterprise'
+  if (plan?.name?.toLowerCase?.().includes('enterprise')) return 'enterprise'
+  return plan?.id || 'free'
+}
 
-  return stripePlan({
-    stripeSubscriptionPlan: planId,
-    stripeSubscriptionStatus: status,
-  }).questions
+const getResolvedWebhookPlan = ({ planId, status, team }) => stripePlan({
+  ...team,
+  stripeSubscriptionPlan: planId,
+  stripeSubscriptionStatus: status,
+})
+
+const applyResolvedPlanFields = (updateData, { planId, status, teamId, team }) => {
+  const resolvedPlan = getResolvedWebhookPlan({ planId, status, team })
+  updateData.plan = normalizePlanSlug(resolvedPlan)
+
+  if (!staffTeamIds.has(teamId)) {
+    updateData.questionLimit = resolvedPlan.questions
+  }
+}
+
+const collectStripePriceIds = (value) => {
+  if (!value) return []
+  if (typeof value === 'string') return [value]
+  if (Array.isArray(value)) {
+    return value.flatMap((item) => collectStripePriceIds(item))
+  }
+  if (typeof value === 'object') {
+    return Object.values(value).flatMap((item) => collectStripePriceIds(item))
+  }
+  return []
+}
+
+const collectCurrentStripePriceIds = (prices = {}) => {
+  const currencyPrices = Object.entries(prices)
+    .filter(([key]) => /^[A-Z]{3}$/.test(key))
+    .flatMap(([, value]) => collectStripePriceIds(value))
+
+  return [
+    ...collectStripePriceIds(prices.current),
+    ...currencyPrices,
+  ]
+}
+
+const configuredPlanPriceIds = (configuredPlan = {}) => {
+  const prices = configuredPlan.prices || {}
+  const versions = Array.isArray(prices.versions) ? prices.versions : []
+  return [
+    ...collectCurrentStripePriceIds(prices),
+    ...versions.flatMap((version) => collectStripePriceIds(version?.prices)),
+    ...collectStripePriceIds(prices.old),
+  ]
 }
 
 const findConfiguredPlan = (items, configuredPlans) => {
   if (!items?.length) return null
 
   for (const item of items) {
-    const itemPlan = item.plan
+    const itemPlan = item.plan || item.price
 
     if (configuredPlans) {
       for (const planKey in configuredPlans) {
         const configuredPlan = configuredPlans[planKey]
 
-        for (const frequency in configuredPlan.prices.current) {
-          if (configuredPlan.prices.current[frequency] === itemPlan.id) {
-            return itemPlan
-          }
-        }
-
-        if (configuredPlan.prices.old) {
-          for (const oldPrice of configuredPlan.prices.old) {
-            if (oldPrice === itemPlan.id) {
-              return itemPlan
-            }
-          }
+        if (configuredPlanPriceIds(configuredPlan).includes(itemPlan.id)) {
+          return itemPlan
         }
       }
     }
@@ -85,6 +135,33 @@ const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL?.trim()
 const slack = slackWebhookUrl
   ? new IncomingWebhook(slackWebhookUrl, slackWebhookOptions)
   : { send: async () => {} }
+
+const isAddOnOnlySubscription = (subscription) => {
+  const items = subscription?.items?.data || []
+  return items.length > 0 && items.every((item) => isAddOnPriceId(item?.price?.id || item?.plan?.id))
+}
+
+const disableAddOnsForInactiveBase = async ({ transaction, teamsCollection, teamId, team }) => {
+  const status = team?.stripeSubscriptionStatus
+  if (['active', 'trialing', 'past_due'].includes(status)) return
+
+  const stripeAddOns = mergeStripeAddOns(team?.stripeAddOns, {})
+  for (const addOnId of Object.keys(stripeAddOns)) {
+    stripeAddOns[addOnId] = {
+      ...stripeAddOns[addOnId],
+      status: 'base_inactive',
+    }
+  }
+
+  await transaction.update(teamsCollection.doc(teamId), {
+    stripeAddOns,
+    questionLimit: stripePlan({ ...team, stripeAddOns }).questions,
+  })
+}
+
+const syncAddOnItemsToBaseInterval = async ({ subscription }) => {
+  return subscription
+}
 
 const webhookHandler = async (req, res) => {
   if (req.method === 'POST') {
@@ -138,12 +215,28 @@ const webhookHandler = async (req, res) => {
               const teamLink = `https://docsbot.ai/app/team?switchTeam=${teamId}`
               const teamObj = { id: teamId, ...teamsRef.docs[0].data() }
 
+              if (isAddOnOnlySubscription(subscription)) {
+                console.log(
+                  `Ignoring add-on-only subscription ${subscription.id} for team ${teamId}; add-ons must be attached to the base subscription.`,
+                )
+                return
+              }
+
               //multi-price subscriptions don't have plan on subscription object
               // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
               let plan = subscription.plan
               if (!plan && subscription.items?.data) {
                 plan = findConfiguredPlan(subscription.items.data, configuredPlans)
               }
+              if (!plan) {
+                const baseItem = getBaseSubscriptionItem(subscription, configuredPlans)
+                plan = baseItem?.plan || baseItem?.price
+              }
+              const syncedSubscription = await syncAddOnItemsToBaseInterval({
+                subscription,
+                plan,
+                team: teamObj,
+              })
 
               const previousItems = event.data.previous_attributes?.items?.data
               const previousPlan = previousItems
@@ -153,33 +246,46 @@ const webhookHandler = async (req, res) => {
               // save subscription to team
               const updateData = {
                 stripeSubscriptionId: subscription.id,
-                stripeSubscriptionStatus: subscription.status,
+                stripeSubscriptionStatus: syncedSubscription.status,
                 stripeSubscriptionProduct: plan.product,
                 stripeSubscriptionPlan: plan.id,
                 stripeSubscriptionPrice: plan.amount,
-                stripeSubscriptionCurrency: subscription.currency,
+                stripeSubscriptionCurrency: syncedSubscription.currency,
                 stripeSubscriptionInterval: plan.interval,
-                stripeSubscriptionCancelAtPeriodEnd: subscription.cancel_at_period_end,
-                stripeSubscriptionQuantity: subscription.quantity || subscription.items.data[0].quantity,
-                stripeSubscriptionCancelFeedback: subscription.cancellation_details.feedback,
-                stripeSubscriptionCancelComment: subscription.cancellation_details.comment,
+                stripeSubscriptionCancelAtPeriodEnd: syncedSubscription.cancel_at_period_end,
+                stripeSubscriptionQuantity:
+                  syncedSubscription.quantity || syncedSubscription.items.data[0].quantity,
+                stripeSubscriptionCancelFeedback:
+                  syncedSubscription.cancellation_details.feedback,
+                stripeSubscriptionCancelComment:
+                  syncedSubscription.cancellation_details.comment,
               }
 
-              await transaction.update(teamsCollection.doc(teamId), updateData)
-              console.log(`🔔 Subscription updated for team ${teamId}`)
-
-              // we also save the questionLimit to the team object as well
-              // Only update question limit for non-staff teams
-              const questionLimit = getQuestionLimit({
+              applyResolvedPlanFields(updateData, {
                 planId: plan.id,
                 status: subscription.status,
                 teamId,
+                team: teamObj,
               })
-              if (questionLimit !== null) {
-                await transaction.update(firestore.collection('teams').doc(teamId), {
-                  questionLimit,
-                })
-              }
+              updateData.stripeAddOns = mergeStripeAddOns(
+                teamObj?.stripeAddOns,
+                collectAddOnsFromSubscription(syncedSubscription),
+              )
+              updateData.questionLimit = stripePlan({
+                ...teamObj,
+                stripeSubscriptionPlan: plan.id,
+                stripeSubscriptionStatus: syncedSubscription.status,
+                stripeAddOns: updateData.stripeAddOns,
+              }).questions
+
+              await transaction.update(teamsCollection.doc(teamId), updateData)
+              await disableAddOnsForInactiveBase({
+                transaction,
+                teamsCollection,
+                teamId,
+                team: { ...teamObj, ...updateData },
+              })
+              console.log(`🔔 Subscription updated for team ${teamId}`)
 
               //if changing plan
               if (
@@ -357,70 +463,73 @@ const webhookHandler = async (req, res) => {
                   expand: ['subscription'],
                 })
 
+                const teamId = checkoutSession.client_reference_id
+                const teamSnapshot = await transaction.get(
+                  firestore.collection('teams').doc(teamId),
+                )
+                const checkoutTeam = teamSnapshot?.exists
+                  ? { id: teamId, ...teamSnapshot.data() }
+                  : { id: teamId }
+
+                if (isAddOnOnlySubscription(session.subscription)) {
+                  console.log(
+                    `Ignoring add-on-only checkout subscription ${session.subscription.id} for team ${teamId}; add-ons must be attached to the base subscription.`,
+                  )
+                  return
+                }
+
                 //multi-price subscriptions don't have plan on subscription object
                 // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
                 let plan = session.subscription.plan
                 if (!plan && session.subscription.items?.data) {
+                  let plans = null
                   if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
-                    const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-                    
-                    // Look through all subscription items to find the one that matches our configured plans
-                    for (const item of session.subscription.items.data) {
-                      const itemPlan = item.plan
-                      // Check if this price ID exists in our configured plans
-                      for (const planKey in plans) {
-                        const configuredPlan = plans[planKey]
-                        // Check current prices
-                        for (const frequency in configuredPlan.prices.current) {
-                          if (configuredPlan.prices.current[frequency] === itemPlan.id) {
-                            plan = itemPlan
-                            break
-                          }
-                        }
-                        // Check old prices if no match found in current
-                        if (!plan && configuredPlan.prices.old) {
-                          for (const oldPrice of configuredPlan.prices.old) {
-                            if (oldPrice === itemPlan.id) {
-                              plan = itemPlan
-                              break
-                            }
-                          }
-                        }
-                        if (plan) break
-                      }
-                      if (plan) break
-                    }
+                    plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
                   }
+                  plan = findConfiguredPlan(session.subscription.items.data, plans)
                   
                   // Fallback to first item if no match found in configured plans
                   if (!plan) {
-                    plan = session.subscription.items.data[0].plan
+                    const baseItem = getBaseSubscriptionItem(session.subscription, plans)
+                    plan = baseItem?.plan || baseItem?.price || session.subscription.items.data[0].plan
                   }
                 }
+                const syncedSubscription = await syncAddOnItemsToBaseInterval({
+                  subscription: session.subscription,
+                  plan,
+                  team: checkoutTeam,
+                })
 
                 // save subscription to team
-                const teamId = checkoutSession.client_reference_id
-                const questionLimit = getQuestionLimit({
-                  planId: plan.id,
-                  status: session.subscription.status,
-                  teamId,
-                })
                 const updateData = {
                   stripeCustomerId: session.customer,
-                  stripeSubscriptionId: session.subscription.id,
-                  stripeSubscriptionStatus: session.subscription.status,
+                  stripeSubscriptionId: syncedSubscription.id,
+                  stripeSubscriptionStatus: syncedSubscription.status,
                   stripeSubscriptionProduct: plan.product,
                   stripeSubscriptionPlan: plan.id,
                   stripeSubscriptionPrice: plan.amount,
-                  stripeSubscriptionCurrency: session.currency,
+                  stripeSubscriptionCurrency: syncedSubscription.currency,
                   stripeSubscriptionInterval: plan.interval,
-                  stripeSubscriptionCancelAtPeriodEnd: session.subscription.cancel_at_period_end,
+                  stripeSubscriptionCancelAtPeriodEnd: syncedSubscription.cancel_at_period_end,
                   stripeSubscriptionQuantity:
-                    session.subscription.quantity || session.subscription.items.data[0].quantity,
+                    syncedSubscription.quantity || syncedSubscription.items.data[0].quantity,
                 }
-                if (questionLimit !== null) {
-                  updateData.questionLimit = questionLimit
-                }
+                applyResolvedPlanFields(updateData, {
+                  planId: plan.id,
+                  status: syncedSubscription.status,
+                  teamId,
+                  team: checkoutTeam,
+                })
+                updateData.stripeAddOns = mergeStripeAddOns(
+                  checkoutTeam?.stripeAddOns,
+                  collectAddOnsFromSubscription(syncedSubscription),
+                )
+                updateData.questionLimit = stripePlan({
+                  ...checkoutTeam,
+                  stripeSubscriptionPlan: plan.id,
+                  stripeSubscriptionStatus: syncedSubscription.status,
+                  stripeAddOns: updateData.stripeAddOns,
+                }).questions
                 await transaction.update(firestore.collection('teams').doc(teamId), updateData)
 
                 //add teamid to stripe customer metadata
@@ -525,68 +634,73 @@ const webhookHandler = async (req, res) => {
                 expand: ['subscription'],
               })
 
+              if (isAddOnOnlySubscription(invoiceWithSubscription.subscription)) {
+                console.log(
+                  `Ignoring add-on-only invoice subscription ${invoiceWithSubscription.subscription.id} for team ${team.id}; add-ons must be attached to the base subscription.`,
+                )
+                return
+              }
+
               //multi-price subscriptions don't have plan on subscription object
               // Find the plan that matches our NEXT_PUBLIC_STRIPE_PLANS environment variable
               let plan = invoiceWithSubscription.subscription.plan
               if (!plan && invoiceWithSubscription.subscription.items?.data) {
+                let plans = null
                 if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
-                  const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
-                  
-                  // Look through all subscription items to find the one that matches our configured plans
-                  for (const item of invoiceWithSubscription.subscription.items.data) {
-                    const itemPlan = item.plan
-                    // Check if this price ID exists in our configured plans
-                    for (const planKey in plans) {
-                      const configuredPlan = plans[planKey]
-                      // Check current prices
-                      for (const frequency in configuredPlan.prices.current) {
-                        if (configuredPlan.prices.current[frequency] === itemPlan.id) {
-                          plan = itemPlan
-                          break
-                        }
-                      }
-                      // Check old prices if no match found in current
-                      if (!plan && configuredPlan.prices.old) {
-                        for (const oldPrice of configuredPlan.prices.old) {
-                          if (oldPrice === itemPlan.id) {
-                            plan = itemPlan
-                            break
-                          }
-                        }
-                      }
-                      if (plan) break
-                    }
-                    if (plan) break
-                  }
+                  plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
                 }
+                plan = findConfiguredPlan(
+                  invoiceWithSubscription.subscription.items.data,
+                  plans,
+                )
                 
                 // Fallback to first item if no match found in configured plans
-                if (!plan) {
-                  plan = invoiceWithSubscription.subscription.items.data[0].plan
+              if (!plan) {
+                  const baseItem = getBaseSubscriptionItem(
+                    invoiceWithSubscription.subscription,
+                    plans,
+                  )
+                  plan =
+                    baseItem?.plan ||
+                    baseItem?.price ||
+                    invoiceWithSubscription.subscription.items.data[0].plan
                 }
               }
+              const syncedSubscription = await syncAddOnItemsToBaseInterval({
+                subscription: invoiceWithSubscription.subscription,
+                plan,
+                team,
+              })
 
               //save subscription to team in case this comes before updated webhook
               const updateData = {
-                stripeSubscriptionId: invoiceWithSubscription.subscription.id,
-                stripeSubscriptionStatus: invoiceWithSubscription.subscription.status,
+                stripeSubscriptionId: syncedSubscription.id,
+                stripeSubscriptionStatus: syncedSubscription.status,
                 stripeSubscriptionProduct: plan.product,
                 stripeSubscriptionPlan: plan.id,
                 stripeSubscriptionPrice: plan.amount,
-                stripeSubscriptionCurrency: invoiceWithSubscription.subscription.currency,
+                stripeSubscriptionCurrency: syncedSubscription.currency,
                 stripeSubscriptionInterval: plan.interval,
                 stripeSubscriptionCancelAtPeriodEnd:
-                  invoiceWithSubscription.subscription.cancel_at_period_end,
-                stripeSubscriptionQuantity: invoiceWithSubscription.subscription.quantity,
+                  syncedSubscription.cancel_at_period_end,
+                stripeSubscriptionQuantity: syncedSubscription.quantity,
               }
-              const questionLimit = getQuestionLimit({
+              applyResolvedPlanFields(updateData, {
                 planId: plan.id,
-                status: invoiceWithSubscription.subscription.status,
+                status: syncedSubscription.status,
                 teamId: team.id,
+                team,
               })
-              if (questionLimit !== null) {
-                updateData.questionLimit = questionLimit
-              }
+              updateData.stripeAddOns = mergeStripeAddOns(
+                team?.stripeAddOns,
+                collectAddOnsFromSubscription(syncedSubscription),
+              )
+              updateData.questionLimit = stripePlan({
+                ...team,
+                stripeSubscriptionPlan: plan.id,
+                stripeSubscriptionStatus: syncedSubscription.status,
+                stripeAddOns: updateData.stripeAddOns,
+              }).questions
 
               await transaction.update(teamsCollection.doc(team.id), updateData)
 

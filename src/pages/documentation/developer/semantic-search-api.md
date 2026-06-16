@@ -5,6 +5,8 @@ description: The Semantic Search API can be used as a search engine for your doc
 
 The Semantic Search API can be used as a search engine for your documentation. It returns the most relevant source chunks for a given query. It can be used to create a search interface for your trained content and documentation, or to power your own custom AI creations.
 
+Each successful search or fetch request consumes **0.1 AI Credits** from your team's monthly allowance. This covers embedding API token usage, retrieval compute, and other server resources. Credits count toward the same limit as chat, skills, MCP tool calls, and other bot usage.
+
 ---
 
 ## Request

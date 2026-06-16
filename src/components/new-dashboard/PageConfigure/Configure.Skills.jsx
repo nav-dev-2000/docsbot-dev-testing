@@ -66,7 +66,10 @@ import { openAiErrorMessage } from '@/lib/openai-error-message'
 import { parseSkillIdFromBotAppAsPath } from '@/lib/botRoutes'
 import { buildBindingsHelpPrompt } from '@/lib/skills-bindings-help'
 import { formatSkillNameDisplay, normalizeSkillName } from '@/lib/skill-name-normalize'
-import { buildSkillsBuilderUsageTooltip } from '@/lib/skills-agent-usage'
+import {
+    buildSkillsBuilderUsageTooltip,
+    skillBuilderAiCreditTooltip,
+} from '@/lib/skills-agent-usage'
 import {
     filterSkillsLibrary,
     SKILLS_LIBRARY_AUDIENCE_ALL,
@@ -1900,7 +1903,13 @@ function formatWorkedDurationLabel(durationMs) {
     return `Worked for ${mins}m ${secs}s...`
 }
 
-function CollapsedAssistantToolCalls({ durationMs, runCostTooltipContent, children }) {
+function CollapsedAssistantToolCalls({
+    durationMs,
+    runCostTooltipContent,
+    aiCreditsLabel,
+    aiCreditsTooltipContent,
+    children,
+}) {
     const [open, setOpen] = useState(false)
     const label = formatWorkedDurationLabel(durationMs)
     const labelInner = runCostTooltipContent ? (
@@ -1919,6 +1928,13 @@ function CollapsedAssistantToolCalls({ durationMs, runCostTooltipContent, childr
             >
                 <span className="flex items-center justify-between gap-2">
                     <span className="min-w-0 flex-1">{labelInner}</span>
+                    {aiCreditsLabel ? (
+                        <Tooltip content={aiCreditsTooltipContent} placement="top">
+                            <span className="shrink-0 rounded-full border border-slate-300 bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-700">
+                                {aiCreditsLabel}
+                            </span>
+                        </Tooltip>
+                    ) : null}
                     <ChevronDownIcon
                         className={clsx(
                             'h-4 w-4 shrink-0 text-gray-500 transition-transform',
@@ -1938,6 +1954,8 @@ function AssistantActivityCollapseSegment({
     isStreaming,
     messageDurationMs,
     runCostTooltipContent,
+    aiCreditsLabel,
+    aiCreditsTooltipContent,
     ...contentProps
 }) {
     const hasActivityContent = useMemo(
@@ -1958,6 +1976,8 @@ function AssistantActivityCollapseSegment({
             <CollapsedAssistantToolCalls
                 durationMs={messageDurationMs}
                 runCostTooltipContent={runCostTooltipContent}
+                aiCreditsLabel={aiCreditsLabel}
+                aiCreditsTooltipContent={aiCreditsTooltipContent}
             >
                 <AssistantActivityRowsContent
                     {...contentProps}
@@ -1972,7 +1992,16 @@ function AssistantActivityCollapseSegment({
 }
 
 function AssistantActivityRows(props) {
-    const { parts, isStreaming, messageDurationMs, runCostTooltipContent, message, ...contentProps } = props
+    const {
+        parts,
+        isStreaming,
+        messageDurationMs,
+        runCostTooltipContent,
+        aiCreditsLabel,
+        aiCreditsTooltipContent,
+        message,
+        ...contentProps
+    } = props
 
     if (!parts?.length) {
         return null
@@ -1985,6 +2014,8 @@ function AssistantActivityRows(props) {
                 isStreaming={isStreaming}
                 messageDurationMs={messageDurationMs}
                 runCostTooltipContent={runCostTooltipContent}
+                aiCreditsLabel={aiCreditsLabel}
+                aiCreditsTooltipContent={aiCreditsTooltipContent}
                 message={message}
                 {...contentProps}
             />
@@ -3018,6 +3049,7 @@ function AssistantMessageBlock({
     onBeforeSubmitAnswers,
     activitySegmentSnapshots,
     isSuperAdminViewer,
+    usesTeamOpenAIKey = false,
 }) {
     const parts = message.parts || []
     const groups = groupAssistantPartsForDisplay(parts, { isLatestMessage })
@@ -3027,6 +3059,17 @@ function AssistantMessageBlock({
     if (groups.length === 0 && !showPauseNotice) {
         return null
     }
+
+    const aiCreditUsage = message.metadata?.skillsBuilderAgentUsage
+    const aiCredits =
+        typeof aiCreditUsage?.aiCredits === 'number' && Number.isFinite(aiCreditUsage.aiCredits)
+            ? aiCreditUsage.aiCredits
+            : null
+    const aiCreditsLabel = aiCredits != null ? `${aiCredits} credits` : null
+    const aiCreditsTooltipContent =
+        aiCreditUsage && aiCredits != null
+            ? skillBuilderAiCreditTooltip(aiCreditUsage, usesTeamOpenAIKey)
+            : null
 
     return (
         <div className="space-y-1">
@@ -3054,6 +3097,8 @@ function AssistantMessageBlock({
                             onBeforeSubmitAnswers={onBeforeSubmitAnswers}
                             messageDurationMs={segmentSnapshot?.durationMs}
                             runCostTooltipContent={runCostTooltipContent}
+                            aiCreditsLabel={aiCreditsLabel}
+                            aiCreditsTooltipContent={aiCreditsTooltipContent}
                         />
                     </div>
                     )
@@ -3473,6 +3518,7 @@ function SkillTestModal({
                                     type: 'final',
                                     summary: parsed.summary,
                                     technical: parsed.technical,
+                                    metadata: parsed.metadata,
                                     bugs: parsed.bugs,
                                     improvements: parsed.improvements,
                                 }),
@@ -7305,12 +7351,6 @@ const PageConfigureSkills = ({
                 <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto bg-gradient-to-b from-slate-50/90 to-white">
                     <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-4 pb-12 pt-2 sm:px-6 lg:flex-row lg:items-start lg:gap-10">
                         <div className="flex min-w-0 flex-col lg:flex-1">
-                            <div className="mb-4 flex justify-center lg:justify-start">
-                                <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800 shadow-sm">
-                                    <BoltIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                                    We're giving away unlimited skill building for DocsBot Week!
-                                </span>
-                            </div>
                             <h2 className="text-center text-xl font-semibold text-gray-900 sm:text-2xl lg:text-left">
                                 What kind of skill can I build for you?
                             </h2>
@@ -7617,10 +7657,6 @@ const PageConfigureSkills = ({
                                 <div className="flex min-w-0 flex-1 flex-col justify-center sm:w-3/4 sm:flex-none sm:pr-3">
                                     <div className="flex flex-wrap items-center gap-2">
                                         <div className="text-sm font-semibold leading-tight text-gray-900">Builder chat</div>
-                                        <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-200 bg-cyan-50 px-2.5 py-0.5 text-[11px] font-semibold text-cyan-800">
-                                            <BoltIcon className="h-3 w-3" aria-hidden="true" />
-                                            We're giving away unlimited skill building for DocsBot Week!
-                                        </span>
                                     </div>
                                     <p className="mt-0 text-xs leading-snug text-gray-500">
                                         The DocsBot agent handles all research, building, validation, and publishing of
@@ -7680,6 +7716,7 @@ const PageConfigureSkills = ({
                                                 onBeforeSubmitAnswers={handleBuilderChatBeforeAskAnswers}
                                                 activitySegmentSnapshots={activitySegmentSnapshots}
                                                 isSuperAdminViewer={isSuperAdminViewer}
+                                                usesTeamOpenAIKey={Boolean(team?.openAIKey)}
                                             />
                                         )
                                     })}

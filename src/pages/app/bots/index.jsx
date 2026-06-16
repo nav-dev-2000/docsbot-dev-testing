@@ -22,7 +22,7 @@ import { auth } from '@/config/firebase-ui.config'
 import { canUserCreateDeleteBot, canUserViewBot, getUserRole } from '@/utils/function.utils'
 import BotIconDisplay from '@/components/BotIconDisplay'
 import ModalCheckout from '@/components/ModalCheckout'
-import { stripePlan } from '@/utils/helpers'
+import { roundAiCreditsForDisplay, stripePlan } from '@/utils/helpers'
 import { useRouter } from 'next/router'
 import { decideTextColor } from '@/utils/colors'
 import circuitBg from '@/images/circuit.png'
@@ -30,6 +30,7 @@ import circuitBg from '@/images/circuit.png'
 function Bots({ preBots, team }) {
   const [bots, setBots] = useState(preBots)
   const [errorText, setErrorText] = useState(null)
+  const [successText, setSuccessText] = useState(null)
   const [toDelete, setToDelete] = useState(null)
   const [user] = useAuthState(auth)
   const [canModify, setModify] = useState(false)
@@ -54,6 +55,14 @@ function Bots({ preBots, team }) {
     } else {
       router.push('/app/onboarding')
     }
+  }
+
+  const handleAddOnBillingUpdate = (billingUpdate = {}) => {
+    if (!billingUpdate || Object.keys(billingUpdate).length === 0) return
+    setCurrentTeam((current) => ({
+      ...(current || {}),
+      ...billingUpdate,
+    }))
   }
 
   const BotsGrid = ({ bots, team, canModify: canModifyGrid }) => {
@@ -123,7 +132,7 @@ function Bots({ preBots, team }) {
     const privacyLabel = privacyIsPrivate ? 'Private' : 'Public'
 
     const sourceCount = bot.sourceCount ?? 0
-    const messageCount = bot.questionCount ?? 0
+    const aiCreditCount = roundAiCreditsForDisplay(bot?.questionCount)
 
     return (
       <li className="col-span-1 w-full">
@@ -215,9 +224,9 @@ function Bots({ preBots, team }) {
                         />
                         <span className="text-gray-700">
                           <span className="text-gray-900">
-                            <LocalStringNum value={messageCount} />
+                            <LocalStringNum value={aiCreditCount} />
                           </span>{' '}
-                          {messageCount === 1 ? 'Message' : 'Messages'}
+                          {aiCreditCount === 1 ? 'AI Credit' : 'AI Credits'}
                         </span>
                       </div>
                     </div>
@@ -248,6 +257,7 @@ function Bots({ preBots, team }) {
   return (
     <DashboardWrap page="Bots" team={currentTeam} bots={bots}>
       <Alert title={errorText} type="warning" />
+      <Alert title={successText} type="success" />
 
       <BotDelete
         team={currentTeam}
@@ -259,7 +269,15 @@ function Bots({ preBots, team }) {
         setBots={setBots}
       />
 
-      <ModalCheckout team={currentTeam} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCheckout
+        team={currentTeam}
+        open={showUpgrade}
+        setOpen={setShowUpgrade}
+        showAddOns
+        onTeamBillingUpdate={handleAddOnBillingUpdate}
+        onError={setErrorText}
+        onSuccess={setSuccessText}
+      />
 
       <BotsGrid
         bots={visibleBots}

@@ -45,8 +45,10 @@ Both MCP endpoints expose two read-only tools:
 
 ### Documentation MCP tools
 
-- `search` - Hybrid semantic/keyword search across the bot's indexed training sources.
+- `search` - Hybrid semantic/keyword search across the bot's indexed training sources. Uses the [Semantic Search API](/documentation/developer/semantic-search-api) under the hood.
 - `fetch` - Retrieves full source content for an ID returned by `search`.
+
+Each successful `search` or `fetch` call consumes **0.1 AI Credits** from your team's monthly allowance. This covers embedding API token usage, retrieval compute, and other server resources. Credits count toward the same limit as chat, skills, and other bot usage.
 
 {% callout title="Full Document Retrieval (Fetch)" %}
 We started indexing your training data differently starting in October 2025 to prepare the `fetch` tool to be able to return entire documents (full web page, pdf, etc). However, if training data was ingested before that change, it may take a refresh to get better results for the `fetch` call, which will default to just a full text chunk if it doesn't yet have access to the full document.
@@ -56,6 +58,8 @@ We started indexing your training data differently starting in October 2025 to p
 
 - `search` - Semantic search across question/answer history (up to 16 results).
 - `fetch` - Retrieves full question/conversation content by ID.
+
+Each successful `search` or `fetch` call on this endpoint also consumes **0.1 AI Credits** for embedding and retrieval resources, counted the same way as Documentation MCP tool calls.
 
 #### Example `search` result shape (Question History)
 

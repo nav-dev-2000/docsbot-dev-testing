@@ -1,10 +1,23 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import AddOnsManager from '@/components/AddOnsManager'
 import Checkout from '@/components/Checkout'
+import { ADD_ON_IDS } from '@/utils/billingAddOns'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 
-export default function ModalCheckout({ team, open, setOpen }) {
+export default function ModalCheckout({
+  team,
+  open,
+  setOpen,
+  showAddOns = false,
+  addOnFocusId = ADD_ON_IDS.BOTS,
+  addOnTitle = 'Add bot capacity',
+  addOnDescription = 'Add another bot without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice.',
+  onTeamBillingUpdate = null,
+  onError = null,
+  onSuccess = null,
+}) {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-modal" onClose={setOpen}>
@@ -51,9 +64,20 @@ export default function ModalCheckout({ team, open, setOpen }) {
                     </Link>
                     .
                   </p>
-                  <div className="py-8">
-                    <Checkout team={team} upgrade={true} />
-                  </div>
+                  <Checkout team={team} upgrade={true} showBillingPortalSection={false} />
+                  {showAddOns && (
+                    <AddOnsManager
+                      team={team}
+                      focusAddOnId={addOnFocusId}
+                      className="mb-8"
+                      title={addOnTitle}
+                      description={addOnDescription}
+                      headerCentered
+                      onTeamBillingUpdate={onTeamBillingUpdate}
+                      onError={onError}
+                      onSuccess={onSuccess}
+                    />
+                  )}
                 </div>
               </Dialog.Panel>
             </Transition.Child>

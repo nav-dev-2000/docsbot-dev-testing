@@ -20,6 +20,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth, storage } from '@/config/firebase-ui.config'
 import { stripePlan, checkPlanPermission } from '@/utils/helpers'
 import ModalCheckout from '@/components/ModalCheckout'
+import { ADD_ON_IDS } from '@/utils/billingAddOns'
 import clsx from 'clsx'
 import ScheduleSelect from '@/components/ScheduleSelect'
 import QAForm from '@/components/QAForm'
@@ -1091,6 +1092,10 @@ export default function SourceForm({
           team={team}
           open={showUpgrade}
           setOpen={setShowUpgrade}
+          showAddOns
+          addOnFocusId={ADD_ON_IDS.SOURCE_PAGES}
+          addOnTitle="Add source page capacity"
+          addOnDescription="Add more source pages without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice."
         />
         
         {/* URL Limit Dialog for Free Plan */}
@@ -2523,6 +2528,10 @@ https://example.com/page2`
           team={team}
           open={showUpgrade}
           setOpen={setShowUpgrade}
+          showAddOns
+          addOnFocusId={ADD_ON_IDS.SOURCE_PAGES}
+          addOnTitle="Add source page capacity"
+          addOnDescription="Add more source pages without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice."
         />
         
         {/* URL Limit Dialog for Free Plan */}

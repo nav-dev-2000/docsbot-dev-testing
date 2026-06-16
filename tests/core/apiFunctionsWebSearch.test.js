@@ -114,16 +114,23 @@ describe('validateBotParams web search enforcement', () => {
     vi.mocked(getBotActionSlotLimit).mockReturnValue(8)
   })
 
-  it('throws when enabling web search without an OpenAI key', async () => {
+  it('allows enabling web search on Standard without an OpenAI key', async () => {
     await expect(
       validateBotParams(
         baseReq,
         { id: 'team-1', plan: 'standard', openAIKey: null },
         'user-1',
         true,
-        { id: 'bot-1', tools: {} },
+        { id: 'bot-1', tools: {}, model: 'gpt-5.4-nano' },
       ),
-    ).rejects.toThrow('Please add your OpenAI API key before enabling web search.')
+    ).resolves.toMatchObject({
+      classify: true,
+      tools: {
+        web_search: {
+          enabled: true,
+        },
+      },
+    })
   })
 
   it('throws when enabling web search below the Standard plan', async () => {

@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Research } from '@/components/Research/Research'
-import { buildUsageSnapshot } from '@/components/Research'
 import { useResearchJobs } from './PageResearch.hooks'
 import Workspace from '@new-dashboard/Workspace'
 
 const PageResearch = ({ team, bot }) => {
     const [selectedJob, setSelectedJob] = useState(null)
-    const [researchUsage, setResearchUsage] = useState(() =>
-        buildUsageSnapshot(team),
-    )
-
-    useEffect(() => {
-        setResearchUsage(buildUsageSnapshot(team))
-    }, [team])
 
     const { jobs, setJobs, hasLoaded } = useResearchJobs({
         teamId: team?.id,
@@ -38,8 +30,6 @@ const PageResearch = ({ team, bot }) => {
             setSelectedJob={setSelectedJob}
             researchJobs={jobs}
             setResearchJobs={setJobs}
-            researchUsage={researchUsage}
-            setResearchUsage={setResearchUsage}
         />
     )
 }

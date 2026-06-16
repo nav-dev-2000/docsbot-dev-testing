@@ -852,7 +852,7 @@ function Onboarding({ team }) {
 
       resetError()
       try {
-        const defaultModel = 'gpt-5.4-nano'
+        const defaultModel = 'gpt-5.4-mini'
         const botPayload = {
           name,
           description: descriptionValue || '',

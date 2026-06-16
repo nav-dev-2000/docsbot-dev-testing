@@ -19,13 +19,13 @@ const featuresMap = {
     'Integrated ticket escalation',
     'Customer screenshot uploads',
     '+5,000 source pages',
-    '+5,000 messages/month',
+    '+5,000 AI Credits/month',
     '+2 staff accounts',
   ],
   business: [
     'Deep Research Agent',
     'MCP server',
-    'Up to 10x higher bot, page, message limits',
+    'Up to 10x higher bot, page, and AI Credit limits',
     'Conversation topic reports',
     'Conversation sentiment analysis',
     'AI question reports',
@@ -240,7 +240,7 @@ export default function SaleLoyalty({
   const isSingleTier = tiers.length === 1
 
   return (
-    <div className="relative isolate bg-white px-6 py-6 sm:py-12 lg:px-8">
+    <div className="relative isolate border-y border-gray-200 bg-white px-6 py-6 sm:py-12 lg:px-8">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
@@ -439,4 +439,3 @@ export default function SaleLoyalty({
     </div>
   )
 }
-

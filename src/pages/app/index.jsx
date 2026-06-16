@@ -15,7 +15,7 @@ import { getAuthorizedUserCurrentTeam } from '@/middleware/getAuthorizedUserCurr
 import DashboardWrap from '@/components/DashboardWrap'
 import Alert from '@/components/Alert'
 import UpgradeNotice from '@/components/UpgradeNotice'
-import { stripePlan } from '@/utils/helpers'
+import { roundAiCreditsForDisplay, stripePlan } from '@/utils/helpers'
 import classNames from '@/utils/classNames'
 import LocalStringNum from '@/components/LocalStringNum'
 import { auth } from '@/config/firebase-ui.config'
@@ -111,11 +111,11 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
       limit: stripePlan(team).pages,
     },
     {
-      name: 'Messages',
+      name: 'AI Credits',
       href: false,
-      tooltip: 'User messages in current month',
+      tooltip: 'AI Credits used in the current month',
       icon: ChatBubbleBottomCenterTextIcon,
-      stat: team?.questionCount || 0,
+      stat: roundAiCreditsForDisplay(team?.questionCount),
       limit: stripePlan(team).questions,
     },
     {

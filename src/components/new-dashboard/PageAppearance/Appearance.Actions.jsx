@@ -57,6 +57,10 @@ import {
     normalizeWebSearchAllowedDomains,
     isWebSearchCompatibleModel,
 } from '@/lib/webSearch'
+import {
+    WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY,
+    WEB_SEARCH_AI_CREDITS_PER_CALL_DOCSBOT_KEY,
+} from '@/lib/skills-agent-usage'
 
 const SCHEDULING_EMBED_OPTION_LABELS = {
     hideEventDetails: {
@@ -337,7 +341,6 @@ const AppearanceActions = ({
     setLeadCollect,
     toWidgetLeadCollectState,
     setShowUpgrade,
-    onRequireOpenAIKey,
     stripeOAuthLoading,
     setStripeOAuthLoading,
     stripeOAuthError,
@@ -371,9 +374,9 @@ const AppearanceActions = ({
     const isPublicBot = bot?.privacy !== 'private'
     const stripePlanCheck = checkPlanPermission(team, 'standard', 'stripeActions')
     const schedulingPlanCheck = checkPlanPermission(team, 'personal', 'bookingActions')
-    const hasOpenAIKey = Boolean(team?.openAIKey)
     const webSearchModel = bot?.model || DEFAULT_WEB_SEARCH_MODEL
     const webSearchModelCompatible = isWebSearchCompatibleModel(webSearchModel)
+    const hasTeamOpenAIKey = Boolean(team?.openAIKey)
     const webSearchEnabled = tools?.web_search?.enabled === true
     const webSearchLiveEnabled =
         tools?.web_search?.enabled === true &&
@@ -1988,22 +1991,36 @@ const AppearanceActions = ({
                         description={
                             !webSearchModelCompatible
                                 ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
-                                : hasOpenAIKey
-                                    ? (
+                                : hasTeamOpenAIKey ? (
                                         <>
-                                            Give your bot the ability to search the web for up to date information.{' '}
-                                            <a
-                                                href="https://developers.openai.com/api/docs/pricing#built-in-tools"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                            Lets your agent search public web pages when fresher or broader context
+                                            helps more than your indexed sources alone. Each search call uses{' '}
+                                            <span className="font-medium text-gray-900">
+                                                {WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY}×
+                                            </span>
+                                            {' '}
+                                            AI credits. Your OpenAI bill may include separate charges for built-in
+                                            tools like web search.
+                                        </>
+                                    ) : (
+                                        <>
+                                            Lets your agent search public web pages when fresher or broader context
+                                            helps more than your indexed sources alone. Each search call uses{' '}
+                                            <span className="font-medium text-gray-900">
+                                                {WEB_SEARCH_AI_CREDITS_PER_CALL_DOCSBOT_KEY}×
+                                            </span>
+                                            {' '}
+                                            AI credits.{' '}
+                                            <Link
+                                                href="/app/api"
                                                 className="text-cyan-600 underline hover:text-cyan-800"
                                             >
-                                                Additional OpenAI API costs apply
-                                            </a>
-                                            .
+                                                Add your own OpenAI key
+                                            </Link>
+                                            {' '}
+                                            for {WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY} credit per search.
                                         </>
                                     )
-                                    : 'Give your bot the ability to search the web for up to date information. Requires a team OpenAI API key.'
                         }
                         enabled={webSearchEnabled}
                         setEnabled={(enabled) => {
@@ -2017,11 +2034,6 @@ const AppearanceActions = ({
                                     (!webSearchEnabled && actionSlotsFull))
                             ) {
                                 setShowUpgrade(true)
-                                return
-                            }
-
-                            if (enabled && !hasOpenAIKey) {
-                                onRequireOpenAIKey?.()
                                 return
                             }
 
@@ -2044,11 +2056,7 @@ const AppearanceActions = ({
                         switchTooltipContent={
                             !webSearchModelCompatible && !webSearchEnabled
                                 ? `Requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(webSearchModel)}.`
-                                : !hasOpenAIKey &&
-                                    webSearchPlanCheck.allowed &&
-                                    webSearchModelCompatible
-                                  ? 'Add your team OpenAI API key in the dialog before enabling web search.'
-                                  : undefined
+                                : undefined
                         }
                         planLabel={
                             !webSearchPlanCheck.allowed
@@ -2057,22 +2065,6 @@ const AppearanceActions = ({
                         }
                         isNew={true}
                     />
-                    {!webSearchEnabled &&
-                    !hasOpenAIKey &&
-                    webSearchPlanCheck.allowed &&
-                    webSearchModelCompatible ? (
-                        <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900">
-                            Add your team OpenAI API key on the{' '}
-                            <Link
-                                href="/app/api"
-                                className="font-medium underline hover:text-amber-950"
-                            >
-                                API & Integrations
-                            </Link>
-                            {' '}page before enabling web search.
-                        </div>
-                    ) : null}
-
                     {webSearchEnabled ? (
                         <div className="ml-4 flex flex-col gap-4">
                             <AppearanceToggle

@@ -32,14 +32,14 @@ describe('pricingStripeTableFeatures', () => {
       'Bot lifetime: Unlimited',
     )
     expect(formatStripeTableFeatureLabel('messagesPerMonth', '15k')).toBe(
-      'AI message credits / month: 15k',
+      'AI Credits / month: 15k',
     )
     expect(formatStripeTableFeatureLabel('slackIntegration', true)).toBe(
       'Slack integration',
     )
   })
 
-  it('places actions per bot directly after message credits in compact plan rows', () => {
+  it('places actions per bot directly after AI credits in compact plan rows', () => {
     const visible = getVisibleStripePricingTiers(pricingTiers)
     const idx = visible.findIndex((t) => t.id === 'standard')
     const keys = getDifferentiatingFeatures(visible[idx], idx, visible).map(
@@ -114,13 +114,14 @@ describe('pricingStripeTableFeatures', () => {
     expect(standard?.features.customActionButtons).toBe(true)
   })
 
-  it('never lists mcpServer in the compact differentiating list (top cards / Stripe)', () => {
+  it('never lists hidden compact rows in the compact differentiating list (top cards / Stripe)', () => {
     const visible = getVisibleStripePricingTiers(pricingTiers)
     for (let i = 0; i < visible.length; i++) {
       const keys = getDifferentiatingFeatures(visible[i], i, visible).map(
         ([k]) => k,
       )
       expect(keys).not.toContain('mcpServer')
+      expect(keys).not.toContain('researchTasks')
     }
   })
 

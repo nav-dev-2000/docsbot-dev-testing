@@ -15,8 +15,7 @@ export const currencies = {
 export const featureDefinitions = {
   docsBots: { label: 'DocsBots', category: 'limits' },
   sourcePages: { label: 'Source Pages', category: 'limits' },
-  messagesPerMonth: { label: 'AI message credits / month', category: 'limits' },
-  researchTasksPerMonth: { label: 'Deep research tasks / month', category: 'limits' },
+  messagesPerMonth: { label: 'AI Credits / month', category: 'limits' },
   teamUsers: { label: 'Team users', category: 'limits' },
   botLifetime: { label: 'Bot lifetime', category: 'limits' },
   
@@ -116,7 +115,6 @@ export const pricingTiers = [
       docsBots: 1,
       sourcePages: 50,
       messagesPerMonth: 100,
-      researchTasksPerMonth: 0,
       teamUsers: 1,
       botLifetime: '30 days',
       basicSourceTypes: true,
@@ -189,7 +187,6 @@ export const pricingTiers = [
       docsBots: 1,
       sourcePages: '1k',
       messagesPerMonth: '1k',
-      researchTasksPerMonth: 0,
       teamUsers: 1,
       botLifetime: 'Unlimited',
       basicSourceTypes: true,
@@ -256,8 +253,8 @@ export const pricingTiers = [
         annually: 492,
       },
       JPY: {
-        monthly: 7500,
-        annually: 75000,
+        monthly: 7900,
+        annually: 79000,
       },
       AUD: {
         monthly: 82,
@@ -277,7 +274,6 @@ export const pricingTiers = [
       docsBots: 1,
       sourcePages: '5k',
       messagesPerMonth: '5k',
-      researchTasksPerMonth: 0,
       teamUsers: 1,
       botLifetime: 'Unlimited',
       basicSourceTypes: true,
@@ -364,7 +360,6 @@ export const pricingTiers = [
       docsBots: 10,
       sourcePages: '10k',
       messagesPerMonth: '10k',
-      researchTasksPerMonth: 0,
       teamUsers: 3,
       botLifetime: 'Unlimited',
       basicSourceTypes: true,
@@ -431,8 +426,8 @@ export const pricingTiers = [
         annually: 1488,
       },
       JPY: {
-        monthly: 22000,
-        annually: 219996,
+        monthly: 24000,
+        annually: 240000,
       },
       AUD: {
         monthly: 240,
@@ -452,7 +447,6 @@ export const pricingTiers = [
       docsBots: 3,
       sourcePages: '15k',
       messagesPerMonth: '15k',
-      researchTasksPerMonth: 5,
       teamUsers: 5,
       botLifetime: 'Unlimited',
       basicSourceTypes: true,
@@ -518,8 +512,8 @@ export const pricingTiers = [
         annually: 4992,
       },
       JPY: {
-        monthly: 76000,
-        annually: 760000,
+        monthly: 81000,
+        annually: 810000,
       },
       AUD: {
         monthly: 818,
@@ -538,8 +532,7 @@ export const pricingTiers = [
     features: {
       docsBots: 10,
       sourcePages: '100k',
-      messagesPerMonth: '100k',
-      researchTasksPerMonth: 25,
+      messagesPerMonth: '60k',
       teamUsers: 10,
       botLifetime: 'Unlimited',
       basicSourceTypes: true,
@@ -606,7 +599,7 @@ export const enterpriseFeatures = [
   'Self-hosted options',
   'IP logging',
   'SSO options',
-  'Custom deep research task allowance',
+  'Custom AI credit allowance for deep research',
   'Priority support & SLAs',
   'Custom feature development',
   'Custom invoices and Purchase Orders',

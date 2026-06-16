@@ -9,11 +9,24 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import LoadingDots from '@/components/LoadingDots'
 import Alert from '@/components/Alert'
+import GrandfatheredPlanWarning, {
+  getGrandfatheredCancelWarningMessage,
+} from '@/components/GrandfatheredPlanWarning'
+import PlanDowngradeLink from '@/components/PlanDowngradeLink'
+import { getEligibleLowerPlanOptions } from '@/utils/planDowngrade'
+import { hasGrandfatheredPlanLimits, stripePlan } from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
 import featureUpdates from '/public/feature-updates.json'
 const FEATURE_UPDATES = featureUpdates
 
-export default function Cancel({ team, bots }) {
+export default function Cancel({
+  team,
+  bots,
+  teamInvites = [],
+  teamSourceTypes = [],
+  setParentErrorText = null,
+  onBillingChange = null,
+}) {
   const posthog = usePostHog()
   const [open, setOpen] = useState(false)
   const [currentStep, setCurrentStep] = useState(0)
@@ -28,13 +41,12 @@ export default function Cancel({ team, bots }) {
   ]
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
-  const [cancelled, setCancelled] = useState(
+  const isCancellationScheduled =
     !team.stripeCustomerId ||
-      !['active', 'trialing', 'past_due', 'incomplete'].includes(
-        team.stripeSubscriptionStatus,
-      ) ||
-      team.stripeSubscriptionCancelAtPeriodEnd,
-  )
+    !['active', 'trialing', 'past_due', 'incomplete'].includes(
+      team.stripeSubscriptionStatus,
+    ) ||
+    team.stripeSubscriptionCancelAtPeriodEnd
 
   useEffect(() => {
     if (!open) {
@@ -146,11 +158,24 @@ export default function Cancel({ team, bots }) {
       body: JSON.stringify({ reason, details }),
     })
     if (response.ok) {
-      const data = await response.json()
       setOpen(false)
       setReason(null)
       setDetails(null)
-      setCancelled(true)
+      if (onBillingChange) {
+        try {
+          await onBillingChange({
+            successMessage:
+              'Your subscription is scheduled to cancel at the end of your billing period.',
+          })
+        } catch (error) {
+          setParentErrorText?.(
+            error.message ||
+              'Cancellation scheduled, but billing details could not be refreshed.',
+          )
+        }
+        return
+      }
+      window.location.reload()
       return
     } else {
       try {
@@ -344,11 +369,34 @@ export default function Cancel({ team, bots }) {
     )
   }
 
-  if (cancelled) return null
+  if (isCancellationScheduled) return null
+
+  const hasLowerPlanOptions =
+    getEligibleLowerPlanOptions({
+      team,
+      bots,
+      teamInvites,
+      teamSourceTypes,
+    }).length > 0
+  const currentPlan = stripePlan(team)
+  const isGrandfatheredPlan = hasGrandfatheredPlanLimits(team)
 
   return (
     <>
-      <div className="mt-6 flex justify-center text-center">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-center">
+        <PlanDowngradeLink
+          team={team}
+          bots={bots}
+          teamInvites={teamInvites}
+          teamSourceTypes={teamSourceTypes}
+          setErrorText={setParentErrorText}
+          onBillingChange={onBillingChange}
+        />
+        {hasLowerPlanOptions ? (
+          <span className="hidden text-gray-300 sm:inline" aria-hidden="true">
+            ·
+          </span>
+        ) : null}
         <button
           type="button"
           className="text-sm font-medium text-red-600 hover:text-red-900 hover:underline focus:outline-none"
@@ -415,6 +463,12 @@ export default function Cancel({ team, bots }) {
                           <p className="my-4 text-sm text-gray-600">
                             {steps[currentStep].text}
                           </p>
+                          {currentStep === steps.length - 1 && isGrandfatheredPlan && (
+                            <GrandfatheredPlanWarning
+                              className="mb-4"
+                              message={getGrandfatheredCancelWarningMessage(currentPlan.name)}
+                            />
+                          )}
                           {currentStep === 1 ? (
                             <FeatureHighlights />
                           ) : currentStep === 2 ? (

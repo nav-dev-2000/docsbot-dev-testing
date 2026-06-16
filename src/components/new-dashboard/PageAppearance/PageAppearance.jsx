@@ -1403,7 +1403,6 @@ const PageAppearance = ({ team, bot, setBot, control: controlProp }) => {
                     setLeadCollect={setLeadCollect}
                     toWidgetLeadCollectState={toWidgetLeadCollectState}
                     setShowUpgrade={setShowUpgrade}
-                    onRequireOpenAIKey={() => setShowOpenAIModal(true)}
                     canManageStripeActions={
                         hasHydrated &&
                         canUserManageBotSettings(team, user?.uid, bot)

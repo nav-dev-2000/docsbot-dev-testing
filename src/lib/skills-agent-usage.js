@@ -13,6 +13,29 @@ const OPENAI_MODEL_ID_TO_LLM_SLUG = {
   'gpt-5.4-mini': 'gpt-5-4-mini',
 }
 
+const AI_CREDIT_TOKEN_UNIT = 5000
+
+/** AI credits per completed web_search when DocsBot hosts OpenAI API usage. */
+export const WEB_SEARCH_AI_CREDITS_PER_CALL_DOCSBOT_KEY = 10
+
+/** AI credits per completed web_search when the team uses its own OpenAI API key (BYOK). */
+export const WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY = 1
+
+/** Widget caps each voice clip at this many seconds. */
+export const VOICE_MESSAGE_MAX_DURATION_SECONDS = 30
+
+/**
+ * Approximate AI credits per minute of widget voice audio (DocsBot-hosted transcription).
+ */
+export const VOICE_AI_CREDITS_PER_MINUTE_DOCSBOT_KEY = 6
+
+const DOCSBOT_KEY_MODEL_MULTIPLIERS = {
+  'gpt-5.4-mini': 3,
+  'gpt-5.4-nano': 1,
+  'gpt-5.4': 10,
+  'gpt-5.5': 24,
+}
+
 export function skillsBuilderOpenaiModelToLlmSlug(openaiModelId) {
   return OPENAI_MODEL_ID_TO_LLM_SLUG[openaiModelId] || OPENAI_MODEL_ID_TO_LLM_SLUG[SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL]
 }
@@ -72,10 +95,12 @@ export function buildSkillsBuilderAgentUsageMetadata(
   options = {},
 ) {
   const openaiModelId = options.openaiModelId || SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL
+  const usedTeamOpenAIKey = Boolean(options.usedTeamOpenAIKey)
   const modelSlug = skillsBuilderOpenaiModelToLlmSlug(openaiModelId)
   const llm = resolveLlmPricing(modelSlug)
   const inputTokens = totalUsage.inputTokens ?? 0
   const outputTokens = totalUsage.outputTokens ?? 0
+  const totalTokens = totalUsage.totalTokens ?? inputTokens + outputTokens
   const cacheRead =
     totalUsage.inputTokenDetails?.cacheReadTokens ?? totalUsage.cachedInputTokens ?? 0
   const cacheWrite = totalUsage.inputTokenDetails?.cacheWriteTokens ?? 0
@@ -104,6 +129,12 @@ export function buildSkillsBuilderAgentUsageMetadata(
 
   const estimatedCostUsd =
     estimatedTokenCostUsd + estimatedWebSearchCostUsd + estimatedCfShellCostUsd
+  const aiCredits = calculateSkillsBuilderAiCredits(
+    { totalTokens, inputTokens, outputTokens },
+    openaiModelId,
+    usedTeamOpenAIKey,
+    webSearchCalls,
+  )
 
   return {
     skillsBuilderAgentUsage: {
@@ -111,9 +142,11 @@ export function buildSkillsBuilderAgentUsageMetadata(
       modelSlug,
       inputTokens,
       outputTokens,
+      totalTokens,
       cachedInputTokens: cacheRead,
       cacheWriteTokens: cacheWrite,
       reasoningTokens,
+      aiCredits,
       webSearchCalls,
       shellCalls,
       shellDurationMs,
@@ -123,6 +156,47 @@ export function buildSkillsBuilderAgentUsageMetadata(
       estimatedCfShellCostUsd,
     },
   }
+}
+
+export function skillsBuilderModelCreditMultiplier(openaiModelId, usedTeamOpenAIKey = false) {
+  if (usedTeamOpenAIKey) return 1
+  return DOCSBOT_KEY_MODEL_MULTIPLIERS[String(openaiModelId || '').trim()] || 1
+}
+
+export function calculateSkillsBuilderAiCredits(
+  usage = {},
+  openaiModelId = SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL,
+  usedTeamOpenAIKey = false,
+  webSearchCalls = 0,
+) {
+  const totalTokens = Number.isFinite(Number(usage.totalTokens))
+    ? Number(usage.totalTokens)
+    : Number(usage.inputTokens || 0) + Number(usage.outputTokens || 0)
+  const multiplier = skillsBuilderModelCreditMultiplier(openaiModelId, usedTeamOpenAIKey)
+  const tokenCredits = Math.round((Math.max(0, totalTokens) / AI_CREDIT_TOKEN_UNIT) * multiplier)
+  const searchCalls = Math.max(0, Math.trunc(Number(webSearchCalls) || 0))
+  const searchCredits =
+    searchCalls *
+    (usedTeamOpenAIKey
+      ? WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY
+      : WEB_SEARCH_AI_CREDITS_PER_CALL_DOCSBOT_KEY)
+  return Math.max(1, tokenCredits + searchCredits)
+}
+
+export function skillBuilderAiCreditTooltip(usage, usedTeamOpenAIKey = false) {
+  const aiCredits = Number.isFinite(Number(usage?.aiCredits))
+    ? Number(usage.aiCredits)
+    : calculateSkillsBuilderAiCredits(
+        usage,
+        usage?.openaiModelId,
+        usedTeamOpenAIKey,
+        usage?.webSearchCalls,
+      )
+  if (usedTeamOpenAIKey) {
+    return `${aiCredits} AI credits used. Your OpenAI key: 1x per message (5k tokens); ${WEB_SEARCH_AI_CREDITS_PER_CALL_CUSTOMER_KEY} credit per web search.`
+  }
+  const multiplier = skillsBuilderModelCreditMultiplier(usage?.openaiModelId, false)
+  return `${aiCredits} AI credits used. ${multiplier}x per message (5k tokens); ${WEB_SEARCH_AI_CREDITS_PER_CALL_DOCSBOT_KEY} credits per web search.`
 }
 
 export function isWebSearchToolCallPart(part) {
@@ -148,6 +222,7 @@ function hasAnyUsageNumbers(usage) {
     usage.inputTokens,
     usage.cachedInputTokens,
     usage.outputTokens,
+    usage.aiCredits,
     usage.webSearchCalls,
     usage.estimatedCfShellCostUsd,
     usage.estimatedCostUsd,
@@ -177,6 +252,9 @@ export function sumSkillsBuilderUsageFromMessages(messages = []) {
       totals.cachedInputTokens += usage.cachedInputTokens
     }
     if (typeof usage.outputTokens === 'number') totals.outputTokens += usage.outputTokens
+    if (typeof usage.aiCredits === 'number') {
+      totals.aiCredits = (totals.aiCredits || 0) + usage.aiCredits
+    }
     if (typeof usage.webSearchCalls === 'number') totals.webSearchCalls += usage.webSearchCalls
     if (typeof usage.estimatedCfShellCostUsd === 'number') {
       totals.estimatedCfShellCostUsd += usage.estimatedCfShellCostUsd
@@ -196,12 +274,14 @@ export function formatSkillsBuilderUsageTooltip(usage) {
   const cachedInputTokens =
     typeof usage.cachedInputTokens === 'number' ? usage.cachedInputTokens : 0
   const outputTokens = typeof usage.outputTokens === 'number' ? usage.outputTokens : 0
+  const aiCredits = typeof usage.aiCredits === 'number' ? usage.aiCredits : null
   const webSearchCalls = typeof usage.webSearchCalls === 'number' ? usage.webSearchCalls : 0
   const shellUsd =
     typeof usage.estimatedCfShellCostUsd === 'number' ? usage.estimatedCfShellCostUsd : 0
   const totalUsd = typeof usage.estimatedCostUsd === 'number' ? usage.estimatedCostUsd : 0
 
-  return `Est. costs: Tokens in ${inputTokens} · cached ${cachedInputTokens} · out ${outputTokens} · search ${webSearchCalls} · shell ~$${shellUsd.toFixed(4)} · total ~$${totalUsd.toFixed(4)}`
+  const creditPrefix = aiCredits != null ? `Credits ${aiCredits} · ` : ''
+  return `Est. costs: ${creditPrefix}Tokens in ${inputTokens} · cached ${cachedInputTokens} · out ${outputTokens} · search ${webSearchCalls} · shell ~$${shellUsd.toFixed(4)} · total ~$${totalUsd.toFixed(4)}`
 }
 
 export function buildSkillsBuilderUsageTooltip({ persistedUsage, messages } = {}) {

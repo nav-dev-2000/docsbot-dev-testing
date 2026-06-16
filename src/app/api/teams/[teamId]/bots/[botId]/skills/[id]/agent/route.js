@@ -7,7 +7,7 @@ import chatAgentDocs from '@/pages/documentation/developer/chat-agent.md?raw'
 
 import { getAuthorizedBotContext } from '@/lib/appRouteAuth'
 import { openAiErrorMessage } from '@/lib/openai-error-message'
-import { getTeamWithEncryptedOpenAIKey } from '@/lib/dbQueries'
+import { getTeamWithEncryptedOpenAIKey, saveAiCreditUsageLog } from '@/lib/dbQueries'
 import { decryptKey } from '@/lib/encryption'
 import {
   buildSkillContextSummary,
@@ -1440,7 +1440,10 @@ export async function POST(request, context) {
             event.totalUsage,
             webSearchCalls,
             { ...shellUsageAcc },
-            { openaiModelId: builderOpenaiModelId },
+            {
+              openaiModelId: builderOpenaiModelId,
+              usedTeamOpenAIKey: useTeamOpenAiKey,
+            },
           )
           await incrementSkillDraftBuilderAgentUsage(
             getSkillDraftDocRef(team.id, botId, draft.skillName, firestore),
@@ -1449,8 +1452,28 @@ export async function POST(request, context) {
               usage: usageMeta.skillsBuilderAgentUsage,
             },
           )
+          await saveAiCreditUsageLog({
+            teamId: team.id,
+            botId,
+            type: 'skill_builder_agent',
+            model: builderOpenaiModelId,
+            aiCredits: usageMeta.skillsBuilderAgentUsage.aiCredits,
+            tokenUsage: {
+              inputTokens: usageMeta.skillsBuilderAgentUsage.inputTokens,
+              cachedInputTokens: usageMeta.skillsBuilderAgentUsage.cachedInputTokens,
+              outputTokens: usageMeta.skillsBuilderAgentUsage.outputTokens,
+              totalTokens: usageMeta.skillsBuilderAgentUsage.totalTokens,
+            },
+            conversationId: draft.skillName,
+            metadata: {
+              skillName: draft.skillName,
+              source: 'skills-builder',
+            },
+            question: `Skill builder agent turn: ${draft.skillName}`,
+            firestore,
+          })
         } catch (err) {
-          console.warn('skills builder: failed to persist builder usage totals', err)
+          console.warn('skills builder: failed to persist builder usage', err)
         }
       },
     })
@@ -1460,10 +1483,12 @@ export async function POST(request, context) {
       sendSources: true,
       consumeSseStream: consumeStream,
       messageMetadata: ({ part }) => {
-        if (superAdmin && part.type === 'tool-call' && !part.invalid && isWebSearchToolCallPart(part)) {
+        if (part.type === 'tool-call' && !part.invalid && isWebSearchToolCallPart(part)) {
           webSearchUsageAcc.calls += 1
         }
-        if (part.type !== 'finish') return undefined
+        if (part.type !== 'finish') {
+          return undefined
+        }
 
         const meta = {}
         if (builderStepLimitReached) {
@@ -1473,17 +1498,31 @@ export async function POST(request, context) {
             message: BUILDER_AGENT_STEP_LIMIT_PAUSE_MESSAGE,
           }
         }
+
+        const usageMeta = buildSkillsBuilderAgentUsageMetadata(
+          part.totalUsage,
+          webSearchUsageAcc.calls,
+          shellUsageAcc,
+          {
+            openaiModelId: builderOpenaiModelId,
+            usedTeamOpenAIKey: useTeamOpenAiKey,
+          },
+        )
+
         if (superAdmin) {
-          Object.assign(
-            meta,
-            buildSkillsBuilderAgentUsageMetadata(
-              part.totalUsage,
-              webSearchUsageAcc.calls,
-              shellUsageAcc,
-              { openaiModelId: builderOpenaiModelId },
-            ),
-          )
+          Object.assign(meta, usageMeta)
+        } else {
+          const usage = usageMeta.skillsBuilderAgentUsage
+          meta.skillsBuilderAgentUsage = {
+            openaiModelId: usage.openaiModelId,
+            inputTokens: usage.inputTokens,
+            outputTokens: usage.outputTokens,
+            totalTokens: usage.totalTokens,
+            cachedInputTokens: usage.cachedInputTokens,
+            aiCredits: usage.aiCredits,
+          }
         }
+
         return Object.keys(meta).length ? meta : undefined
       },
       onError: (error) => openAiErrorMessage(error) || 'Unable to run skills builder agent.',

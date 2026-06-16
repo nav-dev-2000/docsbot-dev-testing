@@ -8,6 +8,10 @@ import {
     PhotoIcon,
 } from '@heroicons/react/24/outline'
 import {
+    VOICE_AI_CREDITS_PER_MINUTE_DOCSBOT_KEY,
+    VOICE_MESSAGE_MAX_DURATION_SECONDS,
+} from '@/lib/skills-agent-usage'
+import {
     AppearanceToggle,
     AppearanceBlock,
     AppearanceInput,
@@ -59,6 +63,8 @@ const AppearanceContent = ({
     keepFooterVisible,
     setKeepFooterVisible,
 }) => {
+    const hasTeamOpenAIKey = Boolean(team?.openAIKey)
+
     return (
         <>
             {/* Options: Initial Message */}
@@ -178,7 +184,42 @@ const AppearanceContent = ({
                                 name="Voice input"
                             />
                         }
-                        description="Allow users to send voice messages from the widget microphone (requires a supported browser)."
+                        description={
+                            hasTeamOpenAIKey ? (
+                                <>
+                                    Allow users to send voice messages from the widget
+                                    microphone. Uses{' '}
+                                    <span className="font-medium text-gray-900">
+                                        {'<0.5x'}
+                                    </span>{' '}
+                                    AI credits per minute of audio, scaled to recording length
+                                    (messages cap at {VOICE_MESSAGE_MAX_DURATION_SECONDS} seconds
+                                    per clip).
+                                </>
+                            ) : (
+                                <>
+                                    Allow users to send voice messages from the widget
+                                    microphone. Uses approximately{' '}
+                                    <span className="font-medium text-gray-900">
+                                        {VOICE_AI_CREDITS_PER_MINUTE_DOCSBOT_KEY}×
+                                    </span>{' '}
+                                    AI credits per minute of audio, scaled to recording length
+                                    (messages cap at {VOICE_MESSAGE_MAX_DURATION_SECONDS} seconds
+                                    per clip).{' '}
+                                    <Link
+                                        href="/app/api"
+                                        className="text-cyan-600 underline hover:text-cyan-800"
+                                    >
+                                        Add your own OpenAI key
+                                    </Link>{' '}
+                                    for{' '}
+                                    <span className="font-medium text-gray-900">
+                                        {'<0.5x'}
+                                    </span>{' '}
+                                    per minute.
+                                </>
+                            )
+                        }
                         enabled={audioUploads}
                         setEnabled={setAudioUploads}
                         disabled={isUpdating}

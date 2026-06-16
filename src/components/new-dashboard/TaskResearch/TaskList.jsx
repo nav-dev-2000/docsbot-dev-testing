@@ -15,7 +15,7 @@ const TaskList = ({ data }) => {
                         content={item.label}
                         icon={item.icon}
                         {...(item.enabled && { theme: 'active' })}
-                        {...(item.enabled && { tooltip: 'Enabled' })}
+                        tooltip={item.tooltip || (item.enabled ? 'Enabled' : null)}
                     />
                 )
             })}

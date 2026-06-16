@@ -119,7 +119,6 @@ import reportsCronHandler from '@/pages/api/cron/reports'
 import helpscoutWebhookHandler from '@/pages/api/helpscout-webhook'
 import trutoWebhookHandler from '@/pages/api/truto-webhook'
 import teamsHandler from '@/pages/api/teams/index'
-import researchCountHandler from '@/pages/api/teams/[teamId]/research-count'
 import logoutHandler from '@/pages/api/logout'
 import waitlistHandler from '@/pages/api/waitlist'
 
@@ -148,7 +147,7 @@ describe('selected API route contracts', () => {
     })
     mocks.userTeamCheck.mockResolvedValue({
       userId: 'user-1',
-      team: { id: 'team-1', researchCount: 4, roles: { 'user-1': 'owner' } },
+      team: { id: 'team-1', roles: { 'user-1': 'owner' } },
     })
     mocks.getTeams.mockResolvedValue([{ id: 'team-1', name: 'DocsBot' }])
     mocks.getTeam.mockResolvedValue({ id: 'team-new', name: "Test User's Team" })
@@ -304,17 +303,6 @@ describe('selected API route contracts', () => {
     await teamsHandler(badMethodReq, badMethodRes)
     expect(badMethodRes.statusCode).toBe(400)
 
-    mocks.userTeamCheck.mockRejectedValueOnce(new Error('Denied'))
-    const authReq = createMockReq({ method: 'GET', query: { teamId: 'team-1' } })
-    const authRes = createMockRes()
-    await researchCountHandler(authReq, authRes)
-    expect(authRes.statusCode).toBe(403)
-
-    const countReq = createMockReq({ method: 'GET', query: { teamId: 'team-1' } })
-    const countRes = createMockRes()
-    await researchCountHandler(countReq, countRes)
-    expect(countRes.statusCode).toBe(200)
-    expect(countRes.body).toEqual({ researchCount: 4 })
   })
 
   it('handles logout idempotently and proxies waitlist responses', async () => {

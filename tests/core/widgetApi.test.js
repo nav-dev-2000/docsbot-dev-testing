@@ -167,7 +167,7 @@ describe('/api/widget/[teamId]/[botId]', () => {
     expect(res.body.useTidyCal).toBe(false)
   })
 
-  it('returns false for web search without a team OpenAI key', async () => {
+  it('returns true for web search without a team OpenAI key when plan and model allow', async () => {
     mocks.getTeam.mockResolvedValue({
       id: 'team-1',
       plan: 'business',
@@ -197,7 +197,7 @@ describe('/api/widget/[teamId]/[botId]', () => {
     await widgetHandler(req, res)
 
     expect(res.statusCode).toBe(200)
-    expect(res.body.useWebSearch).toBe(false)
+    expect(res.body.useWebSearch).toBe(true)
   })
 
   it('returns false for web search below the Standard plan and booking flags below the Personal plan', async () => {

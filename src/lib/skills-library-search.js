@@ -14,8 +14,7 @@ function resolveSkillsLibrarySearchNamespace() {
     : DEFAULT_SKILLS_LIBRARY_SEARCH_NAMESPACE
 }
 
-export const SKILLS_LIBRARY_SEARCH_NAMESPACE =
-  resolveSkillsLibrarySearchNamespace()
+export const SKILLS_LIBRARY_SEARCH_NAMESPACE = resolveSkillsLibrarySearchNamespace()
 export const SKILLS_LIBRARY_SEARCH_REGION =
   process.env.TURBOPUFFER_SKILLS_LIBRARY_REGION || 'gcp-us-west1'
 export const SKILLS_LIBRARY_EMBEDDING_MODEL =
@@ -259,6 +258,7 @@ export async function searchLibrarySkillsWithHybrid(query, options = {}) {
             ['Product', 3, ['name', 'BM25', bm25Query, { last_as_prefix: true }]],
             ['Product', 2, ['key', 'BM25', bm25Query, { last_as_prefix: true }]],
             ['description', 'BM25', bm25Query, { last_as_prefix: true }],
+            ['category', 'BM25', bm25Query, { last_as_prefix: true }],
           ],
         ],
         top_k: candidateLimit,

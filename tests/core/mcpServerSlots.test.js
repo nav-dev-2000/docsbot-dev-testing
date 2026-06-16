@@ -34,6 +34,21 @@ describe('getBotActionSlotLimit', () => {
       ),
     ).toBe(12)
   })
+
+  it('uses configured actionsLimit when present on the resolved plan', () => {
+    expect(
+      getBotActionSlotLimit(planTeam('personal', { actionsLimit: 2 })),
+    ).toBe(2)
+    expect(
+      getBotActionSlotLimit(planTeam('standard', { actionsLimit: 6 })),
+    ).toBe(6)
+    expect(
+      getBotActionSlotLimit(planTeam('business', { actionsLimit: 10 })),
+    ).toBe(10)
+    expect(
+      getBotActionSlotLimit(planTeam('business', { actionsLimit: 0 })),
+    ).toBe(0)
+  })
 })
 
 describe('countBillableBotActions', () => {

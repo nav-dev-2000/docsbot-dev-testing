@@ -1,5 +1,11 @@
 import { stripe } from '@/utils/stripe'
-import { getURL, getNeededStripeProduct, stripePlan, checkPlanPermission } from '@/utils/helpers'
+import {
+  countBillableBotActions,
+  getNeededStripeProduct,
+  getURL,
+  stripePlan,
+  checkPlanPermission,
+} from '@/utils/helpers'
 import userTeamCheck from '@/lib/userTeamCheck'
 import { bentoTrack } from '@/lib/bento'
 import { phTrack } from '@/lib/posthog'
@@ -19,9 +25,11 @@ import {
   teamHasPerBotRoleAssignments,
   teamHasStripeActionsEnabled,
   teamHasLeadCollectCustomFields,
+  getBotPlanFeatureConflicts,
 } from '@/utils/checkoutValidation'
 import { verifyDemoTrialToken } from '@/lib/demoTrialToken'
 import { parseDocsbotCouponCookie } from '@/utils/couponCookie.utils'
+import { hasPurchasedAddOns } from '@/utils/billingAddOns'
 
 const ANNUAL_SALE_COUPONS = {
   production: {
@@ -53,6 +61,12 @@ const resolvePriceId = (plans, tier, frequency, currency) => {
   return plan.prices?.current?.[frequency] || null
 }
 
+const resolveCurrentPriceGroup = (plans, tier) => {
+  const currentPrices = plans?.[tier]?.prices?.current
+  if (!currentPrices || typeof currentPrices !== 'object') return []
+  return Object.values(currentPrices).filter(Boolean)
+}
+
 const filterNeededProductsByPlanIds = (neededProducts, plans, allowedPlanIds = []) => {
   if (!Array.isArray(neededProducts) || neededProducts.length === 0) {
     return neededProducts
@@ -67,6 +81,31 @@ const filterNeededProductsByPlanIds = (neededProducts, plans, allowedPlanIds = [
     })?.[0]
     return planId ? allowedSet.has(planId) : false
   })
+}
+
+const normalizeNeededProducts = (neededProducts) => {
+  if (!Array.isArray(neededProducts)) return []
+  return neededProducts.filter(
+    (priceGroup) => Array.isArray(priceGroup) && priceGroup.length > 0,
+  )
+}
+
+const getMaxBillableActionsPerBot = (bots = []) => {
+  if (!Array.isArray(bots)) return 0
+  return bots.reduce((maxCount, bot) => {
+    const actionCount = countBillableBotActions({
+      tools: bot?.tools,
+      leadCollect: bot?.leadCollect,
+      mcpServers: bot?.mcpServers,
+      widgetSkills: bot?.widgetSkills,
+    })
+    return Math.max(maxCount, actionCount)
+  }, 0)
+}
+
+const cloneJson = (value) => {
+  if (value === undefined || value === null) return value
+  return JSON.parse(JSON.stringify(value))
 }
 
 export default async function createCheckoutSession(req, res) {
@@ -102,6 +141,7 @@ export default async function createCheckoutSession(req, res) {
         if (!planLimits) {
           throw Error('Invalid plan selected.')
         }
+        const bots = await getBots(team)
         
         const exceededLimits = getExceededPlanLimits({
           team,
@@ -122,8 +162,17 @@ export default async function createCheckoutSession(req, res) {
         const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
         const isDowngradingToBelowStandard = isDowngradingBelowStandard(tier)
 
+        const botFeatureConflicts = getBotPlanFeatureConflicts({
+          bots,
+          targetPlanId: tier,
+        })
+        if (botFeatureConflicts.length > 0) {
+          throw Error(
+            `This plan does not support enabled bot features: ${botFeatureConflicts.join(', ')}. Disable those features or choose a higher plan.`,
+          )
+        }
+
         if (isCurrentlyStandardOrHigher && isDowngradingToBelowStandard) {
-          const bots = await getBots(team)
           if (teamHasStripeActionsEnabled({ bots })) {
             throw Error(
               'Cannot downgrade while Stripe billing support actions are enabled on one or more bots. Disable Stripe Tools in Widget → Actions before downgrading.',
@@ -137,7 +186,6 @@ export default async function createCheckoutSession(req, res) {
         }
 
         if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-          const bots = await getBots(team)
           if (
             teamHasPerBotRoleAssignments({
               bots,
@@ -198,6 +246,7 @@ export default async function createCheckoutSession(req, res) {
             throw Error('Demo trials are only available for new customers.')
           }
         }
+
         if (team.stripeCustomerId) {
           params.customer = team.stripeCustomerId
         } else {
@@ -274,7 +323,20 @@ export default async function createCheckoutSession(req, res) {
 
         const teamInvites = await getInvitesFromTeam(team.id)
         const allPlans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
-        let neededProducts = getNeededStripeProduct(team, teamInvites)
+        const bots = await getBots(team)
+        const teamHasAddOns = hasPurchasedAddOns(team)
+        if (upgrade && tier && team?.stripeSubscriptionId) {
+          return res.status(409).json({
+            message:
+              'Plan changes must be previewed and confirmed from the account page.',
+          })
+        }
+        let neededProducts = normalizeNeededProducts(
+          getNeededStripeProduct(team, teamInvites, bots),
+        )
+        if (teamHasAddOns) {
+          neededProducts = []
+        }
         const teamSourceTypeIds = await getTeamSourceTypeIds(team.id)
         if (teamSourceTypeIds.length > 0) {
           const allowedPlanIds = Object.keys(allPlans).filter((planId) =>
@@ -297,14 +359,13 @@ export default async function createCheckoutSession(req, res) {
               allPlans,
               effectiveAllowedPlanIds,
             )
+            neededProducts = normalizeNeededProducts(neededProducts)
           }
         }
 
         // Check if team is on Business plan and has per bot roles - prevent downgrading
         const isCurrentlyBusinessOrHigher = checkPlanPermission(team, 'business').allowed
         const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
-
-        const bots = await getBots(team)
 
         if (isCurrentlyBusinessOrHigher) {
           if (
@@ -335,6 +396,7 @@ export default async function createCheckoutSession(req, res) {
             allPlans,
             ['standard', 'business', 'enterprise'],
           )
+          neededProducts = normalizeNeededProducts(neededProducts)
         }
 
         const sanitizeSubscriptionUpdateFeatures = (features) => {
@@ -349,17 +411,137 @@ export default async function createCheckoutSession(req, res) {
           return features
         }
 
+        const getPortalConfigProductId = (product) => {
+          const productValue = product?.product
+          if (typeof productValue === 'string') return productValue
+          if (productValue?.id) return productValue.id
+          return null
+        }
+
+        const sanitizePortalProduct = (product) => {
+          const sanitizedProduct = cloneJson(product) || {}
+          if (
+            sanitizedProduct?.adjustable_quantity &&
+            (sanitizedProduct.adjustable_quantity.maximum === null ||
+              sanitizedProduct.adjustable_quantity.maximum === '')
+          ) {
+            sanitizedProduct.adjustable_quantity = { enabled: false }
+          }
+          return sanitizedProduct
+        }
+
+        const buildPortalProductsFromPrices = async (priceGroups, baseProducts = []) => {
+          const products = []
+
+          for (const priceGroup of priceGroups || []) {
+            if (!Array.isArray(priceGroup) || priceGroup.length === 0) continue
+
+            const primaryPrice = await stripe.prices.retrieve(priceGroup[0])
+            const productId = typeof primaryPrice?.product === 'string'
+              ? primaryPrice.product
+              : primaryPrice?.product?.id
+
+            if (!productId) continue
+
+            const templateProduct = baseProducts.find(
+              (product) => getPortalConfigProductId(product) === productId,
+            )
+            products.push(sanitizePortalProduct({
+              ...(templateProduct || {}),
+              product: productId,
+              prices: priceGroup,
+            }))
+          }
+
+          return products
+        }
+
+        const buildPortalConfigurationParams = (baseConfig) => {
+          const features = sanitizeSubscriptionUpdateFeatures(
+            cloneJson(baseConfig?.features || {}),
+          )
+          const businessProfile = baseConfig?.business_profile || {}
+          const params = {
+            business_profile: {
+              headline: businessProfile.headline || undefined,
+              privacy_policy_url:
+                businessProfile.privacy_policy_url ||
+                'https://docsbot.ai/legal/privacy-policy',
+              terms_of_service_url:
+                businessProfile.terms_of_service_url ||
+                'https://docsbot.ai/legal/terms-of-service',
+            },
+            features,
+          }
+
+          if (baseConfig?.default_return_url) {
+            params.default_return_url = baseConfig.default_return_url
+          }
+          params.login_page = { enabled: false }
+          if (baseConfig?.metadata && Object.keys(baseConfig.metadata).length > 0) {
+            params.metadata = { ...baseConfig.metadata }
+          }
+
+          return params
+        }
+
+        const productPricesMatchNeededGroup = (product, priceGroups) => {
+          const productPrices = [...(product?.prices || [])].sort()
+          return priceGroups.some((priceGroup) => {
+            const neededPrices = [...(priceGroup || [])].sort()
+            return (
+              productPrices.length === neededPrices.length &&
+              productPrices.every((price, index) => price === neededPrices[index])
+            )
+          })
+        }
+
+        const ensureSubscriptionUpdateEnabled = (features, products) => {
+          const existingUpdate = features?.subscription_update || {}
+          const allowedUpdates = new Set(existingUpdate.default_allowed_updates || [])
+          allowedUpdates.add('price')
+          allowedUpdates.add('quantity')
+
+          return {
+            ...(features || {}),
+            subscription_update: {
+              ...existingUpdate,
+              enabled: true,
+              default_allowed_updates: Array.from(allowedUpdates),
+              proration_behavior:
+                existingUpdate.proration_behavior || 'create_prorations',
+              products,
+            },
+          }
+        }
+
         // If upgrading to a specific tier, validate the target tier can support current usage
         if (upgrade && tier) {
           const plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS || '{}')
           const interval = team.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
-          const targetPriceId = resolvePriceId(plans, tier, interval)
+          const targetInterval = isAnnualSale ? 'annually' : interval
+          const targetPriceId = resolvePriceId(plans, tier, targetInterval)
+          const targetPriceGroup = resolveCurrentPriceGroup(plans, tier)
+          const targetActionsLimit = Number(plans?.[tier]?.actionsLimit)
+          const maxBillableActionsPerBot = getMaxBillableActionsPerBot(bots)
           
           if (targetPriceId) {
             const allPrices = neededProducts.flat()
             if (!allPrices.includes(targetPriceId)) {
               throw Error('Your current usage exceeds the limits of your current and selected plan. Please select a higher tier plan to upgrade to.')
             }
+            neededProducts = targetPriceGroup.length > 0
+              ? [targetPriceGroup]
+              : [[targetPriceId]]
+          }
+
+          if (
+            Number.isFinite(targetActionsLimit) &&
+            maxBillableActionsPerBot > targetActionsLimit
+          ) {
+            throw Error(
+              `Your bots currently use up to ${maxBillableActionsPerBot} actions per bot, but the selected plan allows ${targetActionsLimit}. Disable actions or choose a higher plan.`,
+            )
           }
 
           if (teamSourceTypeIds.length > 0) {
@@ -377,13 +559,22 @@ export default async function createCheckoutSession(req, res) {
               )
             }
           }
+
+          const botFeatureConflicts = getBotPlanFeatureConflicts({
+            bots,
+            targetPlanId: tier,
+          })
+          if (botFeatureConflicts.length > 0) {
+            throw Error(
+              `This plan does not support enabled bot features: ${botFeatureConflicts.join(', ')}. Disable those features or choose a higher plan.`,
+            )
+          }
           
           // Check if downgrading from Standard plan with Stripe actions or lead custom fields
           const isCurrentlyStandardOrHigher = checkPlanPermission(team, 'standard').allowed
           const isDowngradingToBelowStandard = isDowngradingBelowStandard(tier)
 
           if (isCurrentlyStandardOrHigher && isDowngradingToBelowStandard) {
-            const bots = await getBots(team)
             if (teamHasStripeActionsEnabled({ bots })) {
               throw Error(
                 'Cannot downgrade while Stripe billing support actions are enabled on one or more bots. Disable Stripe Tools in Widget → Actions before downgrading.',
@@ -401,7 +592,6 @@ export default async function createCheckoutSession(req, res) {
           const isDowngradingToBelowBusiness = isDowngradingBelowBusiness(tier)
 
           if (isCurrentlyBusinessOrHigher && isDowngradingToBelowBusiness) {
-            const bots = await getBots(team)
             if (
               teamHasPerBotRoleAssignments({
                 bots,
@@ -418,17 +608,19 @@ export default async function createCheckoutSession(req, res) {
 
         const getConfigId = async (currentConfigs, neededProducts) => {
           let configId = ''
-          if (neededProducts) {
+          if (Array.isArray(neededProducts) && neededProducts.length > 0) {
             currentConfigs.map((item) => {
-              if (
-                item?.features?.subscription_update?.products?.length === neededProducts?.length
-              ) {
-                const isPriceAvailable = item?.features?.subscription_update?.products
-                  ?.map((product, index) => {
-                    return product.prices?.every((item) => neededProducts?.flat().includes(item))
-                  })
-                  .every((value) => value === true)
-                if (isPriceAvailable) {
+              const subscriptionUpdate = item?.features?.subscription_update
+              if (subscriptionUpdate?.products?.length === neededProducts?.length) {
+                const isUpdateEnabled = subscriptionUpdate.enabled === true
+                const supportsPriceUpdate = (
+                  subscriptionUpdate.default_allowed_updates || []
+                ).includes('price')
+                const isPriceAvailable = subscriptionUpdate.products
+                  ?.every((product) =>
+                    productPricesMatchNeededGroup(product, neededProducts),
+                  )
+                if (isUpdateEnabled && supportsPriceUpdate && isPriceAvailable) {
                   configId = item.id
                 }
               }
@@ -438,30 +630,20 @@ export default async function createCheckoutSession(req, res) {
                 expand: ['data.features.subscription_update.products', 'data.business_profile'],
                 is_default: true,
               })
-              let existingConfig = JSON.parse(JSON.stringify(data[0]))
-              const newProducts = []
-              existingConfig.features?.subscription_update?.products.map((product) => {
-                if (neededProducts.flat()?.includes(product.prices[0])) {
-                  if (
-                    product?.adjustable_quantity &&
-                    (product.adjustable_quantity.maximum === null ||
-                      product.adjustable_quantity.maximum === '')
-                  ) {
-                    product.adjustable_quantity = { enabled: false }
-                  }
-                  newProducts.push(product)
-                }
-              })
+              let existingConfig = cloneJson(data[0]) || { features: {} }
+              const newProducts = await buildPortalProductsFromPrices(
+                neededProducts,
+                existingConfig.features?.subscription_update?.products || [],
+              )
               if (newProducts.length) {
-                existingConfig.features.subscription_update.products = newProducts
+                existingConfig.features = ensureSubscriptionUpdateEnabled(
+                  existingConfig.features,
+                  newProducts,
+                )
               }
-              const newConfig = await stripe.billingPortal.configurations?.create({
-                business_profile: {
-                  privacy_policy_url: 'https://docsbot.ai/legal/privacy-policy',
-                  terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service',
-                },
-                features: sanitizeSubscriptionUpdateFeatures(existingConfig.features),
-              })
+              const newConfig = await stripe.billingPortal.configurations?.create(
+                buildPortalConfigurationParams(existingConfig),
+              )
               configId = newConfig?.id
               console.log('New portal config created', configId)
             } else {
@@ -471,22 +653,50 @@ export default async function createCheckoutSession(req, res) {
           return configId
         }
 
-        let configId = await getConfigId(data, neededProducts)
+        const getNoSubscriptionUpdateConfigId = async (currentConfigs) => {
+          const existingConfig = currentConfigs.find(
+            (item) => item?.features?.subscription_update?.enabled === false,
+          )
+          if (existingConfig?.id) return existingConfig.id
+
+          const { data: defaultConfigData } = await stripe.billingPortal.configurations.list({
+            expand: ['data.features.subscription_update.products', 'data.business_profile'],
+            is_default: true,
+          })
+          const disabledConfig = cloneJson(defaultConfigData[0]) || { features: {} }
+          disabledConfig.features = {
+            ...(disabledConfig.features || {}),
+            subscription_update: {
+              ...(disabledConfig.features?.subscription_update || {}),
+              enabled: false,
+            },
+          }
+          const newConfig = await stripe.billingPortal.configurations.create(
+            buildPortalConfigurationParams(disabledConfig),
+          )
+          return newConfig?.id || ''
+        }
+
+        let configId = teamHasAddOns
+          ? await getNoSubscriptionUpdateConfigId(data)
+          : await getConfigId(data, neededProducts)
 
         // If upgrading from annual to annual with sale, create a custom config with billing_cycle_anchor reset
         const isAnnualToAnnualSale = upgrade && tier && isAnnualSale && team.stripeSubscriptionInterval === 'year'
-        if (isAnnualToAnnualSale) {
+        if (isAnnualToAnnualSale && neededProducts.length > 0) {
           // Check if a config with billing_cycle_anchor: "now" already exists
           const existingSaleConfig = data.find((item) => {
             const hasBillingCycleAnchor = 
               item?.features?.subscription_update?.billing_cycle_anchor === 'now'
             const hasMatchingProducts = 
               item?.features?.subscription_update?.products?.length === neededProducts?.length &&
+              item?.features?.subscription_update?.enabled === true &&
+              (item?.features?.subscription_update?.default_allowed_updates || [])
+                .includes('price') &&
               item?.features?.subscription_update?.products
-                ?.map((product) => {
-                  return product.prices?.every((price) => neededProducts?.flat().includes(price))
-                })
-                .every((value) => value === true)
+                ?.every((product) =>
+                  productPricesMatchNeededGroup(product, neededProducts),
+                )
             return hasBillingCycleAnchor && hasMatchingProducts
           })
 
@@ -499,6 +709,11 @@ export default async function createCheckoutSession(req, res) {
             if (configId) {
               // Retrieve the existing config we found
               baseConfig = data.find(c => c.id === configId)
+              if (!baseConfig) {
+                baseConfig = await stripe.billingPortal.configurations.retrieve(configId, {
+                  expand: ['features.subscription_update.products', 'business_profile'],
+                })
+              }
             }
             
             // If no base config found, use default
@@ -510,25 +725,19 @@ export default async function createCheckoutSession(req, res) {
               baseConfig = defaultConfigData[0]
             }
             
-            let saleConfig = JSON.parse(JSON.stringify(baseConfig))
+            let saleConfig = cloneJson(baseConfig) || { features: {} }
             
-            // Ensure products are filtered correctly if neededProducts is set
+            // Ensure products are built from the selected current price IDs.
             if (neededProducts && saleConfig.features?.subscription_update?.products) {
-              const filteredProducts = []
-              saleConfig.features.subscription_update.products.forEach((product) => {
-                if (neededProducts.flat()?.includes(product.prices[0])) {
-                  if (
-                    product?.adjustable_quantity &&
-                    (product.adjustable_quantity.maximum === null ||
-                      product.adjustable_quantity.maximum === '')
-                  ) {
-                    product.adjustable_quantity = { enabled: false }
-                  }
-                  filteredProducts.push(product)
-                }
-              })
-              if (filteredProducts.length) {
-                saleConfig.features.subscription_update.products = filteredProducts
+              const saleProducts = await buildPortalProductsFromPrices(
+                neededProducts,
+                saleConfig.features.subscription_update.products,
+              )
+              if (saleProducts.length) {
+                saleConfig.features = ensureSubscriptionUpdateEnabled(
+                  saleConfig.features,
+                  saleProducts,
+                )
               }
             }
             
@@ -537,13 +746,9 @@ export default async function createCheckoutSession(req, res) {
               saleConfig.features.subscription_update.billing_cycle_anchor = 'now'
             }
             
-            const salePortalConfig = await stripe.billingPortal.configurations.create({
-              business_profile: {
-                privacy_policy_url: 'https://docsbot.ai/legal/privacy-policy',
-                terms_of_service_url: 'https://docsbot.ai/legal/terms-of-service',
-              },
-              features: sanitizeSubscriptionUpdateFeatures(saleConfig.features),
-            })
+            const salePortalConfig = await stripe.billingPortal.configurations.create(
+              buildPortalConfigurationParams(saleConfig),
+            )
             configId = salePortalConfig.id
             console.log('New annual sale portal config created with billing_cycle_anchor reset', configId)
           }

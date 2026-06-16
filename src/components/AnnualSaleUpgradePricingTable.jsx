@@ -7,6 +7,7 @@ export default function AnnualSaleUpgradePricingTable({
   bots = null,
   teamInvites = [],
   teamSourceTypes = [],
+  onBillingChange = null,
 }) {
   // Promo ended: keep wrapper component to avoid touching callers.
   return (
@@ -19,6 +20,7 @@ export default function AnnualSaleUpgradePricingTable({
       bots={bots}
       teamInvites={teamInvites}
       teamSourceTypes={teamSourceTypes}
+      onBillingChange={onBillingChange}
     />
   )
 }

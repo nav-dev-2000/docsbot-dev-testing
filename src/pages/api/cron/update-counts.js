@@ -18,6 +18,35 @@ import { phTrack } from '@/lib/posthog'
 import { stripePlan } from '@/utils/helpers'
 import { sumNonNegativeCounts, toNonNegativeCount } from '@/lib/nonNegativeCounts'
 
+const roundAiCredits = (aiCredits) => {
+  const parsed = Number(aiCredits)
+  return Number.isFinite(parsed) ? Math.max(0, Math.round(parsed)) : 0
+}
+
+const roundQuestionDailyAiCredits = (dailyStats) => {
+  if (!dailyStats || typeof dailyStats !== 'object') {
+    return dailyStats
+  }
+
+  const roundedStats = {}
+  for (const [day, stats] of Object.entries(dailyStats)) {
+    const aiCredits =
+      stats && typeof stats === 'object'
+        ? stats.aiCredits != null
+          ? stats.aiCredits
+          : stats.messages != null
+            ? stats.messages
+            : stats.questions || 0
+        : 0
+    roundedStats[day] =
+      stats && typeof stats === 'object'
+        ? { ...stats, aiCredits: roundAiCredits(aiCredits) }
+        : stats
+  }
+
+  return roundedStats
+}
+
 // Helper function to clean up daily stats objects by removing entries older than 93 days
 function cleanDailyStats(dailyStats) {
   if (!dailyStats || typeof dailyStats !== 'object') {
@@ -52,6 +81,7 @@ function botCountsFromStoredBotData(botData, currentYear, currentMonth) {
     couldNotAnswer: 0,
     questions: 0,
     messages: 0,
+    aiCredits: 0,
   }
   const emptyConversationMonthly = {
     conversations: 0,
@@ -93,6 +123,13 @@ function botCountsFromStoredBotData(botData, currentYear, currentMonth) {
     questions: qhMonth.questions || 0,
     messages:
       qhMonth.messages != null ? qhMonth.messages : qhMonth.questions || 0,
+    aiCredits: roundAiCredits(
+      qhMonth.aiCredits != null
+        ? qhMonth.aiCredits
+        : qhMonth.messages != null
+          ? qhMonth.messages
+          : qhMonth.questions || 0,
+    ),
   }
 
   const daily = {}
@@ -102,6 +139,13 @@ function botCountsFromStoredBotData(botData, currentYear, currentMonth) {
     daily[day] = {
       questions: v.questions || 0,
       messages: v.messages != null ? v.messages : v.questions || 0,
+      aiCredits: roundAiCredits(
+        v.aiCredits != null
+          ? v.aiCredits
+          : v.messages != null
+            ? v.messages
+            : v.questions || 0,
+      ),
       upVotes: v.upVotes || 0,
       downVotes: v.downVotes || 0,
       escalations: v.escalations || 0,
@@ -210,6 +254,7 @@ export default async function handler(request, response) {
           .get()
 
         let questionTotal = 0
+        let messageTotal = 0
         let questionLookupTotal = 0
         let pageTotal = 0
         let sourceTotal = 0
@@ -333,6 +378,7 @@ export default async function handler(request, response) {
               botQuestionHistoryDailyNew[day] = {
                 questions: 0,
                 messages: 0,
+                aiCredits: 0,
                 upVotes: 0,
                 downVotes: 0,
                 escalations: 0,
@@ -346,7 +392,7 @@ export default async function handler(request, response) {
           }
 
           const botData = {
-            questionCount: monthly.messages,
+            questionCount: monthly.aiCredits,
             questionLookupCount: monthly.questions,
             conversationCount: conversationMonthly.conversations,
             researchCount: researchCount,
@@ -423,7 +469,8 @@ export default async function handler(request, response) {
 
         // take and sum the results
         for (const { pageCount, sourceCount, monthly, daily, conversationMonthly, conversationDaily, researchCount, researchDaily } of botCounts) {
-          questionTotal += monthly.messages
+          questionTotal += monthly.aiCredits
+          messageTotal += monthly.messages
           questionLookupTotal += monthly.questions
           pageTotal += pageCount
           sourceTotal += sourceCount
@@ -452,6 +499,7 @@ export default async function handler(request, response) {
             questionHistoryDailyNew[day] = questionHistoryDailyNew[day] || {
               questions: 0,
               messages: 0,
+              aiCredits: 0,
               upVotes: 0,
               downVotes: 0,
               escalations: 0,
@@ -461,6 +509,7 @@ export default async function handler(request, response) {
             }
             questionHistoryDailyNew[day].questions += value.questions
             questionHistoryDailyNew[day].messages += value.messages
+            questionHistoryDailyNew[day].aiCredits += value.aiCredits
             questionHistoryDailyNew[day].upVotes += value.upVotes
             questionHistoryDailyNew[day].downVotes += value.downVotes
             questionHistoryDailyNew[day].escalations += value.escalations
@@ -474,6 +523,7 @@ export default async function handler(request, response) {
               questionHistoryDailyNew[day] = {
                 questions: 0,
                 messages: 0,
+                aiCredits: 0,
                 upVotes: 0,
                 downVotes: 0,
                 escalations: 0,
@@ -535,8 +585,9 @@ export default async function handler(request, response) {
         const prevConversationHistory = teamData.conversationHistory || {}
         const prevConversationHistoryDaily = teamData.conversationHistoryDaily || {}
         const questionLimit = stripePlan(teamData).questions
+        const roundedQuestionTotal = roundAiCredits(questionTotal)
         const teamUpdateData = {
-          questionCount: questionTotal,
+          questionCount: roundedQuestionTotal,
           questionLookupCount: questionLookupTotal,
           conversationCount: conversationTotal,
           researchCount: researchTotal,
@@ -546,7 +597,8 @@ export default async function handler(request, response) {
           questionHistory: {
             ...prevHistory,
             [`${currentYear}-${currentMonth}`]: {
-              messages: questionTotal,
+              messages: messageTotal,
+              aiCredits: roundedQuestionTotal,
               questions: questionLookupTotal,
               upVotes: upVotesTotal,
               downVotes: downVotesTotal,
@@ -570,10 +622,10 @@ export default async function handler(request, response) {
                 }
               }
               // Merge in the new daily stats (which includes research counts from current run)
-              return {
+              return roundQuestionDailyAiCredits({
                 ...merged,
                 ...questionHistoryDailyNew,
-              }
+              })
             })(),
           ),
           conversationHistory: {
@@ -605,6 +657,7 @@ export default async function handler(request, response) {
           ok: true,
           teamId: teamDoc.id,
           questionTotal,
+          messageTotal,
           conversationTotal,
           sourceTotal,
           pageTotal,
@@ -633,7 +686,8 @@ export default async function handler(request, response) {
       teamsToProcess: teamCount,
       teamsSucceeded: succeeded.length,
       teamsFailed: failed.length,
-      aggregateQuestionMessages: sumKey('questionTotal'),
+      aggregateQuestionMessages: sumKey('messageTotal'),
+      aggregateAiCredits: sumKey('questionTotal'),
       aggregateConversations: sumKey('conversationTotal'),
       aggregateSources: sumKey('sourceTotal'),
       aggregateSourcePages: sumKey('pageTotal'),

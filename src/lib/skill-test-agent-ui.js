@@ -87,6 +87,7 @@ export function createInitialSkillTestState() {
     error: '',
     startedAt: null,
     finishedAt: null,
+    metadata: null,
   }
 }
 
@@ -128,6 +129,10 @@ export function reduceSkillTestStreamEvent(state, event) {
       ...current,
       summary,
       technical,
+      metadata:
+        event.metadata && typeof event.metadata === 'object'
+          ? event.metadata
+          : current.metadata || null,
       bugs,
       improvements,
       markdown: buildSkillTestFinalMarkdown({

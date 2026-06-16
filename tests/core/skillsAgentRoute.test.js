@@ -18,6 +18,7 @@ const mocks = vi.hoisted(() => {
     openai,
     createOpenAI: vi.fn(() => openai),
     getTeamWithEncryptedOpenAIKey: vi.fn(),
+    saveAiCreditUsageLog: vi.fn(),
     decryptKey: vi.fn((k) => k),
     incrementSkillDraftBuilderAgentUsage: vi.fn(),
     getAuthorizedBotContext: vi.fn(),
@@ -123,6 +124,7 @@ vi.mock('@ai-sdk/openai', () => ({
 
 vi.mock('@/lib/dbQueries', () => ({
   getTeamWithEncryptedOpenAIKey: mocks.getTeamWithEncryptedOpenAIKey,
+  saveAiCreditUsageLog: mocks.saveAiCreditUsageLog,
 }))
 
 vi.mock('@/lib/encryption', () => ({
@@ -697,6 +699,8 @@ describe('skills agent route', () => {
     })
     expect(finishMeta?.skillsBuilderAgentUsage?.inputTokens).toBe(100)
     expect(finishMeta?.skillsBuilderAgentUsage?.cachedInputTokens).toBe(20)
+    expect(finishMeta?.skillsBuilderAgentUsage?.totalTokens).toBe(150)
+    expect(finishMeta?.skillsBuilderAgentUsage?.aiCredits).toBe(1)
     expect(finishMeta?.skillsBuilderAgentUsage?.webSearchCalls).toBe(0)
     expect(finishMeta?.skillsBuilderAgentUsage?.shellCalls).toBe(0)
     expect(finishMeta?.skillsBuilderAgentUsage?.shellDurationMs).toBe(0)
@@ -718,6 +722,28 @@ describe('skills agent route', () => {
           openaiModelId: 'gpt-5.4-mini',
           modelSlug: 'gpt-5-4-mini',
         }),
+      }),
+    )
+    expect(mocks.saveAiCreditUsageLog).toHaveBeenCalledWith(
+      expect.objectContaining({
+        teamId: 'team-1',
+        botId: 'bot-1',
+        type: 'skill_builder_agent',
+        model: 'gpt-5.4-mini',
+        aiCredits: 1,
+        tokenUsage: {
+          inputTokens: 0,
+          cachedInputTokens: 0,
+          outputTokens: 0,
+          totalTokens: 0,
+        },
+        conversationId: 'customer-refunds',
+        metadata: {
+          skillName: 'customer-refunds',
+          source: 'skills-builder',
+        },
+        question: 'Skill builder agent turn: customer-refunds',
+        firestore: { id: 'firestore' },
       }),
     )
 
@@ -774,12 +800,13 @@ describe('skills agent route', () => {
         usage: expect.objectContaining({
           modelSlug: 'gpt-5-4-mini',
           openaiModelId: 'gpt-5.4-mini',
+          aiCredits: 1,
         }),
       }),
     )
   })
 
-  it('does not attach usage metadata for non–super-admins', async () => {
+  it('attaches credit usage and step-limit pause in messageMetadata for non-super-admins', async () => {
     mocks.isSuperAdmin.mockReturnValue(false)
     const { POST } = await import('@/app/api/teams/[teamId]/bots/[botId]/skills/[id]/agent/route')
     const { request } = createAbortableRequest('https://docsbot.example/agent', {
@@ -825,8 +852,15 @@ describe('skills agent route', () => {
         message:
           'Paused for safety after many steps. You can tell the builder agent to keep working, and include any direction or corrections you want it to follow.',
       },
+      skillsBuilderAgentUsage: {
+        openaiModelId: 'gpt-5.4-mini',
+        inputTokens: 100,
+        outputTokens: 50,
+        totalTokens: 150,
+        cachedInputTokens: 20,
+        aiCredits: 1,
+      },
     })
-    expect(finishMeta?.skillsBuilderAgentUsage).toBeUndefined()
     mocks.isSuperAdmin.mockReturnValue(true)
   })
 

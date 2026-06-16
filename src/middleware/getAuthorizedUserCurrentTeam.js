@@ -52,6 +52,7 @@ export const getAuthorizedUserCurrentTeam = async (context) => {
       pageCount: 0,
       chunkCount: 0,
       questionCount: 0,
+      autoIncreaseAiCredits: true,
       openAIKey: null,
       roles: {
         [uid]: 'owner',

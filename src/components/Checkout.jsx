@@ -8,6 +8,7 @@ import { StripePricingTable } from '@/components/StripePricing'
 import AnnualSalePricingTable from '@/components/AnnualSalePricingTable'
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import PlanChangePreviewModal from '@/components/PlanChangePreviewModal'
 import { pricingTiers } from '@/constants/pricing.constants'
 import * as cookie from 'cookie'
 import { DEALS, DEFAULT_DEAL } from '@/constants/deals.constants'
@@ -16,6 +17,7 @@ import SaleLoyalty, { LOYALTY_SALE_DEADLINE } from '@/components/SaleLoyalty'
 import AnnualSaleUpgradePricingTable from '@/components/AnnualSaleUpgradePricingTable'
 import { getAnnualSalePersonaMessage } from '@/components/annualSaleConfig'
 import PilotTrialActivation from '@/components/PilotTrialActivation'
+import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
 
 export default function Checkout({
   team,
@@ -25,6 +27,8 @@ export default function Checkout({
   teamInvites = [],
   teamSourceTypes = [],
   hasDemoTrialPromotion = false,
+  onBillingChange = null,
+  showBillingPortalSection = true,
 }) {
   const [user] = useAuthState(auth)
   const [errorText, setErrorText] = useState(null)
@@ -34,6 +38,8 @@ export default function Checkout({
   )
   const [opening, setOpening] = useState(false)
   const [dealMessage, setDealMessage] = useState(null)
+  const [planChangePreview, setPlanChangePreview] = useState(null)
+  const [pendingPlanChange, setPendingPlanChange] = useState(null)
 
   // Check if current plan is legacy
   const currentPlan = stripePlan(team)
@@ -43,6 +49,7 @@ export default function Checkout({
   const showAnnualSaleUpgrade = Boolean(getAnnualSalePersonaMessage(team))
   const isLoyaltyEligible = isStripeCustomer && (isProPlan || isStandardPlan)
   const isEnterprisePlan = checkPlanPermission(team, 'enterprise').allowed
+  const isBusinessPlan = currentPlan?.id === 'business'
 
   useEffect(() => {
     if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
@@ -73,6 +80,37 @@ export default function Checkout({
     const shouldUpgrade = typeof upgradeOverride === 'boolean' ? upgradeOverride : upgrade
     setErrorText(null)
     setOpening(true)
+    if (shouldUpgrade && tier) {
+      const frequency =
+        team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
+      const currency = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
+      const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          action: 'preview',
+          tier,
+          frequency,
+          currency,
+        }),
+      })
+      if (response.ok) {
+        const data = await response.json()
+        setPendingPlanChange({ tier, frequency, currency })
+        setPlanChangePreview(data.preview)
+      } else {
+        try {
+          const data = await response.json()
+          setErrorText(data.message || 'Something went wrong, please try again.')
+        } catch (e) {
+          setErrorText('Error ' + response.status + ', please try again.')
+        }
+      }
+      setOpening(false)
+      return
+    }
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
       method: 'POST',
       headers: {
@@ -98,6 +136,57 @@ export default function Checkout({
     setOpening(false)
   }
 
+  async function confirmPlanChange() {
+    if (!pendingPlanChange || !planChangePreview) return
+    setErrorText(null)
+    setOpening(true)
+    const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        action: 'confirm',
+        ...pendingPlanChange,
+        prorationDate: planChangePreview.prorationDate,
+      }),
+    })
+    if (response.ok) {
+      try {
+        const data = await response.json()
+        if (data.paymentAction?.requiresAction) {
+          await completeStripePaymentAction(data.paymentAction)
+        }
+      } catch (error) {
+        setErrorText(error.message || 'Payment verification was not completed.')
+        setOpening(false)
+        return
+      }
+      setPlanChangePreview(null)
+      setPendingPlanChange(null)
+      if (onBillingChange) {
+        try {
+          await onBillingChange()
+        } catch (error) {
+          setErrorText(
+            error.message || 'Plan updated, but billing details could not be refreshed.',
+          )
+        }
+        setOpening(false)
+        return
+      }
+      window.location.reload()
+      return
+    }
+    try {
+      const data = await response.json()
+      setErrorText(data.message || 'Something went wrong, please try again.')
+    } catch (e) {
+      setErrorText('Error ' + response.status + ', please try again.')
+    }
+    setOpening(false)
+  }
+
   async function renewPlan() {
     setErrorText(null)
     setOpening(true)
@@ -108,18 +197,30 @@ export default function Checkout({
       },
     })
     if (response.ok) {
-      const data = await response.json()
-      openPortal()
-      return
-    } else {
-      try {
-        const data = await response.json()
-        setErrorText(data.message || 'Something went wrong, please try again.')
-      } catch (e) {
-        setErrorText('Error ' + response.status + ', please try again.')
+      if (onBillingChange) {
+        try {
+          await onBillingChange({
+            successMessage: 'Your subscription has been reactivated.',
+          })
+        } catch (error) {
+          setErrorText(
+            error.message ||
+              'Plan reactivated, but billing details could not be refreshed.',
+          )
+        }
         setOpening(false)
+        return
       }
+      window.location.reload()
+      return
     }
+    try {
+      const data = await response.json()
+      setErrorText(data.message || 'Something went wrong, please try again.')
+    } catch (e) {
+      setErrorText('Error ' + response.status + ', please try again.')
+    }
+    setOpening(false)
   }
 
   const Button = () => {
@@ -144,6 +245,15 @@ export default function Checkout({
     <>
       <Alert title={errorText} type="error" />
       {dealMessage && <Alert title={dealMessage} type="success" />}
+      <PlanChangePreviewModal
+        preview={planChangePreview}
+        opening={opening}
+        onClose={() => {
+          setPlanChangePreview(null)
+          setPendingPlanChange(null)
+        }}
+        onConfirm={confirmPlanChange}
+      />
 
       {isLegacyPlan && (
         <div className="mb-6 rounded-md bg-yellow-50 p-4">
@@ -176,7 +286,7 @@ export default function Checkout({
           <div className="flex justify-center text-center">
             <div className="max-w-2xl">
               {children}
-              <Button />
+              {showBillingPortalSection && <Button />}
             </div>
           </div>
         </>
@@ -198,7 +308,7 @@ export default function Checkout({
               {isStripeCustomer ? (
                 <div className="flex w-full max-w-5xl flex-col items-center">
                   {isLoyaltyEligible && (
-                    <div className="mb-10 w-full border-y border-gray-200">
+                    <div className="mb-10 w-full">
                       <SaleLoyalty
                         team={team}
                         onApplyBusiness={() =>
@@ -275,6 +385,7 @@ export default function Checkout({
                             bots={bots}
                             teamInvites={teamInvites}
                             teamSourceTypes={teamSourceTypes}
+                            onBillingChange={onBillingChange}
                           />
                         ) : (
                           <StripePricingTable
@@ -285,6 +396,7 @@ export default function Checkout({
                             bots={bots}
                             teamInvites={teamInvites}
                             teamSourceTypes={teamSourceTypes}
+                            onBillingChange={onBillingChange}
                           />
                         )}
                       </div>
@@ -308,20 +420,29 @@ export default function Checkout({
                       </button>
                     </div>
                   )}
-                  <h3 className="text-3xl font-bold">Manage your Plan</h3>
-                  <p className="text-md mb-8 mt-2 text-gray-800 md:mb-16">
-                    You are currently on the {stripePlan(team).name} plan. Open your billing portal
-                    to change your plan, update payment methods, and download invoices.
-                  </p>
-                  <Button />
+                  {showBillingPortalSection && (
+                    <>
+                      <h3 className="text-3xl font-bold">Manage your Plan</h3>
+                      <p className="text-md mb-8 mt-2 text-gray-800 md:mb-16">
+                        {isBusinessPlan || isEnterprisePlan
+                          ? `You are currently on the ${currentPlan.name} plan. Open your billing portal to update payment methods and download invoices.`
+                          : `You are currently on the ${currentPlan.name} plan. Change your plan using the options above. Open your billing portal to update payment methods and download invoices.`}
+                      </p>
+                      <Button />
+                    </>
+                  )}
                 </div>
               ) : (
                 <div className="max-w-2xl">
-                  <h3 className="text-3xl font-bold">Billing History</h3>
-                  <p className="text-md mb-6 mt-2 text-gray-800 md:mb-16">
-                    Open your billing portal to view billing history and download invoices.
-                  </p>
-                  <Button />
+                  {showBillingPortalSection && (
+                    <>
+                      <h3 className="text-3xl font-bold">Billing History</h3>
+                      <p className="text-md mb-6 mt-2 text-gray-800 md:mb-16">
+                        Open your billing portal to view billing history and download invoices.
+                      </p>
+                      <Button />
+                    </>
+                  )}
                 </div>
               )}
             </div>

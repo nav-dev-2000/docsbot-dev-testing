@@ -1,7 +1,7 @@
 import { featureDefinitions } from '@/constants/pricing.constants'
 
-/** Omitted from plan card / Stripe compact bullet lists (still in full matrix). */
-const COMPACT_EXCLUDED = new Set(['mcpServer'])
+/** Omitted from plan card / Stripe compact bullet lists. */
+const COMPACT_EXCLUDED = new Set(['mcpServer', 'researchTasks'])
 
 /**
  * When two rows share a category, lower index wins (Skills & action ordering).
@@ -12,7 +12,6 @@ const COMPACT_BULLET_KEY_ORDER = [
   'sourcePages',
   'messagesPerMonth',
   'actionsLimit',
-  'researchTasksPerMonth',
   'teamUsers',
   'docsBotSkills',
   'mcpRemoteConnectors',
@@ -41,7 +40,6 @@ export function getDifferentiatingFeatures(currentTier, tierIndex, allTiers) {
     'sourcePages',
     'messagesPerMonth',
     'actionsLimit',
-    'researchTasksPerMonth',
     'teamUsers',
   ]
   const features = []

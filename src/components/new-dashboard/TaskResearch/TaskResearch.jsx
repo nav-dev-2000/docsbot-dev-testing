@@ -10,6 +10,7 @@ import {
     CodeBracketSquareIcon,
     DocumentIcon,
     GlobeAltIcon,
+    SparklesIcon,
 } from '@heroicons/react/24/outline'
 
 const getUserFromMetadata = (metadata) => {
@@ -26,23 +27,83 @@ const getUserFromMetadata = (metadata) => {
     }
 }
 
-const getListData = (data) => [
-    {
-        label: 'Document Search',
-        icon: DocumentIcon,
-        enabled: true,
-    },
-    {
-        label: 'Web Search',
-        icon: GlobeAltIcon,
-        enabled: Boolean(data?.webSearch),
-    },
-    {
-        label: 'Code Interpreter',
-        icon: CodeBracketSquareIcon,
-        enabled: Boolean(data?.codeInterpreter),
-    },
-]
+const parseUsageNumber = (value) => {
+    const number = Number(value)
+    return Number.isFinite(number) ? number : null
+}
+
+const formatUsageNumber = (value, options = {}) => {
+    const number = parseUsageNumber(value)
+    if (number === null) return null
+
+    return new Intl.NumberFormat('en-US', {
+        maximumFractionDigits: 0,
+        ...options,
+    }).format(number)
+}
+
+const formatAiCredits = (value) => {
+    const number = parseUsageNumber(value)
+    if (number === null) return null
+
+    return new Intl.NumberFormat('en-US', {
+        minimumFractionDigits: number > 0 && number < 10 ? 1 : 0,
+        maximumFractionDigits: number > 0 && number < 10 ? 1 : 0,
+    }).format(number)
+}
+
+const buildUsageTooltip = (data) => {
+    const tokenUsage = data?.tokenUsage || {}
+    const details = [
+        tokenUsage.totalTokens ?? tokenUsage.total_tokens
+            ? `${formatUsageNumber(tokenUsage.totalTokens ?? tokenUsage.total_tokens)} tokens`
+            : null,
+        data?.webSearchCallCount
+            ? `${formatUsageNumber(data.webSearchCallCount)} web search call${
+                  data.webSearchCallCount === 1 ? '' : 's'
+              }`
+            : null,
+        data?.codeInterpreterCallCount
+            ? `${formatUsageNumber(data.codeInterpreterCallCount)} code interpreter call${
+                  data.codeInterpreterCallCount === 1 ? '' : 's'
+              }`
+            : null,
+    ].filter(Boolean)
+
+    return details.length > 0 ? details.join('<br/>') : 'AI credits used'
+}
+
+const getListData = (data) => {
+    const items = [
+        {
+            label: 'Document Search',
+            icon: DocumentIcon,
+            enabled: true,
+        },
+        {
+            label: 'Web Search',
+            icon: GlobeAltIcon,
+            enabled: Boolean(data?.webSearch),
+        },
+        {
+            label: 'Code Interpreter',
+            icon: CodeBracketSquareIcon,
+            enabled: Boolean(data?.codeInterpreter),
+        },
+    ]
+
+    const credits = parseUsageNumber(data?.aiCredits)
+    if (credits !== null && credits > 0) {
+        items.push({
+            label: `${formatAiCredits(credits)} AI Credits`,
+            icon: SparklesIcon,
+            enabled: true,
+            tooltip: buildUsageTooltip(data),
+        })
+    }
+
+    return items
+}
 
 const TaskResearch = ({ user, data, team, bot, onDelete, onError }) => {
     const [currentUser] = useAuthState(auth)

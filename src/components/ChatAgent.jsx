@@ -57,6 +57,7 @@ import ModalCheckout from '@/components/ModalCheckout'
 import ModalQA from '@/components/ModalQA'
 import { canUserEditBot } from '@/utils/function.utils'
 import Widget from '@new-dashboard/Widget'
+import Chip from '@new-dashboard/Chip'
 import { i18n } from '@/constants/strings.constants'
 
 
@@ -1541,9 +1542,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   const webSearchModelCompatible =
     isWebSearchCompatibleModel(activeWebSearchModel)
   const canUseWebSearch =
-    Boolean(team?.openAIKey) &&
-    checkPlanPermission(team, 'standard').allowed &&
-    webSearchModelCompatible
+    checkPlanPermission(team, 'standard').allowed && webSearchModelCompatible
   
   // Models that support reasoning effort
   // GPT-5.4 series: gpt-5.4, gpt-5.4-mini, gpt-5.4-nano
@@ -1551,7 +1550,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   // GPT-5.0 series: gpt-5, gpt-5-mini, gpt-5-nano
   // O-series: o1, o1-mini, o3, o3-mini, o4, o4-mini
   const reasoningModels = [
-    'gpt-5.4', 'gpt-5.4-mini', 'gpt-5.4-nano', 'gpt-5.1', 'gpt-5.2',  // GPT-5.4 / GPT-5.x series
+    'gpt-5.4', 'gpt-5.4-mini', 'gpt-5.4-nano', 'gpt-5.5', 'gpt-5.1', 'gpt-5.2',  // GPT-5.4 / GPT-5.x series
     'gpt-5', 'gpt-5-mini', 'gpt-5-nano',  // GPT-5.0 series
     'o1', 'o1-mini', 'o3', 'o3-mini', 'o4', 'o4-mini'  // O-series
   ]
@@ -1568,8 +1567,12 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       return 'medium'
     }
 
+    if (model === 'gpt-5.4-mini') {
+      return 'low'
+    }
+
     // GPT-5.4 series: default "none"
-    if (model === 'gpt-5.4' || model === 'gpt-5.4-mini' || model === 'gpt-5.1' || model === 'gpt-5.2') {
+    if (model === 'gpt-5.4' || model === 'gpt-5.5' || model === 'gpt-5.1' || model === 'gpt-5.2') {
       return 'none'
     }
     // GPT-5.0 series: default "minimal"
@@ -1587,7 +1590,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   // Get supported reasoning effort values for a model (ordered highest to lowest)
   const getSupportedReasoningEfforts = (model) => {
     // GPT-5.4 series: "xhigh", "high", "medium", "low", "none"
-    if (model === 'gpt-5.4' || model === 'gpt-5.4-mini' || model === 'gpt-5.4-nano') {
+    if (model === 'gpt-5.4' || model === 'gpt-5.4-mini' || model === 'gpt-5.4-nano' || model === 'gpt-5.5') {
       return ['xhigh', 'high', 'medium', 'low', 'none']
     }
     // GPT-5.1 / GPT-5.2 series: "high", "medium", "low", "none"
@@ -1609,6 +1612,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
   const [reasoningEffort, setReasoningEffort] = useState(
     getDefaultReasoningEffort(bot.model)
   )
+  const canConfigureReasoning = checkPlanPermission(team, 'personal').allowed
   
   // Update reasoning effort when model changes
   // Preserve current value if it's supported by the new model, otherwise use default
@@ -1617,6 +1621,10 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     const supportedValues = getSupportedReasoningEfforts(selectedModel)
     
     setReasoningEffort((currentEffort) => {
+      // Disabled users cannot send an override, so show the server default.
+      if (!canConfigureReasoning) {
+        return defaultEffort
+      }
       // If current effort is valid for the new model, keep it
       if (currentEffort && supportedValues.includes(currentEffort)) {
         return currentEffort
@@ -1625,7 +1633,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
       return defaultEffort
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedModel])
+  }, [selectedModel, canConfigureReasoning])
   
   const [questions, setQuestions] = useState(() =>
     bot.questions
@@ -1752,79 +1760,113 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
   const validModels = [
     {
+      id: 'gpt-5.5',
+      name: 'GPT-5.5',
+      creditMultiplier: 24,
+      description: 'Highest capability model',
+    },
+    {
       id: 'gpt-5.4',
       name: 'GPT-5.4',
-      description:
-        'Newest frontier model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
+      creditMultiplier: 10,
+      description: 'Newest frontier model',
     },
     {
       id: 'gpt-5.4-mini',
       name: 'GPT-5.4 mini',
-      description:
-        'Latest efficient model - fast, great coding & tool use',
+      creditMultiplier: 3,
+      description: 'Latest efficient model',
     },
     {
       id: 'gpt-5.4-nano',
       name: 'GPT-5.4 nano',
+      creditMultiplier: 1,
       description: 'Fast & cost-effective GPT-5.4 option',
     },
     {
       id: 'gpt-5.2',
       name: 'GPT-5.2',
+      creditMultiplier: 9,
       description:
         'Previous flagship model with long-context work, stronger tool use, and adaptive reasoning - requires verification',
     },
     {
       id: 'gpt-5.1',
       name: 'GPT-5.1',
+      creditMultiplier: 6,
       description:
         'Model with the great instruction following and faster responses - requires verification',
     },
     {
       id: 'gpt-5',
       name: 'GPT-5',
+      creditMultiplier: 6,
       description:
         'Powerful general-purpose model - requires verification',
     },
     {
       id: 'gpt-5-mini',
       name: 'GPT-5 mini',
+      creditMultiplier: 1,
       description: 'Compact & smart version of GPT-5',
     },
     {
       id: 'gpt-5-nano',
       name: 'GPT-5 nano',
+      creditMultiplier: 1,
       description: 'Fastest version of GPT-5',
     },
-    { id: 'o3', name: 'o3', description: 'Uses advanced reasoning - requires verification' },
+    {
+      id: 'o3',
+      name: 'o3',
+      creditMultiplier: 23,
+      description: 'Uses advanced reasoning - requires verification',
+    },
     {
       id: 'o4-mini',
       name: 'o4-mini',
+      creditMultiplier: 5,
       description: 'Fastest at advanced reasoning - requires verification',
     },
     {
       id: 'gpt-4.1',
       name: 'GPT-4.1',
+      creditMultiplier: 9,
       description:
         'Previous generation model for better instruction following',
     },
     {
       id: 'gpt-4.1-mini',
       name: 'GPT-4.1 mini',
+      creditMultiplier: 1,
       description: 'Compact version of GPT-4.1',
     },
     {
       id: 'gpt-4.1-nano',
       name: 'GPT-4.1 nano',
+      creditMultiplier: 1,
       description: 'Fastest version of GPT-4.1',
     },
-    { id: 'gpt-4o', name: 'GPT-4o', description: 'Previous generation model' },
+    {
+      id: 'gpt-4o',
+      name: 'GPT-4o',
+      creditMultiplier: 12,
+      description: 'Previous generation model',
+    },
     {
       id: 'gpt-4o-mini',
       name: 'GPT-4o mini',
+      creditMultiplier: 1,
       description: 'Previous generation fast model',
     },
   ]
+  const usesTeamOpenAIKey = Boolean(team?.openAIKey)
+  const displayCreditMultiplier = (model) =>
+    usesTeamOpenAIKey ? 1 : model?.creditMultiplier || 1
+  const creditMultiplierTooltip = (model) =>
+    usesTeamOpenAIKey
+      ? '1x AI credits per message with your OpenAI key.'
+      : `${displayCreditMultiplier(model)}x AI credits per message.`
 
   useEffect(() => {
     if (!team || !user) return
@@ -1934,7 +1976,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     }
 
     //only send model if they can
-    if (team?.supportsGPT4 && team?.openAIKey && checkPlanPermission(team, 'hobby').allowed) {
+    if (checkPlanPermission(team, 'hobby').allowed) {
       body.model = selectedModel
       // Add reasoning_effort if model supports it
       if (isReasoningModel(selectedModel) && reasoningEffort) {
@@ -2581,17 +2623,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
 
   const ModelSelector = ({ align = 'left' }) => {
     const isDisabled =
-      !team?.supportsGPT4 ||
-      !team?.openAIKey ||
       !checkPlanPermission(team, 'hobby').allowed
     const tooltipContent = isDisabled
-      ? !team?.openAIKey
-        ? 'OpenAI API key required to change models. Configure on the API page.'
-        : !team?.supportsGPT4
-          ? 'GPT-4 access required. Please upgrade your plan or add an OpenAI API key with credit.'
-          : !checkPlanPermission(team, 'hobby').allowed
-            ? 'Upgrade to Personal plan to change models.'
-            : 'Change model'
+      ? 'Upgrade to Personal plan to change models.'
       : 'Change model'
 
     return (
@@ -2650,7 +2684,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                 >
                   {({ selected, active }) => (
                     <div className="flex flex-col text-left">
-                      <div className="flex justify-between">
+                      <div className="flex items-center justify-between gap-3">
                         <p
                           className={clsx(
                             'font-normal',
@@ -2659,13 +2693,31 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                         >
                           {model.name}
                         </p>
-                        {selected && (
-                          <span
-                            className={active ? 'text-white' : 'text-cyan-600'}
+                        <div className="flex items-center gap-2">
+                          <Tooltip
+                            content={creditMultiplierTooltip(model)}
+                            placement="top"
                           >
-                            <CheckIcon className="h-4 w-4" aria-hidden="true" />
-                          </span>
-                        )}
+                            <span>
+                              <Chip
+                                content={`${displayCreditMultiplier(model)}x`}
+                                className={clsx(
+                                  'px-2 py-0.5',
+                                  active
+                                    ? 'border-cyan-200 bg-white/10 text-white'
+                                    : 'border-slate-300 bg-slate-50 text-slate-700',
+                                )}
+                              />
+                            </span>
+                          </Tooltip>
+                          {selected && (
+                            <span
+                              className={active ? 'text-white' : 'text-cyan-600'}
+                            >
+                              <CheckIcon className="h-4 w-4" aria-hidden="true" />
+                            </span>
+                          )}
+                        </div>
                       </div>
                       <p
                         className={clsx(
@@ -2697,9 +2749,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     
     // Map of all possible reasoning effort options
     const allReasoningOptions = {
-      none: { value: 'none', label: 'None', description: 'Least reasoning (5.1+ default)' },
-      minimal: { value: 'minimal', label: 'Minimal', description: 'Minimal reasoning (GPT-5 default)' },
-      low: { value: 'low', label: 'Low', description: 'Light reasoning (O-series default)' },
+      none: { value: 'none', label: 'None', description: 'Least reasoning' },
+      minimal: { value: 'minimal', label: 'Minimal', description: 'Minimal reasoning' },
+      low: { value: 'low', label: 'Low', description: 'Light reasoning' },
       medium: { value: 'medium', label: 'Medium', description: 'Balanced reasoning' },
       high: { value: 'high', label: 'High', description: 'Maximum reasoning depth' },
       xhigh: { value: 'xhigh', label: 'xHigh', description: 'Extra-high reasoning depth (GPT-5.4 only)' },
@@ -2708,16 +2760,16 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
     // Filter options to only show supported values for this model
     const reasoningOptions = supportedValues.map(value => allReasoningOptions[value])
 
-    const isDisabled =
-      !team?.supportsGPT4 ||
-      !team?.openAIKey ||
-      !checkPlanPermission(team, 'hobby').allowed
+    const isDisabled = !canConfigureReasoning
+    const tooltipContent = isDisabled
+      ? 'Upgrade to Personal plan to change reasoning effort.'
+      : 'Reasoning effort'
 
     return (
       <Listbox value={reasoningEffort} onChange={setReasoningEffort} disabled={isDisabled}>
         <div className="relative">
           <div className="inline-block">
-            <Tooltip content="Reasoning effort" placement="top">
+            <Tooltip content={tooltipContent} placement="top">
               <div>
                 <Listbox.Button
                   className={clsx(
@@ -2727,7 +2779,7 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       : 'text-gray-600 hover:text-cyan-600',
                   )}
                   onClick={() => {
-                    if (isDisabled && !checkPlanPermission(team, 'hobby').allowed) {
+                    if (isDisabled && !checkPlanPermission(team, 'personal').allowed) {
                       setPendingUpgrade(true)
                     }
                   }}
@@ -3127,11 +3179,9 @@ export default function Chat({ team, bot, showResearchMode = false, newDashboard
                       content={
                         !webSearchModelCompatible
                           ? `Web search requires ${WEB_SEARCH_COMPATIBLE_MODELS_LABEL}. Current model: ${formatWebSearchModelLabel(activeWebSearchModel)}.`
-                          : !team?.openAIKey
-                          ? 'OpenAI API key required to enable web search. Configure on the API page.'
                           : !checkPlanPermission(team, 'standard').allowed
                             ? 'Upgrade to Standard plan to enable web search.'
-                            : 'Web Search'
+                            : 'Web search'
                       }
                     >
                       <button

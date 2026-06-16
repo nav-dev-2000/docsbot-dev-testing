@@ -563,7 +563,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       if (isFullGPT5Model && !checkPlanPermission(team, 'personal').allowed && !isSuperAdmin(userId)) {
         throw new Error('GPT-5 models are not available at your plan level.')
       }
-      if (isFullGPT5Model) {
+      if (isFullGPT5Model && team?.openAIKey) {
         if (!team.supportsGPT4) {
           throw new Error('Your OpenAI account is not approved for GPT-5 models yet.')
         } else if (!checkPlanPermission(team, 'hobby').allowed && !isSuperAdmin(userId)) {
@@ -587,6 +587,7 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
       'gpt-5.4',
       'gpt-5.4-mini',
       'gpt-5.4-nano',
+      'gpt-5.5',
       'gpt-5.2',
       'gpt-5.1',
       'gpt-5',
@@ -595,19 +596,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     ]
     if (!validModels.includes(model)) {
       throw new Error('Invalid model name.')
-    }
-    if (
-      ![
-        'gpt-4o-mini',
-        'gpt-4.1-nano',
-        'gpt-4.1-mini',
-        'gpt-5-mini',
-        'gpt-5-nano',
-        'gpt-5.4-nano',
-      ].includes(model) &&
-      !team?.openAIKey
-    ) {
-      throw new Error('Please add your OpenAI API key to enable this model.')
     }
     botData.model = model
   } else if (!isUpdate) {
@@ -1160,10 +1148,6 @@ export async function validateBotParams(req, team, userId, isUpdate, bot) {
     if (webSearchEnabled) {
       if (!checkPlanPermission(team, 'standard').allowed && !isSuperAdmin(userId)) {
         throw new Error('Web search is only available on the Standard plan or higher.')
-      }
-
-      if (!team?.openAIKey && !isSuperAdmin(userId)) {
-        throw new Error('Please add your OpenAI API key before enabling web search.')
       }
 
       const effectiveModel =

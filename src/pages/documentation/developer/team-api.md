@@ -17,7 +17,7 @@ Team objects have the following properties:
 | **name**     | string | The team name.                                                              |
 | **createdAt** | string | The date and time the team was created.                                     |
 | **status**   | string | The team status. Can be `ready` once at least one bot is trained or `pending`. |
-| **questionCount** | number | The number of messages used by the team's bots. |
+| **questionCount** | number | The AI Credits used by the team's bots in the current billing period. |
 | **pageCount** | number | The number of pages crawled by the team's bots. |
 | **sourceCount** | number | The number of sources crawled by the team's bots. |
 | **chunkCount** | number | The number of chunks crawled by the team's bots. |

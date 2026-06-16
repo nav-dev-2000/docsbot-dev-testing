@@ -3,15 +3,21 @@ import { describe, expect, it } from 'vitest'
 import {
   buildSkillsBuilderUsageTooltip,
   buildSkillsBuilderAgentUsageMetadata,
+  calculateSkillsBuilderAiCredits,
   countWebSearchToolCallsInSteps,
   formatSkillsBuilderUsageTooltip,
   isWebSearchToolCallPart,
   SKILLS_BUILDER_AGENT_DEFAULT_OPENAI_MODEL,
   SKILLS_BUILDER_AGENT_MODEL_SLUG,
   sumSkillsBuilderUsageFromMessages,
+  VOICE_AI_CREDITS_PER_MINUTE_DOCSBOT_KEY,
 } from '@/lib/skills-agent-usage'
 
 describe('skills agent usage helpers', () => {
+  it('exposes widget voice credit rates per minute of audio', () => {
+    expect(VOICE_AI_CREDITS_PER_MINUTE_DOCSBOT_KEY).toBe(6)
+  })
+
   it('builds metadata with token and web search cost fields', () => {
     const meta = buildSkillsBuilderAgentUsageMetadata(
       {
@@ -43,6 +49,7 @@ describe('skills agent usage helpers', () => {
     expect(meta.skillsBuilderAgentUsage.estimatedWebSearchCostUsd).toBeCloseTo(0.02, 5)
     expect(meta.skillsBuilderAgentUsage.estimatedCostUsd).toBeGreaterThan(0)
     expect(meta.skillsBuilderAgentUsage.estimatedTokenCostUsd).toBeGreaterThan(0)
+    expect(meta.skillsBuilderAgentUsage.aiCredits).toBe(1220)
   })
 
   it('uses GPT-5.5 selected-model rates in token cost estimates', () => {
@@ -85,6 +92,30 @@ describe('skills agent usage helpers', () => {
       mini.skillsBuilderAgentUsage.estimatedTokenCostUsd,
     )
     expect(full.skillsBuilderAgentUsage.modelSlug).toBe('gpt-5-4')
+  })
+
+  it('prorates credits to the nearest credit by token usage', () => {
+    expect(
+      calculateSkillsBuilderAiCredits({ totalTokens: 7_500 }, 'gpt-5.4', false),
+    ).toBe(15)
+    expect(
+      calculateSkillsBuilderAiCredits({ totalTokens: 5_001 }, 'gpt-5.4-mini', false),
+    ).toBe(3)
+    expect(
+      calculateSkillsBuilderAiCredits({ totalTokens: 5_001 }, 'gpt-5.4-mini', true),
+    ).toBe(1)
+  })
+
+  it('adds fixed credits per web search (DocsBot vs customer OpenAI key)', () => {
+    expect(calculateSkillsBuilderAiCredits({}, 'gpt-5.4-mini', false, 2)).toBe(20)
+    expect(calculateSkillsBuilderAiCredits({}, 'gpt-5.4-mini', true, 2)).toBe(2)
+    expect(
+      calculateSkillsBuilderAiCredits({ totalTokens: 5_001 }, 'gpt-5.4-mini', false, 1),
+    ).toBe(13)
+    expect(calculateSkillsBuilderAiCredits({ totalTokens: 150 }, 'gpt-5.4-mini', false, 1)).toBe(10)
+    expect(
+      calculateSkillsBuilderAiCredits({ totalTokens: 5_001 }, 'gpt-5.4-mini', true, 1),
+    ).toBe(2)
   })
 
   it('counts web search tool calls across steps', () => {

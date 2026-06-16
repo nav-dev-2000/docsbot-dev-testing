@@ -1327,6 +1327,7 @@ export async function incrementSkillDraftBuilderAgentUsage(docRef, { openaiModel
     'agent.builderUsageTotals.cacheWriteTokens': inc(usage.cacheWriteTokens),
     'agent.builderUsageTotals.outputTokens': inc(usage.outputTokens),
     'agent.builderUsageTotals.reasoningTokens': inc(usage.reasoningTokens),
+    'agent.builderUsageTotals.aiCredits': inc(usage.aiCredits),
     'agent.builderUsageTotals.webSearchCalls': inc(usage.webSearchCalls),
     'agent.builderUsageTotals.shellCalls': inc(usage.shellCalls),
     'agent.builderUsageTotals.shellDurationMs': inc(usage.shellDurationMs),

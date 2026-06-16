@@ -9,6 +9,7 @@ import {
   CreditCardIcon,
   ChevronRightIcon,
   UserGroupIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline'
 import RobotIcon from '@/components/RobotIcon'
 import clsx from 'clsx'
@@ -134,6 +135,16 @@ export default function DashboardWrap({
   }, [currentRole, user])
 
   const pageTitle = `${page} ${title ? ` | ${Array.isArray(title) ? title.join(' | ') : title}` : ''}`
+  const teamPlan = team ? stripePlan(team) : null
+  const aiCreditLimit = Number(teamPlan?.questions || 0)
+  const aiCreditsUsed = Number(team?.questionCount || 0)
+  const aiCreditUsageRatio =
+    aiCreditLimit > 0 ? aiCreditsUsed / aiCreditLimit : 0
+  const showAiCreditWarning =
+    aiCreditLimit > 0 &&
+    aiCreditUsageRatio >= 0.9 &&
+    aiCreditLimit < 1000000000
+  const aiCreditsRemaining = Math.max(0, Math.ceil(aiCreditLimit - aiCreditsUsed))
 
   const Breadcrumbs = ({ title }) => {
     if (!title) return null
@@ -212,6 +223,30 @@ export default function DashboardWrap({
               </div>
             </div>
             {/* END: Header */}
+
+            {showAiCreditWarning && (
+              <div className="border-b border-yellow-200 bg-yellow-50 px-4 py-3 text-sm text-yellow-900 print:hidden sm:px-6 md:px-8">
+                <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex items-start gap-2">
+                    <ExclamationTriangleIcon
+                      className="mt-0.5 h-5 w-5 flex-shrink-0 text-yellow-500"
+                      aria-hidden="true"
+                    />
+                    <p>
+                      {aiCreditsUsed >= aiCreditLimit
+                        ? 'You are out of AI credits for this billing period.'
+                        : `You only have ${aiCreditsRemaining.toLocaleString()} AI credits remaining this billing period.`}
+                    </p>
+                  </div>
+                  <Link
+                    href="/app/account"
+                    className="font-semibold text-yellow-950 underline underline-offset-2 hover:text-yellow-800"
+                  >
+                    Manage AI credits
+                  </Link>
+                </div>
+              </div>
+            )}
 
             {header}
 

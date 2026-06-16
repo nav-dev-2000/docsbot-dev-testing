@@ -21,6 +21,74 @@ const sanitizeMetadata = (metadata) => {
   return JSON.parse(JSON.stringify(metadata))
 }
 
+const sanitizeAiCredits = (aiCredits) => {
+  const parsed = Number(aiCredits)
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1
+}
+
+const roundAiCredits = (aiCredits) => {
+  const parsed = Number(aiCredits)
+  return Number.isFinite(parsed) ? Math.max(0, Math.round(parsed)) : 0
+}
+
+export async function saveAiCreditUsageLog({
+  teamId,
+  botId,
+  type,
+  model,
+  aiCredits = 1,
+  tokenUsage = null,
+  conversationId = null,
+  metadata = null,
+  question = 'AI credit usage',
+  answer = '',
+  firestore: firestoreOverride = firestore,
+}) {
+  const db = firestoreOverride || firestore
+  const creditCount = sanitizeAiCredits(aiCredits)
+  const now = new Date()
+  const log = {
+    createdAt: now,
+    expiresAt: new Date(now.getTime() + 90 * 24 * 60 * 60 * 1000),
+    type,
+    hidden: true,
+    question,
+    standaloneQuestion: '',
+    answer,
+    sources: [],
+    rating: 0,
+    escalation: false,
+    model,
+    conversationId,
+    testing: false,
+    deleted: false,
+    aiCredits: creditCount,
+  }
+
+  if (tokenUsage && typeof tokenUsage === 'object') {
+    log.tokenUsage = JSON.parse(JSON.stringify(tokenUsage))
+  }
+
+  const sanitizedMetadata = sanitizeMetadata(metadata)
+  if (sanitizedMetadata) {
+    log.metadata = sanitizedMetadata
+  }
+
+  const botDocRef = db
+    .collection('teams')
+    .doc(teamId)
+    .collection('bots')
+    .doc(botId)
+  await botDocRef.collection('questions').add(log)
+  await botDocRef.update({
+    questionCount: FieldValue.increment(creditCount),
+  })
+  await db.collection('teams').doc(teamId).update({
+    questionCount: FieldValue.increment(creditCount),
+    needsUpdate: true,
+  })
+}
+
 
 const sanitizeBotSecrets = (bot) => {
   if (!bot || typeof bot !== 'object') {
@@ -150,7 +218,7 @@ export async function getQuestionStats(
     .doc(botId)
     .collection('questions')
     .where('createdAt', '>', new Date(Date.now() - timeDelta))
-    .select('type', 'rating', 'escalation', 'createdAt', 'couldAnswer')
+    .select('type', 'rating', 'escalation', 'createdAt', 'couldAnswer', 'aiCredits')
     .get()
 
   const monthly = {
@@ -161,6 +229,7 @@ export async function getQuestionStats(
     couldNotAnswer: 0,
     questions: 0,
     messages: 0,
+    aiCredits: 0,
   }
   const daily = {}
 
@@ -183,6 +252,7 @@ export async function getQuestionStats(
       couldNotAnswer: 0,
       questions: 0,
       messages: 0,
+      aiCredits: 0,
     }
 
     if (questionData?.type === 'lookup_answer') {
@@ -217,7 +287,17 @@ export async function getQuestionStats(
 
     monthly.messages += 1
     daily[day].messages += 1
+    const aiCredits = Number.isFinite(Number(questionData?.aiCredits))
+      ? Math.max(0, Number(questionData.aiCredits))
+      : 1
+    monthly.aiCredits += aiCredits
+    daily[day].aiCredits += aiCredits
   })
+
+  monthly.aiCredits = roundAiCredits(monthly.aiCredits)
+  for (const dayStats of Object.values(daily)) {
+    dayStats.aiCredits = roundAiCredits(dayStats.aiCredits)
+  }
 
   return {
     monthly,

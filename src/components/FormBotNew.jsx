@@ -38,7 +38,7 @@ export default function FormBot({
 }) {
     const [user] = useAuthState(auth)
 
-    const defaultModel = 'gpt-5.4-nano'
+    const defaultModel = 'gpt-5.4-mini'
     const [language, setLanguage] = useState(bot?.language || 'en')
     const [botName, setBotName] = useState(bot?.name || '')
     const [botDescription, setBotDescription] = useState(bot?.description || '')
@@ -188,8 +188,8 @@ export default function FormBot({
                 } else {
                     setShowUpgrade(true)
                 }
-                setModel('gpt-5.4-nano')
-                console.log('Reverting free/hobby model to gpt-5.4-nano')
+                setModel(defaultModel)
+                console.log(`Reverting free/hobby model to ${defaultModel}`)
             }
         } else {
             // For paid plan users (personal and above): if they select a model that requires an OpenAI key but they don't have one, revert and open the add-key modal
@@ -197,10 +197,10 @@ export default function FormBot({
                 MODELS_REQUIRING_OPENAI_KEY.includes(model) &&
                 !team.openAIKey
             ) {
-                setModel('gpt-5.4-nano')
+                setModel(defaultModel)
                 onOpenAIKeyRequired?.()
                 console.log(
-                    'Reverting to gpt-5.4-nano for paid plan user without OpenAI key',
+                    `Reverting to ${defaultModel} for paid plan user without OpenAI key`,
                 )
             }
         }

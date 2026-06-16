@@ -121,7 +121,6 @@ export default async function handler(req, res) {
         ).allowed
         const webSearchAllowed =
           checkPlanPermission(team, 'standard').allowed &&
-          Boolean(team?.openAIKey) &&
           isWebSearchCompatibleModel(bot?.model || DEFAULT_WEB_SEARCH_MODEL)
         const customButtonsPlanAllowed = getBotActionSlotLimit(team) > 0
         const enabledCustomButtonCount = customButtonsPlanAllowed

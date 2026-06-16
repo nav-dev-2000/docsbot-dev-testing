@@ -8,6 +8,7 @@ const mocks = vi.hoisted(() => ({
   constructEvent: vi.fn(),
   checkoutSessionRetrieve: vi.fn(),
   customerUpdate: vi.fn(),
+  subscriptionUpdate: vi.fn(),
   getTeam: vi.fn(),
   getTeamEmail: vi.fn(),
   teamOwner: vi.fn(),
@@ -52,6 +53,7 @@ vi.mock('@/utils/stripe', () => ({
     },
     subscriptions: {
       cancel: vi.fn(),
+      update: mocks.subscriptionUpdate,
     },
   },
 }))
@@ -118,7 +120,11 @@ describe('stripe webhook success path', () => {
       await callback(transaction)
       mocks.transaction = transaction
     })
-    mocks.stripePlan.mockReturnValue({ name: 'Business', questions: 1000 })
+    mocks.stripePlan.mockReturnValue({
+      id: 'business',
+      name: 'Business',
+      questions: 1000,
+    })
     mocks.constructEvent.mockReturnValue({
       type: 'checkout.session.completed',
       data: {
@@ -158,10 +164,33 @@ describe('stripe webhook success path', () => {
       },
     })
     mocks.customerUpdate.mockResolvedValue({})
+    mocks.subscriptionUpdate.mockResolvedValue({
+      id: 'sub_123',
+      customer: 'cus_123',
+      status: 'active',
+      currency: 'usd',
+      cancel_at_period_end: false,
+      quantity: 1,
+      cancellation_details: {},
+      items: {
+        data: [],
+      },
+    })
     mocks.getTeam.mockResolvedValue({ id: 'team-1', name: 'DocsBot Team' })
     mocks.teamOwner.mockReturnValue('owner-1')
     mocks.slackSend.mockResolvedValue(undefined)
     process.env.STRIPE_WEBHOOK_SECRET = 'stripe-secret'
+    process.env.NEXT_PUBLIC_STRIPE_ADDONS = JSON.stringify({
+      aiCredits: {
+        unit: 5000,
+        prices: {
+          current: {
+            monthly: 'price_ai_credits_monthly',
+            annually: 'price_ai_credits_yearly',
+          },
+        },
+      },
+    })
   })
 
   it('handles a successful checkout.session.completed event', async () => {
@@ -186,5 +215,295 @@ describe('stripe webhook success path', () => {
     expect(mocks.customerUpdate).toHaveBeenCalledWith('cus_123', {
       metadata: { teamId: 'team-1' },
     })
+    expect(mocks.transaction.update).toHaveBeenCalledWith(
+      { id: 'team-1' },
+      expect.objectContaining({
+        plan: 'business',
+        questionLimit: 1000,
+        stripeSubscriptionPlan: 'price_business_monthly',
+      }),
+    )
+  })
+
+  it('ignores add-on-only subscription updates without overwriting the base plan', async () => {
+    mocks.firestore.runTransaction.mockImplementation(async (callback) => {
+      const queryResult = {
+        empty: false,
+        docs: [
+          {
+            id: 'team-1',
+            data: () => ({
+              name: 'DocsBot Team',
+              stripeSubscriptionId: 'sub_base',
+              stripeSubscriptionPlan: 'price_business_monthly',
+              stripeSubscriptionStatus: 'active',
+              stripeAddOns: {},
+            }),
+          },
+        ],
+      }
+      const transaction = {
+        get: vi.fn(async () => queryResult),
+        update: vi.fn(),
+      }
+      await callback(transaction)
+      mocks.transaction = transaction
+    })
+    mocks.constructEvent.mockReturnValue({
+      type: 'customer.subscription.updated',
+      data: {
+        object: {
+          id: 'sub_addons',
+          customer: 'cus_123',
+          status: 'active',
+          items: {
+            data: [
+              {
+                id: 'si_ai',
+                quantity: 2,
+                price: {
+                  id: 'price_ai_credits_monthly',
+                  product: 'prod_ai_credits',
+                  amount: 4900,
+                  interval: 'month',
+                },
+              },
+            ],
+          },
+        },
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      id: 'business',
+      name: 'Business',
+      questions: 70000,
+    })
+
+    const req = createAsyncIterableReq(
+      {
+        method: 'POST',
+        headers: {
+          'stripe-signature': 'sig_123',
+        },
+      },
+      [Buffer.from('{}')],
+    )
+    const res = createMockRes()
+
+    await stripeWebhookHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.transaction.update).not.toHaveBeenCalled()
+  })
+
+  it('mirrors annual add-on items on the same annual base subscription', async () => {
+    mocks.firestore.runTransaction.mockImplementation(async (callback) => {
+      const queryResult = {
+        empty: false,
+        docs: [
+          {
+            id: 'team-1',
+            data: () => ({
+              name: 'DocsBot Team',
+              stripeSubscriptionId: 'sub_123',
+              stripeSubscriptionPlan: 'price_business_monthly',
+              stripeSubscriptionStatus: 'active',
+              stripeAddOns: {
+                aiCredits: {
+                  quantity: 1,
+                  subscriptionId: 'sub_123',
+                  itemId: 'si_ai',
+                },
+              },
+            }),
+          },
+        ],
+      }
+      const transaction = {
+        get: vi.fn(async () => queryResult),
+        update: vi.fn(),
+      }
+      await callback(transaction)
+      mocks.transaction = transaction
+    })
+    mocks.constructEvent.mockReturnValue({
+      type: 'customer.subscription.updated',
+      data: {
+        object: {
+          id: 'sub_123',
+          customer: 'cus_123',
+          status: 'active',
+          currency: 'usd',
+          cancel_at_period_end: false,
+          quantity: 1,
+          cancellation_details: {},
+          plan: {
+            id: 'price_business_yearly',
+            product: 'prod_business',
+            amount: 499200,
+            interval: 'year',
+          },
+          items: {
+            data: [
+              {
+                id: 'si_base',
+                quantity: 1,
+                price: {
+                  id: 'price_business_yearly',
+                  product: 'prod_business',
+                  amount: 499200,
+                  interval: 'year',
+                },
+              },
+              {
+                id: 'si_ai',
+                quantity: 2,
+                price: {
+                  id: 'price_ai_credits_yearly',
+                  product: 'prod_ai_credits',
+                  amount: 58800,
+                  interval: 'year',
+                },
+              },
+            ],
+          },
+        },
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      id: 'business',
+      name: 'Business',
+      questions: 70000,
+    })
+
+    const req = createAsyncIterableReq(
+      {
+        method: 'POST',
+        headers: {
+          'stripe-signature': 'sig_123',
+        },
+      },
+      [Buffer.from('{}')],
+    )
+    const res = createMockRes()
+
+    await stripeWebhookHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.subscriptionUpdate).not.toHaveBeenCalled()
+    expect(mocks.transaction.update).toHaveBeenCalledWith(
+      { id: 'team-1' },
+      expect.objectContaining({
+        stripeSubscriptionInterval: 'year',
+        stripeAddOns: expect.objectContaining({
+          aiCredits: expect.objectContaining({
+            quantity: 2,
+            itemId: 'si_ai',
+            subscriptionId: 'sub_123',
+          }),
+        }),
+      }),
+    )
+  })
+
+  it('clears stored add-ons when the base subscription no longer has add-on items', async () => {
+    mocks.firestore.runTransaction.mockImplementation(async (callback) => {
+      const queryResult = {
+        empty: false,
+        docs: [
+          {
+            id: 'team-1',
+            data: () => ({
+              name: 'DocsBot Team',
+              stripeSubscriptionId: 'sub_123',
+              stripeSubscriptionPlan: 'price_personal_monthly',
+              stripeSubscriptionStatus: 'active',
+              stripeAddOns: {
+                aiCredits: {
+                  quantity: 1,
+                  subscriptionId: 'sub_123',
+                  itemId: 'si_ai',
+                  status: 'active',
+                },
+              },
+            }),
+          },
+        ],
+      }
+      const transaction = {
+        get: vi.fn(async () => queryResult),
+        update: vi.fn(),
+      }
+      await callback(transaction)
+      mocks.transaction = transaction
+    })
+    mocks.constructEvent.mockReturnValue({
+      type: 'customer.subscription.updated',
+      data: {
+        object: {
+          id: 'sub_123',
+          customer: 'cus_123',
+          status: 'active',
+          currency: 'usd',
+          cancel_at_period_end: false,
+          quantity: 1,
+          cancellation_details: {},
+          plan: {
+            id: 'price_personal_monthly',
+            product: 'prod_personal',
+            amount: 4900,
+            interval: 'month',
+          },
+          items: {
+            data: [
+              {
+                id: 'si_base',
+                quantity: 1,
+                price: {
+                  id: 'price_personal_monthly',
+                  product: 'prod_personal',
+                  amount: 4900,
+                  interval: 'month',
+                },
+              },
+            ],
+          },
+        },
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      id: 'personal',
+      name: 'Personal',
+      questions: 5000,
+    })
+
+    const req = createAsyncIterableReq(
+      {
+        method: 'POST',
+        headers: {
+          'stripe-signature': 'sig_123',
+        },
+      },
+      [Buffer.from('{}')],
+    )
+    const res = createMockRes()
+
+    await stripeWebhookHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.transaction.update).toHaveBeenCalledWith(
+      { id: 'team-1' },
+      expect.objectContaining({
+        stripeAddOns: expect.objectContaining({
+          aiCredits: expect.objectContaining({
+            quantity: 0,
+            itemId: null,
+            subscriptionId: 'sub_123',
+            status: 'active',
+          }),
+        }),
+        questionLimit: 5000,
+      }),
+    )
   })
 })
