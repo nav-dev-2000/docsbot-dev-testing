@@ -268,12 +268,53 @@ function Account({
     ['active', 'trialing', 'past_due'].includes(team?.stripeSubscriptionStatus)
   const canManageAddOns =
     isPaidSubscription && !team?.stripeSubscriptionCancelAtPeriodEnd
+  const accountTrackingProperties = {
+    source: 'account_page',
+    teamId: team?.id,
+    teamRole: role,
+    canManageBilling,
+    planId: teamPlan?.id,
+    planName: teamPlan?.name,
+    basePlanId: baseTeamPlan?.id,
+    billingInterval,
+    currency: currencyCode,
+    subscriptionStatus: team?.stripeSubscriptionStatus || null,
+    cancelAtPeriodEnd: Boolean(team?.stripeSubscriptionCancelAtPeriodEnd),
+    isPaidSubscription,
+    canManageAddOns,
+    aiCreditAddOnQuantity: activeAddOns.aiCredits?.quantity || 0,
+    botAddOnQuantity: activeAddOns.bots?.quantity || 0,
+    sourcePageAddOnQuantity: activeAddOns.sourcePages?.quantity || 0,
+    autoIncreaseAiCredits,
+    botCount: Number(team?.botCount || 0),
+    sourcePageCount: Number(team?.pageCount || 0),
+    aiCreditCount: Number(team?.questionCount || 0),
+    botLimit: Number(teamPlan?.bots || 0),
+    sourcePageLimit: Number(teamPlan?.pages || 0),
+    aiCreditLimit: Number(teamPlan?.questions || 0),
+  }
+
+  const captureAccountEvent = (eventName, properties = {}) => {
+    posthog?.capture(eventName, {
+      ...accountTrackingProperties,
+      ...properties,
+    })
+  }
 
   useEffect(() => {
     if (!canManageAddOns) {
       setAddOnPreview(null)
     }
   }, [canManageAddOns])
+
+  useEffect(() => {
+    captureAccountEvent('Account Billing Viewed', {
+      hasCheckoutSession: Boolean(checkout || router.query.session_id),
+      hasDemoTrialPromotion,
+    })
+    // Track one account-page view per team mount; event properties should reflect initial page state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [team?.id])
 
   useEffect(() => {
     setAddOnQuantities({
@@ -463,6 +504,15 @@ function Account({
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
 
   async function previewAddOnQuantity(addOnId, quantity) {
+    const addOn = getAddOnById(addOnId)
+    const currentQuantity = activeAddOns?.[addOnId]?.quantity || 0
+    captureAccountEvent('Account Add-On Preview Started', {
+      addOnId,
+      addOnName: addOn?.name || addOnId,
+      currentQuantity,
+      requestedQuantity: Number(quantity || 0),
+      quantityDelta: Number(quantity || 0) - currentQuantity,
+    })
     setOpeningAddOns(true)
     setErrorText(null)
     try {
@@ -478,7 +528,27 @@ function Account({
         throw new Error(data.message || 'Unable to preview add-on change.')
       }
       setAddOnPreview({ addOnId, quantity, ...data.preview })
+      captureAccountEvent('Account Add-On Previewed', {
+        addOnId,
+        addOnName: addOn?.name || addOnId,
+        currentQuantity,
+        requestedQuantity: Number(quantity || 0),
+        nextQuantity: Number(data.preview?.nextQuantity || quantity || 0),
+        quantityDelta: Number(quantity || 0) - currentQuantity,
+        amountDue: Number(data.preview?.amountDue || 0),
+        total: Number(data.preview?.total || 0),
+        creditAmount: Number(data.preview?.creditAmount || 0),
+        accountCreditApplied: Number(data.preview?.accountCreditApplied || 0),
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Preview Failed', {
+        addOnId,
+        addOnName: addOn?.name || addOnId,
+        currentQuantity,
+        requestedQuantity: Number(quantity || 0),
+        quantityDelta: Number(quantity || 0) - currentQuantity,
+        error: error.message,
+      })
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } finally {
@@ -488,6 +558,19 @@ function Account({
 
   async function confirmAddOnQuantity() {
     if (!addOnPreview) return
+    const addOn = getAddOnById(addOnPreview.addOnId)
+    const currentQuantity = activeAddOns?.[addOnPreview.addOnId]?.quantity || 0
+    captureAccountEvent('Account Add-On Confirm Started', {
+      addOnId: addOnPreview.addOnId,
+      addOnName: addOn?.name || addOnPreview.addOnId,
+      currentQuantity,
+      requestedQuantity: Number(addOnPreview.quantity || 0),
+      nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+      quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+      amountDue: Number(addOnPreview.amountDue || 0),
+      creditAmount: Number(addOnPreview.creditAmount || 0),
+      accountCreditApplied: Number(addOnPreview.accountCreditApplied || 0),
+    })
     setOpeningAddOns(true)
     setErrorText(null)
     try {
@@ -508,6 +591,12 @@ function Account({
         throw new Error(data.message || 'Unable to update add-ons.')
       }
       if (data.paymentAction?.requiresAction) {
+        captureAccountEvent('Account Add-On Payment Action Required', {
+          addOnId: addOnPreview.addOnId,
+          addOnName: addOn?.name || addOnPreview.addOnId,
+          currentQuantity,
+          requestedQuantity: Number(addOnPreview.quantity || 0),
+        })
         await completeStripePaymentAction(data.paymentAction)
         applyTeamBillingUpdate({
           stripeAddOns: data.stripeAddOns,
@@ -516,6 +605,15 @@ function Account({
         setAddOnPreview(null)
         setSuccessText('Add-ons updated.')
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        captureAccountEvent('Account Add-On Updated', {
+          addOnId: addOnPreview.addOnId,
+          addOnName: addOn?.name || addOnPreview.addOnId,
+          currentQuantity,
+          requestedQuantity: Number(addOnPreview.quantity || 0),
+          nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+          quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+          requiredPaymentAction: true,
+        })
         return
       }
       applyTeamBillingUpdate({
@@ -525,7 +623,24 @@ function Account({
       setAddOnPreview(null)
       setSuccessText('Add-ons updated.')
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      captureAccountEvent('Account Add-On Updated', {
+        addOnId: addOnPreview.addOnId,
+        addOnName: addOn?.name || addOnPreview.addOnId,
+        currentQuantity,
+        requestedQuantity: Number(addOnPreview.quantity || 0),
+        nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+        quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+        requiredPaymentAction: false,
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Update Failed', {
+        addOnId: addOnPreview.addOnId,
+        addOnName: addOn?.name || addOnPreview.addOnId,
+        currentQuantity,
+        requestedQuantity: Number(addOnPreview.quantity || 0),
+        quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+        error: error.message,
+      })
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } finally {
@@ -535,6 +650,16 @@ function Account({
 
   const updateAddOnBlockQuantity = (addOnId, value, minQuantity = 0) => {
     const nextQuantity = Math.max(minQuantity, Number(value) || 0)
+    const currentQuantity = activeAddOns?.[addOnId]?.quantity || 0
+    const addOn = getAddOnById(addOnId)
+    captureAccountEvent('Account Add-On Quantity Selected', {
+      addOnId,
+      addOnName: addOn?.name || addOnId,
+      currentQuantity,
+      selectedQuantity: nextQuantity,
+      quantityDelta: nextQuantity - currentQuantity,
+      minimumQuantity: minQuantity,
+    })
     setAddOnQuantities((current) => ({
       ...current,
       [addOnId]: nextQuantity,
@@ -542,6 +667,10 @@ function Account({
   }
 
   async function updateAutoIncreaseAiCredits(enabled) {
+    captureAccountEvent('Account Add-On Auto Increase Toggled', {
+      enabled,
+      previousEnabled: autoIncreaseAiCredits,
+    })
     setAutoIncreaseAiCredits(enabled)
     setErrorText(null)
     try {
@@ -556,7 +685,14 @@ function Account({
       if (!response.ok) {
         throw new Error(data.message || 'Unable to update AI credit setting.')
       }
+      captureAccountEvent('Account Add-On Auto Increase Updated', {
+        enabled,
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Auto Increase Failed', {
+        enabled,
+        error: error.message,
+      })
       setAutoIncreaseAiCredits(!enabled)
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -687,7 +823,18 @@ function Account({
                 <div className="mt-6 flex justify-end gap-3">
                   <button
                     type="button"
-                    onClick={() => setAddOnPreview(null)}
+                    onClick={() => {
+                      captureAccountEvent('Account Add-On Preview Cancelled', {
+                        addOnId: addOnPreview.addOnId,
+                        addOnName:
+                          getAddOnById(addOnPreview.addOnId)?.name || addOnPreview.addOnId,
+                        requestedQuantity: Number(addOnPreview.quantity || 0),
+                        nextQuantity: Number(
+                          addOnPreview.nextQuantity || addOnPreview.quantity || 0,
+                        ),
+                      })
+                      setAddOnPreview(null)
+                    }}
                     disabled={openingAddOns}
                     className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
                   >
@@ -714,6 +861,7 @@ function Account({
               teamSourceTypes={teamSourceTypes}
               hasDemoTrialPromotion={hasDemoTrialPromotion}
               onBillingChange={handleBillingChange}
+              trackingContext={accountTrackingProperties}
             />
             <Cancel
               team={team}
@@ -722,6 +870,7 @@ function Account({
               teamSourceTypes={teamSourceTypes}
               setParentErrorText={setErrorText}
               onBillingChange={handleBillingChange}
+              trackingContext={accountTrackingProperties}
             />
           </div>
 

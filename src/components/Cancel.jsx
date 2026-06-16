@@ -26,6 +26,7 @@ export default function Cancel({
   teamSourceTypes = [],
   setParentErrorText = null,
   onBillingChange = null,
+  trackingContext = {},
 }) {
   const posthog = usePostHog()
   const [open, setOpen] = useState(false)
@@ -48,11 +49,33 @@ export default function Cancel({
     ) ||
     team.stripeSubscriptionCancelAtPeriodEnd
 
+  const captureCancellationEvent = (eventName, properties = {}) => {
+    posthog?.capture(eventName, {
+      source: 'account_page',
+      ...trackingContext,
+      currentStep,
+      cancellationReason: reason || null,
+      hasCancellationDetails: Boolean(details),
+      isCancellationScheduled,
+      ...properties,
+    })
+  }
+
   useEffect(() => {
     if (!open) {
       setCurrentStep(0)
     }
   }, [open])
+
+  useEffect(() => {
+    if (!open) return
+    captureCancellationEvent('Account Cancellation Step Viewed', {
+      stepIndex: currentStep,
+      stepTitle: steps[currentStep]?.title || null,
+    })
+    // Track one step-view event per modal step; other funnel state is captured by action events.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, currentStep])
 
   useEffect(() => {
     if (currentStep === 4 && reason && details) {
@@ -146,10 +169,18 @@ export default function Cancel({
   async function cancelSubscription() {
     setErrorText(null)
     if (!reason || !details) {
+      captureCancellationEvent('Account Cancellation Validation Failed', {
+        missingReason: !reason,
+        missingDetails: !details,
+      })
       setErrorText('Please select a reason and provide details.')
       return
     }
 
+    captureCancellationEvent('Account Cancellation Confirm Started', {
+      reason,
+      detailsLength: details.length,
+    })
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
       method: 'DELETE',
       headers: {
@@ -158,6 +189,10 @@ export default function Cancel({
       body: JSON.stringify({ reason, details }),
     })
     if (response.ok) {
+      captureCancellationEvent('Account Cancellation Scheduled', {
+        reason,
+        detailsLength: details.length,
+      })
       setOpen(false)
       setReason(null)
       setDetails(null)
@@ -180,8 +215,18 @@ export default function Cancel({
     } else {
       try {
         const data = await response.json()
+        captureCancellationEvent('Account Cancellation Failed', {
+          reason,
+          status: response.status,
+          error: data.message || 'Something went wrong, please try again.',
+        })
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
+        captureCancellationEvent('Account Cancellation Failed', {
+          reason,
+          status: response.status,
+          error: 'Error ' + response.status,
+        })
         setErrorText('Error ' + response.status + ', please try again.')
       }
     }
@@ -310,7 +355,13 @@ export default function Cancel({
                   name="reason"
                   type="radio"
                   defaultChecked={item.id === reason}
-                  onChange={(e) => setReason(e.target.value)}
+                  onChange={(e) => {
+                    captureCancellationEvent('Account Cancellation Reason Selected', {
+                      reason: e.target.value,
+                      reasonLabel: item.value,
+                    })
+                    setReason(e.target.value)
+                  }}
                   className="h-4 w-4 border-gray-300 text-cyan-600 focus:ring-cyan-600"
                 />
                 <label
@@ -391,6 +442,7 @@ export default function Cancel({
           teamSourceTypes={teamSourceTypes}
           setErrorText={setParentErrorText}
           onBillingChange={onBillingChange}
+          trackingContext={trackingContext}
         />
         {hasLowerPlanOptions ? (
           <span className="hidden text-gray-300 sm:inline" aria-hidden="true">
@@ -403,7 +455,13 @@ export default function Cancel({
           onClick={(e) => {
             setOpen(true)
             
-            posthog?.capture('Started Cancellation')
+            captureCancellationEvent('Started Cancellation')
+            captureCancellationEvent('Account Cancellation Started', {
+              hasLowerPlanOptions,
+              isGrandfatheredPlan,
+              currentPlanId: currentPlan?.id,
+              currentPlanName: currentPlan?.name,
+            })
             if (window.bento !== undefined) {
               window.bento.track('startedCancel')
             }
@@ -417,7 +475,16 @@ export default function Cancel({
           as="div"
           className="relative z-modal"
           initialFocus={cancelButtonRef}
-          onClose={setOpen}
+          onClose={(nextOpen) => {
+            if (!nextOpen) {
+              captureCancellationEvent('Account Cancellation Modal Closed', {
+                stepIndex: currentStep,
+                stepTitle: steps[currentStep]?.title || null,
+                reason: reason || null,
+              })
+            }
+            setOpen(nextOpen)
+          }}
         >
           <Transition.Child
             as={Fragment}
@@ -521,7 +588,14 @@ export default function Cancel({
                       <button
                         type="button"
                         className="inline-flex w-full items-center justify-center rounded-md bg-cyan-600 px-6 py-2 text-sm font-medium text-white shadow-md hover:bg-cyan-700 focus:outline-none sm:w-auto"
-                        onClick={() => setOpen(false)}
+                        onClick={() => {
+                          captureCancellationEvent('Account Cancellation Modal Closed', {
+                            stepIndex: currentStep,
+                            stepTitle: steps[currentStep]?.title || null,
+                            reason: reason || null,
+                          })
+                          setOpen(false)
+                        }}
                         ref={cancelButtonRef}
                       >
                         Close
@@ -539,6 +613,14 @@ export default function Cancel({
                             //cancel subscription
                             cancelSubscription()
                           } else {
+                            captureCancellationEvent('Account Cancellation Step Continued', {
+                              fromStepIndex: currentStep,
+                              fromStepTitle: steps[currentStep]?.title || null,
+                              toStepIndex: currentStep + 1,
+                              toStepTitle: steps[currentStep + 1]?.title || null,
+                              reason: reason || null,
+                              detailsLength: details?.length || 0,
+                            })
                             setCurrentStep(currentStep + 1)
                           }
                         }}

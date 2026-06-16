@@ -125,9 +125,12 @@ const writeTeamsToCache = (teams) => {
 
 const getPlanMeta = (team) => {
   const plan = team?.plan || stripePlan(team)
-  const normalizedPlanId = (plan?.id || '').toLowerCase()
+  const normalizedPlanId = (
+    typeof plan === 'string' ? plan : plan?.id || ''
+  ).toLowerCase()
+  const planName = typeof plan === 'string' ? null : plan?.name
 
-  if (normalizedPlanId === 'free' || plan?.name === 'Free') {
+  if (normalizedPlanId === 'free' || planName === 'Free') {
     return {
       label: 'Free',
       className: 'border-amber-400 bg-amber-50 text-amber-700',
@@ -136,27 +139,27 @@ const getPlanMeta = (team) => {
 
   if (normalizedPlanId === 'business') {
     return {
-      label: plan?.name || 'Business',
+      label: planName || 'Business',
       className: 'border-fuchsia-300 bg-fuchsia-50 text-fuchsia-700',
     }
   }
 
   if (normalizedPlanId === 'standard' || normalizedPlanId === 'pro') {
     return {
-      label: plan?.name || 'Standard',
+      label: planName || 'Standard',
       className: 'border-purple-300 bg-purple-50 text-purple-700',
     }
   }
 
   if (normalizedPlanId === 'personal' || normalizedPlanId === 'power') {
     return {
-      label: plan?.name || 'Personal',
+      label: planName || 'Personal',
       className: 'border-violet-300 bg-violet-50 text-violet-700',
     }
   }
 
   return {
-    label: plan?.name || 'Paid',
+    label: planName || 'Paid',
     className: 'border-purple-300 bg-purple-50 text-purple-700',
   }
 }
