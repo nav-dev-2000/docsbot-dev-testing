@@ -37,8 +37,8 @@ export default function AddOnsPricingSummary({
   const suffix = normalizedInterval === 'annually' ? '/yr' : '/mo'
   const supportingText =
     normalizedInterval === 'annually'
-      ? 'Annual add-ons increase selected monthly plan limits and are billed yearly at the 12-month equivalent.'
-      : 'Monthly add-ons increase selected monthly plan limits and renew with your monthly plan.'
+      ? 'Annual add-ons increase selected plan limits and are billed yearly at the 12-month equivalent.'
+      : 'Monthly add-ons increase selected plan limits and renew with your monthly plan.'
 
   return (
     <section
