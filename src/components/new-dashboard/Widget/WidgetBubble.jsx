@@ -37,6 +37,7 @@ const WidgetBubble = ({
     )
 
     const hasBotAvatar = botIcon && botIcon !== 'none' ? true : false
+    const hasCustomBotIcon = botIcon?.includes('://')
     const botIconMap = {
         none: { icon: false, label: 'None' },
         comment: { icon: faComment, label: 'Comment' },
@@ -60,13 +61,20 @@ const WidgetBubble = ({
             )}
         >
             {(isBot && hasBotAvatar && !hideBotIcon) && (
-                <div className="flex size-6 flex-none flex-col items-center justify-center rounded-full bg-[var(--mybot-color)] text-[var(--mybot-text)]">
-                    {botIcon?.includes('://')
+                <div
+                    className={clsx(
+                        'flex size-6 flex-none flex-col items-center justify-center rounded-full bg-[var(--mybot-color)] text-[var(--mybot-text)]',
+                        {
+                            ['overflow-hidden']: hasCustomBotIcon,
+                        },
+                    )}
+                >
+                    {hasCustomBotIcon
                         ? (
                             <img
                                 src={botIcon}
                                 alt="icon"
-                                className="h-auto w-1/2 object-scale-down"
+                                className="h-full w-full object-contain p-1"
                             />
                         )
                         : (

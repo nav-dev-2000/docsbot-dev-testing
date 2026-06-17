@@ -52,19 +52,23 @@ const botIconMap = {
 function StripePlanDemoBotRow({ botIcon, color, labels }) {
   const avatarBgColor = getLighterColor(color || '#1292EE', 0.6)
   const avatarFontColor = decideTextColor(avatarBgColor)
+  const hasCustomBotIcon = botIcon?.includes('://')
 
   return (
     <div className="items-top mb-3 flex justify-start">
       {botIcon !== 'none' && (
         <div
-          className="mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100"
+          className={classNames(
+            'mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100',
+            hasCustomBotIcon ? 'overflow-hidden' : ''
+          )}
           style={{
             backgroundColor: avatarBgColor,
             color: avatarFontColor,
           }}
         >
-          {botIcon.includes('://') ? (
-            <img src={botIcon} alt="icon" className="h-auto w-1/2 object-scale-down" />
+          {hasCustomBotIcon ? (
+            <img src={botIcon} alt="icon" className="h-full w-full object-contain p-1" />
           ) : (
             <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="xs" />
           )}
@@ -756,6 +760,7 @@ function BotMessage({
 }) {
   const avatarBgColor = getLighterColor(color || '#1292EE', 0.6)
   const avatarFontColor = decideTextColor(avatarBgColor)
+  const hasCustomBotIcon = botIcon?.includes('://')
 
   const bgColor = getLighterColor(color || '#1292EE')
   const fontColor = decideTextColor(bgColor)
@@ -766,17 +771,20 @@ function BotMessage({
         <div className="items-top mb-3 flex justify-start">
           {botIcon !== 'none' && (
             <div
-              className="mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100"
+              className={classNames(
+                'mr-2 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-gray-100',
+                hasCustomBotIcon ? 'overflow-hidden' : ''
+              )}
               style={{
                 backgroundColor: avatarBgColor,
                 color: avatarFontColor,
               }}
             >
-              {botIcon.includes('://') ? (
+              {hasCustomBotIcon ? (
                 <img
                   src={botIcon}
                   alt="icon"
-                  className="h-auto w-1/2 object-scale-down"
+                  className="h-full w-full object-contain p-1"
                 />
               ) : (
                 <FontAwesomeIcon icon={botIconMap[botIcon].icon} size="xs" />
