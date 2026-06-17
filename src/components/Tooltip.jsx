@@ -3,8 +3,20 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
+const DEFAULT_TOOLTIP_Z_INDEX = 9999;
+
+const setRef = (ref, value) => {
+  if (!ref) return;
+  if (typeof ref === 'function') {
+    ref(value);
+    return;
+  }
+  ref.current = value;
+};
+
 const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
   const childRef = useRef(null);
+  const originalRef = children.ref;
 
   useEffect(() => {
     if (childRef.current) {
@@ -17,7 +29,7 @@ const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
         theme: 'light',
         placement,
         allowHTML: true,
-        zIndex: zIndex || 9999,
+        zIndex: zIndex || DEFAULT_TOOLTIP_Z_INDEX,
         appendTo: () => document.body,
         onCreate: (instance) => {
           const content = instance.popper.querySelector('.tippy-content');
@@ -37,7 +49,12 @@ const Tooltip = ({ children, content, placement = 'top', zIndex }) => {
     }
   }, [content, placement, zIndex]);
 
-  return React.cloneElement(children, { ref: childRef });
+  return React.cloneElement(children, {
+    ref: (node) => {
+      childRef.current = node;
+      setRef(originalRef, node);
+    },
+  });
 };
 
 export default Tooltip;

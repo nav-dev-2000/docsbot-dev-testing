@@ -14,6 +14,7 @@ import {
   getEffectiveAddOns,
   getTeamAddOnsForRequestedQuantity,
   isAutoIncreaseAiCreditsEnabled,
+  isAddOnAvailableForPlan,
   mergeStripeAddOns,
   normalizeAddOnQuantity,
 } from '@/utils/billingAddOns'
@@ -74,10 +75,7 @@ const getTeamBillingInterval = (team) =>
   team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
 
 const ensureAddOnIsAvailableForPlan = (team, addOn) => {
-  if (
-    Array.isArray(addOn?.eligiblePlans) &&
-    !addOn.eligiblePlans.includes(stripePlan(team)?.id)
-  ) {
+  if (!isAddOnAvailableForPlan(addOn, stripePlan(team))) {
     const error = new Error(
       `${addOn.name} is only available on Business and Enterprise plans.`,
     )

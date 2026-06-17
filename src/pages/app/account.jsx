@@ -27,6 +27,7 @@ import {
   getEffectiveAddOns,
   getStripeAddOnsFromEnv,
   isAutoIncreaseAiCreditsEnabled,
+  isAddOnAvailableForPlan,
 } from '@/utils/billingAddOns'
 import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
@@ -517,8 +518,7 @@ function Account({
 
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
   const addOnIsAvailableForPlan = (addOn) =>
-    !Array.isArray(addOn?.eligiblePlans) ||
-    addOn.eligiblePlans.includes(teamPlan?.id)
+    isAddOnAvailableForPlan(addOn, teamPlan)
 
   async function previewAddOnQuantity(addOnId, quantity) {
     const addOn = getAddOnById(addOnId)

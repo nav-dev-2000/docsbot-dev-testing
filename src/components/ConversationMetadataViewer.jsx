@@ -1,5 +1,5 @@
-import { useState, useEffect, useMemo, Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import { createPortal } from 'react-dom'
 import {
   CircleStackIcon,
   ClipboardIcon,
@@ -8,6 +8,10 @@ import {
 } from '@heroicons/react/24/outline'
 import Tooltip from '@/components/Tooltip'
 import HelpScoutLogo from '@/components/HelpScoutLogo'
+
+const POPOVER_MARGIN = 16
+const POPOVER_OFFSET = 8
+const POPOVER_MAX_WIDTH = 512
 
 // Format key: convert underscores to spaces and capitalize
 const formatKey = (key) => {
@@ -19,6 +23,99 @@ const formatKey = (key) => {
 
 export default function ConversationMetadataViewer({ metadata }) {
   const [copiedKeys, setCopiedKeys] = useState(new Set())
+  const [open, setOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const [panelPosition, setPanelPosition] = useState({
+    top: POPOVER_MARGIN,
+    left: POPOVER_MARGIN,
+  })
+  const [portalTarget, setPortalTarget] = useState(null)
+  const buttonRef = useRef(null)
+  const panelRef = useRef(null)
+
+  const updatePanelPosition = useCallback(() => {
+    if (!buttonRef.current || typeof window === 'undefined') return
+
+    const buttonRect = buttonRef.current.getBoundingClientRect()
+    const panelRect = panelRef.current?.getBoundingClientRect()
+    const targetRect =
+      portalTarget && portalTarget !== document.body
+        ? portalTarget.getBoundingClientRect()
+        : null
+    const panelWidth = Math.min(
+      POPOVER_MAX_WIDTH,
+      window.innerWidth - POPOVER_MARGIN * 2,
+    )
+    const panelHeight = panelRect?.height || 0
+    const maxLeft = window.innerWidth - panelWidth - POPOVER_MARGIN
+    const nextLeft = Math.min(
+      Math.max(buttonRect.left, POPOVER_MARGIN),
+      Math.max(POPOVER_MARGIN, maxLeft),
+    )
+
+    const belowTop = buttonRect.bottom + POPOVER_OFFSET
+    const aboveTop = buttonRect.top - panelHeight - POPOVER_OFFSET
+    const maxTop = window.innerHeight - panelHeight - POPOVER_MARGIN
+    const nextTop =
+      panelHeight > 0 &&
+      belowTop + panelHeight > window.innerHeight - POPOVER_MARGIN &&
+      aboveTop >= POPOVER_MARGIN
+        ? aboveTop
+        : Math.min(
+            Math.max(belowTop, POPOVER_MARGIN),
+            Math.max(POPOVER_MARGIN, maxTop),
+          )
+
+    setPanelPosition({
+      top: targetRect ? nextTop - targetRect.top : nextTop,
+      left: targetRect ? nextLeft - targetRect.left : nextLeft,
+    })
+  }, [portalTarget])
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted || !buttonRef.current) return
+
+    setPortalTarget(
+      buttonRef.current.closest('[data-question-dialog-panel]') ||
+        document.body,
+    )
+  }, [mounted])
+
+  useEffect(() => {
+    if (!open) return
+
+    updatePanelPosition()
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        setOpen(false)
+      }
+    }
+    const handlePointerDown = (event) => {
+      if (
+        buttonRef.current?.contains(event.target) ||
+        panelRef.current?.contains(event.target)
+      ) {
+        return
+      }
+      setOpen(false)
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('pointerdown', handlePointerDown, true)
+    window.addEventListener('resize', updatePanelPosition)
+    window.addEventListener('scroll', updatePanelPosition, true)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('pointerdown', handlePointerDown, true)
+      window.removeEventListener('resize', updatePanelPosition)
+      window.removeEventListener('scroll', updatePanelPosition, true)
+    }
+  }, [open, updatePanelPosition])
 
   // Check if this is a Help Scout conversation
   const isHelpScoutConversation = useMemo(() => {
@@ -46,6 +143,12 @@ export default function ConversationMetadataViewer({ metadata }) {
     const { name, email, ...rest } = metadata || {}
     return rest
   }, [metadata, hasMetadata])
+
+  useEffect(() => {
+    if (open) {
+      updatePanelPosition()
+    }
+  }, [open, filteredMetadata, updatePanelPosition])
 
   // Copy value to clipboard
   const copyValue = (value, keyPath, e) => {
@@ -214,32 +317,26 @@ export default function ConversationMetadataViewer({ metadata }) {
     return null
   }
 
-  return (
-    <Popover className="relative">
-      {({ open, close }) => (
-        <>
-          <Tooltip content="View conversation metadata">
-            <Popover.Button className="flex items-center text-gray-400 hover:text-gray-600 focus:outline-none">
-              <CircleStackIcon className="h-5 w-5" aria-hidden="true" />
-            </Popover.Button>
-          </Tooltip>
-          <Transition
-            as={Fragment}
-            enter="transition ease-out duration-200"
-            enterFrom="opacity-0 translate-y-1"
-            enterTo="opacity-100 translate-y-0"
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100 translate-y-0"
-            leaveTo="opacity-0 translate-y-1"
+  const metadataPanel =
+    mounted && open && portalTarget
+      ? createPortal(
+          <div
+            ref={panelRef}
+            className={`${
+              portalTarget === document.body ? 'fixed' : 'absolute'
+            } z-[10000] w-[min(calc(100vw-2rem),32rem)] rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            style={{
+              top: `${panelPosition.top}px`,
+              left: `${panelPosition.left}px`,
+            }}
           >
-            <Popover.Panel className="absolute left-0 z-10 mt-2 min-w-80 max-w-[calc(100vw-2rem)] origin-top-left rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
               <div className="p-4">
                 <div className="mb-3 flex items-center justify-between border-b border-gray-200 pb-2">
                   <h3 className="text-sm font-semibold text-gray-900">
                     Metadata
                   </h3>
                   <button
-                    onClick={close}
+                    onClick={() => setOpen(false)}
                     className="rounded-md p-1 text-gray-400 hover:text-gray-600 focus:outline-none"
                     aria-label="Close metadata viewer"
                   >
@@ -264,10 +361,29 @@ export default function ConversationMetadataViewer({ metadata }) {
                   )}
                 </div>
               </div>
-            </Popover.Panel>
-          </Transition>
-        </>
-      )}
-    </Popover>
+            </div>,
+          portalTarget,
+        )
+      : null
+
+  return (
+    <>
+      <Tooltip content="View conversation metadata">
+        <button
+          ref={buttonRef}
+          type="button"
+          className="flex items-center text-gray-400 hover:text-gray-600 focus:outline-none"
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          onClick={() => {
+            setOpen((currentOpen) => !currentOpen)
+          }}
+        >
+          <CircleStackIcon className="h-5 w-5" aria-hidden="true" />
+          <span className="sr-only">View conversation metadata</span>
+        </button>
+      </Tooltip>
+      {metadataPanel}
+    </>
   )
 }

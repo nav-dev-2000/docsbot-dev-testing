@@ -188,6 +188,22 @@ export const findAddOnByPriceId = (priceId) => {
 
 export const isAddOnPriceId = (priceId) => Boolean(findAddOnByPriceId(priceId))
 
+const planLooksEnterprise = (plan = {}) => {
+  const name = String(plan?.name || '')
+  return (
+    name === 'Enterprise' ||
+    name === 'Staff' ||
+    name.includes('Enterprise') ||
+    Number(plan?.pages || 0) > 100000 ||
+    Number(plan?.bots || 0) > 100
+  )
+}
+
+export const isAddOnAvailableForPlan = (addOn, plan = {}) =>
+  !Array.isArray(addOn?.eligiblePlans) ||
+  addOn.eligiblePlans.includes(plan?.id) ||
+  (addOn.eligiblePlans.includes('enterprise') && planLooksEnterprise(plan))
+
 const normalizeInterval = (interval = 'month') =>
   interval === 'year' || interval === 'annually' || interval === 'annual'
     ? 'annually'

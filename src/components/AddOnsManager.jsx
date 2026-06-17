@@ -7,6 +7,7 @@ import {
   getAddOnDisplayPrice,
   getEffectiveAddOns,
   getStripeAddOnsFromEnv,
+  isAddOnAvailableForPlan,
 } from '@/utils/billingAddOns'
 import { stripePlan } from '@/utils/helpers'
 import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
@@ -128,8 +129,7 @@ export default function AddOnsManager({
 
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
   const addOnIsAvailableForPlan = (addOn) =>
-    !Array.isArray(addOn?.eligiblePlans) ||
-    addOn.eligiblePlans.includes(teamPlan?.id)
+    isAddOnAvailableForPlan(addOn, teamPlan)
 
   const updateAddOnBlockQuantity = (addOnId, value, minQuantity = 0) => {
     const nextQuantity = Math.max(minQuantity, Number(value) || 0)

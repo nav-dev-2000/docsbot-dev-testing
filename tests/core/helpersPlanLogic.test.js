@@ -372,6 +372,33 @@ describe('helpers.js billing and scheduling logic', () => {
     )
   })
 
+  it('allows Enterprise-eligible add-ons for custom Enterprise plans', async () => {
+    const {
+      getAddOnConfig,
+      isAddOnAvailableForPlan,
+    } = await import('@/utils/billingAddOns')
+
+    const teamMembersAddOn = getAddOnConfig('teamMembers')
+
+    expect(
+      isAddOnAvailableForPlan(teamMembersAddOn, {
+        id: 'custom_enterprise_2026',
+        name: 'Custom Enterprise',
+        pages: 250000,
+        bots: 25,
+      }),
+    ).toBe(true)
+
+    expect(
+      isAddOnAvailableForPlan(teamMembersAddOn, {
+        id: 'standard',
+        name: 'Standard',
+        pages: 15000,
+        bots: 3,
+      }),
+    ).toBe(false)
+  })
+
   it('requires explicit opt-in for auto-increase AI credits', async () => {
     const { isAutoIncreaseAiCreditsEnabled } = await import('@/utils/billingAddOns')
 
