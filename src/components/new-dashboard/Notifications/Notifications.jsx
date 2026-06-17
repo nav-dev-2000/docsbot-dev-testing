@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect, useCallback } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import * as cookie from 'cookie'
-import featureUpdates from '/public/feature-updates.json'
+import featureUpdates from '../../../../public/feature-updates.json'
 const FEATURE_UPDATES = featureUpdates
 import NotificationsButton from './NotificationsButton'
 import NotificationsMenu from './NotificationsMenu'

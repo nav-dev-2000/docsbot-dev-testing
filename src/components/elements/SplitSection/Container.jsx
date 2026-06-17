@@ -18,7 +18,7 @@ export const Container = ({
     children,
     className
 }) => {
-    const DynamicTag = motion(tag)
+    const DynamicTag = motion.create(tag)
 
     return (
         <DynamicTag

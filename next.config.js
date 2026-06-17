@@ -7,10 +7,10 @@ const { LLMS } = require('./src/constants/llms.constants')
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md'],
   reactStrictMode: true,
-  swcMinify: true,
+  turbopack: {},
   experimental: {
     scrollRestoration: true,
-    largePageDataBytes: 256 * 1000, // 256kb, the default is 128kb
+    largePageDataBytes: 556 * 1000, // 256kb, the default is 128kb
   },
   // Dev-only: keep on-demand compiled routes warm for much longer than the
   // default (25s / 2 pages). The skills builder lives in a hybrid setup
@@ -339,30 +339,6 @@ const nextConfig = {
         ],
       },
     ]
-  },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap')
-      require('./scripts/latest-news')
-      require('./scripts/generate-feature-updates')
-    }
-
-    config.module.rules.push({
-      resourceQuery: /raw/,
-      type: 'asset/source',
-    })
-
-    // Silence known dynamic require warning from @truto/truto-link-sdk client bundle
-    // The SDK ships dynamic requires that webpack flags but are safe in our client-only usage.
-    config.ignoreWarnings = [
-      ...(config.ignoreWarnings || []),
-      {
-        module: /node_modules\/@truto\/truto-link-sdk/,
-        message: /Critical dependency/,
-      },
-    ]
-
-    return config
   },
 }
 

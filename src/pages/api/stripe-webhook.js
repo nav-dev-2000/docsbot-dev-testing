@@ -267,7 +267,7 @@ const webhookHandler = async (req, res) => {
               const subscription = event.data.object
               const teamsCollection = firestore.collection('teams')
               const configuredPlans =
-                process?.env?.NEXT_PUBLIC_STRIPE_PLANS &&
+                process.env.NEXT_PUBLIC_STRIPE_PLANS &&
                 JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
 
               // get team by customer id
@@ -581,7 +581,7 @@ const webhookHandler = async (req, res) => {
                 let plan = session.subscription.plan
                 if (!plan && session.subscription.items?.data) {
                   let plans = null
-                  if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
+                  if (process.env.NEXT_PUBLIC_STRIPE_PLANS) {
                     plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
                   }
                   plan = findConfiguredPlan(session.subscription.items.data, plans)
@@ -744,7 +744,7 @@ const webhookHandler = async (req, res) => {
               let plan = invoiceWithSubscription.subscription.plan
               if (!plan && invoiceWithSubscription.subscription.items?.data) {
                 let plans = null
-                if (process?.env?.NEXT_PUBLIC_STRIPE_PLANS) {
+                if (process.env.NEXT_PUBLIC_STRIPE_PLANS) {
                   plans = JSON.parse(process.env.NEXT_PUBLIC_STRIPE_PLANS)
                 }
                 plan = findConfiguredPlan(

@@ -16,6 +16,11 @@ import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'
 import { stripePlan } from '@/utils/helpers'
 
+import { setHeadstartWPConfig } from '@headstartwp/core/utils'
+import headlessConfig from '../../headless.config.js'
+
+setHeadstartWPConfig(headlessConfig)
+
 function getNodeText(node) {
   let text = ''
   for (let child of node.children ?? []) {
@@ -147,28 +152,30 @@ export default function App({ Component, pageProps }) {
     ) {
       const isIframe = router.pathname.startsWith('/iframe/')
       
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-        api_host:
-          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-            ? 'https://docsbot.ai/ph'
-            : process.env.NEXT_PUBLIC_POSTHOG_HOST,
-        ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
-        persistence: 'localStorage',
-        disable_session_recording: true,
-        capture_pageleave: false,
-        // Disable automatic pageview tracking for iframe routes
-        capture_pageview: !isIframe,
-        // Disable heatmaps for iframe routes
-        enable_heatmaps: !isIframe,
-        // Verbose PostHog logging: opt-in via NEXT_PUBLIC_POSTHOG_DEBUG=1 or true
-        loaded: (ph) => {
-          const raw = process.env.NEXT_PUBLIC_POSTHOG_DEBUG
-          const enabled =
-            raw === '1' ||
-            (typeof raw === 'string' && raw.toLowerCase() === 'true')
-          ph.debug(enabled)
-        },
-      })
+      if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+        posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+          api_host:
+            process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+              ? 'https://docsbot.ai/ph'
+              : process.env.NEXT_PUBLIC_POSTHOG_HOST,
+          ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
+          persistence: 'localStorage',
+          disable_session_recording: true,
+          capture_pageleave: false,
+          // Disable automatic pageview tracking for iframe routes
+          capture_pageview: !isIframe,
+          // Disable heatmaps for iframe routes
+          enable_heatmaps: !isIframe,
+          // Verbose PostHog logging: opt-in via NEXT_PUBLIC_POSTHOG_DEBUG=1 or true
+          loaded: (ph) => {
+            const raw = process.env.NEXT_PUBLIC_POSTHOG_DEBUG
+            const enabled =
+              raw === '1' ||
+              (typeof raw === 'string' && raw.toLowerCase() === 'true')
+            ph.debug(enabled)
+          },
+        })
+      }
     }
   }, [router.pathname])
 
@@ -354,11 +361,13 @@ export default function App({ Component, pageProps }) {
 },});`}
           </Script>
         )}
-        <Script
-          id="bento-script"
-          src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
-          strategy="afterInteractive"
-        />
+        {process.env.NEXT_PUBLIC_BENTO_SITE && (
+          <Script
+            id="bento-script"
+            src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+            strategy="afterInteractive"
+          />
+        )}
         <Script id="firstpromoter1">
           {`(function(w){w.fpr=w.fpr||function(){w.fpr.q = w.fpr.q||[];w.fpr.q[arguments[0]=='set'?'unshift':'push'](arguments);};})(window);
 fpr("init", {cid:"08y4co6f"}); 
@@ -531,11 +540,13 @@ if (!/google\.|bing\.|yahoo\.|baidu\.|duckduckgo\.|yandex\./i.test(document.refe
                 strategy="afterInteractive"
                 src="https://cdn.firstpromoter.com/fpr.js"
               />
-              <Script
-                id="bento-script"
-                src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
-                strategy="afterInteractive"
-              />
+              {process.env.NEXT_PUBLIC_BENTO_SITE && (
+                <Script
+                  id="bento-script"
+                  src={'https://fast.bentonow.com?site_uuid=' + process.env.NEXT_PUBLIC_BENTO_SITE}
+                  strategy="afterInteractive"
+                />
+              )}
               {/* <Script src="https://www.googletagmanager.com/gtag/js?id=AW-412141971" />
               <Script id="gtag">
                 {`

@@ -7,7 +7,7 @@ import SaleLoyalty, { CountdownTicker, LOYALTY_SALE_DEADLINE, getLoyaltyEventLab
 import { checkPlanPermission, stripePlan } from '@/utils/helpers'
 import { canUserManageBilling } from '@/utils/function.utils'
 import { currencies } from '@/constants/pricing.constants'
-import news from '/public/latest-news.json'
+import news from '../../public/latest-news.json'
 import clsx from 'clsx'
 import { isBannerDismissed, setBannerPreference } from '@/utils/bannerPreferences'
 

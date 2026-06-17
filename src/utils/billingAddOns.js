@@ -131,7 +131,7 @@ let parsedAddOnsFromEnv
 export const getStripeAddOnsFromEnv = () => {
   if (parsedAddOnsFromEnv !== undefined) return parsedAddOnsFromEnv
 
-  const raw = process?.env?.NEXT_PUBLIC_STRIPE_ADDONS
+  const raw = process.env.NEXT_PUBLIC_STRIPE_ADDONS
   if (!raw) {
     parsedAddOnsFromEnv = DEFAULT_ADD_ONS
     return parsedAddOnsFromEnv

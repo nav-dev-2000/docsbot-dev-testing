@@ -24,6 +24,11 @@ import {
 } from '@heroicons/react/24/outline'
 import { getRecoverableWordPressErrorDetails } from '@/utils/wordpressErrors'
 
+import { setHeadstartWPConfig } from '@headstartwp/core/utils'
+import headlessConfig from '../../../headless.config.js'
+
+setHeadstartWPConfig(headlessConfig)
+
 const params = {
   postType: 'docs',
   per_page: 100,
@@ -498,7 +503,13 @@ export async function getStaticProps(context) {
       }
     }
   }
+  const isHeadlessDisabled = process.env.DISABLE_HEADLESS === '1'
+
   try {
+    if (isHeadlessDisabled) {
+      throw new Error('Headless WP is disabled via env var')
+    }
+
     // make sure to pass the same params to fetchHookData and usePost
     const usePostData = await fetchHookData(usePosts.fetcher(), context, { params })
 
@@ -520,7 +531,7 @@ export async function getStaticProps(context) {
     const { statusCode, codes, messages, isRecoverableWordPressError } =
       getRecoverableWordPressErrorDetails(e)
 
-    if (isRecoverableWordPressError) {
+    if (isRecoverableWordPressError || isHeadlessDisabled) {
       console.warn('WordPress fetch failed during docs archive generation. Serving ISR fallback.', {
         path: context?.params?.path,
         statusCode,

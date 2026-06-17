@@ -385,7 +385,7 @@ const getStripePlansFromEnv = () => {
     return parsedStripePlansFromEnv
   }
 
-  const rawPlans = process?.env?.NEXT_PUBLIC_STRIPE_PLANS
+  const rawPlans = process.env.NEXT_PUBLIC_STRIPE_PLANS
   if (!rawPlans) {
     parsedStripePlansFromEnv = null
     return parsedStripePlansFromEnv
@@ -1222,7 +1222,7 @@ export function checkSourceScheduledFromInterval(team, interval) {
 }
 
 export function isSuperAdmin(userId) {
-  if (process?.env?.NEXT_PUBLIC_SUPER_ADMINS) {
+  if (process.env.NEXT_PUBLIC_SUPER_ADMINS) {
     const superAdmins = JSON.parse(process.env.NEXT_PUBLIC_SUPER_ADMINS)
     return superAdmins.includes(userId)
   }

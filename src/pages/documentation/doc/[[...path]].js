@@ -2,6 +2,11 @@ import { usePost, fetchHookData, addHookData, handleError, usePosts } from '@hea
 import { BlocksRenderer } from '@headstartwp/core/react'
 import { getWPUrl, getHostUrl, removeSourceUrl } from '@headstartwp/core'
 import { replaceUrls, replaceATagsWithLinks } from '@/utils/replaceUrls'
+import { setHeadstartWPConfig } from '@headstartwp/core/utils'
+import headlessConfig from '../../../../headless.config.js'
+
+setHeadstartWPConfig(headlessConfig)
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import ContentSection from '@/components/ContentSection'

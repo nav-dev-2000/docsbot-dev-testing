@@ -1,4 +1,4 @@
-import { Fragment, useCallback } from 'react'
+import { Fragment, useCallback, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Transition, Menu } from '@headlessui/react'
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -16,8 +16,14 @@ import { usePostHog } from 'posthog-js/react'
  */
 export default function HeaderAuthSection({ showAuthOnMobile = false }) {
   const [user] = useAuthState(auth)
+  const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const posthog = usePostHog()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const logoutUser = useCallback(logout, [])
   const signUserOut = () => {
     signOut(auth).then(() => {
@@ -36,7 +42,7 @@ export default function HeaderAuthSection({ showAuthOnMobile = false }) {
 
   return (
     <>
-      {user ? (
+      {mounted && user ? (
         <div className="flex flex-none items-center">
           <Menu as="div" className="relative">
             <div>

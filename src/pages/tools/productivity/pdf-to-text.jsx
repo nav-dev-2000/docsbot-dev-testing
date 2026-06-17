@@ -257,7 +257,7 @@ const PDFToText = () => {
           .replace(/^\s*\d+\.\s+/gm, '') // Remove numbered lists
           .replace(/\|.*?\|/g, '') // Remove table formatting
           .replace(/^\s*\|.*\|\s*$/gm, '') // Remove table rows
-          .replace(/^\s*[-:|\s]+\s*$/gm, '') // Remove table separators
+          .replace(/^\s*[:|\s-]+\s*$/gm, '') // Remove table separators
           .replace(/\n{3,}/g, '\n\n') // Normalize line breaks
           .trim()
       }

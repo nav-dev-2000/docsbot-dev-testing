@@ -8,6 +8,10 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { getRecoverableWordPressErrorDetails } from '@/utils/wordpressErrors'
+import { setHeadstartWPConfig } from '@headstartwp/core/utils'
+import headlessConfig from '../../../headless.config.js'
+
+setHeadstartWPConfig(headlessConfig)
 
 const BASE_PARAMS = {
   postType: 'post',

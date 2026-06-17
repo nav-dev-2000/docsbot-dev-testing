@@ -20,7 +20,7 @@ import {
   getGrandfatheredPlanLimitDifferences,
 } from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
-import featureUpdates from '/public/feature-updates.json'
+import featureUpdates from '../../public/feature-updates.json'
 const FEATURE_UPDATES = featureUpdates
 
 export default function Cancel({
