@@ -26,7 +26,7 @@ export default function AddOnsManager({
   team,
   className = '',
   title = 'Add-ons',
-  description = 'Scale your plan without upgrading. Add-ons renew on your billing cycle, and changes are prorated on your next invoice.',
+  description = 'Increase selected monthly plan limits without changing plans. Add-ons renew with your billing cycle, and billing changes are prorated.',
   headerCentered = false,
   focusAddOnId = null,
   teamInvites = [],
@@ -91,7 +91,7 @@ export default function AddOnsManager({
   }
 
   const getAddOnUnitName = (addOn, amount = 0) => {
-    if (addOn?.limitKey === 'questions') return 'credits'
+    if (addOn?.limitKey === 'questions') return 'AI credits'
     if (addOn?.limitKey === 'pages') return 'pages'
     if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
     if (addOn?.limitKey === 'teamMembers') {
@@ -105,13 +105,23 @@ export default function AddOnsManager({
     return `${amount.toLocaleString()} ${getAddOnUnitName(addOn, amount)}`
   }
 
+  const formatAddOnLimitIncrease = (addOn, quantity = 0) => {
+    const capacity = formatAddOnCapacity(addOn, quantity)
+    return addOn?.limitKey === 'questions'
+      ? `${capacity} monthly limit increase`
+      : capacity
+  }
+
   const formatAddOnDropdownOption = (
     addOn,
     blockQuantity,
     { priceLabel = null, isCurrent = false } = {},
   ) => {
     if (blockQuantity === 0) return 'None'
-    const capacity = formatAddOnCapacity(addOn, blockQuantity)
+    const capacity =
+      addOn?.limitKey === 'questions'
+        ? `+${formatAddOnLimitIncrease(addOn, blockQuantity)}`
+        : formatAddOnCapacity(addOn, blockQuantity)
     const suffix = [
       priceLabel ? `- ${priceLabel}` : null,
       isCurrent ? '(current)' : null,
@@ -212,9 +222,11 @@ export default function AddOnsManager({
             </p>
             <div className="mt-5 rounded-lg border border-gray-200">
               <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
-                <span className="text-sm font-medium text-gray-700">New add-on capacity</span>
+                <span className="text-sm font-medium text-gray-700">
+                  New add-on limit increase
+                </span>
                 <span className="font-semibold text-gray-950">
-                  {formatAddOnCapacity(
+                  {formatAddOnLimitIncrease(
                     getAddOnById(addOnPreview.addOnId),
                     addOnPreview.nextQuantity,
                   )}
@@ -342,10 +354,12 @@ export default function AddOnsManager({
               )}
               <div className="mt-4">
                 <p className="text-sm text-gray-600">
-                  Current subscription:{' '}
+                  {addOn?.limitKey === 'questions'
+                    ? 'Current monthly limit increase: '
+                    : 'Current subscription: '}
                   <span className="font-medium text-gray-900">
                     {quantity > 0
-                      ? `${formatAddOnCapacity(addOn, quantity)} (${formatPrice(addOnPrice * quantity)}/${recurringIntervalLabel})`
+                      ? `${formatAddOnLimitIncrease(addOn, quantity)} (${formatPrice(addOnPrice * quantity)}/${recurringIntervalLabel})`
                       : 'None'}
                   </span>
                 </p>
@@ -412,13 +426,9 @@ export default function AddOnsManager({
                 )}
                 {minimumQuantity > 0 && (
                   <p className="mt-2 text-xs text-gray-500">
-                    Your current usage needs at least{' '}
-                    {formatAddOnCapacity(addOn, minimumQuantity)} from add-ons. You
-                    can&apos;t reduce below this until usage drops
                     {addOn?.limitKey === 'questions'
-                      ? ', or at the start of the next calendar month when your AI credit usage resets'
-                      : ''}
-                    .
+                      ? `You have already used enough AI credits this month that your account needs at least a ${formatAddOnCapacity(addOn, minimumQuantity)} add-on limit increase. You can reduce it after usage resets at the start of the next calendar month.`
+                      : `Your current usage needs at least ${formatAddOnCapacity(addOn, minimumQuantity)} from add-ons. You can't reduce below this until usage drops.`}
                   </p>
                 )}
               </div>

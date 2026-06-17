@@ -583,7 +583,7 @@ describe('stripe webhook success path', () => {
               }),
               expect.objectContaining({
                 title: 'Changes',
-                value: 'AI Credits: 1 -> 3',
+                value: 'AI Credit Limit: 1 -> 3',
               }),
             ]),
           }),

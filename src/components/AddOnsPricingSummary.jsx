@@ -37,8 +37,8 @@ export default function AddOnsPricingSummary({
   const suffix = normalizedInterval === 'annually' ? '/yr' : '/mo'
   const supportingText =
     normalizedInterval === 'annually'
-      ? 'Annual add-ons are billed yearly at the 12-month equivalent.'
-      : 'Monthly add-ons renew with your monthly plan.'
+      ? 'Annual add-ons increase selected monthly plan limits and are billed yearly at the 12-month equivalent.'
+      : 'Monthly add-ons increase selected monthly plan limits and renew with your monthly plan.'
 
   return (
     <section
@@ -85,7 +85,7 @@ export default function AddOnsPricingSummary({
                 : null
             const usageNote =
               addOnId === ADD_ON_IDS.AI_CREDITS
-                ? 'Enable auto-increase so bots keep responding.'
+                ? 'Automatically raise your monthly AI credit limit when you run out.'
                 : null
 
             return dark ? (

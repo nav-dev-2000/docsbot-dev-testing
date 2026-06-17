@@ -384,6 +384,11 @@ function Account({
     return `${breakdown.planLimit.toLocaleString()} ${label} from your plan and ${breakdown.addOnAmount.toLocaleString()} from add-ons.`
   }
 
+  const formatAiCreditLimitBreakdownTooltip = (breakdown) => {
+    if (!breakdown) return null
+    return `This includes ${breakdown.planLimit.toLocaleString()} from your plan and a ${breakdown.addOnAmount.toLocaleString()}-credit monthly limit increase from add-ons.`
+  }
+
   const botLimitBreakdown = getLimitBreakdown('bots', ADD_ON_IDS.BOTS)
   const pageLimitBreakdown = getLimitBreakdown('pages', ADD_ON_IDS.SOURCE_PAGES)
   const creditLimitBreakdown = getLimitBreakdown('questions', ADD_ON_IDS.AI_CREDITS)
@@ -425,8 +430,8 @@ function Account({
       href: false,
       tooltip: withGrandfatheredTooltip({
         tooltip: creditLimitBreakdown
-          ? `AI Credits used in the current month, including chat, skills, and deep research. Your limit is ${teamPlan.questions.toLocaleString()} credits. ${formatLimitBreakdownTooltip('credits', creditLimitBreakdown)}`
-          : 'AI Credits used in the current month, including chat, skills, and deep research.',
+          ? `AI Credits used in the current month, including chat, skills, and deep research. Your monthly AI credit limit is ${teamPlan.questions.toLocaleString()}. ${formatAiCreditLimitBreakdownTooltip(creditLimitBreakdown)}`
+          : 'AI Credits used in the current month, including chat, skills, and deep research. This is a monthly limit, not a prepaid credit balance.',
         ...grandfatheredLimits.questions,
       }),
       icon: ChatBubbleBottomCenterTextIcon,
@@ -480,7 +485,7 @@ function Account({
   }
 
   const getAddOnUnitName = (addOn, amount = 0) => {
-    if (addOn?.limitKey === 'questions') return 'credits'
+    if (addOn?.limitKey === 'questions') return 'AI credits'
     if (addOn?.limitKey === 'pages') return 'pages'
     if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
     if (addOn?.limitKey === 'teamMembers') {
@@ -494,13 +499,23 @@ function Account({
     return `${amount.toLocaleString()} ${getAddOnUnitName(addOn, amount)}`
   }
 
+  const formatAddOnLimitIncrease = (addOn, quantity = 0) => {
+    const capacity = formatAddOnCapacity(addOn, quantity)
+    return addOn?.limitKey === 'questions'
+      ? `${capacity} monthly limit increase`
+      : capacity
+  }
+
   const formatAddOnDropdownOption = (
     addOn,
     blockQuantity,
     { priceLabel = null, isCurrent = false } = {},
   ) => {
     if (blockQuantity === 0) return 'None'
-    const capacity = formatAddOnCapacity(addOn, blockQuantity)
+    const capacity =
+      addOn?.limitKey === 'questions'
+        ? `+${formatAddOnLimitIncrease(addOn, blockQuantity)}`
+        : formatAddOnCapacity(addOn, blockQuantity)
     const suffix = [
       priceLabel ? `— ${priceLabel}` : null,
       isCurrent ? '(current)' : null,
@@ -772,9 +787,11 @@ function Account({
                 </p>
                 <div className="mt-5 rounded-lg border border-gray-200">
                   <div className="flex items-center justify-between border-b border-gray-200 px-4 py-3">
-                    <span className="text-sm font-medium text-gray-700">New add-on capacity</span>
+                    <span className="text-sm font-medium text-gray-700">
+                      New add-on limit increase
+                    </span>
                     <span className="font-semibold text-gray-950">
-                      {formatAddOnCapacity(
+                      {formatAddOnLimitIncrease(
                         getAddOnById(addOnPreview.addOnId),
                         addOnPreview.nextQuantity,
                       )}
@@ -897,8 +914,8 @@ function Account({
                 <div className="w-full">
                   <h3 className="text-2xl font-bold">Add-ons</h3>
                   <p className="text-md mt-2 w-full text-gray-800">
-                    Scale your plan without upgrading. Add-ons renew on your billing cycle, and
-                    changes are prorated on your next invoice.
+                    Increase selected monthly plan limits without changing plans. Add-ons renew
+                    with your billing cycle, and billing changes are prorated.
                   </p>
                 </div>
               </div>
@@ -965,10 +982,12 @@ function Account({
                       )}
                       <div className="mt-4">
                         <p className="text-sm text-gray-600">
-                          Current subscription:{' '}
+                          {addOn?.limitKey === 'questions'
+                            ? 'Current monthly limit increase: '
+                            : 'Current subscription: '}
                           <span className="font-medium text-gray-900">
                             {quantity > 0
-                              ? `${formatAddOnCapacity(addOn, quantity)} (${formatPrice(addOnPrice * quantity)}/${recurringIntervalLabel})`
+                              ? `${formatAddOnLimitIncrease(addOn, quantity)} (${formatPrice(addOnPrice * quantity)}/${recurringIntervalLabel})`
                               : 'None'}
                           </span>
                         </p>
@@ -1038,13 +1057,9 @@ function Account({
                         )}
                         {minimumQuantity > 0 && (
                           <p className="mt-2 text-xs text-gray-500">
-                            Your current usage needs at least{' '}
-                            {formatAddOnCapacity(addOn, minimumQuantity)} from add-ons. You
-                            can&apos;t reduce below this until usage drops
                             {addOn?.limitKey === 'questions'
-                              ? ', or at the start of the next calendar month when your AI credit usage resets'
-                              : ''}
-                            .
+                              ? `You have already used enough AI credits this month that your account needs at least a ${formatAddOnCapacity(addOn, minimumQuantity)} add-on limit increase. You can reduce it after usage resets at the start of the next calendar month.`
+                              : `Your current usage needs at least ${formatAddOnCapacity(addOn, minimumQuantity)} from add-ons. You can't reduce below this until usage drops.`}
                           </p>
                         )}
                       </div>
@@ -1055,10 +1070,10 @@ function Account({
 
               <div className="mt-6 flex items-center justify-between rounded-lg border border-gray-200 p-4">
                 <div>
-                  <h4 className="font-semibold text-gray-950">Auto-add AI credits</h4>
+                  <h4 className="font-semibold text-gray-950">Auto-increase AI credit limit</h4>
                   <p className="mt-1 text-sm text-gray-600">
-                    When you hit your monthly limit, automatically increase your AI credits add-on
-                    subscription by 5,000 credits so bots keep responding.
+                    When you hit your monthly AI credit limit, automatically add another
+                    5,000-credit monthly limit increase so bots keep responding.
                   </p>
                 </div>
                 <label className="relative inline-flex cursor-pointer items-center">

@@ -12,8 +12,8 @@ const ACTIVE_SUBSCRIPTION_STATUSES = new Set(['active', 'trialing', 'past_due'])
 const DEFAULT_ADD_ONS = {
   [ADD_ON_IDS.AI_CREDITS]: {
     id: ADD_ON_IDS.AI_CREDITS,
-    name: 'AI Credits',
-    description: 'More capacity for chat, skills, and API usage',
+    name: 'AI Credit Limit',
+    description: 'Increase your monthly AI credit limit for chat, skills, and API usage',
     limitKey: 'questions',
     unit: AI_CREDIT_ADD_ON_BLOCK_SIZE,
     monthlyPrice: {
@@ -30,7 +30,7 @@ const DEFAULT_ADD_ONS = {
       EUR: 528,
       GBP: 456,
     },
-    unitLabel: '5k extra credits',
+    unitLabel: '5k monthly limit increase',
     eligiblePlans: ['personal', 'standard', 'business', 'enterprise'],
   },
   [ADD_ON_IDS.BOTS]: {

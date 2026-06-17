@@ -99,7 +99,7 @@ const renderPlanFeature = (featureKey, label, value) => {
   if (featureKey === 'messagesPerMonth') {
     return (
       <>
-        {value} AI Credits / month
+        {value} monthly AI credit limit
         <AiCreditsFootnoteLink />
       </>
     )
