@@ -226,6 +226,7 @@ const pageDescription =
   'Compare DocsBot plans, estimate support savings, and choose the right chatbot plan for your team.'
 const docsBotDefinition =
   'DocsBot is an AI support and knowledge automation platform for support, documentation, operations, and product teams that turns your docs, tickets, product information, and internal content into accurate answers and AI actions.'
+const legacyPricingTierIds = ['hobby', 'personal', 'standard', 'business']
 
 const buildPricingProduct = ({ url, tiers }) => ({
   '@type': 'Product',
@@ -276,7 +277,7 @@ export default function PricingPage() {
   const showLegacyPlans = router.query.showLegacy === 'true'
   const activeTiers = showLegacyPlans 
     ? pricingTiers.filter(tier => 
-        tier.legacy || ['hobby', 'personal', 'pro', 'standard', 'business'].includes(tier.id)
+        legacyPricingTierIds.includes(tier.id)
       )
     : pricingTiers.filter(tier => !tier.legacy)
   const pageUrl = buildPageUrl('/pricing')
@@ -521,7 +522,7 @@ export default function PricingPage() {
                   <div className="relative mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-0">
                     <div className={clsx(
                       "isolate mx-auto grid max-w-md grid-cols-1 gap-8 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-2",
-                      showLegacyPlans ? "xl:grid-cols-5" : "xl:grid-cols-4"
+                      "xl:grid-cols-4"
                     )}>
                       {activeTiers.map((tier, index) => (
                         <div
