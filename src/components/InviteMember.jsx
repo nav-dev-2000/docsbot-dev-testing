@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
 import Tooltip from '@/components/Tooltip'
 import { InformationCircleIcon } from '@heroicons/react/24/outline'
+import { ADD_ON_IDS } from '@/utils/billingAddOns'
 
 export default function InviteMember({
   team,
@@ -13,6 +14,8 @@ export default function InviteMember({
   setErrorText,
   setSuccessText,
   bots = [],
+  teamInvites = [],
+  onTeamBillingUpdate = null,
 }) {
   const [submitting, setSubmitting] = useState(false)
   const [inviteEmail, setInviteEmail] = useState('')
@@ -59,7 +62,7 @@ export default function InviteMember({
       const data = await response.json()
       setToInvite(null)
       setSuccessText(data.message || 'Success')
-    } else if (response.status == 403) { // 403 is our response if the team needs to be upgraded
+    } else if (response.status === 402 || response.status === 403) {
       setShowUpgrade(true)
     } else {
       try {
@@ -102,7 +105,19 @@ export default function InviteMember({
 
   return (
     <>
-      <ModalCheckout team={team} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCheckout
+        team={team}
+        open={showUpgrade}
+        setOpen={setShowUpgrade}
+        showAddOns
+        addOnFocusId={ADD_ON_IDS.TEAM_MEMBERS}
+        addOnTitle="Add team user capacity"
+        addOnDescription="Add more team users without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice."
+        teamInvites={teamInvites}
+        onTeamBillingUpdate={onTeamBillingUpdate}
+        onError={setErrorText}
+        onSuccess={setSuccessText}
+      />
       <div className="mt-8 flex justify-between bg-white shadow sm:rounded-lg" ref={alertRef}>
         <div className="px-4 py-5 sm:p-6 max-w-2xl w-full">
           <h3 className="text-lg font-medium leading-6 text-gray-900">Invite a team member</h3>

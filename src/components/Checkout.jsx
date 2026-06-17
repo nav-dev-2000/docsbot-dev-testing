@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '@/config/firebase-ui.config'
+import { usePostHog } from 'posthog-js/react'
 import { CheckCircleIcon, CreditCardIcon } from '@heroicons/react/24/outline'
 import Alert from '@/components/Alert'
 import { StripePricingTable } from '@/components/StripePricing'
@@ -29,8 +30,10 @@ export default function Checkout({
   hasDemoTrialPromotion = false,
   onBillingChange = null,
   showBillingPortalSection = true,
+  trackingContext = {},
 }) {
   const [user] = useAuthState(auth)
+  const posthog = usePostHog()
   const [errorText, setErrorText] = useState(null)
   const [isStripeCustomer, setIsStripeCustomer] = useState(
     !!team.stripeCustomerId &&
@@ -50,6 +53,18 @@ export default function Checkout({
   const isLoyaltyEligible = isStripeCustomer && (isProPlan || isStandardPlan)
   const isEnterprisePlan = checkPlanPermission(team, 'enterprise').allowed
   const isBusinessPlan = currentPlan?.id === 'business'
+
+  const captureBillingEvent = (eventName, properties = {}) => {
+    posthog?.capture(eventName, {
+      source: 'account_page',
+      ...trackingContext,
+      currentPlanId: currentPlan?.id,
+      currentPlanName: currentPlan?.name,
+      isStripeCustomer,
+      isLegacyPlan,
+      ...properties,
+    })
+  }
 
   useEffect(() => {
     if (['past_due', 'incomplete'].includes(team.stripeSubscriptionStatus)) {
@@ -78,6 +93,11 @@ export default function Checkout({
   async function openPortal(options = {}) {
     const { tier, upgrade: upgradeOverride } = options
     const shouldUpgrade = typeof upgradeOverride === 'boolean' ? upgradeOverride : upgrade
+    captureBillingEvent('Account Billing Action Started', {
+      action: shouldUpgrade && tier ? 'plan_change_preview' : 'billing_portal',
+      targetPlanId: tier || null,
+      isUpgrade: Boolean(shouldUpgrade),
+    })
     setErrorText(null)
     setOpening(true)
     if (shouldUpgrade && tier) {
@@ -100,11 +120,37 @@ export default function Checkout({
         const data = await response.json()
         setPendingPlanChange({ tier, frequency, currency })
         setPlanChangePreview(data.preview)
+        captureBillingEvent('Account Plan Change Previewed', {
+          direction: 'upgrade',
+          targetPlanId: tier,
+          frequency,
+          currency,
+          amountDue: Number(data.preview?.amountDue || 0),
+          total: Number(data.preview?.total || 0),
+          creditAmount: Number(data.preview?.creditAmount || 0),
+          accountCreditApplied: Number(data.preview?.accountCreditApplied || 0),
+        })
       } else {
         try {
           const data = await response.json()
+          captureBillingEvent('Account Plan Change Preview Failed', {
+            direction: 'upgrade',
+            targetPlanId: tier,
+            frequency,
+            currency,
+            status: response.status,
+            error: data.message || 'Something went wrong, please try again.',
+          })
           setErrorText(data.message || 'Something went wrong, please try again.')
         } catch (e) {
+          captureBillingEvent('Account Plan Change Preview Failed', {
+            direction: 'upgrade',
+            targetPlanId: tier,
+            frequency,
+            currency,
+            status: response.status,
+            error: 'Error ' + response.status,
+          })
           setErrorText('Error ' + response.status + ', please try again.')
         }
       }
@@ -121,14 +167,30 @@ export default function Checkout({
     if (response.ok) {
       const data = await response.json()
       const { url } = data
+      captureBillingEvent('Account Billing Portal Opened', {
+        isUpgrade: Boolean(shouldUpgrade),
+        targetPlanId: tier || null,
+      })
       //redirect to url
       window.location.href = url
       return
     } else {
       try {
         const data = await response.json()
+        captureBillingEvent('Account Billing Portal Failed', {
+          isUpgrade: Boolean(shouldUpgrade),
+          targetPlanId: tier || null,
+          status: response.status,
+          error: data.message || 'Something went wrong, please try again.',
+        })
         setErrorText(data.message || 'Something went wrong, please try again.')
       } catch (e) {
+        captureBillingEvent('Account Billing Portal Failed', {
+          isUpgrade: Boolean(shouldUpgrade),
+          targetPlanId: tier || null,
+          status: response.status,
+          error: 'Error ' + response.status,
+        })
         setErrorText('Error ' + response.status + ', please try again.')
         setOpening(false)
       }
@@ -138,6 +200,14 @@ export default function Checkout({
 
   async function confirmPlanChange() {
     if (!pendingPlanChange || !planChangePreview) return
+    captureBillingEvent('Account Plan Change Confirm Started', {
+      direction: 'upgrade',
+      targetPlanId: pendingPlanChange.tier,
+      frequency: pendingPlanChange.frequency,
+      currency: pendingPlanChange.currency,
+      amountDue: Number(planChangePreview.amountDue || 0),
+      total: Number(planChangePreview.total || 0),
+    })
     setErrorText(null)
     setOpening(true)
     const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
@@ -155,13 +225,28 @@ export default function Checkout({
       try {
         const data = await response.json()
         if (data.paymentAction?.requiresAction) {
+          captureBillingEvent('Account Plan Change Payment Action Required', {
+            direction: 'upgrade',
+            targetPlanId: pendingPlanChange.tier,
+          })
           await completeStripePaymentAction(data.paymentAction)
         }
       } catch (error) {
+        captureBillingEvent('Account Plan Change Failed', {
+          direction: 'upgrade',
+          targetPlanId: pendingPlanChange.tier,
+          error: error.message || 'Payment verification was not completed.',
+        })
         setErrorText(error.message || 'Payment verification was not completed.')
         setOpening(false)
         return
       }
+      captureBillingEvent('Account Plan Change Confirmed', {
+        direction: 'upgrade',
+        targetPlanId: pendingPlanChange.tier,
+        frequency: pendingPlanChange.frequency,
+        currency: pendingPlanChange.currency,
+      })
       setPlanChangePreview(null)
       setPendingPlanChange(null)
       if (onBillingChange) {
@@ -180,14 +265,27 @@ export default function Checkout({
     }
     try {
       const data = await response.json()
+      captureBillingEvent('Account Plan Change Failed', {
+        direction: 'upgrade',
+        targetPlanId: pendingPlanChange.tier,
+        status: response.status,
+        error: data.message || 'Something went wrong, please try again.',
+      })
       setErrorText(data.message || 'Something went wrong, please try again.')
     } catch (e) {
+      captureBillingEvent('Account Plan Change Failed', {
+        direction: 'upgrade',
+        targetPlanId: pendingPlanChange.tier,
+        status: response.status,
+        error: 'Error ' + response.status,
+      })
       setErrorText('Error ' + response.status + ', please try again.')
     }
     setOpening(false)
   }
 
   async function renewPlan() {
+    captureBillingEvent('Account Plan Reactivate Started')
     setErrorText(null)
     setOpening(true)
     const response = await fetch(`/api/teams/${team.id}/stripe-portal`, {
@@ -197,6 +295,7 @@ export default function Checkout({
       },
     })
     if (response.ok) {
+      captureBillingEvent('Account Plan Reactivated')
       if (onBillingChange) {
         try {
           await onBillingChange({
@@ -216,8 +315,16 @@ export default function Checkout({
     }
     try {
       const data = await response.json()
+      captureBillingEvent('Account Plan Reactivate Failed', {
+        status: response.status,
+        error: data.message || 'Something went wrong, please try again.',
+      })
       setErrorText(data.message || 'Something went wrong, please try again.')
     } catch (e) {
+      captureBillingEvent('Account Plan Reactivate Failed', {
+        status: response.status,
+        error: 'Error ' + response.status,
+      })
       setErrorText('Error ' + response.status + ', please try again.')
     }
     setOpening(false)

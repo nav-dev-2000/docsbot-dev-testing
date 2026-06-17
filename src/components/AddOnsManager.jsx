@@ -7,6 +7,7 @@ import {
   getAddOnDisplayPrice,
   getEffectiveAddOns,
   getStripeAddOnsFromEnv,
+  isAddOnAvailableForPlan,
 } from '@/utils/billingAddOns'
 import { stripePlan } from '@/utils/helpers'
 import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
@@ -18,6 +19,7 @@ const orderedAddOnIds = [
   ADD_ON_IDS.AI_CREDITS,
   ADD_ON_IDS.BOTS,
   ADD_ON_IDS.SOURCE_PAGES,
+  ADD_ON_IDS.TEAM_MEMBERS,
 ]
 
 export default function AddOnsManager({
@@ -27,6 +29,7 @@ export default function AddOnsManager({
   description = 'Scale your plan without upgrading. Add-ons renew on your billing cycle, and changes are prorated on your next invoice.',
   headerCentered = false,
   focusAddOnId = null,
+  teamInvites = [],
   onTeamBillingUpdate = null,
   onError = null,
   onSuccess = null,
@@ -46,24 +49,30 @@ export default function AddOnsManager({
       [ADD_ON_IDS.AI_CREDITS]: activeAddOns.aiCredits?.quantity || 0,
       [ADD_ON_IDS.BOTS]: activeAddOns.bots?.quantity || 0,
       [ADD_ON_IDS.SOURCE_PAGES]: activeAddOns.sourcePages?.quantity || 0,
+      [ADD_ON_IDS.TEAM_MEMBERS]: activeAddOns.teamMembers?.quantity || 0,
     })
   }, [
     activeAddOns.aiCredits?.quantity,
     activeAddOns.bots?.quantity,
     activeAddOns.sourcePages?.quantity,
+    activeAddOns.teamMembers?.quantity,
   ])
 
   const formatPrice = (amount) =>
     new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: currencyCode,
-      maximumFractionDigits: currencyCode === 'JPY' ? 0 : 0,
+      maximumFractionDigits:
+        currencyCode === 'JPY' || Number.isInteger(amount) ? 0 : 2,
     }).format(amount || 0)
 
   const getCurrentUsageForAddOn = (addOn) => {
     if (addOn?.limitKey === 'questions') return Number(team?.questionCount || 0)
     if (addOn?.limitKey === 'bots') return Number(team?.botCount || 0)
     if (addOn?.limitKey === 'pages') return Number(team?.pageCount || 0)
+    if (addOn?.limitKey === 'teamMembers') {
+      return Object.keys(team?.roles || {}).length + teamInvites.length
+    }
     return 0
   }
 
@@ -85,6 +94,9 @@ export default function AddOnsManager({
     if (addOn?.limitKey === 'questions') return 'credits'
     if (addOn?.limitKey === 'pages') return 'pages'
     if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
+    if (addOn?.limitKey === 'teamMembers') {
+      return amount === 1 ? 'team user' : 'team users'
+    }
     return addOn?.unitLabel || 'units'
   }
 
@@ -116,6 +128,8 @@ export default function AddOnsManager({
     interval === 'annually' ? `${formatPrice(price)}/year` : `${formatPrice(price)}/month`
 
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
+  const addOnIsAvailableForPlan = (addOn) =>
+    isAddOnAvailableForPlan(addOn, teamPlan)
 
   const updateAddOnBlockQuantity = (addOnId, value, minQuantity = 0) => {
     const nextQuantity = Math.max(minQuantity, Number(value) || 0)
@@ -292,11 +306,12 @@ export default function AddOnsManager({
         )}
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {addOnIds.map((actionId) => {
           const addOn = addOnCatalog[actionId]
           if (!addOn) return null
           const quantity = activeAddOns[actionId]?.quantity || 0
+          const availableForPlan = addOnIsAvailableForPlan(addOn)
           const minimumQuantity = getMinimumAddOnQuantity(addOn, quantity)
           const selectedQuantity = addOnQuantities[actionId] ?? quantity
           const belowMinimum = selectedQuantity < minimumQuantity
@@ -341,6 +356,7 @@ export default function AddOnsManager({
                   <select
                     id={`addon-${actionId}-quantity`}
                     value={selectedQuantity}
+                    disabled={!availableForPlan}
                     onChange={(event) =>
                       updateAddOnBlockQuantity(
                         actionId,
@@ -377,12 +393,23 @@ export default function AddOnsManager({
                         addOnQuantities[actionId] ?? quantity,
                       )
                     }
-                    disabled={openingAddOns || belowMinimum || unchanged}
+                    disabled={
+                      openingAddOns ||
+                      belowMinimum ||
+                      unchanged ||
+                      !availableForPlan
+                    }
                     className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
                   >
                     Change
                   </button>
                 </div>
+                {!availableForPlan && (
+                  <p className="mt-2 text-xs text-gray-500">
+                    Extra team users are available on Business and Enterprise
+                    plans.
+                  </p>
+                )}
                 {minimumQuantity > 0 && (
                   <p className="mt-2 text-xs text-gray-500">
                     Your current usage needs at least{' '}

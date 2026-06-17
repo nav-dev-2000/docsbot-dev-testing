@@ -122,7 +122,7 @@ function Dashboard({ team, purchase, teamInvites = [], bots = [] }) {
       name: 'Team Members',
       href: '/app/team',
       linkText: 'Manage',
-      tooltip: 'Current team members including pending invites. Your plan allows up to ' + stripePlan(team).teamMembers + ' members.',
+      tooltip: 'Current team members including invites. Your plan allows up to ' + stripePlan(team).teamMembers + ' members.',
       icon: UsersIcon,
       stat: teamMembersCount,
       limit: stripePlan(team).teamMembers,

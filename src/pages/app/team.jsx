@@ -26,6 +26,7 @@ import InviteRequest from '@/components/InviteRequest'
 import MemberDelete from '@/components/MemberDelete'
 import TransferOwnership from '@/components/TransferOwnership'
 import ModalCheckout from '@/components/ModalCheckout'
+import { ADD_ON_IDS } from '@/utils/billingAddOns'
 import { teamMembersRoles, botMembersRoles } from '@/constants/permissions.constants'
 import { canUserInvite, canUserModifyTeam, getUserRole } from '@/utils/function.utils'
 import Tooltip from '@/components/Tooltip'
@@ -54,6 +55,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
   const [weaviateApiKey, setWeaviateApiKey] = useState('')
   const [isUpdating, setIsUpdating] = useState(false)
   const [showUpgrade, setShowUpgrade] = useState(false)
+  const [upgradeAddOnFocus, setUpgradeAddOnFocus] = useState(null)
   // const [selectedRole, setSelectedRole] = useState(null)
   const [selectedMemberId, setSelectedMemberId] = useState(null)
   const [expandedBotRoles, setExpandedBotRoles] = useState({})
@@ -112,6 +114,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
     // Check if team is on Business plan or higher before allowing per bot role changes
     const planCheck = checkPlanPermission(currTeam, 'business')
     if (!planCheck.allowed && role !== 'default') {
+      setUpgradeAddOnFocus(null)
       setShowUpgrade(true)
       return
     }
@@ -306,10 +309,19 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
     const currentMemberCount = Object.keys(currTeam.roles).length + currTeamInvites.length
     
     if (currentMemberCount >= plan.teamMembers && !isSuperAdmin(userId)) {
+      setUpgradeAddOnFocus(ADD_ON_IDS.TEAM_MEMBERS)
       setShowUpgrade(true)
     } else {
       setToInvite(true)
     }
+  }
+
+  const handleAddOnBillingUpdate = (billingUpdate = {}) => {
+    if (!billingUpdate || Object.keys(billingUpdate).length === 0) return
+    setCurrTeam((current) => ({
+      ...(current || {}),
+      ...billingUpdate,
+    }))
   }
 
   useEffect(() => {
@@ -346,7 +358,19 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
       <Alert title={errorText} type="error" />
       <Alert title={successText} type="success" />
 
-      <ModalCheckout team={currTeam} open={showUpgrade} setOpen={setShowUpgrade} />
+      <ModalCheckout
+        team={currTeam}
+        open={showUpgrade}
+        setOpen={setShowUpgrade}
+        showAddOns={upgradeAddOnFocus === ADD_ON_IDS.TEAM_MEMBERS}
+        addOnFocusId={upgradeAddOnFocus || ADD_ON_IDS.BOTS}
+        addOnTitle="Add team user capacity"
+        addOnDescription="Add more team users without changing plans. Add-ons renew on your billing cycle, and changes are prorated on your next invoice."
+        teamInvites={currTeamInvites}
+        onTeamBillingUpdate={handleAddOnBillingUpdate}
+        onError={setErrorText}
+        onSuccess={setSuccessText}
+      />
 
       {inviteList.map(({ teamId, teamName, inviteId, role }) => (
         <InviteRequest
@@ -466,6 +490,8 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
           setErrorText,
           setSuccessText,
           bots: teamBots,
+          teamInvites: currTeamInvites,
+          onTeamBillingUpdate: handleAddOnBillingUpdate,
         }}
       />
       <MemberDelete
@@ -757,6 +783,7 @@ function Team({ team, userId, teamUsers, userInvites, teamInvites, bots }) {
                                     onClick={() => {
                                       const planCheck = checkPlanPermission(currTeam, 'business')
                                       if (!planCheck.allowed) {
+                                        setUpgradeAddOnFocus(null)
                                         setShowUpgrade(true)
                                         return
                                       }

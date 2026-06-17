@@ -770,7 +770,7 @@ export default function PricingPage() {
                       currency={currency}
                       interval={frequency?.value}
                       dark
-                      className="mx-auto mt-10 max-w-5xl"
+                      className="mt-10 w-full"
                     />
                   </div>
 

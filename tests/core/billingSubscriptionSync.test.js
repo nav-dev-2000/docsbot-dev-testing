@@ -48,6 +48,14 @@ describe('billingSubscriptionSync', () => {
           },
         },
       },
+      teamMembers: {
+        prices: {
+          USD: {
+            monthly: 'price_addon_team_members_monthly',
+            annually: 'price_addon_team_members_yearly',
+          },
+        },
+      },
     })
 
     const { buildTeamBillingUpdate } = await loadBillingSubscriptionSync()
@@ -84,6 +92,15 @@ describe('billingSubscriptionSync', () => {
                 interval: 'month',
               },
             },
+            {
+              quantity: 3,
+              price: {
+                id: 'price_addon_team_members_monthly',
+                product: 'prod_addon_team_members',
+                amount: 900,
+                interval: 'month',
+              },
+            },
           ],
         },
       },
@@ -96,6 +113,7 @@ describe('billingSubscriptionSync', () => {
         aiCredits: expect.objectContaining({ quantity: 2 }),
         bots: expect.objectContaining({ quantity: 0 }),
         sourcePages: expect.objectContaining({ quantity: 0 }),
+        teamMembers: expect.objectContaining({ quantity: 3 }),
       },
       questionLimit: 15000,
       plan: 'personal',
@@ -142,6 +160,14 @@ describe('billingSubscriptionSync', () => {
           },
         },
       },
+      teamMembers: {
+        prices: {
+          current: {
+            monthly: 'price_addon_team_members_monthly',
+            annually: 'price_addon_team_members_yearly',
+          },
+        },
+      },
     })
 
     const { buildTeamBillingUpdate } = await loadBillingSubscriptionSync()
@@ -180,6 +206,16 @@ describe('billingSubscriptionSync', () => {
                 interval: 'year',
               },
             },
+            {
+              id: 'si_team_members_annual',
+              quantity: 2,
+              price: {
+                id: 'price_addon_team_members_yearly',
+                product: 'prod_addon_team_members',
+                amount: 10800,
+                interval: 'year',
+              },
+            },
           ],
         },
       },
@@ -194,6 +230,12 @@ describe('billingSubscriptionSync', () => {
           quantity: 2,
           subscriptionId: 'sub_annual',
           itemId: 'si_ai_annual',
+          status: 'active',
+        }),
+        teamMembers: expect.objectContaining({
+          quantity: 2,
+          subscriptionId: 'sub_annual',
+          itemId: 'si_team_members_annual',
           status: 'active',
         }),
       },

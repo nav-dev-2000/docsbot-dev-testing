@@ -1257,6 +1257,7 @@ export const getNeededStripeProduct = (team, teamInvites = [], bots = []) => {
     const extraBots = addOnLimit('bots', 1)
     const extraPages = addOnLimit('sourcePages', 10000)
     const extraQuestions = addOnLimit('aiCredits', 5000)
+    const extraTeamMembers = addOnLimit('teamMembers', 1)
     const supportsLimitWithAddOns = (planLimit, key, currentValue, extra) =>
       Number(planLimit?.[key] || 0) + extra >= Number(currentValue || 0)
     const portalPlanPriceGroups = (eligiblePlanIds) => plansArray
@@ -1286,7 +1287,7 @@ export const getNeededStripeProduct = (team, teamInvites = [], bots = []) => {
       supportsLimitWithAddOns(personalPlanLimit, 'bots', team?.botCount, extraBots) &&
       supportsLimitWithAddOns(personalPlanLimit, 'pages', team?.pageCount, extraPages) &&
       supportsLimitWithAddOns(personalPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
-      personalPlanLimit.teamMembers >= currentMemberCount &&
+      supportsLimitWithAddOns(personalPlanLimit, 'teamMembers', currentMemberCount, extraTeamMembers) &&
       planSupportsActionCount(personalPlanLimit) &&
       planSupportsConfiguredBotFeatures('personal')
     ) {
@@ -1295,7 +1296,7 @@ export const getNeededStripeProduct = (team, teamInvites = [], bots = []) => {
       supportsLimitWithAddOns(standardPlanLimit, 'bots', team?.botCount, extraBots) &&
       supportsLimitWithAddOns(standardPlanLimit, 'pages', team?.pageCount, extraPages) &&
       supportsLimitWithAddOns(standardPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
-      standardPlanLimit.teamMembers >= currentMemberCount &&
+      supportsLimitWithAddOns(standardPlanLimit, 'teamMembers', currentMemberCount, extraTeamMembers) &&
       planSupportsActionCount(standardPlanLimit) &&
       planSupportsConfiguredBotFeatures('standard')
     ) {
@@ -1304,7 +1305,7 @@ export const getNeededStripeProduct = (team, teamInvites = [], bots = []) => {
       supportsLimitWithAddOns(businessPlanLimit, 'bots', team?.botCount, extraBots) &&
       supportsLimitWithAddOns(businessPlanLimit, 'pages', team?.pageCount, extraPages) &&
       supportsLimitWithAddOns(businessPlanLimit, 'questions', team?.questionCount, extraQuestions) &&
-      businessPlanLimit.teamMembers >= currentMemberCount &&
+      supportsLimitWithAddOns(businessPlanLimit, 'teamMembers', currentMemberCount, extraTeamMembers) &&
       planSupportsActionCount(businessPlanLimit) &&
       planSupportsConfiguredBotFeatures('business')
     ) {

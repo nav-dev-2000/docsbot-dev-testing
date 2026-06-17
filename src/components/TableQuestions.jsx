@@ -259,7 +259,11 @@ const Answer = ({
                 </button>
             )}
             <Transition.Root show={open} as={Fragment}>
-                <Dialog as="div" className="relative z-modal" onClose={setOpen}>
+                <Dialog
+                    as="div"
+                    className="relative z-[110]"
+                    onClose={setOpen}
+                >
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"
@@ -283,191 +287,275 @@ const Answer = ({
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
-                                <Dialog.Panel className="relative flex max-h-[calc(100vh-2rem)] transform flex-col overflow-visible rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:max-h-[calc(100vh-4rem)] sm:w-full sm:max-w-5xl">
-                                    <div className="absolute left-0 right-0 top-0 z-10 flex justify-end bg-white/90 pr-4 pt-4 backdrop-blur-sm">
-                                        <button
-                                            type="button"
-                                            disabled={!canModify}
-                                            className={
-                                                'mr-10 flex items-center rounded-md text-xs focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2' +
-                                                (canModify
-                                                    ? ' text-red-400 hover:text-red-500'
-                                                    : ' cursor-not-allowed text-gray-300')
-                                            }
-                                            onClick={() =>
-                                                deleteQuestion(question.id)
-                                            }
-                                        >
-                                            <TrashIcon
-                                                className="mr-1 h-4 w-4"
-                                                aria-hidden="true"
-                                            />{' '}
-                                            Delete
-                                        </button>
-
-                                        <button
-                                            className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                                            onClick={(e) => {
-                                                e.preventDefault()
-                                                navigator.clipboard.writeText(
-                                                    `${window.location.origin}/app/bots/${bot.id}/analytics/questions/${question.id}`,
-                                                )
-                                                setCopied(true)
-                                                setTimeout(() => {
-                                                    setCopied(false)
-                                                }, 2000)
-                                            }}
-                                            disabled={copied}
-                                            title="Copy a shareable link to this question to share to team members or support."
-                                        >
-                                            <ClipboardDocumentIcon
-                                                className="mr-1 h-4 w-4"
-                                                aria-hidden="true"
-                                            />
-                                            {copied
-                                                ? 'Copied!'
-                                                : 'Copy Share Link'}
-                                        </button>
-
-                                        {question.conversationId && (
-                                            <Tooltip content="View full conversation">
-                                                <Link
-                                                    href={`/app/bots/${bot.id}/analytics/conversations?conversationId=${question.conversationId}`}
-                                                    className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                                                >
-                                                    <ChatBubbleLeftRightIcon
-                                                        className="mr-1 h-4 w-4"
-                                                        aria-hidden="true"
+                                <Dialog.Panel
+                                    className="relative flex max-h-[calc(100vh-2rem)] transform flex-col overflow-visible rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:max-h-[calc(100vh-4rem)] sm:w-full sm:max-w-5xl"
+                                    data-question-dialog-panel
+                                >
+                                    <div className="shrink-0 rounded-t-lg border-b border-gray-200 bg-white px-6 py-4">
+                                        <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                                            <div className="min-w-0 flex-1">
+                                                <div className="flex min-w-0 items-center gap-2 text-sm font-medium text-gray-500">
+                                                    <img
+                                                        className="h-7 w-7 shrink-0 rounded-full"
+                                                        src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
+                                                        alt="User avatar"
                                                     />
-                                                    Conversation
-                                                </Link>
-                                            </Tooltip>
-                                        )}
-
-                                        {question.metadata?.helpscoutReply ===
-                                            true && (
-                                            <Tooltip
-                                                content={
-                                                    question.metadata
-                                                        ?.helpscoutConversationUrl
-                                                        ? 'View conversation in Help Scout'
-                                                        : 'Help Scout conversation'
-                                                }
-                                            >
-                                                {question.metadata
-                                                    ?.helpscoutConversationUrl ? (
-                                                    <a
-                                                        href={
+                                                    <span className="min-w-0 truncate text-gray-700">
+                                                        {question.alias}
+                                                    </span>
+                                                    {ipFilter === null &&
+                                                        question.ip !==
+                                                            undefined && (
+                                                            <Tooltip content="Filter to this user">
+                                                                <button
+                                                                    type="button"
+                                                                    className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                                    onClick={() => {
+                                                                        updateIPFilter(
+                                                                            question.ip,
+                                                                            question.alias,
+                                                                        )
+                                                                    }}
+                                                                >
+                                                                    <AdjustmentsHorizontalIcon
+                                                                        className="h-4 w-4"
+                                                                        aria-hidden="true"
+                                                                    />
+                                                                    <span className="sr-only">
+                                                                        Filter
+                                                                        to
+                                                                        this
+                                                                        user
+                                                                    </span>
+                                                                </button>
+                                                            </Tooltip>
+                                                        )}
+                                                    <ConversationMetadataViewer
+                                                        metadata={
                                                             question.metadata
-                                                                .helpscoutConversationUrl
                                                         }
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                                                    >
-                                                        <HelpScoutLogo
-                                                            className="mr-1 h-4 w-4 text-[#1292ee]"
-                                                            aria-hidden="true"
-                                                        />
-                                                        Help Scout
-                                                    </a>
-                                                ) : (
-                                                    <div className="mr-6 flex items-center text-xs text-gray-400">
-                                                        <HelpScoutLogo
-                                                            className="mr-1 h-4 w-4 text-[#1292ee]"
-                                                            aria-hidden="true"
-                                                        />
-                                                        Help Scout
-                                                    </div>
-                                                )}
-                                            </Tooltip>
-                                        )}
+                                                    />
+                                                </div>
+                                                <div className="mt-1 pl-9 text-xs text-gray-400">
+                                                    asked
+                                                    {question.metadata
+                                                        ?.referrer ? (
+                                                        <>
+                                                            {' '}
+                                                            from{' '}
+                                                            <span className="break-all text-gray-500">
+                                                                {String(
+                                                                    question
+                                                                        .metadata
+                                                                        .referrer,
+                                                                )}
+                                                            </span>
+                                                        </>
+                                                    ) : null}
+                                                </div>
+                                            </div>
 
-                                        {user &&
-                                            user.uid &&
-                                            isSuperAdmin(user.uid) && (
-                                                <Link
-                                                    href={`https://smith.langchain.com/o/3a7d1270-cdc3-4de5-8a1a-c595a186eb5a/projects/p/7a4e94a1-8115-48bd-a144-fd83defbf4b0/r/${question.run_id}`}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="mr-6 flex items-center text-xs text-gray-400 hover:text-gray-600"
-                                                    title="View run in LangSmith"
+                                            <div className="flex shrink-0 flex-wrap items-center justify-start gap-x-5 gap-y-2 text-sm lg:justify-end">
+                                                <button
+                                                    type="button"
+                                                    disabled={!canModify}
+                                                    className={clsx(
+                                                        'inline-flex items-center gap-1.5 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2',
+                                                        canModify
+                                                            ? 'text-red-500 hover:text-red-600'
+                                                            : 'cursor-not-allowed text-gray-300',
+                                                    )}
+                                                    onClick={() =>
+                                                        deleteQuestion(
+                                                            question.id,
+                                                        )
+                                                    }
                                                 >
-                                                    <ChartBarIcon
-                                                        className="mr-1 h-4 w-4"
+                                                    <TrashIcon
+                                                        className="h-4 w-4"
                                                         aria-hidden="true"
                                                     />
-                                                    View Trace
-                                                </Link>
-                                            )}
+                                                    Delete
+                                                </button>
 
-                                        <button
-                                            type="button"
-                                            disabled={!canModify}
-                                            className={
-                                                'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
-                                                (canModify
-                                                    ? ' '
-                                                    : ' cursor-not-allowed')
-                                            }
-                                            onClick={() =>
-                                                saveRating(question.id, 1)
-                                            }
-                                        >
-                                            <span className="sr-only">
-                                                Up vote
-                                            </span>
-                                            <HandThumbUpIcon
-                                                className={clsx(
-                                                    'h-6 w-6',
-                                                    question.rating > 0
-                                                        ? 'text-green-600'
-                                                        : 'text-gray-600',
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex items-center gap-1.5 rounded-md font-medium text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                    onClick={(e) => {
+                                                        e.preventDefault()
+                                                        navigator.clipboard.writeText(
+                                                            `${window.location.origin}/app/bots/${bot.id}/analytics/questions/${question.id}`,
+                                                        )
+                                                        setCopied(true)
+                                                        setTimeout(() => {
+                                                            setCopied(false)
+                                                        }, 2000)
+                                                    }}
+                                                    disabled={copied}
+                                                    title="Copy a shareable link to this question to share to team members or support."
+                                                >
+                                                    <ClipboardDocumentIcon
+                                                        className="h-4 w-4"
+                                                        aria-hidden="true"
+                                                    />
+                                                    {copied
+                                                        ? 'Copied'
+                                                        : 'Copy link'}
+                                                </button>
+
+                                                {question.conversationId && (
+                                                    <Tooltip content="View full conversation">
+                                                        <Link
+                                                            href={`/app/bots/${bot.id}/analytics/conversations?conversationId=${question.conversationId}`}
+                                                            className="inline-flex items-center gap-1.5 rounded-md font-medium text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                        >
+                                                            <ChatBubbleLeftRightIcon
+                                                                className="h-4 w-4"
+                                                                aria-hidden="true"
+                                                            />
+                                                            Conversation
+                                                        </Link>
+                                                    </Tooltip>
                                                 )}
-                                                aria-hidden="true"
-                                            />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            disabled={!canModify}
-                                            className={
-                                                'mr-2 rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2' +
-                                                (canModify
-                                                    ? ' '
-                                                    : ' cursor-not-allowed')
-                                            }
-                                            onClick={() =>
-                                                saveRating(question.id, -1)
-                                            }
-                                        >
-                                            <span className="sr-only">
-                                                Down vote
-                                            </span>
-                                            <HandThumbDownIcon
-                                                className={clsx(
-                                                    'h-6 w-6',
-                                                    question.rating < 0
-                                                        ? 'text-red-600'
-                                                        : 'text-gray-600',
+
+                                                {question.metadata
+                                                    ?.helpscoutReply ===
+                                                    true && (
+                                                    <Tooltip
+                                                        content={
+                                                            question.metadata
+                                                                ?.helpscoutConversationUrl
+                                                                ? 'View conversation in Help Scout'
+                                                                : 'Help Scout conversation'
+                                                        }
+                                                    >
+                                                        {question.metadata
+                                                            ?.helpscoutConversationUrl ? (
+                                                            <a
+                                                                href={
+                                                                    question
+                                                                        .metadata
+                                                                        .helpscoutConversationUrl
+                                                                }
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="inline-flex items-center gap-1.5 rounded-md font-medium text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                            >
+                                                                <HelpScoutLogo
+                                                                    className="h-4 w-4 text-[#1292ee]"
+                                                                    aria-hidden="true"
+                                                                />
+                                                                Help Scout
+                                                            </a>
+                                                        ) : (
+                                                            <div className="inline-flex items-center gap-1.5 rounded-md font-medium text-gray-400">
+                                                                <HelpScoutLogo
+                                                                    className="h-4 w-4 text-[#1292ee]"
+                                                                    aria-hidden="true"
+                                                                />
+                                                                Help Scout
+                                                            </div>
+                                                        )}
+                                                    </Tooltip>
                                                 )}
-                                                aria-hidden="true"
-                                            />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                            onClick={() => setOpen(false)}
-                                        >
-                                            <span className="sr-only">
-                                                Close
-                                            </span>
-                                            <XMarkIcon
-                                                className="h-6 w-6"
-                                                aria-hidden="true"
-                                            />
-                                        </button>
+
+                                                {user &&
+                                                    user.uid &&
+                                                    isSuperAdmin(user.uid) && (
+                                                        <Link
+                                                            href={`https://smith.langchain.com/o/3a7d1270-cdc3-4de5-8a1a-c595a186eb5a/projects/p/7a4e94a1-8115-48bd-a144-fd83defbf4b0/r/${question.run_id}`}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-flex items-center gap-1.5 rounded-md font-medium text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                            title="View run in LangSmith"
+                                                        >
+                                                            <ChartBarIcon
+                                                                className="h-4 w-4"
+                                                                aria-hidden="true"
+                                                            />
+                                                            Trace
+                                                        </Link>
+                                                    )}
+
+                                                <div className="h-5 w-px bg-gray-200" />
+
+                                                <button
+                                                    type="button"
+                                                    disabled={!canModify}
+                                                    className={clsx(
+                                                        'inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                                                        canModify
+                                                            ? 'text-gray-500 hover:text-green-600'
+                                                            : 'cursor-not-allowed text-gray-300',
+                                                    )}
+                                                    onClick={() =>
+                                                        saveRating(
+                                                            question.id,
+                                                            1,
+                                                        )
+                                                    }
+                                                >
+                                                    <span className="sr-only">
+                                                        Up vote
+                                                    </span>
+                                                    <HandThumbUpIcon
+                                                        className={clsx(
+                                                            'h-5 w-5',
+                                                            question.rating > 0
+                                                                ? 'text-green-600'
+                                                                : '',
+                                                        )}
+                                                        aria-hidden="true"
+                                                    />
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    disabled={!canModify}
+                                                    className={clsx(
+                                                        'inline-flex rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2',
+                                                        canModify
+                                                            ? 'text-gray-500 hover:text-red-600'
+                                                            : 'cursor-not-allowed text-gray-300',
+                                                    )}
+                                                    onClick={() =>
+                                                        saveRating(
+                                                            question.id,
+                                                            -1,
+                                                        )
+                                                    }
+                                                >
+                                                    <span className="sr-only">
+                                                        Down vote
+                                                    </span>
+                                                    <HandThumbDownIcon
+                                                        className={clsx(
+                                                            'h-5 w-5',
+                                                            question.rating < 0
+                                                                ? 'text-red-600'
+                                                                : '',
+                                                        )}
+                                                        aria-hidden="true"
+                                                    />
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    className="inline-flex rounded-md text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+                                                    onClick={() =>
+                                                        setOpen(false)
+                                                    }
+                                                >
+                                                    <span className="sr-only">
+                                                        Close
+                                                    </span>
+                                                    <XMarkIcon
+                                                        className="h-5 w-5"
+                                                        aria-hidden="true"
+                                                    />
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="flex-1 overflow-y-auto p-8">
+                                    <div className="flex-1 overflow-y-auto px-8 pb-8 pt-6">
                                         {question?.escalation && (
                                             <Alert
                                                 title="This user escalated this message to support"
@@ -475,52 +563,6 @@ const Answer = ({
                                                 className="rounded-t-lg"
                                             />
                                         )}
-                                        <div className="flex-inline p-0">
-                                            <div className="flex items-center">
-                                                <h2 className="flex items-center text-wrap text-sm font-medium text-gray-400">
-                                                    <img
-                                                        className="mr-1 inline-block h-5 w-5 rounded-full"
-                                                        src={`https://api.dicebear.com/6.x/personas/svg?seed=${question.alias}?size=24&backgroundType=gradientLinear,solid&backgroundColor=FDE7E4,FFE8EF,FCF2FF,EBDFFF,EEF1FF,EAF5FF,E9FDFF,ECFFF6,F0FFE9,FFFDEE,FFF5DD,FFD9C9,EDEDED,FFFFFF,B3B3B3`}
-                                                        alt="User avatar"
-                                                    />
-                                                    {question.alias} asked
-                                                    {question.metadata?.referrer
-                                                        ? ` from ${question.metadata.referrer}`
-                                                        : ''}
-                                                    :
-                                                </h2>
-                                                <div className="ml-2 flex items-center gap-2">
-                                                    <ConversationMetadataViewer
-                                                        metadata={
-                                                            question.metadata
-                                                        }
-                                                    />
-                                                    {ipFilter === null &&
-                                                        question.ip !==
-                                                            undefined && (
-                                                            <button
-                                                                type="button"
-                                                                className="flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                                                onClick={() => {
-                                                                    updateIPFilter(
-                                                                        question.ip,
-                                                                        question.alias,
-                                                                    )
-                                                                }}
-                                                            >
-                                                                <AdjustmentsHorizontalIcon
-                                                                    className="m-auto h-4 w-4"
-                                                                    aria-hidden="true"
-                                                                />
-                                                                <span className="m-auto hidden pl-1 text-xs text-gray-400 sm:block">
-                                                                    Filter to
-                                                                    user
-                                                                </span>
-                                                            </button>
-                                                        )}
-                                                </div>
-                                            </div>
-                                        </div>
                                         <h2 className="text-xl font-medium text-gray-900">
                                             {question.question}
                                         </h2>

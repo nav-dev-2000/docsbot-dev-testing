@@ -45,11 +45,16 @@ describe('checkoutValidation', () => {
           botCount: 3,
           pageCount: 20100,
           questionCount: 5900,
-          roles: {},
           stripeAddOns: {
             bots: { quantity: 1 },
             sourcePages: { quantity: 2 },
             aiCredits: { quantity: 1 },
+            teamMembers: { quantity: 2 },
+          },
+          roles: {
+            owner: 'owner',
+            admin: 'admin',
+            editor: 'editor',
           },
         },
         planLimits: {

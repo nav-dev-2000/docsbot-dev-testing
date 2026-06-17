@@ -8,9 +8,12 @@ const auth = getAuth()
 import { stripePlan } from '@/utils/helpers'
 import {
   collectAddOnsFromSubscription,
+  getAddOnConfig,
   getBaseSubscriptionItem,
   isAddOnPriceId,
   mergeStripeAddOns,
+  normalizeAddOnQuantity,
+  subscriptionItems,
 } from '@/utils/billingAddOns'
 import { IncomingWebhook } from '@slack/webhook'
 import { bentoTrack, teamOwner } from '@/lib/bento'
@@ -136,6 +139,81 @@ const slack = slackWebhookUrl
   ? new IncomingWebhook(slackWebhookUrl, slackWebhookOptions)
   : { send: async () => {} }
 
+const getChangedAddOns = ({ existingAddOns, previousItems, subscription }) => {
+  const previousAddOns = existingAddOns
+    ? mergeStripeAddOns(existingAddOns, {})
+    : previousItems
+      ? collectAddOnsFromSubscription({
+          id: subscription.id,
+          status: subscription.status,
+          items: { data: previousItems },
+        })
+      : null
+  if (!previousAddOns) return []
+
+  const currentAddOns = collectAddOnsFromSubscription(subscription)
+  const currentItems = subscriptionItems(subscription)
+  for (const [addOnId, previousAddOn] of Object.entries(previousAddOns)) {
+    if (!previousAddOn?.itemId || currentAddOns[addOnId]?.quantity) continue
+
+    const matchingItem = currentItems.find((item) => item.id === previousAddOn.itemId)
+    if (!matchingItem) continue
+
+    currentAddOns[addOnId] = {
+      ...currentAddOns[addOnId],
+      quantity: normalizeAddOnQuantity(matchingItem.quantity),
+      subscriptionId: subscription.id || previousAddOn.subscriptionId || null,
+      itemId: matchingItem.id,
+      status: subscription.status || previousAddOn.status || null,
+    }
+  }
+
+  return Object.entries(currentAddOns)
+    .filter(([addOnId, current]) => {
+      const previous = previousAddOns[addOnId]
+      return previous && previous.quantity !== current.quantity
+    })
+    .map(([addOnId, current]) => ({
+      id: addOnId,
+      name: getAddOnConfig(addOnId)?.name || addOnId,
+      previousQuantity: previousAddOns[addOnId]?.quantity || 0,
+      quantity: current.quantity || 0,
+    }))
+}
+
+const notifySlackAddOnChanges = async ({ changedAddOns, teamObj, teamLink, ownerEmail }) => {
+  if (!changedAddOns.length) return
+
+  await slack.send({
+    attachments: [
+      {
+        fallback: `DocsBot add-ons changed for ${teamObj.name}`,
+        color: '#0891b2',
+        title: 'DocsBot Subscription Add-Ons Changed',
+        fields: [
+          {
+            title: 'Customer Email',
+            value: `${ownerEmail}`,
+            short: true,
+          },
+          {
+            title: 'Team',
+            value: `<${teamLink}|${teamObj.name}>`,
+            short: false,
+          },
+          {
+            title: 'Changes',
+            value: changedAddOns
+              .map((addOn) => `${addOn.name}: ${addOn.previousQuantity} -> ${addOn.quantity}`)
+              .join('\n'),
+            short: false,
+          },
+        ],
+      },
+    ],
+  })
+}
+
 const isAddOnOnlySubscription = (subscription) => {
   const items = subscription?.items?.data || []
   return items.length > 0 && items.every((item) => isAddOnPriceId(item?.price?.id || item?.plan?.id))
@@ -242,6 +320,11 @@ const webhookHandler = async (req, res) => {
               const previousPlan = previousItems
                 ? findConfiguredPlan(previousItems, configuredPlans)
                 : null
+              const changedAddOns = getChangedAddOns({
+                existingAddOns: teamObj?.stripeAddOns,
+                previousItems,
+                subscription: syncedSubscription,
+              })
 
               // save subscription to team
               const updateData = {
@@ -339,6 +422,21 @@ const webhookHandler = async (req, res) => {
                         ],
                       },
                     ],
+                  })
+                } catch (e) {
+                  console.error(e)
+                }
+              }
+
+              if (changedAddOns.length) {
+                const ownerEmail = await getTeamEmail(teamObj)
+
+                try {
+                  await notifySlackAddOnChanges({
+                    changedAddOns,
+                    teamObj,
+                    teamLink,
+                    ownerEmail,
                   })
                 } catch (e) {
                   console.error(e)

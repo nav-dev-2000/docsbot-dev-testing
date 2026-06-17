@@ -51,6 +51,88 @@ describe('planDowngrade', () => {
     expect(blockers.some((reason) => reason.includes('team members'))).toBe(true)
   })
 
+  it('allows lower plans when team-user add-ons cover current members', () => {
+    const blockers = getSubscriptionPlanChangeBlockers({
+      team: {
+        stripeSubscriptionPlan: 'standard',
+        stripeSubscriptionId: 'sub_123',
+        stripeSubscriptionStatus: 'active',
+        stripeAddOns: {
+          teamMembers: {
+            quantity: 2,
+            subscriptionId: 'sub_123',
+            status: 'active',
+          },
+        },
+        botCount: 1,
+        pageCount: 100,
+        questionCount: 100,
+        roles: { user1: 'owner', user2: 'member', user3: 'member' },
+      },
+      bots: [],
+      teamInvites: [],
+      teamSourceTypes: [],
+      targetPlanId: 'personal',
+      configuredPlans,
+    })
+
+    expect(blockers.some((reason) => reason.includes('team members'))).toBe(false)
+  })
+
+  it('blocks downgrades below business while team-user add-ons are active', () => {
+    const blockers = getSubscriptionPlanChangeBlockers({
+      team: {
+        stripeSubscriptionPlan: 'standard',
+        stripeSubscriptionId: 'sub_123',
+        stripeSubscriptionStatus: 'active',
+        stripeAddOns: {
+          teamMembers: {
+            quantity: 1,
+            subscriptionId: 'sub_123',
+            status: 'active',
+          },
+        },
+        botCount: 1,
+        pageCount: 100,
+        questionCount: 100,
+        roles: { user1: 'owner' },
+      },
+      bots: [],
+      teamInvites: [],
+      teamSourceTypes: [],
+      targetPlanId: 'personal',
+      configuredPlans,
+    })
+
+    expect(blockers).toContain('Extra team users require Business or higher')
+
+    const standardBlockers = getSubscriptionPlanChangeBlockers({
+      team: {
+        stripeSubscriptionPlan: 'business',
+        stripeSubscriptionId: 'sub_123',
+        stripeSubscriptionStatus: 'active',
+        stripeAddOns: {
+          teamMembers: {
+            quantity: 1,
+            subscriptionId: 'sub_123',
+            status: 'active',
+          },
+        },
+        botCount: 1,
+        pageCount: 100,
+        questionCount: 100,
+        roles: { user1: 'owner' },
+      },
+      bots: [],
+      teamInvites: [],
+      teamSourceTypes: [],
+      targetPlanId: 'standard',
+      configuredPlans,
+    })
+
+    expect(standardBlockers).toContain('Extra team users require Business or higher')
+  })
+
   it('lists full plan feature differences for downgrade messaging', () => {
     const losses = getPlanDowngradeLosses({
       currentPlanId: 'standard',

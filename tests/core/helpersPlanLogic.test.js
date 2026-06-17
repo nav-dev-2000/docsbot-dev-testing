@@ -134,6 +134,15 @@ describe('helpers.js billing and scheduling logic', () => {
           },
         },
       },
+      teamMembers: {
+        unit: 1,
+        prices: {
+          current: {
+            monthly: 'price_team_members_monthly',
+            annually: 'price_team_members_yearly',
+          },
+        },
+      },
     })
   })
 
@@ -278,6 +287,7 @@ describe('helpers.js billing and scheduling logic', () => {
           aiCredits: { quantity: 2 },
           bots: { quantity: 1 },
           sourcePages: { quantity: 3 },
+          teamMembers: { quantity: 2 },
         },
       }),
     ).toMatchObject({
@@ -285,6 +295,7 @@ describe('helpers.js billing and scheduling logic', () => {
       bots: 4,
       pages: 45000,
       questions: 25000,
+      teamMembers: 7,
     })
   })
 
@@ -315,6 +326,12 @@ describe('helpers.js billing and scheduling logic', () => {
             itemId: 'si_pages_annual',
             status: 'active',
           },
+          teamMembers: {
+            quantity: 2,
+            subscriptionId: 'sub_annual',
+            itemId: 'si_team_members_annual',
+            status: 'active',
+          },
         },
       }),
     ).toMatchObject({
@@ -322,6 +339,7 @@ describe('helpers.js billing and scheduling logic', () => {
       bots: 4,
       pages: 45000,
       questions: 25000,
+      teamMembers: 7,
     })
   })
 
@@ -346,6 +364,39 @@ describe('helpers.js billing and scheduling logic', () => {
     expect(getAddOnDisplayPrice(getAddOnConfig('aiCredits'), 'USD', 'year')).toBe(
       588,
     )
+    expect(getAddOnPriceId('teamMembers', 'USD', 'month')).toBe(
+      'price_team_members_monthly',
+    )
+    expect(getAddOnDisplayPrice(getAddOnConfig('teamMembers'), 'USD', 'year')).toBe(
+      228,
+    )
+  })
+
+  it('allows Enterprise-eligible add-ons for custom Enterprise plans', async () => {
+    const {
+      getAddOnConfig,
+      isAddOnAvailableForPlan,
+    } = await import('@/utils/billingAddOns')
+
+    const teamMembersAddOn = getAddOnConfig('teamMembers')
+
+    expect(
+      isAddOnAvailableForPlan(teamMembersAddOn, {
+        id: 'custom_enterprise_2026',
+        name: 'Custom Enterprise',
+        pages: 250000,
+        bots: 25,
+      }),
+    ).toBe(true)
+
+    expect(
+      isAddOnAvailableForPlan(teamMembersAddOn, {
+        id: 'standard',
+        name: 'Standard',
+        pages: 15000,
+        bots: 3,
+      }),
+    ).toBe(false)
   })
 
   it('requires explicit opt-in for auto-increase AI credits', async () => {
@@ -372,6 +423,7 @@ describe('helpers.js billing and scheduling logic', () => {
           aiCredits: { quantity: 2 },
           bots: { quantity: 1 },
           sourcePages: { quantity: 3 },
+          teamMembers: { quantity: 2 },
         },
       }),
     ).toMatchObject({
@@ -379,6 +431,7 @@ describe('helpers.js billing and scheduling logic', () => {
       bots: 1,
       pages: 50,
       questions: 100,
+      teamMembers: 1,
     })
   })
 
@@ -393,12 +446,14 @@ describe('helpers.js billing and scheduling logic', () => {
         stripeAddOns: {
           aiCredits: { quantity: 2, subscriptionId: 'sub_addons' },
           bots: { quantity: 1, subscriptionId: 'sub_base' },
+          teamMembers: { quantity: 2, subscriptionId: 'sub_addons' },
         },
       }),
     ).toMatchObject({
       id: 'standard',
       bots: 4,
       questions: 15000,
+      teamMembers: 5,
     })
   })
 
@@ -446,6 +501,7 @@ describe('helpers.js billing and scheduling logic', () => {
           aiCredits: { quantity: 2 },
           bots: { quantity: 1 },
           sourcePages: { quantity: 3 },
+          teamMembers: { quantity: 2 },
         },
       }),
     ).toEqual([

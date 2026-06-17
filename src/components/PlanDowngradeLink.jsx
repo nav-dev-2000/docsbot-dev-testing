@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { usePostHog } from 'posthog-js/react'
 import { stripePlan, hasGrandfatheredPlanLimits } from '@/utils/helpers'
 import GrandfatheredPlanWarning, {
   getGrandfatheredDowngradeWarningMessage,
@@ -20,7 +21,9 @@ export default function PlanDowngradeLink({
   teamSourceTypes = [],
   setErrorText,
   onBillingChange = null,
+  trackingContext = {},
 }) {
+  const posthog = usePostHog()
   const [open, setOpen] = useState(false)
   const [selectedTierId, setSelectedTierId] = useState('')
   const [opening, setOpening] = useState(false)
@@ -67,8 +70,29 @@ export default function PlanDowngradeLink({
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
   const currency = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
 
+  const captureDowngradeEvent = (eventName, properties = {}) => {
+    posthog?.capture(eventName, {
+      source: 'account_page',
+      ...trackingContext,
+      currentPlanId: currentPlan?.id,
+      currentPlanName: currentPlan?.name,
+      selectedTierId,
+      selectedTierName: selectedTier?.name || null,
+      lowerPlanOptionCount: lowerPlanOptions.length,
+      downgradeLossCount: downgradeLosses.length,
+      isGrandfatheredPlan,
+      ...properties,
+    })
+  }
+
   async function previewPlanChange() {
     if (!selectedTierId) return
+    captureDowngradeEvent('Account Downgrade Preview Started', {
+      targetPlanId: selectedTierId,
+      targetPlanName: selectedTier?.name || null,
+      frequency,
+      currency,
+    })
     setErrorText?.(null)
     setOpening(true)
     const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
@@ -91,13 +115,39 @@ export default function PlanDowngradeLink({
         currency,
       })
       setPlanChangePreview(data.preview)
+      captureDowngradeEvent('Account Downgrade Previewed', {
+        targetPlanId: selectedTierId,
+        targetPlanName: selectedTier?.name || null,
+        frequency,
+        currency,
+        amountDue: Number(data.preview?.amountDue || 0),
+        total: Number(data.preview?.total || 0),
+        creditAmount: Number(data.preview?.creditAmount || 0),
+        accountCreditApplied: Number(data.preview?.accountCreditApplied || 0),
+      })
       setOpening(false)
       return
     }
     try {
       const data = await response.json()
+      captureDowngradeEvent('Account Downgrade Preview Failed', {
+        targetPlanId: selectedTierId,
+        targetPlanName: selectedTier?.name || null,
+        frequency,
+        currency,
+        status: response.status,
+        error: data.message || 'Something went wrong, please try again.',
+      })
       setErrorText?.(data.message || 'Something went wrong, please try again.')
     } catch (e) {
+      captureDowngradeEvent('Account Downgrade Preview Failed', {
+        targetPlanId: selectedTierId,
+        targetPlanName: selectedTier?.name || null,
+        frequency,
+        currency,
+        status: response.status,
+        error: 'Error ' + response.status,
+      })
       setErrorText?.('Error ' + response.status + ', please try again.')
     }
     setOpening(false)
@@ -105,6 +155,15 @@ export default function PlanDowngradeLink({
 
   async function confirmPlanChange() {
     if (!pendingPlanChange || !planChangePreview) return
+    captureDowngradeEvent('Account Downgrade Confirm Started', {
+      targetPlanId: pendingPlanChange.tier,
+      frequency: pendingPlanChange.frequency,
+      currency: pendingPlanChange.currency,
+      amountDue: Number(planChangePreview.amountDue || 0),
+      total: Number(planChangePreview.total || 0),
+      creditAmount: Number(planChangePreview.creditAmount || 0),
+      accountCreditApplied: Number(planChangePreview.accountCreditApplied || 0),
+    })
     setErrorText?.(null)
     setOpening(true)
     const response = await fetch(`/api/teams/${team.id}/subscription-change`, {
@@ -122,13 +181,25 @@ export default function PlanDowngradeLink({
       try {
         const data = await response.json()
         if (data.paymentAction?.requiresAction) {
+          captureDowngradeEvent('Account Downgrade Payment Action Required', {
+            targetPlanId: pendingPlanChange.tier,
+          })
           await completeStripePaymentAction(data.paymentAction)
         }
       } catch (error) {
+        captureDowngradeEvent('Account Downgrade Failed', {
+          targetPlanId: pendingPlanChange.tier,
+          error: error.message || 'Payment verification was not completed.',
+        })
         setErrorText?.(error.message || 'Payment verification was not completed.')
         setOpening(false)
         return
       }
+      captureDowngradeEvent('Account Downgrade Confirmed', {
+        targetPlanId: pendingPlanChange.tier,
+        frequency: pendingPlanChange.frequency,
+        currency: pendingPlanChange.currency,
+      })
       setOpen(false)
       setPlanChangePreview(null)
       setPendingPlanChange(null)
@@ -148,8 +219,18 @@ export default function PlanDowngradeLink({
     }
     try {
       const data = await response.json()
+      captureDowngradeEvent('Account Downgrade Failed', {
+        targetPlanId: pendingPlanChange.tier,
+        status: response.status,
+        error: data.message || 'Something went wrong, please try again.',
+      })
       setErrorText?.(data.message || 'Something went wrong, please try again.')
     } catch (e) {
+      captureDowngradeEvent('Account Downgrade Failed', {
+        targetPlanId: pendingPlanChange.tier,
+        status: response.status,
+        error: 'Error ' + response.status,
+      })
       setErrorText?.('Error ' + response.status + ', please try again.')
     }
     setOpening(false)
@@ -157,6 +238,10 @@ export default function PlanDowngradeLink({
 
   const closeModal = () => {
     if (opening) return
+    captureDowngradeEvent('Account Downgrade Cancelled', {
+      targetPlanId: selectedTierId || null,
+      targetPlanName: selectedTier?.name || null,
+    })
     setOpen(false)
   }
 
@@ -165,7 +250,13 @@ export default function PlanDowngradeLink({
       <button
         type="button"
         className="text-sm font-medium text-cyan-700 hover:text-cyan-900 hover:underline focus:outline-none"
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          captureDowngradeEvent('Account Downgrade Started', {
+            defaultTargetPlanId: lowerPlanOptions[0]?.id || null,
+            defaultTargetPlanName: lowerPlanOptions[0]?.name || null,
+          })
+          setOpen(true)
+        }}
       >
         Switch to a lower plan
       </button>
@@ -174,6 +265,9 @@ export default function PlanDowngradeLink({
         preview={planChangePreview}
         opening={opening}
         onClose={() => {
+          captureDowngradeEvent('Account Downgrade Preview Cancelled', {
+            targetPlanId: pendingPlanChange?.tier || selectedTierId || null,
+          })
           setPlanChangePreview(null)
           setPendingPlanChange(null)
         }}
@@ -234,7 +328,16 @@ export default function PlanDowngradeLink({
                         <select
                           id="downgrade-plan-select"
                           value={selectedTierId}
-                          onChange={(event) => setSelectedTierId(event.target.value)}
+                          onChange={(event) => {
+                            const nextTier = lowerPlanOptions.find(
+                              (tier) => tier.id === event.target.value,
+                            )
+                            captureDowngradeEvent('Account Downgrade Target Selected', {
+                              targetPlanId: event.target.value,
+                              targetPlanName: nextTier?.name || null,
+                            })
+                            setSelectedTierId(event.target.value)
+                          }}
                           disabled={lowerPlanOptions.length <= 1}
                           className="mt-2 block w-full rounded-md border-gray-300 text-sm shadow-sm focus:border-cyan-500 focus:ring-cyan-500 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-700"
                         >

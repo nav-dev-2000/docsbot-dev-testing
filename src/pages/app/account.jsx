@@ -27,6 +27,7 @@ import {
   getEffectiveAddOns,
   getStripeAddOnsFromEnv,
   isAutoIncreaseAiCreditsEnabled,
+  isAddOnAvailableForPlan,
 } from '@/utils/billingAddOns'
 import Checkout from '@/components/Checkout'
 import Cancel from '@/components/Cancel'
@@ -254,6 +255,7 @@ function Account({
   const aiCreditAddOn = addOnCatalog[ADD_ON_IDS.AI_CREDITS]
   const botAddOn = addOnCatalog[ADD_ON_IDS.BOTS]
   const sourcePageAddOn = addOnCatalog[ADD_ON_IDS.SOURCE_PAGES]
+  const teamMemberAddOn = addOnCatalog[ADD_ON_IDS.TEAM_MEMBERS]
   const currencyCode = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
   const billingInterval =
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
@@ -261,13 +263,46 @@ function Account({
     new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: currencyCode,
-      maximumFractionDigits: currencyCode === 'JPY' ? 0 : 0,
+      maximumFractionDigits:
+        currencyCode === 'JPY' || Number.isInteger(amount) ? 0 : 2,
     }).format(amount || 0)
   const isPaidSubscription =
     !!team?.stripeCustomerId &&
     ['active', 'trialing', 'past_due'].includes(team?.stripeSubscriptionStatus)
   const canManageAddOns =
     isPaidSubscription && !team?.stripeSubscriptionCancelAtPeriodEnd
+  const accountTrackingProperties = {
+    source: 'account_page',
+    teamId: team?.id,
+    teamRole: role,
+    canManageBilling,
+    planId: teamPlan?.id,
+    planName: teamPlan?.name,
+    basePlanId: baseTeamPlan?.id,
+    billingInterval,
+    currency: currencyCode,
+    subscriptionStatus: team?.stripeSubscriptionStatus || null,
+    cancelAtPeriodEnd: Boolean(team?.stripeSubscriptionCancelAtPeriodEnd),
+    isPaidSubscription,
+    canManageAddOns,
+    aiCreditAddOnQuantity: activeAddOns.aiCredits?.quantity || 0,
+    botAddOnQuantity: activeAddOns.bots?.quantity || 0,
+    sourcePageAddOnQuantity: activeAddOns.sourcePages?.quantity || 0,
+    autoIncreaseAiCredits,
+    botCount: Number(team?.botCount || 0),
+    sourcePageCount: Number(team?.pageCount || 0),
+    aiCreditCount: Number(team?.questionCount || 0),
+    botLimit: Number(teamPlan?.bots || 0),
+    sourcePageLimit: Number(teamPlan?.pages || 0),
+    aiCreditLimit: Number(teamPlan?.questions || 0),
+  }
+
+  const captureAccountEvent = (eventName, properties = {}) => {
+    posthog?.capture(eventName, {
+      ...accountTrackingProperties,
+      ...properties,
+    })
+  }
 
   useEffect(() => {
     if (!canManageAddOns) {
@@ -276,15 +311,26 @@ function Account({
   }, [canManageAddOns])
 
   useEffect(() => {
+    captureAccountEvent('Account Billing Viewed', {
+      hasCheckoutSession: Boolean(checkout || router.query.session_id),
+      hasDemoTrialPromotion,
+    })
+    // Track one account-page view per team mount; event properties should reflect initial page state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [team?.id])
+
+  useEffect(() => {
     setAddOnQuantities({
       [ADD_ON_IDS.AI_CREDITS]: activeAddOns.aiCredits?.quantity || 0,
       [ADD_ON_IDS.BOTS]: activeAddOns.bots?.quantity || 0,
       [ADD_ON_IDS.SOURCE_PAGES]: activeAddOns.sourcePages?.quantity || 0,
+      [ADD_ON_IDS.TEAM_MEMBERS]: activeAddOns.teamMembers?.quantity || 0,
     })
   }, [
     activeAddOns.aiCredits?.quantity,
     activeAddOns.bots?.quantity,
     activeAddOns.sourcePages?.quantity,
+    activeAddOns.teamMembers?.quantity,
   ])
   const currentPlanLimits = parseStripePlans()?.[teamPlan?.id]
   const actionsPerBotLimit = getBotActionSlotLimit(team)
@@ -341,6 +387,10 @@ function Account({
   const botLimitBreakdown = getLimitBreakdown('bots', ADD_ON_IDS.BOTS)
   const pageLimitBreakdown = getLimitBreakdown('pages', ADD_ON_IDS.SOURCE_PAGES)
   const creditLimitBreakdown = getLimitBreakdown('questions', ADD_ON_IDS.AI_CREDITS)
+  const teamMemberLimitBreakdown = getLimitBreakdown(
+    'teamMembers',
+    ADD_ON_IDS.TEAM_MEMBERS,
+  )
 
   const cards = [
     {
@@ -399,7 +449,9 @@ function Account({
     {
       name: 'Team Members',
       tooltip: withGrandfatheredTooltip({
-        tooltip: 'Current team members including pending invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
+        tooltip: teamMemberLimitBreakdown
+          ? `Current team members including invites. Your limit is ${teamPlan.teamMembers.toLocaleString()} members. ${formatLimitBreakdownTooltip('members', teamMemberLimitBreakdown)}`
+          : 'Current team members including invites. Your plan allows up to ' + teamPlan.teamMembers + ' members.',
         ...grandfatheredLimits.teamMembers,
       }),
       icon: UsersIcon,
@@ -413,6 +465,7 @@ function Account({
     if (addOn?.limitKey === 'questions') return Number(team?.questionCount || 0)
     if (addOn?.limitKey === 'bots') return Number(team?.botCount || 0)
     if (addOn?.limitKey === 'pages') return Number(team?.pageCount || 0)
+    if (addOn?.limitKey === 'teamMembers') return teamMembersCount
     return 0
   }
 
@@ -430,6 +483,9 @@ function Account({
     if (addOn?.limitKey === 'questions') return 'credits'
     if (addOn?.limitKey === 'pages') return 'pages'
     if (addOn?.limitKey === 'bots') return amount === 1 ? 'bot' : 'bots'
+    if (addOn?.limitKey === 'teamMembers') {
+      return amount === 1 ? 'team user' : 'team users'
+    }
     return addOn?.unitLabel || 'units'
   }
 
@@ -461,8 +517,19 @@ function Account({
     interval === 'annually' ? `${formatPrice(price)}/year` : `${formatPrice(price)}/month`
 
   const getAddOnById = (addOnId) => addOnCatalog?.[addOnId] || null
+  const addOnIsAvailableForPlan = (addOn) =>
+    isAddOnAvailableForPlan(addOn, teamPlan)
 
   async function previewAddOnQuantity(addOnId, quantity) {
+    const addOn = getAddOnById(addOnId)
+    const currentQuantity = activeAddOns?.[addOnId]?.quantity || 0
+    captureAccountEvent('Account Add-On Preview Started', {
+      addOnId,
+      addOnName: addOn?.name || addOnId,
+      currentQuantity,
+      requestedQuantity: Number(quantity || 0),
+      quantityDelta: Number(quantity || 0) - currentQuantity,
+    })
     setOpeningAddOns(true)
     setErrorText(null)
     try {
@@ -478,7 +545,27 @@ function Account({
         throw new Error(data.message || 'Unable to preview add-on change.')
       }
       setAddOnPreview({ addOnId, quantity, ...data.preview })
+      captureAccountEvent('Account Add-On Previewed', {
+        addOnId,
+        addOnName: addOn?.name || addOnId,
+        currentQuantity,
+        requestedQuantity: Number(quantity || 0),
+        nextQuantity: Number(data.preview?.nextQuantity || quantity || 0),
+        quantityDelta: Number(quantity || 0) - currentQuantity,
+        amountDue: Number(data.preview?.amountDue || 0),
+        total: Number(data.preview?.total || 0),
+        creditAmount: Number(data.preview?.creditAmount || 0),
+        accountCreditApplied: Number(data.preview?.accountCreditApplied || 0),
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Preview Failed', {
+        addOnId,
+        addOnName: addOn?.name || addOnId,
+        currentQuantity,
+        requestedQuantity: Number(quantity || 0),
+        quantityDelta: Number(quantity || 0) - currentQuantity,
+        error: error.message,
+      })
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } finally {
@@ -488,6 +575,19 @@ function Account({
 
   async function confirmAddOnQuantity() {
     if (!addOnPreview) return
+    const addOn = getAddOnById(addOnPreview.addOnId)
+    const currentQuantity = activeAddOns?.[addOnPreview.addOnId]?.quantity || 0
+    captureAccountEvent('Account Add-On Confirm Started', {
+      addOnId: addOnPreview.addOnId,
+      addOnName: addOn?.name || addOnPreview.addOnId,
+      currentQuantity,
+      requestedQuantity: Number(addOnPreview.quantity || 0),
+      nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+      quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+      amountDue: Number(addOnPreview.amountDue || 0),
+      creditAmount: Number(addOnPreview.creditAmount || 0),
+      accountCreditApplied: Number(addOnPreview.accountCreditApplied || 0),
+    })
     setOpeningAddOns(true)
     setErrorText(null)
     try {
@@ -508,6 +608,12 @@ function Account({
         throw new Error(data.message || 'Unable to update add-ons.')
       }
       if (data.paymentAction?.requiresAction) {
+        captureAccountEvent('Account Add-On Payment Action Required', {
+          addOnId: addOnPreview.addOnId,
+          addOnName: addOn?.name || addOnPreview.addOnId,
+          currentQuantity,
+          requestedQuantity: Number(addOnPreview.quantity || 0),
+        })
         await completeStripePaymentAction(data.paymentAction)
         applyTeamBillingUpdate({
           stripeAddOns: data.stripeAddOns,
@@ -516,6 +622,15 @@ function Account({
         setAddOnPreview(null)
         setSuccessText('Add-ons updated.')
         window.scrollTo({ top: 0, behavior: 'smooth' })
+        captureAccountEvent('Account Add-On Updated', {
+          addOnId: addOnPreview.addOnId,
+          addOnName: addOn?.name || addOnPreview.addOnId,
+          currentQuantity,
+          requestedQuantity: Number(addOnPreview.quantity || 0),
+          nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+          quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+          requiredPaymentAction: true,
+        })
         return
       }
       applyTeamBillingUpdate({
@@ -525,7 +640,24 @@ function Account({
       setAddOnPreview(null)
       setSuccessText('Add-ons updated.')
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      captureAccountEvent('Account Add-On Updated', {
+        addOnId: addOnPreview.addOnId,
+        addOnName: addOn?.name || addOnPreview.addOnId,
+        currentQuantity,
+        requestedQuantity: Number(addOnPreview.quantity || 0),
+        nextQuantity: Number(addOnPreview.nextQuantity || addOnPreview.quantity || 0),
+        quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+        requiredPaymentAction: false,
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Update Failed', {
+        addOnId: addOnPreview.addOnId,
+        addOnName: addOn?.name || addOnPreview.addOnId,
+        currentQuantity,
+        requestedQuantity: Number(addOnPreview.quantity || 0),
+        quantityDelta: Number(addOnPreview.quantity || 0) - currentQuantity,
+        error: error.message,
+      })
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
     } finally {
@@ -535,6 +667,16 @@ function Account({
 
   const updateAddOnBlockQuantity = (addOnId, value, minQuantity = 0) => {
     const nextQuantity = Math.max(minQuantity, Number(value) || 0)
+    const currentQuantity = activeAddOns?.[addOnId]?.quantity || 0
+    const addOn = getAddOnById(addOnId)
+    captureAccountEvent('Account Add-On Quantity Selected', {
+      addOnId,
+      addOnName: addOn?.name || addOnId,
+      currentQuantity,
+      selectedQuantity: nextQuantity,
+      quantityDelta: nextQuantity - currentQuantity,
+      minimumQuantity: minQuantity,
+    })
     setAddOnQuantities((current) => ({
       ...current,
       [addOnId]: nextQuantity,
@@ -542,6 +684,10 @@ function Account({
   }
 
   async function updateAutoIncreaseAiCredits(enabled) {
+    captureAccountEvent('Account Add-On Auto Increase Toggled', {
+      enabled,
+      previousEnabled: autoIncreaseAiCredits,
+    })
     setAutoIncreaseAiCredits(enabled)
     setErrorText(null)
     try {
@@ -556,7 +702,14 @@ function Account({
       if (!response.ok) {
         throw new Error(data.message || 'Unable to update AI credit setting.')
       }
+      captureAccountEvent('Account Add-On Auto Increase Updated', {
+        enabled,
+      })
     } catch (error) {
+      captureAccountEvent('Account Add-On Auto Increase Failed', {
+        enabled,
+        error: error.message,
+      })
       setAutoIncreaseAiCredits(!enabled)
       setErrorText(error.message)
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -687,7 +840,18 @@ function Account({
                 <div className="mt-6 flex justify-end gap-3">
                   <button
                     type="button"
-                    onClick={() => setAddOnPreview(null)}
+                    onClick={() => {
+                      captureAccountEvent('Account Add-On Preview Cancelled', {
+                        addOnId: addOnPreview.addOnId,
+                        addOnName:
+                          getAddOnById(addOnPreview.addOnId)?.name || addOnPreview.addOnId,
+                        requestedQuantity: Number(addOnPreview.quantity || 0),
+                        nextQuantity: Number(
+                          addOnPreview.nextQuantity || addOnPreview.quantity || 0,
+                        ),
+                      })
+                      setAddOnPreview(null)
+                    }}
                     disabled={openingAddOns}
                     className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
                   >
@@ -714,6 +878,7 @@ function Account({
               teamSourceTypes={teamSourceTypes}
               hasDemoTrialPromotion={hasDemoTrialPromotion}
               onBillingChange={handleBillingChange}
+              trackingContext={accountTrackingProperties}
             />
             <Cancel
               team={team}
@@ -722,6 +887,7 @@ function Account({
               teamSourceTypes={teamSourceTypes}
               setParentErrorText={setErrorText}
               onBillingChange={handleBillingChange}
+              trackingContext={accountTrackingProperties}
             />
           </div>
 
@@ -737,26 +903,37 @@ function Account({
                 </div>
               </div>
 
-              <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {[
                   {
                     addOn: aiCreditAddOn,
                     quantity: activeAddOns.aiCredits?.quantity || 0,
                     actionId: ADD_ON_IDS.AI_CREDITS,
+                    Icon: ChatBubbleBottomCenterTextIcon,
                   },
                   {
                     addOn: botAddOn,
                     quantity: activeAddOns.bots?.quantity || 0,
                     actionId: ADD_ON_IDS.BOTS,
+                    Icon: ServerStackIcon,
                   },
                   {
                     addOn: sourcePageAddOn,
                     quantity: activeAddOns.sourcePages?.quantity || 0,
                     actionId: ADD_ON_IDS.SOURCE_PAGES,
+                    Icon: Square3Stack3DIcon,
                   },
-                ].map(({ addOn, quantity, actionId }) => {
+                  {
+                    addOn: teamMemberAddOn,
+                    quantity: activeAddOns.teamMembers?.quantity || 0,
+                    actionId: ADD_ON_IDS.TEAM_MEMBERS,
+                    Icon: UsersIcon,
+                  },
+                ].map(({ addOn, quantity, actionId, Icon }) => {
+                  if (!addOn) return null
                   const minimumQuantity = getMinimumAddOnQuantity(addOn, quantity)
                   const selectedQuantity = addOnQuantities[actionId] ?? quantity
+                  const availableForPlan = addOnIsAvailableForPlan(addOn)
                   const belowMinimum = selectedQuantity < minimumQuantity
                   const unchanged = selectedQuantity === quantity
                   const addOnPrice = getAddOnDisplayPrice(addOn, currencyCode, billingInterval)
@@ -767,7 +944,10 @@ function Account({
                   return (
                     <div key={addOn.id} className="rounded-lg border border-gray-200 p-4">
                       <div>
-                        <h4 className="font-semibold text-gray-950">{addOn.name}</h4>
+                        <h4 className="flex items-center gap-2 font-semibold text-gray-950">
+                          <Icon className="h-5 w-5 shrink-0 text-cyan-600" aria-hidden="true" />
+                          <span>{addOn.name}</span>
+                        </h4>
                         <p className="mt-1 text-sm text-gray-600">{addOn.description}</p>
                       </div>
                       <p className="mt-4 text-sm text-gray-700">
@@ -802,6 +982,7 @@ function Account({
                           <select
                             id={`addon-${actionId}-quantity`}
                             value={selectedQuantity}
+                            disabled={!availableForPlan}
                             onChange={(event) =>
                               updateAddOnBlockQuantity(
                                 actionId,
@@ -838,12 +1019,23 @@ function Account({
                                 addOnQuantities[actionId] ?? quantity,
                               )
                             }
-                            disabled={openingAddOns || belowMinimum || unchanged}
+                            disabled={
+                              openingAddOns ||
+                              belowMinimum ||
+                              unchanged ||
+                              !availableForPlan
+                            }
                             className="inline-flex items-center justify-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-25"
                           >
                             Change
                           </button>
                         </div>
+                        {!availableForPlan && (
+                          <p className="mt-2 text-xs text-gray-500">
+                            Extra team users are available on Business and
+                            Enterprise plans.
+                          </p>
+                        )}
                         {minimumQuantity > 0 && (
                           <p className="mt-2 text-xs text-gray-500">
                             Your current usage needs at least{' '}

@@ -20,6 +20,21 @@ const mocks = vi.hoisted(() => ({
   },
 }))
 
+vi.hoisted(() => {
+  process.env.SLACK_WEBHOOK_URL = 'https://hooks.slack.test/services/test'
+  process.env.NEXT_PUBLIC_STRIPE_ADDONS = JSON.stringify({
+    aiCredits: {
+      unit: 5000,
+      prices: {
+        current: {
+          monthly: 'price_ai_credits_monthly',
+          annually: 'price_ai_credits_yearly',
+        },
+      },
+    },
+  })
+})
+
 vi.mock('@/config/firebase-server.config', () => ({
   configureFirebaseApp: mocks.configureFirebaseApp,
 }))
@@ -75,7 +90,7 @@ vi.mock('@/lib/posthog', () => ({
 
 vi.mock('@slack/webhook', () => ({
   IncomingWebhook: vi.fn().mockImplementation(function IncomingWebhook() {
-    this.send = mocks.slackSend
+    return { send: mocks.slackSend }
   }),
 }))
 
@@ -180,6 +195,7 @@ describe('stripe webhook success path', () => {
     mocks.teamOwner.mockReturnValue('owner-1')
     mocks.slackSend.mockResolvedValue(undefined)
     process.env.STRIPE_WEBHOOK_SECRET = 'stripe-secret'
+    process.env.SLACK_WEBHOOK_URL = 'https://hooks.slack.test/services/test'
     process.env.NEXT_PUBLIC_STRIPE_ADDONS = JSON.stringify({
       aiCredits: {
         unit: 5000,
@@ -187,6 +203,15 @@ describe('stripe webhook success path', () => {
           current: {
             monthly: 'price_ai_credits_monthly',
             annually: 'price_ai_credits_yearly',
+          },
+        },
+      },
+      teamMembers: {
+        unit: 1,
+        prices: {
+          current: {
+            monthly: 'price_team_members_monthly',
+            annually: 'price_team_members_yearly',
           },
         },
       },
@@ -365,6 +390,16 @@ describe('stripe webhook success path', () => {
                   interval: 'year',
                 },
               },
+              {
+                id: 'si_team_members',
+                quantity: 3,
+                price: {
+                  id: 'price_team_members_yearly',
+                  product: 'prod_team_members',
+                  amount: 22800,
+                  interval: 'year',
+                },
+              },
             ],
           },
         },
@@ -401,7 +436,158 @@ describe('stripe webhook success path', () => {
             itemId: 'si_ai',
             subscriptionId: 'sub_123',
           }),
+          teamMembers: expect.objectContaining({
+            quantity: 3,
+            itemId: 'si_team_members',
+            subscriptionId: 'sub_123',
+          }),
         }),
+      }),
+    )
+  })
+
+  it('sends a Slack notification when add-on quantities change', async () => {
+    mocks.firestore.runTransaction.mockImplementation(async (callback) => {
+      const queryResult = {
+        empty: false,
+        docs: [
+          {
+            id: 'team-1',
+            data: () => ({
+              name: 'DocsBot Team',
+              stripeSubscriptionId: 'sub_123',
+              stripeSubscriptionPlan: 'price_business_monthly',
+              stripeSubscriptionStatus: 'active',
+              stripeAddOns: {
+                aiCredits: {
+                  quantity: 1,
+                  subscriptionId: 'sub_123',
+                  itemId: 'si_ai',
+                },
+              },
+            }),
+          },
+        ],
+      }
+      const transaction = {
+        get: vi.fn(async () => queryResult),
+        update: vi.fn(),
+      }
+      await callback(transaction)
+      mocks.transaction = transaction
+    })
+    mocks.getTeamEmail.mockResolvedValue('owner@example.com')
+    mocks.constructEvent.mockReturnValue({
+      type: 'customer.subscription.updated',
+      data: {
+        previous_attributes: {
+          items: {
+            data: [
+              {
+                id: 'si_base',
+                quantity: 1,
+                price: {
+                  id: 'price_business_monthly',
+                  product: 'prod_business',
+                  amount: 49900,
+                  interval: 'month',
+                },
+              },
+              {
+                id: 'si_ai',
+                quantity: 1,
+                price: {
+                  id: 'price_ai_credits_monthly',
+                  product: 'prod_ai_credits',
+                  amount: 4900,
+                  interval: 'month',
+                },
+              },
+            ],
+          },
+        },
+        object: {
+          id: 'sub_123',
+          customer: 'cus_123',
+          status: 'active',
+          currency: 'usd',
+          cancel_at_period_end: false,
+          quantity: 1,
+          cancellation_details: {},
+          plan: {
+            id: 'price_business_monthly',
+            product: 'prod_business',
+            amount: 49900,
+            interval: 'month',
+          },
+          items: {
+            data: [
+              {
+                id: 'si_base',
+                quantity: 1,
+                price: {
+                  id: 'price_business_monthly',
+                  product: 'prod_business',
+                  amount: 49900,
+                  interval: 'month',
+                },
+              },
+              {
+                id: 'si_ai',
+                quantity: 3,
+                price: {
+                  id: 'price_ai_credits_monthly',
+                  product: 'prod_ai_credits',
+                  amount: 4900,
+                  interval: 'month',
+                },
+              },
+            ],
+          },
+        },
+      },
+    })
+    mocks.stripePlan.mockReturnValue({
+      id: 'business',
+      name: 'Business',
+      questions: 80000,
+    })
+
+    const req = createAsyncIterableReq(
+      {
+        method: 'POST',
+        headers: {
+          'stripe-signature': 'sig_123',
+        },
+      },
+      [Buffer.from('{}')],
+    )
+    const res = createMockRes()
+
+    await stripeWebhookHandler(req, res)
+
+    expect(res.statusCode).toBe(200)
+    expect(mocks.slackSend).toHaveBeenCalledWith(
+      expect.objectContaining({
+        attachments: [
+          expect.objectContaining({
+            title: 'DocsBot Subscription Add-Ons Changed',
+            fields: expect.arrayContaining([
+              expect.objectContaining({
+                title: 'Customer Email',
+                value: 'owner@example.com',
+              }),
+              expect.objectContaining({
+                title: 'Team',
+                value: '<https://docsbot.ai/app/team?switchTeam=team-1|DocsBot Team>',
+              }),
+              expect.objectContaining({
+                title: 'Changes',
+                value: 'AI Credits: 1 -> 3',
+              }),
+            ]),
+          }),
+        ],
       }),
     )
   })

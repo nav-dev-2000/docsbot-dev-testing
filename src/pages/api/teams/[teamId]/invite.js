@@ -35,8 +35,14 @@ export default async function handleInvite(req, res) {
       }
       // sanity check stripe plan
       const plan = stripePlan(team)
-      if (Object.keys(team.roles).length >= plan.teamMembers && !isSuperAdmin(userId)) {
-        // the user copy here isn't actually read by the user, the 403 status code is handled by showing the upgrade modal
+      const pendingInvites = await firestore
+        .collection('invites')
+        .where('teamId', '==', team.id)
+        .get()
+      const currentMemberCount =
+        Object.keys(team.roles || {}).length + pendingInvites.size
+      if (currentMemberCount >= plan.teamMembers && !isSuperAdmin(userId)) {
+        // The client handles this status by showing the upgrade/add-on modal.
         return res.status(402).send({ message: `You've reached your team member limit, please upgrade your plan!`})
       }
 
