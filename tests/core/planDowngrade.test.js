@@ -149,6 +149,12 @@ describe('planDowngrade', () => {
           loss.label === 'Stripe billing support actions',
       ),
     ).toBe(true)
+    expect(losses.some((loss) => loss.label === 'SOC 2 Type II')).toBe(false)
+    expect(losses.some((loss) => loss.label === 'GDPR compliance')).toBe(false)
+    expect(losses.some((loss) => loss.label === 'Standard DPA')).toBe(false)
+    expect(
+      losses.some((loss) => loss.label === 'Standard contract terms'),
+    ).toBe(false)
   })
 
   it('returns lower plans from highest to lowest for existing subscriptions without add-ons', () => {

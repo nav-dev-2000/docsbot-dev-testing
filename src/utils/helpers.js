@@ -409,6 +409,14 @@ const GRANDFATHERED_LIMIT_KEYS = [
   'teamMembers',
 ]
 
+const GRANDFATHERED_LIMIT_LABELS = {
+  bots: 'Bots',
+  pages: 'Source pages',
+  questions: 'AI credits',
+  actionsLimit: 'Actions per bot',
+  teamMembers: 'Team members',
+}
+
 const normalizePlanLimit = (value) => {
   if (typeof value === 'number' && Number.isFinite(value)) return value
   if (typeof value === 'string' && value.trim() !== '') {
@@ -419,17 +427,33 @@ const normalizePlanLimit = (value) => {
 }
 
 export const hasGrandfatheredPlanLimits = (team = {}) => {
+  return getGrandfatheredPlanLimitDifferences(team).length > 0
+}
+
+export const getGrandfatheredPlanLimitDifferences = (team = {}) => {
   const plans = getStripePlansFromEnv()
   const resolvedPlan = stripePlan({ ...team, stripeAddOns: {} })
   const configuredPlan = plans?.[resolvedPlan?.id]
-  if (!configuredPlan || !resolvedPlan?.id) return false
+  if (!configuredPlan || !resolvedPlan?.id) return []
 
-  return GRANDFATHERED_LIMIT_KEYS.some((key) => {
+  return GRANDFATHERED_LIMIT_KEYS.reduce((differences, key) => {
     const resolvedLimit = normalizePlanLimit(resolvedPlan[key])
     const configuredLimit = normalizePlanLimit(configuredPlan[key])
-    if (resolvedLimit === null || configuredLimit === null) return false
-    return resolvedLimit !== configuredLimit
-  })
+    if (
+      resolvedLimit === null ||
+      configuredLimit === null ||
+      resolvedLimit === configuredLimit
+    ) {
+      return differences
+    }
+    differences.push({
+      key,
+      label: GRANDFATHERED_LIMIT_LABELS[key] || key,
+      grandfatheredLimit: resolvedLimit,
+      currentLimit: configuredLimit,
+    })
+    return differences
+  }, [])
 }
 
 /**

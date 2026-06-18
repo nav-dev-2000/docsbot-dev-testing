@@ -2,7 +2,11 @@ import { Fragment, useEffect, useMemo, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { usePostHog } from 'posthog-js/react'
-import { stripePlan, hasGrandfatheredPlanLimits } from '@/utils/helpers'
+import {
+  stripePlan,
+  hasGrandfatheredPlanLimits,
+  getGrandfatheredPlanLimitDifferences,
+} from '@/utils/helpers'
 import GrandfatheredPlanWarning, {
   getGrandfatheredDowngradeWarningMessage,
 } from '@/components/GrandfatheredPlanWarning'
@@ -33,6 +37,10 @@ export default function PlanDowngradeLink({
 
   const currentPlan = stripePlan(team)
   const isGrandfatheredPlan = hasGrandfatheredPlanLimits(team)
+  const grandfatheredLimitDifferences = useMemo(
+    () => getGrandfatheredPlanLimitDifferences(team),
+    [team],
+  )
   const lowerPlanEligibilityOptions = useMemo(
     () =>
       getLowerPlanEligibilityOptions({
@@ -389,6 +397,7 @@ export default function PlanDowngradeLink({
                           {isGrandfatheredPlan && (
                             <GrandfatheredPlanWarning
                               message={getGrandfatheredDowngradeWarningMessage(currentPlan.name)}
+                              limitDifferences={grandfatheredLimitDifferences}
                             />
                           )}
                           <div className="mt-5 rounded-md border border-amber-200 bg-amber-50 p-4">

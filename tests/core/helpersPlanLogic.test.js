@@ -240,7 +240,10 @@ describe('helpers.js billing and scheduling logic', () => {
   })
 
   it('detects grandfathered plan limits against current plan config', async () => {
-    const { hasGrandfatheredPlanLimits } = await loadHelpers()
+    const {
+      getGrandfatheredPlanLimitDifferences,
+      hasGrandfatheredPlanLimits,
+    } = await loadHelpers()
 
     expect(
       hasGrandfatheredPlanLimits({
@@ -256,6 +259,27 @@ describe('helpers.js billing and scheduling logic', () => {
         createdAt: '2026-04-29T00:00:00.000Z',
       }),
     ).toBe(true)
+
+    expect(
+      getGrandfatheredPlanLimitDifferences({
+        stripeSubscriptionPlan: 'price_business_legacy_monthly',
+        stripeSubscriptionStatus: 'active',
+        createdAt: '2026-04-29T00:00:00.000Z',
+      }),
+    ).toEqual([
+      {
+        key: 'bots',
+        label: 'Bots',
+        grandfatheredLimit: 100,
+        currentLimit: 10,
+      },
+      {
+        key: 'questions',
+        label: 'AI credits',
+        grandfatheredLimit: 100000,
+        currentLimit: 60000,
+      },
+    ])
   })
 
   it('inherits top-level plan limits when a version omits overrides', async () => {

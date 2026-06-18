@@ -14,7 +14,11 @@ import GrandfatheredPlanWarning, {
 } from '@/components/GrandfatheredPlanWarning'
 import PlanDowngradeLink from '@/components/PlanDowngradeLink'
 import { getLowerPlanEligibilityOptions } from '@/utils/planDowngrade'
-import { hasGrandfatheredPlanLimits, stripePlan } from '@/utils/helpers'
+import {
+  hasGrandfatheredPlanLimits,
+  stripePlan,
+  getGrandfatheredPlanLimitDifferences,
+} from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
 import featureUpdates from '/public/feature-updates.json'
 const FEATURE_UPDATES = featureUpdates
@@ -431,6 +435,7 @@ export default function Cancel({
     }).length > 0
   const currentPlan = stripePlan(team)
   const isGrandfatheredPlan = hasGrandfatheredPlanLimits(team)
+  const grandfatheredLimitDifferences = getGrandfatheredPlanLimitDifferences(team)
 
   return (
     <>
@@ -534,6 +539,7 @@ export default function Cancel({
                             <GrandfatheredPlanWarning
                               className="mb-4"
                               message={getGrandfatheredCancelWarningMessage(currentPlan.name)}
+                              limitDifferences={grandfatheredLimitDifferences}
                             />
                           )}
                           {currentStep === 1 ? (

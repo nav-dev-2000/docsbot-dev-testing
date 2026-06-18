@@ -328,6 +328,12 @@ export const getPlanDowngradeLosses = ({ currentPlanId, targetPlanId }) => {
     'teamUsers',
     'botLifetime',
   ])
+  const hiddenDowngradeLossFeatureKeys = new Set([
+    'soc2',
+    'gdpr',
+    'standardDpa',
+    'standardContractTerms',
+  ])
   const losses = []
 
   coreLimitKeys.forEach((key) => {
@@ -346,6 +352,7 @@ export const getPlanDowngradeLosses = ({ currentPlanId, targetPlanId }) => {
 
   Object.entries(currentTier.features).forEach(([key, value]) => {
     if (coreLimitKeys.has(key)) return
+    if (hiddenDowngradeLossFeatureKeys.has(key)) return
     if (!featureIsIncluded(value)) return
 
     const targetValue = targetTier.features[key]
