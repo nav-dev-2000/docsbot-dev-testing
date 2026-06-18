@@ -13,16 +13,16 @@ export default function SuggestedQuestionsItem({
     return (
         <div className="flex items-start pt-2">
             <div className="w-full text-sm">
-                <input
-                    type="text"
+                <textarea
                     value={question}
                     autoComplete="off"
+                    rows={2}
                     onChange={(e) => setQuestion(e.target.value)}
                     onBlur={(e) => {
                         updateQuestion(index, e.target.value)
                     }}
                     placeholder={placeholder}
-                    className="block w-full rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
+                    className="block w-full resize-y rounded-md border-gray-300 shadow-sm focus:border-cyan-600 focus:ring-cyan-600 sm:text-sm"
                 />
             </div>
             <div className="m-auto flex items-center text-center">
