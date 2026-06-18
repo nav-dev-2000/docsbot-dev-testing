@@ -8,9 +8,10 @@ import GrandfatheredPlanWarning, {
 } from '@/components/GrandfatheredPlanWarning'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import PlanChangePreviewModal from '@/components/PlanChangePreviewModal'
+import Tooltip from '@/components/Tooltip'
 import { completeStripePaymentAction } from '@/utils/stripePaymentActionClient'
 import {
-  getEligibleLowerPlanOptions,
+  getLowerPlanEligibilityOptions,
   getPlanDowngradeLosses,
 } from '@/utils/planDowngrade'
 
@@ -32,9 +33,9 @@ export default function PlanDowngradeLink({
 
   const currentPlan = stripePlan(team)
   const isGrandfatheredPlan = hasGrandfatheredPlanLimits(team)
-  const lowerPlanOptions = useMemo(
+  const lowerPlanEligibilityOptions = useMemo(
     () =>
-      getEligibleLowerPlanOptions({
+      getLowerPlanEligibilityOptions({
         team,
         bots,
         teamInvites,
@@ -42,6 +43,11 @@ export default function PlanDowngradeLink({
       }),
     [team, bots, teamInvites, teamSourceTypes],
   )
+  const lowerPlanOptions = useMemo(
+    () => lowerPlanEligibilityOptions.filter((tier) => tier.eligible),
+    [lowerPlanEligibilityOptions],
+  )
+  const nextLowerPlanOption = lowerPlanEligibilityOptions[0] || null
 
   const selectedTier = lowerPlanOptions.find((tier) => tier.id === selectedTierId)
   const downgradeLosses = useMemo(() => {
@@ -64,11 +70,26 @@ export default function PlanDowngradeLink({
     }
   }, [open, lowerPlanOptions, selectedTierId])
 
-  if (lowerPlanOptions.length === 0) return null
+  if (lowerPlanEligibilityOptions.length === 0) return null
 
   const frequency =
     team?.stripeSubscriptionInterval === 'year' ? 'annually' : 'monthly'
   const currency = team?.stripeSubscriptionCurrency?.toUpperCase?.() || 'USD'
+  const hasEligibleLowerPlanOptions = lowerPlanOptions.length > 0
+  const disabledTooltipContent = !hasEligibleLowerPlanOptions ? (
+    <div>
+      <p>
+        You do not currently qualify for the {nextLowerPlanOption?.name || 'next lower'} plan.
+      </p>
+      {nextLowerPlanOption?.blockers?.length > 0 && (
+        <ul style={{ margin: '8px 0 0', paddingLeft: 16, textAlign: 'left' }}>
+          {nextLowerPlanOption.blockers.map((reason) => (
+            <li key={reason}>{reason}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  ) : null
 
   const captureDowngradeEvent = (eventName, properties = {}) => {
     posthog?.capture(eventName, {
@@ -247,19 +268,33 @@ export default function PlanDowngradeLink({
 
   return (
     <>
-      <button
-        type="button"
-        className="text-sm font-medium text-cyan-700 hover:text-cyan-900 hover:underline focus:outline-none"
-        onClick={() => {
-          captureDowngradeEvent('Account Downgrade Started', {
-            defaultTargetPlanId: lowerPlanOptions[0]?.id || null,
-            defaultTargetPlanName: lowerPlanOptions[0]?.name || null,
-          })
-          setOpen(true)
-        }}
-      >
-        Switch to a lower plan
-      </button>
+      {hasEligibleLowerPlanOptions ? (
+        <button
+          type="button"
+          className="text-sm font-medium text-cyan-700 hover:text-cyan-900 hover:underline focus:outline-none"
+          onClick={() => {
+            captureDowngradeEvent('Account Downgrade Started', {
+              defaultTargetPlanId: lowerPlanOptions[0]?.id || null,
+              defaultTargetPlanName: lowerPlanOptions[0]?.name || null,
+            })
+            setOpen(true)
+          }}
+        >
+          Switch to a lower plan
+        </button>
+      ) : (
+        <Tooltip content={disabledTooltipContent}>
+          <span className="inline-flex cursor-not-allowed">
+            <button
+              type="button"
+              className="text-sm font-medium text-gray-400 focus:outline-none"
+              disabled
+            >
+              Switch to a lower plan
+            </button>
+          </span>
+        </Tooltip>
+      )}
 
       <PlanChangePreviewModal
         preview={planChangePreview}

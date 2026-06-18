@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import {
   getEligibleLowerPlanOptions,
+  getLowerPlanEligibilityOptions,
   getPlanDowngradeLosses,
   getSubscriptionPlanChangeBlockers,
 } from '@/utils/planDowngrade'
@@ -176,6 +177,43 @@ describe('planDowngrade', () => {
     })
 
     expect(options.map((tier) => tier.id)).toEqual(['personal'])
+  })
+
+  it('keeps blocked lower plans with reasons for disabled downgrade messaging', () => {
+    const options = getLowerPlanEligibilityOptions({
+      team: {
+        plan: {
+          id: 'standard',
+          name: 'Standard',
+          bots: 3,
+          pages: 15000,
+          questions: 15000,
+          teamMembers: 5,
+        },
+        stripeSubscriptionId: 'sub_123',
+        stripeSubscriptionStatus: 'active',
+        stripeAddOns: {},
+        botCount: 1,
+        pageCount: 100,
+        questionCount: 100,
+        roles: {
+          user1: 'owner',
+          user2: 'member',
+          user3: 'member',
+        },
+      },
+      bots: [],
+      teamInvites: [],
+      teamSourceTypes: [],
+      configuredPlans,
+    })
+
+    expect(options).toHaveLength(1)
+    expect(options[0]).toMatchObject({
+      id: 'personal',
+      eligible: false,
+    })
+    expect(options[0].blockers.some((reason) => reason.includes('team members'))).toBe(true)
   })
 
   it('defaults business downgrades to standard before lower eligible plans', () => {

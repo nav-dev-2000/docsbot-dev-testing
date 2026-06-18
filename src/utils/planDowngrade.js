@@ -241,7 +241,7 @@ export const getPlanSelectionDisableReasons = ({
   return reasons
 }
 
-export const getEligibleLowerPlanOptions = ({
+export const getLowerPlanEligibilityOptions = ({
   team,
   bots = [],
   teamInvites = [],
@@ -262,22 +262,29 @@ export const getEligibleLowerPlanOptions = ({
   return visibleTiers
     .filter((tier) => {
       const tierLevel = PLAN_LEVELS[tier.id] || 0
-      return (
-        tierLevel > 0 &&
-        tierLevel < currentPlanLevel &&
-        getSubscriptionPlanChangeBlockers({
-          team,
-          bots,
-          teamInvites,
-          teamSourceTypes,
-          targetPlanId: tier.id,
-          incompatibleSourceTypesByTier,
-          configuredPlans,
-        }).length === 0
-      )
+      return tierLevel > 0 && tierLevel < currentPlanLevel
+    })
+    .map((tier) => {
+      const blockers = getSubscriptionPlanChangeBlockers({
+        team,
+        bots,
+        teamInvites,
+        teamSourceTypes,
+        targetPlanId: tier.id,
+        incompatibleSourceTypesByTier,
+        configuredPlans,
+      })
+      return {
+        ...tier,
+        blockers,
+        eligible: blockers.length === 0,
+      }
     })
     .sort((a, b) => (PLAN_LEVELS[b.id] || 0) - (PLAN_LEVELS[a.id] || 0))
 }
+
+export const getEligibleLowerPlanOptions = (params) =>
+  getLowerPlanEligibilityOptions(params).filter((tier) => tier.eligible)
 
 export const getSubscriptionPlanChangeBlockers = ({
   team,

@@ -13,7 +13,7 @@ import GrandfatheredPlanWarning, {
   getGrandfatheredCancelWarningMessage,
 } from '@/components/GrandfatheredPlanWarning'
 import PlanDowngradeLink from '@/components/PlanDowngradeLink'
-import { getEligibleLowerPlanOptions } from '@/utils/planDowngrade'
+import { getLowerPlanEligibilityOptions } from '@/utils/planDowngrade'
 import { hasGrandfatheredPlanLimits, stripePlan } from '@/utils/helpers'
 import { usePostHog } from 'posthog-js/react'
 import featureUpdates from '/public/feature-updates.json'
@@ -423,7 +423,7 @@ export default function Cancel({
   if (isCancellationScheduled) return null
 
   const hasLowerPlanOptions =
-    getEligibleLowerPlanOptions({
+    getLowerPlanEligibilityOptions({
       team,
       bots,
       teamInvites,
