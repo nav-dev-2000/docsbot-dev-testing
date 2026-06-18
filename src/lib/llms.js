@@ -276,6 +276,10 @@ export const BENCHMARKS = {
     title: 'Frontier Science Research',
     description: 'Evaluates scientific research capabilities',
   },
+  FrontierSWE: {
+    title: 'FrontierSWE',
+    description: 'Evaluates long-horizon software engineering agents on open-ended technical projects lasting hours to tens of hours',
+  },
   GlobalMMLU: {
     title: 'Global MMLU',
     description: 'A multilingual version of the MMLU benchmark that tests knowledge across multiple languages and cultures',

@@ -8400,7 +8400,21 @@ const LLMS = [
       structured_output: true,
       reasoning_mode: true,
     },
-    benchmarks: {},
+    benchmarks: {
+      HumanitysLastExamWithTools: {
+        score: 54.7,
+        notes: 'With tools',
+        source:
+          'https://economictimes.indiatimes.com/tech/artificial-intelligence/chinas-z-ai-glm-5-2-tops-openais-gpt-5-5-model-on-key-benchmarks/articleshow/131805202.cms',
+      },
+      FrontierSWE: {
+        score: null,
+        notes:
+          'Trailed Claude Opus 4.8 by 1 percentage point, outperformed GPT-5.5 by 1 point, and outperformed Claude Opus 4.7 by 11 points',
+        source:
+          'https://economictimes.indiatimes.com/tech/artificial-intelligence/chinas-z-ai-glm-5-2-tops-openais-gpt-5-5-model-on-key-benchmarks/articleshow/131805202.cms',
+      },
+    },
   },
   {
     model_name: 'MiniMax M2.5',
