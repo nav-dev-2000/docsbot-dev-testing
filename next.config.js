@@ -346,7 +346,7 @@ const nextConfig = {
 // Once src/app exists, @markdoc/next.js otherwise sees Next's global appDir
 // flag and emits async App Router components for pages/*.md, which cannot be
 // prerendered by the Pages Router.
-const withPagesMarkdoc = withMarkdoc({ appDir: false })
+const withPagesMarkdoc = withMarkdoc({ appDir: false, dir: __dirname })
 
 module.exports = process.env.DISABLE_HEADLESS
   ? withPagesMarkdoc(nextConfig)

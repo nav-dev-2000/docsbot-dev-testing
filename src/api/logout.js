@@ -4,7 +4,7 @@ export const logout = async function ({ onComplete = noop }) {
   try {
     const response = await fetch('/api/logout', {
       method: 'DELETE',
-      credential: 'include',
+      credentials: 'include',
     })
 
     if (response.ok) {
