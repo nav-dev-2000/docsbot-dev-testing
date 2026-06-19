@@ -69,7 +69,6 @@ import LocaleDateTime from '@/components/LocaleDateTime'
 import Tooltip from '@/components/Tooltip'
 import ResearchActionButtons from '@/components/ResearchActionButtons'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
-import ModalOpenAI from '@/components/ModalOpenAI'
 import { canUserEditBot } from '@/utils/function.utils'
 import { auth } from '@/config/firebase-ui.config'
 import { getPreference, setPreference } from '@/utils/preferences'
@@ -88,6 +87,9 @@ import {
     base64ToUint8Array,
     formatLocalDateTime,
     calculateResearchCost,
+    getResearchModel,
+    normalizeResearchModelId,
+    RESEARCH_MODELS,
     RESEARCH_SUGGESTIONS,
 } from '@/components/Research'
 
@@ -116,12 +118,33 @@ const getResearchUsageSummary = (job) => {
     return { credits }
 }
 
-function ResearchUsageSummary({ usage }) {
-    if (!usage) return null
+function ResearchUsageSummary({ usage, costInfo, user }) {
+    const showSuperAdminCost = costInfo && user && isSuperAdmin(user.uid)
+
+    if (!usage && !showSuperAdminCost) return null
 
     return (
-        <div className="mb-4 text-left text-xs text-gray-500">
-            AI credits used: {formatAiCredits(usage.credits)}
+        <div className="space-y-1 text-left text-xs text-gray-500">
+            {usage && (
+                <div>
+                    AI credits used: {formatAiCredits(usage.credits)}
+                    {showSuperAdminCost && (
+                        <Tooltip content="Only shown to Super Admins.">
+                            <span className="ml-1 inline-block select-none">
+                                (Estimated cost: $
+                                {costInfo.total.toFixed(2)})
+                            </span>
+                        </Tooltip>
+                    )}
+                </div>
+            )}
+            {!usage && showSuperAdminCost && (
+                <Tooltip content="Only shown to Super Admins.">
+                    <div className="inline-block select-none leading-tight">
+                        Estimated cost: ${costInfo.total.toFixed(2)}
+                    </div>
+                </Tooltip>
+            )}
         </div>
     )
 }
@@ -131,7 +154,7 @@ function ResearchUsageSummary({ usage }) {
 function UserMessage({ text, alias, email, html, className = '' }) {
     return (
         <div
-            className={`mb-4 ml-auto flex max-w-3xl items-start justify-end ${className}`}
+            className={`mb-4 ml-auto flex max-w-4xl items-start justify-end ${className}`}
         >
             <div
                 dir="auto"
@@ -174,7 +197,7 @@ function BotMessage({ text, html, className = '', children }) {
     } else if (className.includes('max-w-4xl')) {
         widthClasses.push('max-w-4xl')
     } else {
-        widthClasses.push('max-w-3xl') // Default like conversations.jsx
+        widthClasses.push('max-w-4xl')
     }
 
     // Remove width classes from container className
@@ -185,7 +208,7 @@ function BotMessage({ text, html, className = '', children }) {
         .replace('mt-4', '')
         .trim()
 
-    // Build container class - never add max-w-3xl to container (only to message bubble)
+    // Build container class - never add max width to container (only to message bubble)
     let containerClass = 'mb-4 flex items-start justify-start'
     if (className.includes('w-full')) {
         containerClass = className.includes('mt-4')
@@ -909,7 +932,7 @@ export function ResearchInterface({
     newDashboard = false,
 }) {
     const [question, setQuestion] = useState('')
-    const [selectedModel, setSelectedModel] = useState('o4-mini')
+    const [selectedModel, setSelectedModel] = useState('gpt-5.4-mini')
     const [webSearch, setWebSearch] = useState(false)
     const [codeInterpreter, setCodeInterpreter] = useState(false)
     const [questionHistory, setQuestionHistory] = useState(false)
@@ -920,7 +943,6 @@ export function ResearchInterface({
     const docsSearchRef = useRef(true)
     const [loading, setLoading] = useState(false)
     const [errorText, setErrorText] = useState(null)
-    const [showOpenAI, setShowOpenAI] = useState(false)
     const [user] = useAuthState(auth)
     const textareaRef = useRef(null)
     const [clarificationsMarkdown, setClarificationsMarkdown] = useState('')
@@ -937,24 +959,10 @@ export function ResearchInterface({
         }
     }, [])
 
-    const validModels = [
-        {
-            id: 'o3',
-            name: 'o3',
-            creditMultiplier: 23,
-            description:
-                'Uses advanced reasoning - Slower, requires an OpenAI API key',
-        },
-        {
-            id: 'o4-mini',
-            name: 'o4-mini',
-            creditMultiplier: 5,
-            description:
-                'Fastest at advanced reasoning - Recommended for most tasks',
-        },
-    ]
+    const validModels = RESEARCH_MODELS
     const selectedModelItem =
-        validModels.find((model) => model.id === selectedModel) || null
+        validModels.find((model) => model.id === selectedModel) ||
+        getResearchModel(selectedModel)
     const usesTeamOpenAIKey = Boolean(team?.openAIKey)
     const displayCreditMultiplier = (model) =>
         usesTeamOpenAIKey ? 1 : model?.creditMultiplier || 1
@@ -1013,18 +1021,6 @@ export function ResearchInterface({
         setDocsSearch(value)
     }
 
-    useEffect(() => {
-        if (!showOpenAI && !team.openAIKey && selectedModel === 'o3') {
-            setShowOpenAI(true)
-        }
-    }, [selectedModel, showOpenAI, team.openAIKey])
-
-    useEffect(() => {
-        if (!showOpenAI && !team.openAIKey && selectedModel === 'o3') {
-            setSelectedModel('o4-mini')
-        }
-    }, [showOpenAI, team.openAIKey, selectedModel])
-
     // Store clarifications markdown when present
     useEffect(() => {
         if (!clarifyingJob?.clarifications) {
@@ -1039,7 +1035,7 @@ export function ResearchInterface({
         if (!clarifyingJob) return
         const normalizedClarifyingJob = normalizeResearchJobTools(clarifyingJob)
         if (typeof clarifyingJob.model === 'string') {
-            setSelectedModel(clarifyingJob.model)
+            setSelectedModel(normalizeResearchModelId(clarifyingJob.model))
         }
         if (normalizedClarifyingJob.webSearch !== undefined) {
             setWebSearchValue(Boolean(normalizedClarifyingJob.webSearch))
@@ -1145,7 +1141,7 @@ export function ResearchInterface({
                     },
                     body: JSON.stringify({
                         answers: question,
-                        model: selectedModel,
+                        model: normalizeResearchModelId(selectedModel),
                         web_search: currentWebSearch,
                         code_interpreter: currentCodeInterpreter,
                         question_history: currentQuestionHistory,
@@ -1243,7 +1239,7 @@ export function ResearchInterface({
 
                 const body = {
                     question,
-                    model: selectedModel,
+                    model: normalizeResearchModelId(selectedModel),
                     web_search: currentWebSearch,
                     code_interpreter: currentCodeInterpreter,
                     question_history: currentQuestionHistory,
@@ -1277,7 +1273,7 @@ export function ResearchInterface({
                             question: question,
                             status: data.status || 'clarifying',
                             clarifications: data.clarifications,
-                            model: selectedModel,
+                            model: normalizeResearchModelId(selectedModel),
                             webSearch: currentWebSearch,
                             codeInterpreter: currentCodeInterpreter,
                             questionHistory: currentQuestionHistory,
@@ -1336,7 +1332,9 @@ export function ResearchInterface({
                                     botId: bot.id,
                                     botName: bot.name,
                                     teamId: team.id,
-                                    model: selectedModel,
+                                    model: normalizeResearchModelId(
+                                        selectedModel,
+                                    ),
                                     webSearch: currentWebSearch,
                                     codeInterpreter: currentCodeInterpreter,
                                     questionHistory: currentQuestionHistory,
@@ -1494,14 +1492,6 @@ export function ResearchInterface({
 
     return (
         <div className="relative flex h-full flex-col overflow-y-auto overflow-x-visible px-3 pt-4">
-            <ModalOpenAI
-                team={team}
-                open={showOpenAI}
-                setOpen={setShowOpenAI}
-                onKey={(key) => {
-                    team.openAIKey = key
-                }}
-            />
             <div className="flex w-full flex-col text-center">
                 <div className="my-auto">
                     <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -1990,6 +1980,8 @@ export function ResearchResults({
                 webSearchCalls: cost.webSearchCalls,
                 codeInterpreterCalls: cost.codeInterpreterCalls,
                 model: cost.model,
+                modelName: cost.modelName,
+                creditMultiplier: cost.creditMultiplier,
                 inputTokens: cost.inputTokens,
                 cachedTokens: cost.cachedTokens,
                 outputTokens: cost.outputTokens,
@@ -2222,10 +2214,36 @@ export function ResearchResults({
             .join('\n')
 
         const inlineStyles = `
-      <style>
+  <style>
+        .print-container,
+        .print-container article,
+        .print-container section {
+          box-sizing: border-box;
+          max-width: 100%;
+        }
+        .print-container table {
+          box-sizing: border-box;
+          width: 100% !important;
+          max-width: 100% !important;
+          table-layout: fixed;
+          border-collapse: collapse;
+        }
+        .print-container th,
+        .print-container td {
+          max-width: 0;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          white-space: normal;
+        }
         @media print {
           .print-container {
             padding: 2rem 2.5rem;
+            width: 100%;
+            max-width: 100%;
+          }
+          .print-container table {
+            break-inside: avoid;
+            page-break-inside: avoid;
           }
         }
       </style>
@@ -2355,7 +2373,7 @@ export function ResearchResults({
                 {job.status === 'failed' ? (
                     <div className="mb-4 mt-4 flex items-start justify-start">
                         <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
-                        <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+                        <div className="relative max-w-4xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
                             <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
                                 <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-red-500 to-red-600 p-2 shadow-lg">
                                     <svg
@@ -2393,7 +2411,7 @@ export function ResearchResults({
                 ) : job.status === 'incomplete' ? (
                     <div className="mb-4 mt-4 flex items-start justify-start">
                         <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
-                        <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+                        <div className="relative max-w-4xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
                             <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
                                 <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-yellow-500 to-yellow-600 p-2 shadow-lg">
                                     <svg
@@ -2445,7 +2463,7 @@ export function ResearchResults({
                 ) : job.status === 'cancelled' ? (
                     <div className="mb-4 mt-4 flex items-start justify-start">
                         <div className="mr-3 hidden h-10 w-10 flex-none sm:block lg:hidden xl:block" />
-                        <div className="relative max-w-3xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
+                        <div className="relative max-w-4xl rounded-md border bg-white text-left shadow-sm sm:rounded-lg">
                             <div className="absolute -inset-7 flex h-32 w-12 items-center text-2xl font-extrabold tracking-tighter">
                                 <span className="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-gray-500 to-gray-600 p-2 shadow-lg">
                                     <svg
@@ -2501,12 +2519,16 @@ export function ResearchResults({
                                     {job?.status === 'completed' &&
                                         job?.result && (
                                             <div className="flex justify-end">
-                                                <ResearchActionButtons
-                                                    onCopy={handleCopyHtml}
-                                                    onPrint={handlePrintReport}
-                                                    isCopied={isHtmlCopied}
-                                                    compact={true}
-                                                />
+                                                <div className="ml-auto">
+                                                    <ResearchActionButtons
+                                                        onCopy={handleCopyHtml}
+                                                        onPrint={
+                                                            handlePrintReport
+                                                        }
+                                                        isCopied={isHtmlCopied}
+                                                        compact={true}
+                                                    />
+                                                </div>
                                             </div>
                                         )}
                                     <div
@@ -2566,28 +2588,22 @@ export function ResearchResults({
                                     )}
                                     {job?.status === 'completed' &&
                                         job?.result && (
-                                            <div
-                                                className={`flex border-t border-gray-200 pt-4 ${costInfo && user && isSuperAdmin(user.uid) ? 'items-center justify-between' : 'justify-end'}`}
-                                            >
-                                                {costInfo &&
-                                                    user &&
-                                                    isSuperAdmin(user.uid) && (
-                                                        <Tooltip content="Only shown to Super Admins.">
-                                                            <div className="select-none text-xs leading-tight text-gray-500">
-                                                                Estimated cost:
-                                                                $
-                                                                {costInfo.total.toFixed(
-                                                                    2,
-                                                                )}
-                                                            </div>
-                                                        </Tooltip>
-                                                    )}
-                                                <ResearchActionButtons
-                                                    onCopy={handleCopyHtml}
-                                                    onPrint={handlePrintReport}
-                                                    isCopied={isHtmlCopied}
-                                                    compact={true}
+                                            <div className="flex items-center justify-between gap-4 border-t border-gray-200 pt-4">
+                                                <ResearchUsageSummary
+                                                    usage={usageSummary}
+                                                    costInfo={costInfo}
+                                                    user={user}
                                                 />
+                                                <div className="ml-auto">
+                                                    <ResearchActionButtons
+                                                        onCopy={handleCopyHtml}
+                                                        onPrint={
+                                                            handlePrintReport
+                                                        }
+                                                        isCopied={isHtmlCopied}
+                                                        compact={true}
+                                                    />
+                                                </div>
                                             </div>
                                         )}
                                 </div>
@@ -2644,8 +2660,6 @@ export function ResearchResults({
                     </BotMessage>
                 )}
 
-                <ResearchUsageSummary usage={usageSummary} />
-
                 {/* 
         {job.response && (
           <div className="mt-6 text-left">
@@ -2684,7 +2698,6 @@ export function Research({
 
     const [errorText, setErrorText] = useState(null)
     const [loading, setLoading] = useState(false)
-    const [pollingInterval, setPollingInterval] = useState(null)
     const [user] = useAuthState(auth)
     const [currentPage, setCurrentPage] = useState(0)
     const [perPage, setPerPage] = useState(25)
@@ -2705,6 +2718,8 @@ export function Research({
     const notificationPromptedRef = useRef(false)
     const notifiedJobIdsRef = useRef(new Set())
     const pushSubscriptionAttemptedRef = useRef(false)
+    const pollingIntervalRef = useRef(null)
+    const pollingRequestInFlightRef = useRef(false)
     const lastSelectedStatusRef = useRef(null)
     const newlyCreatedJobIdsRef = useRef(new Set())
     const previousJobStatusesRef = useRef(new Map()) // Track previous statuses to detect transitions
@@ -3076,26 +3091,6 @@ export function Research({
         })()
     }, [team?.id, bot?.id, researchJobs, setSelectedJob, setResearchJobs])
 
-    useEffect(() => {
-        console.log('selectedJob', selectedJob)
-        if (
-            selectedJob &&
-            (selectedJob.status === 'queued' ||
-                selectedJob.status === 'in_progress')
-        ) {
-            const interval = setInterval(() => {
-                fetchJobStatus(selectedJob.jobId)
-            }, 20000)
-            setPollingInterval(interval)
-            return () => clearInterval(interval)
-        } else {
-            if (pollingInterval) {
-                clearInterval(pollingInterval)
-                setPollingInterval(null)
-            }
-        }
-    }, [selectedJob, pollingInterval])
-
     const fetchResearchJobs = useCallback(
         async (page = 0, { silent = false } = {}) => {
             if (!team?.id || !bot?.id) return
@@ -3191,6 +3186,9 @@ export function Research({
     }, [selectedJob?.jobId, selectedJob?.status, previousJobStatusesRef])
 
     const fetchJobStatus = async (jobId) => {
+        if (pollingRequestInFlightRef.current) return
+        pollingRequestInFlightRef.current = true
+
         try {
             // First try to fetch from internal API (Firestore)
             // This ensures we always have the latest data even if the Bot API is unreachable
@@ -3276,8 +3274,35 @@ export function Research({
             }
         } catch (error) {
             console.error('Error fetching job status:', error)
+        } finally {
+            pollingRequestInFlightRef.current = false
         }
     }
+
+    useEffect(() => {
+        if (pollingIntervalRef.current) {
+            clearInterval(pollingIntervalRef.current)
+            pollingIntervalRef.current = null
+        }
+
+        const isActive =
+            selectedJob?.status === 'queued' ||
+            selectedJob?.status === 'in_progress'
+
+        if (!selectedJob?.jobId || !isActive) return undefined
+
+        fetchJobStatus(selectedJob.jobId)
+        pollingIntervalRef.current = setInterval(() => {
+            fetchJobStatus(selectedJob.jobId)
+        }, 20000)
+
+        return () => {
+            if (pollingIntervalRef.current) {
+                clearInterval(pollingIntervalRef.current)
+                pollingIntervalRef.current = null
+            }
+        }
+    }, [selectedJob?.jobId, selectedJob?.status])
 
     const cancelJob = async (jobId) => {
         try {
@@ -3740,10 +3765,10 @@ export function Research({
     const content = (
         <>
             <main className={clsx('relative')}>
-                <div className="mx-auto max-w-4xl">
+                <div className="mx-auto max-w-6xl px-3 sm:px-6 lg:px-8">
                     <Alert title={errorText} type="warning" />
                 </div>
-                <div className="mx-auto max-w-4xl bg-gray-50 py-2 lg:py-4">
+                <div className="mx-auto max-w-6xl bg-gray-50 px-3 py-2 sm:px-6 lg:px-8 lg:py-4">
                     {loading ? (
                         newDashboard ? (
                             <Workspace.Loader
