@@ -8,6 +8,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md'],
   reactStrictMode: true,
   turbopack: {},
+  staticPageGenerationTimeout: 180,
   experimental: {
     scrollRestoration: true,
     largePageDataBytes: 556 * 1000, // 256kb, the default is 128kb
