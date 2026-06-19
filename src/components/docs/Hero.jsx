@@ -162,16 +162,20 @@ export function Hero() {
                           style={style}
                         >
                           <code className="px-4">
-                            {tokens.map((line, lineIndex) => (
-                              <div key={lineIndex} {...getLineProps({ line })}>
-                                {line.map((token, tokenIndex) => (
-                                  <span
-                                    key={tokenIndex}
-                                    {...getTokenProps({ token })}
-                                  />
-                                ))}
-                              </div>
-                            ))}
+                            {tokens.map((line, lineIndex) => {
+                              const { key, ...lineProps } = getLineProps({ line })
+                              return (
+                                <div key={lineIndex} {...lineProps}>
+                                  {line.map((token, tokenIndex) => {
+                                    const { key: tokenKey, ...tokenProps } =
+                                      getTokenProps({ token })
+                                    return (
+                                      <span key={tokenIndex} {...tokenProps} />
+                                    )
+                                  })}
+                                </div>
+                              )
+                            })}
                           </code>
                         </pre>
                       )}

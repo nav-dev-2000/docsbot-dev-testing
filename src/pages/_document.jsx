@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html
       className="h-full scroll-smooth antialiased [font-feature-settings:'ss01']"
+      data-scroll-behavior="smooth"
       lang="en"
     >
       <Head />

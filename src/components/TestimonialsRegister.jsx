@@ -22,6 +22,7 @@ export function Testimonials({ teamCount }) {
               alt="Dollie Logo"
               width={125}
               height={32}
+              style={{ width: 'auto', height: 'auto' }}
             />
             <figure className="mt-10 flex flex-auto flex-col justify-between">
               <blockquote className="text-lg leading-8 text-white">

@@ -31,37 +31,55 @@ export const Brands = ({ title = "Trusted by global brands", transparent = false
                     <Image
                         src={sonyLogo}
                         alt="Sony Logo"
+                        width={125}
+                        height={26}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <Image
                         src={castosLogo}
                         alt="Castos Logo"
+                        width={125}
+                        height={26}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <Image
                         src={extendifyLogo}
                         alt="Extendify Logo"
+                        width={125}
+                        height={32}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <Image
                         src={conversionLogo}
                         alt="Conversion Logo"
+                        width={125}
+                        height={32}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <Image
                         src={dollieLogo}
                         alt="Dollie Logo"
+                        width={125}
+                        height={32}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <Image
                         src={logoWingarc}
                         alt="WingArc1st Logo"
+                        width={125}
+                        height={32}
                         className={clsx(cssLogo.size, cssLogo.position)}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
 
                     <WPMUDEVLogo className={clsx(cssLogo.size, cssLogo.position, 'text-white')} />

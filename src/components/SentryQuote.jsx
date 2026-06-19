@@ -8,7 +8,14 @@ export default function SentryQuote() {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.500),transparent)] opacity-10" />
       <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gray-900 shadow-xl shadow-indigo-500/5 ring-1 ring-white/5 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <Image alt="Sentry logo" src={logoSentry} className="mx-auto h-10 w-auto" />
+        <Image
+          alt="Sentry logo"
+          src={logoSentry}
+          width={108}
+          height={32}
+          className="mx-auto h-10 w-auto"
+          style={{ width: 'auto', height: 'auto' }}
+        />
         <figure className="mt-10">
           <blockquote className="text-center text-xl/8 font-semibold text-white sm:text-2xl/9">
             <p>

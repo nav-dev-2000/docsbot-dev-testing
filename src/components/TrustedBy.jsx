@@ -14,60 +14,67 @@ export default function TrustedBy({ props }) {
       <div className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-8 sm:max-w-xl sm:grid-cols-2 sm:gap-x-10 lg:mx-0 md:max-w-none md:grid-cols-4 xl:grid-cols-8" {...props}>
 
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={sonyLogo}
           alt="Sony Logo"
           width={125}
           height={26}
+          style={{ width: 'auto', height: 'auto' }}
         />
 
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={castosLogo}
           alt="Castos Logo"
           width={125}
           height={26}
+          style={{ width: 'auto', height: 'auto' }}
         />
       
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={extendifyLogo}
           alt="Extendify Logo"
           width={125}
           height={32}
+          style={{ width: 'auto', height: 'auto' }}
         />
 
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={conversionLogo}
           alt="Conversion Logo"
           width={125}
           height={32}
+          style={{ width: 'auto', height: 'auto' }}
         />
 
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={dollieLogo}
           alt="Dollie Logo"
           width={125}
           height={32}
+          style={{ width: 'auto', height: 'auto' }}
         />
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={logoWingarc}
           alt="WingArc1st Logo"
           width={125}
           height={32}
+          style={{ width: 'auto', height: 'auto' }}
         />
         <Image
-          className="max-h-8 w-full object-contain"
+          className="h-auto max-h-8 w-auto max-w-full object-contain"
           src={logoSentry}
           alt="SENTRY.io Logo"
           width={108}
           height={32}
+          style={{ width: 'auto', height: 'auto' }}
         />
 
-        <WPMUDEVLogo className=" max-h-8 w-full object-contain text-white" />
+        <WPMUDEVLogo className="h-auto max-h-8 w-auto max-w-full object-contain text-white" />
       </div>
   )
 }
